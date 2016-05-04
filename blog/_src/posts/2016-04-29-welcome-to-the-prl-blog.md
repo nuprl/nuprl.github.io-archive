@@ -35,7 +35,9 @@ To create a new post:
    2. Check out a new git branch for your post
    3. Run `cd blog; raco frog -n "TITLE"` to build a template for a new post
    4. Add content to the new markdown file (under `_src/posts`)
-   5. Rebuild the blog with `raco frog -b`, view your changes at `index.html`
+   5. Rebuild the blog with `raco frog -b`, view your changes at
+      `index.html`. See `blog/README.md` if you want to set up a local webserver
+      so that CSS and header links work in your environment.
    6. Send a pull request to the [nuprl.github.io](https://github.com/nuprl/nuprl.github.io) repo
 
 An open pull request is the best place to ask questions about the formatting
