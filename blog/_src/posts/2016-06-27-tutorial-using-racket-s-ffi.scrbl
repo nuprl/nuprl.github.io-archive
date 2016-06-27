@@ -6,33 +6,15 @@ Tags: Racket, FFI, by Asumu Takikawa
 
 @(require scribble/example
           scribble/racket
+          "../../utils/utils.rkt"
           (for-syntax racket/base)
           (for-label racket/base ffi/unsafe))
 @(define ev (make-base-eval))
 @(ev '(require racket/class))
 
-@(define (reftech . x)
-   (apply tech x #:doc '(lib "scribblings/reference/reference.scrbl")))
-@(define (ffitech . x)
-   (apply tech x #:doc '(lib "scribblings/foreign/foreign.scrbl")))
-
-@; Dummy defs to disable underscore emphasis
-@(define-syntax (define-dummy stx)
-   (syntax-case stx ()
-     [(_ ?id)
-      #`(define-syntax ?id
-          (make-element-id-transformer
-            (λ (x) #`(racketidfont #,(symbol->string (syntax-e x))))))]))
 @(define-dummy _cairo_surface_t)
 @(define-dummy _cairo_t)
 @(define-dummy _cairo_line_cap_t)
-
-@(define-syntax (-racket stx)
-   (syntax-case stx ()
-     [(_ x) #'(elem #:style "RktWrap" (racket x))]))
-@(define-syntax (-racketmodname stx)
-   (syntax-case stx ()
-     [(_ x) #'(elem #:style "RktWrap" (racketmodname x))]))
 
 I've seen several people ask for a tutorial on Racket's foreign
 function interface (FFI), which allows you to dynamically load
@@ -87,8 +69,8 @@ actually play with the FFI:
 (define bt-surface (send bt get-handle))
 ]
 
-This uses the Racket drawing library @-racketmodname[racket/draw] to construct
-a bitmap object that we'll draw on. The @-racket[get-handle] method just extracts a
+This uses the Racket drawing library @racketmodname[racket/draw] to construct
+a bitmap object that we'll draw on. The @racket[get-handle] method just extracts a
 low-level Cairo surface value that we can use.
 
 Our first real step is to import the FFI itself:
@@ -107,22 +89,22 @@ is a handle that we use to access C values and functions:
 ]
 
 Since Cairo has already been loaded by the Racket process because of the
-@-racketmodname[racket/gui] import earlier, we can supply @-racket[#f] here as an
-argument to @-racket[ffi-lib]. Normally you supply the name of a shared
-library file such as @-racket["libcairo"]:
+@racketmodname[racket/gui] import earlier, we can supply @racket[#f] here as an
+argument to @racket[ffi-lib]. Normally you supply the name of a shared
+library file such as @racket["libcairo"]:
 
 @racketblock[
 (define cairo-lib (ffi-lib "libcairo" '(#f 2)))
 ]
 
-The last list argument specifies the accepted versions (@-racket[#f] allows
+The last list argument specifies the accepted versions (@racket[#f] allows
 a version-less library). For this post, those details aren't important but
-see the docs on @-racket[ffi-lib] if you're curious.
+see the docs on @racket[ffi-lib] if you're curious.
 
 @section{Extracting functions}
 
 Since the Racket FFI is a dynamic interface, we can pull out C functions
-at run-time using the @-racket[get-ffi-obj] function. The @-racket[get-ffi-obj]
+at run-time using the @racket[get-ffi-obj] function. The @racket[get-ffi-obj]
 function takes three arguments:
 
 @itemize[
@@ -133,14 +115,14 @@ function takes three arguments:
 ]
 
 C types are a crucial concept for the FFI. They range from relatively
-simple types like @-racket[_int] and @-racket[_pointer] to more complicated
-type constructors such as @-racket[_enum] and @-racket[_fun]. As you probably noticed,
+simple types like @racket[_int] and @racket[_pointer] to more complicated
+type constructors such as @racket[_enum] and @racket[_fun]. As you probably noticed,
 C types are prefixed with an underscore by convention. You can also define
 your own types by calling @racket[make-ctype] with two functions that
 handle marshalling between C and Racket code.
 
 To make progress with our Cairo code, we need to create a drawing context from
-the surface object @-racket[bt-surface] that we defined a while ago. The
+the surface object @racket[bt-surface] that we defined a while ago. The
 relevant function in the Cairo docs is
 @hyperlink["https://www.cairographics.org/manual/cairo-cairo-t.html#cairo-create"]{@tt{cairo_create}},
 which has the following type signature:
@@ -154,7 +136,7 @@ To use this function from Racket, we will need to create a C type that describes
 its behavior. As you can see, the function takes a pointer to a @tt{cairo_surface_t} and
 returns a pointer to a @tt{cairo_t}. Let's start with a very simple C type
 that matches up with this behavior: @racketblock[(_fun _pointer -> _pointer)]
-Note that the FFI library uses infix arrow notation for its @-racket[_fun] type. This
+Note that the FFI library uses infix arrow notation for its @racket[_fun] type. This
 type provides very little safety (in particular, it lets you mix up different
 kinds of pointers), but it will work as a first step.
 
@@ -167,7 +149,7 @@ function:
                (_fun _pointer -> _pointer)))
 ]
 
-Then we can use @-racket[cairo-create] as an ordinary racket function:
+Then we can use @racket[cairo-create] as an ordinary racket function:
 
 @examples[#:eval ev #:label #f
 (define ctx (cairo-create bt-surface))
@@ -177,7 +159,7 @@ ctx
 @section{More type safety}
 
 Before we move on to completing the Cairo sample, lets consider the safety of the
-C type we used again. Since we only specified @-racket[_pointer] types, it is easy
+C type we used again. Since we only specified @racket[_pointer] types, it is easy
 to accidentally misuse the function:
 
 @racketblock[
@@ -187,7 +169,7 @@ to accidentally misuse the function:
 ]
 
 To prevent such bad uses, it is good practice to use @emph{tagged} pointer types
-using @-racket[define-cpointer-type]. Here are two example definitions that
+using @racket[define-cpointer-type]. Here are two example definitions that
 correspond to the @tt{cairo_t} and @tt{cairo_surface_t} types from earlier:
 
 @examples[#:eval ev #:label #f
@@ -196,7 +178,7 @@ correspond to the @tt{cairo_t} and @tt{cairo_surface_t} types from earlier:
 (define-cpointer-type _cairo_surface_t)
 ]
 
-We can then redefine @-racket[cairo-create] with a better type, which will
+We can then redefine @racket[cairo-create] with a better type, which will
 prevent ill-typed calls:
 
 @examples[#:eval ev #:label #f
@@ -206,7 +188,7 @@ prevent ill-typed calls:
 (eval:error (cairo-create (cairo-create bt-surface)))
 ]
 
-Unfortunately our old definition of @-racket[ctx] doesn't have this tag:
+Unfortunately our old definition of @racket[ctx] doesn't have this tag:
 
 @examples[#:eval ev #:label #f
 (cpointer-has-tag? ctx 'cairo_t)
@@ -251,10 +233,10 @@ with @tt{cairo_create} before:
 
 This starts to look awfully verbose once you start writing more of these
 definitions. Luckily, the FFI library comes with some definition forms
-in the @-racketmodname[ffi/unsafe/define] library that help reduce the
-verbosity. Here's an alternative definition of @-racket[cairo-move-to]
-using the @-racket[define-ffi-definer] form from
-@-racketmodname[ffi/unsafe/define].
+in the @racketmodname[ffi/unsafe/define] library that help reduce the
+verbosity. Here's an alternative definition of @racket[cairo-move-to]
+using the @racket[define-ffi-definer] form from
+@racketmodname[ffi/unsafe/define].
 
 @examples[#:eval ev #:label #f
 (require ffi/unsafe/define)
@@ -265,10 +247,10 @@ using the @-racket[define-ffi-definer] form from
   #:c-id cairo_move_to)
 ]
 
-As you can see, the @-racket[define-ffi-definer] form lets you define a
+As you can see, the @racket[define-ffi-definer] form lets you define a
 new macro that lets you avoid writing the library value over and over.
 If you stick to using C-style identifier with underscores (e.g.,
-@-racket[cairo_move_to]) you also don't need to supply the C name either.
+@racket[cairo_move_to]) you also don't need to supply the C name either.
 
 The definitions for @tt{cairo_line_to}, @tt{cairo_set_line_width}, and
 @tt{cairo_stroke} aren't very interesting, so I'll just include them
@@ -293,7 +275,7 @@ to encode them yourself too. The general philosophy of the Racket FFI
 is to build as much as possible into the library (rather than runtime)
 portion.
 
-To define an enumeration, we can use the @-racket[_enum] form. This procedure
+To define an enumeration, we can use the @racket[_enum] form. This procedure
 sets up a new C type which converts between Racket symbols and the underlying
 C. For the @tt{cairo_line_cap_t} type, it suffices to just supply the cases
 as a list of symbols:
@@ -306,7 +288,7 @@ as a list of symbols:
 The exact symbols that we specify are not important, since they just map to
 integers anyway. The choice depends on what is convenient for the Racket interface.
 It's also possible to specify how the symbols map to integers more precisely
-(see the docs on @-racket[_enum] for those details).
+(see the docs on @racket[_enum] for those details).
 
 Given this type, we can specify the type for the line cap function:
 
@@ -337,9 +319,9 @@ we can just transcribe the example from the beginning into Racket syntax:
 ]
 
 Executing these procedure calls will draw into the Cairo surface we set up earlier,
-which is connected to our original Racket bitmap object @-racket[bt]. To see the
-results of what we drew, we can just evaluate @-racket[bt] at the REPL. But it's
-a little nicer if we use the @-racketmodname[pict] library to draw a frame around
+which is connected to our original Racket bitmap object @racket[bt]. To see the
+results of what we drew, we can just evaluate @racket[bt] at the REPL. But it's
+a little nicer if we use the @racketmodname[pict] library to draw a frame around
 it to distinguish it from the background:
 
 @examples[#:eval ev #:label #f
