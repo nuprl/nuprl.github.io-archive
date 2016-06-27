@@ -55,7 +55,8 @@ that you can read if you're curious about the design.
 The tutorial will focus on using the @hyperlink["https://www.cairographics.org/"]{Cairo}
 graphics library, mainly because it comes bundled with Racket.
 
-To start, let's aim to reproduce one of the images on Cairo's
+To start, let's aim to reproduce the output of the "multi segment caps"
+C sample code on Cairo's
 @hyperlink["https://www.cairographics.org/samples/"]{samples page}:
 
 @codeblock[#:keep-lang-line? #f]|{
@@ -133,14 +134,14 @@ function takes three arguments:
 
 C types are a crucial concept for the FFI. They range from relatively
 simple types like @-racket[_int] and @-racket[_pointer] to more complicated
-type macros such as @-racket[_enum] and @-racket[_fun]. As you probably noticed,
+type constructors such as @-racket[_enum] and @-racket[_fun]. As you probably noticed,
 C types are prefixed with an underscore by convention. You can also define
-your own types by providing two functions that handling marshalling between
-C and Racket code.
+your own types by calling @racket[make-ctype] with two functions that
+handle marshalling between C and Racket code.
 
 To make progress with our Cairo code, we need to create a drawing context from
 the surface object @-racket[bt-surface] that we defined a while ago. The
-relevant function in the docs is 
+relevant function in the Cairo docs is
 @hyperlink["https://www.cairographics.org/manual/cairo-cairo-t.html#cairo-create"]{@tt{cairo_create}},
 which has the following type signature:
 
@@ -152,8 +153,8 @@ cairo_t * cairo_create (cairo_surface_t *target);
 To use this function from Racket, we will need to create a C type that describes
 its behavior. As you can see, the function takes a pointer to a @tt{cairo_surface_t} and
 returns a pointer to a @tt{cairo_t}. Let's start with a very simple C type
-that matches up with this behavior: @racketblock[(_fun _pointer -> _pointer)] Note that
-the FFI library uses infix arrow notation for its @-racket[_fun] type. This
+that matches up with this behavior: @racketblock[(_fun _pointer -> _pointer)]
+Note that the FFI library uses infix arrow notation for its @-racket[_fun] type. This
 type provides very little safety (in particular, it lets you mix up different
 kinds of pointers), but it will work as a first step.
 
@@ -181,6 +182,7 @@ to accidentally misuse the function:
 
 @racketblock[
 (code:comment "You may not want to actually run this")
+(code:comment "a cairo_t is not a cairo_surface_t")
 (cairo-create (cairo-create bt-surface))
 ]
 
@@ -189,7 +191,7 @@ using @-racket[define-cpointer-type]. Here are two example definitions that
 correspond to the @tt{cairo_t} and @tt{cairo_surface_t} types from earlier:
 
 @examples[#:eval ev #:label #f
-(code:comment "The underscores are mandatory")
+(code:comment "The leading underscores are mandatory")
 (define-cpointer-type _cairo_t)
 (define-cpointer-type _cairo_surface_t)
 ]
@@ -228,6 +230,7 @@ Now let's start building the FFI bindings for the functions in the Cairo sample.
 First, let's go ahead and look at all of the types for the sample functions:
 
 @codeblock[#:keep-lang-line? #f]|{
+#lang honu
 void cairo_move_to (cairo_t *cr, double x, double y);
 void cairo_line_to (cairo_t *cr, double x, double y);
 void cairo_set_line_width (cairo_t *cr, double width);
@@ -284,15 +287,16 @@ below without comment:
 ]
 
 The @tt{cairo_set_line_cap} case is more interesting because the type
-@tt{cairo_line_cap} is a C enumeration type. Racket's FFI comes with
-convenience forms for defining enumeration types too, though it's possible
+@tt{cairo_line_cap_t} is a C enumeration type. Racket's FFI comes with
+convenience forms for defining enumeration types though it's possible
 to encode them yourself too. The general philosophy of the Racket FFI
 is to build as much as possible into the library (rather than runtime)
 portion.
 
-To define an enumeration, we can use the @-racket[_enum] form. This macro
+To define an enumeration, we can use the @-racket[_enum] form. This procedure
 sets up a new C type which converts between Racket symbols and the underlying
-C. For the @tt{cairo_line_cap_t} type, it suffices to just list the cases:
+C. For the @tt{cairo_line_cap_t} type, it suffices to just supply the cases
+as a list of symbols:
 
 @examples[#:eval ev #:label #f
 (define _cairo_line_cap_t
