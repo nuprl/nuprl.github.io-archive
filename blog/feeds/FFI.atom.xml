@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?> 
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
- <title type="text">PRL Blog: Posts tagged 'Racket'</title>
- <link rel="self" href="http://prl.ccs.neu.edu/blog/feeds/Racket.atom.xml" />
- <link href="http://prl.ccs.neu.edu/blog/tags/Racket.html" />
- <id>urn:http-prl-ccs-neu-edu:-blog-tags-Racket-html</id>
+ <title type="text">PRL Blog: Posts tagged 'FFI'</title>
+ <link rel="self" href="http://prl.ccs.neu.edu/blog/feeds/FFI.atom.xml" />
+ <link href="http://prl.ccs.neu.edu/blog/tags/FFI.html" />
+ <id>urn:http-prl-ccs-neu-edu:-blog-tags-FFI-html</id>
  <updated>2016-06-27T20:22:11Z</updated>
  <entry>
   <title type="text">Tutorial: Using Racket's FFI</title>
-  <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2016/06/27/tutorial-using-racket-s-ffi/?utm_source=Racket&amp;utm_medium=Atom" />
+  <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2016/06/27/tutorial-using-racket-s-ffi/?utm_source=FFI&amp;utm_medium=Atom" />
   <id>urn:http-prl-ccs-neu-edu:-blog-2016-06-27-tutorial-using-racket-s-ffi</id>
   <published>2016-06-27T20:22:11Z</published>
   <updated>2016-06-27T20:22:11Z</updated>
