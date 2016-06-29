@@ -491,38 +491,33 @@ the &lt;span class="RktWrap"&gt;&lt;span class="RktSym"&gt;&lt;a class="RktStxLi
 text into a predetermined space. In particular, we have our usual 256x256
 bitmap that we want to draw some text into:&lt;/p&gt;
 
-&lt;p&gt;&lt;/p&gt;
-
-&lt;div class="SIntrapara"&gt;Examples:&lt;/div&gt;
-
-&lt;div class="SIntrapara"&gt;
- &lt;div class="SCodeFlow"&gt;
-  &lt;table cellpadding="0" cellspacing="0" class="RktBlk"&gt;
-   &lt;tbody&gt;
-    &lt;tr&gt;
-     &lt;td&gt;&lt;span class="stt"&gt;&amp;gt; &lt;/span&gt;&lt;span class="RktPn"&gt;(&lt;/span&gt;&lt;span class="RktSym"&gt;&lt;a class="RktStxLink" data-pltdoc="x" href="http://docs.racket-lang.org/reference/define.html#%28form._%28%28lib._racket%2Fprivate%2Fbase..rkt%29._define%29%29"&gt;define&lt;/a&gt;&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;txt-bt&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktPn"&gt;(&lt;/span&gt;&lt;span class="RktSym"&gt;make-bitmap&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktVal"&gt;256&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktVal"&gt;256&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
-    &lt;tr&gt;
-     &lt;td&gt;
-      &lt;table cellpadding="0" cellspacing="0"&gt;
-       &lt;tbody&gt;
-        &lt;tr&gt;
-         &lt;td&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;
-    &lt;tr&gt;
-     &lt;td&gt;&lt;span class="stt"&gt;&amp;gt; &lt;/span&gt;&lt;span class="RktPn"&gt;(&lt;/span&gt;&lt;span class="RktSym"&gt;&lt;a class="RktStxLink" data-pltdoc="x" href="http://docs.racket-lang.org/reference/define.html#%28form._%28%28lib._racket%2Fprivate%2Fbase..rkt%29._define%29%29"&gt;define&lt;/a&gt;&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;txt-surface&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktPn"&gt;(&lt;/span&gt;&lt;span class="RktSym"&gt;send&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;txt-bt&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;get-handle&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
-    &lt;tr&gt;
-     &lt;td&gt;
-      &lt;table cellpadding="0" cellspacing="0"&gt;
-       &lt;tbody&gt;
-        &lt;tr&gt;
-         &lt;td&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;
-    &lt;tr&gt;
-     &lt;td&gt;&lt;span class="stt"&gt;&amp;gt; &lt;/span&gt;&lt;span class="RktPn"&gt;(&lt;/span&gt;&lt;span class="RktSym"&gt;&lt;a class="RktStxLink" data-pltdoc="x" href="http://docs.racket-lang.org/reference/define.html#%28form._%28%28lib._racket%2Fprivate%2Fbase..rkt%29._define%29%29"&gt;define&lt;/a&gt;&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;txt-ctx&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktPn"&gt;(&lt;/span&gt;&lt;span class="RktSym"&gt;cairo-create&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;txt-surface&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
-    &lt;tr&gt;
-     &lt;td&gt;
-      &lt;table cellpadding="0" cellspacing="0"&gt;
-       &lt;tbody&gt;
-        &lt;tr&gt;
-         &lt;td&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class="SCodeFlow"&gt;
+ &lt;table cellpadding="0" cellspacing="0" class="RktBlk"&gt;
+  &lt;tbody&gt;
+   &lt;tr&gt;
+    &lt;td&gt;&lt;span class="stt"&gt;&amp;gt; &lt;/span&gt;&lt;span class="RktPn"&gt;(&lt;/span&gt;&lt;span class="RktSym"&gt;&lt;a class="RktStxLink" data-pltdoc="x" href="http://docs.racket-lang.org/reference/define.html#%28form._%28%28lib._racket%2Fprivate%2Fbase..rkt%29._define%29%29"&gt;define&lt;/a&gt;&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;txt-bt&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktPn"&gt;(&lt;/span&gt;&lt;span class="RktSym"&gt;make-bitmap&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktVal"&gt;256&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktVal"&gt;256&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
+   &lt;tr&gt;
+    &lt;td&gt;
+     &lt;table cellpadding="0" cellspacing="0"&gt;
+      &lt;tbody&gt;
+       &lt;tr&gt;
+        &lt;td&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;
+   &lt;tr&gt;
+    &lt;td&gt;&lt;span class="stt"&gt;&amp;gt; &lt;/span&gt;&lt;span class="RktPn"&gt;(&lt;/span&gt;&lt;span class="RktSym"&gt;&lt;a class="RktStxLink" data-pltdoc="x" href="http://docs.racket-lang.org/reference/define.html#%28form._%28%28lib._racket%2Fprivate%2Fbase..rkt%29._define%29%29"&gt;define&lt;/a&gt;&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;txt-surface&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktPn"&gt;(&lt;/span&gt;&lt;span class="RktSym"&gt;send&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;txt-bt&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;get-handle&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
+   &lt;tr&gt;
+    &lt;td&gt;
+     &lt;table cellpadding="0" cellspacing="0"&gt;
+      &lt;tbody&gt;
+       &lt;tr&gt;
+        &lt;td&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;
+   &lt;tr&gt;
+    &lt;td&gt;&lt;span class="stt"&gt;&amp;gt; &lt;/span&gt;&lt;span class="RktPn"&gt;(&lt;/span&gt;&lt;span class="RktSym"&gt;&lt;a class="RktStxLink" data-pltdoc="x" href="http://docs.racket-lang.org/reference/define.html#%28form._%28%28lib._racket%2Fprivate%2Fbase..rkt%29._define%29%29"&gt;define&lt;/a&gt;&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;txt-ctx&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktPn"&gt;(&lt;/span&gt;&lt;span class="RktSym"&gt;cairo-create&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;txt-surface&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
+   &lt;tr&gt;
+    &lt;td&gt;
+     &lt;table cellpadding="0" cellspacing="0"&gt;
+      &lt;tbody&gt;
+       &lt;tr&gt;
+        &lt;td&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;
 
 &lt;p&gt;Our challenge is to make a Racket function that takes a string (let&amp;rsquo;s
 assume we can draw it in one line) and draws it into this bitmap.
