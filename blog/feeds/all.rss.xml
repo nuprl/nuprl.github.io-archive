@@ -121,6 +121,8 @@ example that you can copy and paste into your definitions area:&lt;/p&gt;
    &lt;tr&gt;
     &lt;td&gt;&lt;span class="hspace"&gt;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class="RktPn"&gt;(&lt;/span&gt;&lt;span class="RktSym"&gt;linewidth&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktVal"&gt;2&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktPn"&gt;(&lt;/span&gt;&lt;span class="RktSym"&gt;frame&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktPn"&gt;(&lt;/span&gt;&lt;span class="RktSym"&gt;bitmap&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;bt&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;
 
+&lt;h1&gt;&lt;a name="(part._.Dashes_and_array_arguments)"&gt;&lt;/a&gt;Dashes and array arguments&lt;/h1&gt;
+
 &lt;p&gt;To start off, let&amp;rsquo;s look at another C example from the Cairo
 &lt;a href="https://www.cairographics.org/samples/"&gt;samples page&lt;/a&gt;.
 This time we will look at the "dash" example, which has a
@@ -482,8 +484,7 @@ the &lt;span class="RktWrap"&gt;&lt;span class="RktSym"&gt;&lt;a class="RktStxLi
     &lt;td&gt;
      &lt;p&gt;&lt;img src="/blog/img/posts/2016-06-29-tutorial-racket-ffi-part-2/pict.png" alt="image" height="262" style="vertical-align: 0px; margin: -3px -3px -3px -3px;" width="262" /&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;
 
-&lt;h1&gt;1
- &lt;tt&gt;&amp;nbsp;&lt;/tt&gt;&lt;a name="(part._.Result_arguments_and_.C_structs)"&gt;&lt;/a&gt;Result arguments and C structs&lt;/h1&gt;
+&lt;h1&gt;&lt;a name="(part._.Result_arguments_and_.C_structs)"&gt;&lt;/a&gt;Result arguments and C structs&lt;/h1&gt;
 
 &lt;p&gt;For some more advanced FFI hacking, let&amp;rsquo;s consider the problem of drawing some
 text into a predetermined space. In particular, we have our usual 256x256
