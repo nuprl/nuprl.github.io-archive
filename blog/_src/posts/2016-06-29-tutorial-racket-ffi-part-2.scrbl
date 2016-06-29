@@ -29,10 +29,10 @@ values, custom return arguments, and using C structs.
 <!-- more -->
 
 First, here's the core code from part 1 condensed and re-arranged into an
-example that you can copy and paste into your definitions area after the
-@tt{#:lang} line:
+example that you can copy and paste into your definitions area:
 
-@examples[#:eval ev #:no-result
+@examples[#:eval ev #:lang
+racket
 (require racket/draw
          racket/gui/base
          ffi/unsafe
