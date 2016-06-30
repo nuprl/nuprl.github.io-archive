@@ -521,7 +521,7 @@ bitmap that we want to draw some text into:&lt;/p&gt;
 &lt;p&gt;Our challenge is to make a Racket function that takes a string (let&amp;rsquo;s
 assume we can draw it in one line) and draws it into this bitmap.
 Since we are taking an arbitrary string, we will need to figure out
-how to scale the text to fit. To make it simple, let&amp;rsquo;s just scale it the
+how to scale the text to fit. To make it simple, let&amp;rsquo;s just scale the
 text to fit the width and assume the height will be okay.&lt;/p&gt;
 
 &lt;p&gt;To implement the key step of measuring the text size, we can use the
@@ -566,9 +566,9 @@ is a struct type:&lt;/p&gt;
    &lt;tr&gt;
     &lt;td&gt;&lt;span class="RktMeta"&gt;&lt;/span&gt;&lt;span class="RktPn"&gt;}&lt;/span&gt;&lt;span class="RktMeta"&gt;&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktMeta"&gt;&lt;/span&gt;&lt;span class="RktMeta"&gt;cairo_text_extents_t&lt;/span&gt;&lt;span class="RktMeta"&gt;;&lt;/span&gt;&lt;span class="RktMeta"&gt;&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;
 
-&lt;p&gt;We haven&amp;rsquo;t yet seen how to handle C structs with the FFI, but that won&amp;rsquo;t be much
-of a problem: support for structs
-comes built-in and is pretty straightforward too. We can directly translate the documented
+&lt;p&gt;We haven&amp;rsquo;t yet seen how to handle C structs with the FFI, but it&amp;rsquo;s not
+too tricky. Support for C structs comes built-in and will look familiar
+if you&amp;rsquo;re used to Racket structs. We can directly translate the documented
 definition above into a &lt;span class="RktWrap"&gt;&lt;span class="RktSym"&gt;&lt;a class="RktStxLink" data-pltdoc="x" href="http://docs.racket-lang.org/foreign/C_Struct_Types.html#%28form._%28%28lib._ffi%2Funsafe..rkt%29._define-cstruct%29%29"&gt;define-cstruct&lt;/a&gt;&lt;/span&gt;&lt;/span&gt; declaration:&lt;/p&gt;
 
 &lt;div class="SCodeFlow"&gt;
@@ -602,7 +602,7 @@ definition above into a &lt;span class="RktWrap"&gt;&lt;span class="RktSym"&gt;&
         &lt;td&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;
 
 &lt;p&gt;This declaration does a couple of things. First, it defines a bunch of handy C types
-for us for the struct:&lt;/p&gt;
+related to the struct for us:&lt;/p&gt;
 
 &lt;div class="SCodeFlow"&gt;
  &lt;table cellpadding="0" cellspacing="0" class="RktBlk"&gt;
@@ -622,7 +622,7 @@ for us for the struct:&lt;/p&gt;
    &lt;tr&gt;
     &lt;td&gt;&lt;span class="RktCmt"&gt;;&lt;/span&gt;&lt;span class="RktCmt"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktCmt"&gt;allows NULL pointer&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
    &lt;tr&gt;
-    &lt;td&gt;&lt;span class="stt"&gt;&amp;gt; &lt;/span&gt;&lt;span class="RktVar"&gt;cairo_text_extents_t-pointer/null&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
+    &lt;td&gt;&lt;span class="stt"&gt;&amp;gt; &lt;/span&gt;&lt;span class="RktSym"&gt;_cairo_text_extents_t-pointer/null&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
    &lt;tr&gt;
     &lt;td&gt;
      &lt;p&gt;&lt;span class="RktRes"&gt;#&amp;lt;ctype&amp;gt;&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;
@@ -633,20 +633,28 @@ for us for the struct:&lt;/p&gt;
  &lt;table cellpadding="0" cellspacing="0" class="RktBlk"&gt;
   &lt;tbody&gt;
    &lt;tr&gt;
+    &lt;td&gt;&lt;span class="RktCmt"&gt;;&lt;/span&gt;&lt;span class="RktCmt"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktCmt"&gt;a struct constructor&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
+   &lt;tr&gt;
     &lt;td&gt;&lt;span class="stt"&gt;&amp;gt; &lt;/span&gt;&lt;span class="RktSym"&gt;make-cairo_text_extents_t&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
    &lt;tr&gt;
     &lt;td&gt;
      &lt;p&gt;&lt;span class="RktRes"&gt;#&amp;lt;procedure:make-cairo_text_extents_t&amp;gt;&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;
+   &lt;tr&gt;
+    &lt;td&gt;&lt;span class="RktCmt"&gt;;&lt;/span&gt;&lt;span class="RktCmt"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktCmt"&gt;a field selector&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
    &lt;tr&gt;
     &lt;td&gt;&lt;span class="stt"&gt;&amp;gt; &lt;/span&gt;&lt;span class="RktSym"&gt;cairo_text_extents_t-width&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
    &lt;tr&gt;
     &lt;td&gt;
      &lt;p&gt;&lt;span class="RktRes"&gt;#&amp;lt;procedure:cairo_text_extents_t-width&amp;gt;&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;
    &lt;tr&gt;
+    &lt;td&gt;&lt;span class="RktCmt"&gt;;&lt;/span&gt;&lt;span class="RktCmt"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktCmt"&gt;a predicate for the struct&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
+   &lt;tr&gt;
     &lt;td&gt;&lt;span class="stt"&gt;&amp;gt; &lt;/span&gt;&lt;span class="RktSym"&gt;cairo_text_extents_t?&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
    &lt;tr&gt;
     &lt;td&gt;
      &lt;p&gt;&lt;span class="RktRes"&gt;#&amp;lt;procedure:^TYPE?&amp;gt;&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;
+   &lt;tr&gt;
+    &lt;td&gt;&lt;span class="RktCmt"&gt;;&lt;/span&gt;&lt;span class="RktCmt"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktCmt"&gt;a field mutation function&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
    &lt;tr&gt;
     &lt;td&gt;&lt;span class="stt"&gt;&amp;gt; &lt;/span&gt;&lt;span class="RktSym"&gt;set-cairo_text_extents_t-width!&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
    &lt;tr&gt;
@@ -776,8 +784,9 @@ a pointer.&lt;/p&gt;
 &lt;p&gt;The strangest part of this example is that there are now two uses of the
 &lt;span class="RktWrap"&gt;&lt;span class="RktSym"&gt;&lt;a class="RktStxLink" data-pltdoc="x" href="http://docs.racket-lang.org/foreign/foreign_procedures.html#%28form._%28%28lib._ffi%2Funsafe..rkt%29._-~3e%29%29"&gt;&lt;span class="nobreak"&gt;-&amp;gt;&lt;/span&gt;&lt;/a&gt;&lt;/span&gt;&lt;/span&gt; form! By providing a second arrow, we can customize what the FFI wrapper
 returns. The expression to the right of the second arrow is just Racket code that can
-reference previously named arguments. In this case, we return the struct that
-was allocated for us.&lt;/p&gt;
+reference previously named arguments. The result of evaluating this
+expression is used instead of the normal return result for calls to the
+wrapped function. In this case, we just return the struct that was allocated for us.&lt;/p&gt;
 
 &lt;p&gt;Using this new version of the wrapper is much simpler:&lt;/p&gt;
 

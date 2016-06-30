@@ -587,7 +587,7 @@ bitmap that we want to draw some text into:</p>
 <p>Our challenge is to make a Racket function that takes a string (let&rsquo;s
 assume we can draw it in one line) and draws it into this bitmap.
 Since we are taking an arbitrary string, we will need to figure out
-how to scale the text to fit. To make it simple, let&rsquo;s just scale it the
+how to scale the text to fit. To make it simple, let&rsquo;s just scale the
 text to fit the width and assume the height will be okay.</p>
 
 <p>To implement the key step of measuring the text size, we can use the
@@ -632,9 +632,9 @@ is a struct type:</p>
    <tr>
     <td><span class="RktMeta"></span><span class="RktPn">}</span><span class="RktMeta"></span><span class="hspace">&nbsp;</span><span class="RktMeta"></span><span class="RktMeta">cairo_text_extents_t</span><span class="RktMeta">;</span><span class="RktMeta"></span></td></tr></tbody></table></div>
 
-<p>We haven&rsquo;t yet seen how to handle C structs with the FFI, but that won&rsquo;t be much
-of a problem: support for structs
-comes built-in and is pretty straightforward too. We can directly translate the documented
+<p>We haven&rsquo;t yet seen how to handle C structs with the FFI, but it&rsquo;s not
+too tricky. Support for C structs comes built-in and will look familiar
+if you&rsquo;re used to Racket structs. We can directly translate the documented
 definition above into a <span class="RktWrap"><span class="RktSym"><a class="RktStxLink" data-pltdoc="x" href="http://docs.racket-lang.org/foreign/C_Struct_Types.html#%28form._%28%28lib._ffi%2Funsafe..rkt%29._define-cstruct%29%29">define-cstruct</a></span></span> declaration:</p>
 
 <div class="SCodeFlow">
@@ -668,7 +668,7 @@ definition above into a <span class="RktWrap"><span class="RktSym"><a class="Rkt
         <td></td></tr></tbody></table></td></tr></tbody></table></div>
 
 <p>This declaration does a couple of things. First, it defines a bunch of handy C types
-for us for the struct:</p>
+related to the struct for us:</p>
 
 <div class="SCodeFlow">
  <table cellpadding="0" cellspacing="0" class="RktBlk">
@@ -688,7 +688,7 @@ for us for the struct:</p>
    <tr>
     <td><span class="RktCmt">;</span><span class="RktCmt">&nbsp;</span><span class="RktCmt">allows NULL pointer</span></td></tr>
    <tr>
-    <td><span class="stt">&gt; </span><span class="RktVar">cairo_text_extents_t-pointer/null</span></td></tr>
+    <td><span class="stt">&gt; </span><span class="RktSym">_cairo_text_extents_t-pointer/null</span></td></tr>
    <tr>
     <td>
      <p><span class="RktRes">#&lt;ctype&gt;</span></p></td></tr></tbody></table></div>
@@ -699,20 +699,28 @@ for us for the struct:</p>
  <table cellpadding="0" cellspacing="0" class="RktBlk">
   <tbody>
    <tr>
+    <td><span class="RktCmt">;</span><span class="RktCmt">&nbsp;</span><span class="RktCmt">a struct constructor</span></td></tr>
+   <tr>
     <td><span class="stt">&gt; </span><span class="RktSym">make-cairo_text_extents_t</span></td></tr>
    <tr>
     <td>
      <p><span class="RktRes">#&lt;procedure:make-cairo_text_extents_t&gt;</span></p></td></tr>
+   <tr>
+    <td><span class="RktCmt">;</span><span class="RktCmt">&nbsp;</span><span class="RktCmt">a field selector</span></td></tr>
    <tr>
     <td><span class="stt">&gt; </span><span class="RktSym">cairo_text_extents_t-width</span></td></tr>
    <tr>
     <td>
      <p><span class="RktRes">#&lt;procedure:cairo_text_extents_t-width&gt;</span></p></td></tr>
    <tr>
+    <td><span class="RktCmt">;</span><span class="RktCmt">&nbsp;</span><span class="RktCmt">a predicate for the struct</span></td></tr>
+   <tr>
     <td><span class="stt">&gt; </span><span class="RktSym">cairo_text_extents_t?</span></td></tr>
    <tr>
     <td>
      <p><span class="RktRes">#&lt;procedure:^TYPE?&gt;</span></p></td></tr>
+   <tr>
+    <td><span class="RktCmt">;</span><span class="RktCmt">&nbsp;</span><span class="RktCmt">a field mutation function</span></td></tr>
    <tr>
     <td><span class="stt">&gt; </span><span class="RktSym">set-cairo_text_extents_t-width!</span></td></tr>
    <tr>
@@ -842,8 +850,9 @@ a pointer.</p>
 <p>The strangest part of this example is that there are now two uses of the
 <span class="RktWrap"><span class="RktSym"><a class="RktStxLink" data-pltdoc="x" href="http://docs.racket-lang.org/foreign/foreign_procedures.html#%28form._%28%28lib._ffi%2Funsafe..rkt%29._-~3e%29%29"><span class="nobreak">-&gt;</span></a></span></span> form! By providing a second arrow, we can customize what the FFI wrapper
 returns. The expression to the right of the second arrow is just Racket code that can
-reference previously named arguments. In this case, we return the struct that
-was allocated for us.</p>
+reference previously named arguments. The result of evaluating this
+expression is used instead of the normal return result for calls to the
+wrapped function. In this case, we just return the struct that was allocated for us.</p>
 
 <p>Using this new version of the wrapper is much simpler:</p>
 
