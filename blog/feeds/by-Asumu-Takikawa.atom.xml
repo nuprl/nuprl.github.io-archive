@@ -589,7 +589,7 @@ array and reference the correct variant appropriately:&lt;/p&gt;
     &lt;td&gt;&lt;span class="stt"&gt;&amp;gt; &lt;/span&gt;&lt;span class="RktPn"&gt;(&lt;/span&gt;&lt;span class="RktSym"&gt;&lt;a class="RktValLink" data-pltdoc="x" href="http://docs.racket-lang.org/foreign/C_Union_Types.html#%28def._%28%28lib._ffi%2Funsafe..rkt%29._union-ref%29%29"&gt;union-ref&lt;/a&gt;&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktPn"&gt;(&lt;/span&gt;&lt;span class="RktSym"&gt;third&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;array&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktVal"&gt;1&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
    &lt;tr&gt;
     &lt;td&gt;
-     &lt;p&gt;&lt;span class="RktRes"&gt;'(4.2439915824246e-314 0.0)&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;
+     &lt;p&gt;&lt;span class="RktRes"&gt;'(4.2439915824246e-314 3.7548080003146e-317)&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;
 
 &lt;p&gt;One thing we could do is write a helper function that converts this array
 into a more useful format. It would look at each header, and then consume
@@ -960,7 +960,8 @@ for more details on
 and
 &lt;a href="http://docs.racket-lang.org/foreign/ctype.html"&gt;custom C types&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;&lt;span style="font-style: italic"&gt;Thanks to Ben Greenman for suggestions and feedback!&lt;/span&gt;&lt;/p&gt;&lt;/html&gt;</content></entry>
+&lt;p&gt;&lt;span style="font-style: italic"&gt;Thanks to Ben Greenman for suggestions/feedback and to Sam
+Tobin-Hochstadt for suggesting to cover union types!&lt;/span&gt;&lt;/p&gt;&lt;/html&gt;</content></entry>
  <entry>
   <title type="text">Tutorial: Racket FFI, Part 2</title>
   <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2016/06/29/tutorial-racket-ffi-part-2/?utm_source=by-Asumu-Takikawa&amp;utm_medium=Atom" />
@@ -972,7 +973,9 @@ and
   <content type="html">&lt;html&gt;
 &lt;p&gt;This is part 2 of my tutorial on using the Racket FFI. If you haven&amp;rsquo;t read
 part 1 yet, you can find it
-&lt;a href="http://prl.ccs.neu.edu/blog/2016/06/27/tutorial-using-racket-s-ffi/"&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;a href="http://prl.ccs.neu.edu/blog/2016/06/27/tutorial-using-racket-s-ffi/"&gt;here&lt;/a&gt;.
+&lt;span style="font-weight: bold"&gt;Update:&lt;/span&gt; part 3 is also now available
+&lt;a href="http://prl.ccs.neu.edu/blog/2016/07/11/tutorial-racket-ffi-part-3/"&gt;here&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;Part 2 will continue with more Cairo examples. In this installment, I plan to
 go over some more advanced FFI hacking such as handling computed argument
@@ -1846,6 +1849,11 @@ of the new &lt;span class="RktWrap"&gt;&lt;span class="RktSym"&gt;fit-text&lt;/s
   <author>
    <name>PRL</name></author>
   <content type="html">&lt;html&gt;
+&lt;p&gt;&lt;span style="font-weight: bold"&gt;Update:&lt;/span&gt; this post is now part of a series. Part 2 is
+&lt;a href="http://prl.ccs.neu.edu/blog/2016/06/29/tutorial-racket-ffi-part-2/"&gt;here&lt;/a&gt;
+and part 3 is
+&lt;a href="http://prl.ccs.neu.edu/blog/2016/07/11/tutorial-racket-ffi-part-3/"&gt;here&lt;/a&gt;.&lt;/p&gt;
+
 &lt;p&gt;I&amp;rsquo;ve seen several people ask for a tutorial on Racket&amp;rsquo;s foreign
 function interface (FFI), which allows you to dynamically load
 C libraries for use in Racket code. While I think the
