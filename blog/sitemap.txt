@@ -6,4 +6,5 @@ http://prl.ccs.neu.edu/blog/2016/05/18/gradual-typing-across-the-spectrum/
 http://prl.ccs.neu.edu/blog/2016/07/11/tutorial-racket-ffi-part-3/
 http://prl.ccs.neu.edu/blog/2016/06/29/tutorial-racket-ffi-part-2/
 http://prl.ccs.neu.edu/blog/2016/05/24/measuring-gc-latencies-in-haskell-ocaml-racket/
+http://prl.ccs.neu.edu/blog/2016/08/02/tutorial-zero-to-sixty-in-racket/
 http://prl.ccs.neu.edu/blog/2016/06/27/tutorial-using-racket-s-ffi/
