@@ -1131,19 +1131,7 @@ incantation in a command-line:&lt;/p&gt;
    &lt;tr&gt;
     &lt;td&gt;&lt;span class="stt"&gt;&amp;gt; &lt;/span&gt;&lt;span class="RktPn"&gt;(&lt;/span&gt;&lt;span class="RktSym"&gt;&lt;a class="RktStxLink" data-pltdoc="x" href="http://docs.racket-lang.org/reference/require.html#%28form._%28%28lib._racket%2Fprivate%2Fbase..rkt%29._require%29%29"&gt;require&lt;/a&gt;&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;pkg&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
    &lt;tr&gt;
-    &lt;td&gt;
-     &lt;table cellpadding="0" cellspacing="0"&gt;
-      &lt;tbody&gt;
-       &lt;tr&gt;
-        &lt;td&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;
-   &lt;tr&gt;
-    &lt;td&gt;&lt;span class="stt"&gt;&amp;gt; &lt;/span&gt;&lt;span class="RktPn"&gt;(&lt;/span&gt;&lt;span class="RktSym"&gt;pkg-install-command&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktPn"&gt;#:skip-installed&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktVal"&gt;#t&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktVal"&gt;"ffi-definer-convention"&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
-   &lt;tr&gt;
-    &lt;td&gt;
-     &lt;table cellpadding="0" cellspacing="0"&gt;
-      &lt;tbody&gt;
-       &lt;tr&gt;
-        &lt;td&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;
+    &lt;td&gt;&lt;span class="stt"&gt;&amp;gt; &lt;/span&gt;&lt;span class="RktPn"&gt;(&lt;/span&gt;&lt;span class="RktSym"&gt;pkg-install-command&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktPn"&gt;#:skip-installed&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktVal"&gt;#t&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktVal"&gt;"ffi-definer-convention"&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;
 
 &lt;p&gt;This will install the package and compile its contents. If you&amp;rsquo;re curious, the
 docs for the package are available
@@ -1289,13 +1277,7 @@ let&amp;rsquo;s specify that a &lt;span class="stt"&gt;cairo_status_t&lt;/span&g
  &lt;table cellpadding="0" cellspacing="0" class="RktBlk"&gt;
   &lt;tbody&gt;
    &lt;tr&gt;
-    &lt;td&gt;&lt;span class="stt"&gt;&amp;gt; &lt;/span&gt;&lt;span class="RktPn"&gt;(&lt;/span&gt;&lt;span class="RktSym"&gt;&lt;a class="RktStxLink" data-pltdoc="x" href="http://docs.racket-lang.org/reference/define.html#%28form._%28%28lib._racket%2Fprivate%2Fbase..rkt%29._define%29%29"&gt;define&lt;/a&gt;&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;_cairo_status_t&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;&lt;a class="RktValLink" data-pltdoc="x" href="http://docs.racket-lang.org/foreign/Numeric_Types.html#%28def._%28%28lib._ffi%2Funsafe..rkt%29.__int%29%29"&gt;_int&lt;/a&gt;&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
-   &lt;tr&gt;
-    &lt;td&gt;
-     &lt;table cellpadding="0" cellspacing="0"&gt;
-      &lt;tbody&gt;
-       &lt;tr&gt;
-        &lt;td&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;
+    &lt;td&gt;&lt;span class="stt"&gt;&amp;gt; &lt;/span&gt;&lt;span class="RktPn"&gt;(&lt;/span&gt;&lt;span class="RktSym"&gt;&lt;a class="RktStxLink" data-pltdoc="x" href="http://docs.racket-lang.org/reference/define.html#%28form._%28%28lib._racket%2Fprivate%2Fbase..rkt%29._define%29%29"&gt;define&lt;/a&gt;&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;_cairo_status_t&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;&lt;a class="RktValLink" data-pltdoc="x" href="http://docs.racket-lang.org/foreign/Numeric_Types.html#%28def._%28%28lib._ffi%2Funsafe..rkt%29.__int%29%29"&gt;_int&lt;/a&gt;&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;
 
 &lt;p&gt;It&amp;rsquo;s actually an enum, but for the examples in this post we don&amp;rsquo;t care about
 distinguishing different statuses. Next, the data field of a path struct is an
@@ -1346,12 +1328,6 @@ straightforward to specify this type too:&lt;/p&gt;
         &lt;td&gt;&lt;span class="hspace"&gt;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class="RktPn"&gt;(&lt;/span&gt;&lt;span class="RktSym"&gt;&lt;a class="RktValLink" data-pltdoc="x" href="http://docs.racket-lang.org/foreign/Enumerations_and_Masks.html#%28def._%28%28lib._ffi%2Funsafe..rkt%29.__enum%29%29"&gt;_enum&lt;/a&gt;&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktVal"&gt;'&lt;/span&gt;&lt;span class="RktVal"&gt;(&lt;/span&gt;&lt;span class="RktVal"&gt;move-to&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktVal"&gt;line-to&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktVal"&gt;curve-to&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktVal"&gt;close-path&lt;/span&gt;&lt;span class="RktVal"&gt;)&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;
    &lt;tr&gt;
     &lt;td&gt;
-     &lt;table cellpadding="0" cellspacing="0"&gt;
-      &lt;tbody&gt;
-       &lt;tr&gt;
-        &lt;td&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;
-   &lt;tr&gt;
-    &lt;td&gt;
      &lt;table cellpadding="0" cellspacing="0" class="RktBlk"&gt;
       &lt;tbody&gt;
        &lt;tr&gt;
@@ -1365,13 +1341,7 @@ straightforward to specify this type too:&lt;/p&gt;
        &lt;tr&gt;
         &lt;td&gt;&lt;span class="hspace"&gt;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class="RktCmt"&gt;;&lt;/span&gt;&lt;span class="RktCmt"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktCmt"&gt;the point case&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
        &lt;tr&gt;
-        &lt;td&gt;&lt;span class="hspace"&gt;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class="RktPn"&gt;(&lt;/span&gt;&lt;span class="RktSym"&gt;&lt;a class="RktValLink" data-pltdoc="x" href="http://docs.racket-lang.org/foreign/C_Struct_Types.html#%28def._%28%28lib._ffi%2Funsafe..rkt%29.__list-struct%29%29"&gt;_list-struct&lt;/a&gt;&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;&lt;a class="RktValLink" data-pltdoc="x" href="http://docs.racket-lang.org/foreign/Numeric_Types.html#%28def._%28%28quote._~23~25foreign%29.__double%29%29"&gt;_double&lt;/a&gt;&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;&lt;a class="RktValLink" data-pltdoc="x" href="http://docs.racket-lang.org/foreign/Numeric_Types.html#%28def._%28%28quote._~23~25foreign%29.__double%29%29"&gt;_double&lt;/a&gt;&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;
-   &lt;tr&gt;
-    &lt;td&gt;
-     &lt;table cellpadding="0" cellspacing="0"&gt;
-      &lt;tbody&gt;
-       &lt;tr&gt;
-        &lt;td&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;
+        &lt;td&gt;&lt;span class="hspace"&gt;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class="RktPn"&gt;(&lt;/span&gt;&lt;span class="RktSym"&gt;&lt;a class="RktValLink" data-pltdoc="x" href="http://docs.racket-lang.org/foreign/C_Struct_Types.html#%28def._%28%28lib._ffi%2Funsafe..rkt%29.__list-struct%29%29"&gt;_list-struct&lt;/a&gt;&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;&lt;a class="RktValLink" data-pltdoc="x" href="http://docs.racket-lang.org/foreign/Numeric_Types.html#%28def._%28%28quote._~23~25foreign%29.__double%29%29"&gt;_double&lt;/a&gt;&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;&lt;a class="RktValLink" data-pltdoc="x" href="http://docs.racket-lang.org/foreign/Numeric_Types.html#%28def._%28%28quote._~23~25foreign%29.__double%29%29"&gt;_double&lt;/a&gt;&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;
 
 &lt;p&gt;There&amp;rsquo;s a new type constructor here so let me explain that first.
 The &lt;span class="RktWrap"&gt;&lt;span class="RktSym"&gt;&lt;a class="RktValLink" data-pltdoc="x" href="http://docs.racket-lang.org/foreign/C_Struct_Types.html#%28def._%28%28lib._ffi%2Funsafe..rkt%29.__list-struct%29%29"&gt;_list-struct&lt;/a&gt;&lt;/span&gt;&lt;/span&gt; constructor translates between a C struct
@@ -1406,12 +1376,6 @@ on the Racket-side. Let me illustrate this with some code:&lt;/p&gt;
         &lt;td&gt;&lt;span class="hspace"&gt;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class="RktCmt"&gt;;&lt;/span&gt;&lt;span class="RktCmt"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktCmt"&gt;target type&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
        &lt;tr&gt;
         &lt;td&gt;&lt;span class="hspace"&gt;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;_cairo_path_data_t&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;
-   &lt;tr&gt;
-    &lt;td&gt;
-     &lt;table cellpadding="0" cellspacing="0"&gt;
-      &lt;tbody&gt;
-       &lt;tr&gt;
-        &lt;td&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;
    &lt;tr&gt;
     &lt;td&gt;&lt;span class="stt"&gt;&amp;gt; &lt;/span&gt;&lt;span class="RktSym"&gt;a-union-val&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
    &lt;tr&gt;
@@ -1496,13 +1460,7 @@ type:&lt;/p&gt;
        &lt;tr&gt;
         &lt;td&gt;&lt;span class="hspace"&gt;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;&lt;a class="RktValLink" data-pltdoc="x" href="http://docs.racket-lang.org/foreign/Pointer_Types.html#%28def._%28%28quote._~23~25foreign%29.__pointer%29%29"&gt;_pointer&lt;/a&gt;&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
        &lt;tr&gt;
-        &lt;td&gt;&lt;span class="hspace"&gt;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;&lt;a class="RktValLink" data-pltdoc="x" href="http://docs.racket-lang.org/foreign/Numeric_Types.html#%28def._%28%28lib._ffi%2Funsafe..rkt%29.__int%29%29"&gt;_int&lt;/a&gt;&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;
-   &lt;tr&gt;
-    &lt;td&gt;
-     &lt;table cellpadding="0" cellspacing="0"&gt;
-      &lt;tbody&gt;
-       &lt;tr&gt;
-        &lt;td&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;
+        &lt;td&gt;&lt;span class="hspace"&gt;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;&lt;a class="RktValLink" data-pltdoc="x" href="http://docs.racket-lang.org/foreign/Numeric_Types.html#%28def._%28%28lib._ffi%2Funsafe..rkt%29.__int%29%29"&gt;_int&lt;/a&gt;&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;
 
 &lt;p&gt;In this type, we have specified the array as a bare &lt;span class="RktWrap"&gt;&lt;span class="RktSym"&gt;&lt;a class="RktValLink" data-pltdoc="x" href="http://docs.racket-lang.org/foreign/Pointer_Types.html#%28def._%28%28quote._~23~25foreign%29.__pointer%29%29"&gt;_pointer&lt;/a&gt;&lt;/span&gt;&lt;/span&gt;.
 For some added safety, we could also use something like
@@ -1529,19 +1487,7 @@ It turns out it is possible to do a bit more with pointers.&lt;/p&gt;
        &lt;tr&gt;
         &lt;td&gt;&lt;span class="hspace"&gt;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class="RktPn"&gt;(&lt;/span&gt;&lt;span class="RktSym"&gt;&lt;a class="RktStxLink" data-pltdoc="x" href="http://docs.racket-lang.org/foreign/foreign_procedures.html#%28form._%28%28lib._ffi%2Funsafe..rkt%29.__fun%29%29"&gt;_fun&lt;/a&gt;&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;_cairo_t&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;&lt;a class="RktStxLink" data-pltdoc="x" href="http://docs.racket-lang.org/foreign/foreign_procedures.html#%28form._%28%28lib._ffi%2Funsafe..rkt%29._-~3e%29%29"&gt;&lt;span class="nobreak"&gt;-&amp;gt;&lt;/span&gt;&lt;/a&gt;&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;&lt;a class="RktValLink" data-pltdoc="x" href="http://docs.racket-lang.org/foreign/Pointer_Types.html#%28def._%28%28quote._~23~25foreign%29.__pointer%29%29"&gt;_pointer&lt;/a&gt;&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;
    &lt;tr&gt;
-    &lt;td&gt;
-     &lt;table cellpadding="0" cellspacing="0"&gt;
-      &lt;tbody&gt;
-       &lt;tr&gt;
-        &lt;td&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;
-   &lt;tr&gt;
     &lt;td&gt;&lt;span class="stt"&gt;&amp;gt; &lt;/span&gt;&lt;span class="RktPn"&gt;(&lt;/span&gt;&lt;span class="RktSym"&gt;&lt;a class="RktStxLink" data-pltdoc="x" href="http://docs.racket-lang.org/reference/define.html#%28form._%28%28lib._racket%2Fprivate%2Fbase..rkt%29._define%29%29"&gt;define&lt;/a&gt;&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;a-path&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktVal"&gt;#f&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
-   &lt;tr&gt;
-    &lt;td&gt;
-     &lt;table cellpadding="0" cellspacing="0"&gt;
-      &lt;tbody&gt;
-       &lt;tr&gt;
-        &lt;td&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;
    &lt;tr&gt;
     &lt;td&gt;
      &lt;table cellpadding="0" cellspacing="0" class="RktBlk"&gt;
@@ -1602,12 +1548,6 @@ offset argument which we will be used in an example later.&lt;/p&gt;
        &lt;tr&gt;
         &lt;td&gt;&lt;span class="hspace"&gt;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class="RktPn"&gt;(&lt;/span&gt;&lt;span class="RktSym"&gt;&lt;a class="RktValLink" data-pltdoc="x" href="http://docs.racket-lang.org/foreign/foreign_pointer-funcs.html#%28def._%28%28quote._~23~25foreign%29._ptr-ref%29%29"&gt;ptr-ref&lt;/a&gt;&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;a-path&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;_simple_cairo_path_t&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;
    &lt;tr&gt;
-    &lt;td&gt;
-     &lt;table cellpadding="0" cellspacing="0"&gt;
-      &lt;tbody&gt;
-       &lt;tr&gt;
-        &lt;td&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;
-   &lt;tr&gt;
     &lt;td&gt;&lt;span class="stt"&gt;&amp;gt; &lt;/span&gt;&lt;span class="RktSym"&gt;simple-path&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
    &lt;tr&gt;
     &lt;td&gt;
@@ -1637,12 +1577,6 @@ we can use &lt;span class="RktWrap"&gt;&lt;span class="RktSym"&gt;&lt;a class="R
         &lt;td&gt;&lt;span class="hspace"&gt;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class="RktCmt"&gt;;&lt;/span&gt;&lt;span class="RktCmt"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktCmt"&gt;length field&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
        &lt;tr&gt;
         &lt;td&gt;&lt;span class="hspace"&gt;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class="RktPn"&gt;(&lt;/span&gt;&lt;span class="RktSym"&gt;third&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;simple-path&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;
-   &lt;tr&gt;
-    &lt;td&gt;
-     &lt;table cellpadding="0" cellspacing="0"&gt;
-      &lt;tbody&gt;
-       &lt;tr&gt;
-        &lt;td&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;
    &lt;tr&gt;
     &lt;td&gt;&lt;span class="stt"&gt;&amp;gt; &lt;/span&gt;&lt;span class="RktSym"&gt;array&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
    &lt;tr&gt;
@@ -1716,13 +1650,7 @@ of Cairo paths:&lt;/p&gt;
        &lt;tr&gt;
         &lt;td&gt;&lt;span class="hspace"&gt;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class="RktPn"&gt;#:property&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;&lt;a class="RktValLink" data-pltdoc="x" href="http://docs.racket-lang.org/reference/sequences.html#%28def._%28%28lib._racket%2Fprivate%2Fbase..rkt%29._prop~3asequence%29%29"&gt;prop:sequence&lt;/a&gt;&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
        &lt;tr&gt;
-        &lt;td&gt;&lt;span class="hspace"&gt;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class="RktPn"&gt;(&lt;/span&gt;&lt;span class="RktSym"&gt;&lt;a class="RktStxLink" data-pltdoc="x" href="http://docs.racket-lang.org/reference/lambda.html#%28form._%28%28lib._racket%2Fprivate%2Fbase..rkt%29._~ce~bb%29%29"&gt;&amp;#955;&lt;/a&gt;&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktPn"&gt;(&lt;/span&gt;&lt;span class="RktSym"&gt;p&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktPn"&gt;(&lt;/span&gt;&lt;span class="RktSym"&gt;in-cairo-path&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;p&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;
-   &lt;tr&gt;
-    &lt;td&gt;
-     &lt;table cellpadding="0" cellspacing="0"&gt;
-      &lt;tbody&gt;
-       &lt;tr&gt;
-        &lt;td&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;
+        &lt;td&gt;&lt;span class="hspace"&gt;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class="RktPn"&gt;(&lt;/span&gt;&lt;span class="RktSym"&gt;&lt;a class="RktStxLink" data-pltdoc="x" href="http://docs.racket-lang.org/reference/lambda.html#%28form._%28%28lib._racket%2Fprivate%2Fbase..rkt%29._~ce~bb%29%29"&gt;&amp;#955;&lt;/a&gt;&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktPn"&gt;(&lt;/span&gt;&lt;span class="RktSym"&gt;p&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktPn"&gt;(&lt;/span&gt;&lt;span class="RktSym"&gt;in-cairo-path&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;p&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;
 
 &lt;p&gt;The representation will store one field &lt;span class="RktWrap"&gt;&lt;span class="RktSym"&gt;ptr&lt;/span&gt;&lt;/span&gt; which, as the name
 suggests, will store a pointer value. We&amp;rsquo;ll see what to do with this
@@ -1766,13 +1694,7 @@ the C type given this struct type:&lt;/p&gt;
        &lt;tr&gt;
         &lt;td&gt;&lt;span class="hspace"&gt;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;racket-&amp;gt;c&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
        &lt;tr&gt;
-        &lt;td&gt;&lt;span class="hspace"&gt;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;c-&amp;gt;racket&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;
-   &lt;tr&gt;
-    &lt;td&gt;
-     &lt;table cellpadding="0" cellspacing="0"&gt;
-      &lt;tbody&gt;
-       &lt;tr&gt;
-        &lt;td&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;
+        &lt;td&gt;&lt;span class="hspace"&gt;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;c-&amp;gt;racket&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;
 
 &lt;p&gt;The base type for this &lt;span class="RktWrap"&gt;&lt;span class="RktSym"&gt;_cairo_path_t&lt;/span&gt;&lt;/span&gt; is a &lt;span class="RktWrap"&gt;&lt;span class="RktSym"&gt;&lt;a class="RktValLink" data-pltdoc="x" href="http://docs.racket-lang.org/foreign/Pointer_Types.html#%28def._%28%28quote._~23~25foreign%29.__pointer%29%29"&gt;_pointer&lt;/a&gt;&lt;/span&gt;&lt;/span&gt; type. Since
 the Cairo API returns pointers to new path values, it&amp;rsquo;s hard to avoid using some
@@ -1820,13 +1742,7 @@ the other direction, we just stuff the pointer into a struct.&lt;/p&gt;
        &lt;tr&gt;
         &lt;td&gt;&lt;span class="hspace"&gt;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class="RktPn"&gt;(&lt;/span&gt;&lt;span class="RktSym"&gt;&lt;a class="RktStxLink" data-pltdoc="x" href="http://docs.racket-lang.org/reference/lambda.html#%28form._%28%28lib._racket%2Fprivate%2Fbase..rkt%29._~ce~bb%29%29"&gt;&amp;#955;&lt;/a&gt;&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktPn"&gt;(&lt;/span&gt;&lt;span class="RktSym"&gt;pos&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktPn"&gt;(&lt;/span&gt;&lt;span class="RktSym"&gt;&lt;a class="RktValLink" data-pltdoc="x" href="http://docs.racket-lang.org/reference/generic-numbers.html#%28def._%28%28quote._~23~25kernel%29._~3c%29%29"&gt;&amp;lt;&lt;/a&gt;&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;pos&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;len&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
        &lt;tr&gt;
-        &lt;td&gt;&lt;span class="hspace"&gt;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class="RktVal"&gt;#f&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktVal"&gt;#f&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;
-   &lt;tr&gt;
-    &lt;td&gt;
-     &lt;table cellpadding="0" cellspacing="0"&gt;
-      &lt;tbody&gt;
-       &lt;tr&gt;
-        &lt;td&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;
+        &lt;td&gt;&lt;span class="hspace"&gt;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class="RktVal"&gt;#f&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktVal"&gt;#f&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;
 
 &lt;p&gt;The first thing the function does is extract the pointer out of the
 representation, and then immediately calls &lt;span class="RktWrap"&gt;&lt;span class="RktSym"&gt;&lt;a class="RktValLink" data-pltdoc="x" href="http://docs.racket-lang.org/foreign/foreign_pointer-funcs.html#%28def._%28%28quote._~23~25foreign%29._ptr-ref%29%29"&gt;ptr-ref&lt;/a&gt;&lt;/span&gt;&lt;/span&gt; on it. This
@@ -1895,12 +1811,6 @@ and its helpers:&lt;/p&gt;
        &lt;tr&gt;
         &lt;td&gt;&lt;span class="hspace"&gt;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class="RktPn"&gt;(&lt;/span&gt;&lt;span class="RktSym"&gt;&lt;a class="RktValLink" data-pltdoc="x" href="http://docs.racket-lang.org/reference/pairs.html#%28def._%28%28quote._~23~25kernel%29._cons%29%29"&gt;cons&lt;/a&gt;&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;type&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;points&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;
    &lt;tr&gt;
-    &lt;td&gt;
-     &lt;table cellpadding="0" cellspacing="0"&gt;
-      &lt;tbody&gt;
-       &lt;tr&gt;
-        &lt;td&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;
-   &lt;tr&gt;
     &lt;td&gt;&lt;span class="RktCmt"&gt;;&lt;/span&gt;&lt;span class="RktCmt"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktCmt"&gt;CPointer Integer Integer -&amp;gt; (Listof Data)&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
    &lt;tr&gt;
     &lt;td&gt;
@@ -1919,13 +1829,7 @@ and its helpers:&lt;/p&gt;
        &lt;tr&gt;
         &lt;td&gt;&lt;span class="hspace"&gt;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class="RktPn"&gt;(&lt;/span&gt;&lt;span class="RktSym"&gt;&lt;a class="RktValLink" data-pltdoc="x" href="http://docs.racket-lang.org/reference/generic-numbers.html#%28def._%28%28quote._~23~25kernel%29._%2B%29%29"&gt;+&lt;/a&gt;&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;pos&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;i&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
        &lt;tr&gt;
-        &lt;td&gt;&lt;span class="hspace"&gt;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class="RktVal"&gt;1&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;
-   &lt;tr&gt;
-    &lt;td&gt;
-     &lt;table cellpadding="0" cellspacing="0"&gt;
-      &lt;tbody&gt;
-       &lt;tr&gt;
-        &lt;td&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;
+        &lt;td&gt;&lt;span class="hspace"&gt;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class="RktVal"&gt;1&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;
 
 &lt;p&gt;This code encodes the API usage protocol that Cairo specifies, where each
 header element in the path is followed by some number of data elements.
@@ -1956,13 +1860,7 @@ on the length given by header elements:&lt;/p&gt;
        &lt;tr&gt;
         &lt;td&gt;&lt;span class="hspace"&gt;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class="RktPn"&gt;(&lt;/span&gt;&lt;span class="RktSym"&gt;&lt;a class="RktStxLink" data-pltdoc="x" href="http://docs.racket-lang.org/reference/define.html#%28form._%28%28lib._racket%2Fprivate%2Fbase..rkt%29._define%29%29"&gt;define&lt;/a&gt;&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;len&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktPn"&gt;(&lt;/span&gt;&lt;span class="RktSym"&gt;second&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;header&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
        &lt;tr&gt;
-        &lt;td&gt;&lt;span class="hspace"&gt;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class="RktPn"&gt;(&lt;/span&gt;&lt;span class="RktSym"&gt;&lt;a class="RktValLink" data-pltdoc="x" href="http://docs.racket-lang.org/reference/generic-numbers.html#%28def._%28%28quote._~23~25kernel%29._%2B%29%29"&gt;+&lt;/a&gt;&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;len&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;pos&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;
-   &lt;tr&gt;
-    &lt;td&gt;
-     &lt;table cellpadding="0" cellspacing="0"&gt;
-      &lt;tbody&gt;
-       &lt;tr&gt;
-        &lt;td&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;
+        &lt;td&gt;&lt;span class="hspace"&gt;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class="RktPn"&gt;(&lt;/span&gt;&lt;span class="RktSym"&gt;&lt;a class="RktValLink" data-pltdoc="x" href="http://docs.racket-lang.org/reference/generic-numbers.html#%28def._%28%28quote._~23~25kernel%29._%2B%29%29"&gt;+&lt;/a&gt;&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;len&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;pos&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;
 
 &lt;p&gt;Note that determining the end of the sequence is very easy. It&amp;rsquo;s just
 a matter of comparing the current position to the total length given in the
@@ -1981,12 +1879,6 @@ path struct, encoded in the expression &lt;span class="RktWrap"&gt;&lt;span clas
         &lt;td&gt;&lt;span class="stt"&gt;&amp;gt; &lt;/span&gt;&lt;span class="RktPn"&gt;(&lt;/span&gt;&lt;span class="RktSym"&gt;define-cairo&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;cairo-copy-path&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
        &lt;tr&gt;
         &lt;td&gt;&lt;span class="hspace"&gt;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class="RktPn"&gt;(&lt;/span&gt;&lt;span class="RktSym"&gt;&lt;a class="RktStxLink" data-pltdoc="x" href="http://docs.racket-lang.org/foreign/foreign_procedures.html#%28form._%28%28lib._ffi%2Funsafe..rkt%29.__fun%29%29"&gt;_fun&lt;/a&gt;&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;_cairo_t&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;&lt;a class="RktStxLink" data-pltdoc="x" href="http://docs.racket-lang.org/foreign/foreign_procedures.html#%28form._%28%28lib._ffi%2Funsafe..rkt%29._-~3e%29%29"&gt;&lt;span class="nobreak"&gt;-&amp;gt;&lt;/span&gt;&lt;/a&gt;&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;_cairo_path_t&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;
-   &lt;tr&gt;
-    &lt;td&gt;
-     &lt;table cellpadding="0" cellspacing="0"&gt;
-      &lt;tbody&gt;
-       &lt;tr&gt;
-        &lt;td&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;
    &lt;tr&gt;
     &lt;td&gt;
      &lt;table cellpadding="0" cellspacing="0" class="RktBlk"&gt;
@@ -2225,12 +2117,6 @@ and &lt;span class="stt"&gt;cairo_curve_to&lt;/span&gt; which have very straight
         &lt;td&gt;&lt;span class="hspace"&gt;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class="RktPn"&gt;#:c-id&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;cairo_rel_line_to&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;
    &lt;tr&gt;
     &lt;td&gt;
-     &lt;table cellpadding="0" cellspacing="0"&gt;
-      &lt;tbody&gt;
-       &lt;tr&gt;
-        &lt;td&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;
-   &lt;tr&gt;
-    &lt;td&gt;
      &lt;table cellpadding="0" cellspacing="0" class="RktBlk"&gt;
       &lt;tbody&gt;
        &lt;tr&gt;
@@ -2246,13 +2132,7 @@ and &lt;span class="stt"&gt;cairo_curve_to&lt;/span&gt; which have very straight
        &lt;tr&gt;
         &lt;td&gt;&lt;span class="hspace"&gt;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;&lt;a class="RktStxLink" data-pltdoc="x" href="http://docs.racket-lang.org/foreign/foreign_procedures.html#%28form._%28%28lib._ffi%2Funsafe..rkt%29._-~3e%29%29"&gt;&lt;span class="nobreak"&gt;-&amp;gt;&lt;/span&gt;&lt;/a&gt;&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;&lt;a class="RktValLink" data-pltdoc="x" href="http://docs.racket-lang.org/foreign/Other_Atomic_Types.html#%28def._%28%28quote._~23~25foreign%29.__void%29%29"&gt;_void&lt;/a&gt;&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
        &lt;tr&gt;
-        &lt;td&gt;&lt;span class="hspace"&gt;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class="RktPn"&gt;#:c-id&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;cairo_curve_to&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;
-   &lt;tr&gt;
-    &lt;td&gt;
-     &lt;table cellpadding="0" cellspacing="0"&gt;
-      &lt;tbody&gt;
-       &lt;tr&gt;
-        &lt;td&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;
+        &lt;td&gt;&lt;span class="hspace"&gt;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class="RktPn"&gt;#:c-id&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;cairo_curve_to&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;
 
 &lt;p&gt;Meanwhile, the C type signature for &lt;span class="stt"&gt;cairo_set_dash&lt;/span&gt; from the Cairo
 docs looks like this:&lt;/p&gt;
@@ -2297,13 +2177,7 @@ the C type above might look like the following:&lt;/p&gt;
        &lt;tr&gt;
         &lt;td&gt;&lt;span class="hspace"&gt;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;&lt;a class="RktStxLink" data-pltdoc="x" href="http://docs.racket-lang.org/foreign/foreign_procedures.html#%28form._%28%28lib._ffi%2Funsafe..rkt%29._-~3e%29%29"&gt;&lt;span class="nobreak"&gt;-&amp;gt;&lt;/span&gt;&lt;/a&gt;&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;&lt;a class="RktValLink" data-pltdoc="x" href="http://docs.racket-lang.org/foreign/Other_Atomic_Types.html#%28def._%28%28quote._~23~25foreign%29.__void%29%29"&gt;_void&lt;/a&gt;&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
        &lt;tr&gt;
-        &lt;td&gt;&lt;span class="hspace"&gt;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class="RktPn"&gt;#:c-id&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;cairo_set_dash&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;
-   &lt;tr&gt;
-    &lt;td&gt;
-     &lt;table cellpadding="0" cellspacing="0"&gt;
-      &lt;tbody&gt;
-       &lt;tr&gt;
-        &lt;td&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;
+        &lt;td&gt;&lt;span class="hspace"&gt;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class="RktPn"&gt;#:c-id&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;cairo_set_dash&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;
 
 &lt;p&gt;This type includes a type constructor we haven&amp;rsquo;t seen yet: &lt;span class="RktWrap"&gt;&lt;span class="RktSym"&gt;&lt;a class="RktStxLink" data-pltdoc="x" href="http://docs.racket-lang.org/foreign/foreign_procedures.html#%28form._%28%28lib._ffi%2Funsafe..rkt%29.__list%29%29"&gt;_list&lt;/a&gt;&lt;/span&gt;&lt;/span&gt;.
 This is a so-called &lt;a class="techoutside" data-pltdoc="x" href="http://docs.racket-lang.org/foreign/foreign_procedures.html#%28tech._custom._function._type%29"&gt;&lt;span class="techinside"&gt;custom function type&lt;/span&gt;&lt;/a&gt; that has special meaning
@@ -2361,13 +2235,7 @@ argument automatically.&lt;/p&gt;
        &lt;tr&gt;
         &lt;td&gt;&lt;span class="hspace"&gt;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;&lt;a class="RktStxLink" data-pltdoc="x" href="http://docs.racket-lang.org/foreign/foreign_procedures.html#%28form._%28%28lib._ffi%2Funsafe..rkt%29._-~3e%29%29"&gt;&lt;span class="nobreak"&gt;-&amp;gt;&lt;/span&gt;&lt;/a&gt;&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;&lt;a class="RktValLink" data-pltdoc="x" href="http://docs.racket-lang.org/foreign/Other_Atomic_Types.html#%28def._%28%28quote._~23~25foreign%29.__void%29%29"&gt;_void&lt;/a&gt;&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
        &lt;tr&gt;
-        &lt;td&gt;&lt;span class="hspace"&gt;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class="RktPn"&gt;#:c-id&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;cairo_set_dash&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;
-   &lt;tr&gt;
-    &lt;td&gt;
-     &lt;table cellpadding="0" cellspacing="0"&gt;
-      &lt;tbody&gt;
-       &lt;tr&gt;
-        &lt;td&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;
+        &lt;td&gt;&lt;span class="hspace"&gt;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class="RktPn"&gt;#:c-id&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;cairo_set_dash&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;
 
 &lt;p&gt;When a computed argument is specified with a &lt;span class="RktWrap"&gt;&lt;span class="RktVar"&gt;=&lt;/span&gt;&lt;/span&gt;, it&amp;rsquo;s not necessary to provide
 the argument on the Racket side. So &lt;span class="RktWrap"&gt;&lt;span class="RktSym"&gt;cairo-set-dash&lt;/span&gt;&lt;/span&gt; is now an arity 3
@@ -2395,47 +2263,17 @@ the &lt;span class="RktWrap"&gt;&lt;span class="RktSym"&gt;&lt;a class="RktStxLi
    &lt;tr&gt;
     &lt;td&gt;&lt;span class="RktPn"&gt;(&lt;/span&gt;&lt;span class="RktSym"&gt;&lt;a class="RktStxLink" data-pltdoc="x" href="http://docs.racket-lang.org/reference/define.html#%28form._%28%28lib._racket%2Fprivate%2Fbase..rkt%29._define%29%29"&gt;define&lt;/a&gt;&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;dashes&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktVal"&gt;'&lt;/span&gt;&lt;span class="RktVal"&gt;(&lt;/span&gt;&lt;span class="RktVal"&gt;50.0&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktVal"&gt;10.0&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktVal"&gt;10.0&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktVal"&gt;10.0&lt;/span&gt;&lt;span class="RktVal"&gt;)&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
    &lt;tr&gt;
-    &lt;td&gt;
-     &lt;table cellpadding="0" cellspacing="0"&gt;
-      &lt;tbody&gt;
-       &lt;tr&gt;
-        &lt;td&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;
-   &lt;tr&gt;
     &lt;td&gt;&lt;span class="RktPn"&gt;(&lt;/span&gt;&lt;span class="RktSym"&gt;&lt;a class="RktStxLink" data-pltdoc="x" href="http://docs.racket-lang.org/reference/define.html#%28form._%28%28lib._racket%2Fprivate%2Fbase..rkt%29._define%29%29"&gt;define&lt;/a&gt;&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;offset&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktVal"&gt;&lt;span class="nobreak"&gt;-5&lt;/span&gt;0.0&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
    &lt;tr&gt;
     &lt;td&gt;
-     &lt;table cellpadding="0" cellspacing="0"&gt;
-      &lt;tbody&gt;
-       &lt;tr&gt;
-        &lt;td&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;
-   &lt;tr&gt;
-    &lt;td&gt;
      &lt;table cellpadding="0" cellspacing="0" class="RktBlk"&gt;
-      &lt;tbody&gt;
-       &lt;tr&gt;
-        &lt;td&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;
-   &lt;tr&gt;
-    &lt;td&gt;
-     &lt;table cellpadding="0" cellspacing="0"&gt;
       &lt;tbody&gt;
        &lt;tr&gt;
         &lt;td&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;
    &lt;tr&gt;
     &lt;td&gt;&lt;span class="RktPn"&gt;(&lt;/span&gt;&lt;span class="RktSym"&gt;cairo-set-dash&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;ctx&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;dashes&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;offset&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
    &lt;tr&gt;
-    &lt;td&gt;
-     &lt;table cellpadding="0" cellspacing="0"&gt;
-      &lt;tbody&gt;
-       &lt;tr&gt;
-        &lt;td&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;
-   &lt;tr&gt;
     &lt;td&gt;&lt;span class="RktPn"&gt;(&lt;/span&gt;&lt;span class="RktSym"&gt;cairo-set-line-width&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;ctx&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktVal"&gt;10.0&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
-   &lt;tr&gt;
-    &lt;td&gt;
-     &lt;table cellpadding="0" cellspacing="0"&gt;
-      &lt;tbody&gt;
-       &lt;tr&gt;
-        &lt;td&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;
    &lt;tr&gt;
     &lt;td&gt;
      &lt;table cellpadding="0" cellspacing="0" class="RktBlk"&gt;
@@ -2443,35 +2281,11 @@ the &lt;span class="RktWrap"&gt;&lt;span class="RktSym"&gt;&lt;a class="RktStxLi
        &lt;tr&gt;
         &lt;td&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;
    &lt;tr&gt;
-    &lt;td&gt;
-     &lt;table cellpadding="0" cellspacing="0"&gt;
-      &lt;tbody&gt;
-       &lt;tr&gt;
-        &lt;td&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;
-   &lt;tr&gt;
     &lt;td&gt;&lt;span class="RktPn"&gt;(&lt;/span&gt;&lt;span class="RktSym"&gt;cairo-move-to&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;ctx&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktVal"&gt;128.0&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktVal"&gt;25.6&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
-   &lt;tr&gt;
-    &lt;td&gt;
-     &lt;table cellpadding="0" cellspacing="0"&gt;
-      &lt;tbody&gt;
-       &lt;tr&gt;
-        &lt;td&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;
    &lt;tr&gt;
     &lt;td&gt;&lt;span class="RktPn"&gt;(&lt;/span&gt;&lt;span class="RktSym"&gt;cairo-line-to&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;ctx&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktVal"&gt;230.4&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktVal"&gt;230.4&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
    &lt;tr&gt;
-    &lt;td&gt;
-     &lt;table cellpadding="0" cellspacing="0"&gt;
-      &lt;tbody&gt;
-       &lt;tr&gt;
-        &lt;td&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;
-   &lt;tr&gt;
     &lt;td&gt;&lt;span class="RktPn"&gt;(&lt;/span&gt;&lt;span class="RktSym"&gt;cairo-rel-line-to&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;ctx&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktVal"&gt;&lt;span class="nobreak"&gt;-1&lt;/span&gt;02.4&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktVal"&gt;0.0&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
-   &lt;tr&gt;
-    &lt;td&gt;
-     &lt;table cellpadding="0" cellspacing="0"&gt;
-      &lt;tbody&gt;
-       &lt;tr&gt;
-        &lt;td&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;
    &lt;tr&gt;
     &lt;td&gt;
      &lt;table cellpadding="0" cellspacing="0" class="RktBlk"&gt;
@@ -2482,19 +2296,7 @@ the &lt;span class="RktWrap"&gt;&lt;span class="RktSym"&gt;&lt;a class="RktStxLi
         &lt;td&gt;&lt;span class="hspace"&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class="RktVal"&gt;128.0&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktVal"&gt;128.0&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktVal"&gt;128.0&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;
    &lt;tr&gt;
     &lt;td&gt;
-     &lt;table cellpadding="0" cellspacing="0"&gt;
-      &lt;tbody&gt;
-       &lt;tr&gt;
-        &lt;td&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;
-   &lt;tr&gt;
-    &lt;td&gt;
      &lt;table cellpadding="0" cellspacing="0" class="RktBlk"&gt;
-      &lt;tbody&gt;
-       &lt;tr&gt;
-        &lt;td&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;
-   &lt;tr&gt;
-    &lt;td&gt;
-     &lt;table cellpadding="0" cellspacing="0"&gt;
       &lt;tbody&gt;
        &lt;tr&gt;
         &lt;td&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;
@@ -2502,19 +2304,7 @@ the &lt;span class="RktWrap"&gt;&lt;span class="RktSym"&gt;&lt;a class="RktStxLi
     &lt;td&gt;&lt;span class="RktPn"&gt;(&lt;/span&gt;&lt;span class="RktSym"&gt;cairo-stroke&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;ctx&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
    &lt;tr&gt;
     &lt;td&gt;
-     &lt;table cellpadding="0" cellspacing="0"&gt;
-      &lt;tbody&gt;
-       &lt;tr&gt;
-        &lt;td&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;
-   &lt;tr&gt;
-    &lt;td&gt;
      &lt;table cellpadding="0" cellspacing="0" class="RktBlk"&gt;
-      &lt;tbody&gt;
-       &lt;tr&gt;
-        &lt;td&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;
-   &lt;tr&gt;
-    &lt;td&gt;
-     &lt;table cellpadding="0" cellspacing="0"&gt;
       &lt;tbody&gt;
        &lt;tr&gt;
         &lt;td&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;
@@ -2536,27 +2326,9 @@ bitmap that we want to draw some text into:&lt;/p&gt;
    &lt;tr&gt;
     &lt;td&gt;&lt;span class="stt"&gt;&amp;gt; &lt;/span&gt;&lt;span class="RktPn"&gt;(&lt;/span&gt;&lt;span class="RktSym"&gt;&lt;a class="RktStxLink" data-pltdoc="x" href="http://docs.racket-lang.org/reference/define.html#%28form._%28%28lib._racket%2Fprivate%2Fbase..rkt%29._define%29%29"&gt;define&lt;/a&gt;&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;txt-bt&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktPn"&gt;(&lt;/span&gt;&lt;span class="RktSym"&gt;make-bitmap&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktVal"&gt;256&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktVal"&gt;256&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
    &lt;tr&gt;
-    &lt;td&gt;
-     &lt;table cellpadding="0" cellspacing="0"&gt;
-      &lt;tbody&gt;
-       &lt;tr&gt;
-        &lt;td&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;
-   &lt;tr&gt;
     &lt;td&gt;&lt;span class="stt"&gt;&amp;gt; &lt;/span&gt;&lt;span class="RktPn"&gt;(&lt;/span&gt;&lt;span class="RktSym"&gt;&lt;a class="RktStxLink" data-pltdoc="x" href="http://docs.racket-lang.org/reference/define.html#%28form._%28%28lib._racket%2Fprivate%2Fbase..rkt%29._define%29%29"&gt;define&lt;/a&gt;&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;txt-surface&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktPn"&gt;(&lt;/span&gt;&lt;span class="RktSym"&gt;send&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;txt-bt&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;get-handle&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
    &lt;tr&gt;
-    &lt;td&gt;
-     &lt;table cellpadding="0" cellspacing="0"&gt;
-      &lt;tbody&gt;
-       &lt;tr&gt;
-        &lt;td&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;
-   &lt;tr&gt;
-    &lt;td&gt;&lt;span class="stt"&gt;&amp;gt; &lt;/span&gt;&lt;span class="RktPn"&gt;(&lt;/span&gt;&lt;span class="RktSym"&gt;&lt;a class="RktStxLink" data-pltdoc="x" href="http://docs.racket-lang.org/reference/define.html#%28form._%28%28lib._racket%2Fprivate%2Fbase..rkt%29._define%29%29"&gt;define&lt;/a&gt;&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;txt-ctx&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktPn"&gt;(&lt;/span&gt;&lt;span class="RktSym"&gt;cairo-create&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;txt-surface&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
-   &lt;tr&gt;
-    &lt;td&gt;
-     &lt;table cellpadding="0" cellspacing="0"&gt;
-      &lt;tbody&gt;
-       &lt;tr&gt;
-        &lt;td&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;
+    &lt;td&gt;&lt;span class="stt"&gt;&amp;gt; &lt;/span&gt;&lt;span class="RktPn"&gt;(&lt;/span&gt;&lt;span class="RktSym"&gt;&lt;a class="RktStxLink" data-pltdoc="x" href="http://docs.racket-lang.org/reference/define.html#%28form._%28%28lib._racket%2Fprivate%2Fbase..rkt%29._define%29%29"&gt;define&lt;/a&gt;&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;txt-ctx&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktPn"&gt;(&lt;/span&gt;&lt;span class="RktSym"&gt;cairo-create&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;txt-surface&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;
 
 &lt;p&gt;Our challenge is to make a Racket function that takes a string (let&amp;rsquo;s
 assume we can draw it in one line) and draws it into this bitmap.
@@ -2633,13 +2405,7 @@ definition above into a &lt;span class="RktWrap"&gt;&lt;span class="RktSym"&gt;&
        &lt;tr&gt;
         &lt;td&gt;&lt;span class="hspace"&gt;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class="RktPn"&gt;[&lt;/span&gt;&lt;span class="RktSym"&gt;x-advance&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;&lt;a class="RktValLink" data-pltdoc="x" href="http://docs.racket-lang.org/foreign/Numeric_Types.html#%28def._%28%28quote._~23~25foreign%29.__double%29%29"&gt;_double&lt;/a&gt;&lt;/span&gt;&lt;span class="RktPn"&gt;]&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
        &lt;tr&gt;
-        &lt;td&gt;&lt;span class="hspace"&gt;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class="RktPn"&gt;[&lt;/span&gt;&lt;span class="RktSym"&gt;y-advance&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;&lt;a class="RktValLink" data-pltdoc="x" href="http://docs.racket-lang.org/foreign/Numeric_Types.html#%28def._%28%28quote._~23~25foreign%29.__double%29%29"&gt;_double&lt;/a&gt;&lt;/span&gt;&lt;span class="RktPn"&gt;]&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;
-   &lt;tr&gt;
-    &lt;td&gt;
-     &lt;table cellpadding="0" cellspacing="0"&gt;
-      &lt;tbody&gt;
-       &lt;tr&gt;
-        &lt;td&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;
+        &lt;td&gt;&lt;span class="hspace"&gt;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class="RktPn"&gt;[&lt;/span&gt;&lt;span class="RktSym"&gt;y-advance&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;&lt;a class="RktValLink" data-pltdoc="x" href="http://docs.racket-lang.org/foreign/Numeric_Types.html#%28def._%28%28quote._~23~25foreign%29.__double%29%29"&gt;_double&lt;/a&gt;&lt;/span&gt;&lt;span class="RktPn"&gt;]&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;
 
 &lt;p&gt;This declaration does a couple of things. First, it defines a bunch of handy C types
 related to the struct for us:&lt;/p&gt;
@@ -2722,13 +2488,7 @@ interface for &lt;span class="RktWrap"&gt;&lt;span class="RktSym"&gt;cairo-text-
        &lt;tr&gt;
         &lt;td&gt;&lt;span class="hspace"&gt;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;&lt;a class="RktStxLink" data-pltdoc="x" href="http://docs.racket-lang.org/foreign/foreign_procedures.html#%28form._%28%28lib._ffi%2Funsafe..rkt%29._-~3e%29%29"&gt;&lt;span class="nobreak"&gt;-&amp;gt;&lt;/span&gt;&lt;/a&gt;&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;&lt;a class="RktValLink" data-pltdoc="x" href="http://docs.racket-lang.org/foreign/Other_Atomic_Types.html#%28def._%28%28quote._~23~25foreign%29.__void%29%29"&gt;_void&lt;/a&gt;&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
        &lt;tr&gt;
-        &lt;td&gt;&lt;span class="hspace"&gt;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class="RktPn"&gt;#:c-id&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;cairo_text_extents&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;
-   &lt;tr&gt;
-    &lt;td&gt;
-     &lt;table cellpadding="0" cellspacing="0"&gt;
-      &lt;tbody&gt;
-       &lt;tr&gt;
-        &lt;td&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;
+        &lt;td&gt;&lt;span class="hspace"&gt;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class="RktPn"&gt;#:c-id&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;cairo_text_extents&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;
 
 &lt;p&gt;In order to actually use this function, we need to create a text extents struct
 and provide it as a pointer. Conveniently, the FFI treats instances of C structs
@@ -2749,24 +2509,12 @@ as pointers so this is pretty straightforward:&lt;/p&gt;
         &lt;td&gt;&lt;span class="hspace"&gt;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class="RktVal"&gt;0.0&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktVal"&gt;0.0&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktVal"&gt;0.0&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktVal"&gt;0.0&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktVal"&gt;0.0&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktVal"&gt;0.0&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;
    &lt;tr&gt;
     &lt;td&gt;
-     &lt;table cellpadding="0" cellspacing="0"&gt;
-      &lt;tbody&gt;
-       &lt;tr&gt;
-        &lt;td&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;
-   &lt;tr&gt;
-    &lt;td&gt;
      &lt;table cellpadding="0" cellspacing="0" class="RktBlk"&gt;
       &lt;tbody&gt;
        &lt;tr&gt;
         &lt;td&gt;&lt;span class="stt"&gt;&amp;gt; &lt;/span&gt;&lt;span class="RktPn"&gt;(&lt;/span&gt;&lt;span class="RktSym"&gt;cairo-text-extents&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
        &lt;tr&gt;
         &lt;td&gt;&lt;span class="hspace"&gt;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;txt-ctx&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktVal"&gt;"hello world"&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;extents&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;
-   &lt;tr&gt;
-    &lt;td&gt;
-     &lt;table cellpadding="0" cellspacing="0"&gt;
-      &lt;tbody&gt;
-       &lt;tr&gt;
-        &lt;td&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;
    &lt;tr&gt;
     &lt;td&gt;&lt;span class="stt"&gt;&amp;gt; &lt;/span&gt;&lt;span class="RktPn"&gt;(&lt;/span&gt;&lt;span class="RktSym"&gt;cairo_text_extents_t-width&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;extents&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
    &lt;tr&gt;
@@ -2806,13 +2554,7 @@ the return result:&lt;/p&gt;
        &lt;tr&gt;
         &lt;td&gt;&lt;span class="hspace"&gt;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;&lt;a class="RktStxLink" data-pltdoc="x" href="http://docs.racket-lang.org/foreign/foreign_procedures.html#%28form._%28%28lib._ffi%2Funsafe..rkt%29._-~3e%29%29"&gt;&lt;span class="nobreak"&gt;-&amp;gt;&lt;/span&gt;&lt;/a&gt;&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;ext&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
        &lt;tr&gt;
-        &lt;td&gt;&lt;span class="hspace"&gt;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class="RktPn"&gt;#:c-id&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;cairo_text_extents&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;
-   &lt;tr&gt;
-    &lt;td&gt;
-     &lt;table cellpadding="0" cellspacing="0"&gt;
-      &lt;tbody&gt;
-       &lt;tr&gt;
-        &lt;td&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;
+        &lt;td&gt;&lt;span class="hspace"&gt;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class="RktPn"&gt;#:c-id&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;cairo_text_extents&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;
 
 &lt;p&gt;The &lt;span class="RktWrap"&gt;&lt;span class="RktSym"&gt;&lt;a class="RktStxLink" data-pltdoc="x" href="http://docs.racket-lang.org/foreign/foreign_procedures.html#%28form._%28%28lib._ffi%2Funsafe..rkt%29.__ptr%29%29"&gt;_ptr&lt;/a&gt;&lt;/span&gt;&lt;/span&gt; constructor works like the &lt;span class="RktWrap"&gt;&lt;span class="RktSym"&gt;&lt;a class="RktStxLink" data-pltdoc="x" href="http://docs.racket-lang.org/foreign/foreign_procedures.html#%28form._%28%28lib._ffi%2Funsafe..rkt%29.__list%29%29"&gt;_list&lt;/a&gt;&lt;/span&gt;&lt;/span&gt; constructor we saw
 earlier in this blog post but typically for a single object. Since we are passing
@@ -2910,12 +2652,6 @@ of the new &lt;span class="RktWrap"&gt;&lt;span class="RktSym"&gt;fit-text&lt;/s
    &lt;tr&gt;
     &lt;td&gt;&lt;span class="stt"&gt;&amp;gt; &lt;/span&gt;&lt;span class="RktPn"&gt;(&lt;/span&gt;&lt;span class="RktSym"&gt;fit-text&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktVal"&gt;"Saluton, Mondo / Hallo, mundo"&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
    &lt;tr&gt;
-    &lt;td&gt;
-     &lt;table cellpadding="0" cellspacing="0"&gt;
-      &lt;tbody&gt;
-       &lt;tr&gt;
-        &lt;td&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;
-   &lt;tr&gt;
     &lt;td&gt;&lt;span class="stt"&gt;&amp;gt; &lt;/span&gt;&lt;span class="RktPn"&gt;(&lt;/span&gt;&lt;span class="RktSym"&gt;show&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;txt-bt&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
    &lt;tr&gt;
     &lt;td&gt;
@@ -2993,27 +2729,9 @@ actually play with the FFI:&lt;/p&gt;
    &lt;tr&gt;
     &lt;td&gt;&lt;span class="stt"&gt;&amp;gt; &lt;/span&gt;&lt;span class="RktPn"&gt;(&lt;/span&gt;&lt;span class="RktSym"&gt;&lt;a class="RktStxLink" data-pltdoc="x" href="http://docs.racket-lang.org/reference/require.html#%28form._%28%28lib._racket%2Fprivate%2Fbase..rkt%29._require%29%29"&gt;require&lt;/a&gt;&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;racket/draw&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
    &lt;tr&gt;
-    &lt;td&gt;
-     &lt;table cellpadding="0" cellspacing="0"&gt;
-      &lt;tbody&gt;
-       &lt;tr&gt;
-        &lt;td&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;
-   &lt;tr&gt;
     &lt;td&gt;&lt;span class="stt"&gt;&amp;gt; &lt;/span&gt;&lt;span class="RktPn"&gt;(&lt;/span&gt;&lt;span class="RktSym"&gt;&lt;a class="RktStxLink" data-pltdoc="x" href="http://docs.racket-lang.org/reference/define.html#%28form._%28%28lib._racket%2Fprivate%2Fbase..rkt%29._define%29%29"&gt;define&lt;/a&gt;&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;bt&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktPn"&gt;(&lt;/span&gt;&lt;span class="RktSym"&gt;make-bitmap&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktVal"&gt;256&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktVal"&gt;256&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
    &lt;tr&gt;
-    &lt;td&gt;
-     &lt;table cellpadding="0" cellspacing="0"&gt;
-      &lt;tbody&gt;
-       &lt;tr&gt;
-        &lt;td&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;
-   &lt;tr&gt;
-    &lt;td&gt;&lt;span class="stt"&gt;&amp;gt; &lt;/span&gt;&lt;span class="RktPn"&gt;(&lt;/span&gt;&lt;span class="RktSym"&gt;&lt;a class="RktStxLink" data-pltdoc="x" href="http://docs.racket-lang.org/reference/define.html#%28form._%28%28lib._racket%2Fprivate%2Fbase..rkt%29._define%29%29"&gt;define&lt;/a&gt;&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;bt-surface&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktPn"&gt;(&lt;/span&gt;&lt;span class="RktSym"&gt;send&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;bt&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;get-handle&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
-   &lt;tr&gt;
-    &lt;td&gt;
-     &lt;table cellpadding="0" cellspacing="0"&gt;
-      &lt;tbody&gt;
-       &lt;tr&gt;
-        &lt;td&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;
+    &lt;td&gt;&lt;span class="stt"&gt;&amp;gt; &lt;/span&gt;&lt;span class="RktPn"&gt;(&lt;/span&gt;&lt;span class="RktSym"&gt;&lt;a class="RktStxLink" data-pltdoc="x" href="http://docs.racket-lang.org/reference/define.html#%28form._%28%28lib._racket%2Fprivate%2Fbase..rkt%29._define%29%29"&gt;define&lt;/a&gt;&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;bt-surface&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktPn"&gt;(&lt;/span&gt;&lt;span class="RktSym"&gt;send&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;bt&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;get-handle&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;
 
 &lt;p&gt;This uses the Racket drawing library &lt;span class="RktWrap"&gt;&lt;a class="RktModLink" data-pltdoc="x" href="http://docs.racket-lang.org/draw/index.html"&gt;&lt;span class="RktSym"&gt;racket/draw&lt;/span&gt;&lt;/a&gt;&lt;/span&gt; to construct
 a bitmap object that we&amp;rsquo;ll draw on. The &lt;span class="RktWrap"&gt;&lt;span class="RktSym"&gt;get-handle&lt;/span&gt;&lt;/span&gt; method just extracts a
@@ -3029,13 +2747,7 @@ When following along, just copy &amp;amp; paste the snippets into your REPL.&lt;
  &lt;table cellpadding="0" cellspacing="0" class="RktBlk"&gt;
   &lt;tbody&gt;
    &lt;tr&gt;
-    &lt;td&gt;&lt;span class="stt"&gt;&amp;gt; &lt;/span&gt;&lt;span class="RktPn"&gt;(&lt;/span&gt;&lt;span class="RktSym"&gt;&lt;a class="RktStxLink" data-pltdoc="x" href="http://docs.racket-lang.org/reference/require.html#%28form._%28%28lib._racket%2Fprivate%2Fbase..rkt%29._require%29%29"&gt;require&lt;/a&gt;&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;ffi/unsafe&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
-   &lt;tr&gt;
-    &lt;td&gt;
-     &lt;table cellpadding="0" cellspacing="0"&gt;
-      &lt;tbody&gt;
-       &lt;tr&gt;
-        &lt;td&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;
+    &lt;td&gt;&lt;span class="stt"&gt;&amp;gt; &lt;/span&gt;&lt;span class="RktPn"&gt;(&lt;/span&gt;&lt;span class="RktSym"&gt;&lt;a class="RktStxLink" data-pltdoc="x" href="http://docs.racket-lang.org/reference/require.html#%28form._%28%28lib._racket%2Fprivate%2Fbase..rkt%29._require%29%29"&gt;require&lt;/a&gt;&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;ffi/unsafe&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;
 
 &lt;p&gt;As the module name suggests, the FFI is &lt;span style="font-style: italic"&gt;unsafe&lt;/span&gt; and can cause your Racket process
 to segfault. If you&amp;rsquo;re following along in DrRacket, you will want to save your file
@@ -3048,13 +2760,7 @@ is a handle that we use to access C values and functions:&lt;/p&gt;
  &lt;table cellpadding="0" cellspacing="0" class="RktBlk"&gt;
   &lt;tbody&gt;
    &lt;tr&gt;
-    &lt;td&gt;&lt;span class="stt"&gt;&amp;gt; &lt;/span&gt;&lt;span class="RktPn"&gt;(&lt;/span&gt;&lt;span class="RktSym"&gt;&lt;a class="RktStxLink" data-pltdoc="x" href="http://docs.racket-lang.org/reference/define.html#%28form._%28%28lib._racket%2Fprivate%2Fbase..rkt%29._define%29%29"&gt;define&lt;/a&gt;&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;cairo-lib&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktPn"&gt;(&lt;/span&gt;&lt;span class="RktSym"&gt;&lt;a class="RktValLink" data-pltdoc="x" href="http://docs.racket-lang.org/foreign/Loading_Foreign_Libraries.html#%28def._%28%28lib._ffi%2Funsafe..rkt%29._ffi-lib%29%29"&gt;ffi-lib&lt;/a&gt;&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktVal"&gt;#f&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
-   &lt;tr&gt;
-    &lt;td&gt;
-     &lt;table cellpadding="0" cellspacing="0"&gt;
-      &lt;tbody&gt;
-       &lt;tr&gt;
-        &lt;td&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;
+    &lt;td&gt;&lt;span class="stt"&gt;&amp;gt; &lt;/span&gt;&lt;span class="RktPn"&gt;(&lt;/span&gt;&lt;span class="RktSym"&gt;&lt;a class="RktStxLink" data-pltdoc="x" href="http://docs.racket-lang.org/reference/define.html#%28form._%28%28lib._racket%2Fprivate%2Fbase..rkt%29._define%29%29"&gt;define&lt;/a&gt;&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;cairo-lib&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktPn"&gt;(&lt;/span&gt;&lt;span class="RktSym"&gt;&lt;a class="RktValLink" data-pltdoc="x" href="http://docs.racket-lang.org/foreign/Loading_Foreign_Libraries.html#%28def._%28%28lib._ffi%2Funsafe..rkt%29._ffi-lib%29%29"&gt;ffi-lib&lt;/a&gt;&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktVal"&gt;#f&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;
 
 &lt;p&gt;Since Cairo has already been loaded by the Racket process because of the
 &lt;span class="RktWrap"&gt;&lt;a class="RktModLink" data-pltdoc="x" href="http://docs.racket-lang.org/gui/index.html"&gt;&lt;span class="RktSym"&gt;racket/gui&lt;/span&gt;&lt;/a&gt;&lt;/span&gt; import earlier, we can supply &lt;span class="RktWrap"&gt;&lt;span class="RktVal"&gt;#f&lt;/span&gt;&lt;/span&gt; here as an
@@ -3134,13 +2840,7 @@ function:&lt;/p&gt;
        &lt;tr&gt;
         &lt;td&gt;&lt;span class="hspace"&gt;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class="RktPn"&gt;(&lt;/span&gt;&lt;span class="RktSym"&gt;&lt;a class="RktValLink" data-pltdoc="x" href="http://docs.racket-lang.org/foreign/Loading_Foreign_Libraries.html#%28def._%28%28lib._ffi%2Funsafe..rkt%29._get-ffi-obj%29%29"&gt;get-ffi-obj&lt;/a&gt;&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktVal"&gt;"cairo_create"&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;cairo-lib&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
        &lt;tr&gt;
-        &lt;td&gt;&lt;span class="hspace"&gt;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class="RktPn"&gt;(&lt;/span&gt;&lt;span class="RktSym"&gt;&lt;a class="RktStxLink" data-pltdoc="x" href="http://docs.racket-lang.org/foreign/foreign_procedures.html#%28form._%28%28lib._ffi%2Funsafe..rkt%29.__fun%29%29"&gt;_fun&lt;/a&gt;&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;&lt;a class="RktValLink" data-pltdoc="x" href="http://docs.racket-lang.org/foreign/Pointer_Types.html#%28def._%28%28quote._~23~25foreign%29.__pointer%29%29"&gt;_pointer&lt;/a&gt;&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;&lt;a class="RktStxLink" data-pltdoc="x" href="http://docs.racket-lang.org/foreign/foreign_procedures.html#%28form._%28%28lib._ffi%2Funsafe..rkt%29._-~3e%29%29"&gt;&lt;span class="nobreak"&gt;-&amp;gt;&lt;/span&gt;&lt;/a&gt;&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;&lt;a class="RktValLink" data-pltdoc="x" href="http://docs.racket-lang.org/foreign/Pointer_Types.html#%28def._%28%28quote._~23~25foreign%29.__pointer%29%29"&gt;_pointer&lt;/a&gt;&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;
-   &lt;tr&gt;
-    &lt;td&gt;
-     &lt;table cellpadding="0" cellspacing="0"&gt;
-      &lt;tbody&gt;
-       &lt;tr&gt;
-        &lt;td&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;
+        &lt;td&gt;&lt;span class="hspace"&gt;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class="RktPn"&gt;(&lt;/span&gt;&lt;span class="RktSym"&gt;&lt;a class="RktStxLink" data-pltdoc="x" href="http://docs.racket-lang.org/foreign/foreign_procedures.html#%28form._%28%28lib._ffi%2Funsafe..rkt%29.__fun%29%29"&gt;_fun&lt;/a&gt;&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;&lt;a class="RktValLink" data-pltdoc="x" href="http://docs.racket-lang.org/foreign/Pointer_Types.html#%28def._%28%28quote._~23~25foreign%29.__pointer%29%29"&gt;_pointer&lt;/a&gt;&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;&lt;a class="RktStxLink" data-pltdoc="x" href="http://docs.racket-lang.org/foreign/foreign_procedures.html#%28form._%28%28lib._ffi%2Funsafe..rkt%29._-~3e%29%29"&gt;&lt;span class="nobreak"&gt;-&amp;gt;&lt;/span&gt;&lt;/a&gt;&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;&lt;a class="RktValLink" data-pltdoc="x" href="http://docs.racket-lang.org/foreign/Pointer_Types.html#%28def._%28%28quote._~23~25foreign%29.__pointer%29%29"&gt;_pointer&lt;/a&gt;&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;
 
 &lt;p&gt;Then we can use &lt;span class="RktWrap"&gt;&lt;span class="RktSym"&gt;cairo-create&lt;/span&gt;&lt;/span&gt; as an ordinary racket function:&lt;/p&gt;
 
@@ -3149,12 +2849,6 @@ function:&lt;/p&gt;
   &lt;tbody&gt;
    &lt;tr&gt;
     &lt;td&gt;&lt;span class="stt"&gt;&amp;gt; &lt;/span&gt;&lt;span class="RktPn"&gt;(&lt;/span&gt;&lt;span class="RktSym"&gt;&lt;a class="RktStxLink" data-pltdoc="x" href="http://docs.racket-lang.org/reference/define.html#%28form._%28%28lib._racket%2Fprivate%2Fbase..rkt%29._define%29%29"&gt;define&lt;/a&gt;&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;ctx&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktPn"&gt;(&lt;/span&gt;&lt;span class="RktSym"&gt;cairo-create&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;bt-surface&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
-   &lt;tr&gt;
-    &lt;td&gt;
-     &lt;table cellpadding="0" cellspacing="0"&gt;
-      &lt;tbody&gt;
-       &lt;tr&gt;
-        &lt;td&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;
    &lt;tr&gt;
     &lt;td&gt;&lt;span class="stt"&gt;&amp;gt; &lt;/span&gt;&lt;span class="RktSym"&gt;ctx&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
    &lt;tr&gt;
@@ -3189,19 +2883,7 @@ correspond to the &lt;span class="stt"&gt;cairo_t&lt;/span&gt; and &lt;span clas
    &lt;tr&gt;
     &lt;td&gt;&lt;span class="stt"&gt;&amp;gt; &lt;/span&gt;&lt;span class="RktPn"&gt;(&lt;/span&gt;&lt;span class="RktSym"&gt;&lt;a class="RktStxLink" data-pltdoc="x" href="http://docs.racket-lang.org/foreign/foreign_tagged-pointers.html#%28form._%28%28lib._ffi%2Funsafe..rkt%29._define-cpointer-type%29%29"&gt;define-cpointer-type&lt;/a&gt;&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;_cairo_t&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
    &lt;tr&gt;
-    &lt;td&gt;
-     &lt;table cellpadding="0" cellspacing="0"&gt;
-      &lt;tbody&gt;
-       &lt;tr&gt;
-        &lt;td&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;
-   &lt;tr&gt;
-    &lt;td&gt;&lt;span class="stt"&gt;&amp;gt; &lt;/span&gt;&lt;span class="RktPn"&gt;(&lt;/span&gt;&lt;span class="RktSym"&gt;&lt;a class="RktStxLink" data-pltdoc="x" href="http://docs.racket-lang.org/foreign/foreign_tagged-pointers.html#%28form._%28%28lib._ffi%2Funsafe..rkt%29._define-cpointer-type%29%29"&gt;define-cpointer-type&lt;/a&gt;&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;_cairo_surface_t&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
-   &lt;tr&gt;
-    &lt;td&gt;
-     &lt;table cellpadding="0" cellspacing="0"&gt;
-      &lt;tbody&gt;
-       &lt;tr&gt;
-        &lt;td&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;
+    &lt;td&gt;&lt;span class="stt"&gt;&amp;gt; &lt;/span&gt;&lt;span class="RktPn"&gt;(&lt;/span&gt;&lt;span class="RktSym"&gt;&lt;a class="RktStxLink" data-pltdoc="x" href="http://docs.racket-lang.org/foreign/foreign_tagged-pointers.html#%28form._%28%28lib._ffi%2Funsafe..rkt%29._define-cpointer-type%29%29"&gt;define-cpointer-type&lt;/a&gt;&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;_cairo_surface_t&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;
 
 &lt;p&gt;We can then redefine &lt;span class="RktWrap"&gt;&lt;span class="RktSym"&gt;cairo-create&lt;/span&gt;&lt;/span&gt; with a better type, which will
 prevent ill-typed calls:&lt;/p&gt;
@@ -3219,12 +2901,6 @@ prevent ill-typed calls:&lt;/p&gt;
         &lt;td&gt;&lt;span class="hspace"&gt;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class="RktPn"&gt;(&lt;/span&gt;&lt;span class="RktSym"&gt;&lt;a class="RktValLink" data-pltdoc="x" href="http://docs.racket-lang.org/foreign/Loading_Foreign_Libraries.html#%28def._%28%28lib._ffi%2Funsafe..rkt%29._get-ffi-obj%29%29"&gt;get-ffi-obj&lt;/a&gt;&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktVal"&gt;"cairo_create"&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;cairo-lib&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
        &lt;tr&gt;
         &lt;td&gt;&lt;span class="hspace"&gt;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class="RktPn"&gt;(&lt;/span&gt;&lt;span class="RktSym"&gt;&lt;a class="RktStxLink" data-pltdoc="x" href="http://docs.racket-lang.org/foreign/foreign_procedures.html#%28form._%28%28lib._ffi%2Funsafe..rkt%29.__fun%29%29"&gt;_fun&lt;/a&gt;&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;_cairo_surface_t&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;&lt;a class="RktStxLink" data-pltdoc="x" href="http://docs.racket-lang.org/foreign/foreign_procedures.html#%28form._%28%28lib._ffi%2Funsafe..rkt%29._-~3e%29%29"&gt;&lt;span class="nobreak"&gt;-&amp;gt;&lt;/span&gt;&lt;/a&gt;&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;_cairo_t&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;
-   &lt;tr&gt;
-    &lt;td&gt;
-     &lt;table cellpadding="0" cellspacing="0"&gt;
-      &lt;tbody&gt;
-       &lt;tr&gt;
-        &lt;td&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;
    &lt;tr&gt;
     &lt;td&gt;&lt;span class="stt"&gt;&amp;gt; &lt;/span&gt;&lt;span class="RktPn"&gt;(&lt;/span&gt;&lt;span class="RktSym"&gt;cairo-create&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktPn"&gt;(&lt;/span&gt;&lt;span class="RktSym"&gt;cairo-create&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;bt-surface&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
    &lt;tr&gt;
@@ -3257,12 +2933,6 @@ existing pointers with a tag like this:&lt;/p&gt;
   &lt;tbody&gt;
    &lt;tr&gt;
     &lt;td&gt;&lt;span class="stt"&gt;&amp;gt; &lt;/span&gt;&lt;span class="RktPn"&gt;(&lt;/span&gt;&lt;span class="RktSym"&gt;&lt;a class="RktValLink" data-pltdoc="x" href="http://docs.racket-lang.org/foreign/foreign_tagged-pointers.html#%28def._%28%28lib._ffi%2Funsafe..rkt%29._cpointer-push-tag%21%29%29"&gt;cpointer-push-tag!&lt;/a&gt;&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;ctx&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktVal"&gt;'&lt;/span&gt;&lt;span class="RktVal"&gt;cairo_t&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
-   &lt;tr&gt;
-    &lt;td&gt;
-     &lt;table cellpadding="0" cellspacing="0"&gt;
-      &lt;tbody&gt;
-       &lt;tr&gt;
-        &lt;td&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;
    &lt;tr&gt;
     &lt;td&gt;&lt;span class="stt"&gt;&amp;gt; &lt;/span&gt;&lt;span class="RktPn"&gt;(&lt;/span&gt;&lt;span class="RktSym"&gt;&lt;a class="RktValLink" data-pltdoc="x" href="http://docs.racket-lang.org/foreign/foreign_tagged-pointers.html#%28def._%28%28lib._ffi%2Funsafe..rkt%29._cpointer-has-tag~3f%29%29"&gt;cpointer-has-tag?&lt;/a&gt;&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;ctx&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktVal"&gt;'&lt;/span&gt;&lt;span class="RktVal"&gt;cairo_t&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
    &lt;tr&gt;
@@ -3311,13 +2981,7 @@ with &lt;span class="stt"&gt;cairo_create&lt;/span&gt; before:&lt;/p&gt;
        &lt;tr&gt;
         &lt;td&gt;&lt;span class="hspace"&gt;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;cairo-lib&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
        &lt;tr&gt;
-        &lt;td&gt;&lt;span class="hspace"&gt;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class="RktPn"&gt;(&lt;/span&gt;&lt;span class="RktSym"&gt;&lt;a class="RktStxLink" data-pltdoc="x" href="http://docs.racket-lang.org/foreign/foreign_procedures.html#%28form._%28%28lib._ffi%2Funsafe..rkt%29.__fun%29%29"&gt;_fun&lt;/a&gt;&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;&lt;a class="RktValLink" data-pltdoc="x" href="http://docs.racket-lang.org/foreign/Pointer_Types.html#%28def._%28%28quote._~23~25foreign%29.__pointer%29%29"&gt;_pointer&lt;/a&gt;&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;&lt;a class="RktValLink" data-pltdoc="x" href="http://docs.racket-lang.org/foreign/Numeric_Types.html#%28def._%28%28quote._~23~25foreign%29.__double%29%29"&gt;_double&lt;/a&gt;&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;&lt;a class="RktValLink" data-pltdoc="x" href="http://docs.racket-lang.org/foreign/Numeric_Types.html#%28def._%28%28quote._~23~25foreign%29.__double%29%29"&gt;_double&lt;/a&gt;&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;&lt;a class="RktStxLink" data-pltdoc="x" href="http://docs.racket-lang.org/foreign/foreign_procedures.html#%28form._%28%28lib._ffi%2Funsafe..rkt%29._-~3e%29%29"&gt;&lt;span class="nobreak"&gt;-&amp;gt;&lt;/span&gt;&lt;/a&gt;&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;&lt;a class="RktValLink" data-pltdoc="x" href="http://docs.racket-lang.org/foreign/Other_Atomic_Types.html#%28def._%28%28quote._~23~25foreign%29.__void%29%29"&gt;_void&lt;/a&gt;&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;
-   &lt;tr&gt;
-    &lt;td&gt;
-     &lt;table cellpadding="0" cellspacing="0"&gt;
-      &lt;tbody&gt;
-       &lt;tr&gt;
-        &lt;td&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;
+        &lt;td&gt;&lt;span class="hspace"&gt;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class="RktPn"&gt;(&lt;/span&gt;&lt;span class="RktSym"&gt;&lt;a class="RktStxLink" data-pltdoc="x" href="http://docs.racket-lang.org/foreign/foreign_procedures.html#%28form._%28%28lib._ffi%2Funsafe..rkt%29.__fun%29%29"&gt;_fun&lt;/a&gt;&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;&lt;a class="RktValLink" data-pltdoc="x" href="http://docs.racket-lang.org/foreign/Pointer_Types.html#%28def._%28%28quote._~23~25foreign%29.__pointer%29%29"&gt;_pointer&lt;/a&gt;&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;&lt;a class="RktValLink" data-pltdoc="x" href="http://docs.racket-lang.org/foreign/Numeric_Types.html#%28def._%28%28quote._~23~25foreign%29.__double%29%29"&gt;_double&lt;/a&gt;&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;&lt;a class="RktValLink" data-pltdoc="x" href="http://docs.racket-lang.org/foreign/Numeric_Types.html#%28def._%28%28quote._~23~25foreign%29.__double%29%29"&gt;_double&lt;/a&gt;&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;&lt;a class="RktStxLink" data-pltdoc="x" href="http://docs.racket-lang.org/foreign/foreign_procedures.html#%28form._%28%28lib._ffi%2Funsafe..rkt%29._-~3e%29%29"&gt;&lt;span class="nobreak"&gt;-&amp;gt;&lt;/span&gt;&lt;/a&gt;&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;&lt;a class="RktValLink" data-pltdoc="x" href="http://docs.racket-lang.org/foreign/Other_Atomic_Types.html#%28def._%28%28quote._~23~25foreign%29.__void%29%29"&gt;_void&lt;/a&gt;&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;
 
 &lt;p&gt;This starts to look awfully verbose once you start writing more of these
 definitions. Luckily, the FFI library comes with some definition forms
@@ -3332,19 +2996,7 @@ using the &lt;span class="RktWrap"&gt;&lt;span class="RktSym"&gt;define-ffi-defi
    &lt;tr&gt;
     &lt;td&gt;&lt;span class="stt"&gt;&amp;gt; &lt;/span&gt;&lt;span class="RktPn"&gt;(&lt;/span&gt;&lt;span class="RktSym"&gt;&lt;a class="RktStxLink" data-pltdoc="x" href="http://docs.racket-lang.org/reference/require.html#%28form._%28%28lib._racket%2Fprivate%2Fbase..rkt%29._require%29%29"&gt;require&lt;/a&gt;&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;ffi/unsafe/define&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
    &lt;tr&gt;
-    &lt;td&gt;
-     &lt;table cellpadding="0" cellspacing="0"&gt;
-      &lt;tbody&gt;
-       &lt;tr&gt;
-        &lt;td&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;
-   &lt;tr&gt;
     &lt;td&gt;&lt;span class="stt"&gt;&amp;gt; &lt;/span&gt;&lt;span class="RktPn"&gt;(&lt;/span&gt;&lt;span class="RktSym"&gt;define-ffi-definer&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;define-cairo&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;cairo-lib&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
-   &lt;tr&gt;
-    &lt;td&gt;
-     &lt;table cellpadding="0" cellspacing="0"&gt;
-      &lt;tbody&gt;
-       &lt;tr&gt;
-        &lt;td&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;
    &lt;tr&gt;
     &lt;td&gt;
      &lt;table cellpadding="0" cellspacing="0" class="RktBlk"&gt;
@@ -3354,13 +3006,7 @@ using the &lt;span class="RktWrap"&gt;&lt;span class="RktSym"&gt;define-ffi-defi
        &lt;tr&gt;
         &lt;td&gt;&lt;span class="hspace"&gt;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class="RktPn"&gt;(&lt;/span&gt;&lt;span class="RktSym"&gt;&lt;a class="RktStxLink" data-pltdoc="x" href="http://docs.racket-lang.org/foreign/foreign_procedures.html#%28form._%28%28lib._ffi%2Funsafe..rkt%29.__fun%29%29"&gt;_fun&lt;/a&gt;&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;_cairo_t&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;&lt;a class="RktValLink" data-pltdoc="x" href="http://docs.racket-lang.org/foreign/Numeric_Types.html#%28def._%28%28quote._~23~25foreign%29.__double%29%29"&gt;_double&lt;/a&gt;&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;&lt;a class="RktValLink" data-pltdoc="x" href="http://docs.racket-lang.org/foreign/Numeric_Types.html#%28def._%28%28quote._~23~25foreign%29.__double%29%29"&gt;_double&lt;/a&gt;&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;&lt;a class="RktStxLink" data-pltdoc="x" href="http://docs.racket-lang.org/foreign/foreign_procedures.html#%28form._%28%28lib._ffi%2Funsafe..rkt%29._-~3e%29%29"&gt;&lt;span class="nobreak"&gt;-&amp;gt;&lt;/span&gt;&lt;/a&gt;&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;&lt;a class="RktValLink" data-pltdoc="x" href="http://docs.racket-lang.org/foreign/Other_Atomic_Types.html#%28def._%28%28quote._~23~25foreign%29.__void%29%29"&gt;_void&lt;/a&gt;&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
        &lt;tr&gt;
-        &lt;td&gt;&lt;span class="hspace"&gt;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class="RktPn"&gt;#:c-id&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;cairo_move_to&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;
-   &lt;tr&gt;
-    &lt;td&gt;
-     &lt;table cellpadding="0" cellspacing="0"&gt;
-      &lt;tbody&gt;
-       &lt;tr&gt;
-        &lt;td&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;
+        &lt;td&gt;&lt;span class="hspace"&gt;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class="RktPn"&gt;#:c-id&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;cairo_move_to&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;
 
 &lt;p&gt;As you can see, the &lt;span class="RktWrap"&gt;&lt;span class="RktSym"&gt;define-ffi-definer&lt;/span&gt;&lt;/span&gt; form lets you define a
 new macro that lets you avoid writing the library value over and over.
@@ -3386,12 +3032,6 @@ below without comment:&lt;/p&gt;
         &lt;td&gt;&lt;span class="hspace"&gt;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class="RktPn"&gt;#:c-id&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;cairo_line_to&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;
    &lt;tr&gt;
     &lt;td&gt;
-     &lt;table cellpadding="0" cellspacing="0"&gt;
-      &lt;tbody&gt;
-       &lt;tr&gt;
-        &lt;td&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;
-   &lt;tr&gt;
-    &lt;td&gt;
      &lt;table cellpadding="0" cellspacing="0" class="RktBlk"&gt;
       &lt;tbody&gt;
        &lt;tr&gt;
@@ -3402,12 +3042,6 @@ below without comment:&lt;/p&gt;
         &lt;td&gt;&lt;span class="hspace"&gt;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class="RktPn"&gt;#:c-id&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;cairo_set_line_width&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;
    &lt;tr&gt;
     &lt;td&gt;
-     &lt;table cellpadding="0" cellspacing="0"&gt;
-      &lt;tbody&gt;
-       &lt;tr&gt;
-        &lt;td&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;
-   &lt;tr&gt;
-    &lt;td&gt;
      &lt;table cellpadding="0" cellspacing="0" class="RktBlk"&gt;
       &lt;tbody&gt;
        &lt;tr&gt;
@@ -3415,13 +3049,7 @@ below without comment:&lt;/p&gt;
        &lt;tr&gt;
         &lt;td&gt;&lt;span class="hspace"&gt;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class="RktPn"&gt;(&lt;/span&gt;&lt;span class="RktSym"&gt;&lt;a class="RktStxLink" data-pltdoc="x" href="http://docs.racket-lang.org/foreign/foreign_procedures.html#%28form._%28%28lib._ffi%2Funsafe..rkt%29.__fun%29%29"&gt;_fun&lt;/a&gt;&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;_cairo_t&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;&lt;a class="RktStxLink" data-pltdoc="x" href="http://docs.racket-lang.org/foreign/foreign_procedures.html#%28form._%28%28lib._ffi%2Funsafe..rkt%29._-~3e%29%29"&gt;&lt;span class="nobreak"&gt;-&amp;gt;&lt;/span&gt;&lt;/a&gt;&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;&lt;a class="RktValLink" data-pltdoc="x" href="http://docs.racket-lang.org/foreign/Other_Atomic_Types.html#%28def._%28%28quote._~23~25foreign%29.__void%29%29"&gt;_void&lt;/a&gt;&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
        &lt;tr&gt;
-        &lt;td&gt;&lt;span class="hspace"&gt;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class="RktPn"&gt;#:c-id&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;cairo_stroke&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;
-   &lt;tr&gt;
-    &lt;td&gt;
-     &lt;table cellpadding="0" cellspacing="0"&gt;
-      &lt;tbody&gt;
-       &lt;tr&gt;
-        &lt;td&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;
+        &lt;td&gt;&lt;span class="hspace"&gt;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class="RktPn"&gt;#:c-id&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;cairo_stroke&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;
 
 &lt;p&gt;The &lt;span class="stt"&gt;cairo_set_line_cap&lt;/span&gt; case is more interesting because the type
 &lt;span class="stt"&gt;cairo_line_cap_t&lt;/span&gt; is a C enumeration type. Racket&amp;rsquo;s FFI comes with
@@ -3457,13 +3085,7 @@ just supply the cases as a list of symbols:&lt;/p&gt;
        &lt;tr&gt;
         &lt;td&gt;&lt;span class="stt"&gt;&amp;gt; &lt;/span&gt;&lt;span class="RktPn"&gt;(&lt;/span&gt;&lt;span class="RktSym"&gt;&lt;a class="RktStxLink" data-pltdoc="x" href="http://docs.racket-lang.org/reference/define.html#%28form._%28%28lib._racket%2Fprivate%2Fbase..rkt%29._define%29%29"&gt;define&lt;/a&gt;&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;_cairo_line_cap_t&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
        &lt;tr&gt;
-        &lt;td&gt;&lt;span class="hspace"&gt;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class="RktPn"&gt;(&lt;/span&gt;&lt;span class="RktSym"&gt;&lt;a class="RktValLink" data-pltdoc="x" href="http://docs.racket-lang.org/foreign/Enumerations_and_Masks.html#%28def._%28%28lib._ffi%2Funsafe..rkt%29.__enum%29%29"&gt;_enum&lt;/a&gt;&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktVal"&gt;'&lt;/span&gt;&lt;span class="RktVal"&gt;(&lt;/span&gt;&lt;span class="RktVal"&gt;butt&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktVal"&gt;round&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktVal"&gt;square&lt;/span&gt;&lt;span class="RktVal"&gt;)&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;
-   &lt;tr&gt;
-    &lt;td&gt;
-     &lt;table cellpadding="0" cellspacing="0"&gt;
-      &lt;tbody&gt;
-       &lt;tr&gt;
-        &lt;td&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;
+        &lt;td&gt;&lt;span class="hspace"&gt;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class="RktPn"&gt;(&lt;/span&gt;&lt;span class="RktSym"&gt;&lt;a class="RktValLink" data-pltdoc="x" href="http://docs.racket-lang.org/foreign/Enumerations_and_Masks.html#%28def._%28%28lib._ffi%2Funsafe..rkt%29.__enum%29%29"&gt;_enum&lt;/a&gt;&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktVal"&gt;'&lt;/span&gt;&lt;span class="RktVal"&gt;(&lt;/span&gt;&lt;span class="RktVal"&gt;butt&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktVal"&gt;round&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktVal"&gt;square&lt;/span&gt;&lt;span class="RktVal"&gt;)&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;
 
 &lt;p&gt;The exact symbols that we specify are not important, since they just map to
 integers anyway. The choice depends on what is convenient for the Racket interface.
@@ -3484,13 +3106,7 @@ It&amp;rsquo;s also possible to specify how the symbols map to integers more pre
        &lt;tr&gt;
         &lt;td&gt;&lt;span class="hspace"&gt;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class="RktPn"&gt;(&lt;/span&gt;&lt;span class="RktSym"&gt;&lt;a class="RktStxLink" data-pltdoc="x" href="http://docs.racket-lang.org/foreign/foreign_procedures.html#%28form._%28%28lib._ffi%2Funsafe..rkt%29.__fun%29%29"&gt;_fun&lt;/a&gt;&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;_cairo_t&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;_cairo_line_cap_t&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;&lt;a class="RktStxLink" data-pltdoc="x" href="http://docs.racket-lang.org/foreign/foreign_procedures.html#%28form._%28%28lib._ffi%2Funsafe..rkt%29._-~3e%29%29"&gt;&lt;span class="nobreak"&gt;-&amp;gt;&lt;/span&gt;&lt;/a&gt;&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;&lt;a class="RktValLink" data-pltdoc="x" href="http://docs.racket-lang.org/foreign/Other_Atomic_Types.html#%28def._%28%28quote._~23~25foreign%29.__void%29%29"&gt;_void&lt;/a&gt;&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
        &lt;tr&gt;
-        &lt;td&gt;&lt;span class="hspace"&gt;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class="RktPn"&gt;#:c-id&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;cairo_set_line_cap&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;
-   &lt;tr&gt;
-    &lt;td&gt;
-     &lt;table cellpadding="0" cellspacing="0"&gt;
-      &lt;tbody&gt;
-       &lt;tr&gt;
-        &lt;td&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;
+        &lt;td&gt;&lt;span class="hspace"&gt;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class="RktPn"&gt;#:c-id&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;cairo_set_line_cap&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;
 
 &lt;h1&gt;&lt;a name="(part._.Putting_it_all_together)"&gt;&lt;/a&gt;Putting it all together&lt;/h1&gt;
 
@@ -3536,12 +3152,6 @@ it to distinguish it from the background:&lt;/p&gt;
   &lt;tbody&gt;
    &lt;tr&gt;
     &lt;td&gt;&lt;span class="stt"&gt;&amp;gt; &lt;/span&gt;&lt;span class="RktPn"&gt;(&lt;/span&gt;&lt;span class="RktSym"&gt;&lt;a class="RktStxLink" data-pltdoc="x" href="http://docs.racket-lang.org/reference/require.html#%28form._%28%28lib._racket%2Fprivate%2Fbase..rkt%29._require%29%29"&gt;require&lt;/a&gt;&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;pict&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
-   &lt;tr&gt;
-    &lt;td&gt;
-     &lt;table cellpadding="0" cellspacing="0"&gt;
-      &lt;tbody&gt;
-       &lt;tr&gt;
-        &lt;td&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;
    &lt;tr&gt;
     &lt;td&gt;&lt;span class="stt"&gt;&amp;gt; &lt;/span&gt;&lt;span class="RktPn"&gt;(&lt;/span&gt;&lt;span class="RktSym"&gt;linewidth&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktVal"&gt;2&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktPn"&gt;(&lt;/span&gt;&lt;span class="RktSym"&gt;frame&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktPn"&gt;(&lt;/span&gt;&lt;span class="RktSym"&gt;bitmap&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;bt&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
    &lt;tr&gt;
