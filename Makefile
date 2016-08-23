@@ -6,6 +6,14 @@ all: setup blog $(TARGETS)
 setup:
 	raco pkg install --auto --skip-installed gregor
 
+# Update `master` branch with changes from the last *merge commit* on `src`
+sync:
+	git cherry-pick -m 1 origin/src
+	make all
+	git add .
+	git commit -e -m "** sync"
+	git push origin master
+
 %.html: %.rkt templates/*.html
 	if [ -f $@ ]; then chmod +w $@; fi
 	racket -t $< > $@
