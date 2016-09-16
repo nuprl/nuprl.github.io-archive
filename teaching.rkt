@@ -92,7 +92,12 @@
                   <div class="col-md-6">                                              
                       <ul>
                           <li>
+                              <strong>7680</strong>Special Topics in Computer Systems<br />
+					          &nbsp;&nbsp;&nbsp;&nbsp;F 2016 Programming Models for Distributed Computing <a href="http://heather.miller.am/teaching/cs7680/" target="_blank">link</a> <span class="pn-muted">Heather Miller</span><br >
+                          </li>
+                          <li>
                               <strong>7480</strong> Special Topics in Programming Languages<br />
+					   &nbsp;&nbsp;&nbsp;&nbsp;F 2016 Advanced Program Analysis <span class="pn-muted">Frank Tip</span><br />
 					   &nbsp;&nbsp;&nbsp;&nbsp;F 2015 Types, Contracts, and Gradual Typing <a href="http://www.ccs.neu.edu/home/amal/course/7480-f15/" target="_blank">link</a> <span class="pn-muted">Amal Ahmed</span><br />
                               &nbsp;&nbsp;&nbsp;&nbsp;S 2012 Type Systems <a href="http://www.ccs.neu.edu/home/amal/course/7480-s12/" target="_blank">link</a> <span class="pn-muted">Amal Ahmed</span>
                           </li>                          
@@ -148,6 +153,11 @@
                           </li>
                           <li>
                               <strong>2500</strong> Fundamentals of Computer Science<br />
+                              &nbsp;&nbsp;&nbsp;&nbsp;F 2016 <a href="http://www.ccs.neu.edu/course/cs2500/" target="_blank">link</a> <span class="pn-muted">Matthias Felleisen</span><br />
+                              &nbsp;&nbsp;&nbsp;&nbsp;F 2016 <a href="http://www.ccs.neu.edu/course/cs2500/" target="_blank">link</a> <span class="pn-muted">Amal Ahmed</span><br />
+                              &nbsp;&nbsp;&nbsp;&nbsp;F 2016 <a href="http://www.ccs.neu.edu/course/cs2500/" target="_blank">link</a> <span class="pn-muted">Ben Lerner</span><br />
+                              &nbsp;&nbsp;&nbsp;&nbsp;F 2016 Accelerated <a href="http://www.ccs.neu.edu/course/cs2500accel/" target="_blank">link</a> <span class="pn-muted">Olin Shivers</span><br />
+
                               &nbsp;&nbsp;&nbsp;&nbsp;F 2015 <a href="http://www.ccs.neu.edu/course/cs2500f15/" target="_blank">link</a> <span class="pn-muted">Olin Shivers</span><br />
                               &nbsp;&nbsp;&nbsp;&nbsp;F 2015 honors <a href="http://www.ccs.neu.edu/course/cs2500f15/" target="_blank">link</a> <span class="pn-muted">Ben Lerner</span><br />
                               &nbsp;&nbsp;&nbsp;&nbsp;F 2014 <a href="http://www.ccs.neu.edu/course/cs2500f14/index.html" target="_blank">link</a> <span class="pn-muted">Olin Shivers, Amal Ahmed, Ben Lerner</span><br />
