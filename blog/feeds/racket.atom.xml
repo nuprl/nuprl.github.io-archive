@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?> 
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
- <title type="text">PRL Blog: Posts tagged 'latency'</title>
- <link rel="self" href="http://prl.ccs.neu.edu/blog/feeds/latency.atom.xml" />
- <link href="http://prl.ccs.neu.edu/blog/tags/latency.html" />
- <id>urn:http-prl-ccs-neu-edu:-blog-tags-latency-html</id>
+ <title type="text">PRL Blog: Posts tagged 'racket'</title>
+ <link rel="self" href="http://prl.ccs.neu.edu/blog/feeds/racket.atom.xml" />
+ <link href="http://prl.ccs.neu.edu/blog/tags/racket.html" />
+ <id>urn:http-prl-ccs-neu-edu:-blog-tags-racket-html</id>
  <updated>2016-05-24T14:51:34Z</updated>
  <entry>
   <title type="text">Measuring GC latencies in Haskell, OCaml, Racket</title>
-  <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2016/05/24/measuring-gc-latencies-in-haskell-ocaml-racket/?utm_source=latency&amp;utm_medium=Atom" />
+  <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2016/05/24/measuring-gc-latencies-in-haskell-ocaml-racket/?utm_source=racket&amp;utm_medium=Atom" />
   <id>urn:http-prl-ccs-neu-edu:-blog-2016-05-24-measuring-gc-latencies-in-haskell-ocaml-racket</id>
   <published>2016-05-24T14:51:34Z</published>
   <updated>2016-05-24T14:51:34Z</updated>

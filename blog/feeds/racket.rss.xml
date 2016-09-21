@@ -1,19 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?> 
-<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
- <title type="text">PRL Blog: Posts tagged 'latency'</title>
- <link rel="self" href="http://prl.ccs.neu.edu/blog/feeds/latency.atom.xml" />
- <link href="http://prl.ccs.neu.edu/blog/tags/latency.html" />
- <id>urn:http-prl-ccs-neu-edu:-blog-tags-latency-html</id>
- <updated>2016-05-24T14:51:34Z</updated>
- <entry>
-  <title type="text">Measuring GC latencies in Haskell, OCaml, Racket</title>
-  <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2016/05/24/measuring-gc-latencies-in-haskell-ocaml-racket/?utm_source=latency&amp;utm_medium=Atom" />
-  <id>urn:http-prl-ccs-neu-edu:-blog-2016-05-24-measuring-gc-latencies-in-haskell-ocaml-racket</id>
-  <published>2016-05-24T14:51:34Z</published>
-  <updated>2016-05-24T14:51:34Z</updated>
-  <author>
-   <name>PRL</name></author>
-  <content type="html">&lt;html&gt;
+<rss version="2.0">
+ <channel>
+  <title>PRL Blog: Posts tagged 'racket'</title>
+  <description>PRL Blog: Posts tagged 'racket'</description>
+  <link>http://prl.ccs.neu.edu/blog/tags/racket.html</link>
+  <lastBuildDate>Tue, 24 May 2016 14:51:34 UT</lastBuildDate>
+  <pubDate>Tue, 24 May 2016 14:51:34 UT</pubDate>
+  <ttl>1800</ttl>
+  <item>
+   <title>Measuring GC latencies in Haskell, OCaml, Racket</title>
+   <link>http://prl.ccs.neu.edu/blog/2016/05/24/measuring-gc-latencies-in-haskell-ocaml-racket/?utm_source=racket&amp;utm_medium=RSS</link>
+   <guid>urn:http-prl-ccs-neu-edu:-blog-2016-05-24-measuring-gc-latencies-in-haskell-ocaml-racket</guid>
+   <pubDate>Tue, 24 May 2016 14:51:34 UT</pubDate>
+   <description>&lt;html&gt;
 &lt;p&gt;James Fisher has a blog post on a case where GHC&amp;rsquo;s runtime system imposed unpleasant latencies on their Haskell program:&lt;/p&gt;
 
 &lt;blockquote&gt;
@@ -293,4 +292,4 @@ GC: 0:MAJ @ 1,406,514K(+149,645K)[+1,560K]; free 577,765K(-577,765K) 21ms @ 5069
 
 &lt;p&gt;This is, of course, a hack; the long-term solution is to wait for Racket developers to devise better dynamic control strategies to avoid the ramp-up problem. Apparently, the incremental GC was previously tested on games that had simpler allocation profiles, such as short-lived memory allocations during each game tick, with no such a long ramp-up phase. But I was still interested in the fact that expert users can tweak the code to noticeably decrease the worst-case pause time.&lt;/p&gt;
 
-&lt;p&gt;To summarize, Racket&amp;rsquo;s incremental GC exhibits a decent-but-not-excellent steady state behavior, with maximal latencies of around 22ms, but currently suffers from a GC control issues that cause much larger pauses during the benchmark ramp-up period. Explicit GC calls can partly mitigate them.&lt;/p&gt;&lt;/html&gt;</content></entry></feed>
+&lt;p&gt;To summarize, Racket&amp;rsquo;s incremental GC exhibits a decent-but-not-excellent steady state behavior, with maximal latencies of around 22ms, but currently suffers from a GC control issues that cause much larger pauses during the benchmark ramp-up period. Explicit GC calls can partly mitigate them.&lt;/p&gt;&lt;/html&gt;</description></item></channel></rss>
