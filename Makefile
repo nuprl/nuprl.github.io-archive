@@ -14,7 +14,7 @@ sync:
 	git commit -e -m "** sync"
 	git push origin master
 
-%.html: %.rkt templates/*.html
+%.html: %.rkt
 	if [ -f $@ ]; then chmod +w $@; fi
 	racket -t $< > $@
 	chmod -w $@
