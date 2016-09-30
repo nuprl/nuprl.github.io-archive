@@ -26,6 +26,7 @@ script:
   - echo 0
 
 deploy:
+  skip_cleanup: true
   provider: script
   script: deploy.sh
   on:
