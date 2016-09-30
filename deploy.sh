@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-git remote add deploy https://${GH_TOKEN}@github.com:nuprl/nuprl.github.io
+git remote add deploy https://dbp:${GH_TOKEN}@github.com:nuprl/nuprl.github.io
 git config --global user.email "prl-bot@ccs.neu.edu"
 git config --global user.name "PRL Bot"
 
