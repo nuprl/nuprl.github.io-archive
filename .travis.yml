@@ -20,7 +20,7 @@ before_install:
   - export PATH="${RACKET_DIR}/bin:${PATH}"
 
 install:
-  - make && cd $TRAVIS_BUILD
+  - make && cd $TRAVIS_BUILD_DIR
 
 script:
   - echo 0
