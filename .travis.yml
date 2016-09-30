@@ -20,7 +20,7 @@ before_install:
   - export PATH="${RACKET_DIR}/bin:${PATH}"
 
 install:
-  - make
+  - make && cd $TRAVIS_BUILD
 
 script:
   - echo 0
@@ -28,6 +28,6 @@ script:
 deploy:
   skip_cleanup: true
   provider: script
-  script: deploy.sh
+  script: ./deploy.sh
   on:
     branch: master
