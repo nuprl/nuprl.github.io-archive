@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-echo > ~/.netrc <<EOF
+tee ~/.netrc <<EOF
 machine github.com
 login dbp
 password $GH_TOKEN
