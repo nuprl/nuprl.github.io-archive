@@ -14,10 +14,13 @@ git config --global user.name "PRL Bot"
 grep -v "html" .gitignore > .new-gitignore
 mv .new-gitignore .gitignore
 
-REV="** deploy nuprl/website:$TRAVIS_COMMIT"
+REV="** deploy nuprl/website@$TRAVIS_COMMIT"
 git add .
+git fetch deploy
+git reset --soft deploy/master_test
 git reset HEAD .gitignore
+git checkout HEAD .gitignore
 git commit -m "$REV"
 echo "Committing..."
 
-git push -f deploy HEAD:refs/heads/master_test
+git push deploy HEAD:refs/heads/master_test
