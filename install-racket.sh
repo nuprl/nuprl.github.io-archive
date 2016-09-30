@@ -9,3 +9,4 @@ no
 "$RACKET_DIR"
 
 EOF
+rm ./racket-6.6-x86_64-linux.sh

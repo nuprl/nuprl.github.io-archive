@@ -6,4 +6,5 @@ git add .
 git config --global user.email "prl-bot@ccs.neu.edu"
 git config --global user.name "PRL Bot"
 git commit -e -m "** deploy"
+echo "Committing..."
 git push deploy master_test
