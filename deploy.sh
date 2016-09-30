@@ -8,9 +8,10 @@ git config --global user.name "PRL Bot"
 grep -v "html" .gitignore > .new-gitignore
 mv .new-gitignore .gitignore
 
+REV="** deploy $TRAVIS_COMMIT"
 git add .
 git reset HEAD .gitignore
-git commit -e -m "** deploy"
+git commit -m "$REV"
 echo "Committing..."
 
 git push deploy master_test
