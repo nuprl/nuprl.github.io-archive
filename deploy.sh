@@ -14,4 +14,4 @@ git reset HEAD .gitignore
 git commit -m "$REV"
 echo "Committing..."
 
-git push deploy HEAD:master_test
+git push deploy HEAD:refs/heads/master_test
