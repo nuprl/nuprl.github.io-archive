@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-tee ~/.netrc <<EOF
+tee ~/.netrc > /dev/null <<EOF
 machine github.com
 login dbp
 password $GH_TOKEN
@@ -20,4 +20,4 @@ git reset HEAD .gitignore
 git commit -m "$REV"
 echo "Committing..."
 
-git push deploy HEAD:refs/heads/master_test
+git push -f deploy HEAD:refs/heads/master_test
