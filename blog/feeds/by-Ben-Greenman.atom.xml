@@ -4,13 +4,13 @@
  <link rel="self" href="http://prl.ccs.neu.edu/blog/feeds/by-Ben-Greenman.atom.xml" />
  <link href="http://prl.ccs.neu.edu/blog/tags/by-Ben-Greenman.html" />
  <id>urn:http-prl-ccs-neu-edu:-blog-tags-by-Ben-Greenman-html</id>
- <updated>2016-09-16T01:18:45Z</updated>
+ <updated>2016-09-15T21:18:45Z</updated>
  <entry>
   <title type="text">NEPLS on October 7th at Northeastern University</title>
   <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2016/09/15/nepls-on-october-7th-at-northeastern-university/?utm_source=by-Ben-Greenman&amp;utm_medium=Atom" />
   <id>urn:http-prl-ccs-neu-edu:-blog-2016-09-15-nepls-on-october-7th-at-northeastern-university</id>
-  <published>2016-09-16T01:18:45Z</published>
-  <updated>2016-09-16T01:18:45Z</updated>
+  <published>2016-09-15T21:18:45Z</published>
+  <updated>2016-09-15T21:18:45Z</updated>
   <author>
    <name>PRL</name></author>
   <content type="html">&lt;html&gt;
@@ -48,8 +48,8 @@
   <title type="text">A few cores too many</title>
   <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2016/08/03/a-few-cores-too-many/?utm_source=by-Ben-Greenman&amp;utm_medium=Atom" />
   <id>urn:http-prl-ccs-neu-edu:-blog-2016-08-03-a-few-cores-too-many</id>
-  <published>2016-08-03T18:09:02Z</published>
-  <updated>2016-08-03T18:09:02Z</updated>
+  <published>2016-08-03T14:09:02Z</published>
+  <updated>2016-08-03T14:09:02Z</updated>
   <author>
    <name>PRL</name></author>
   <content type="html">&lt;html&gt;
@@ -103,8 +103,8 @@
   <title type="text">Tutorial: Zero to Sixty in Racket</title>
   <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2016/08/02/tutorial-zero-to-sixty-in-racket/?utm_source=by-Ben-Greenman&amp;utm_medium=Atom" />
   <id>urn:http-prl-ccs-neu-edu:-blog-2016-08-02-tutorial-zero-to-sixty-in-racket</id>
-  <published>2016-08-02T05:29:11Z</published>
-  <updated>2016-08-02T05:29:11Z</updated>
+  <published>2016-08-02T01:29:11Z</published>
+  <updated>2016-08-02T01:29:11Z</updated>
   <author>
    <name>PRL</name></author>
   <content type="html">&lt;html&gt;
@@ -1190,8 +1190,8 @@ Going forward we could add &lt;a href="http://docs.racket-lang.org/scribble/inde
   <title type="text">Welcome to the PRL blog</title>
   <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2016/04/29/welcome-to-the-prl-blog/?utm_source=by-Ben-Greenman&amp;utm_medium=Atom" />
   <id>urn:http-prl-ccs-neu-edu:-blog-2016-04-29-welcome-to-the-prl-blog</id>
-  <published>2016-04-29T18:50:29Z</published>
-  <updated>2016-04-29T18:50:29Z</updated>
+  <published>2016-04-29T14:50:29Z</published>
+  <updated>2016-04-29T14:50:29Z</updated>
   <author>
    <name>PRL</name></author>
   <content type="html">&lt;html&gt;

@@ -4,14 +4,14 @@
   <title>PRL Blog: Posts tagged 'by Ben Greenman'</title>
   <description>PRL Blog: Posts tagged 'by Ben Greenman'</description>
   <link>http://prl.ccs.neu.edu/blog/tags/by-Ben-Greenman.html</link>
-  <lastBuildDate>Fri, 16 Sep 2016 01:18:45 UT</lastBuildDate>
-  <pubDate>Fri, 16 Sep 2016 01:18:45 UT</pubDate>
+  <lastBuildDate>Thu, 15 Sep 2016 21:18:45 UT</lastBuildDate>
+  <pubDate>Thu, 15 Sep 2016 21:18:45 UT</pubDate>
   <ttl>1800</ttl>
   <item>
    <title>NEPLS on October 7th at Northeastern University</title>
    <link>http://prl.ccs.neu.edu/blog/2016/09/15/nepls-on-october-7th-at-northeastern-university/?utm_source=by-Ben-Greenman&amp;utm_medium=RSS</link>
    <guid>urn:http-prl-ccs-neu-edu:-blog-2016-09-15-nepls-on-october-7th-at-northeastern-university</guid>
-   <pubDate>Fri, 16 Sep 2016 01:18:45 UT</pubDate>
+   <pubDate>Thu, 15 Sep 2016 21:18:45 UT</pubDate>
    <description>&lt;html&gt;
 &lt;p&gt;The next edition of the New England Programming Language Seminar (NEPLS) will be held on Friday, October 7th at Northeastern University. Organizers are Gabriel Scherer and Max New. See you there!&lt;/p&gt;
 &lt;!-- more--&gt;
@@ -47,7 +47,7 @@
    <title>A few cores too many</title>
    <link>http://prl.ccs.neu.edu/blog/2016/08/03/a-few-cores-too-many/?utm_source=by-Ben-Greenman&amp;utm_medium=RSS</link>
    <guid>urn:http-prl-ccs-neu-edu:-blog-2016-08-03-a-few-cores-too-many</guid>
-   <pubDate>Wed, 03 Aug 2016 18:09:02 UT</pubDate>
+   <pubDate>Wed, 03 Aug 2016 14:09:02 UT</pubDate>
    <description>&lt;html&gt;
 &lt;p&gt;Performance matters for software systems, but performance is not always easy  to measure. At the PRL we recently had a scare with some unreliable measurements. Here is the story.&lt;/p&gt;
 &lt;!-- more--&gt;
@@ -99,7 +99,7 @@
    <title>Tutorial: Zero to Sixty in Racket</title>
    <link>http://prl.ccs.neu.edu/blog/2016/08/02/tutorial-zero-to-sixty-in-racket/?utm_source=by-Ben-Greenman&amp;utm_medium=RSS</link>
    <guid>urn:http-prl-ccs-neu-edu:-blog-2016-08-02-tutorial-zero-to-sixty-in-racket</guid>
-   <pubDate>Tue, 02 Aug 2016 05:29:11 UT</pubDate>
+   <pubDate>Tue, 02 Aug 2016 01:29:11 UT</pubDate>
    <description>&lt;html&gt;
 &lt;p&gt;Racket is excellent for incrementally growing scripts into full-fledged programs.
 This post steps through the evolution of one small program and highlights the
@@ -1183,7 +1183,7 @@ Going forward we could add &lt;a href="http://docs.racket-lang.org/scribble/inde
    <title>Welcome to the PRL blog</title>
    <link>http://prl.ccs.neu.edu/blog/2016/04/29/welcome-to-the-prl-blog/?utm_source=by-Ben-Greenman&amp;utm_medium=RSS</link>
    <guid>urn:http-prl-ccs-neu-edu:-blog-2016-04-29-welcome-to-the-prl-blog</guid>
-   <pubDate>Fri, 29 Apr 2016 18:50:29 UT</pubDate>
+   <pubDate>Fri, 29 Apr 2016 14:50:29 UT</pubDate>
    <description>&lt;html&gt;
 &lt;p&gt;Greetings, ground rules, hopes, dreams, and notes for contributors. Welcome aboard.&lt;/p&gt;
 &lt;!-- more--&gt;
