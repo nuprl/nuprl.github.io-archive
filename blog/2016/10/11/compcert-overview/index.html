@@ -3,15 +3,15 @@
   <head>
 
     <meta charset="utf-8">
-    <title>NEPLS on October 7th at Northeastern University</title>
-    <meta name="description" content="The next edition of the New England Programming Language Seminar (NEPLS) will be held on Friday, October 7th at Northeastern University. Organizers are Gabriel Scherer and Max New. See you there!...">
+    <title>CompCert Overview</title>
+    <meta name="description" content="If you are interested in learning about the _internals_ of the CompCert C compiler but would rather not read its source code, this post is for you....">
     <meta name="author"      content="PRL">
-    <meta name="keywords"    content="NEPLS, conference, by Ben Greenman">
+    <meta name="keywords"    content="tutorial, coq, compiler correctness, by Ben Greenman">
     <meta name="viewport"    content="width=device-width, initial-scale=1.0">
     <link rel="icon"      href="/img/favicon.ico">
-    <link rel="canonical" href="http://prl.ccs.neu.edu/blog/2016/09/15/nepls-on-october-7th-at-northeastern-university/">
-    <link rel="next" href="/blog/2016/08/03/a-few-cores-too-many/">
-    <link rel="prev" href="/blog/2016/10/11/compcert-overview/">
+    <link rel="canonical" href="http://prl.ccs.neu.edu/blog/2016/10/11/compcert-overview/">
+    <link rel="next" href="/blog/2016/09/15/nepls-on-october-7th-at-northeastern-university/">
+
     <!-- CSS -->
     <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="/css/pygments.css">
@@ -74,41 +74,40 @@
 
               <article>
   <header>
-    <h1>NEPLS on October 7th at Northeastern University</h1>
+    <h1>CompCert Overview</h1>
     <p class='date-and-tags'>
-<time datetime="2016-09-15" pubdate="true">2016-09-15</time> :: <span class="tags"><a href="/blog/tags/NEPLS.html">NEPLS</a>, <a href="/blog/tags/conference.html">conference</a>, <a href="/blog/tags/by-Ben-Greenman.html">by Ben Greenman</a></span></p>
+<time datetime="2016-10-11" pubdate="true">2016-10-11</time> :: <span class="tags"><a href="/blog/tags/tutorial.html">tutorial</a>, <a href="/blog/tags/coq.html">coq</a>, <a href="/blog/tags/compiler-correctness.html">compiler correctness</a>, <a href="/blog/tags/by-Ben-Greenman.html">by Ben Greenman</a></span></p>
   </header>
 
-<p>The next edition of the New England Programming Language Seminar (NEPLS) will be held on Friday, October 7th at Northeastern University. Organizers are Gabriel Scherer and Max New. See you there!</p>
+<p>If you are interested in learning about the <em>internals</em> of the CompCert C compiler but would rather not read its source code, this post is for you.</p>
 <!-- more-->
 
-<p>Here is the official announcement from the NEPLS mailing list.</p>
+<p>(This is a public service announcement.)</p>
+
+<p>Last fall, I gave a short lecture on the 2006 paper <a href="http://gallium.inria.fr/~xleroy/publi/compiler-certif.pdf">&ldquo;Formal Certification of a Compiler Back-End&rdquo;</a> by Xavier Leroy for Amal Ahmed&rsquo;s <a href="http://www.ccs.neu.edu/home/amal/course/7480-f15/">&ldquo;Special Topics in Programming Languages&rdquo;</a> class. Rather than present CompCert as it existed in 2006, I read the documentation and source code for <a href="https://github.com/AbsInt/CompCert/releases/tag/v2.5">CompCert 2.5</a> (released June 2015). The lecture then focused on three questions:</p>
+
+<ul>
+ <li>What subset of C does CompCert handle, today?</li>
+ <li>What optimizing passes does CompCert perform?</li>
+ <li>What is the &ldquo;correctness theorem&rdquo; for CompCert, and what does this theorem mean?</li></ul>
+
+<p>My notes for the lecture give a &ldquo;mid-level&rdquo; summary of the compiler &mdash; there are more details than you&rsquo;ll find in papers, but it&rsquo;s (hopefully!) easier to read than the source code. The document is also hyperlinked to locations in the <a href="https://github.com/AbsInt/CompCert">CompCert GitHub repository</a>.</p>
+
+<p>Here is the document:</p>
 
 <blockquote>
- <p>Hi everyone,</p>
- <p>The next New England Programming Languages and Systems Symposium will take place on</p>
- <blockquote>
-  <p> Friday, October 7th 2016</p></blockquote>
- <p>at</p>
- <blockquote>
-  <p> Northeastern University, Boston.</p></blockquote>
- <p>Please mark it in your calendars!</p>
- <p>The speaker selection committee solicits talks for this meeting. To propose yourself or someone else, send a title, list of authors, and a brief description. You may provide UP TO ONE PAGE of description, but you can keep it as short as a paragraph. We particularly invite talks by researchers from outside the area who are visiting on the date of the NEPLS meeting.</p>
- <p>Talks can vary in length. Though 30-minute conference-style slots are traditional, speakers may request slots of as little as 5 minutes; we encourage the shorter formats. This variety permits the presentation of smaller results, preliminary work, progress reports on ongoing projects (such as language standards and compiler toolkits), and updates to past presentations. In general, NEPLS talks need not sound like conference presentations.</p>
- <p>The submission deadline is</p>
- <blockquote>
-  <p> Sunday, September 25th.</p></blockquote>
- <p>Acceptance notifications will be out on Thursday, September 28th.</p>
- <p>Send your proposal to</p>
- <blockquote>
-  <p> <a href="mailto:nepls-talks-committee@lists.cs.brown.edu">nepls-talks-committee@lists.cs.brown.edu</a></p></blockquote>
- <p>More details about NEPLS are available on the NEPLS webpage:</p>
- <blockquote>
-  <p> <a href="http://www.nepls.org/">http://www.nepls.org/</a></p></blockquote></blockquote>
+ <p> <a href="http://www.ccs.neu.edu/home/types/resources/notes/compcert/cc.pdf">http://www.ccs.neu.edu/home/types/resources/notes/compcert/cc.pdf</a></p></blockquote>
 
-<p>To subscribe to the NEPLS mailing list, visit this page:</p>
+<p>And here is a table-of-contents:</p>
 
-<p><a href="https://lists.cs.brown.edu/sympa/subscribe/nepls">https://lists.cs.brown.edu/sympa/subscribe/nepls</a></p>
+<ol>
+ <li>Motivation, details of the source and target languages, high-level guarantees</li>
+ <li>Compiler pipeline, optimizing passes, links intermediate language grammars and Coq theorems</li>
+ <li>Background on compiler correctness</li>
+ <li>CompCert&rsquo;s correctness, properties that CompCert does <strong>not</strong> guarantee</li>
+ <li>Recent (2006 &ndash; 2015) work in the CompCert ecosystem</li></ol>
+
+<p>The document ends with a short description of two other research projects that have grown into &ldquo;industry software&rdquo; and a link to Xaver Leroy&rsquo;s <a href="https://www.cs.uoregon.edu/research/summerschool/summer12/curriculum.html">OPLSS lectures on certified compilers</a>. Enjoy!</p>
   <br/><br/>
   <footer>
     <script type="text/javascript">
@@ -124,17 +123,15 @@
     </script>
     <a href="https://twitter.com/share"
        class="twitter-share-button"
-       data-url="http://prl.ccs.neu.edu/blog/2016/09/15/nepls-on-october-7th-at-northeastern-university/"
+       data-url="http://prl.ccs.neu.edu/blog/2016/10/11/compcert-overview/"
        data-dnt="true">
       "Tweet"</a>
     <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
-    <g:plusone size="medium" href="http://prl.ccs.neu.edu/blog/2016/09/15/nepls-on-october-7th-at-northeastern-university/"></g:plusone>
+    <g:plusone size="medium" href="http://prl.ccs.neu.edu/blog/2016/10/11/compcert-overview/"></g:plusone>
     <ul class="pager">
-    <li class="previous">
-      <a href="/blog/2016/10/11/compcert-overview/">&larr; <em>CompCert Overview</em></a>
-    </li>
+
     <li class="next">
-      <a href="/blog/2016/08/03/a-few-cores-too-many/"><em>A few cores too many</em> &rarr;</a>
+      <a href="/blog/2016/09/15/nepls-on-october-7th-at-northeastern-university/"><em>NEPLS on October 7th at Northeastern University</em> &rarr;</a>
     </li>
     </ul>
   </footer>
