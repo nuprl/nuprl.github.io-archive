@@ -3,15 +3,15 @@
   <head>
 
     <meta charset="utf-8">
-    <title>CompCert Overview</title>
-    <meta name="description" content="If you are interested in learning about the _internals_ of the CompCert C compiler but would rather not read its source code, this post is for you....">
+    <title>Emacs daemon for fast editor startup</title>
+    <meta name="description" content="In the early days of the famous Emacs/Vim debates, Emacs was often ridiculed for its bulkiness (Eight Megabytes-of-RAM And Constantly Swapping, etc.). The computational power of our computer has grown much faster than Emacs' bloat: it takes exactly one se...">
     <meta name="author"      content="PRL">
-    <meta name="keywords"    content="tutorial, coq, compiler correctness, by Ben Greenman">
+    <meta name="keywords"    content="System Administration, Emacs, by Gabriel Scherer">
     <meta name="viewport"    content="width=device-width, initial-scale=1.0">
     <link rel="icon"      href="/img/favicon.ico">
-    <link rel="canonical" href="http://prl.ccs.neu.edu/blog/2016/10/11/compcert-overview/">
-    <link rel="next" href="/blog/2016/09/15/nepls-on-october-7th-at-northeastern-university/">
-    <link rel="prev" href="/blog/2016/10/17/emacs-daemon-for-fast-editor-startup/">
+    <link rel="canonical" href="http://prl.ccs.neu.edu/blog/2016/10/17/emacs-daemon-for-fast-editor-startup/">
+    <link rel="next" href="/blog/2016/10/11/compcert-overview/">
+
     <!-- CSS -->
     <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="/css/pygments.css">
@@ -74,40 +74,41 @@
 
               <article>
   <header>
-    <h1>CompCert Overview</h1>
+    <h1>Emacs daemon for fast editor startup</h1>
     <p class='date-and-tags'>
-<time datetime="2016-10-11" pubdate="true">2016-10-11</time> :: <span class="tags"><a href="/blog/tags/tutorial.html">tutorial</a>, <a href="/blog/tags/coq.html">coq</a>, <a href="/blog/tags/compiler-correctness.html">compiler correctness</a>, <a href="/blog/tags/by-Ben-Greenman.html">by Ben Greenman</a></span></p>
+<time datetime="2016-10-17" pubdate="true">2016-10-17</time> :: <span class="tags"><a href="/blog/tags/System-Administration.html">System Administration</a>, <a href="/blog/tags/Emacs.html">Emacs</a>, <a href="/blog/tags/by-Gabriel-Scherer.html">by Gabriel Scherer</a></span></p>
   </header>
 
-<p>If you are interested in learning about the <em>internals</em> of the CompCert C compiler but would rather not read its source code, this post is for you.</p>
+<p>In the early days of the famous Emacs/Vim debates, Emacs was often ridiculed for its bulkiness (Eight Megabytes-of-RAM And Constantly Swapping, etc.). The computational power of our computer has grown much faster than Emacs&rsquo; bloat: it takes exactly one second to load on my machine. However, our workflows have also changed, and my workflow implies frequently starting new text editors &mdash; on each git commit for example, or when I use a <a href="https://addons.mozilla.org/en-US/firefox/addon/its-all-text/">Firefox extension</a> to edit a textarea content in a proper editor.</p>
+
+<p>In this blog post, I describe how to use <code>emacsclient</code> to reuse an existing Emacs process when creating a new editor window, which reduces editor startup times from 1s to 0.150s on my machine.</p>
 <!-- more-->
 
-<p>(This is a public service announcement.)</p>
+<p>Emacs has long supported a client/server mode: a daemon emacs instance is loaded in the background, and whenever you request a new emacs window you can creates a new frame (~ window) using the same instance. This means that the startup time is dramatically reduced after the daemon is launched, as for example the execution of your personal configuration code does not have to be repeated.</p>
 
-<p>Last fall, I gave a short lecture on the 2006 paper <a href="http://gallium.inria.fr/~xleroy/publi/compiler-certif.pdf">&ldquo;Formal Certification of a Compiler Back-End&rdquo;</a> by Xavier Leroy for Amal Ahmed&rsquo;s <a href="http://www.ccs.neu.edu/home/amal/course/7480-f15/">&ldquo;Special Topics in Programming Languages&rdquo;</a> class. Rather than present CompCert as it existed in 2006, I read the documentation and source code for <a href="https://github.com/AbsInt/CompCert/releases/tag/v2.5">CompCert 2.5</a> (released June 2015). The lecture then focused on three questions:</p>
+<p>To use it, I have this code as <code>/usr/bin/editor</code>:</p>
 
-<ul>
- <li>What subset of C does CompCert handle, today?</li>
- <li>What optimizing passes does CompCert perform?</li>
- <li>What is the &ldquo;correctness theorem&rdquo; for CompCert, and what does this theorem mean?</li></ul>
+<div class="brush: sh">
+ <pre><code>#!/bin/bash
+emacsclient -a "" -c "$@"</code></pre></div>
 
-<p>My notes for the lecture give a &ldquo;mid-level&rdquo; summary of the compiler &mdash; there are more details than you&rsquo;ll find in papers, but it&rsquo;s (hopefully!) easier to read than the source code. The document is also hyperlinked to locations in the <a href="https://github.com/AbsInt/CompCert">CompCert GitHub repository</a>.</p>
+<p>The empty <code>-a</code> parameter means that if no daemon exists, it should start one in the background and retry. The <code>-c</code> option means that a new frame (window) should be created instead of reusing an existing one. <code>"$@"</code>means that when the script is invoked with a path as command-line parameter (<code>editor /tmp/foo.txt</code>), the corresponding file will be opened.</p>
 
-<p>Here is the document:</p>
+<p>Finally, my <code>.bash_profile</code> sets the <code>EDITOR</code> variable to <code>editor</code> (<code>export EDITOR=/usr/bin/editor</code>); this environment variable is what most tools (git included) will use to invoke a text editor.</p>
 
-<blockquote>
- <p> <a href="http://www.ccs.neu.edu/home/types/resources/notes/compcert/cc.pdf">http://www.ccs.neu.edu/home/types/resources/notes/compcert/cc.pdf</a></p></blockquote>
+<p>On my machine, starting the daemon takes 1.4s. Creating a client windows takes around 0.150s.</p>
 
-<p>And here is a table-of-contents:</p>
+<p>If you want to control the environment in which the daemon process is started, you can launch it explicitly by running <code>emacs --daemon</code>.</p>
 
-<ol>
- <li>Motivation, details of the source and target languages, high-level guarantees</li>
- <li>Compiler pipeline, optimizing passes, links intermediate language grammars and Coq theorems</li>
- <li>Background on compiler correctness</li>
- <li>CompCert&rsquo;s correctness, properties that CompCert does <strong>not</strong> guarantee</li>
- <li>Recent (2006 &ndash; 2015) work in the CompCert ecosystem</li></ol>
+<p>Cool kids use <a href="http://spacemacs.org/">Spacemacs</a> these days, which comes with all sort of convenient settings built in, and I&rsquo;m told that it does daemonization out of the box. I haven&rsquo;t taken the time to give Spacemacs a try yet.</p>
 
-<p>The document ends with a short description of two other research projects that have grown into &ldquo;industry software&rdquo; and a link to Xaver Leroy&rsquo;s <a href="https://www.cs.uoregon.edu/research/summerschool/summer12/curriculum.html">OPLSS lectures on certified compilers</a>. Enjoy!</p>
+<p>Finally, sometimes having all editor windows share the same process is not the right thing, because I do stuff which makes Emacs a bit unstable. (It&rsquo;s not very good at asynchronous communication with the rest of the world, so for example accessing a file through SSH from Emacs can hang the process when network goes bad.). I&rsquo;ve been bitten a few times by a crash of all editor windows at the same time, and since then, when I know I&rsquo;m going to do &ldquo;heavy stuff&rdquo;, I launch a separate process for it (just <code>emacs</code> instead of <code>editor</code> or <code>emacsclient</code>).</p>
+
+<p>P.S.: To precisely measure the startup time, ask Emacs to evaluate a Lisp expression on startup, to kill it immediately.:</p>
+
+<div class="brush: sh">
+ <pre><code>$ time emacs --eval "(save-buffers-kill-terminal)"
+$ time emacsclient -a '' -c -e "(save-buffers-kill-terminal)"</code></pre></div>
   <br/><br/>
   <footer>
     <script type="text/javascript">
@@ -123,17 +124,15 @@
     </script>
     <a href="https://twitter.com/share"
        class="twitter-share-button"
-       data-url="http://prl.ccs.neu.edu/blog/2016/10/11/compcert-overview/"
+       data-url="http://prl.ccs.neu.edu/blog/2016/10/17/emacs-daemon-for-fast-editor-startup/"
        data-dnt="true">
       "Tweet"</a>
     <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
-    <g:plusone size="medium" href="http://prl.ccs.neu.edu/blog/2016/10/11/compcert-overview/"></g:plusone>
+    <g:plusone size="medium" href="http://prl.ccs.neu.edu/blog/2016/10/17/emacs-daemon-for-fast-editor-startup/"></g:plusone>
     <ul class="pager">
-    <li class="previous">
-      <a href="/blog/2016/10/17/emacs-daemon-for-fast-editor-startup/">&larr; <em>Emacs daemon for fast editor startup</em></a>
-    </li>
+
     <li class="next">
-      <a href="/blog/2016/09/15/nepls-on-october-7th-at-northeastern-university/"><em>NEPLS on October 7th at Northeastern University</em> &rarr;</a>
+      <a href="/blog/2016/10/11/compcert-overview/"><em>CompCert Overview</em> &rarr;</a>
     </li>
     </ul>
   </footer>
