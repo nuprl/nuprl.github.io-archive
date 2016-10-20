@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?> 
+<rss version="2.0">
+ <channel>
+  <title>PRL Blog: Posts tagged 'by Tony Garnock-Jones'</title>
+  <description>PRL Blog: Posts tagged 'by Tony Garnock-Jones'</description>
+  <link>http://prl.ccs.neu.edu/blog/tags/by-Tony-Garnock-Jones.html</link>
+  <lastBuildDate>Wed, 19 Oct 2016 17:26:16 UT</lastBuildDate>
+  <pubDate>Wed, 19 Oct 2016 17:26:16 UT</pubDate>
+  <ttl>1800</ttl>
+  <item>
+   <title>History of Actors</title>
+   <link>http://prl.ccs.neu.edu/blog/2016/10/19/history-of-actors/?utm_source=by-Tony-Garnock-Jones&amp;utm_medium=RSS</link>
+   <guid>urn:http-prl-ccs-neu-edu:-blog-2016-10-19-history-of-actors</guid>
+   <pubDate>Wed, 19 Oct 2016 17:26:16 UT</pubDate>
+   <description>&lt;html&gt;
+&lt;p&gt;Christos Dimoulas is currently teaching a &lt;a href="http://www.seas.harvard.edu/courses/cs252/2016fa/"&gt;&amp;ldquo;History of Programming Languages&amp;rdquo; class at Harvard&lt;/a&gt;. The class is, as Christos writes, &amp;ldquo;definitely not about &lt;a href="https://www.levenez.com/lang/lang_letter.pdf"&gt;this&lt;/a&gt;&amp;rdquo;; instead, each meeting is a deep examination of a single, mature research topic, in terms of three to five key papers from the literature.&lt;/p&gt;
+
+&lt;p&gt;On Monday, I presented &amp;ldquo;the History of Actors&amp;rdquo; for the class. I&amp;rsquo;ve made the written-out talk notes and an annotated bibliography available &lt;a href="https://eighty-twenty.org/2016/10/18/actors-hopl"&gt;here&lt;/a&gt;.&lt;/p&gt;&lt;/html&gt;</description></item></channel></rss>

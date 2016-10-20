@@ -3,15 +3,15 @@
   <head>
 
     <meta charset="utf-8">
-    <title>Emacs daemon for fast editor startup</title>
-    <meta name="description" content="In the early days of the famous Emacs/Vim debates, Emacs was often ridiculed for its bulkiness (Eight Megabytes-of-RAM And Constantly Swapping, etc.). The computational power of our computer has grown much faster than Emacs' bloat: it takes exactly one se...">
+    <title>History of Actors</title>
+    <meta name="description" content="Christos Dimoulas is currently teaching a &quot;History of Programming Languages&quot; class at Harvard. The class is, as Christos writes, &quot;definitely not about this&quot;; instead, each meeting is a deep examination of a single, mature research topic, in terms of three...">
     <meta name="author"      content="PRL">
-    <meta name="keywords"    content="System Administration, Emacs, by Gabriel Scherer">
+    <meta name="keywords"    content="history, by Tony Garnock-Jones">
     <meta name="viewport"    content="width=device-width, initial-scale=1.0">
     <link rel="icon"      href="/img/favicon.ico">
-    <link rel="canonical" href="http://prl.ccs.neu.edu/blog/2016/10/17/emacs-daemon-for-fast-editor-startup/">
-    <link rel="next" href="/blog/2016/10/11/compcert-overview/">
-    <link rel="prev" href="/blog/2016/10/19/history-of-actors/">
+    <link rel="canonical" href="http://prl.ccs.neu.edu/blog/2016/10/19/history-of-actors/">
+    <link rel="next" href="/blog/2016/10/17/emacs-daemon-for-fast-editor-startup/">
+
     <!-- CSS -->
     <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="/css/pygments.css">
@@ -74,41 +74,14 @@
 
               <article>
   <header>
-    <h1>Emacs daemon for fast editor startup</h1>
+    <h1>History of Actors</h1>
     <p class='date-and-tags'>
-<time datetime="2016-10-17" pubdate="true">2016-10-17</time> :: <span class="tags"><a href="/blog/tags/System-Administration.html">System Administration</a>, <a href="/blog/tags/Emacs.html">Emacs</a>, <a href="/blog/tags/by-Gabriel-Scherer.html">by Gabriel Scherer</a></span></p>
+<time datetime="2016-10-19" pubdate="true">2016-10-19</time> :: <span class="tags"><a href="/blog/tags/history.html">history</a>, <a href="/blog/tags/by-Tony-Garnock-Jones.html">by Tony Garnock-Jones</a></span></p>
   </header>
 
-<p>In the early days of the famous Emacs/Vim debates, Emacs was often ridiculed for its bulkiness (Eight Megabytes-of-RAM And Constantly Swapping, etc.). The computational power of our computer has grown much faster than Emacs&rsquo; bloat: it takes exactly one second to load on my machine. However, our workflows have also changed, and my workflow implies frequently starting new text editors &mdash; on each git commit for example, or when I use a <a href="https://addons.mozilla.org/en-US/firefox/addon/its-all-text/">Firefox extension</a> to edit a textarea content in a proper editor.</p>
+<p>Christos Dimoulas is currently teaching a <a href="http://www.seas.harvard.edu/courses/cs252/2016fa/">&ldquo;History of Programming Languages&rdquo; class at Harvard</a>. The class is, as Christos writes, &ldquo;definitely not about <a href="https://www.levenez.com/lang/lang_letter.pdf">this</a>&rdquo;; instead, each meeting is a deep examination of a single, mature research topic, in terms of three to five key papers from the literature.</p>
 
-<p>In this blog post, I describe how to use <code>emacsclient</code> to reuse an existing Emacs process when creating a new editor window, which reduces editor startup times from 1s to 0.150s on my machine.</p>
-<!-- more-->
-
-<p>Emacs has long supported a client/server mode: a daemon emacs instance is loaded in the background, and whenever you request a new emacs window you can creates a new frame (~ window) using the same instance. This means that the startup time is dramatically reduced after the daemon is launched, as for example the execution of your personal configuration code does not have to be repeated.</p>
-
-<p>To use it, I have this code as <code>/usr/bin/editor</code>:</p>
-
-<div class="brush: sh">
- <pre><code>#!/bin/bash
-emacsclient -a "" -c "$@"</code></pre></div>
-
-<p>The empty <code>-a</code> parameter means that if no daemon exists, it should start one in the background and retry. The <code>-c</code> option means that a new frame (window) should be created instead of reusing an existing one. <code>"$@"</code>means that when the script is invoked with a path as command-line parameter (<code>editor /tmp/foo.txt</code>), the corresponding file will be opened.</p>
-
-<p>Finally, my <code>.bash_profile</code> sets the <code>EDITOR</code> variable to <code>editor</code> (<code>export EDITOR=/usr/bin/editor</code>); this environment variable is what most tools (git included) will use to invoke a text editor.</p>
-
-<p>On my machine, starting the daemon takes 1.4s. Creating a client windows takes around 0.150s.</p>
-
-<p>If you want to control the environment in which the daemon process is started, you can launch it explicitly by running <code>emacs --daemon</code>.</p>
-
-<p>Cool kids use <a href="http://spacemacs.org/">Spacemacs</a> these days, which comes with all sort of convenient settings built in, and I&rsquo;m told that it does daemonization out of the box. I haven&rsquo;t taken the time to give Spacemacs a try yet.</p>
-
-<p>Finally, sometimes having all editor windows share the same process is not the right thing, because I do stuff which makes Emacs a bit unstable. (It&rsquo;s not very good at asynchronous communication with the rest of the world, so for example accessing a file through SSH from Emacs can hang the process when network goes bad.). I&rsquo;ve been bitten a few times by a crash of all editor windows at the same time, and since then, when I know I&rsquo;m going to do &ldquo;heavy stuff&rdquo;, I launch a separate process for it (just <code>emacs</code> instead of <code>editor</code> or <code>emacsclient</code>).</p>
-
-<p>P.S.: To precisely measure the startup time, ask Emacs to evaluate a Lisp expression on startup, to kill it immediately.:</p>
-
-<div class="brush: sh">
- <pre><code>$ time emacs --eval "(save-buffers-kill-terminal)"
-$ time emacsclient -a '' -c -e "(save-buffers-kill-terminal)"</code></pre></div>
+<p>On Monday, I presented &ldquo;the History of Actors&rdquo; for the class. I&rsquo;ve made the written-out talk notes and an annotated bibliography available <a href="https://eighty-twenty.org/2016/10/18/actors-hopl">here</a>.</p>
   <br/><br/>
   <footer>
     <script type="text/javascript">
@@ -124,17 +97,15 @@ $ time emacsclient -a '' -c -e "(save-buffers-kill-terminal)"</code></pre></div>
     </script>
     <a href="https://twitter.com/share"
        class="twitter-share-button"
-       data-url="http://prl.ccs.neu.edu/blog/2016/10/17/emacs-daemon-for-fast-editor-startup/"
+       data-url="http://prl.ccs.neu.edu/blog/2016/10/19/history-of-actors/"
        data-dnt="true">
       "Tweet"</a>
     <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
-    <g:plusone size="medium" href="http://prl.ccs.neu.edu/blog/2016/10/17/emacs-daemon-for-fast-editor-startup/"></g:plusone>
+    <g:plusone size="medium" href="http://prl.ccs.neu.edu/blog/2016/10/19/history-of-actors/"></g:plusone>
     <ul class="pager">
-    <li class="previous">
-      <a href="/blog/2016/10/19/history-of-actors/">&larr; <em>History of Actors</em></a>
-    </li>
+
     <li class="next">
-      <a href="/blog/2016/10/11/compcert-overview/"><em>CompCert Overview</em> &rarr;</a>
+      <a href="/blog/2016/10/17/emacs-daemon-for-fast-editor-startup/"><em>Emacs daemon for fast editor startup</em> &rarr;</a>
     </li>
     </ul>
   </footer>
