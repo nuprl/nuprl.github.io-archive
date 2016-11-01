@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?> 
 <rss version="2.0">
  <channel>
-  <title>PRL Blog: Posts tagged 'history'</title>
-  <description>PRL Blog: Posts tagged 'history'</description>
-  <link>http://prl.ccs.neu.edu/blog/tags/history.html</link>
+  <title>PRL Blog: Posts tagged 'constructions'</title>
+  <description>PRL Blog: Posts tagged 'constructions'</description>
+  <link>http://prl.ccs.neu.edu/blog/tags/constructions.html</link>
   <lastBuildDate>Mon, 31 Oct 2016 17:20:33 UT</lastBuildDate>
   <pubDate>Mon, 31 Oct 2016 17:20:33 UT</pubDate>
   <ttl>1800</ttl>
   <item>
    <title>Meaningful Distinctions</title>
-   <link>http://prl.ccs.neu.edu/blog/2016/10/31/meaningful-distinctions/?utm_source=history&amp;utm_medium=RSS</link>
+   <link>http://prl.ccs.neu.edu/blog/2016/10/31/meaningful-distinctions/?utm_source=constructions&amp;utm_medium=RSS</link>
    <guid>urn:http-prl-ccs-neu-edu:-blog-2016-10-31-meaningful-distinctions</guid>
    <pubDate>Mon, 31 Oct 2016 17:20:33 UT</pubDate>
    <description>&lt;html&gt;
@@ -69,13 +69,4 @@
   &lt;li&gt;Algebraic topology, at least on the elementary level, should not be too difficult to constructivize.&lt;/li&gt;
   &lt;li&gt;I hope all this accords with your common sense, as it does with mine.&lt;/li&gt;&lt;/ul&gt;&lt;/blockquote&gt;
 
-&lt;p&gt;Now go find their context!&lt;/p&gt;&lt;/html&gt;</description></item>
-  <item>
-   <title>History of Actors</title>
-   <link>http://prl.ccs.neu.edu/blog/2016/10/19/history-of-actors/?utm_source=history&amp;utm_medium=RSS</link>
-   <guid>urn:http-prl-ccs-neu-edu:-blog-2016-10-19-history-of-actors</guid>
-   <pubDate>Wed, 19 Oct 2016 17:26:16 UT</pubDate>
-   <description>&lt;html&gt;
-&lt;p&gt;Christos Dimoulas is currently teaching a &lt;a href="http://www.seas.harvard.edu/courses/cs252/2016fa/"&gt;&amp;ldquo;History of Programming Languages&amp;rdquo; class at Harvard&lt;/a&gt;. The class is, as Christos writes, &amp;ldquo;definitely not about &lt;a href="https://www.levenez.com/lang/lang_letter.pdf"&gt;this&lt;/a&gt;&amp;rdquo;; instead, each meeting is a deep examination of a single, mature research topic, in terms of three to five key papers from the literature.&lt;/p&gt;
-
-&lt;p&gt;On Monday, I presented &amp;ldquo;the History of Actors&amp;rdquo; for the class. I&amp;rsquo;ve made the written-out talk notes and an annotated bibliography available &lt;a href="https://eighty-twenty.org/2016/10/18/actors-hopl"&gt;here&lt;/a&gt;.&lt;/p&gt;&lt;/html&gt;</description></item></channel></rss>
+&lt;p&gt;Now go find their context!&lt;/p&gt;&lt;/html&gt;</description></item></channel></rss>
