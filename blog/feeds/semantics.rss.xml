@@ -37,7 +37,7 @@
 &lt;p&gt;Now that we&amp;rsquo;ve discussed the syntax of the language, we can look at the semantics, or how terms evaluate. Below I have the evaluation rules for the λ-calculus. The arrow represents β-reduction which is the subject of this post. The semantics rely on substitution which is depicted with brackets. I have also defined the substitution function. I&amp;rsquo;m assuming the Barendregt &lt;a href="http://www.cse.chalmers.se/research/group/logic/TypesSS05/Extra/geuvers.pdf"&gt;variable convention (2.6)&lt;/a&gt; which states that every bound variable is distinct from every free variable.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;x[ x := e ] = e
-x[ y := e ] = y
+y[ x := e ] = y
 (λx.e1)[ x := e2 ] = (λx.e1[ x := e2 ])
 (e1 e2)[ x := e3 ] = (e1[ x := e3 ] e2[ x := e3 ])&lt;/code&gt;&lt;/pre&gt;
 
