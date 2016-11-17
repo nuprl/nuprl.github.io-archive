@@ -72,7 +72,7 @@ X \to P(Y)&lt;/script&gt; we can take
  &lt;script type="math/tex"&gt;(x,y) \in R&lt;/script&gt; and 
  &lt;script type="math/tex"&gt;(y,x) \in Q&lt;/script&gt;. This tells us for one that 
  &lt;script type="math/tex"&gt;R&lt;/script&gt; is a &amp;ldquo;right-total&amp;rdquo; relation and 
- &lt;script type="math/tex"&gt;Q&lt;/script&gt; is a &amp;ldquo;left-total&amp;rdquo;. Every 
+ &lt;script type="math/tex"&gt;Q&lt;/script&gt; is a &amp;ldquo;left-total&amp;rdquo; relation. Every 
  &lt;script type="math/tex"&gt;x&lt;/script&gt; is related to some 
  &lt;script type="math/tex"&gt; y&lt;/script&gt; by 
  &lt;script type="math/tex"&gt; R&lt;/script&gt; and 
@@ -126,7 +126,7 @@ X \to P(Y)&lt;/script&gt; we can take
 &lt;h1 id="constructive-galois-connections"&gt;Constructive Galois Connections&lt;/h1&gt;
 
 &lt;p&gt;Back to constructive Galois connections, I hope if you read the paper you can see that their theorem is a generalization of the above argument, where instead of relations we have &amp;ldquo;monotone relations&amp;rdquo;, i.e., downward-closed 
- &lt;script type="math/tex"&gt;R \subset A^{\text{op}} \times B&lt;/script&gt;. Then you can interpret the definition of adjunction in that universe and get that it&amp;rsquo;s the same as a Kleisli Galois connection and that a similar argument to that above argument shows that the &amp;ldquo;left adjoint&amp;rdquo; is represented by a monotone function 
+ &lt;script type="math/tex"&gt;R \subset A^{\text{op}} \times B&lt;/script&gt;. Then you can interpret the definition of adjunction in that universe and get that it&amp;rsquo;s the same as a Kleisli Galois connection and that a similar argument to the above shows that the &amp;ldquo;left adjoint&amp;rdquo; is represented by a monotone function 
  &lt;script type="math/tex"&gt;f : A \to B&lt;/script&gt;:&lt;/p&gt;
 
 &lt;p&gt;
