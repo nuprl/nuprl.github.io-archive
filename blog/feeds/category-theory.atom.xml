@@ -1,18 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?> 
-<rss version="2.0">
- <channel>
-  <title>PRL Blog: Posts tagged 'category thoery'</title>
-  <description>PRL Blog: Posts tagged 'category thoery'</description>
-  <link>http://prl.ccs.neu.edu/blog/tags/category-thoery.html</link>
-  <lastBuildDate>Wed, 16 Nov 2016 00:00:00 UT</lastBuildDate>
-  <pubDate>Wed, 16 Nov 2016 00:00:00 UT</pubDate>
-  <ttl>1800</ttl>
-  <item>
-   <title>Understanding Constructive Galois Connections</title>
-   <link>http://prl.ccs.neu.edu/blog/2016/11/16/understanding-constructive-galois-connections/?utm_source=category-thoery&amp;utm_medium=RSS</link>
-   <guid>urn:http-prl-ccs-neu-edu:-blog-2016-11-16-understanding-constructive-galois-connections</guid>
-   <pubDate>Wed, 16 Nov 2016 00:00:00 UT</pubDate>
-   <description>&lt;html&gt;
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+ <title type="text">PRL Blog: Posts tagged 'category theory'</title>
+ <link rel="self" href="http://prl.ccs.neu.edu/blog/feeds/category-theory.atom.xml" />
+ <link href="http://prl.ccs.neu.edu/blog/tags/category-theory.html" />
+ <id>urn:http-prl-ccs-neu-edu:-blog-tags-category-theory-html</id>
+ <updated>2016-11-16T00:00:00Z</updated>
+ <entry>
+  <title type="text">Understanding Constructive Galois Connections</title>
+  <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2016/11/16/understanding-constructive-galois-connections/?utm_source=category-theory&amp;utm_medium=Atom" />
+  <id>urn:http-prl-ccs-neu-edu:-blog-2016-11-16-understanding-constructive-galois-connections</id>
+  <published>2016-11-16T00:00:00Z</published>
+  <updated>2016-11-16T00:00:00Z</updated>
+  <author>
+   <name>PRL</name></author>
+  <content type="html">&lt;html&gt;
 &lt;p&gt;One of my favorite papers at ICFP 2016 (in lovely &lt;a href="http://conf.researchr.org/home/icfp-2016"&gt;Nara, Japan&lt;/a&gt;) was &lt;a href="https://arxiv.org/abs/1511.06965"&gt;Constructive Galois Connections: Taming the Galois Connection Framework for Mechanized Metatheory&lt;/a&gt; by &lt;a href="http://david.darais.com/"&gt;David Darais&lt;/a&gt; and &lt;a href="https://www.cs.umd.edu/~dvanhorn/"&gt;David Van Horn&lt;/a&gt;. The central technical result is quite interesting, but a little intimidating, so I&amp;rsquo;d like to share a &amp;ldquo;de-generalization&amp;rdquo; of the result that I found helpful to understand.&lt;/p&gt;
 &lt;!-- more--&gt;
 
@@ -150,4 +151,4 @@ X \to P(Y)&lt;/script&gt; we can take
 
 &lt;p&gt;The answer is, at least in full generality, no! For it to be true we need a special property on the codomain of the left adjoint 
  &lt;script type="math/tex"&gt;R : C
-\not\to D&lt;/script&gt;, which is called (for mind-boggling reasons) &lt;a href="https://ncatlab.org/nlab/show/Cauchy+complete+category#InOrdinaryCatTheoryByProfunctors"&gt;Cauchy completeness&lt;/a&gt;. Viewing sets and posets as special categories, it turns out that they always have this property, and that&amp;rsquo;s why the theorem worked out for those adjunctions.&lt;/p&gt;&lt;/html&gt;</description></item></channel></rss>
+\not\to D&lt;/script&gt;, which is called (for mind-boggling reasons) &lt;a href="https://ncatlab.org/nlab/show/Cauchy+complete+category#InOrdinaryCatTheoryByProfunctors"&gt;Cauchy completeness&lt;/a&gt;. Viewing sets and posets as special categories, it turns out that they always have this property, and that&amp;rsquo;s why the theorem worked out for those adjunctions.&lt;/p&gt;&lt;/html&gt;</content></entry></feed>
