@@ -4,7 +4,57 @@
  <link rel="self" href="http://prl.ccs.neu.edu/blog/feeds/all.atom.xml" />
  <link href="http://prl.ccs.neu.edu/blog/index.html" />
  <id>urn:http-prl-ccs-neu-edu:-blog-index-html</id>
- <updated>2016-11-16T00:00:00Z</updated>
+ <updated>2016-11-17T13:52:52Z</updated>
+ <entry>
+  <title type="text">SRC-submissions</title>
+  <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2016/11/17/src-submissions/?utm_source=all&amp;utm_medium=Atom" />
+  <id>urn:http-prl-ccs-neu-edu:-blog-2016-11-17-src-submissions</id>
+  <published>2016-11-17T13:52:52Z</published>
+  <updated>2016-11-17T13:52:52Z</updated>
+  <author>
+   <name>PRL</name></author>
+  <content type="html">&lt;html&gt;
+&lt;p&gt;Max New, Daniel Patterson and Benjamin Greenman recently wrote three two-page abstracts on what they are working on right now. Come have a look &amp;mdash; and any feedback is welcome!&lt;/p&gt;
+&lt;!-- more--&gt;
+
+&lt;h2 id="gradual-type-precision-as-retraction"&gt;Gradual Type Precision as Retraction&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href="http://maxsnew.github.io/docs/precision-as-retraction.pdf"&gt;Gradual Type Precision as Retraction&lt;/a&gt;
+ &lt;br /&gt;Max New
+ &lt;br /&gt;2016&lt;/p&gt;
+
+&lt;blockquote&gt;
+ &lt;p&gt;Gradually typed programming languages allow for a mix of precision of static type information, allowing advanced type features to be added to existing languages, while still supporting interoperability with legacy code. The advantages of gradual typing are enticing to researchers and practitioners alike, but a general theory of gradually typed languages is only beginning to emerge after a decade of research.&lt;/p&gt;
+ &lt;p&gt;It has long been noted that there is much similarity between work on contracts and gradual typing, and the use of retracts in domain theory which were used to relate models of untyped and typed lambda calculus in &lt;a href="https://pdfs.semanticscholar.org/359e/ca57fe42d97cbb67f0b5591869abe5eb5421.pdf"&gt;Scott(1976)&lt;/a&gt; and &lt;a href="http://andrewkish-name.s3.amazonaws.com/scott80.pdf"&gt;Scott(1980)&lt;/a&gt;. Here we take this connection seriously and consider how judgments in modern gradually typed languages can be framed in terms of retractions. While retractions in programming languages were originally studied in terms of denotational semantics in domains, our presentation will use only the most basic elements of category theory: composition, identity and equality of terms, so our formulation is equally applicable to axiomatic or operational semantics.&lt;/p&gt;
+ &lt;p&gt;In particular we propose a semantic criterion for the notion of precision of gradual types, a common judgment in gradually typed languages (sometimes called naive subtyping for historical reasons). We relate it to a previous definition from &lt;a href="https://www.eecs.northwestern.edu/%7Erobby/pubs/papers/esop2009-wf.pdf"&gt;Wadler and Findler(2009)&lt;/a&gt; that defines type precision in terms of blame. We show that our definition decomposes in a similar way into “positive” and “negative” type precision, but without depending on a specific notion of blame in the language.&lt;/p&gt;&lt;/blockquote&gt;
+
+&lt;h2 id="linking-types-specifying-safe-interoperability-and-equivalences"&gt;Linking Types: Specifying Safe Interoperability and Equivalences&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href="https://dbp.io/pubs/2016/linking-types-poplsrc2017-proposal.pdf"&gt;Linking Types: Specifying Safe Interoperability and Equivalences&lt;/a&gt;
+ &lt;br /&gt;Daniel Patterson
+ &lt;br /&gt;2016&lt;/p&gt;
+
+&lt;blockquote&gt;
+ &lt;p&gt;All programs written in high-level languages link with libraries written in lower-level languages, often to expose constructs, like threads, random numbers, or automatic serialization, that aren’t possible in the high-level language. This linking usually takes place after compiling both languages to a common language, possibly assembly. In this sense, reasoning about crosslanguage linking means reasoning about compilation.&lt;/p&gt;
+ &lt;p&gt;While most languages include cross-language linking (FFI) mechanisms, they are ad-hoc and can easily break the semantic equivalences of the source language, making it hard for source programmers to reason about correctness of their programs and hard for compiler writers to reason about correctness of their optimizations.&lt;/p&gt;
+ &lt;p&gt;In this work, I design and motivate linking types, a language-based mechanism for formally specifying safe linking with libraries utilizing features inexpressible in the source. Linking types allows programmers to reason about their programs in the presence of behavior inexpressible in their language, without dealing with the intricacies of either the compiler or the particular language they are linking with.&lt;/p&gt;&lt;/blockquote&gt;
+
+&lt;h2 id="pruning-contracts-with-rosette"&gt;Pruning Contracts with Rosette&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href="http://www.ccs.neu.edu/home/types/resources/popl2017-src.pdf"&gt;Pruning Contracts with Rosette&lt;/a&gt; Benjamin Greenman 2016&lt;/p&gt;
+
+&lt;blockquote&gt;
+ &lt;p&gt;&lt;a href="http://www.ccs.neu.edu/racket/pubs/icfp16-dnff.pdf"&gt;Contracts&lt;/a&gt; are a pragmatic tool for managing software systems, but programs using contracts suffer runtime overhead. If this overhead becomes a performance bottleneck, programmers must manually edit or remove their contracts. This is no good. Rather, the contracts should identify their own inefficiencies and remove unnecessary dynamic checks. Implementing contracts with &lt;a href="https://emina.github.io/rosette/"&gt;Rosette&lt;/a&gt; is a promising way to build such self-aware contracts.&lt;/p&gt;&lt;/blockquote&gt;
+
+&lt;h2 id="while-were-at-it-lets-rant-on-srcs"&gt;While we&amp;rsquo;re at it let&amp;rsquo;s rant on SRCs&lt;/h2&gt;
+
+&lt;p&gt;These abstracts are submitted at POPL&amp;rsquo;s &amp;ldquo;Student Research Competition&amp;rdquo;. You submit an abstract, and if you get accepted to that thing, you get a bit of travel support money, and you have to prepare a poster and present it at the conference.&lt;/p&gt;
+
+&lt;p&gt;I have a firm dislike for the &lt;em&gt;Competition&lt;/em&gt; part of that concept: I think that people think of research too competitively already, and that we should have less of that, not more. (Having some is unfortunately unavoidable in scarce-resource situations.) I think that the process of awarding prizes to students with the &amp;ldquo;best poster&amp;rdquo; is dumb &amp;mdash; and borderline ridiculous.&lt;/p&gt;
+
+&lt;p&gt;On the other hand, my experience seeing them writing these extended abstracts is that it&amp;rsquo;s a useful exercise for them, and produces nice result &amp;mdash; short, readable introductions to their ideas. And Jennifer Paykin &lt;a href="https://github.com/gasche/icfp2016-blog/blob/master/SVs/jennifer_paykin.md"&gt;convincingly argues&lt;/a&gt; that although writing a poster is rather painful, actually presenting it during the conference is interesting and useful. In her words, &amp;ldquo;it&amp;rsquo;s worth it to get the experience of authentic and fruitful discussions&amp;rdquo;. Plus having posters in the corridors of one&amp;rsquo;s lab is very nice.&lt;/p&gt;
+
+&lt;p&gt;I think we could have &amp;ldquo;Student Research Sessions&amp;rdquo; or &amp;ldquo;Student Poster Sessions&amp;rdquo;, where students are encouraged to present their work, would write those nice extended abstracts and posters, interact with researchers at the conference, and get travel money, without the ranking and prize stuff. (I would still encourage students to participate to SRC today, it seems to be worth it.)&lt;/p&gt;&lt;/html&gt;</content></entry>
  <entry>
   <title type="text">Understanding Constructive Galois Connections</title>
   <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2016/11/16/understanding-constructive-galois-connections/?utm_source=all&amp;utm_medium=Atom" />
@@ -1715,6 +1765,121 @@ incantation in a command-line:&lt;/p&gt;
      &lt;table cellpadding="0" cellspacing="0"&gt;
       &lt;tbody&gt;
        &lt;tr&gt;
+        &lt;td&gt;
+         &lt;p&gt;&lt;span class="RktOut"&gt;Resolving "ffi-definer-convention" via https://download.racket-lang.org/releases/6.6/catalog/&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;
+       &lt;tr&gt;
+        &lt;td&gt;
+         &lt;p&gt;&lt;span class="RktOut"&gt;Resolving "ffi-definer-convention" via https://pkgs.racket-lang.org&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;
+       &lt;tr&gt;
+        &lt;td&gt;
+         &lt;p&gt;&lt;span class="RktOut"&gt;Downloading repository git://github.com/takikawa/racket-ffi-definer-convention&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;
+       &lt;tr&gt;
+        &lt;td&gt;
+         &lt;p&gt;&lt;span class="RktOut"&gt;raco setup: version: 6.6&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;
+       &lt;tr&gt;
+        &lt;td&gt;
+         &lt;p&gt;&lt;span class="RktOut"&gt;raco setup: platform: x86_64-linux [3m]&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;
+       &lt;tr&gt;
+        &lt;td&gt;
+         &lt;p&gt;&lt;span class="RktOut"&gt;raco setup: installation name: 6.6&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;
+       &lt;tr&gt;
+        &lt;td&gt;
+         &lt;p&gt;&lt;span class="RktOut"&gt;raco setup: variants: 3m&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;
+       &lt;tr&gt;
+        &lt;td&gt;
+         &lt;p&gt;&lt;span class="RktOut"&gt;raco setup: main collects: /home/travis/racket/collects&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;
+       &lt;tr&gt;
+        &lt;td&gt;
+         &lt;p&gt;&lt;span class="RktOut"&gt;raco setup: collects paths: &lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;
+       &lt;tr&gt;
+        &lt;td&gt;
+         &lt;p&gt;&lt;span class="RktOut"&gt;raco setup: &lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class="RktOut"&gt;/home/travis/racket/collects&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;
+       &lt;tr&gt;
+        &lt;td&gt;
+         &lt;p&gt;&lt;span class="RktOut"&gt;raco setup: main pkgs: /home/travis/racket/share/pkgs&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;
+       &lt;tr&gt;
+        &lt;td&gt;
+         &lt;p&gt;&lt;span class="RktOut"&gt;raco setup: pkgs paths: &lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;
+       &lt;tr&gt;
+        &lt;td&gt;
+         &lt;p&gt;&lt;span class="RktOut"&gt;raco setup: &lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class="RktOut"&gt;/home/travis/racket/share/pkgs&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;
+       &lt;tr&gt;
+        &lt;td&gt;
+         &lt;p&gt;&lt;span class="RktOut"&gt;raco setup: &lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class="RktOut"&gt;/home/travis/.racket/6.6/pkgs&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;
+       &lt;tr&gt;
+        &lt;td&gt;
+         &lt;p&gt;&lt;span class="RktOut"&gt;raco setup: links files: &lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;
+       &lt;tr&gt;
+        &lt;td&gt;
+         &lt;p&gt;&lt;span class="RktOut"&gt;raco setup: &lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class="RktOut"&gt;/home/travis/racket/share/links.rktd&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;
+       &lt;tr&gt;
+        &lt;td&gt;
+         &lt;p&gt;&lt;span class="RktOut"&gt;raco setup: &lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class="RktOut"&gt;/home/travis/.racket/6.6/links.rktd&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;
+       &lt;tr&gt;
+        &lt;td&gt;
+         &lt;p&gt;&lt;span class="RktOut"&gt;raco setup: main docs: /home/travis/racket/doc&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;
+       &lt;tr&gt;
+        &lt;td&gt;
+         &lt;p&gt;&lt;span class="RktOut"&gt;raco setup: --- updating info-domain tables ---&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;
+       &lt;tr&gt;
+        &lt;td&gt;
+         &lt;p&gt;&lt;span class="RktOut"&gt;raco setup: updating: /home/travis/.racket/6.6/share/info-cache.rktd&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;
+       &lt;tr&gt;
+        &lt;td&gt;
+         &lt;p&gt;&lt;span class="RktOut"&gt;raco setup: --- pre-installing collections ---&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;
+       &lt;tr&gt;
+        &lt;td&gt;
+         &lt;p&gt;&lt;span class="RktOut"&gt;raco setup: --- installing foreign libraries ---&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;
+       &lt;tr&gt;
+        &lt;td&gt;
+         &lt;p&gt;&lt;span class="RktOut"&gt;raco setup: --- installing shared files ---&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;
+       &lt;tr&gt;
+        &lt;td&gt;
+         &lt;p&gt;&lt;span class="RktOut"&gt;raco setup: --- compiling collections ---&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;
+       &lt;tr&gt;
+        &lt;td&gt;
+         &lt;p&gt;&lt;span class="RktOut"&gt;raco setup: --- parallel build using 8 jobs ---&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;
+       &lt;tr&gt;
+        &lt;td&gt;
+         &lt;p&gt;&lt;span class="RktOut"&gt;raco setup: 7 making: &amp;lt;pkgs&amp;gt;/ffi-definer-convention&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;
+       &lt;tr&gt;
+        &lt;td&gt;
+         &lt;p&gt;&lt;span class="RktOut"&gt;raco setup: --- creating launchers ---&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;
+       &lt;tr&gt;
+        &lt;td&gt;
+         &lt;p&gt;&lt;span class="RktOut"&gt;raco setup: --- installing man pages ---&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;
+       &lt;tr&gt;
+        &lt;td&gt;
+         &lt;p&gt;&lt;span class="RktOut"&gt;raco setup: --- building documentation ---&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;
+       &lt;tr&gt;
+        &lt;td&gt;
+         &lt;p&gt;&lt;span class="RktOut"&gt;raco setup: 7 running: &amp;lt;pkgs&amp;gt;/ffi-definer-convention/ffi-definer-convention.scrbl&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;
+       &lt;tr&gt;
+        &lt;td&gt;
+         &lt;p&gt;&lt;span class="RktOut"&gt;raco setup: 4 rendering: &amp;lt;pkgs&amp;gt;/ffi-definer-convention/ffi-definer-convention.scrbl&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;
+       &lt;tr&gt;
+        &lt;td&gt;
+         &lt;p&gt;&lt;span class="RktOut"&gt;raco setup: 3 rendering: &amp;lt;pkgs&amp;gt;/racket-index/scribblings/main/user/local-redirect.scrbl&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;
+       &lt;tr&gt;
+        &lt;td&gt;
+         &lt;p&gt;&lt;span class="RktOut"&gt;raco setup: 2 rendering: &amp;lt;pkgs&amp;gt;/racket-index/scribblings/main/user/release.scrbl&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;
+       &lt;tr&gt;
+        &lt;td&gt;
+         &lt;p&gt;&lt;span class="RktOut"&gt;raco setup: 1 rendering: &amp;lt;pkgs&amp;gt;/racket-index/scribblings/main/user/search.scrbl&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;
+       &lt;tr&gt;
+        &lt;td&gt;
+         &lt;p&gt;&lt;span class="RktOut"&gt;raco setup: 0 rendering: &amp;lt;pkgs&amp;gt;/racket-index/scribblings/main/user/start.scrbl&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;
+       &lt;tr&gt;
+        &lt;td&gt;
+         &lt;p&gt;&lt;span class="RktOut"&gt;raco setup: --- installing collections ---&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;
+       &lt;tr&gt;
+        &lt;td&gt;
+         &lt;p&gt;&lt;span class="RktOut"&gt;raco setup: --- post-installing collections ---&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;
+   &lt;tr&gt;
+    &lt;td&gt;
+     &lt;table cellpadding="0" cellspacing="0"&gt;
+      &lt;tbody&gt;
+       &lt;tr&gt;
         &lt;td&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;
 
 &lt;p&gt;This will install the package and compile its contents. If you&amp;rsquo;re curious, the
@@ -2244,7 +2409,7 @@ array and reference the correct variant appropriately:&lt;/p&gt;
     &lt;td&gt;&lt;span class="stt"&gt;&amp;gt; &lt;/span&gt;&lt;span class="RktPn"&gt;(&lt;/span&gt;&lt;span class="RktSym"&gt;&lt;a class="RktValLink" data-pltdoc="x" href="http://docs.racket-lang.org/foreign/C_Union_Types.html#%28def._%28%28lib._ffi%2Funsafe..rkt%29._union-ref%29%29"&gt;union-ref&lt;/a&gt;&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktPn"&gt;(&lt;/span&gt;&lt;span class="RktSym"&gt;third&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;array&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktVal"&gt;1&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
    &lt;tr&gt;
     &lt;td&gt;
-     &lt;p&gt;&lt;span class="RktRes"&gt;'(4.2439915824246e-314 4.9406564584125e-324)&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;
+     &lt;p&gt;&lt;span class="RktRes"&gt;'(4.2439915824246e-314 2.36923707154894e-310)&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;
 
 &lt;p&gt;One thing we could do is write a helper function that converts this array
 into a more useful format. It would look at each header, and then consume
