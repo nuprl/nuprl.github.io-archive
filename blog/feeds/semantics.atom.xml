@@ -4,7 +4,16 @@
  <link rel="self" href="http://prl.ccs.neu.edu/blog/feeds/semantics.atom.xml" />
  <link href="http://prl.ccs.neu.edu/blog/tags/semantics.html" />
  <id>urn:http-prl-ccs-neu-edu:-blog-tags-semantics-html</id>
- <updated>2016-11-02T21:10:18Z</updated>
+ <updated>2016-11-30T15:24:45Z</updated>
+ <entry>
+  <title type="text">[Getting Started in Programming Languages (Cross-Post)](http://jschuster.org/blog/2016/11/29/getting-started-in-programming-languages/)</title>
+  <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2016/11/30/-getting-started-in-programming-languages-cross-post-http-jschuster-org-blog-2016-11-29-getting-started-in-programming-languages/?utm_source=semantics&amp;utm_medium=Atom" />
+  <id>urn:http-prl-ccs-neu-edu:-blog-2016-11-30-getting-started-in-programming-languages-cross-post-http-jschuster-org-blog-2016-11-29-getting-started-in-programming-languages</id>
+  <published>2016-11-30T15:24:45Z</published>
+  <updated>2016-11-30T15:24:45Z</updated>
+  <author>
+   <name>PRL</name></author>
+  <content type="html">&lt;html&gt;&lt;/html&gt;</content></entry>
  <entry>
   <title type="text">Beta Reduction (Part 1)</title>
   <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2016/11/02/beta-reduction-part-1/?utm_source=semantics&amp;utm_medium=Atom" />

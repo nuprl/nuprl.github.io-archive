@@ -4,6 +4,7 @@ http://prl.ccs.neu.edu/blog/2016/06/07/icfp-2016-looking-for-student-volunteers/
 http://prl.ccs.neu.edu/blog/2016/10/11/compcert-overview/
 http://prl.ccs.neu.edu/blog/2016/08/02/tutorial-zero-to-sixty-in-racket/
 http://prl.ccs.neu.edu/blog/2016/05/18/gradual-typing-across-the-spectrum/
+http://prl.ccs.neu.edu/blog/2016/11/30/-getting-started-in-programming-languages-cross-post-http-jschuster-org-blog-2016-11-29-getting-started-in-programming-languages/
 http://prl.ccs.neu.edu/blog/2016/05/03/nepls-on-may-31st-at-umass-amherst/
 http://prl.ccs.neu.edu/blog/2016/06/27/tutorial-using-racket-s-ffi/
 http://prl.ccs.neu.edu/blog/2016/10/17/emacs-daemon-for-fast-editor-startup/
