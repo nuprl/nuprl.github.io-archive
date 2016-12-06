@@ -14,7 +14,7 @@
   <author>
    <name>PRL</name></author>
   <content type="html">&lt;html&gt;
-&lt;p&gt;Max New, Daniel Patterson and Benjamin Greenman recently wrote three two-page abstracts on what they are working on right now. Come have a look &amp;mdash; and any feedback is welcome!&lt;/p&gt;
+&lt;p&gt;Max New, Daniel Patterson and Ben Greenman recently wrote three two-page abstracts on what they are working on right now. Come have a look &amp;mdash; and any feedback is welcome!&lt;/p&gt;
 &lt;!-- more--&gt;
 
 &lt;h2 id="gradual-type-precision-as-retraction"&gt;Gradual Type Precision as Retraction&lt;/h2&gt;
@@ -41,7 +41,9 @@
 
 &lt;h2 id="pruning-contracts-with-rosette"&gt;Pruning Contracts with Rosette&lt;/h2&gt;
 
-&lt;p&gt;&lt;a href="http://www.ccs.neu.edu/home/types/resources/popl2017-src.pdf"&gt;Pruning Contracts with Rosette&lt;/a&gt; Benjamin Greenman 2016&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://www.ccs.neu.edu/home/types/resources/popl2017-src.pdf"&gt;Pruning Contracts with Rosette&lt;/a&gt;
+ &lt;br /&gt;Ben Greenman
+ &lt;br /&gt;2016&lt;/p&gt;
 
 &lt;blockquote&gt;
  &lt;p&gt;&lt;a href="http://www.ccs.neu.edu/racket/pubs/icfp16-dnff.pdf"&gt;Contracts&lt;/a&gt; are a pragmatic tool for managing software systems, but programs using contracts suffer runtime overhead. If this overhead becomes a performance bottleneck, programmers must manually edit or remove their contracts. This is no good. Rather, the contracts should identify their own inefficiencies and remove unnecessary dynamic checks. Implementing contracts with &lt;a href="https://emina.github.io/rosette/"&gt;Rosette&lt;/a&gt; is a promising way to build such self-aware contracts.&lt;/p&gt;&lt;/blockquote&gt;
