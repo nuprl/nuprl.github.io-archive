@@ -12,7 +12,7 @@
    <link>http://prl.ccs.neu.edu/blog/2016/08/03/a-few-cores-too-many/?utm_source=lost-time&amp;utm_medium=RSS</link>
    <guid>urn:http-prl-ccs-neu-edu:-blog-2016-08-03-a-few-cores-too-many</guid>
    <pubDate>Wed, 03 Aug 2016 14:09:02 UT</pubDate>
-   <description>&lt;html&gt;
+   <description>
 &lt;p&gt;Performance matters for software systems, but performance is not always easy  to measure. At the PRL we recently had a scare with some unreliable measurements. Here is the story.&lt;/p&gt;
 &lt;!-- more--&gt;
 
@@ -58,4 +58,4 @@
 
 &lt;p&gt;And so, we said goodbye to the last 4 months of data and started over running at most two cores. The new results are all stable, but still we keep pinching ourselves.&lt;/p&gt;
 
-&lt;p&gt;P.S. the results from &lt;a href="http://www.ccs.neu.edu/racket/pubs/#popl16-tfgnvf"&gt;POPL 2016&lt;/a&gt; are just fine,  as they were not taken on the new machine running more than 2 cores.  If you have time to confirm, that data is in our  &lt;a href="http://www.ccs.neu.edu/home/asumu/artifacts/popl-2016/"&gt;artifact&lt;/a&gt;  and in the &lt;a href="https://github.com/nuprl/gradual-typing-performance/tree/master/paper/popl-2016/data"&gt;gradual-typing-performance&lt;/a&gt; repo.&lt;/p&gt;&lt;/html&gt;</description></item></channel></rss>
+&lt;p&gt;P.S. the results from &lt;a href="http://www.ccs.neu.edu/racket/pubs/#popl16-tfgnvf"&gt;POPL 2016&lt;/a&gt; are just fine,  as they were not taken on the new machine running more than 2 cores.  If you have time to confirm, that data is in our  &lt;a href="http://www.ccs.neu.edu/home/asumu/artifacts/popl-2016/"&gt;artifact&lt;/a&gt;  and in the &lt;a href="https://github.com/nuprl/gradual-typing-performance/tree/master/paper/popl-2016/data"&gt;gradual-typing-performance&lt;/a&gt; repo.&lt;/p&gt;</description></item></channel></rss>

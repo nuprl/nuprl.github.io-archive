@@ -12,7 +12,7 @@
    <link>http://prl.ccs.neu.edu/blog/2016/10/11/compcert-overview/?utm_source=compiler-correctness&amp;utm_medium=RSS</link>
    <guid>urn:http-prl-ccs-neu-edu:-blog-2016-10-11-compcert-overview</guid>
    <pubDate>Tue, 11 Oct 2016 17:41:16 UT</pubDate>
-   <description>&lt;html&gt;
+   <description>
 &lt;p&gt;If you are interested in learning about the &lt;em&gt;internals&lt;/em&gt; of the CompCert C compiler but would rather not read its source code, this post is for you.&lt;/p&gt;
 &lt;!-- more--&gt;
 
@@ -41,4 +41,4 @@
  &lt;li&gt;CompCert&amp;rsquo;s correctness, properties that CompCert does &lt;strong&gt;not&lt;/strong&gt; guarantee&lt;/li&gt;
  &lt;li&gt;Recent (2006 &amp;ndash; 2015) work in the CompCert ecosystem&lt;/li&gt;&lt;/ol&gt;
 
-&lt;p&gt;The document ends with a short description of two other research projects that have grown into &amp;ldquo;industry software&amp;rdquo; and a link to Xaver Leroy&amp;rsquo;s &lt;a href="https://www.cs.uoregon.edu/research/summerschool/summer12/curriculum.html"&gt;OPLSS lectures on certified compilers&lt;/a&gt;. Enjoy!&lt;/p&gt;&lt;/html&gt;</description></item></channel></rss>
+&lt;p&gt;The document ends with a short description of two other research projects that have grown into &amp;ldquo;industry software&amp;rdquo; and a link to Xaver Leroy&amp;rsquo;s &lt;a href="https://www.cs.uoregon.edu/research/summerschool/summer12/curriculum.html"&gt;OPLSS lectures on certified compilers&lt;/a&gt;. Enjoy!&lt;/p&gt;</description></item></channel></rss>

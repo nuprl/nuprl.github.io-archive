@@ -12,7 +12,7 @@
    <link>http://prl.ccs.neu.edu/blog/2016/12/17/measuring-the-submission-review-balance/?utm_source=by-Gabriel-Scherer&amp;utm_medium=RSS</link>
    <guid>urn:http-prl-ccs-neu-edu:-blog-2016-12-17-measuring-the-submission-review-balance</guid>
    <pubDate>Sat, 17 Dec 2016 16:33:10 UT</pubDate>
-   <description>&lt;html&gt;
+   <description>
 &lt;p&gt;How do researchers know whether they are doing &amp;ldquo;enough&amp;rdquo; or &amp;ldquo;too many&amp;rdquo; reviews? A measurable goal is to be review-neutral: to have demanded, through our submissions, as many reviews as we have produced as reviewers.&lt;/p&gt;
 &lt;!-- more--&gt;
 
@@ -76,13 +76,13 @@
 &lt;blockquote&gt;
  &lt;p&gt;Is being a student volunteer at a conference equal to &amp;ldquo;one review&amp;rdquo;?&lt;/p&gt;&lt;/blockquote&gt;
 
-&lt;p&gt;I think it is a distinct form of academic service. I don&amp;rsquo;t know how to measure the &amp;ldquo;conference organization cost&amp;rdquo; we impose to our academic colleagues. (If there are around 500 attendants to a typical Programming Languages conference, it means that for every 500 conferences you attend you should organize one all by yourself.)&lt;/p&gt;&lt;/html&gt;</description></item>
+&lt;p&gt;I think it is a distinct form of academic service. I don&amp;rsquo;t know how to measure the &amp;ldquo;conference organization cost&amp;rdquo; we impose to our academic colleagues. (If there are around 500 attendants to a typical Programming Languages conference, it means that for every 500 conferences you attend you should organize one all by yourself.)&lt;/p&gt;</description></item>
   <item>
    <title>SRC-submissions</title>
    <link>http://prl.ccs.neu.edu/blog/2016/11/17/src-submissions/?utm_source=by-Gabriel-Scherer&amp;utm_medium=RSS</link>
    <guid>urn:http-prl-ccs-neu-edu:-blog-2016-11-17-src-submissions</guid>
    <pubDate>Thu, 17 Nov 2016 13:52:52 UT</pubDate>
-   <description>&lt;html&gt;
+   <description>
 &lt;p&gt;Max New, Daniel Patterson and Ben Greenman recently wrote three two-page abstracts on what they are working on right now. Come have a look &amp;mdash; and any feedback is welcome!&lt;/p&gt;
 &lt;!-- more--&gt;
 
@@ -125,13 +125,13 @@
 
 &lt;p&gt;On the other hand, my experience seeing them writing these extended abstracts is that it&amp;rsquo;s a useful exercise for them, and produces nice result &amp;mdash; short, readable introductions to their ideas. And Jennifer Paykin &lt;a href="https://github.com/gasche/icfp2016-blog/blob/master/SVs/jennifer_paykin.md"&gt;convincingly argues&lt;/a&gt; that although writing a poster is rather painful, actually presenting it during the conference is interesting and useful. In her words, &amp;ldquo;it&amp;rsquo;s worth it to get the experience of authentic and fruitful discussions&amp;rdquo;. Plus having posters in the corridors of one&amp;rsquo;s lab is very nice.&lt;/p&gt;
 
-&lt;p&gt;I think we could have &amp;ldquo;Student Research Sessions&amp;rdquo; or &amp;ldquo;Student Poster Sessions&amp;rdquo;, where students are encouraged to present their work, would write those nice extended abstracts and posters, interact with researchers at the conference, and get travel money, without the ranking and prize stuff. (I would still encourage students to participate to SRC today, it seems to be worth it.)&lt;/p&gt;&lt;/html&gt;</description></item>
+&lt;p&gt;I think we could have &amp;ldquo;Student Research Sessions&amp;rdquo; or &amp;ldquo;Student Poster Sessions&amp;rdquo;, where students are encouraged to present their work, would write those nice extended abstracts and posters, interact with researchers at the conference, and get travel money, without the ranking and prize stuff. (I would still encourage students to participate to SRC today, it seems to be worth it.)&lt;/p&gt;</description></item>
   <item>
    <title>Emacs daemon for fast editor startup</title>
    <link>http://prl.ccs.neu.edu/blog/2016/10/17/emacs-daemon-for-fast-editor-startup/?utm_source=by-Gabriel-Scherer&amp;utm_medium=RSS</link>
    <guid>urn:http-prl-ccs-neu-edu:-blog-2016-10-17-emacs-daemon-for-fast-editor-startup</guid>
    <pubDate>Mon, 17 Oct 2016 21:48:25 UT</pubDate>
-   <description>&lt;html&gt;
+   <description>
 &lt;p&gt;In the early days of the famous Emacs/Vim debates, Emacs was often ridiculed for its bulkiness (Eight Megabytes-of-RAM And Constantly Swapping, etc.). The computational power of our computer has grown much faster than Emacs&amp;rsquo; bloat: it takes exactly one second to load on my machine. However, our workflows have also changed, and my workflow implies frequently starting new text editors &amp;mdash; on each git commit for example, or when I use a &lt;a href="https://addons.mozilla.org/en-US/firefox/addon/its-all-text/"&gt;Firefox extension&lt;/a&gt; to edit a textarea content in a proper editor.&lt;/p&gt;
 
 &lt;p&gt;In this blog post, I describe how to use &lt;code&gt;emacsclient&lt;/code&gt; to reuse an existing Emacs process when creating a new editor window, which reduces editor startup times from 1s to 0.150s on my machine.&lt;/p&gt;
@@ -161,13 +161,13 @@ emacsclient -a "" -c "$@"&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;div class="brush: sh"&gt;
  &lt;pre&gt;&lt;code&gt;$ time emacs --eval "(save-buffers-kill-terminal)"
-$ time emacsclient -a '' -c -e "(save-buffers-kill-terminal)"&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/html&gt;</description></item>
+$ time emacsclient -a '' -c -e "(save-buffers-kill-terminal)"&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description></item>
   <item>
    <title>Does anyone still care about printed proceedings? (Grab some at NEU this week!)</title>
    <link>http://prl.ccs.neu.edu/blog/2016/06/13/does-anyone-still-care-about-printed-proceedings-grab-some-at-neu-this-week/?utm_source=by-Gabriel-Scherer&amp;utm_medium=RSS</link>
    <guid>urn:http-prl-ccs-neu-edu:-blog-2016-06-13-does-anyone-still-care-about-printed-proceedings-grab-some-at-neu-this-week</guid>
    <pubDate>Mon, 13 Jun 2016 10:50:14 UT</pubDate>
-   <description>&lt;html&gt;
+   <description>
 &lt;p&gt;Are you interested in printed conference Proceedings? We have a good stack of them left away at Northeastern University (Boston, MA) and it seems that nobody wants them!&lt;/p&gt;
 &lt;!-- more--&gt;
 
@@ -177,13 +177,13 @@ $ time emacsclient -a '' -c -e "(save-buffers-kill-terminal)"&lt;/code&gt;&lt;/p
 
 &lt;p&gt;But don&amp;rsquo;t get me wrong, the future of printed proceedings is not an important question. We should rather be asking ourselves: why are the products of the work of our communities not easily accessible in an Open Access long-term archive? Are you submitting your articles to Arxiv, or another archive? Why not?&lt;/p&gt;
 
-&lt;p&gt;Not caring about printed proceedings is perfectly fine; but please care about people outside institutions that want to access your work &amp;mdash; for example, master student myself.&lt;/p&gt;&lt;/html&gt;</description></item>
+&lt;p&gt;Not caring about printed proceedings is perfectly fine; but please care about people outside institutions that want to access your work &amp;mdash; for example, master student myself.&lt;/p&gt;</description></item>
   <item>
    <title>ICFP 2016: looking for student volunteers</title>
    <link>http://prl.ccs.neu.edu/blog/2016/06/07/icfp-2016-looking-for-student-volunteers/?utm_source=by-Gabriel-Scherer&amp;utm_medium=RSS</link>
    <guid>urn:http-prl-ccs-neu-edu:-blog-2016-06-07-icfp-2016-looking-for-student-volunteers</guid>
    <pubDate>Tue, 07 Jun 2016 11:53:47 UT</pubDate>
-   <description>&lt;html&gt;
+   <description>
 &lt;p&gt;If you are a student, you should consider &lt;a href="http://goo.gl/forms/fKg3vpjNryBlGWB32"&gt;applying&lt;/a&gt; to become an ICFP 2016 student volunteer! The deadline for application is July 31st, 2016.&lt;/p&gt;
 &lt;!-- more--&gt;
 
@@ -208,13 +208,13 @@ $ time emacsclient -a '' -c -e "(save-buffers-kill-terminal)"&lt;/code&gt;&lt;/p
 
 &lt;p&gt;Being a student volunteer can be combined with other forms of travel support, such as SIGPLAN PAC funding; see the &lt;a href="http://conf.researchr.org/attending/icfp-2016/student-travel-support"&gt;travel support page&lt;/a&gt; for more details.&lt;/p&gt;
 
-&lt;p&gt;Another thing you should think about is applying to &lt;a href="http://conf.researchr.org/track/icfp-2016/PLMW-ICFP-2016"&gt;PLMW&lt;/a&gt;, the Programming Languages Mentoring Workshop that happens at ICFP, POPL, and PLDI. PLMW funding covers the whole conference cost (travel, housing, registration, dinners), so if you get PLMW funding you have no financial motivation to be a student volunteer. This year, PLMW focuses on early career graduate students.&lt;/p&gt;&lt;/html&gt;</description></item>
+&lt;p&gt;Another thing you should think about is applying to &lt;a href="http://conf.researchr.org/track/icfp-2016/PLMW-ICFP-2016"&gt;PLMW&lt;/a&gt;, the Programming Languages Mentoring Workshop that happens at ICFP, POPL, and PLDI. PLMW funding covers the whole conference cost (travel, housing, registration, dinners), so if you get PLMW funding you have no financial motivation to be a student volunteer. This year, PLMW focuses on early career graduate students.&lt;/p&gt;</description></item>
   <item>
    <title>Measuring GC latencies in Haskell, OCaml, Racket</title>
    <link>http://prl.ccs.neu.edu/blog/2016/05/24/measuring-gc-latencies-in-haskell-ocaml-racket/?utm_source=by-Gabriel-Scherer&amp;utm_medium=RSS</link>
    <guid>urn:http-prl-ccs-neu-edu:-blog-2016-05-24-measuring-gc-latencies-in-haskell-ocaml-racket</guid>
    <pubDate>Tue, 24 May 2016 10:51:34 UT</pubDate>
-   <description>&lt;html&gt;
+   <description>
 &lt;p&gt;James Fisher has a blog post on a case where GHC&amp;rsquo;s runtime system imposed unpleasant latencies on their Haskell program:&lt;/p&gt;
 
 &lt;blockquote&gt;
@@ -494,13 +494,13 @@ GC: 0:MAJ @ 1,406,514K(+149,645K)[+1,560K]; free 577,765K(-577,765K) 21ms @ 5069
 
 &lt;p&gt;This is, of course, a hack; the long-term solution is to wait for Racket developers to devise better dynamic control strategies to avoid the ramp-up problem. Apparently, the incremental GC was previously tested on games that had simpler allocation profiles, such as short-lived memory allocations during each game tick, with no such a long ramp-up phase. But I was still interested in the fact that expert users can tweak the code to noticeably decrease the worst-case pause time.&lt;/p&gt;
 
-&lt;p&gt;To summarize, Racket&amp;rsquo;s incremental GC exhibits a decent-but-not-excellent steady state behavior, with maximal latencies of around 22ms, but currently suffers from a GC control issues that cause much larger pauses during the benchmark ramp-up period. Explicit GC calls can partly mitigate them.&lt;/p&gt;&lt;/html&gt;</description></item>
+&lt;p&gt;To summarize, Racket&amp;rsquo;s incremental GC exhibits a decent-but-not-excellent steady state behavior, with maximal latencies of around 22ms, but currently suffers from a GC control issues that cause much larger pauses during the benchmark ramp-up period. Explicit GC calls can partly mitigate them.&lt;/p&gt;</description></item>
   <item>
    <title>NEPLS on May 31st at UMass, Amherst</title>
    <link>http://prl.ccs.neu.edu/blog/2016/05/03/nepls-on-may-31st-at-umass-amherst/?utm_source=by-Gabriel-Scherer&amp;utm_medium=RSS</link>
    <guid>urn:http-prl-ccs-neu-edu:-blog-2016-05-03-nepls-on-may-31st-at-umass-amherst</guid>
    <pubDate>Tue, 03 May 2016 08:21:07 UT</pubDate>
-   <description>&lt;html&gt;
+   <description>
 &lt;p&gt;It is my pleasure to relay the following announcement for the next edition of the New England Programming Language Seminer (NEPLS), to be held on Tuesday May 31st at UMass, Amherst, organized by Arjun Guha. Venez nombreux!&lt;/p&gt;
 &lt;!-- more--&gt;
 
@@ -514,4 +514,4 @@ GC: 0:MAJ @ 1,406,514K(+149,645K)[+1,560K]; free 577,765K(-577,765K) 21ms @ 5069
 
 &lt;p&gt;I&amp;rsquo;m personally fond of such regional events, which is a great time to learn about the research around us in a less formal and exhausting setting than a 200-attendees conference.&lt;/p&gt;
 
-&lt;p&gt;If you are in the area, please consider applying to talk about your work. If one of your colleague is working on something you find exciting, please invite them to apply!&lt;/p&gt;&lt;/html&gt;</description></item></channel></rss>
+&lt;p&gt;If you are in the area, please consider applying to talk about your work. If one of your colleague is working on something you find exciting, please invite them to apply!&lt;/p&gt;</description></item></channel></rss>

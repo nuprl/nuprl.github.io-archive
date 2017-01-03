@@ -12,7 +12,7 @@
    <link>http://prl.ccs.neu.edu/blog/2016/10/17/emacs-daemon-for-fast-editor-startup/?utm_source=System-Administration&amp;utm_medium=RSS</link>
    <guid>urn:http-prl-ccs-neu-edu:-blog-2016-10-17-emacs-daemon-for-fast-editor-startup</guid>
    <pubDate>Mon, 17 Oct 2016 21:48:25 UT</pubDate>
-   <description>&lt;html&gt;
+   <description>
 &lt;p&gt;In the early days of the famous Emacs/Vim debates, Emacs was often ridiculed for its bulkiness (Eight Megabytes-of-RAM And Constantly Swapping, etc.). The computational power of our computer has grown much faster than Emacs&amp;rsquo; bloat: it takes exactly one second to load on my machine. However, our workflows have also changed, and my workflow implies frequently starting new text editors &amp;mdash; on each git commit for example, or when I use a &lt;a href="https://addons.mozilla.org/en-US/firefox/addon/its-all-text/"&gt;Firefox extension&lt;/a&gt; to edit a textarea content in a proper editor.&lt;/p&gt;
 
 &lt;p&gt;In this blog post, I describe how to use &lt;code&gt;emacsclient&lt;/code&gt; to reuse an existing Emacs process when creating a new editor window, which reduces editor startup times from 1s to 0.150s on my machine.&lt;/p&gt;
@@ -42,4 +42,4 @@ emacsclient -a "" -c "$@"&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;div class="brush: sh"&gt;
  &lt;pre&gt;&lt;code&gt;$ time emacs --eval "(save-buffers-kill-terminal)"
-$ time emacsclient -a '' -c -e "(save-buffers-kill-terminal)"&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/html&gt;</description></item></channel></rss>
+$ time emacsclient -a '' -c -e "(save-buffers-kill-terminal)"&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description></item></channel></rss>

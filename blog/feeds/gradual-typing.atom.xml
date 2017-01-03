@@ -13,7 +13,7 @@
   <updated>2016-05-18T07:58:56Z</updated>
   <author>
    <name>PRL</name></author>
-  <content type="html">&lt;html&gt;
+  <content type="html">
 &lt;blockquote&gt;
  &lt;p&gt;Instead of being Pythonistas, Rubyists, or Racketeers we have to be scientists. &amp;mdash; Matthias Felleisen&lt;/p&gt;&lt;/blockquote&gt;
 
@@ -81,4 +81,4 @@
 &lt;div class="figure"&gt;&lt;img src="/img/2016-day-slide-3.png" alt="" /&gt;
  &lt;p class="caption"&gt;&lt;/p&gt;&lt;/div&gt;
 
-&lt;p&gt;Hopefully this blog post helps provide a better picture of the state of gradual typing research. The exciting thing about gradual typing is that it contains both interesting theoretical problems and also connects to the practical needs of software developers.&lt;/p&gt;&lt;/html&gt;</content></entry></feed>
+&lt;p&gt;Hopefully this blog post helps provide a better picture of the state of gradual typing research. The exciting thing about gradual typing is that it contains both interesting theoretical problems and also connects to the practical needs of software developers.&lt;/p&gt;</content></entry></feed>

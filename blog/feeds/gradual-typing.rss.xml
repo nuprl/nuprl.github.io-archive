@@ -12,7 +12,7 @@
    <link>http://prl.ccs.neu.edu/blog/2016/05/18/gradual-typing-across-the-spectrum/?utm_source=gradual-typing&amp;utm_medium=RSS</link>
    <guid>urn:http-prl-ccs-neu-edu:-blog-2016-05-18-gradual-typing-across-the-spectrum</guid>
    <pubDate>Wed, 18 May 2016 07:58:56 UT</pubDate>
-   <description>&lt;html&gt;
+   <description>
 &lt;blockquote&gt;
  &lt;p&gt;Instead of being Pythonistas, Rubyists, or Racketeers we have to be scientists. &amp;mdash; Matthias Felleisen&lt;/p&gt;&lt;/blockquote&gt;
 
@@ -80,4 +80,4 @@
 &lt;div class="figure"&gt;&lt;img src="/img/2016-day-slide-3.png" alt="" /&gt;
  &lt;p class="caption"&gt;&lt;/p&gt;&lt;/div&gt;
 
-&lt;p&gt;Hopefully this blog post helps provide a better picture of the state of gradual typing research. The exciting thing about gradual typing is that it contains both interesting theoretical problems and also connects to the practical needs of software developers.&lt;/p&gt;&lt;/html&gt;</description></item></channel></rss>
+&lt;p&gt;Hopefully this blog post helps provide a better picture of the state of gradual typing research. The exciting thing about gradual typing is that it contains both interesting theoretical problems and also connects to the practical needs of software developers.&lt;/p&gt;</description></item></channel></rss>

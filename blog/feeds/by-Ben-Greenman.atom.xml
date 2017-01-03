@@ -13,7 +13,7 @@
   <updated>2016-10-31T17:20:33Z</updated>
   <author>
    <name>PRL</name></author>
-  <content type="html">&lt;html&gt;
+  <content type="html">
 &lt;blockquote&gt;
  &lt;p&gt;&amp;ldquo;Meaningful distinctions deserve to be maintained.&amp;rdquo; &amp;mdash; Errett A. Bishop&lt;/p&gt;&lt;/blockquote&gt;
 
@@ -70,7 +70,7 @@
   &lt;li&gt;Algebraic topology, at least on the elementary level, should not be too difficult to constructivize.&lt;/li&gt;
   &lt;li&gt;I hope all this accords with your common sense, as it does with mine.&lt;/li&gt;&lt;/ul&gt;&lt;/blockquote&gt;
 
-&lt;p&gt;Now go find their context!&lt;/p&gt;&lt;/html&gt;</content></entry>
+&lt;p&gt;Now go find their context!&lt;/p&gt;</content></entry>
  <entry>
   <title type="text">CompCert Overview</title>
   <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2016/10/11/compcert-overview/?utm_source=by-Ben-Greenman&amp;utm_medium=Atom" />
@@ -79,7 +79,7 @@
   <updated>2016-10-11T17:41:16Z</updated>
   <author>
    <name>PRL</name></author>
-  <content type="html">&lt;html&gt;
+  <content type="html">
 &lt;p&gt;If you are interested in learning about the &lt;em&gt;internals&lt;/em&gt; of the CompCert C compiler but would rather not read its source code, this post is for you.&lt;/p&gt;
 &lt;!-- more--&gt;
 
@@ -108,7 +108,7 @@
  &lt;li&gt;CompCert&amp;rsquo;s correctness, properties that CompCert does &lt;strong&gt;not&lt;/strong&gt; guarantee&lt;/li&gt;
  &lt;li&gt;Recent (2006 &amp;ndash; 2015) work in the CompCert ecosystem&lt;/li&gt;&lt;/ol&gt;
 
-&lt;p&gt;The document ends with a short description of two other research projects that have grown into &amp;ldquo;industry software&amp;rdquo; and a link to Xaver Leroy&amp;rsquo;s &lt;a href="https://www.cs.uoregon.edu/research/summerschool/summer12/curriculum.html"&gt;OPLSS lectures on certified compilers&lt;/a&gt;. Enjoy!&lt;/p&gt;&lt;/html&gt;</content></entry>
+&lt;p&gt;The document ends with a short description of two other research projects that have grown into &amp;ldquo;industry software&amp;rdquo; and a link to Xaver Leroy&amp;rsquo;s &lt;a href="https://www.cs.uoregon.edu/research/summerschool/summer12/curriculum.html"&gt;OPLSS lectures on certified compilers&lt;/a&gt;. Enjoy!&lt;/p&gt;</content></entry>
  <entry>
   <title type="text">NEPLS on October 7th at Northeastern University</title>
   <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2016/09/15/nepls-on-october-7th-at-northeastern-university/?utm_source=by-Ben-Greenman&amp;utm_medium=Atom" />
@@ -117,7 +117,7 @@
   <updated>2016-09-15T21:18:45Z</updated>
   <author>
    <name>PRL</name></author>
-  <content type="html">&lt;html&gt;
+  <content type="html">
 &lt;p&gt;The next edition of the New England Programming Language Seminar (NEPLS) will be held on Friday, October 7th at Northeastern University. Organizers are Gabriel Scherer and Max New. See you there!&lt;/p&gt;
 &lt;!-- more--&gt;
 
@@ -147,7 +147,7 @@
 
 &lt;p&gt;To subscribe to the NEPLS mailing list, visit this page:&lt;/p&gt;
 
-&lt;p&gt;&lt;a href="https://lists.cs.brown.edu/sympa/subscribe/nepls"&gt;https://lists.cs.brown.edu/sympa/subscribe/nepls&lt;/a&gt;&lt;/p&gt;&lt;/html&gt;</content></entry>
+&lt;p&gt;&lt;a href="https://lists.cs.brown.edu/sympa/subscribe/nepls"&gt;https://lists.cs.brown.edu/sympa/subscribe/nepls&lt;/a&gt;&lt;/p&gt;</content></entry>
  <entry>
   <title type="text">A few cores too many</title>
   <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2016/08/03/a-few-cores-too-many/?utm_source=by-Ben-Greenman&amp;utm_medium=Atom" />
@@ -156,7 +156,7 @@
   <updated>2016-08-03T14:09:02Z</updated>
   <author>
    <name>PRL</name></author>
-  <content type="html">&lt;html&gt;
+  <content type="html">
 &lt;p&gt;Performance matters for software systems, but performance is not always easy  to measure. At the PRL we recently had a scare with some unreliable measurements. Here is the story.&lt;/p&gt;
 &lt;!-- more--&gt;
 
@@ -202,7 +202,7 @@
 
 &lt;p&gt;And so, we said goodbye to the last 4 months of data and started over running at most two cores. The new results are all stable, but still we keep pinching ourselves.&lt;/p&gt;
 
-&lt;p&gt;P.S. the results from &lt;a href="http://www.ccs.neu.edu/racket/pubs/#popl16-tfgnvf"&gt;POPL 2016&lt;/a&gt; are just fine,  as they were not taken on the new machine running more than 2 cores.  If you have time to confirm, that data is in our  &lt;a href="http://www.ccs.neu.edu/home/asumu/artifacts/popl-2016/"&gt;artifact&lt;/a&gt;  and in the &lt;a href="https://github.com/nuprl/gradual-typing-performance/tree/master/paper/popl-2016/data"&gt;gradual-typing-performance&lt;/a&gt; repo.&lt;/p&gt;&lt;/html&gt;</content></entry>
+&lt;p&gt;P.S. the results from &lt;a href="http://www.ccs.neu.edu/racket/pubs/#popl16-tfgnvf"&gt;POPL 2016&lt;/a&gt; are just fine,  as they were not taken on the new machine running more than 2 cores.  If you have time to confirm, that data is in our  &lt;a href="http://www.ccs.neu.edu/home/asumu/artifacts/popl-2016/"&gt;artifact&lt;/a&gt;  and in the &lt;a href="https://github.com/nuprl/gradual-typing-performance/tree/master/paper/popl-2016/data"&gt;gradual-typing-performance&lt;/a&gt; repo.&lt;/p&gt;</content></entry>
  <entry>
   <title type="text">Tutorial: Zero to Sixty in Racket</title>
   <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2016/08/02/tutorial-zero-to-sixty-in-racket/?utm_source=by-Ben-Greenman&amp;utm_medium=Atom" />
@@ -211,7 +211,7 @@
   <updated>2016-08-02T01:29:11Z</updated>
   <author>
    <name>PRL</name></author>
-  <content type="html">&lt;html&gt;
+  <content type="html">
 &lt;p&gt;Racket is excellent for incrementally growing scripts into full-fledged programs.
 This post steps through the evolution of one small program and highlights the
  Racket tools that enable incremental advances.&lt;/p&gt;
@@ -1289,7 +1289,7 @@ Going forward we could add &lt;a href="http://docs.racket-lang.org/scribble/inde
   &lt;li&gt;
    &lt;p&gt;&lt;a href="http://www.ccs.neu.edu/home/matthias/manifesto/"&gt;The Racket Manifesto (html)&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
   &lt;li&gt;
-   &lt;p&gt;&lt;a href="http://www.terohasu.net/hasu-flatt--els16--preprint.pdf"&gt;Source-to-Source Compilation via Submodules (pdf)&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;&lt;/html&gt;</content></entry>
+   &lt;p&gt;&lt;a href="http://www.terohasu.net/hasu-flatt--els16--preprint.pdf"&gt;Source-to-Source Compilation via Submodules (pdf)&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;</content></entry>
  <entry>
   <title type="text">Welcome to the PRL blog</title>
   <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2016/04/29/welcome-to-the-prl-blog/?utm_source=by-Ben-Greenman&amp;utm_medium=Atom" />
@@ -1298,7 +1298,7 @@ Going forward we could add &lt;a href="http://docs.racket-lang.org/scribble/inde
   <updated>2016-04-29T14:50:29Z</updated>
   <author>
    <name>PRL</name></author>
-  <content type="html">&lt;html&gt;
+  <content type="html">
 &lt;p&gt;Greetings, ground rules, hopes, dreams, and notes for contributors. Welcome aboard.&lt;/p&gt;
 &lt;!-- more--&gt;
 
@@ -1321,4 +1321,4 @@ Going forward we could add &lt;a href="http://docs.racket-lang.org/scribble/inde
 
 &lt;p&gt;An open pull request is the best place to ask questions about the formatting or content of a post. We promise that within a few days of opening a PR someone with push access will reply with feedback or merge the request.&lt;/p&gt;
 
-&lt;p&gt;Contributions are open to anyone: current labmates, alumni, friends from the  Racket mailing list, and even recovering C programmers. One should have a strong connection to Northeastern or our research, but  even that is not strictly necessary. Visitors are always welcome to the PRL.&lt;/p&gt;&lt;/html&gt;</content></entry></feed>
+&lt;p&gt;Contributions are open to anyone: current labmates, alumni, friends from the  Racket mailing list, and even recovering C programmers. One should have a strong connection to Northeastern or our research, but  even that is not strictly necessary. Visitors are always welcome to the PRL.&lt;/p&gt;</content></entry></feed>

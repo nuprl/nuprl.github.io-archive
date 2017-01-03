@@ -12,7 +12,7 @@
    <link>http://prl.ccs.neu.edu/blog/2016/05/24/measuring-gc-latencies-in-haskell-ocaml-racket/?utm_source=racket&amp;utm_medium=RSS</link>
    <guid>urn:http-prl-ccs-neu-edu:-blog-2016-05-24-measuring-gc-latencies-in-haskell-ocaml-racket</guid>
    <pubDate>Tue, 24 May 2016 10:51:34 UT</pubDate>
-   <description>&lt;html&gt;
+   <description>
 &lt;p&gt;James Fisher has a blog post on a case where GHC&amp;rsquo;s runtime system imposed unpleasant latencies on their Haskell program:&lt;/p&gt;
 
 &lt;blockquote&gt;
@@ -292,4 +292,4 @@ GC: 0:MAJ @ 1,406,514K(+149,645K)[+1,560K]; free 577,765K(-577,765K) 21ms @ 5069
 
 &lt;p&gt;This is, of course, a hack; the long-term solution is to wait for Racket developers to devise better dynamic control strategies to avoid the ramp-up problem. Apparently, the incremental GC was previously tested on games that had simpler allocation profiles, such as short-lived memory allocations during each game tick, with no such a long ramp-up phase. But I was still interested in the fact that expert users can tweak the code to noticeably decrease the worst-case pause time.&lt;/p&gt;
 
-&lt;p&gt;To summarize, Racket&amp;rsquo;s incremental GC exhibits a decent-but-not-excellent steady state behavior, with maximal latencies of around 22ms, but currently suffers from a GC control issues that cause much larger pauses during the benchmark ramp-up period. Explicit GC calls can partly mitigate them.&lt;/p&gt;&lt;/html&gt;</description></item></channel></rss>
+&lt;p&gt;To summarize, Racket&amp;rsquo;s incremental GC exhibits a decent-but-not-excellent steady state behavior, with maximal latencies of around 22ms, but currently suffers from a GC control issues that cause much larger pauses during the benchmark ramp-up period. Explicit GC calls can partly mitigate them.&lt;/p&gt;</description></item></channel></rss>
