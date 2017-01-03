@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?> 
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+ <title type="text">PRL Blog: Posts tagged 'by William J. Bowman'</title>
+ <link rel="self" href="http://prl.ccs.neu.edu/blog/feeds/by-William-J-Bowman.atom.xml" />
+ <link href="http://prl.ccs.neu.edu/blog/tags/by-William-J-Bowman.html" />
+ <id>urn:http-prl-ccs-neu-edu:-blog-tags-by-William-J-Bowman-html</id>
+ <updated>2017-01-03T15:15:57Z</updated>
+ <entry>
+  <title type="text">[Toward Type-Preserving Compilation of Coq, at POPL17 SRC (cross-post)](https://williamjbowman.com/blog/2017/01/03/toward-type-preserving-compilation-of-coq-at-popl17-src/)</title>
+  <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2017/01/03/-toward-type-preserving-compilation-of-coq-at-popl17-src-cross-post-https-williamjbowman-com-blog-2017-01-03-toward-type-preserving-compilation-of-coq-at-popl17-src/?utm_source=by-William-J-Bowman&amp;utm_medium=Atom" />
+  <id>urn:http-prl-ccs-neu-edu:-blog-2017-01-03-toward-type-preserving-compilation-of-coq-at-popl17-src-cross-post-https-williamjbowman-com-blog-2017-01-03-toward-type-preserving-compilation-of-coq-at-popl17-src</id>
+  <published>2017-01-03T15:15:57Z</published>
+  <updated>2017-01-03T15:15:57Z</updated>
+  <author>
+   <name>PRL</name></author>
+  <content type="html"></content></entry></feed>
