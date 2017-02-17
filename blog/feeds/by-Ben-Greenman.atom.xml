@@ -4,7 +4,61 @@
  <link rel="self" href="http://prl.ccs.neu.edu/blog/feeds/by-Ben-Greenman.atom.xml" />
  <link href="http://prl.ccs.neu.edu/blog/tags/by-Ben-Greenman.html" />
  <id>urn:http-prl-ccs-neu-edu:-blog-tags-by-Ben-Greenman-html</id>
- <updated>2016-10-31T17:20:33Z</updated>
+ <updated>2017-02-15T01:21:37Z</updated>
+ <entry>
+  <title type="text">Introducing HOPL 2017</title>
+  <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2017/02/15/introducing-hopl-2017/?utm_source=by-Ben-Greenman&amp;utm_medium=Atom" />
+  <id>urn:http-prl-ccs-neu-edu:-blog-2017-02-15-introducing-hopl-2017</id>
+  <published>2017-02-15T01:21:37Z</published>
+  <updated>2017-02-15T01:21:37Z</updated>
+  <author>
+   <name>PRL</name></author>
+  <content type="html">
+&lt;p&gt;This semester at Northeastern, Matthias Felleisen is organizing the &lt;a href="http://www.ccs.neu.edu/home/matthias/7480-s17/index.html"&gt;History of Programming Languages&lt;/a&gt; seminar. Look for posts tagged &lt;code&gt;HOPL&lt;/code&gt; for updates from the lectures.&lt;/p&gt;
+&lt;!-- more--&gt;
+
+&lt;p&gt;Once every 6 to 8 years (i.e., once every batch of Ph.D. students?), &lt;a href="http://www.ccs.neu.edu/home/matthias"&gt;Matthias Felleisen&lt;/a&gt; teaches History of Programming Languages. Nominally, the course is a seminar. But unlike a typical seminar course, weekly topics are not the technical details from a handful of papers. Rather:&lt;/p&gt;
+
+&lt;blockquote&gt;
+ &lt;p&gt;The primary goal is to understand (some of) the discipline as it exists today and how some of its major themes evolved.&lt;/p&gt;&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+ &lt;p&gt;The secondary goal is to develop basic skills for understanding and describing research themes. Every student will learn to study a theme via a series of papers, prepare an annotated bibliography, and present the key steps in the evolution of the theme.&lt;/p&gt;&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;strong&gt;Themes&lt;/strong&gt; is the operative word. To set the tone, this semester started with &amp;ldquo;themes that NUPRL faculty members have developed over the many decades of their careers.&amp;rdquo;&lt;/p&gt;
+
+&lt;ul&gt;
+ &lt;li&gt;Matthias, &lt;em&gt;Full Abstraction: From PCF to SPCF&lt;/em&gt;&lt;/li&gt;
+ &lt;li&gt;Jan Vitek, &lt;em&gt;From Encapsulation to Ownership&lt;/em&gt;&lt;/li&gt;
+ &lt;li&gt;Will Clinger, &lt;em&gt;Garbage Collection vs. Manual Allocation&lt;/em&gt;&lt;/li&gt;
+ &lt;li&gt;Olin Shivers, &lt;em&gt;Higher-order Flow Analysis&lt;/em&gt;&lt;/li&gt;
+ &lt;li&gt;Amal Ahmed, &lt;em&gt;Logical Relations: Stepping Beyond Toy Languages&lt;/em&gt;&lt;/li&gt;
+ &lt;li&gt;Matthias, &lt;em&gt;Programming Languages and Calculi&lt;/em&gt;&lt;/li&gt;
+ &lt;li&gt;Jan-Willem van de Meent, &lt;em&gt;Rescoring Strategies for Probabilistic Programs&lt;/em&gt;&lt;/li&gt;
+ &lt;li&gt;(upcoming) Mitch Wand, &lt;em&gt;Analysis-Based Program Transformation&lt;/em&gt;&lt;/li&gt;
+ &lt;li&gt;(upcoming) Frank Tip, &lt;em&gt;Refactoring&lt;/em&gt;&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;At this point in the course, we are just starting with the student presentations. As these presentations happen, we plan to push updates to this blog. All presentation materials are in the course repository:&lt;/p&gt;
+
+&lt;ul&gt;
+ &lt;li&gt;&lt;a href="https://github.com/nuprl/hopl-s2017"&gt;https://github.com/nuprl/hopl-s2017&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;Speakers&amp;rsquo; notes and annotated bibliographies are in top-level folders in the repo. Discussion summaries and &amp;ldquo;unofficial&amp;rdquo; notes are in the top-level &lt;a href="https://github.com/nuprl/hopl-s2017/tree/master/lecture_notes"&gt;&lt;code&gt;lecture_notes/&lt;/code&gt;&lt;/a&gt; folder.&lt;/p&gt;
+
+&lt;p&gt;The list of upcoming presentations is online (along with &lt;a href="http://www.ccs.neu.edu/home/matthias/7480-s17/Summary___Materials.html"&gt;the papers&lt;/a&gt; each presentation is based on):&lt;/p&gt;
+
+&lt;ul&gt;
+ &lt;li&gt;&lt;a href="http://www.ccs.neu.edu/home/matthias/7480-s17/lectures.html"&gt;http://www.ccs.neu.edu/home/matthias/7480-s17/lectures.html&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;Blogs posts for each talk should appear 2 weeks after the talk happens.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;Links to past editions of HOPL:&lt;/p&gt;
+
+&lt;ul&gt;
+ &lt;li&gt;&lt;a href="http://www.ccs.neu.edu/home/matthias/369-s10/index.html"&gt;Spring 2010&lt;/a&gt;&lt;/li&gt;
+ &lt;li&gt;&lt;a href="http://www.ccs.neu.edu/home/matthias/369-s04/index.html"&gt;Spring 2004&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;</content></entry>
  <entry>
   <title type="text">Meaningful Distinctions</title>
   <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2016/10/31/meaningful-distinctions/?utm_source=by-Ben-Greenman&amp;utm_medium=Atom" />
