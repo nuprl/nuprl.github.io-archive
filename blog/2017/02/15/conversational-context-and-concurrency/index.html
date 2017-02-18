@@ -3,14 +3,14 @@
   <head>
 
     <meta charset="utf-8">
-    <title>Posts tagged 'HOPL'</title>
-    <meta name="description" content="Posts tagged 'HOPL'">
+    <title>Conversational Context and Concurrency</title>
+    <meta name="description" content="...">
     <meta name="author"      content="PRL">
-    <meta name="keywords"    content="HOPL">
+    <meta name="keywords"    content="HOPL, by Tony Garnock-Jones">
     <meta name="viewport"    content="width=device-width, initial-scale=1.0">
     <link rel="icon"      href="/img/favicon.ico">
-    <link rel="canonical" href="http://prl.ccs.neu.edu/blog/tags/HOPL.html">
-
+    <link rel="canonical" href="http://prl.ccs.neu.edu/blog/2017/02/15/conversational-context-and-concurrency/">
+    <link rel="next" href="/blog/2017/02/15/introducing-hopl-2017/">
 
     <script type="text/javascript"
             src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
@@ -75,29 +75,69 @@
             <!-- Main column -->
             <div id="content" class="col-md-12">
 
-              <h1>Posts tagged <em>HOPL</em></h1>
+
 
               <article>
   <header>
-    <h2><a href='/blog/2017/02/15/conversational-context-and-concurrency/'>Conversational Context and Concurrency</a></h2>
+    <h1>Conversational Context and Concurrency</h1>
     <p class='date-and-tags'>
 <time datetime="2017-02-15" pubdate="true">2017-02-15</time> :: <span class="tags"><a href="/blog/tags/HOPL.html">HOPL</a>, <a href="/blog/tags/by-Tony-Garnock-Jones.html">by Tony Garnock-Jones</a></span></p>
   </header>
+  <!-- more-->
 
-  <footer>
-    <a href='/blog/2017/02/15/conversational-context-and-concurrency/'>&hellip; more &hellip;</a>
-  </footer>
-</article>
-<article>
-  <header>
-    <h2><a href='/blog/2017/02/15/introducing-hopl-2017/'>Introducing HOPL 2017</a></h2>
-    <p class='date-and-tags'>
-<time datetime="2017-02-15" pubdate="true">2017-02-15</time> :: <span class="tags"><a href="/blog/tags/HOPL.html">HOPL</a>, <a href="/blog/tags/by-Ben-Greenman.html">by Ben Greenman</a></span></p>
-  </header>
+<p>When programs are written with concurrency in mind, the programmer reasons about the interactions between concurrent components or agents in the program. This includes exchange of information, as well as management of resources, handling of partial failure, collective decision-making and so on.</p>
 
-<p>This semester at Northeastern, Matthias Felleisen is organizing the <a href="http://www.ccs.neu.edu/home/matthias/7480-s17/index.html">History of Programming Languages</a> seminar. Look for posts tagged <code>HOPL</code> for updates from the lectures.</p>
+<p>These components might be objects, or threads, or processes, or actors, or some more nebulous and loosely-defined concept; a group of callbacks, perhaps. The programmer has the notion of an agent in their mind, which translates into some representation of that agent in the program.</p>
+
+<p>We think about the contexts (because there can be more than one) in which agents exist in two different ways. From each agent&rsquo;s perspective, the important thing to think about is the boundary between the agent and everything else in the system. But from the system perspective, we often think about <em>conversations</em> between agents, whether it&rsquo;s just two having an exchange, or a whole group collaborating on some task. Agents in a conversation play different roles, join and leave the group, and build shared conversational state.</p>
+
+<p>In this talk, I used the idea of these <em>conversational contexts</em> as a lens through which to view the development of various metaphors and mechanisms of communication and coordination. I presented four <em>computational models</em> for concurrent interaction:</p>
+
+<ul>
+ <li>monitors, and shared memory concurrency generally</li>
+ <li>the actor model</li>
+ <li>channel-based communication</li>
+ <li>tuplespaces</li></ul>
+
+<p>These aren&rsquo;t full programming languages, but there are many <em>programming models</em> that build upon them. In some cases, development of these ideas has progressed all the way up to <em>system models</em> including user interaction and so forth.</p>
+
+<p>The linked lecture notes include informal sketches of reduction semantics for each of the four models, plus a handful of small examples to give a feel for them.</p>
+
+<p>Lecture Notes:</p>
+
+<ul>
+ <li><a href="https://github.com/nuprl/hopl-s2017/tree/master/conversational-context-and-concurrency/index.md">https://github.com/nuprl/hopl-s2017/tree/master/conversational-context-and-concurrency/index.md</a></li></ul>
+
+<p>Discussion summary:</p>
+
+<ul>
+ <li><a href="https://github.com/nuprl/hopl-s2017/blob/master/lecture_notes/2017-01-31.md">https://github.com/nuprl/hopl-s2017/blob/master/lecture_notes/2017&ndash;01&ndash;31.md</a></li></ul>
+  <br/><br/>
   <footer>
-    <a href='/blog/2017/02/15/introducing-hopl-2017/'>&hellip; more &hellip;</a>
+    <script type="text/javascript">
+      !function(d,s,id){
+          var js,fjs=d.getElementsByTagName(s)[0];
+          if(!d.getElementById(id)){
+              js=d.createElement(s);
+              js.id=id;
+              js.src="//platform.twitter.com/widgets.js";
+              fjs.parentNode.insertBefore(js,fjs);
+          }
+      }(document,"script","twitter-wjs");
+    </script>
+    <a href="https://twitter.com/share"
+       class="twitter-share-button"
+       data-url="http://prl.ccs.neu.edu/blog/2017/02/15/conversational-context-and-concurrency/"
+       data-dnt="true">
+      "Tweet"</a>
+    <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+    <g:plusone size="medium" href="http://prl.ccs.neu.edu/blog/2017/02/15/conversational-context-and-concurrency/"></g:plusone>
+    <ul class="pager">
+
+    <li class="next">
+      <a href="/blog/2017/02/15/introducing-hopl-2017/"><em>Introducing HOPL 2017</em> &rarr;</a>
+    </li>
+    </ul>
   </footer>
 </article>
             </div>

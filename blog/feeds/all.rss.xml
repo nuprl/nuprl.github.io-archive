@@ -4,9 +4,43 @@
   <title>PRL Blog: PRL Blog</title>
   <description>PRL Blog: PRL Blog</description>
   <link>http://prl.ccs.neu.edu/blog/index.html</link>
-  <lastBuildDate>Wed, 15 Feb 2017 01:21:37 UT</lastBuildDate>
-  <pubDate>Wed, 15 Feb 2017 01:21:37 UT</pubDate>
+  <lastBuildDate>Wed, 15 Feb 2017 01:21:55 UT</lastBuildDate>
+  <pubDate>Wed, 15 Feb 2017 01:21:55 UT</pubDate>
   <ttl>1800</ttl>
+  <item>
+   <title>Conversational Context and Concurrency</title>
+   <link>http://prl.ccs.neu.edu/blog/2017/02/15/conversational-context-and-concurrency/?utm_source=all&amp;utm_medium=RSS</link>
+   <guid>urn:http-prl-ccs-neu-edu:-blog-2017-02-15-conversational-context-and-concurrency</guid>
+   <pubDate>Wed, 15 Feb 2017 01:21:55 UT</pubDate>
+   <description>&lt;!-- more--&gt;
+
+&lt;p&gt;When programs are written with concurrency in mind, the programmer reasons about the interactions between concurrent components or agents in the program. This includes exchange of information, as well as management of resources, handling of partial failure, collective decision-making and so on.&lt;/p&gt;
+
+&lt;p&gt;These components might be objects, or threads, or processes, or actors, or some more nebulous and loosely-defined concept; a group of callbacks, perhaps. The programmer has the notion of an agent in their mind, which translates into some representation of that agent in the program.&lt;/p&gt;
+
+&lt;p&gt;We think about the contexts (because there can be more than one) in which agents exist in two different ways. From each agent&amp;rsquo;s perspective, the important thing to think about is the boundary between the agent and everything else in the system. But from the system perspective, we often think about &lt;em&gt;conversations&lt;/em&gt; between agents, whether it&amp;rsquo;s just two having an exchange, or a whole group collaborating on some task. Agents in a conversation play different roles, join and leave the group, and build shared conversational state.&lt;/p&gt;
+
+&lt;p&gt;In this talk, I used the idea of these &lt;em&gt;conversational contexts&lt;/em&gt; as a lens through which to view the development of various metaphors and mechanisms of communication and coordination. I presented four &lt;em&gt;computational models&lt;/em&gt; for concurrent interaction:&lt;/p&gt;
+
+&lt;ul&gt;
+ &lt;li&gt;monitors, and shared memory concurrency generally&lt;/li&gt;
+ &lt;li&gt;the actor model&lt;/li&gt;
+ &lt;li&gt;channel-based communication&lt;/li&gt;
+ &lt;li&gt;tuplespaces&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;These aren&amp;rsquo;t full programming languages, but there are many &lt;em&gt;programming models&lt;/em&gt; that build upon them. In some cases, development of these ideas has progressed all the way up to &lt;em&gt;system models&lt;/em&gt; including user interaction and so forth.&lt;/p&gt;
+
+&lt;p&gt;The linked lecture notes include informal sketches of reduction semantics for each of the four models, plus a handful of small examples to give a feel for them.&lt;/p&gt;
+
+&lt;p&gt;Lecture Notes:&lt;/p&gt;
+
+&lt;ul&gt;
+ &lt;li&gt;&lt;a href="https://github.com/nuprl/hopl-s2017/tree/master/conversational-context-and-concurrency/index.md"&gt;https://github.com/nuprl/hopl-s2017/tree/master/conversational-context-and-concurrency/index.md&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;Discussion summary:&lt;/p&gt;
+
+&lt;ul&gt;
+ &lt;li&gt;&lt;a href="https://github.com/nuprl/hopl-s2017/blob/master/lecture_notes/2017-01-31.md"&gt;https://github.com/nuprl/hopl-s2017/blob/master/lecture_notes/2017&amp;ndash;01&amp;ndash;31.md&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;</description></item>
   <item>
    <title>Introducing HOPL 2017</title>
    <link>http://prl.ccs.neu.edu/blog/2017/02/15/introducing-hopl-2017/?utm_source=all&amp;utm_medium=RSS</link>
@@ -2434,7 +2468,7 @@ array and reference the correct variant appropriately:&lt;/p&gt;
     &lt;td&gt;&lt;span class="stt"&gt;&amp;gt; &lt;/span&gt;&lt;span class="RktPn"&gt;(&lt;/span&gt;&lt;span class="RktSym"&gt;&lt;a class="RktValLink" data-pltdoc="x" href="http://docs.racket-lang.org/foreign/C_Union_Types.html#%28def._%28%28lib._ffi%2Funsafe..rkt%29._union-ref%29%29"&gt;union-ref&lt;/a&gt;&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktPn"&gt;(&lt;/span&gt;&lt;span class="RktSym"&gt;third&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;array&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktVal"&gt;1&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
    &lt;tr&gt;
     &lt;td&gt;
-     &lt;p&gt;&lt;span class="RktRes"&gt;'(4.2439915824246e-314 4.9406564584125e-324)&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;
+     &lt;p&gt;&lt;span class="RktRes"&gt;'(4.2439915824246e-314 0.0)&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;
 
 &lt;p&gt;One thing we could do is write a helper function that converts this array
 into a more useful format. It would look at each header, and then consume
@@ -4329,35 +4363,4 @@ cover these in a future blog post, but in the meantime happy FFI hacking!&lt;/p&
 
 &lt;p&gt;But don&amp;rsquo;t get me wrong, the future of printed proceedings is not an important question. We should rather be asking ourselves: why are the products of the work of our communities not easily accessible in an Open Access long-term archive? Are you submitting your articles to Arxiv, or another archive? Why not?&lt;/p&gt;
 
-&lt;p&gt;Not caring about printed proceedings is perfectly fine; but please care about people outside institutions that want to access your work &amp;mdash; for example, master student myself.&lt;/p&gt;</description></item>
-  <item>
-   <title>ICFP 2016: looking for student volunteers</title>
-   <link>http://prl.ccs.neu.edu/blog/2016/06/07/icfp-2016-looking-for-student-volunteers/?utm_source=all&amp;utm_medium=RSS</link>
-   <guid>urn:http-prl-ccs-neu-edu:-blog-2016-06-07-icfp-2016-looking-for-student-volunteers</guid>
-   <pubDate>Tue, 07 Jun 2016 11:53:47 UT</pubDate>
-   <description>
-&lt;p&gt;If you are a student, you should consider &lt;a href="http://goo.gl/forms/fKg3vpjNryBlGWB32"&gt;applying&lt;/a&gt; to become an ICFP 2016 student volunteer! The deadline for application is July 31st, 2016.&lt;/p&gt;
-&lt;!-- more--&gt;
-
-&lt;p&gt;&lt;a href="http://conf.researchr.org/attending/icfp-2016/Student+Volunteers"&gt;ICFP 2016&lt;/a&gt;, the Internal Conference on Functional Programming, is happening in Nara, Japan. If you are a student, you may be interest in being a Student Volunteer: you help run the conference, and in exchange do not pay registration fees &amp;mdash; but you still have to find funding for the travel, hosting, and dinners. Quoting the &lt;a href="http://conf.researchr.org/attending/icfp-2016/Student+Volunteers"&gt;Student Volunteer&lt;/a&gt; webpage:&lt;/p&gt;
-
-&lt;blockquote&gt;
- &lt;p&gt;ICFP is pleased to offer a number of opportunities for student volunteers, who are vital to the efficient operation and continued success of the conference each year. The student volunteer program is a chance for students from around the world to participate in the conferences whilst assisting us in preparing and running the event.&lt;/p&gt;
- &lt;p&gt;Job assignments for student volunteers include assisting with technical sessions, workshops, tutorials and panels, helping the registration desk, operating the information desk, helping with traffic flow, and general assistance to keep the conferences running smoothly.&lt;/p&gt;
- &lt;p&gt;The Student Volunteer Program helps more students attend the ICFP conference by covering conference fees (but not travel or lodging expenses) in exchange for a fixed number of work hours (usually from 8 to 12) helping with the conference organization (registration and information desks, assistance during talk sessions, etc.).&lt;/p&gt;
- &lt;p&gt;The Student Volunteer registration covers:&lt;/p&gt;
- &lt;ul&gt;
-  &lt;li&gt;Access to all workshops and the main conference,&lt;/li&gt;
-  &lt;li&gt;Daily lunches and coffee breaks,&lt;/li&gt;
-  &lt;li&gt;Access to social events, including the banquet.&lt;/li&gt;&lt;/ul&gt;
- &lt;p&gt;To apply, please fill the &lt;a href="http://goo.gl/forms/fKg3vpjNryBlGWB32"&gt;following form&lt;/a&gt;.&lt;/p&gt;
- &lt;p&gt;The application deadline is July 31st, 2016. Applications after this date may be considered pending availability.&lt;/p&gt;
- &lt;p&gt;You can send questions about student volunteering to  &lt;code&gt;icfp-SV at researchr dot org&lt;/code&gt;.&lt;/p&gt;&lt;/blockquote&gt;
-
-&lt;p&gt;I was &amp;ldquo;student volunteer captain&amp;rdquo; at ICFP last year in Vancouver, and I will do it again this year. My entirely personal take on the thing is that being a Student Volunteer is worth it, but that being a Captain is too much work.&lt;/p&gt;
-
-&lt;p&gt;The main downside of being a volunteer is some of the shifts are at the registration desk, and they may imply missing some of the talks &amp;mdash; and also you may have to get up early for your duties. The upsides are many. You get belong to a small group of nice people. You have interactions with many people without much effort; you will enjoy the sparks of gratitude in the eyes of the &amp;ldquo;Where is Workshop Room B2?&amp;rdquo; crowd. You have a small peek into the kind of work involved in running a conference; most people actually working on the organization (we SVs are hobbyists) are pouring surprising amount of work. Also, you learn to fold tee-shirts very well, if you&amp;rsquo;re on &amp;ldquo;bag stuffing&amp;rdquo; duty.&lt;/p&gt;
-
-&lt;p&gt;Being a student volunteer can be combined with other forms of travel support, such as SIGPLAN PAC funding; see the &lt;a href="http://conf.researchr.org/attending/icfp-2016/student-travel-support"&gt;travel support page&lt;/a&gt; for more details.&lt;/p&gt;
-
-&lt;p&gt;Another thing you should think about is applying to &lt;a href="http://conf.researchr.org/track/icfp-2016/PLMW-ICFP-2016"&gt;PLMW&lt;/a&gt;, the Programming Languages Mentoring Workshop that happens at ICFP, POPL, and PLDI. PLMW funding covers the whole conference cost (travel, housing, registration, dinners), so if you get PLMW funding you have no financial motivation to be a student volunteer. This year, PLMW focuses on early career graduate students.&lt;/p&gt;</description></item></channel></rss>
+&lt;p&gt;Not caring about printed proceedings is perfectly fine; but please care about people outside institutions that want to access your work &amp;mdash; for example, master student myself.&lt;/p&gt;</description></item></channel></rss>
