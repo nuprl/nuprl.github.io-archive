@@ -4,7 +4,50 @@
  <link rel="self" href="http://prl.ccs.neu.edu/blog/feeds/HOPL.atom.xml" />
  <link href="http://prl.ccs.neu.edu/blog/tags/HOPL.html" />
  <id>urn:http-prl-ccs-neu-edu:-blog-tags-HOPL-html</id>
- <updated>2017-02-15T01:21:55Z</updated>
+ <updated>2017-02-21T12:58:27Z</updated>
+ <entry>
+  <title type="text">Datalog for Static Analysis</title>
+  <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2017/02/21/datalog-for-static-analysis/?utm_source=HOPL&amp;utm_medium=Atom" />
+  <id>urn:http-prl-ccs-neu-edu:-blog-2017-02-21-datalog-for-static-analysis</id>
+  <published>2017-02-21T12:58:27Z</published>
+  <updated>2017-02-21T12:58:27Z</updated>
+  <author>
+   <name>PRL</name></author>
+  <content type="html">&lt;!-- more--&gt;
+
+&lt;p&gt;Datalog is an old DSL that frequently appears in work on static analysis. This edition of &lt;a href="/blog/2017/02/15/introducing-hopl-2017/"&gt;HOPL 2017&lt;/a&gt; explores the origins of Datalog in general, its early use in program analysis, and why Datalog remains a useful tool.&lt;/p&gt;
+
+&lt;p&gt;Full notes:&lt;/p&gt;
+
+&lt;ul&gt;
+ &lt;li&gt;&lt;a href="https://github.com/nuprl/hopl-s2017/blob/master/datalog-for-static-analysis/datalog-for-static-analysis.pdf"&gt;https://github.com/nuprl/hopl-s2017/blob/master/datalog-for-static-analysis/datalog-for-static-analysis.pdf&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;Datalog as a language was introduced by 1978 (its semantic foundations date back to 1976). It is &lt;em&gt;predicate logic&lt;/em&gt; as a database query language. The traditional view of a Datalog program is a &lt;em&gt;time invariant&lt;/em&gt; transformation over the &lt;em&gt;time varying&lt;/em&gt; data stored in an external database.&lt;/p&gt;
+
+&lt;p&gt;In the early 1990&amp;rsquo;s, Uwe Aβmann designed a graph rewriting systems (EARS) that could:&lt;/p&gt;
+
+&lt;ol&gt;
+ &lt;li&gt;Uniformly express various problems in static analysis&lt;/li&gt;
+ &lt;li&gt;Systematically derive efficient solutions to such problems.&lt;/li&gt;&lt;/ol&gt;
+
+&lt;p&gt;(Prior work had derived the same solutions with ad-hoc methods.) Aβmann&amp;rsquo;s system is equivalent to Datalog.&lt;/p&gt;
+
+&lt;p&gt;In 1993, Reps used the 
+ &lt;tt&gt;CORAL&lt;/tt&gt; deductive database (an implementation of Datalog) to derive an on-demand (read: lazy) implementation of program slicing from a &lt;em&gt;specification&lt;/em&gt; of the slicing problem.&lt;/p&gt;
+
+&lt;p&gt;Both Aβmann&amp;rsquo;s and Reps work appeared in 1994. This was the first time Datalog had been used to implement a static analysis.&lt;/p&gt;
+
+&lt;p&gt;Researchers continue to use Datalog because:&lt;/p&gt;
+
+&lt;ul&gt;
+ &lt;li&gt;predicate logic (specifically: Horn clauses without function symbols or negation)  is useful for expressing recursive relations &amp;hellip; and static analyses are all about recursive relations&lt;/li&gt;
+ &lt;li&gt;the language separates &lt;em&gt;specifications&lt;/em&gt; from their &lt;em&gt;implementation&lt;/em&gt;&lt;/li&gt;
+ &lt;li&gt;there are many techniques for efficiently serving a Datalog query&lt;/li&gt;
+ &lt;li&gt;these techniques have been implemented in &lt;a href="https://developer.logicblox.com/wp-content/uploads/2016/01/logicblox-sigmod15.pdf"&gt;at least one&lt;/a&gt;  commercial Datalog engine&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;For an excellent description of how Datalog can benefit static analysis, see the introduction to &lt;a href="http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.648.1834&amp;amp;rep=rep1&amp;amp;type=pdf"&gt;Rep&amp;rsquo;s paper&lt;/a&gt;.&lt;/p&gt;</content></entry>
  <entry>
   <title type="text">Conversational Context and Concurrency</title>
   <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2017/02/15/conversational-context-and-concurrency/?utm_source=HOPL&amp;utm_medium=Atom" />

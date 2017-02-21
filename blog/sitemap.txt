@@ -13,6 +13,7 @@ http://prl.ccs.neu.edu/blog/2016/11/17/src-submissions/
 http://prl.ccs.neu.edu/blog/2017/01/02/fall-2016-pl-junior-retrospective/
 http://prl.ccs.neu.edu/blog/2016/08/02/tutorial-zero-to-sixty-in-racket/
 http://prl.ccs.neu.edu/blog/2016/05/18/gradual-typing-across-the-spectrum/
+http://prl.ccs.neu.edu/blog/2017/02/21/datalog-for-static-analysis/
 http://prl.ccs.neu.edu/blog/2016/08/03/a-few-cores-too-many/
 http://prl.ccs.neu.edu/blog/2016/10/17/emacs-daemon-for-fast-editor-startup/
 http://prl.ccs.neu.edu/blog/2016/10/31/meaningful-distinctions/
