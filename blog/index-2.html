@@ -6,7 +6,7 @@
     <title>PRL Blog (page 2)</title>
     <meta name="description" content="PRL Blog (page 2)">
     <meta name="author"      content="PRL">
-    <meta name="keywords"    content="tutorial, HOPL, garbage collection, compiler correctness, instrumentation, PL Junior, ocaml, icfp, by Asumu Takikawa, dawn of the digital era, gradual typing, by Milo Davis, coq, about, by Tony Garnock-Jones, history, semantics, math, category theory, adjunction, lost time, haskell, lambda, Emacs, reduction, by Gabriel Scherer, by Jonathan Schuster, FFI, by Ben Chung, calculus, galois connection, racket, PI meeting, by William J. Bowman, System Administration, NEPLS, beta, by Max New, performance, ghc, proceedings, all, ICFP, by Ming-Ho Yee, conference, by Ben Greenman, latency, books, 1st blog post, Racket, constructions, benchmarking, by Sam Caldwell">
+    <meta name="keywords"    content="instrumentation, HOPL, garbage collection, compiler correctness, tutorial, PL Junior, ocaml, icfp, by Asumu Takikawa, dawn of the digital era, gradual typing, by Milo Davis, coq, about, by Tony Garnock-Jones, history, semantics, math, category theory, adjunction, lost time, haskell, lambda, Emacs, reduction, by Gabriel Scherer, by Jonathan Schuster, FFI, by Ben Chung, calculus, galois connection, racket, PI meeting, by William J. Bowman, System Administration, NEPLS, beta, by Max New, performance, ghc, proceedings, all, ICFP, by Ming-Ho Yee, conference, by Ben Greenman, latency, books, 1st blog post, Racket, constructions, benchmarking, by Sam Caldwell">
     <meta name="viewport"    content="width=device-width, initial-scale=1.0">
     <link rel="icon"      href="/img/favicon.ico">
     <link rel="canonical" href="http://prl.ccs.neu.edu/blog/index-2.html">
@@ -78,6 +78,18 @@
 
 
               <article>
+  <header>
+    <h2><a href='/blog/2016/11/02/beta-reduction-part-1/'>Beta Reduction (Part 1)</a></h2>
+    <p class='date-and-tags'>
+<time datetime="2016-11-02" pubdate="true">2016-11-02</time> :: <span class="tags"><a href="/blog/tags/lambda.html">lambda</a>, <a href="/blog/tags/calculus.html">calculus</a>, <a href="/blog/tags/beta.html">beta</a>, <a href="/blog/tags/reduction.html">reduction</a>, <a href="/blog/tags/semantics.html">semantics</a>, <a href="/blog/tags/by-Milo-Davis.html">by Milo Davis</a></span></p>
+  </header>
+
+<p>The λ-calculus is often introduced by showing how to build a real programming language from it&rsquo;s simple syntactic forms. In this series of post, I attempt to introduce it as a tool for modeling semantics. So if you&rsquo;re opening <a href="https://www.amazon.com/Calculus-Semantics-Studies-Foundations-Mathematics/dp/0444875085">Barendregt</a> for the first time, trying to understand a lecture from a programming languages or functional programming class, or just starting to become involved in PL research, I hope this post will help you understand evaluation by substitution (β-reduction).</p>
+  <footer>
+    <a href='/blog/2016/11/02/beta-reduction-part-1/'>&hellip; more &hellip;</a>
+  </footer>
+</article>
+<article>
   <header>
     <h2><a href='/blog/2016/10/31/meaningful-distinctions/'>Meaningful Distinctions</a></h2>
     <p class='date-and-tags'>
@@ -208,32 +220,6 @@ go over some more advanced FFI hacking such as handling computed argument
 values, custom return arguments, and using C structs.</p>
   <footer>
     <a href='/blog/2016/06/29/tutorial-racket-ffi-part-2/'>&hellip; more &hellip;</a>
-  </footer>
-</article>
-<article>
-  <header>
-    <h2><a href='/blog/2016/06/27/tutorial-using-racket-s-ffi/'>Tutorial: Using Racket&rsquo;s FFI</a></h2>
-    <p class='date-and-tags'>
-<time datetime="2016-06-27" pubdate="true">2016-06-27</time> :: <span class="tags"><a href="/blog/tags/Racket.html">Racket</a>, <a href="/blog/tags/FFI.html">FFI</a>, <a href="/blog/tags/tutorial.html">tutorial</a>, <a href="/blog/tags/by-Asumu-Takikawa.html">by Asumu Takikawa</a></span></p>
-  </header>
-
-<p><span style="font-weight: bold">Update:</span> this post is now part of a series. Part 2 is
-<a href="http://prl.ccs.neu.edu/blog/2016/06/29/tutorial-racket-ffi-part-2/">here</a>
-and part 3 is
-<a href="http://prl.ccs.neu.edu/blog/2016/07/11/tutorial-racket-ffi-part-3/">here</a>.</p>
-
-<p>I&rsquo;ve seen several people ask for a tutorial on Racket&rsquo;s foreign
-function interface (FFI), which allows you to dynamically load
-C libraries for use in Racket code. While I think the
-<a href="http://docs.racket-lang.org/foreign/index.html">documentation</a>
-for the FFI is quite good, it is a lot of information to process and
-the overview examples may be tricky to run for a beginner.</p>
-
-<p>With that in mind, this blog post will provide a step-by-step tutorial
-for Racket&rsquo;s FFI that requires minimal setup. All that you will need to
-follow along is a copy of Racket and ideally a DrRacket window.</p>
-  <footer>
-    <a href='/blog/2016/06/27/tutorial-using-racket-s-ffi/'>&hellip; more &hellip;</a>
   </footer>
 </article>
 <footer>
