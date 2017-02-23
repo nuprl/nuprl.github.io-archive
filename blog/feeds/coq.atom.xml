@@ -19,7 +19,7 @@
 &lt;p&gt;Bullets are a very general construction and there are several possible ways to use them; I have iterated through different styles. In this post I will give the general rules, and explain my current usage style.&lt;/p&gt;
 &lt;!-- more--&gt;
 
-&lt;h1 id="why-bullets"&gt;Why bullets&lt;/h1&gt;
+&lt;h2 id="why-bullets"&gt;Why bullets&lt;/h2&gt;
 
 &lt;p&gt;While you are doing a proof, Coq shows a list of subgoals that have to be proved before the whole proof is complete. Most proof steps will operate on the current active subgoal, changing the hypotheses or the goal to prove, but some proof steps will split it into several subgoals (growing the total list of goals), or may terminate the proof of the current subgoal and show you the next active subgoal.&lt;/p&gt;
 
@@ -47,11 +47,11 @@ proof of second subgoal.&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;Finally, some people don&amp;rsquo;t use bullets, because they systematically use so much automation that they never see subgoals &amp;mdash; each lemma has a one-line proof. This is also a valid style. (I have been going to Adam Chlipala&amp;rsquo;s &lt;a href="https://frap.csail.mit.edu/main"&gt;Formal Reasoning about Programs&lt;/a&gt; 2017 class, where Adam ignores bullets because that is his usual style.) Because I am not crushy enough to do this from the start, my proofs tend to start with cases and subgoals, and then I refine them to add more automation for robustness. I found bullets very useful for the first step, and during the refinement process.&lt;/p&gt;
 
-&lt;h1 id="bullets"&gt;Bullets&lt;/h1&gt;
+&lt;h2 id="bullets"&gt;Bullets&lt;/h2&gt;
 
 &lt;p&gt;Bullets are actually a combination of two features, braces &lt;code&gt;{ ... }&lt;/code&gt; and actually list bullets, &lt;code&gt;-&lt;/code&gt;, &lt;code&gt;+&lt;/code&gt;, or &lt;code&gt;*&lt;/code&gt; or homogeneous repetitions of those, for example &lt;code&gt;--&lt;/code&gt; or &lt;code&gt;***&lt;/code&gt;.&lt;/p&gt;
 
-&lt;h2 id="braces"&gt;Braces&lt;/h2&gt;
+&lt;h3 id="braces"&gt;Braces&lt;/h3&gt;
 
 &lt;p&gt;The opening brace &lt;code&gt;{&lt;/code&gt; focuses the proof on the current subgoal. If you finish the proof of the subgoal, the following subgoal will not become accessible automatically; you have to use the closing brace &lt;code&gt;}&lt;/code&gt; first. (If you finish the goal earlier than you think, you get an error.) Conversely, &lt;code&gt;}&lt;/code&gt; fails if the subgoal is not complete. (If you fail to finish, you get an error.)&lt;/p&gt;
 
@@ -76,7 +76,7 @@ proof of second subgoal.&lt;/code&gt;&lt;/pre&gt;
   }
 } (* would fail if a new subgoal appeared *)&lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id="list-bullets"&gt;List bullets&lt;/h2&gt;
+&lt;h3 id="list-bullets"&gt;List bullets&lt;/h3&gt;
 
 &lt;p&gt;A bullet, for example &lt;code&gt;--&lt;/code&gt;, also focuses on the next subgoal. The difference is that when the subgoal is finished, you do not have a closing construction, you must use the same bullet to move to the next subgoal. (Again, this fails if the first proof step changes to prove too much or too little.) With bullets you would write&lt;/p&gt;
 
@@ -96,7 +96,7 @@ proof of second subgoal.&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;This gives a large space of freedom in how you want to use these features. You can use only braces, only bullets, braces and only one level of bullets, etc. My own style evolved with experience using the feature, and I will present the current status below.&lt;/p&gt;
 
-&lt;h1 id="my-current-bullet-style"&gt;My current bullet style&lt;/h1&gt;
+&lt;h2 id="my-current-bullet-style"&gt;My current bullet style&lt;/h2&gt;
 
 &lt;p&gt;When deciding how to use bullets, one distinguishes the commands that preserve the number of subgoals and those that may create new subgoals. I do some further distinctions.&lt;/p&gt;
 
