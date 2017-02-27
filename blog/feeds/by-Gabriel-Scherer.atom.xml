@@ -49,7 +49,7 @@ proof of second subgoal.&lt;/code&gt;&lt;/pre&gt;
 
 &lt;h2 id="bullets"&gt;Bullets&lt;/h2&gt;
 
-&lt;p&gt;Bullets are actually a combination of two features, braces &lt;code&gt;{ ... }&lt;/code&gt; and actually list bullets, &lt;code&gt;-&lt;/code&gt;, &lt;code&gt;+&lt;/code&gt;, or &lt;code&gt;*&lt;/code&gt; or homogeneous repetitions of those, for example &lt;code&gt;--&lt;/code&gt; or &lt;code&gt;***&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Bullets are actually a combination of two features, braces &lt;code&gt;{ ... }&lt;/code&gt; and actual list bullets &amp;mdash; &lt;code&gt;-&lt;/code&gt;, &lt;code&gt;+&lt;/code&gt;, &lt;code&gt;*&lt;/code&gt;, or homogeneous repetitions of those, for example &lt;code&gt;--&lt;/code&gt; or &lt;code&gt;***&lt;/code&gt;.&lt;/p&gt;
 
 &lt;h3 id="braces"&gt;Braces&lt;/h3&gt;
 
@@ -98,7 +98,7 @@ proof of second subgoal.&lt;/code&gt;&lt;/pre&gt;
 
 &lt;h2 id="my-current-bullet-style"&gt;My current bullet style&lt;/h2&gt;
 
-&lt;p&gt;When deciding how to use bullets, one distinguishes the commands that preserve the number of subgoals and those that may create new subgoals. I do some further distinctions.&lt;/p&gt;
+&lt;p&gt;When deciding how to use bullets, one distinguishes the commands that preserve the number of subgoals and those that may create new subgoals. I use some additional distinctions.&lt;/p&gt;
 
 &lt;p&gt;Some tactics, for example &lt;code&gt;assert&lt;/code&gt;, create a number of subgoals that is &lt;em&gt;statically&lt;/em&gt; known, always the same for the tactic. I then use braces around each sub-proof, except the last one, which I think of as the &amp;ldquo;rest&amp;rdquo; of the current proof.&lt;/p&gt;
 
@@ -135,7 +135,7 @@ rest of the proof using H:foo.&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;(This is the only time where I use several bullet levels.)&lt;/p&gt;
 
-&lt;p&gt;If you are the kind of programmer that is passionate about indentation style, I should now have tricked you to use bullets to propose a different variant. Otherwise, please consider using bullet anyway, for example by following the style above, it will make your life easier in the face of changing developments.&lt;/p&gt;</content></entry>
+&lt;p&gt;If you are the kind of programmer that is passionate about indentation style, I should now have tricked you to use bullets to propose a different variant. Otherwise, please consider using bullets anyway, for example by following the style above, it will make your life easier in the face of changing developments.&lt;/p&gt;</content></entry>
  <entry>
   <title type="text">Measuring the submission/review balance</title>
   <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2016/12/17/measuring-the-submission-review-balance/?utm_source=by-Gabriel-Scherer&amp;utm_medium=Atom" />
