@@ -4,7 +4,40 @@
  <link rel="self" href="http://prl.ccs.neu.edu/blog/feeds/HOPL.atom.xml" />
  <link href="http://prl.ccs.neu.edu/blog/tags/HOPL.html" />
  <id>urn:http-prl-ccs-neu-edu:-blog-tags-HOPL-html</id>
- <updated>2017-02-21T12:58:27Z</updated>
+ <updated>2017-02-28T09:51:55Z</updated>
+ <entry>
+  <title type="text">Linear Types for Low-level Languages</title>
+  <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2017/02/28/linear-types-for-low-level-languages/?utm_source=HOPL&amp;utm_medium=Atom" />
+  <id>urn:http-prl-ccs-neu-edu:-blog-2017-02-28-linear-types-for-low-level-languages</id>
+  <published>2017-02-28T09:51:55Z</published>
+  <updated>2017-02-28T09:51:55Z</updated>
+  <author>
+   <name>PRL</name></author>
+  <content type="html">&lt;!-- more--&gt;
+
+&lt;p&gt;In this talk, we covered early papers (primarily, by Girard, Lafont, and Abramsky) on linear logic and its reflections into computation. The goal was to understand why linearity is often turned to as a principled way to control resource usage, as shows up in a language like Rust. From the very beginning, researchers realized the implications for &amp;ldquo;low-level&amp;rdquo; languages - that linear resources would eliminate the need for garbage collection, allow in-place mutation, and enable safe parallel computation. However, pure implementations of linearity incur lots of copying, doing away with any efficiency gained, and we covered a survey of papers that attempted to reconcile this contradiction by weakening linearity in controlled ways.&lt;/p&gt;
+
+&lt;p&gt;Notes:&lt;/p&gt;
+
+&lt;ul&gt;
+ &lt;li&gt;&lt;a href="https://github.com/nuprl/hopl-s2017/blob/master/lecture_notes/2017-02-14.md"&gt;https://github.com/nuprl/hopl-s2017/blob/master/lecture_notes/2017&amp;ndash;02&amp;ndash;14.md&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;Just after the talk, over lunch, we had a lab discussion about the phrase &amp;ldquo;low level&amp;rdquo;. Here are some thoughts:&lt;/p&gt;
+
+&lt;ul&gt;
+ &lt;li&gt;the phrase is relative, both over time and depending on the programming  task at hand&lt;/li&gt;
+ &lt;li&gt;a &amp;ldquo;low level&amp;rdquo; task is &amp;ldquo;one that you shouldn&amp;rsquo;t need to worry about&amp;rdquo; while  solving your current task&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;And here are some example &amp;ldquo;low-level&amp;rdquo; tasks:&lt;/p&gt;
+
+&lt;ul&gt;
+ &lt;li&gt;Time and space management is &amp;ldquo;low level&amp;rdquo; when designing a new algorithm  (the first question is correctness)&lt;/li&gt;
+ &lt;li&gt;Calling conventions and endian-ness (facets of the damn machine running  the programs) are almost always low-level&lt;/li&gt;
+ &lt;li&gt;Whether a given value is serializable is usually low-level&lt;/li&gt;
+ &lt;li&gt;Possible side effects, thrown exceptions, and optional arguments can all  be considered &amp;ldquo;low level&amp;rdquo; aspects of library functions. This is low-level  in the sense that &amp;ldquo;I&amp;rsquo;d rather use a simpler type to think about this library&amp;rdquo;&lt;/li&gt;
+ &lt;li&gt;Managing type annotations is a low-level detail in ML programs&lt;/li&gt;&lt;/ul&gt;</content></entry>
  <entry>
   <title type="text">Datalog for Static Analysis</title>
   <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2017/02/21/datalog-for-static-analysis/?utm_source=HOPL&amp;utm_medium=Atom" />
