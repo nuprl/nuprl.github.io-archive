@@ -1,19 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?> 
-<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
- <title type="text">PRL Blog: Posts tagged 'by Dan Patterson'</title>
- <link rel="self" href="http://prl.ccs.neu.edu/blog/feeds/by-Dan-Patterson.atom.xml" />
- <link href="http://prl.ccs.neu.edu/blog/tags/by-Dan-Patterson.html" />
- <id>urn:http-prl-ccs-neu-edu:-blog-tags-by-Dan-Patterson-html</id>
- <updated>2017-02-28T09:51:55Z</updated>
- <entry>
-  <title type="text">Linear Types for Low-level Languages</title>
-  <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2017/02/28/linear-types-for-low-level-languages/?utm_source=by-Dan-Patterson&amp;utm_medium=Atom" />
-  <id>urn:http-prl-ccs-neu-edu:-blog-2017-02-28-linear-types-for-low-level-languages</id>
-  <published>2017-02-28T09:51:55Z</published>
-  <updated>2017-02-28T09:51:55Z</updated>
-  <author>
-   <name>PRL</name></author>
-  <content type="html">&lt;!-- more--&gt;
+<rss version="2.0">
+ <channel>
+  <title>PRL Blog: Posts tagged 'by Daniel Patterson'</title>
+  <description>PRL Blog: Posts tagged 'by Daniel Patterson'</description>
+  <link>http://prl.ccs.neu.edu/blog/tags/by-Daniel-Patterson.html</link>
+  <lastBuildDate>Tue, 28 Feb 2017 09:51:55 UT</lastBuildDate>
+  <pubDate>Tue, 28 Feb 2017 09:51:55 UT</pubDate>
+  <ttl>1800</ttl>
+  <item>
+   <title>Linear Types for Low-level Languages</title>
+   <link>http://prl.ccs.neu.edu/blog/2017/02/28/linear-types-for-low-level-languages/?utm_source=by-Daniel-Patterson&amp;utm_medium=RSS</link>
+   <guid>urn:http-prl-ccs-neu-edu:-blog-2017-02-28-linear-types-for-low-level-languages</guid>
+   <pubDate>Tue, 28 Feb 2017 09:51:55 UT</pubDate>
+   <description>&lt;!-- more--&gt;
 
 &lt;p&gt;In this talk, we covered early papers (primarily, by Girard, Lafont, and Abramsky) on linear logic and its reflections into computation. The goal was to understand why linearity is often turned to as a principled way to control resource usage, as shows up in a language like Rust. From the very beginning, researchers realized the implications for &amp;ldquo;low-level&amp;rdquo; languages - that linear resources would eliminate the need for garbage collection, allow in-place mutation, and enable safe parallel computation. However, pure implementations of linearity incur lots of copying, doing away with any efficiency gained, and we covered a survey of papers that attempted to reconcile this contradiction by weakening linearity in controlled ways.&lt;/p&gt;
 
@@ -37,4 +36,4 @@
  &lt;li&gt;Calling conventions and endian-ness (facets of the damn machine running  the programs) are almost always low-level&lt;/li&gt;
  &lt;li&gt;Whether a given value is serializable is usually low-level&lt;/li&gt;
  &lt;li&gt;Possible side effects, thrown exceptions, and optional arguments can all  be considered &amp;ldquo;low level&amp;rdquo; aspects of library functions. This is low-level  in the sense that &amp;ldquo;I&amp;rsquo;d rather use a simpler type to think about this library&amp;rdquo;&lt;/li&gt;
- &lt;li&gt;Managing type annotations is a low-level detail in ML programs&lt;/li&gt;&lt;/ul&gt;</content></entry></feed>
+ &lt;li&gt;Managing type annotations is a low-level detail in ML programs&lt;/li&gt;&lt;/ul&gt;</description></item></channel></rss>
