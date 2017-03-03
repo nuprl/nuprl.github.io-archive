@@ -16,6 +16,7 @@ http://prl.ccs.neu.edu/blog/2017/02/21/bullets-are-good-for-your-coq-proofs/
 http://prl.ccs.neu.edu/blog/2016/08/02/tutorial-zero-to-sixty-in-racket/
 http://prl.ccs.neu.edu/blog/2016/05/18/gradual-typing-across-the-spectrum/
 http://prl.ccs.neu.edu/blog/2017/02/21/datalog-for-static-analysis/
+http://prl.ccs.neu.edu/blog/2017/03/03/plt-redex-mf-apply/
 http://prl.ccs.neu.edu/blog/2016/08/03/a-few-cores-too-many/
 http://prl.ccs.neu.edu/blog/2016/10/17/emacs-daemon-for-fast-editor-startup/
 http://prl.ccs.neu.edu/blog/2017/02/28/pliss-oregon-without-the-greek/
