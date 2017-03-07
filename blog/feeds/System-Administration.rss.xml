@@ -10,7 +10,7 @@
   <item>
    <title>Emacs daemon for fast editor startup</title>
    <link>http://prl.ccs.neu.edu/blog/2016/10/17/emacs-daemon-for-fast-editor-startup/?utm_source=System-Administration&amp;utm_medium=RSS</link>
-   <guid>urn:http-prl-ccs-neu-edu:-blog-2016-10-17-emacs-daemon-for-fast-editor-startup</guid>
+   <guid isPermaLink="false">urn:http-prl-ccs-neu-edu:-blog-2016-10-17-emacs-daemon-for-fast-editor-startup</guid>
    <pubDate>Mon, 17 Oct 2016 21:48:25 UT</pubDate>
    <description>
 &lt;p&gt;In the early days of the famous Emacs/Vim debates, Emacs was often ridiculed for its bulkiness (Eight Megabytes-of-RAM And Constantly Swapping, etc.). The computational power of our computer has grown much faster than Emacs&amp;rsquo; bloat: it takes exactly one second to load on my machine. However, our workflows have also changed, and my workflow implies frequently starting new text editors &amp;mdash; on each git commit for example, or when I use a &lt;a href="https://addons.mozilla.org/en-US/firefox/addon/its-all-text/"&gt;Firefox extension&lt;/a&gt; to edit a textarea content in a proper editor.&lt;/p&gt;

@@ -10,7 +10,7 @@
   <item>
    <title>Bullets are good for your Coq proofs</title>
    <link>http://prl.ccs.neu.edu/blog/2017/02/21/bullets-are-good-for-your-coq-proofs/?utm_source=coq&amp;utm_medium=RSS</link>
-   <guid>urn:http-prl-ccs-neu-edu:-blog-2017-02-21-bullets-are-good-for-your-coq-proofs</guid>
+   <guid isPermaLink="false">urn:http-prl-ccs-neu-edu:-blog-2017-02-21-bullets-are-good-for-your-coq-proofs</guid>
    <pubDate>Tue, 21 Feb 2017 19:04:28 UT</pubDate>
    <description>
 &lt;p&gt;I believe that bullets are one of the most impactful features of recent versions of Coq, among those that non-super-expert users can enjoy. They had a big impact on the maintainability of my proofs. Unfortunately, they are not very well-known, due to the fact that some introductory documents have not been updated to use them.&lt;/p&gt;
@@ -138,7 +138,7 @@ rest of the proof using H:foo.&lt;/code&gt;&lt;/pre&gt;
   <item>
    <title>CompCert Overview</title>
    <link>http://prl.ccs.neu.edu/blog/2016/10/11/compcert-overview/?utm_source=coq&amp;utm_medium=RSS</link>
-   <guid>urn:http-prl-ccs-neu-edu:-blog-2016-10-11-compcert-overview</guid>
+   <guid isPermaLink="false">urn:http-prl-ccs-neu-edu:-blog-2016-10-11-compcert-overview</guid>
    <pubDate>Tue, 11 Oct 2016 17:41:16 UT</pubDate>
    <description>
 &lt;p&gt;If you are interested in learning about the &lt;em&gt;internals&lt;/em&gt; of the CompCert C compiler but would rather not read its source code, this post is for you.&lt;/p&gt;

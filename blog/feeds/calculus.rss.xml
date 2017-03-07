@@ -10,7 +10,7 @@
   <item>
    <title>Beta Reduction (Part 1)</title>
    <link>http://prl.ccs.neu.edu/blog/2016/11/02/beta-reduction-part-1/?utm_source=calculus&amp;utm_medium=RSS</link>
-   <guid>urn:http-prl-ccs-neu-edu:-blog-2016-11-02-beta-reduction-part-1</guid>
+   <guid isPermaLink="false">urn:http-prl-ccs-neu-edu:-blog-2016-11-02-beta-reduction-part-1</guid>
    <pubDate>Wed, 02 Nov 2016 21:10:18 UT</pubDate>
    <description>
 &lt;p&gt;The λ-calculus is often introduced by showing how to build a real programming language from it&amp;rsquo;s simple syntactic forms. In this series of post, I attempt to introduce it as a tool for modeling semantics. So if you&amp;rsquo;re opening &lt;a href="https://www.amazon.com/Calculus-Semantics-Studies-Foundations-Mathematics/dp/0444875085"&gt;Barendregt&lt;/a&gt; for the first time, trying to understand a lecture from a programming languages or functional programming class, or just starting to become involved in PL research, I hope this post will help you understand evaluation by substitution (β-reduction).&lt;/p&gt;

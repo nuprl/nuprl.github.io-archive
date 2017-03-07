@@ -10,7 +10,7 @@
   <item>
    <title>Measuring GC latencies in Haskell, OCaml, Racket</title>
    <link>http://prl.ccs.neu.edu/blog/2016/05/24/measuring-gc-latencies-in-haskell-ocaml-racket/?utm_source=instrumentation&amp;utm_medium=RSS</link>
-   <guid>urn:http-prl-ccs-neu-edu:-blog-2016-05-24-measuring-gc-latencies-in-haskell-ocaml-racket</guid>
+   <guid isPermaLink="false">urn:http-prl-ccs-neu-edu:-blog-2016-05-24-measuring-gc-latencies-in-haskell-ocaml-racket</guid>
    <pubDate>Tue, 24 May 2016 10:51:34 UT</pubDate>
    <description>
 &lt;p&gt;James Fisher has a blog post on a case where GHC&amp;rsquo;s runtime system imposed unpleasant latencies on their Haskell program:&lt;/p&gt;

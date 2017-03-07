@@ -10,7 +10,7 @@
   <item>
    <title>Bullets are good for your Coq proofs</title>
    <link>http://prl.ccs.neu.edu/blog/2017/02/21/bullets-are-good-for-your-coq-proofs/?utm_source=by-Gabriel-Scherer&amp;utm_medium=RSS</link>
-   <guid>urn:http-prl-ccs-neu-edu:-blog-2017-02-21-bullets-are-good-for-your-coq-proofs</guid>
+   <guid isPermaLink="false">urn:http-prl-ccs-neu-edu:-blog-2017-02-21-bullets-are-good-for-your-coq-proofs</guid>
    <pubDate>Tue, 21 Feb 2017 19:04:28 UT</pubDate>
    <description>
 &lt;p&gt;I believe that bullets are one of the most impactful features of recent versions of Coq, among those that non-super-expert users can enjoy. They had a big impact on the maintainability of my proofs. Unfortunately, they are not very well-known, due to the fact that some introductory documents have not been updated to use them.&lt;/p&gt;
@@ -138,7 +138,7 @@ rest of the proof using H:foo.&lt;/code&gt;&lt;/pre&gt;
   <item>
    <title>Measuring the submission/review balance</title>
    <link>http://prl.ccs.neu.edu/blog/2016/12/17/measuring-the-submission-review-balance/?utm_source=by-Gabriel-Scherer&amp;utm_medium=RSS</link>
-   <guid>urn:http-prl-ccs-neu-edu:-blog-2016-12-17-measuring-the-submission-review-balance</guid>
+   <guid isPermaLink="false">urn:http-prl-ccs-neu-edu:-blog-2016-12-17-measuring-the-submission-review-balance</guid>
    <pubDate>Sat, 17 Dec 2016 16:33:10 UT</pubDate>
    <description>
 &lt;p&gt;How do researchers know whether they are doing &amp;ldquo;enough&amp;rdquo; or &amp;ldquo;too many&amp;rdquo; reviews? A measurable goal is to be review-neutral: to have demanded, through our submissions, as many reviews as we have produced as reviewers.&lt;/p&gt;
@@ -208,7 +208,7 @@ rest of the proof using H:foo.&lt;/code&gt;&lt;/pre&gt;
   <item>
    <title>SRC-submissions</title>
    <link>http://prl.ccs.neu.edu/blog/2016/11/17/src-submissions/?utm_source=by-Gabriel-Scherer&amp;utm_medium=RSS</link>
-   <guid>urn:http-prl-ccs-neu-edu:-blog-2016-11-17-src-submissions</guid>
+   <guid isPermaLink="false">urn:http-prl-ccs-neu-edu:-blog-2016-11-17-src-submissions</guid>
    <pubDate>Thu, 17 Nov 2016 13:52:52 UT</pubDate>
    <description>
 &lt;p&gt;Max New, Daniel Patterson and Ben Greenman recently wrote three two-page abstracts on what they are working on right now. Come have a look &amp;mdash; and any feedback is welcome!&lt;/p&gt;
@@ -257,7 +257,7 @@ rest of the proof using H:foo.&lt;/code&gt;&lt;/pre&gt;
   <item>
    <title>Emacs daemon for fast editor startup</title>
    <link>http://prl.ccs.neu.edu/blog/2016/10/17/emacs-daemon-for-fast-editor-startup/?utm_source=by-Gabriel-Scherer&amp;utm_medium=RSS</link>
-   <guid>urn:http-prl-ccs-neu-edu:-blog-2016-10-17-emacs-daemon-for-fast-editor-startup</guid>
+   <guid isPermaLink="false">urn:http-prl-ccs-neu-edu:-blog-2016-10-17-emacs-daemon-for-fast-editor-startup</guid>
    <pubDate>Mon, 17 Oct 2016 21:48:25 UT</pubDate>
    <description>
 &lt;p&gt;In the early days of the famous Emacs/Vim debates, Emacs was often ridiculed for its bulkiness (Eight Megabytes-of-RAM And Constantly Swapping, etc.). The computational power of our computer has grown much faster than Emacs&amp;rsquo; bloat: it takes exactly one second to load on my machine. However, our workflows have also changed, and my workflow implies frequently starting new text editors &amp;mdash; on each git commit for example, or when I use a &lt;a href="https://addons.mozilla.org/en-US/firefox/addon/its-all-text/"&gt;Firefox extension&lt;/a&gt; to edit a textarea content in a proper editor.&lt;/p&gt;
@@ -293,7 +293,7 @@ $ time emacsclient -a '' -c -e "(save-buffers-kill-terminal)"&lt;/code&gt;&lt;/p
   <item>
    <title>Does anyone still care about printed proceedings? (Grab some at NEU this week!)</title>
    <link>http://prl.ccs.neu.edu/blog/2016/06/13/does-anyone-still-care-about-printed-proceedings-grab-some-at-neu-this-week/?utm_source=by-Gabriel-Scherer&amp;utm_medium=RSS</link>
-   <guid>urn:http-prl-ccs-neu-edu:-blog-2016-06-13-does-anyone-still-care-about-printed-proceedings-grab-some-at-neu-this-week</guid>
+   <guid isPermaLink="false">urn:http-prl-ccs-neu-edu:-blog-2016-06-13-does-anyone-still-care-about-printed-proceedings-grab-some-at-neu-this-week</guid>
    <pubDate>Mon, 13 Jun 2016 10:50:14 UT</pubDate>
    <description>
 &lt;p&gt;Are you interested in printed conference Proceedings? We have a good stack of them left away at Northeastern University (Boston, MA) and it seems that nobody wants them!&lt;/p&gt;
@@ -309,7 +309,7 @@ $ time emacsclient -a '' -c -e "(save-buffers-kill-terminal)"&lt;/code&gt;&lt;/p
   <item>
    <title>ICFP 2016: looking for student volunteers</title>
    <link>http://prl.ccs.neu.edu/blog/2016/06/07/icfp-2016-looking-for-student-volunteers/?utm_source=by-Gabriel-Scherer&amp;utm_medium=RSS</link>
-   <guid>urn:http-prl-ccs-neu-edu:-blog-2016-06-07-icfp-2016-looking-for-student-volunteers</guid>
+   <guid isPermaLink="false">urn:http-prl-ccs-neu-edu:-blog-2016-06-07-icfp-2016-looking-for-student-volunteers</guid>
    <pubDate>Tue, 07 Jun 2016 11:53:47 UT</pubDate>
    <description>
 &lt;p&gt;If you are a student, you should consider &lt;a href="http://goo.gl/forms/fKg3vpjNryBlGWB32"&gt;applying&lt;/a&gt; to become an ICFP 2016 student volunteer! The deadline for application is July 31st, 2016.&lt;/p&gt;
@@ -340,7 +340,7 @@ $ time emacsclient -a '' -c -e "(save-buffers-kill-terminal)"&lt;/code&gt;&lt;/p
   <item>
    <title>Measuring GC latencies in Haskell, OCaml, Racket</title>
    <link>http://prl.ccs.neu.edu/blog/2016/05/24/measuring-gc-latencies-in-haskell-ocaml-racket/?utm_source=by-Gabriel-Scherer&amp;utm_medium=RSS</link>
-   <guid>urn:http-prl-ccs-neu-edu:-blog-2016-05-24-measuring-gc-latencies-in-haskell-ocaml-racket</guid>
+   <guid isPermaLink="false">urn:http-prl-ccs-neu-edu:-blog-2016-05-24-measuring-gc-latencies-in-haskell-ocaml-racket</guid>
    <pubDate>Tue, 24 May 2016 10:51:34 UT</pubDate>
    <description>
 &lt;p&gt;James Fisher has a blog post on a case where GHC&amp;rsquo;s runtime system imposed unpleasant latencies on their Haskell program:&lt;/p&gt;
@@ -626,7 +626,7 @@ GC: 0:MAJ @ 1,406,514K(+149,645K)[+1,560K]; free 577,765K(-577,765K) 21ms @ 5069
   <item>
    <title>NEPLS on May 31st at UMass, Amherst</title>
    <link>http://prl.ccs.neu.edu/blog/2016/05/03/nepls-on-may-31st-at-umass-amherst/?utm_source=by-Gabriel-Scherer&amp;utm_medium=RSS</link>
-   <guid>urn:http-prl-ccs-neu-edu:-blog-2016-05-03-nepls-on-may-31st-at-umass-amherst</guid>
+   <guid isPermaLink="false">urn:http-prl-ccs-neu-edu:-blog-2016-05-03-nepls-on-may-31st-at-umass-amherst</guid>
    <pubDate>Tue, 03 May 2016 08:21:07 UT</pubDate>
    <description>
 &lt;p&gt;It is my pleasure to relay the following announcement for the next edition of the New England Programming Language Seminer (NEPLS), to be held on Tuesday May 31st at UMass, Amherst, organized by Arjun Guha. Venez nombreux!&lt;/p&gt;

@@ -10,7 +10,7 @@
   <item>
    <title>Linear Types for Low-level Languages</title>
    <link>http://prl.ccs.neu.edu/blog/2017/02/28/linear-types-for-low-level-languages/?utm_source=HOPL&amp;utm_medium=RSS</link>
-   <guid>urn:http-prl-ccs-neu-edu:-blog-2017-02-28-linear-types-for-low-level-languages</guid>
+   <guid isPermaLink="false">urn:http-prl-ccs-neu-edu:-blog-2017-02-28-linear-types-for-low-level-languages</guid>
    <pubDate>Tue, 28 Feb 2017 09:51:55 UT</pubDate>
    <description>&lt;!-- more--&gt;
 
@@ -40,7 +40,7 @@
   <item>
    <title>Datalog for Static Analysis</title>
    <link>http://prl.ccs.neu.edu/blog/2017/02/21/datalog-for-static-analysis/?utm_source=HOPL&amp;utm_medium=RSS</link>
-   <guid>urn:http-prl-ccs-neu-edu:-blog-2017-02-21-datalog-for-static-analysis</guid>
+   <guid isPermaLink="false">urn:http-prl-ccs-neu-edu:-blog-2017-02-21-datalog-for-static-analysis</guid>
    <pubDate>Tue, 21 Feb 2017 12:58:27 UT</pubDate>
    <description>&lt;!-- more--&gt;
 
@@ -80,7 +80,7 @@
   <item>
    <title>Conversational Context and Concurrency</title>
    <link>http://prl.ccs.neu.edu/blog/2017/02/15/conversational-context-and-concurrency/?utm_source=HOPL&amp;utm_medium=RSS</link>
-   <guid>urn:http-prl-ccs-neu-edu:-blog-2017-02-15-conversational-context-and-concurrency</guid>
+   <guid isPermaLink="false">urn:http-prl-ccs-neu-edu:-blog-2017-02-15-conversational-context-and-concurrency</guid>
    <pubDate>Wed, 15 Feb 2017 01:21:55 UT</pubDate>
    <description>&lt;!-- more--&gt;
 
@@ -114,7 +114,7 @@
   <item>
    <title>Introducing HOPL 2017</title>
    <link>http://prl.ccs.neu.edu/blog/2017/02/15/introducing-hopl-2017/?utm_source=HOPL&amp;utm_medium=RSS</link>
-   <guid>urn:http-prl-ccs-neu-edu:-blog-2017-02-15-introducing-hopl-2017</guid>
+   <guid isPermaLink="false">urn:http-prl-ccs-neu-edu:-blog-2017-02-15-introducing-hopl-2017</guid>
    <pubDate>Wed, 15 Feb 2017 01:21:37 UT</pubDate>
    <description>
 &lt;p&gt;This semester at Northeastern, Matthias Felleisen is organizing the &lt;a href="http://www.ccs.neu.edu/home/matthias/7480-s17/index.html"&gt;History of Programming Languages&lt;/a&gt; seminar. Look for posts tagged &lt;code&gt;HOPL&lt;/code&gt; for updates from the lectures.&lt;/p&gt;

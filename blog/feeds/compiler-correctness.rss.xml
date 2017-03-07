@@ -10,7 +10,7 @@
   <item>
    <title>CompCert Overview</title>
    <link>http://prl.ccs.neu.edu/blog/2016/10/11/compcert-overview/?utm_source=compiler-correctness&amp;utm_medium=RSS</link>
-   <guid>urn:http-prl-ccs-neu-edu:-blog-2016-10-11-compcert-overview</guid>
+   <guid isPermaLink="false">urn:http-prl-ccs-neu-edu:-blog-2016-10-11-compcert-overview</guid>
    <pubDate>Tue, 11 Oct 2016 17:41:16 UT</pubDate>
    <description>
 &lt;p&gt;If you are interested in learning about the &lt;em&gt;internals&lt;/em&gt; of the CompCert C compiler but would rather not read its source code, this post is for you.&lt;/p&gt;

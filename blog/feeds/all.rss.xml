@@ -10,7 +10,7 @@
   <item>
    <title>PLT Redex: mf-apply</title>
    <link>http://prl.ccs.neu.edu/blog/2017/03/03/plt-redex-mf-apply/?utm_source=all&amp;utm_medium=RSS</link>
-   <guid>urn:http-prl-ccs-neu-edu:-blog-2017-03-03-plt-redex-mf-apply</guid>
+   <guid isPermaLink="false">urn:http-prl-ccs-neu-edu:-blog-2017-03-03-plt-redex-mf-apply</guid>
    <pubDate>Fri, 03 Mar 2017 08:54:20 UT</pubDate>
    <description>
 &lt;p&gt;The &lt;code&gt;mf-apply&lt;/code&gt; keyword is for checked metafunction application in PLT Redex. In other words, &lt;code&gt;(mf-apply f x)&lt;/code&gt; is just like &lt;code&gt;(f x)&lt;/code&gt;, but errors if &lt;code&gt;f&lt;/code&gt; is  not a previously-defined metafunction.&lt;/p&gt;
@@ -201,11 +201,13 @@
   <item>
    <title>PLISS: Oregon without the greek</title>
    <link>http://prl.ccs.neu.edu/blog/2017/02/28/pliss-oregon-without-the-greek/?utm_source=all&amp;utm_medium=RSS</link>
-   <guid>urn:http-prl-ccs-neu-edu:-blog-2017-02-28-pliss-oregon-without-the-greek</guid>
+   <guid isPermaLink="false">urn:http-prl-ccs-neu-edu:-blog-2017-02-28-pliss-oregon-without-the-greek</guid>
    <pubDate>Tue, 28 Feb 2017 23:01:00 UT</pubDate>
    <description>
 &lt;p&gt;What does every student interested in programming languages need to learn about the practical side of the field? That is the question that the first international summer school on programming language implementation (or &lt;a href="https://pliss2017.github.io"&gt;PLISS&lt;/a&gt; for short) has set out to answer.&lt;/p&gt;
 &lt;!-- more--&gt;
+
+&lt;p&gt;&lt;img src="/img/pliss_summer_school_2017_logo.png" alt="PLISS logo" /&gt;&lt;/p&gt;
 
 &lt;p&gt;The school will feature &lt;a href="https://pliss2017.github.io/speakers.html"&gt;twelve speakers&lt;/a&gt; versed in programming language practicae ranging from abstract interpretation to garbage collection and from compiler implementation to language design. The lectures will feature hands on exercises as well as lessons learned from large scale industrial efforts.&lt;/p&gt;
 
@@ -234,7 +236,7 @@
   <item>
    <title>Linear Types for Low-level Languages</title>
    <link>http://prl.ccs.neu.edu/blog/2017/02/28/linear-types-for-low-level-languages/?utm_source=all&amp;utm_medium=RSS</link>
-   <guid>urn:http-prl-ccs-neu-edu:-blog-2017-02-28-linear-types-for-low-level-languages</guid>
+   <guid isPermaLink="false">urn:http-prl-ccs-neu-edu:-blog-2017-02-28-linear-types-for-low-level-languages</guid>
    <pubDate>Tue, 28 Feb 2017 09:51:55 UT</pubDate>
    <description>&lt;!-- more--&gt;
 
@@ -264,7 +266,7 @@
   <item>
    <title>Bullets are good for your Coq proofs</title>
    <link>http://prl.ccs.neu.edu/blog/2017/02/21/bullets-are-good-for-your-coq-proofs/?utm_source=all&amp;utm_medium=RSS</link>
-   <guid>urn:http-prl-ccs-neu-edu:-blog-2017-02-21-bullets-are-good-for-your-coq-proofs</guid>
+   <guid isPermaLink="false">urn:http-prl-ccs-neu-edu:-blog-2017-02-21-bullets-are-good-for-your-coq-proofs</guid>
    <pubDate>Tue, 21 Feb 2017 19:04:28 UT</pubDate>
    <description>
 &lt;p&gt;I believe that bullets are one of the most impactful features of recent versions of Coq, among those that non-super-expert users can enjoy. They had a big impact on the maintainability of my proofs. Unfortunately, they are not very well-known, due to the fact that some introductory documents have not been updated to use them.&lt;/p&gt;
@@ -392,7 +394,7 @@ rest of the proof using H:foo.&lt;/code&gt;&lt;/pre&gt;
   <item>
    <title>Datalog for Static Analysis</title>
    <link>http://prl.ccs.neu.edu/blog/2017/02/21/datalog-for-static-analysis/?utm_source=all&amp;utm_medium=RSS</link>
-   <guid>urn:http-prl-ccs-neu-edu:-blog-2017-02-21-datalog-for-static-analysis</guid>
+   <guid isPermaLink="false">urn:http-prl-ccs-neu-edu:-blog-2017-02-21-datalog-for-static-analysis</guid>
    <pubDate>Tue, 21 Feb 2017 12:58:27 UT</pubDate>
    <description>&lt;!-- more--&gt;
 
@@ -432,7 +434,7 @@ rest of the proof using H:foo.&lt;/code&gt;&lt;/pre&gt;
   <item>
    <title>Conversational Context and Concurrency</title>
    <link>http://prl.ccs.neu.edu/blog/2017/02/15/conversational-context-and-concurrency/?utm_source=all&amp;utm_medium=RSS</link>
-   <guid>urn:http-prl-ccs-neu-edu:-blog-2017-02-15-conversational-context-and-concurrency</guid>
+   <guid isPermaLink="false">urn:http-prl-ccs-neu-edu:-blog-2017-02-15-conversational-context-and-concurrency</guid>
    <pubDate>Wed, 15 Feb 2017 01:21:55 UT</pubDate>
    <description>&lt;!-- more--&gt;
 
@@ -466,7 +468,7 @@ rest of the proof using H:foo.&lt;/code&gt;&lt;/pre&gt;
   <item>
    <title>Introducing HOPL 2017</title>
    <link>http://prl.ccs.neu.edu/blog/2017/02/15/introducing-hopl-2017/?utm_source=all&amp;utm_medium=RSS</link>
-   <guid>urn:http-prl-ccs-neu-edu:-blog-2017-02-15-introducing-hopl-2017</guid>
+   <guid isPermaLink="false">urn:http-prl-ccs-neu-edu:-blog-2017-02-15-introducing-hopl-2017</guid>
    <pubDate>Wed, 15 Feb 2017 01:21:37 UT</pubDate>
    <description>
 &lt;p&gt;This semester at Northeastern, Matthias Felleisen is organizing the &lt;a href="http://www.ccs.neu.edu/home/matthias/7480-s17/index.html"&gt;History of Programming Languages&lt;/a&gt; seminar. Look for posts tagged &lt;code&gt;HOPL&lt;/code&gt; for updates from the lectures.&lt;/p&gt;
@@ -517,13 +519,13 @@ rest of the proof using H:foo.&lt;/code&gt;&lt;/pre&gt;
   <item>
    <title>[Toward Type-Preserving Compilation of Coq, at POPL17 SRC (cross-post)](https://williamjbowman.com/blog/2017/01/03/toward-type-preserving-compilation-of-coq-at-popl17-src/)</title>
    <link>http://prl.ccs.neu.edu/blog/2017/01/03/-toward-type-preserving-compilation-of-coq-at-popl17-src-cross-post-https-williamjbowman-com-blog-2017-01-03-toward-type-preserving-compilation-of-coq-at-popl17-src/?utm_source=all&amp;utm_medium=RSS</link>
-   <guid>urn:http-prl-ccs-neu-edu:-blog-2017-01-03-toward-type-preserving-compilation-of-coq-at-popl17-src-cross-post-https-williamjbowman-com-blog-2017-01-03-toward-type-preserving-compilation-of-coq-at-popl17-src</guid>
+   <guid isPermaLink="false">urn:http-prl-ccs-neu-edu:-blog-2017-01-03-toward-type-preserving-compilation-of-coq-at-popl17-src-cross-post-https-williamjbowman-com-blog-2017-01-03-toward-type-preserving-compilation-of-coq-at-popl17-src</guid>
    <pubDate>Tue, 03 Jan 2017 15:15:57 UT</pubDate>
    <description></description></item>
   <item>
    <title>Fall 2016 PL Junior Retrospective</title>
    <link>http://prl.ccs.neu.edu/blog/2017/01/02/fall-2016-pl-junior-retrospective/?utm_source=all&amp;utm_medium=RSS</link>
-   <guid>urn:http-prl-ccs-neu-edu:-blog-2017-01-02-fall-2016-pl-junior-retrospective</guid>
+   <guid isPermaLink="false">urn:http-prl-ccs-neu-edu:-blog-2017-01-02-fall-2016-pl-junior-retrospective</guid>
    <pubDate>Mon, 02 Jan 2017 16:39:37 UT</pubDate>
    <description>
 &lt;p&gt;The &lt;a href="http://prl.ccs.neu.edu/seminars.html"&gt;Programming Language Seminar, Junior&lt;/a&gt; (or “PL Junior”), is a seminar for junior students to learn and discuss topics at a pace more suitable to our background. This semester, we decided to study dependent types. We chose this topic because&lt;/p&gt;
@@ -559,7 +561,7 @@ rest of the proof using H:foo.&lt;/code&gt;&lt;/pre&gt;
   <item>
    <title>Measuring the submission/review balance</title>
    <link>http://prl.ccs.neu.edu/blog/2016/12/17/measuring-the-submission-review-balance/?utm_source=all&amp;utm_medium=RSS</link>
-   <guid>urn:http-prl-ccs-neu-edu:-blog-2016-12-17-measuring-the-submission-review-balance</guid>
+   <guid isPermaLink="false">urn:http-prl-ccs-neu-edu:-blog-2016-12-17-measuring-the-submission-review-balance</guid>
    <pubDate>Sat, 17 Dec 2016 16:33:10 UT</pubDate>
    <description>
 &lt;p&gt;How do researchers know whether they are doing &amp;ldquo;enough&amp;rdquo; or &amp;ldquo;too many&amp;rdquo; reviews? A measurable goal is to be review-neutral: to have demanded, through our submissions, as many reviews as we have produced as reviewers.&lt;/p&gt;
@@ -629,13 +631,13 @@ rest of the proof using H:foo.&lt;/code&gt;&lt;/pre&gt;
   <item>
    <title>[Getting Started in Programming Languages (Cross-Post)](http://jschuster.org/blog/2016/11/29/getting-started-in-programming-languages/)</title>
    <link>http://prl.ccs.neu.edu/blog/2016/11/30/-getting-started-in-programming-languages-cross-post-http-jschuster-org-blog-2016-11-29-getting-started-in-programming-languages/?utm_source=all&amp;utm_medium=RSS</link>
-   <guid>urn:http-prl-ccs-neu-edu:-blog-2016-11-30-getting-started-in-programming-languages-cross-post-http-jschuster-org-blog-2016-11-29-getting-started-in-programming-languages</guid>
+   <guid isPermaLink="false">urn:http-prl-ccs-neu-edu:-blog-2016-11-30-getting-started-in-programming-languages-cross-post-http-jschuster-org-blog-2016-11-29-getting-started-in-programming-languages</guid>
    <pubDate>Wed, 30 Nov 2016 15:24:45 UT</pubDate>
    <description></description></item>
   <item>
    <title>SRC-submissions</title>
    <link>http://prl.ccs.neu.edu/blog/2016/11/17/src-submissions/?utm_source=all&amp;utm_medium=RSS</link>
-   <guid>urn:http-prl-ccs-neu-edu:-blog-2016-11-17-src-submissions</guid>
+   <guid isPermaLink="false">urn:http-prl-ccs-neu-edu:-blog-2016-11-17-src-submissions</guid>
    <pubDate>Thu, 17 Nov 2016 13:52:52 UT</pubDate>
    <description>
 &lt;p&gt;Max New, Daniel Patterson and Ben Greenman recently wrote three two-page abstracts on what they are working on right now. Come have a look &amp;mdash; and any feedback is welcome!&lt;/p&gt;
@@ -684,7 +686,7 @@ rest of the proof using H:foo.&lt;/code&gt;&lt;/pre&gt;
   <item>
    <title>Understanding Constructive Galois Connections</title>
    <link>http://prl.ccs.neu.edu/blog/2016/11/16/understanding-constructive-galois-connections/?utm_source=all&amp;utm_medium=RSS</link>
-   <guid>urn:http-prl-ccs-neu-edu:-blog-2016-11-16-understanding-constructive-galois-connections</guid>
+   <guid isPermaLink="false">urn:http-prl-ccs-neu-edu:-blog-2016-11-16-understanding-constructive-galois-connections</guid>
    <pubDate>Wed, 16 Nov 2016 00:00:00 UT</pubDate>
    <description>
 &lt;p&gt;One of my favorite papers at ICFP 2016 (in lovely &lt;a href="http://conf.researchr.org/home/icfp-2016"&gt;Nara, Japan&lt;/a&gt;) was &lt;a href="https://arxiv.org/abs/1511.06965"&gt;Constructive Galois Connections: Taming the Galois Connection Framework for Mechanized Metatheory&lt;/a&gt; by &lt;a href="http://david.darais.com/"&gt;David Darais&lt;/a&gt; and &lt;a href="https://www.cs.umd.edu/~dvanhorn/"&gt;David Van Horn&lt;/a&gt;. The central technical result is quite interesting, but a little intimidating, so I&amp;rsquo;d like to share a &amp;ldquo;de-generalization&amp;rdquo; of the result that I found helpful to understand.&lt;/p&gt;
@@ -828,7 +830,7 @@ X \to P(Y)&lt;/script&gt; we can take
   <item>
    <title>Beta Reduction (Part 1)</title>
    <link>http://prl.ccs.neu.edu/blog/2016/11/02/beta-reduction-part-1/?utm_source=all&amp;utm_medium=RSS</link>
-   <guid>urn:http-prl-ccs-neu-edu:-blog-2016-11-02-beta-reduction-part-1</guid>
+   <guid isPermaLink="false">urn:http-prl-ccs-neu-edu:-blog-2016-11-02-beta-reduction-part-1</guid>
    <pubDate>Wed, 02 Nov 2016 21:10:18 UT</pubDate>
    <description>
 &lt;p&gt;The λ-calculus is often introduced by showing how to build a real programming language from it&amp;rsquo;s simple syntactic forms. In this series of post, I attempt to introduce it as a tool for modeling semantics. So if you&amp;rsquo;re opening &lt;a href="https://www.amazon.com/Calculus-Semantics-Studies-Foundations-Mathematics/dp/0444875085"&gt;Barendregt&lt;/a&gt; for the first time, trying to understand a lecture from a programming languages or functional programming class, or just starting to become involved in PL research, I hope this post will help you understand evaluation by substitution (β-reduction).&lt;/p&gt;
@@ -997,7 +999,7 @@ y[ x := e ] = y
   <item>
    <title>Meaningful Distinctions</title>
    <link>http://prl.ccs.neu.edu/blog/2016/10/31/meaningful-distinctions/?utm_source=all&amp;utm_medium=RSS</link>
-   <guid>urn:http-prl-ccs-neu-edu:-blog-2016-10-31-meaningful-distinctions</guid>
+   <guid isPermaLink="false">urn:http-prl-ccs-neu-edu:-blog-2016-10-31-meaningful-distinctions</guid>
    <pubDate>Mon, 31 Oct 2016 17:20:33 UT</pubDate>
    <description>
 &lt;blockquote&gt;
@@ -1060,7 +1062,7 @@ y[ x := e ] = y
   <item>
    <title>History of Actors</title>
    <link>http://prl.ccs.neu.edu/blog/2016/10/19/history-of-actors/?utm_source=all&amp;utm_medium=RSS</link>
-   <guid>urn:http-prl-ccs-neu-edu:-blog-2016-10-19-history-of-actors</guid>
+   <guid isPermaLink="false">urn:http-prl-ccs-neu-edu:-blog-2016-10-19-history-of-actors</guid>
    <pubDate>Wed, 19 Oct 2016 17:26:16 UT</pubDate>
    <description>
 &lt;p&gt;Christos Dimoulas is currently teaching a &lt;a href="http://www.seas.harvard.edu/courses/cs252/2016fa/"&gt;&amp;ldquo;History of Programming Languages&amp;rdquo; class at Harvard&lt;/a&gt;. The class is, as Christos writes, &amp;ldquo;definitely not about &lt;a href="https://www.levenez.com/lang/lang_letter.pdf"&gt;this&lt;/a&gt;&amp;rdquo;; instead, each meeting is a deep examination of a single, mature research topic, in terms of three to five key papers from the literature.&lt;/p&gt;
@@ -1069,7 +1071,7 @@ y[ x := e ] = y
   <item>
    <title>Emacs daemon for fast editor startup</title>
    <link>http://prl.ccs.neu.edu/blog/2016/10/17/emacs-daemon-for-fast-editor-startup/?utm_source=all&amp;utm_medium=RSS</link>
-   <guid>urn:http-prl-ccs-neu-edu:-blog-2016-10-17-emacs-daemon-for-fast-editor-startup</guid>
+   <guid isPermaLink="false">urn:http-prl-ccs-neu-edu:-blog-2016-10-17-emacs-daemon-for-fast-editor-startup</guid>
    <pubDate>Mon, 17 Oct 2016 21:48:25 UT</pubDate>
    <description>
 &lt;p&gt;In the early days of the famous Emacs/Vim debates, Emacs was often ridiculed for its bulkiness (Eight Megabytes-of-RAM And Constantly Swapping, etc.). The computational power of our computer has grown much faster than Emacs&amp;rsquo; bloat: it takes exactly one second to load on my machine. However, our workflows have also changed, and my workflow implies frequently starting new text editors &amp;mdash; on each git commit for example, or when I use a &lt;a href="https://addons.mozilla.org/en-US/firefox/addon/its-all-text/"&gt;Firefox extension&lt;/a&gt; to edit a textarea content in a proper editor.&lt;/p&gt;
@@ -1105,7 +1107,7 @@ $ time emacsclient -a '' -c -e "(save-buffers-kill-terminal)"&lt;/code&gt;&lt;/p
   <item>
    <title>CompCert Overview</title>
    <link>http://prl.ccs.neu.edu/blog/2016/10/11/compcert-overview/?utm_source=all&amp;utm_medium=RSS</link>
-   <guid>urn:http-prl-ccs-neu-edu:-blog-2016-10-11-compcert-overview</guid>
+   <guid isPermaLink="false">urn:http-prl-ccs-neu-edu:-blog-2016-10-11-compcert-overview</guid>
    <pubDate>Tue, 11 Oct 2016 17:41:16 UT</pubDate>
    <description>
 &lt;p&gt;If you are interested in learning about the &lt;em&gt;internals&lt;/em&gt; of the CompCert C compiler but would rather not read its source code, this post is for you.&lt;/p&gt;
@@ -1140,7 +1142,7 @@ $ time emacsclient -a '' -c -e "(save-buffers-kill-terminal)"&lt;/code&gt;&lt;/p
   <item>
    <title>NEPLS on October 7th at Northeastern University</title>
    <link>http://prl.ccs.neu.edu/blog/2016/09/15/nepls-on-october-7th-at-northeastern-university/?utm_source=all&amp;utm_medium=RSS</link>
-   <guid>urn:http-prl-ccs-neu-edu:-blog-2016-09-15-nepls-on-october-7th-at-northeastern-university</guid>
+   <guid isPermaLink="false">urn:http-prl-ccs-neu-edu:-blog-2016-09-15-nepls-on-october-7th-at-northeastern-university</guid>
    <pubDate>Thu, 15 Sep 2016 21:18:45 UT</pubDate>
    <description>
 &lt;p&gt;The next edition of the New England Programming Language Seminar (NEPLS) will be held on Friday, October 7th at Northeastern University. Organizers are Gabriel Scherer and Max New. See you there!&lt;/p&gt;
@@ -1176,7 +1178,7 @@ $ time emacsclient -a '' -c -e "(save-buffers-kill-terminal)"&lt;/code&gt;&lt;/p
   <item>
    <title>A few cores too many</title>
    <link>http://prl.ccs.neu.edu/blog/2016/08/03/a-few-cores-too-many/?utm_source=all&amp;utm_medium=RSS</link>
-   <guid>urn:http-prl-ccs-neu-edu:-blog-2016-08-03-a-few-cores-too-many</guid>
+   <guid isPermaLink="false">urn:http-prl-ccs-neu-edu:-blog-2016-08-03-a-few-cores-too-many</guid>
    <pubDate>Wed, 03 Aug 2016 14:09:02 UT</pubDate>
    <description>
 &lt;p&gt;Performance matters for software systems, but performance is not always easy  to measure. At the PRL we recently had a scare with some unreliable measurements. Here is the story.&lt;/p&gt;

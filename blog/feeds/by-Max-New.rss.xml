@@ -10,7 +10,7 @@
   <item>
    <title>Understanding Constructive Galois Connections</title>
    <link>http://prl.ccs.neu.edu/blog/2016/11/16/understanding-constructive-galois-connections/?utm_source=by-Max-New&amp;utm_medium=RSS</link>
-   <guid>urn:http-prl-ccs-neu-edu:-blog-2016-11-16-understanding-constructive-galois-connections</guid>
+   <guid isPermaLink="false">urn:http-prl-ccs-neu-edu:-blog-2016-11-16-understanding-constructive-galois-connections</guid>
    <pubDate>Wed, 16 Nov 2016 00:00:00 UT</pubDate>
    <description>
 &lt;p&gt;One of my favorite papers at ICFP 2016 (in lovely &lt;a href="http://conf.researchr.org/home/icfp-2016"&gt;Nara, Japan&lt;/a&gt;) was &lt;a href="https://arxiv.org/abs/1511.06965"&gt;Constructive Galois Connections: Taming the Galois Connection Framework for Mechanized Metatheory&lt;/a&gt; by &lt;a href="http://david.darais.com/"&gt;David Darais&lt;/a&gt; and &lt;a href="https://www.cs.umd.edu/~dvanhorn/"&gt;David Van Horn&lt;/a&gt;. The central technical result is quite interesting, but a little intimidating, so I&amp;rsquo;d like to share a &amp;ldquo;de-generalization&amp;rdquo; of the result that I found helpful to understand.&lt;/p&gt;
