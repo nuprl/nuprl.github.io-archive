@@ -3,14 +3,14 @@
   <head>
 
     <meta charset="utf-8">
-    <title>Posts tagged 'HOPL'</title>
-    <meta name="description" content="Posts tagged 'HOPL'">
+    <title>Type Inference in Stack-Based Programming Languages</title>
+    <meta name="description" content="...">
     <meta name="author"      content="PRL">
-    <meta name="keywords"    content="HOPL">
+    <meta name="keywords"    content="HOPL, by Rob Kleffner">
     <meta name="viewport"    content="width=device-width, initial-scale=1.0">
     <link rel="icon"      href="/img/favicon.ico">
-    <link rel="canonical" href="http://prl.ccs.neu.edu/blog/tags/HOPL.html">
-
+    <link rel="canonical" href="http://prl.ccs.neu.edu/blog/2017/03/10/type-inference-in-stack-based-programming-languages/">
+    <link rel="next" href="/blog/2017/03/03/plt-redex-mf-apply/">
 
     <script type="text/javascript"
             src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
@@ -75,62 +75,58 @@
             <!-- Main column -->
             <div id="content" class="col-md-12">
 
-              <h1>Posts tagged <em>HOPL</em></h1>
+
 
               <article>
   <header>
-    <h2><a href='/blog/2017/03/10/type-inference-in-stack-based-programming-languages/'>Type Inference in Stack-Based Programming Languages</a></h2>
+    <h1>Type Inference in Stack-Based Programming Languages</h1>
     <p class='date-and-tags'>
 <time datetime="2017-03-10" pubdate="true">2017-03-10</time> :: <span class="tags"><a href="/blog/tags/HOPL.html">HOPL</a>, <a href="/blog/tags/by-Rob-Kleffner.html">by Rob Kleffner</a></span></p>
   </header>
+  <!-- more-->
 
-  <footer>
-    <a href='/blog/2017/03/10/type-inference-in-stack-based-programming-languages/'>&hellip; more &hellip;</a>
-  </footer>
-</article>
-<article>
-  <header>
-    <h2><a href='/blog/2017/02/28/linear-types-for-low-level-languages/'>Linear Types for Low-level Languages</a></h2>
-    <p class='date-and-tags'>
-<time datetime="2017-02-28" pubdate="true">2017-02-28</time> :: <span class="tags"><a href="/blog/tags/HOPL.html">HOPL</a>, <a href="/blog/tags/by-Daniel-Patterson.html">by Daniel Patterson</a></span></p>
-  </header>
+<p>Stack-based languages occupy a niche in today&rsquo;s programming language environment. The predominant stack-based language in use by programmers is Forth, and is found mostly on embedded devices. These languages also find use as compile targets for more popular languages: the CIL and JVM are both stack-based. Less popular but highly interesting languages to mention include <a href="http://www.kevinalbrecht.com/code/joy-mirror/joy.html">Joy</a> and <a href="http://factorcode.org/">Factor</a>, known for their emphasis on higher-order stack-based programming.</p>
 
-  <footer>
-    <a href='/blog/2017/02/28/linear-types-for-low-level-languages/'>&hellip; more &hellip;</a>
-  </footer>
-</article>
-<article>
-  <header>
-    <h2><a href='/blog/2017/02/21/datalog-for-static-analysis/'>Datalog for Static Analysis</a></h2>
-    <p class='date-and-tags'>
-<time datetime="2017-02-21" pubdate="true">2017-02-21</time> :: <span class="tags"><a href="/blog/tags/HOPL.html">HOPL</a>, <a href="/blog/tags/by-Ben-Greenman.html">by Ben Greenman</a></span></p>
-  </header>
+<p>The majority of stack-based languages are not statically typed, and it would be a stretch to call Forth even dynamically typed. As such, developing large projects in Forth or Factor can require great discipline on the part of the programmer to avoid type errors.</p>
 
-  <footer>
-    <a href='/blog/2017/02/21/datalog-for-static-analysis/'>&hellip; more &hellip;</a>
-  </footer>
-</article>
-<article>
-  <header>
-    <h2><a href='/blog/2017/02/15/conversational-context-and-concurrency/'>Conversational Context and Concurrency</a></h2>
-    <p class='date-and-tags'>
-<time datetime="2017-02-15" pubdate="true">2017-02-15</time> :: <span class="tags"><a href="/blog/tags/HOPL.html">HOPL</a>, <a href="/blog/tags/by-Tony-Garnock-Jones.html">by Tony Garnock-Jones</a></span></p>
-  </header>
+<p>In this talk, I presented the development of type inference for stack-based languages as a linear sequence, divided into two overarching segments:</p>
 
-  <footer>
-    <a href='/blog/2017/02/15/conversational-context-and-concurrency/'>&hellip; more &hellip;</a>
-  </footer>
-</article>
-<article>
-  <header>
-    <h2><a href='/blog/2017/02/15/introducing-hopl-2017/'>Introducing HOPL 2017</a></h2>
-    <p class='date-and-tags'>
-<time datetime="2017-02-15" pubdate="true">2017-02-15</time> :: <span class="tags"><a href="/blog/tags/HOPL.html">HOPL</a>, <a href="/blog/tags/by-Ben-Greenman.html">by Ben Greenman</a></span></p>
-  </header>
+<ul>
+ <li>An algebraic system known as <em>stack effects</em></li>
+ <li>Systems that can be encoded as <em>nested pairs</em> in standard functional  programming languages</li></ul>
 
-<p>This semester at Northeastern, Matthias Felleisen is organizing the <a href="http://www.ccs.neu.edu/home/matthias/7480-s17/index.html">History of Programming Languages</a> seminar. Look for posts tagged <code>HOPL</code> for updates from the lectures.</p>
+<p>The thread of research on stack effects began with Jaanus Pöial in the early 1990&rsquo;s, and is a formalization of a commenting style well-known in the Forth community. The nested tuple systems were first examined by Okasaki in 1993 in the context of Haskell, and were later applied to higher-order stack-based languages. At the end, I give some avenues for extending the research on these systems, and list some pitfalls to be avoided in further research.</p>
+
+<p>Official Notes:</p>
+
+<ul>
+ <li><a href="https://github.com/nuprl/hopl-s2017/blob/master/type-inference-for-stack-languages/talk-notes.pdf">https://github.com/nuprl/hopl-s2017/blob/master/type-inference-for-stack-languages/talk-notes.pdf</a></li></ul>
+  <br/><br/>
   <footer>
-    <a href='/blog/2017/02/15/introducing-hopl-2017/'>&hellip; more &hellip;</a>
+    <script type="text/javascript">
+      !function(d,s,id){
+          var js,fjs=d.getElementsByTagName(s)[0];
+          if(!d.getElementById(id)){
+              js=d.createElement(s);
+              js.id=id;
+              js.src="//platform.twitter.com/widgets.js";
+              fjs.parentNode.insertBefore(js,fjs);
+          }
+      }(document,"script","twitter-wjs");
+    </script>
+    <a href="https://twitter.com/share"
+       class="twitter-share-button"
+       data-url="http://prl.ccs.neu.edu/blog/2017/03/10/type-inference-in-stack-based-programming-languages/"
+       data-dnt="true">
+      "Tweet"</a>
+    <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+    <g:plusone size="medium" href="http://prl.ccs.neu.edu/blog/2017/03/10/type-inference-in-stack-based-programming-languages/"></g:plusone>
+    <ul class="pager">
+
+    <li class="next">
+      <a href="/blog/2017/03/03/plt-redex-mf-apply/"><em>PLT Redex: mf-apply</em> &rarr;</a>
+    </li>
+    </ul>
   </footer>
 </article>
             </div>
