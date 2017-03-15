@@ -4,7 +4,30 @@
  <link rel="self" href="http://prl.ccs.neu.edu/blog/feeds/by-Ming-Ho-Yee.atom.xml" />
  <link href="http://prl.ccs.neu.edu/blog/tags/by-Ming-Ho-Yee.html" />
  <id>urn:http-prl-ccs-neu-edu:-blog-tags-by-Ming-Ho-Yee-html</id>
- <updated>2017-01-02T16:39:37Z</updated>
+ <updated>2017-03-15T10:54:39Z</updated>
+ <entry>
+  <title type="text">Tracing JITs for Dynamic Languages</title>
+  <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2017/03/15/tracing-jits-for-dynamic-languages/?utm_source=by-Ming-Ho-Yee&amp;utm_medium=Atom" />
+  <id>urn:http-prl-ccs-neu-edu:-blog-2017-03-15-tracing-jits-for-dynamic-languages</id>
+  <published>2017-03-15T10:54:39Z</published>
+  <updated>2017-03-15T10:54:39Z</updated>
+  <author>
+   <name>PRL</name></author>
+  <content type="html">&lt;!-- more--&gt;
+
+&lt;p&gt;Traditional JIT (just-in-time) compilers are method-based: they compile &amp;ldquo;hot&amp;rdquo; (i.e. frequently executed) methods to native code. An alternative is trace-based or tracing JITs, where the compilation unit is a (hot) sequence of instructions. Typically, such sequences of instructions correspond to loops, where programs spend most of their execution time.&lt;/p&gt;
+
+&lt;p&gt;Where did the idea of tracing come from? What was appealing about it? How was tracing adapted for JITs and dynamic languages? What happened to Mozilla&amp;rsquo;s TraceMonkey, which used to be part of Firefox? Do any JITs today use tracing?&lt;/p&gt;
+
+&lt;p&gt;In this talk, I trace tracing JITs from their origins to some of their recent developments. I cover five papers: the original tracing paper, an implementation of a tracing JIT for Java, the TraceMonkey JIT for JavaScript, PyPy&amp;rsquo;s &amp;ldquo;meta-level&amp;rdquo; tracing, and a specific class of optimizations for tracing JITs.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;(The idea of using the phrase &amp;ldquo;trace tracing JITs&amp;rdquo; is from Matthias Felleisen.)&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;All materials can be found in the &lt;a href="https://github.com/nuprl/hopl-s2017/tree/master/tracing-jit"&gt;course repository&lt;/a&gt;:&lt;/p&gt;
+
+&lt;ul&gt;
+ &lt;li&gt;&lt;a href="https://github.com/nuprl/hopl-s2017/blob/master/tracing-jit/notes.pdf"&gt;Full notes&lt;/a&gt;&lt;/li&gt;
+ &lt;li&gt;&lt;a href="https://github.com/nuprl/hopl-s2017/blob/master/tracing-jit/annotated.txt"&gt;Annotated bibliography&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;</content></entry>
  <entry>
   <title type="text">Fall 2016 PL Junior Retrospective</title>
   <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2017/01/02/fall-2016-pl-junior-retrospective/?utm_source=by-Ming-Ho-Yee&amp;utm_medium=Atom" />

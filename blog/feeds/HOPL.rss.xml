@@ -4,9 +4,29 @@
   <title>PRL Blog: Posts tagged 'HOPL'</title>
   <description>PRL Blog: Posts tagged 'HOPL'</description>
   <link>http://prl.ccs.neu.edu/blog/tags/HOPL.html</link>
-  <lastBuildDate>Fri, 10 Mar 2017 16:23:30 UT</lastBuildDate>
-  <pubDate>Fri, 10 Mar 2017 16:23:30 UT</pubDate>
+  <lastBuildDate>Wed, 15 Mar 2017 10:54:39 UT</lastBuildDate>
+  <pubDate>Wed, 15 Mar 2017 10:54:39 UT</pubDate>
   <ttl>1800</ttl>
+  <item>
+   <title>Tracing JITs for Dynamic Languages</title>
+   <link>http://prl.ccs.neu.edu/blog/2017/03/15/tracing-jits-for-dynamic-languages/?utm_source=HOPL&amp;utm_medium=RSS</link>
+   <guid isPermaLink="false">urn:http-prl-ccs-neu-edu:-blog-2017-03-15-tracing-jits-for-dynamic-languages</guid>
+   <pubDate>Wed, 15 Mar 2017 10:54:39 UT</pubDate>
+   <description>&lt;!-- more--&gt;
+
+&lt;p&gt;Traditional JIT (just-in-time) compilers are method-based: they compile &amp;ldquo;hot&amp;rdquo; (i.e. frequently executed) methods to native code. An alternative is trace-based or tracing JITs, where the compilation unit is a (hot) sequence of instructions. Typically, such sequences of instructions correspond to loops, where programs spend most of their execution time.&lt;/p&gt;
+
+&lt;p&gt;Where did the idea of tracing come from? What was appealing about it? How was tracing adapted for JITs and dynamic languages? What happened to Mozilla&amp;rsquo;s TraceMonkey, which used to be part of Firefox? Do any JITs today use tracing?&lt;/p&gt;
+
+&lt;p&gt;In this talk, I trace tracing JITs from their origins to some of their recent developments. I cover five papers: the original tracing paper, an implementation of a tracing JIT for Java, the TraceMonkey JIT for JavaScript, PyPy&amp;rsquo;s &amp;ldquo;meta-level&amp;rdquo; tracing, and a specific class of optimizations for tracing JITs.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;(The idea of using the phrase &amp;ldquo;trace tracing JITs&amp;rdquo; is from Matthias Felleisen.)&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;All materials can be found in the &lt;a href="https://github.com/nuprl/hopl-s2017/tree/master/tracing-jit"&gt;course repository&lt;/a&gt;:&lt;/p&gt;
+
+&lt;ul&gt;
+ &lt;li&gt;&lt;a href="https://github.com/nuprl/hopl-s2017/blob/master/tracing-jit/notes.pdf"&gt;Full notes&lt;/a&gt;&lt;/li&gt;
+ &lt;li&gt;&lt;a href="https://github.com/nuprl/hopl-s2017/blob/master/tracing-jit/annotated.txt"&gt;Annotated bibliography&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;</description></item>
   <item>
    <title>Type Inference in Stack-Based Programming Languages</title>
    <link>http://prl.ccs.neu.edu/blog/2017/03/10/type-inference-in-stack-based-programming-languages/?utm_source=HOPL&amp;utm_medium=RSS</link>
