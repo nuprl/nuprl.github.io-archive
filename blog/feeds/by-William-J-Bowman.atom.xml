@@ -4,7 +4,16 @@
  <link rel="self" href="http://prl.ccs.neu.edu/blog/feeds/by-William-J-Bowman.atom.xml" />
  <link href="http://prl.ccs.neu.edu/blog/tags/by-William-J-Bowman.html" />
  <id>urn:http-prl-ccs-neu-edu:-blog-tags-by-William-J-Bowman-html</id>
- <updated>2017-01-03T15:15:57Z</updated>
+ <updated>2017-04-04T23:11:17Z</updated>
+ <entry>
+  <title type="text">[What even is compiler correctness? (cross-post)](https://williamjbowman.com/blog/2017/03/24/what-even-is-compiler-correctness/)</title>
+  <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2017/04/04/-what-even-is-compiler-correctness-cross-post-https-williamjbowman-com-blog-2017-03-24-what-even-is-compiler-correctness/?utm_source=by-William-J-Bowman&amp;utm_medium=Atom" />
+  <id>urn:http-prl-ccs-neu-edu:-blog-2017-04-04-what-even-is-compiler-correctness-cross-post-https-williamjbowman-com-blog-2017-03-24-what-even-is-compiler-correctness</id>
+  <published>2017-04-04T23:11:17Z</published>
+  <updated>2017-04-04T23:11:17Z</updated>
+  <author>
+   <name>PRL</name></author>
+  <content type="html"></content></entry>
  <entry>
   <title type="text">[Toward Type-Preserving Compilation of Coq, at POPL17 SRC (cross-post)](https://williamjbowman.com/blog/2017/01/03/toward-type-preserving-compilation-of-coq-at-popl17-src/)</title>
   <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2017/01/03/-toward-type-preserving-compilation-of-coq-at-popl17-src-cross-post-https-williamjbowman-com-blog-2017-01-03-toward-type-preserving-compilation-of-coq-at-popl17-src/?utm_source=by-William-J-Bowman&amp;utm_medium=Atom" />
