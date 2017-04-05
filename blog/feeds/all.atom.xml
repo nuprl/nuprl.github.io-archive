@@ -4,16 +4,7 @@
  <link rel="self" href="http://prl.ccs.neu.edu/blog/feeds/all.atom.xml" />
  <link href="http://prl.ccs.neu.edu/blog/index.html" />
  <id>urn:http-prl-ccs-neu-edu:-blog-index-html</id>
- <updated>2017-04-04T23:11:17Z</updated>
- <entry>
-  <title type="text">[What even is compiler correctness? (cross-post)](https://williamjbowman.com/blog/2017/03/24/what-even-is-compiler-correctness/)</title>
-  <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2017/04/04/-what-even-is-compiler-correctness-cross-post-https-williamjbowman-com-blog-2017-03-24-what-even-is-compiler-correctness/?utm_source=all&amp;utm_medium=Atom" />
-  <id>urn:http-prl-ccs-neu-edu:-blog-2017-04-04-what-even-is-compiler-correctness-cross-post-https-williamjbowman-com-blog-2017-03-24-what-even-is-compiler-correctness</id>
-  <published>2017-04-04T23:11:17Z</published>
-  <updated>2017-04-04T23:11:17Z</updated>
-  <author>
-   <name>PRL</name></author>
-  <content type="html"></content></entry>
+ <updated>2017-04-04T10:21:36Z</updated>
  <entry>
   <title type="text">Top Five Results of the Past 50 Years of Programming Languages Research</title>
   <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2017/04/04/top-five-results-of-the-past-50-years-of-programming-languages-research/?utm_source=all&amp;utm_medium=Atom" />
@@ -81,6 +72,15 @@
  &lt;li&gt;&lt;a href="http://prl.ccs.neu.edu/blog/2016/05/18/gradual-typing-across-the-spectrum/"&gt;Gradual Typing Across the Spectrum&lt;/a&gt;&lt;/li&gt;
  &lt;li&gt;&lt;a href="http://jschuster.org/blog/2016/11/29/getting-started-in-programming-languages/"&gt;Getting Started in Programming Languages&lt;/a&gt;&lt;/li&gt;
  &lt;li&gt;&lt;a href="https://williamjbowman.com/blog/2017/03/24/what-even-is-compiler-correctness/"&gt;What even is compiler correctness?&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;</content></entry>
+ <entry>
+  <title type="text">[What even is compiler correctness? (cross-post)](https://williamjbowman.com/blog/2017/03/24/what-even-is-compiler-correctness/)</title>
+  <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2017/03/24/-what-even-is-compiler-correctness-cross-post-https-williamjbowman-com-blog-2017-03-24-what-even-is-compiler-correctness/?utm_source=all&amp;utm_medium=Atom" />
+  <id>urn:http-prl-ccs-neu-edu:-blog-2017-03-24-what-even-is-compiler-correctness-cross-post-https-williamjbowman-com-blog-2017-03-24-what-even-is-compiler-correctness</id>
+  <published>2017-03-24T23:11:17Z</published>
+  <updated>2017-03-24T23:11:17Z</updated>
+  <author>
+   <name>PRL</name></author>
+  <content type="html"></content></entry>
  <entry>
   <title type="text">Tracing JITs for Dynamic Languages</title>
   <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2017/03/15/tracing-jits-for-dynamic-languages/?utm_source=all&amp;utm_medium=Atom" />
