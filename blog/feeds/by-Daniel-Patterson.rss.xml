@@ -12,6 +12,7 @@
    <link>http://prl.ccs.neu.edu/blog/2017/02/28/linear-types-for-low-level-languages/?utm_source=by-Daniel-Patterson&amp;utm_medium=RSS</link>
    <guid isPermaLink="false">urn:http-prl-ccs-neu-edu:-blog-2017-02-28-linear-types-for-low-level-languages</guid>
    <pubDate>Tue, 28 Feb 2017 09:51:55 UT</pubDate>
+   <author>PRL</author>
    <description>&lt;!-- more--&gt;
 
 &lt;p&gt;In this talk, we covered early papers (primarily, by Girard, Lafont, and Abramsky) on linear logic and its reflections into computation. The goal was to understand why linearity is often turned to as a principled way to control resource usage, as shows up in a language like Rust. From the very beginning, researchers realized the implications for &amp;ldquo;low-level&amp;rdquo; languages - that linear resources would eliminate the need for garbage collection, allow in-place mutation, and enable safe parallel computation. However, pure implementations of linearity incur lots of copying, doing away with any efficiency gained, and we covered a survey of papers that attempted to reconcile this contradiction by weakening linearity in controlled ways.&lt;/p&gt;

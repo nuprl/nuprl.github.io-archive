@@ -12,6 +12,7 @@
    <link>http://prl.ccs.neu.edu/blog/2017/03/03/plt-redex-mf-apply/?utm_source=by-Ben-Greenman&amp;utm_medium=RSS</link>
    <guid isPermaLink="false">urn:http-prl-ccs-neu-edu:-blog-2017-03-03-plt-redex-mf-apply</guid>
    <pubDate>Fri, 03 Mar 2017 08:54:20 UT</pubDate>
+   <author>PRL</author>
    <description>
 &lt;p&gt;The &lt;code&gt;mf-apply&lt;/code&gt; keyword is for checked metafunction application in PLT Redex. In other words, &lt;code&gt;(mf-apply f x)&lt;/code&gt; is just like &lt;code&gt;(f x)&lt;/code&gt;, but errors if &lt;code&gt;f&lt;/code&gt; is  not a previously-defined metafunction.&lt;/p&gt;
 
@@ -203,6 +204,7 @@
    <link>http://prl.ccs.neu.edu/blog/2017/02/21/datalog-for-static-analysis/?utm_source=by-Ben-Greenman&amp;utm_medium=RSS</link>
    <guid isPermaLink="false">urn:http-prl-ccs-neu-edu:-blog-2017-02-21-datalog-for-static-analysis</guid>
    <pubDate>Tue, 21 Feb 2017 12:58:27 UT</pubDate>
+   <author>PRL</author>
    <description>&lt;!-- more--&gt;
 
 &lt;p&gt;Datalog is an old DSL that frequently appears in work on static analysis. This edition of &lt;a href="/blog/2017/02/15/introducing-hopl-2017/"&gt;HOPL 2017&lt;/a&gt; explores the origins of Datalog in general, its early use in program analysis, and why Datalog remains a useful tool.&lt;/p&gt;
@@ -243,6 +245,7 @@
    <link>http://prl.ccs.neu.edu/blog/2017/02/15/introducing-hopl-2017/?utm_source=by-Ben-Greenman&amp;utm_medium=RSS</link>
    <guid isPermaLink="false">urn:http-prl-ccs-neu-edu:-blog-2017-02-15-introducing-hopl-2017</guid>
    <pubDate>Wed, 15 Feb 2017 01:21:37 UT</pubDate>
+   <author>PRL</author>
    <description>
 &lt;p&gt;This semester at Northeastern, Matthias Felleisen is organizing the &lt;a href="http://www.ccs.neu.edu/home/matthias/7480-s17/index.html"&gt;History of Programming Languages&lt;/a&gt; seminar. Look for posts tagged &lt;code&gt;HOPL&lt;/code&gt; for updates from the lectures.&lt;/p&gt;
 &lt;!-- more--&gt;
@@ -294,6 +297,7 @@
    <link>http://prl.ccs.neu.edu/blog/2016/10/31/meaningful-distinctions/?utm_source=by-Ben-Greenman&amp;utm_medium=RSS</link>
    <guid isPermaLink="false">urn:http-prl-ccs-neu-edu:-blog-2016-10-31-meaningful-distinctions</guid>
    <pubDate>Mon, 31 Oct 2016 17:20:33 UT</pubDate>
+   <author>PRL</author>
    <description>
 &lt;blockquote&gt;
  &lt;p&gt;&amp;ldquo;Meaningful distinctions deserve to be maintained.&amp;rdquo; &amp;mdash; Errett A. Bishop&lt;/p&gt;&lt;/blockquote&gt;
@@ -357,6 +361,7 @@
    <link>http://prl.ccs.neu.edu/blog/2016/10/11/compcert-overview/?utm_source=by-Ben-Greenman&amp;utm_medium=RSS</link>
    <guid isPermaLink="false">urn:http-prl-ccs-neu-edu:-blog-2016-10-11-compcert-overview</guid>
    <pubDate>Tue, 11 Oct 2016 17:41:16 UT</pubDate>
+   <author>PRL</author>
    <description>
 &lt;p&gt;If you are interested in learning about the &lt;em&gt;internals&lt;/em&gt; of the CompCert C compiler but would rather not read its source code, this post is for you.&lt;/p&gt;
 &lt;!-- more--&gt;
@@ -392,6 +397,7 @@
    <link>http://prl.ccs.neu.edu/blog/2016/09/15/nepls-on-october-7th-at-northeastern-university/?utm_source=by-Ben-Greenman&amp;utm_medium=RSS</link>
    <guid isPermaLink="false">urn:http-prl-ccs-neu-edu:-blog-2016-09-15-nepls-on-october-7th-at-northeastern-university</guid>
    <pubDate>Thu, 15 Sep 2016 21:18:45 UT</pubDate>
+   <author>PRL</author>
    <description>
 &lt;p&gt;The next edition of the New England Programming Language Seminar (NEPLS) will be held on Friday, October 7th at Northeastern University. Organizers are Gabriel Scherer and Max New. See you there!&lt;/p&gt;
 &lt;!-- more--&gt;
@@ -428,6 +434,7 @@
    <link>http://prl.ccs.neu.edu/blog/2016/08/03/a-few-cores-too-many/?utm_source=by-Ben-Greenman&amp;utm_medium=RSS</link>
    <guid isPermaLink="false">urn:http-prl-ccs-neu-edu:-blog-2016-08-03-a-few-cores-too-many</guid>
    <pubDate>Wed, 03 Aug 2016 14:09:02 UT</pubDate>
+   <author>PRL</author>
    <description>
 &lt;p&gt;Performance matters for software systems, but performance is not always easy  to measure. At the PRL we recently had a scare with some unreliable measurements. Here is the story.&lt;/p&gt;
 &lt;!-- more--&gt;
@@ -480,6 +487,7 @@
    <link>http://prl.ccs.neu.edu/blog/2016/08/02/tutorial-zero-to-sixty-in-racket/?utm_source=by-Ben-Greenman&amp;utm_medium=RSS</link>
    <guid isPermaLink="false">urn:http-prl-ccs-neu-edu:-blog-2016-08-02-tutorial-zero-to-sixty-in-racket</guid>
    <pubDate>Tue, 02 Aug 2016 01:29:11 UT</pubDate>
+   <author>PRL</author>
    <description>
 &lt;p&gt;Racket is excellent for incrementally growing scripts into full-fledged programs.
 This post steps through the evolution of one small program and highlights the
@@ -1564,6 +1572,7 @@ Going forward we could add &lt;a href="http://docs.racket-lang.org/scribble/inde
    <link>http://prl.ccs.neu.edu/blog/2016/04/29/welcome-to-the-prl-blog/?utm_source=by-Ben-Greenman&amp;utm_medium=RSS</link>
    <guid isPermaLink="false">urn:http-prl-ccs-neu-edu:-blog-2016-04-29-welcome-to-the-prl-blog</guid>
    <pubDate>Fri, 29 Apr 2016 14:50:29 UT</pubDate>
+   <author>PRL</author>
    <description>
 &lt;p&gt;Greetings, ground rules, hopes, dreams, and notes for contributors. Welcome aboard.&lt;/p&gt;
 &lt;!-- more--&gt;

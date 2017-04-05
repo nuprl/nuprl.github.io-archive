@@ -12,6 +12,7 @@
    <link>http://prl.ccs.neu.edu/blog/2017/03/10/type-inference-in-stack-based-programming-languages/?utm_source=by-Rob-Kleffner&amp;utm_medium=RSS</link>
    <guid isPermaLink="false">urn:http-prl-ccs-neu-edu:-blog-2017-03-10-type-inference-in-stack-based-programming-languages</guid>
    <pubDate>Fri, 10 Mar 2017 16:23:30 UT</pubDate>
+   <author>PRL</author>
    <description>&lt;!-- more--&gt;
 
 &lt;p&gt;Stack-based languages occupy a niche in today&amp;rsquo;s programming language environment. The predominant stack-based language in use by programmers is Forth, and is found mostly on embedded devices. These languages also find use as compile targets for more popular languages: the CIL and JVM are both stack-based. Less popular but highly interesting languages to mention include &lt;a href="http://www.kevinalbrecht.com/code/joy-mirror/joy.html"&gt;Joy&lt;/a&gt; and &lt;a href="http://factorcode.org/"&gt;Factor&lt;/a&gt;, known for their emphasis on higher-order stack-based programming.&lt;/p&gt;

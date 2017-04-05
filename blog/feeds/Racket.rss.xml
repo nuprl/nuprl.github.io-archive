@@ -12,6 +12,7 @@
    <link>http://prl.ccs.neu.edu/blog/2016/08/02/tutorial-zero-to-sixty-in-racket/?utm_source=Racket&amp;utm_medium=RSS</link>
    <guid isPermaLink="false">urn:http-prl-ccs-neu-edu:-blog-2016-08-02-tutorial-zero-to-sixty-in-racket</guid>
    <pubDate>Tue, 02 Aug 2016 01:29:11 UT</pubDate>
+   <author>PRL</author>
    <description>
 &lt;p&gt;Racket is excellent for incrementally growing scripts into full-fledged programs.
 This post steps through the evolution of one small program and highlights the
@@ -1096,6 +1097,7 @@ Going forward we could add &lt;a href="http://docs.racket-lang.org/scribble/inde
    <link>http://prl.ccs.neu.edu/blog/2016/07/11/tutorial-racket-ffi-part-3/?utm_source=Racket&amp;utm_medium=RSS</link>
    <guid isPermaLink="false">urn:http-prl-ccs-neu-edu:-blog-2016-07-11-tutorial-racket-ffi-part-3</guid>
    <pubDate>Mon, 11 Jul 2016 17:33:40 UT</pubDate>
+   <author>PRL</author>
    <description>
 &lt;p&gt;This is part 3 of my tutorial for using the Racket FFI. You can find part 1
 &lt;a href="http://prl.ccs.neu.edu/blog/2016/06/27/tutorial-using-racket-s-ffi/"&gt;here&lt;/a&gt;
@@ -1138,6 +1140,121 @@ incantation in a command-line:&lt;/p&gt;
         &lt;td&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;
    &lt;tr&gt;
     &lt;td&gt;&lt;span class="stt"&gt;&amp;gt; &lt;/span&gt;&lt;span class="RktPn"&gt;(&lt;/span&gt;&lt;span class="RktSym"&gt;pkg-install-command&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktPn"&gt;#:skip-installed&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktVal"&gt;#t&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktVal"&gt;"ffi-definer-convention"&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
+   &lt;tr&gt;
+    &lt;td&gt;
+     &lt;table cellpadding="0" cellspacing="0"&gt;
+      &lt;tbody&gt;
+       &lt;tr&gt;
+        &lt;td&gt;
+         &lt;p&gt;&lt;span class="RktOut"&gt;Resolving "ffi-definer-convention" via https://download.racket-lang.org/releases/6.6/catalog/&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;
+       &lt;tr&gt;
+        &lt;td&gt;
+         &lt;p&gt;&lt;span class="RktOut"&gt;Resolving "ffi-definer-convention" via https://pkgs.racket-lang.org&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;
+       &lt;tr&gt;
+        &lt;td&gt;
+         &lt;p&gt;&lt;span class="RktOut"&gt;Downloading repository git://github.com/takikawa/racket-ffi-definer-convention&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;
+       &lt;tr&gt;
+        &lt;td&gt;
+         &lt;p&gt;&lt;span class="RktOut"&gt;raco setup: version: 6.6&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;
+       &lt;tr&gt;
+        &lt;td&gt;
+         &lt;p&gt;&lt;span class="RktOut"&gt;raco setup: platform: x86_64-linux [3m]&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;
+       &lt;tr&gt;
+        &lt;td&gt;
+         &lt;p&gt;&lt;span class="RktOut"&gt;raco setup: installation name: 6.6&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;
+       &lt;tr&gt;
+        &lt;td&gt;
+         &lt;p&gt;&lt;span class="RktOut"&gt;raco setup: variants: 3m&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;
+       &lt;tr&gt;
+        &lt;td&gt;
+         &lt;p&gt;&lt;span class="RktOut"&gt;raco setup: main collects: /home/travis/racket/collects&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;
+       &lt;tr&gt;
+        &lt;td&gt;
+         &lt;p&gt;&lt;span class="RktOut"&gt;raco setup: collects paths: &lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;
+       &lt;tr&gt;
+        &lt;td&gt;
+         &lt;p&gt;&lt;span class="RktOut"&gt;raco setup: &lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class="RktOut"&gt;/home/travis/racket/collects&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;
+       &lt;tr&gt;
+        &lt;td&gt;
+         &lt;p&gt;&lt;span class="RktOut"&gt;raco setup: main pkgs: /home/travis/racket/share/pkgs&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;
+       &lt;tr&gt;
+        &lt;td&gt;
+         &lt;p&gt;&lt;span class="RktOut"&gt;raco setup: pkgs paths: &lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;
+       &lt;tr&gt;
+        &lt;td&gt;
+         &lt;p&gt;&lt;span class="RktOut"&gt;raco setup: &lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class="RktOut"&gt;/home/travis/racket/share/pkgs&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;
+       &lt;tr&gt;
+        &lt;td&gt;
+         &lt;p&gt;&lt;span class="RktOut"&gt;raco setup: &lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class="RktOut"&gt;/home/travis/.racket/6.6/pkgs&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;
+       &lt;tr&gt;
+        &lt;td&gt;
+         &lt;p&gt;&lt;span class="RktOut"&gt;raco setup: links files: &lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;
+       &lt;tr&gt;
+        &lt;td&gt;
+         &lt;p&gt;&lt;span class="RktOut"&gt;raco setup: &lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class="RktOut"&gt;/home/travis/racket/share/links.rktd&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;
+       &lt;tr&gt;
+        &lt;td&gt;
+         &lt;p&gt;&lt;span class="RktOut"&gt;raco setup: &lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class="RktOut"&gt;/home/travis/.racket/6.6/links.rktd&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;
+       &lt;tr&gt;
+        &lt;td&gt;
+         &lt;p&gt;&lt;span class="RktOut"&gt;raco setup: main docs: /home/travis/racket/doc&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;
+       &lt;tr&gt;
+        &lt;td&gt;
+         &lt;p&gt;&lt;span class="RktOut"&gt;raco setup: --- updating info-domain tables ---&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;
+       &lt;tr&gt;
+        &lt;td&gt;
+         &lt;p&gt;&lt;span class="RktOut"&gt;raco setup: updating: /home/travis/.racket/6.6/share/info-cache.rktd&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;
+       &lt;tr&gt;
+        &lt;td&gt;
+         &lt;p&gt;&lt;span class="RktOut"&gt;raco setup: --- pre-installing collections ---&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;
+       &lt;tr&gt;
+        &lt;td&gt;
+         &lt;p&gt;&lt;span class="RktOut"&gt;raco setup: --- installing foreign libraries ---&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;
+       &lt;tr&gt;
+        &lt;td&gt;
+         &lt;p&gt;&lt;span class="RktOut"&gt;raco setup: --- installing shared files ---&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;
+       &lt;tr&gt;
+        &lt;td&gt;
+         &lt;p&gt;&lt;span class="RktOut"&gt;raco setup: --- compiling collections ---&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;
+       &lt;tr&gt;
+        &lt;td&gt;
+         &lt;p&gt;&lt;span class="RktOut"&gt;raco setup: --- parallel build using 8 jobs ---&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;
+       &lt;tr&gt;
+        &lt;td&gt;
+         &lt;p&gt;&lt;span class="RktOut"&gt;raco setup: 7 making: &amp;lt;pkgs&amp;gt;/ffi-definer-convention&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;
+       &lt;tr&gt;
+        &lt;td&gt;
+         &lt;p&gt;&lt;span class="RktOut"&gt;raco setup: --- creating launchers ---&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;
+       &lt;tr&gt;
+        &lt;td&gt;
+         &lt;p&gt;&lt;span class="RktOut"&gt;raco setup: --- installing man pages ---&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;
+       &lt;tr&gt;
+        &lt;td&gt;
+         &lt;p&gt;&lt;span class="RktOut"&gt;raco setup: --- building documentation ---&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;
+       &lt;tr&gt;
+        &lt;td&gt;
+         &lt;p&gt;&lt;span class="RktOut"&gt;raco setup: 4 running: &amp;lt;pkgs&amp;gt;/ffi-definer-convention/ffi-definer-convention.scrbl&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;
+       &lt;tr&gt;
+        &lt;td&gt;
+         &lt;p&gt;&lt;span class="RktOut"&gt;raco setup: 4 rendering: &amp;lt;pkgs&amp;gt;/ffi-definer-convention/ffi-definer-convention.scrbl&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;
+       &lt;tr&gt;
+        &lt;td&gt;
+         &lt;p&gt;&lt;span class="RktOut"&gt;raco setup: 3 rendering: &amp;lt;pkgs&amp;gt;/racket-index/scribblings/main/user/local-redirect.scrbl&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;
+       &lt;tr&gt;
+        &lt;td&gt;
+         &lt;p&gt;&lt;span class="RktOut"&gt;raco setup: 2 rendering: &amp;lt;pkgs&amp;gt;/racket-index/scribblings/main/user/release.scrbl&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;
+       &lt;tr&gt;
+        &lt;td&gt;
+         &lt;p&gt;&lt;span class="RktOut"&gt;raco setup: 1 rendering: &amp;lt;pkgs&amp;gt;/racket-index/scribblings/main/user/search.scrbl&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;
+       &lt;tr&gt;
+        &lt;td&gt;
+         &lt;p&gt;&lt;span class="RktOut"&gt;raco setup: 0 rendering: &amp;lt;pkgs&amp;gt;/racket-index/scribblings/main/user/start.scrbl&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;
+       &lt;tr&gt;
+        &lt;td&gt;
+         &lt;p&gt;&lt;span class="RktOut"&gt;raco setup: --- installing collections ---&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;
+       &lt;tr&gt;
+        &lt;td&gt;
+         &lt;p&gt;&lt;span class="RktOut"&gt;raco setup: --- post-installing collections ---&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;
    &lt;tr&gt;
     &lt;td&gt;
      &lt;table cellpadding="0" cellspacing="0"&gt;
@@ -1672,7 +1789,7 @@ array and reference the correct variant appropriately:&lt;/p&gt;
     &lt;td&gt;&lt;span class="stt"&gt;&amp;gt; &lt;/span&gt;&lt;span class="RktPn"&gt;(&lt;/span&gt;&lt;span class="RktSym"&gt;&lt;a class="RktValLink" data-pltdoc="x" href="http://docs.racket-lang.org/foreign/C_Union_Types.html#%28def._%28%28lib._ffi%2Funsafe..rkt%29._union-ref%29%29"&gt;union-ref&lt;/a&gt;&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktPn"&gt;(&lt;/span&gt;&lt;span class="RktSym"&gt;third&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;array&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktVal"&gt;1&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
    &lt;tr&gt;
     &lt;td&gt;
-     &lt;p&gt;&lt;span class="RktRes"&gt;'(4.2439915824246e-314 0.0)&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;
+     &lt;p&gt;&lt;span class="RktRes"&gt;'(4.2439915824246e-314 4.9406564584125e-324)&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;
 
 &lt;p&gt;One thing we could do is write a helper function that converts this array
 into a more useful format. It would look at each header, and then consume
@@ -2050,6 +2167,7 @@ Tobin-Hochstadt for suggesting to cover union types!&lt;/span&gt;&lt;/p&gt;</des
    <link>http://prl.ccs.neu.edu/blog/2016/06/29/tutorial-racket-ffi-part-2/?utm_source=Racket&amp;utm_medium=RSS</link>
    <guid isPermaLink="false">urn:http-prl-ccs-neu-edu:-blog-2016-06-29-tutorial-racket-ffi-part-2</guid>
    <pubDate>Wed, 29 Jun 2016 18:48:17 UT</pubDate>
+   <author>PRL</author>
    <description>
 &lt;p&gt;This is part 2 of my tutorial on using the Racket FFI. If you haven&amp;rsquo;t read
 part 1 yet, you can find it
@@ -2925,6 +3043,7 @@ of the new &lt;span class="RktWrap"&gt;&lt;span class="RktSym"&gt;fit-text&lt;/s
    <link>http://prl.ccs.neu.edu/blog/2016/06/27/tutorial-using-racket-s-ffi/?utm_source=Racket&amp;utm_medium=RSS</link>
    <guid isPermaLink="false">urn:http-prl-ccs-neu-edu:-blog-2016-06-27-tutorial-using-racket-s-ffi</guid>
    <pubDate>Mon, 27 Jun 2016 16:22:11 UT</pubDate>
+   <author>PRL</author>
    <description>
 &lt;p&gt;&lt;span style="font-weight: bold"&gt;Update:&lt;/span&gt; this post is now part of a series. Part 2 is
 &lt;a href="http://prl.ccs.neu.edu/blog/2016/06/29/tutorial-racket-ffi-part-2/"&gt;here&lt;/a&gt;

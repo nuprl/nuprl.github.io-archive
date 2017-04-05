@@ -15,6 +15,64 @@
    <name>PRL</name></author>
   <content type="html"></content></entry>
  <entry>
+  <title type="text">Top Five PL Results of the Past 50 Years</title>
+  <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2017/03/22/top-five-pl-results-of-the-past-50-years/?utm_source=all&amp;utm_medium=Atom" />
+  <id>urn:http-prl-ccs-neu-edu:-blog-2017-03-22-top-five-pl-results-of-the-past-50-years</id>
+  <published>2017-03-22T15:30:36Z</published>
+  <updated>2017-03-22T15:30:36Z</updated>
+  <author>
+   <name>PRL</name></author>
+  <content type="html">
+&lt;p&gt;Over the past 50 years, which result from programming languages research has had the greatest impact on working programmers?&lt;/p&gt;
+&lt;!-- more--&gt;
+
+&lt;p&gt;The center of the universe for a working programmer is the language (or languages) they use. Fundamental results in programming languages (PL) research can re-shape this universe.&lt;/p&gt;
+
+&lt;p&gt;In &lt;a href="http://www.ccs.neu.edu/home/matthias/7480-s17/index.html"&gt;HOPL&lt;/a&gt; two weeks ago, Matthias claimed that &lt;em&gt;type soundness&lt;/em&gt; is the most useful and influential result to flow from PL research to PL practice in the last 50 years.&lt;/p&gt;
+
+&lt;p&gt;But 50 years is a long time, and there are many serious contenders for the title of &lt;em&gt;greatest PL result&lt;/em&gt;. Here are my (alphabetized) picks for the top five:&lt;/p&gt;
+
+&lt;h3 id="abstraction"&gt;Abstraction&lt;/h3&gt;
+
+&lt;blockquote&gt;
+ &lt;p&gt;My goal in library design is this; I want to have a precise, elegant, re-usable abstraction &amp;mdash;Conal Eliott, &lt;a href="https://www.youtube.com/watch?v=zzCrZEil9iI"&gt;BayHac 2014 (00:01:55)&lt;/a&gt;&lt;/p&gt;&lt;/blockquote&gt;
+
+&lt;p&gt;By &lt;em&gt;abstraction&lt;/em&gt;, I mean anything whose interface is not just &amp;ldquo;read the implementation&amp;rdquo;. Could be a tuple, module, object, structure, semaphore, macro, etc. Even the memory hierarchy pyramid in your operating systems textbook is an abstraction. They are everywhere, and they are what separates computer science (it&amp;rsquo;s about &lt;em&gt;ideas&lt;/em&gt;) from electrical engineering (it&amp;rsquo;s about &lt;em&gt;transistors&lt;/em&gt;). Thank you &lt;a href="/img/l-plp-1965.pdf"&gt;Peter Landin&lt;/a&gt; and &lt;a href="/img/m-thesis-1969.pdf"&gt;J.H. Morris&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3 id="generational-garbage-collection"&gt;Generational Garbage Collection&lt;/h3&gt;
+
+&lt;p&gt;I don&amp;rsquo;t know much about garbage collection. I do know that I want it, and I&amp;rsquo;m pretty sure that I wouldn&amp;rsquo;t have it (outside of research languages) without generational garbage collection. Thank you &lt;a href="/img/u-sde-1984.pdf"&gt;David Ungar&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3 id="generic-programming"&gt;Generic Programming&lt;/h3&gt;
+
+&lt;p&gt;&lt;em&gt;a.k.a. the mainstream interpretations of parametric polymorphism&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;The thought of programming in Java 1.4 is terrifying. Thank you &lt;a href="/img/g-thesis-1972.pdf"&gt;Jean-Yves Girard&lt;/a&gt; and &lt;a href="/img/r-cp-1974.pdf"&gt;John C. Reynolds&lt;/a&gt; and &lt;a href="http://homepages.inf.ed.ac.uk/wadler/gj/"&gt;Gilad Bracha and Martin Odersky and David Stoutamire and Philip Wadler&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3 id="modularization"&gt;Modularization&lt;/h3&gt;
+
+&lt;p&gt;How can humans understand large software systems? By organizing the systems into smaller components (modules, objects) with well-defined interfaces. It&amp;rsquo;s hard to imagine, but once upon a time the question of &lt;em&gt;how&lt;/em&gt; to divide a system into modules was a new research problem. Thank you &lt;a href="/img/p-tr-1971.pdf"&gt;D.L. Parnas&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3 id="type-soundness"&gt;Type Soundness&lt;/h3&gt;
+
+&lt;p&gt;Let me make two modest claims:&lt;/p&gt;
+
+&lt;ul&gt;
+ &lt;li&gt;Soundness (with respect to a dynamic semantics) is a desirable property for a static type system.&lt;/li&gt;
+ &lt;li&gt;A large number (at least, thousands) of working programmers agree that programming in a language with a sound, static type system is &amp;ldquo;a good thing&amp;rdquo;.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;Neither of these claims were true 50 years ago. They are definitely true today. And the slogan &amp;ldquo;well typed programs do not go wrong (up to a well-defined set of runtime errors)&amp;rdquo; has become the catchphrase of PL research. Thank you &lt;a href="/img/m-jcss-1978.pdf"&gt;Robin Milner&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id="honorable-mentions"&gt;Honorable Mentions&lt;/h2&gt;
+
+&lt;ul&gt;
+ &lt;li&gt;&lt;a href="http://www.paulgraham.com/thist.html"&gt;lexical scope&lt;/a&gt;&lt;/li&gt;
+ &lt;li&gt;&lt;a href="/img/d-thesis-1984.pdf"&gt;type inference&lt;/a&gt;&lt;/li&gt;
+ &lt;li&gt;&lt;a href="https://www.quora.com/Why-does-Kent-Beck-refer-to-the-rediscovery-of-test-driven-development"&gt;test-driven development&lt;/a&gt;&lt;/li&gt;
+ &lt;li&gt;&lt;a href="https://en.wikipedia.org/wiki/Simula"&gt;object-oriented programming&lt;/a&gt;&lt;/li&gt;
+ &lt;li&gt;&lt;a href="/img/ss-tr-1975.pdf"&gt;continuation passing style&lt;/a&gt;&lt;/li&gt;
+ &lt;li&gt;&lt;a href="/img/kffd-tr-1986.pdf"&gt;hygienic macros&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;</content></entry>
+ <entry>
   <title type="text">Tracing JITs for Dynamic Languages</title>
   <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2017/03/15/tracing-jits-for-dynamic-languages/?utm_source=all&amp;utm_medium=Atom" />
   <id>urn:http-prl-ccs-neu-edu:-blog-2017-03-15-tracing-jits-for-dynamic-languages</id>
@@ -1172,43 +1230,4 @@ y[ x := e ] = y
   <content type="html">
 &lt;p&gt;Christos Dimoulas is currently teaching a &lt;a href="http://www.seas.harvard.edu/courses/cs252/2016fa/"&gt;&amp;ldquo;History of Programming Languages&amp;rdquo; class at Harvard&lt;/a&gt;. The class is, as Christos writes, &amp;ldquo;definitely not about &lt;a href="https://www.levenez.com/lang/lang_letter.pdf"&gt;this&lt;/a&gt;&amp;rdquo;; instead, each meeting is a deep examination of a single, mature research topic, in terms of three to five key papers from the literature.&lt;/p&gt;
 
-&lt;p&gt;On Monday, I presented &amp;ldquo;the History of Actors&amp;rdquo; for the class. I&amp;rsquo;ve made the written-out talk notes and an annotated bibliography available &lt;a href="https://eighty-twenty.org/2016/10/18/actors-hopl"&gt;here&lt;/a&gt;.&lt;/p&gt;</content></entry>
- <entry>
-  <title type="text">Emacs daemon for fast editor startup</title>
-  <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2016/10/17/emacs-daemon-for-fast-editor-startup/?utm_source=all&amp;utm_medium=Atom" />
-  <id>urn:http-prl-ccs-neu-edu:-blog-2016-10-17-emacs-daemon-for-fast-editor-startup</id>
-  <published>2016-10-17T21:48:25Z</published>
-  <updated>2016-10-17T21:48:25Z</updated>
-  <author>
-   <name>PRL</name></author>
-  <content type="html">
-&lt;p&gt;In the early days of the famous Emacs/Vim debates, Emacs was often ridiculed for its bulkiness (Eight Megabytes-of-RAM And Constantly Swapping, etc.). The computational power of our computer has grown much faster than Emacs&amp;rsquo; bloat: it takes exactly one second to load on my machine. However, our workflows have also changed, and my workflow implies frequently starting new text editors &amp;mdash; on each git commit for example, or when I use a &lt;a href="https://addons.mozilla.org/en-US/firefox/addon/its-all-text/"&gt;Firefox extension&lt;/a&gt; to edit a textarea content in a proper editor.&lt;/p&gt;
-
-&lt;p&gt;In this blog post, I describe how to use &lt;code&gt;emacsclient&lt;/code&gt; to reuse an existing Emacs process when creating a new editor window, which reduces editor startup times from 1s to 0.150s on my machine.&lt;/p&gt;
-&lt;!-- more--&gt;
-
-&lt;p&gt;Emacs has long supported a client/server mode: a daemon emacs instance is loaded in the background, and whenever you request a new emacs window you can creates a new frame (~ window) using the same instance. This means that the startup time is dramatically reduced after the daemon is launched, as for example the execution of your personal configuration code does not have to be repeated.&lt;/p&gt;
-
-&lt;p&gt;To use it, I have this code as &lt;code&gt;/usr/bin/editor&lt;/code&gt;:&lt;/p&gt;
-
-&lt;div class="brush: sh"&gt;
- &lt;pre&gt;&lt;code&gt;#!/bin/bash
-emacsclient -a "" -c "$@"&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;The empty &lt;code&gt;-a&lt;/code&gt; parameter means that if no daemon exists, it should start one in the background and retry. The &lt;code&gt;-c&lt;/code&gt; option means that a new frame (window) should be created instead of reusing an existing one. &lt;code&gt;"$@"&lt;/code&gt;means that when the script is invoked with a path as command-line parameter (&lt;code&gt;editor /tmp/foo.txt&lt;/code&gt;), the corresponding file will be opened.&lt;/p&gt;
-
-&lt;p&gt;Finally, my &lt;code&gt;.bash_profile&lt;/code&gt; sets the &lt;code&gt;EDITOR&lt;/code&gt; variable to &lt;code&gt;editor&lt;/code&gt; (&lt;code&gt;export EDITOR=/usr/bin/editor&lt;/code&gt;); this environment variable is what most tools (git included) will use to invoke a text editor.&lt;/p&gt;
-
-&lt;p&gt;On my machine, starting the daemon takes 1.4s. Creating a client windows takes around 0.150s.&lt;/p&gt;
-
-&lt;p&gt;If you want to control the environment in which the daemon process is started, you can launch it explicitly by running &lt;code&gt;emacs --daemon&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;Cool kids use &lt;a href="http://spacemacs.org/"&gt;Spacemacs&lt;/a&gt; these days, which comes with all sort of convenient settings built in, and I&amp;rsquo;m told that it does daemonization out of the box. I haven&amp;rsquo;t taken the time to give Spacemacs a try yet.&lt;/p&gt;
-
-&lt;p&gt;Finally, sometimes having all editor windows share the same process is not the right thing, because I do stuff which makes Emacs a bit unstable. (It&amp;rsquo;s not very good at asynchronous communication with the rest of the world, so for example accessing a file through SSH from Emacs can hang the process when network goes bad.). I&amp;rsquo;ve been bitten a few times by a crash of all editor windows at the same time, and since then, when I know I&amp;rsquo;m going to do &amp;ldquo;heavy stuff&amp;rdquo;, I launch a separate process for it (just &lt;code&gt;emacs&lt;/code&gt; instead of &lt;code&gt;editor&lt;/code&gt; or &lt;code&gt;emacsclient&lt;/code&gt;).&lt;/p&gt;
-
-&lt;p&gt;P.S.: To precisely measure the startup time, ask Emacs to evaluate a Lisp expression on startup, to kill it immediately.:&lt;/p&gt;
-
-&lt;div class="brush: sh"&gt;
- &lt;pre&gt;&lt;code&gt;$ time emacs --eval "(save-buffers-kill-terminal)"
-$ time emacsclient -a '' -c -e "(save-buffers-kill-terminal)"&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content></entry></feed>
+&lt;p&gt;On Monday, I presented &amp;ldquo;the History of Actors&amp;rdquo; for the class. I&amp;rsquo;ve made the written-out talk notes and an annotated bibliography available &lt;a href="https://eighty-twenty.org/2016/10/18/actors-hopl"&gt;here&lt;/a&gt;.&lt;/p&gt;</content></entry></feed>

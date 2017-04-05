@@ -4,14 +4,71 @@
   <title>PRL Blog: Posts tagged 'HOPL'</title>
   <description>PRL Blog: Posts tagged 'HOPL'</description>
   <link>http://prl.ccs.neu.edu/blog/tags/HOPL.html</link>
-  <lastBuildDate>Wed, 15 Mar 2017 10:54:39 UT</lastBuildDate>
-  <pubDate>Wed, 15 Mar 2017 10:54:39 UT</pubDate>
+  <lastBuildDate>Wed, 22 Mar 2017 15:30:36 UT</lastBuildDate>
+  <pubDate>Wed, 22 Mar 2017 15:30:36 UT</pubDate>
   <ttl>1800</ttl>
+  <item>
+   <title>Top Five PL Results of the Past 50 Years</title>
+   <link>http://prl.ccs.neu.edu/blog/2017/03/22/top-five-pl-results-of-the-past-50-years/?utm_source=HOPL&amp;utm_medium=RSS</link>
+   <guid isPermaLink="false">urn:http-prl-ccs-neu-edu:-blog-2017-03-22-top-five-pl-results-of-the-past-50-years</guid>
+   <pubDate>Wed, 22 Mar 2017 15:30:36 UT</pubDate>
+   <author>PRL</author>
+   <description>
+&lt;p&gt;Over the past 50 years, which result from programming languages research has had the greatest impact on working programmers?&lt;/p&gt;
+&lt;!-- more--&gt;
+
+&lt;p&gt;The center of the universe for a working programmer is the language (or languages) they use. Fundamental results in programming languages (PL) research can re-shape this universe.&lt;/p&gt;
+
+&lt;p&gt;In &lt;a href="http://www.ccs.neu.edu/home/matthias/7480-s17/index.html"&gt;HOPL&lt;/a&gt; two weeks ago, Matthias claimed that &lt;em&gt;type soundness&lt;/em&gt; is the most useful and influential result to flow from PL research to PL practice in the last 50 years.&lt;/p&gt;
+
+&lt;p&gt;But 50 years is a long time, and there are many serious contenders for the title of &lt;em&gt;greatest PL result&lt;/em&gt;. Here are my (alphabetized) picks for the top five:&lt;/p&gt;
+
+&lt;h3 id="abstraction"&gt;Abstraction&lt;/h3&gt;
+
+&lt;blockquote&gt;
+ &lt;p&gt;My goal in library design is this; I want to have a precise, elegant, re-usable abstraction &amp;mdash;Conal Eliott, &lt;a href="https://www.youtube.com/watch?v=zzCrZEil9iI"&gt;BayHac 2014 (00:01:55)&lt;/a&gt;&lt;/p&gt;&lt;/blockquote&gt;
+
+&lt;p&gt;By &lt;em&gt;abstraction&lt;/em&gt;, I mean anything whose interface is not just &amp;ldquo;read the implementation&amp;rdquo;. Could be a tuple, module, object, structure, semaphore, macro, etc. Even the memory hierarchy pyramid in your operating systems textbook is an abstraction. They are everywhere, and they are what separates computer science (it&amp;rsquo;s about &lt;em&gt;ideas&lt;/em&gt;) from electrical engineering (it&amp;rsquo;s about &lt;em&gt;transistors&lt;/em&gt;). Thank you &lt;a href="/img/l-plp-1965.pdf"&gt;Peter Landin&lt;/a&gt; and &lt;a href="/img/m-thesis-1969.pdf"&gt;J.H. Morris&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3 id="generational-garbage-collection"&gt;Generational Garbage Collection&lt;/h3&gt;
+
+&lt;p&gt;I don&amp;rsquo;t know much about garbage collection. I do know that I want it, and I&amp;rsquo;m pretty sure that I wouldn&amp;rsquo;t have it (outside of research languages) without generational garbage collection. Thank you &lt;a href="/img/u-sde-1984.pdf"&gt;David Ungar&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3 id="generic-programming"&gt;Generic Programming&lt;/h3&gt;
+
+&lt;p&gt;&lt;em&gt;a.k.a. the mainstream interpretations of parametric polymorphism&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;The thought of programming in Java 1.4 is terrifying. Thank you &lt;a href="/img/g-thesis-1972.pdf"&gt;Jean-Yves Girard&lt;/a&gt; and &lt;a href="/img/r-cp-1974.pdf"&gt;John C. Reynolds&lt;/a&gt; and &lt;a href="http://homepages.inf.ed.ac.uk/wadler/gj/"&gt;Gilad Bracha and Martin Odersky and David Stoutamire and Philip Wadler&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3 id="modularization"&gt;Modularization&lt;/h3&gt;
+
+&lt;p&gt;How can humans understand large software systems? By organizing the systems into smaller components (modules, objects) with well-defined interfaces. It&amp;rsquo;s hard to imagine, but once upon a time the question of &lt;em&gt;how&lt;/em&gt; to divide a system into modules was a new research problem. Thank you &lt;a href="/img/p-tr-1971.pdf"&gt;D.L. Parnas&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3 id="type-soundness"&gt;Type Soundness&lt;/h3&gt;
+
+&lt;p&gt;Let me make two modest claims:&lt;/p&gt;
+
+&lt;ul&gt;
+ &lt;li&gt;Soundness (with respect to a dynamic semantics) is a desirable property for a static type system.&lt;/li&gt;
+ &lt;li&gt;A large number (at least, thousands) of working programmers agree that programming in a language with a sound, static type system is &amp;ldquo;a good thing&amp;rdquo;.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;Neither of these claims were true 50 years ago. They are definitely true today. And the slogan &amp;ldquo;well typed programs do not go wrong (up to a well-defined set of runtime errors)&amp;rdquo; has become the catchphrase of PL research. Thank you &lt;a href="/img/m-jcss-1978.pdf"&gt;Robin Milner&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id="honorable-mentions"&gt;Honorable Mentions&lt;/h2&gt;
+
+&lt;ul&gt;
+ &lt;li&gt;&lt;a href="http://www.paulgraham.com/thist.html"&gt;lexical scope&lt;/a&gt;&lt;/li&gt;
+ &lt;li&gt;&lt;a href="/img/d-thesis-1984.pdf"&gt;type inference&lt;/a&gt;&lt;/li&gt;
+ &lt;li&gt;&lt;a href="https://www.quora.com/Why-does-Kent-Beck-refer-to-the-rediscovery-of-test-driven-development"&gt;test-driven development&lt;/a&gt;&lt;/li&gt;
+ &lt;li&gt;&lt;a href="https://en.wikipedia.org/wiki/Simula"&gt;object-oriented programming&lt;/a&gt;&lt;/li&gt;
+ &lt;li&gt;&lt;a href="/img/ss-tr-1975.pdf"&gt;continuation passing style&lt;/a&gt;&lt;/li&gt;
+ &lt;li&gt;&lt;a href="/img/kffd-tr-1986.pdf"&gt;hygienic macros&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;</description></item>
   <item>
    <title>Tracing JITs for Dynamic Languages</title>
    <link>http://prl.ccs.neu.edu/blog/2017/03/15/tracing-jits-for-dynamic-languages/?utm_source=HOPL&amp;utm_medium=RSS</link>
    <guid isPermaLink="false">urn:http-prl-ccs-neu-edu:-blog-2017-03-15-tracing-jits-for-dynamic-languages</guid>
    <pubDate>Wed, 15 Mar 2017 10:54:39 UT</pubDate>
+   <author>PRL</author>
    <description>&lt;!-- more--&gt;
 
 &lt;p&gt;Traditional JIT (just-in-time) compilers are method-based: they compile &amp;ldquo;hot&amp;rdquo; (i.e. frequently executed) methods to native code. An alternative is trace-based or tracing JITs, where the compilation unit is a (hot) sequence of instructions. Typically, such sequences of instructions correspond to loops, where programs spend most of their execution time.&lt;/p&gt;
@@ -32,6 +89,7 @@
    <link>http://prl.ccs.neu.edu/blog/2017/03/10/type-inference-in-stack-based-programming-languages/?utm_source=HOPL&amp;utm_medium=RSS</link>
    <guid isPermaLink="false">urn:http-prl-ccs-neu-edu:-blog-2017-03-10-type-inference-in-stack-based-programming-languages</guid>
    <pubDate>Fri, 10 Mar 2017 16:23:30 UT</pubDate>
+   <author>PRL</author>
    <description>&lt;!-- more--&gt;
 
 &lt;p&gt;Stack-based languages occupy a niche in today&amp;rsquo;s programming language environment. The predominant stack-based language in use by programmers is Forth, and is found mostly on embedded devices. These languages also find use as compile targets for more popular languages: the CIL and JVM are both stack-based. Less popular but highly interesting languages to mention include &lt;a href="http://www.kevinalbrecht.com/code/joy-mirror/joy.html"&gt;Joy&lt;/a&gt; and &lt;a href="http://factorcode.org/"&gt;Factor&lt;/a&gt;, known for their emphasis on higher-order stack-based programming.&lt;/p&gt;
@@ -56,6 +114,7 @@
    <link>http://prl.ccs.neu.edu/blog/2017/02/28/linear-types-for-low-level-languages/?utm_source=HOPL&amp;utm_medium=RSS</link>
    <guid isPermaLink="false">urn:http-prl-ccs-neu-edu:-blog-2017-02-28-linear-types-for-low-level-languages</guid>
    <pubDate>Tue, 28 Feb 2017 09:51:55 UT</pubDate>
+   <author>PRL</author>
    <description>&lt;!-- more--&gt;
 
 &lt;p&gt;In this talk, we covered early papers (primarily, by Girard, Lafont, and Abramsky) on linear logic and its reflections into computation. The goal was to understand why linearity is often turned to as a principled way to control resource usage, as shows up in a language like Rust. From the very beginning, researchers realized the implications for &amp;ldquo;low-level&amp;rdquo; languages - that linear resources would eliminate the need for garbage collection, allow in-place mutation, and enable safe parallel computation. However, pure implementations of linearity incur lots of copying, doing away with any efficiency gained, and we covered a survey of papers that attempted to reconcile this contradiction by weakening linearity in controlled ways.&lt;/p&gt;
@@ -86,6 +145,7 @@
    <link>http://prl.ccs.neu.edu/blog/2017/02/21/datalog-for-static-analysis/?utm_source=HOPL&amp;utm_medium=RSS</link>
    <guid isPermaLink="false">urn:http-prl-ccs-neu-edu:-blog-2017-02-21-datalog-for-static-analysis</guid>
    <pubDate>Tue, 21 Feb 2017 12:58:27 UT</pubDate>
+   <author>PRL</author>
    <description>&lt;!-- more--&gt;
 
 &lt;p&gt;Datalog is an old DSL that frequently appears in work on static analysis. This edition of &lt;a href="/blog/2017/02/15/introducing-hopl-2017/"&gt;HOPL 2017&lt;/a&gt; explores the origins of Datalog in general, its early use in program analysis, and why Datalog remains a useful tool.&lt;/p&gt;
@@ -126,6 +186,7 @@
    <link>http://prl.ccs.neu.edu/blog/2017/02/15/conversational-context-and-concurrency/?utm_source=HOPL&amp;utm_medium=RSS</link>
    <guid isPermaLink="false">urn:http-prl-ccs-neu-edu:-blog-2017-02-15-conversational-context-and-concurrency</guid>
    <pubDate>Wed, 15 Feb 2017 01:21:55 UT</pubDate>
+   <author>PRL</author>
    <description>&lt;!-- more--&gt;
 
 &lt;p&gt;When programs are written with concurrency in mind, the programmer reasons about the interactions between concurrent components or agents in the program. This includes exchange of information, as well as management of resources, handling of partial failure, collective decision-making and so on.&lt;/p&gt;
@@ -160,6 +221,7 @@
    <link>http://prl.ccs.neu.edu/blog/2017/02/15/introducing-hopl-2017/?utm_source=HOPL&amp;utm_medium=RSS</link>
    <guid isPermaLink="false">urn:http-prl-ccs-neu-edu:-blog-2017-02-15-introducing-hopl-2017</guid>
    <pubDate>Wed, 15 Feb 2017 01:21:37 UT</pubDate>
+   <author>PRL</author>
    <description>
 &lt;p&gt;This semester at Northeastern, Matthias Felleisen is organizing the &lt;a href="http://www.ccs.neu.edu/home/matthias/7480-s17/index.html"&gt;History of Programming Languages&lt;/a&gt; seminar. Look for posts tagged &lt;code&gt;HOPL&lt;/code&gt; for updates from the lectures.&lt;/p&gt;
 &lt;!-- more--&gt;
