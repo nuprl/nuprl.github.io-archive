@@ -62,7 +62,16 @@
  &lt;li&gt;&lt;a href="https://www.quora.com/Why-does-Kent-Beck-refer-to-the-rediscovery-of-test-driven-development"&gt;test-driven development&lt;/a&gt;&lt;/li&gt;
  &lt;li&gt;&lt;a href="https://en.wikipedia.org/wiki/Simula"&gt;object-oriented programming&lt;/a&gt;&lt;/li&gt;
  &lt;li&gt;&lt;a href="/img/ss-tr-1975.pdf"&gt;continuation passing style&lt;/a&gt;&lt;/li&gt;
- &lt;li&gt;&lt;a href="/img/kffd-tr-1986.pdf"&gt;hygienic macros&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;</content></entry>
+ &lt;li&gt;&lt;a href="/img/kffd-tr-1986.pdf"&gt;hygienic macros&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;em&gt;If you liked this post, you may also be interested in:&lt;/em&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+ &lt;li&gt;&lt;a href="http://prl.ccs.neu.edu/blog/2016/05/18/gradual-typing-across-the-spectrum/"&gt;Gradual Typing Across the Spectrum&lt;/a&gt;&lt;/li&gt;
+ &lt;li&gt;&lt;a href="http://jschuster.org/blog/2016/11/29/getting-started-in-programming-languages/"&gt;Getting Started in Programming Languages&lt;/a&gt;&lt;/li&gt;
+ &lt;li&gt;&lt;a href="https://williamjbowman.com/blog/2017/03/24/what-even-is-compiler-correctness/"&gt;What even is compiler correctness?&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;</content></entry>
  <entry>
   <title type="text">Tracing JITs for Dynamic Languages</title>
   <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2017/03/15/tracing-jits-for-dynamic-languages/?utm_source=HOPL&amp;utm_medium=Atom" />
