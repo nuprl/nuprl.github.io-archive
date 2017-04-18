@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?> 
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
- <title type="text">PRL Blog: Posts tagged 'by William J. Bowman'</title>
- <link rel="self" href="http://prl.ccs.neu.edu/blog/feeds/by-William-J-Bowman.atom.xml" />
- <link href="http://prl.ccs.neu.edu/blog/tags/by-William-J-Bowman.html" />
- <id>urn:http-prl-ccs-neu-edu:-blog-tags-by-William-J-Bowman-html</id>
+ <title type="text">PRL Blog: Posts tagged 'by Leif Andersen'</title>
+ <link rel="self" href="http://prl.ccs.neu.edu/blog/feeds/by-Leif-Andersen.atom.xml" />
+ <link href="http://prl.ccs.neu.edu/blog/tags/by-Leif-Andersen.html" />
+ <id>urn:http-prl-ccs-neu-edu:-blog-tags-by-Leif-Andersen-html</id>
  <updated>2017-04-17T12:00:17Z</updated>
  <entry>
   <title type="text">Type-Directed Compilation, Parts I and II</title>
-  <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2017/04/17/type-directed-compilation-parts-i-and-ii/?utm_source=by-William-J-Bowman&amp;utm_medium=Atom" />
+  <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2017/04/17/type-directed-compilation-parts-i-and-ii/?utm_source=by-Leif-Andersen&amp;utm_medium=Atom" />
   <id>urn:http-prl-ccs-neu-edu:-blog-2017-04-17-type-directed-compilation-parts-i-and-ii</id>
   <published>2017-04-17T12:00:17Z</published>
   <updated>2017-04-17T12:00:17Z</updated>
@@ -36,22 +36,4 @@
 &lt;p&gt;Notes (to appear here, eventually):&lt;/p&gt;
 
 &lt;ul&gt;
- &lt;li&gt;&lt;a href="https://github.com/nuprl/hopl-s2017/blob/master/dependent-type-preserving-compilation"&gt;https://github.com/nuprl/hopl-s2017/blob/master/dependent-type-preserving-compilation&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;</content></entry>
- <entry>
-  <title type="text">[What even is compiler correctness? (cross-post)](https://williamjbowman.com/blog/2017/03/24/what-even-is-compiler-correctness/)</title>
-  <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2017/03/24/-what-even-is-compiler-correctness-cross-post-https-williamjbowman-com-blog-2017-03-24-what-even-is-compiler-correctness/?utm_source=by-William-J-Bowman&amp;utm_medium=Atom" />
-  <id>urn:http-prl-ccs-neu-edu:-blog-2017-03-24-what-even-is-compiler-correctness-cross-post-https-williamjbowman-com-blog-2017-03-24-what-even-is-compiler-correctness</id>
-  <published>2017-03-24T23:11:17Z</published>
-  <updated>2017-03-24T23:11:17Z</updated>
-  <author>
-   <name>PRL</name></author>
-  <content type="html"></content></entry>
- <entry>
-  <title type="text">[Toward Type-Preserving Compilation of Coq, at POPL17 SRC (cross-post)](https://williamjbowman.com/blog/2017/01/03/toward-type-preserving-compilation-of-coq-at-popl17-src/)</title>
-  <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2017/01/03/-toward-type-preserving-compilation-of-coq-at-popl17-src-cross-post-https-williamjbowman-com-blog-2017-01-03-toward-type-preserving-compilation-of-coq-at-popl17-src/?utm_source=by-William-J-Bowman&amp;utm_medium=Atom" />
-  <id>urn:http-prl-ccs-neu-edu:-blog-2017-01-03-toward-type-preserving-compilation-of-coq-at-popl17-src-cross-post-https-williamjbowman-com-blog-2017-01-03-toward-type-preserving-compilation-of-coq-at-popl17-src</id>
-  <published>2017-01-03T15:15:57Z</published>
-  <updated>2017-01-03T15:15:57Z</updated>
-  <author>
-   <name>PRL</name></author>
-  <content type="html"></content></entry></feed>
+ &lt;li&gt;&lt;a href="https://github.com/nuprl/hopl-s2017/blob/master/dependent-type-preserving-compilation"&gt;https://github.com/nuprl/hopl-s2017/blob/master/dependent-type-preserving-compilation&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;</content></entry></feed>
