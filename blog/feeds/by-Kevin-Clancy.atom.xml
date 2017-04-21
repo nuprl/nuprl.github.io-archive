@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?> 
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+ <title type="text">PRL Blog: Posts tagged 'by Kevin Clancy'</title>
+ <link rel="self" href="http://prl.ccs.neu.edu/blog/feeds/by-Kevin-Clancy.atom.xml" />
+ <link href="http://prl.ccs.neu.edu/blog/tags/by-Kevin-Clancy.html" />
+ <id>urn:http-prl-ccs-neu-edu:-blog-tags-by-Kevin-Clancy-html</id>
+ <updated>2017-04-20T23:38:23Z</updated>
+ <entry>
+  <title type="text">Refinement Types</title>
+  <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2017/04/20/refinement-types/?utm_source=by-Kevin-Clancy&amp;utm_medium=Atom" />
+  <id>urn:http-prl-ccs-neu-edu:-blog-2017-04-20-refinement-types</id>
+  <published>2017-04-20T23:38:23Z</published>
+  <updated>2017-04-20T23:38:23Z</updated>
+  <author>
+   <name>PRL</name></author>
+  <content type="html">&lt;!-- more--&gt;
+
+&lt;p&gt;Roughly, a refinement type system is an extra layer of precision, enforced through subtyping, added onto an existing type system. A base type is decomposed into a set of &lt;em&gt;base refinements&lt;/em&gt;, each of which denotes a subset of the values belonging to the base type. A subtyping relation respecting set inclusion can then be defined among the refinements of the base type. These subtyping relations can be lifted onto a subtyping relation for compound types using a standard arrow subtyping rule.&lt;/p&gt;
+
+&lt;p&gt;Extra type-checking precision sounds great, but what in practical terms does this precision look like? Freeman and Pfenning&amp;rsquo;s &amp;rsquo;92 paper &lt;em&gt;Refinement Types for ML&lt;/em&gt; proposes extending ML&amp;rsquo;s type definition language with constructs for decomposing a discriminated union type into a lattice of subtypes. For example, it allows the decomposition of a list type into a lattice including base refinements for empty lists, non-empty lists, and singletons. Those with experience in functional programming will realize this alleviates the dreaded and inescapable “non-exhaustive pattern match” warning, which tends to crop up in situations where the programmer understands that an exhaustive pattern match is not necessary.&lt;/p&gt;
+
+&lt;p&gt;In the late 90&amp;rsquo;s Xi and Pfenning advanced the state of refinement types by introducing a dependent refinement type system, implemented as a tool called Dependent ML. Their approach identifies a base refinement using a tuple of terms drawn from some computationally tractable constraint language called an &lt;em&gt;index language&lt;/em&gt;. A list datatype can then be refined with a term of the &lt;em&gt;linear integer arithmetic&lt;/em&gt; index language, denoting the subset of all lists having a specific length. One list refinement is then considered a subtype of another when a constraint solver can prove their index terms equal. Vazou et. al.&amp;rsquo;s recent project Liquid Haskell is another dependent refinement type system which decides subtyping among base types by invoking an SMT solver under a context-dependent set of constraints. It differs significantly from Dependent ML in that it refines base types with certain well-behaved program terms rather than indices.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;Resources:&lt;/p&gt;
+
+&lt;ul&gt;
+ &lt;li&gt;&lt;a href="/blog/static/refinement_types_lecture.pdf"&gt;Full Notes&lt;/a&gt;&lt;/li&gt;
+ &lt;li&gt;&lt;a href="/blog/static/refinement_types_bib.pdf"&gt;Annotated Bibliography&lt;/a&gt;&lt;/li&gt;
+ &lt;li&gt;&lt;a href="https://github.com/nuprl/hopl-s2017/tree/master/refinement-types"&gt;GitHub&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;</content></entry></feed>
