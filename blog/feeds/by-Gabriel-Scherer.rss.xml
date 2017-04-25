@@ -4,9 +4,53 @@
   <title>PRL Blog: Posts tagged 'by Gabriel Scherer'</title>
   <description>PRL Blog: Posts tagged 'by Gabriel Scherer'</description>
   <link>http://prl.ccs.neu.edu/blog/tags/by-Gabriel-Scherer.html</link>
-  <lastBuildDate>Tue, 21 Feb 2017 19:04:28 UT</lastBuildDate>
-  <pubDate>Tue, 21 Feb 2017 19:04:28 UT</pubDate>
+  <lastBuildDate>Tue, 25 Apr 2017 16:46:54 UT</lastBuildDate>
+  <pubDate>Tue, 25 Apr 2017 16:46:54 UT</pubDate>
   <ttl>1800</ttl>
+  <item>
+   <title>PRL at SNAPL'17</title>
+   <link>http://prl.ccs.neu.edu/blog/2017/04/25/prl-at-snapl-17/?utm_source=by-Gabriel-Scherer&amp;utm_medium=RSS</link>
+   <guid isPermaLink="false">urn:http-prl-ccs-neu-edu:-blog-2017-04-25-prl-at-snapl-17</guid>
+   <pubDate>Tue, 25 Apr 2017 16:46:54 UT</pubDate>
+   <author>PRL</author>
+   <description>
+&lt;p&gt;PRL recently produced three papers for the &lt;a href="http://snapl.org/2017/index.html"&gt;SNAPL&lt;/a&gt; conference.&lt;/p&gt;
+
+&lt;ul&gt;
+ &lt;li&gt;&lt;a href="https://dbp.io/pubs/2017/linking-types-snapl.pdf"&gt;Linking Types for Multi-Language Software: Have Your Cake and Eat  It Too&lt;/a&gt;, by Daniel  Patterson and Amal Ahmed.&lt;/li&gt;
+ &lt;li&gt;&lt;a href="http://www.ccs.neu.edu/home/gasche/research/canonical-forms/snapl.pdf"&gt;Search for Program Structure&lt;/a&gt;,  by Gabriel Scherer&lt;/li&gt;
+ &lt;li&gt;&lt;a href="http://www.ccs.neu.edu/racket/pubs/typed-racket.pdf"&gt;Migratory Typing: Ten Years  Later&lt;/a&gt;, by Sam  Tobin-Hochstadt, Matthias Felleisen, Robert Bruce Findler, Matthew  Flatt, Ben Greenman, Andrew M. Kent, Vincent St-Amour, T. Stephen  Strickland and Asumu Takikawa&lt;/li&gt;&lt;/ul&gt;
+&lt;!-- more--&gt;
+
+&lt;h3 id="httpsdbpiopubs2017linking-types-snaplpdflinking-types-for-multi-language-software-have-your-cake-and-eat--it-too"&gt;&lt;a href="https://dbp.io/pubs/2017/linking-types-snapl.pdf"&gt;Linking Types for Multi-Language Software: Have Your Cake and Eat  It Too&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;Daniel Patterson and Amal Ahmed, 2017&lt;/p&gt;
+
+&lt;blockquote&gt;
+ &lt;p&gt;Software developers compose systems from components written in many different languages. A business-logic component may be written in Java or OCaml, a resource-intensive component in C or Rust, and a high-assurance component in Coq. In this multi-language world, program execution sends values from one linguistic context to another. This boundary-crossing exposes values to contexts with unforeseen behavior—that is, behavior that could not arise in the source language of the value. For example, a Rust function may end up being applied in an ML context that violates the memory usage policy enforced by Rust’s type system. This leads to the question of how developers ought to reason about code in such a multi-language world where behavior inexpressible in one language is easily realized in another.&lt;/p&gt;
+ &lt;p&gt;This paper proposes the novel idea of linking types to address the problem of reasoning about single-language components in a multi-lingual setting. Specifically, linking types allow programmers to annotate where in a program they can link with components inexpressible in their unadulterated language. This enables developers to reason about (behavioral) equality using only their own language and the annotations, even though their code may be linked with code written in a language with more expressive power.&lt;/p&gt;&lt;/blockquote&gt;
+
+&lt;h3 id="httpwwwccsneueduhomegascheresearchcanonical-formssnaplpdfsearch-for-program-structure"&gt;&lt;a href="http://www.ccs.neu.edu/home/gasche/research/canonical-forms/snapl.pdf"&gt;Search for Program Structure&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;Gabriel Scherer, 2017.&lt;/p&gt;
+
+&lt;blockquote&gt;
+ &lt;p&gt;The community of programming language research loves the Curry-Howard correspondence between proofs and programs. Cut-elimination as computation, theorems for free, &amp;lsquo;call/cc&amp;rsquo; as excluded middle, dependently typed languages as proof assistants, etc.&lt;/p&gt;
+ &lt;p&gt;Yet we have, for all these years, missed an obvious observation: &amp;ldquo;the structure of &lt;em&gt;programs&lt;/em&gt; corresponds to the structure of proof &lt;em&gt;search&lt;/em&gt;&amp;rdquo;. For pure programs and intuitionistic logic, more is known about the latter than the former. We think we know what programs are, but logicians know better!&lt;/p&gt;
+ &lt;p&gt;To motivate the study of proof search for program structure, we retrace recent research on applying the logical technique of focusing to study the canonical structure of simply-typed λ-terms. We then motivate the open problem of extending canonical forms to support richer type systems, such as polymorphism, by discussing a few enticing applications of more canonical program representations.&lt;/p&gt;&lt;/blockquote&gt;
+
+&lt;h3 id="httpwwwccsneueduracketpubstyped-racketpdfmigratory-typing-ten-years-later"&gt;&lt;a href="http://www.ccs.neu.edu/racket/pubs/typed-racket.pdf"&gt;Migratory Typing: Ten Years Later&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;Sam Tobin-Hochstadt, Matthias Felleisen, Robert Bruce Findler, Matthew Flatt, Ben Greenman, Andrew M. Kent, Vincent St-Amour, T. Stephen Strickland and Asumu Takikawa, 2017.&lt;/p&gt;
+
+&lt;blockquote&gt;
+ &lt;p&gt;In this day and age, many developers work on large, untyped code repositories. Even if they are the creators of the code, they notice that they have to figure out the equivalent of method signatures every time they work on old code. This step is time consuming and error prone.&lt;/p&gt;
+ &lt;p&gt;Ten years ago, the two lead authors outlined a linguistic solution to this problem. Specifically they proposed the creation of typed twins for untyped programming languages so that developers could migrate scripts from the untyped world to a typed one in an incremental manner. Their programmatic paper also spelled out three guiding design principles concerning the acceptance of grown idioms, the soundness of mixed-typed programs, and the units of migration.&lt;/p&gt;
+ &lt;p&gt;This paper revisits this idea of a migratory type system as implemented for Racket. It explains how the design principles have been used to produce the Typed Racket twin and presents an assessment of the project’s status, highlighting successes and failures.&lt;/p&gt;&lt;/blockquote&gt;
+
+&lt;p&gt;.&lt;/p&gt;
+
+&lt;p&gt;SNAPL is not dissimilar to the (french-speaking) &lt;a href="http://jfla.inria.fr/"&gt;JFLA&lt;/a&gt; that I am more familiar with &amp;mdash; with an added irritating call for paper and unreasonable registration price. It has an interesting diversity of topics of presentation: see also the complete &lt;a href="http://snapl.org/2017/papers.html"&gt;list of accepted papers&lt;/a&gt; this year, and the &lt;a href="http://snapl.org/2015/papers.html"&gt;list of the previous edition&lt;/a&gt;.&lt;/p&gt;</description></item>
   <item>
    <title>Bullets are good for your Coq proofs</title>
    <link>http://prl.ccs.neu.edu/blog/2017/02/21/bullets-are-good-for-your-coq-proofs/?utm_source=by-Gabriel-Scherer&amp;utm_medium=RSS</link>

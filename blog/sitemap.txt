@@ -7,6 +7,7 @@ http://prl.ccs.neu.edu/blog/2016/06/29/tutorial-racket-ffi-part-2/
 http://prl.ccs.neu.edu/blog/2017/03/15/tracing-jits-for-dynamic-languages/
 http://prl.ccs.neu.edu/blog/2016/12/17/measuring-the-submission-review-balance/
 http://prl.ccs.neu.edu/blog/2016/05/24/measuring-gc-latencies-in-haskell-ocaml-racket/
+http://prl.ccs.neu.edu/blog/2017/04/25/prl-at-snapl-17/
 http://prl.ccs.neu.edu/blog/2016/11/30/-getting-started-in-programming-languages-cross-post-http-jschuster-org-blog-2016-11-29-getting-started-in-programming-languages/
 http://prl.ccs.neu.edu/blog/2016/06/27/tutorial-using-racket-s-ffi/
 http://prl.ccs.neu.edu/blog/2017/01/03/-toward-type-preserving-compilation-of-coq-at-popl17-src-cross-post-https-williamjbowman-com-blog-2017-01-03-toward-type-preserving-compilation-of-coq-at-popl17-src/
