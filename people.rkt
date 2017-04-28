@@ -375,7 +375,7 @@
                   #:e-mail "goel.av@husky.neu.edu"
                   #:history @list["Joined 2017"]
                   #:img "aviral-goel.jpeg"]{
-            Currently, I am working on static program analysis. I am interested in all aspects of programming languages @|mdash| syntax, semantics, type-systems and compilers.
+            Currently, I am working on static program analysis. I am interested in all aspects of programming languages @|mdash| syntax, semantics, type-systems, and compilers.
           }
         }
 
@@ -543,8 +543,7 @@
               @alumnus-list[
                 @(alumnus "Kenichi Asai" #:year 2004
                           #:personal-site "http://www.is.ocha.ac.jp/~asai/"
-                          #:extra "(Ochanomizu University)"
-                          #:dissertation "http://www.is.ocha.ac.jp/~asai/papers/thesis.ps.gz")
+                          #:extra "(Ochanomizu University)")
                 @(alumnus "Eli Barzilay" #:year 2005
                           #:personal-site "http://www.barzilay.org/")
                 @(alumnus "Kathi Fisler" #:year 1996
