@@ -4,7 +4,115 @@
  <link rel="self" href="http://prl.ccs.neu.edu/blog/feeds/by-Ben-Greenman.atom.xml" />
  <link href="http://prl.ccs.neu.edu/blog/tags/by-Ben-Greenman.html" />
  <id>urn:http-prl-ccs-neu-edu:-blog-tags-by-Ben-Greenman-html</id>
- <updated>2017-04-04T10:21:36Z</updated>
+ <updated>2017-04-28T12:25:17Z</updated>
+ <entry>
+  <title type="text">What is Soft Typing?</title>
+  <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2017/04/28/what-is-soft-typing/?utm_source=by-Ben-Greenman&amp;utm_medium=Atom" />
+  <id>urn:http-prl-ccs-neu-edu:-blog-2017-04-28-what-is-soft-typing</id>
+  <published>2017-04-28T12:25:17Z</published>
+  <updated>2017-04-28T12:25:17Z</updated>
+  <author>
+   <name>PRL</name></author>
+  <content type="html">&lt;!-- more--&gt;
+
+&lt;p&gt;A soft type system rewrites programs and meets a few &lt;em&gt;design criteria&lt;/em&gt;.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id="what-are-the-design-criteria"&gt;What are the Design Criteria?&lt;/h2&gt;
+
+&lt;p&gt;According to Mike Fagan&amp;rsquo;s 1991 &lt;a href="https://github.com/nuprl/hopl-s2017/tree/master/soft-typing/papers"&gt;dissertation&lt;/a&gt;,  a soft type system must:&lt;/p&gt;
+
+&lt;ul&gt;
+ &lt;li&gt;accept all &lt;em&gt;syntactically correct&lt;/em&gt; programs as input;&lt;/li&gt;
+ &lt;li&gt;produce equivalent, &lt;em&gt;memory-safe&lt;/em&gt; programs as output; and&lt;/li&gt;
+ &lt;li&gt;be &lt;em&gt;unobtrusive&lt;/em&gt;&lt;/li&gt;&lt;/ul&gt;
+
+&lt;h3 id="important-details"&gt;Important details:&lt;/h3&gt;
+
+&lt;ul&gt;
+ &lt;li&gt;In this context, &lt;em&gt;memory safe&lt;/em&gt; basically means &amp;ldquo;no segfaults&amp;rdquo;.  Programs output by a soft type system should be as safe as statically-typed  Java programs or dynamically-typed Python programs.&lt;/li&gt;
+ &lt;li&gt;Fagan characterizes &lt;em&gt;unobtrusive&lt;/em&gt; with two general principles:&lt;/li&gt;
+ &lt;li&gt;&lt;em&gt;minimal text principle&lt;/em&gt; : the type checker should work without any programmer-supplied annotations&lt;/li&gt;
+ &lt;li&gt;&lt;em&gt;minimal failure principle&lt;/em&gt; : the type checker should assign &lt;em&gt;useful&lt;/em&gt; types to &lt;em&gt;idiomatic&lt;/em&gt; programs  (basically, don&amp;rsquo;t just say that every expression has &amp;ldquo;unknown&amp;rdquo; or &amp;ldquo;top&amp;rdquo; type)&lt;/li&gt;&lt;/ul&gt;
+
+&lt;h2 id="why-would-i-want-to-use-a-soft-type-system"&gt;Why would I want to use a soft type system?&lt;/h2&gt;
+
+&lt;p&gt;If you:&lt;/p&gt;
+
+&lt;ul&gt;
+ &lt;li&gt;like dynamic typing&lt;/li&gt;
+ &lt;li&gt;want some &lt;em&gt;benefits&lt;/em&gt; of static typing&lt;/li&gt;
+ &lt;li&gt;refuse to (or &lt;em&gt;cannot&lt;/em&gt;!) change your code to satisfy a type checker&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;then Soft Typing is a perfect fit. You just need to find/build a soft type checker.&lt;/p&gt;
+
+&lt;h3 id="clarification"&gt;Clarification&lt;/h3&gt;
+
+&lt;p&gt;The &lt;em&gt;benefits&lt;/em&gt; of static typing that a soft type system can give are:&lt;/p&gt;
+
+&lt;ul&gt;
+ &lt;li&gt;early detection of typos and simple logical errors&lt;/li&gt;
+ &lt;li&gt;documentation, through (inferred) type signatures&lt;/li&gt;
+ &lt;li&gt;speed, when the types can justify removing a runtime safety check&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;See Andrew Wright&amp;rsquo;s 1994 &lt;a href="https://github.com/nuprl/hopl-s2017/tree/master/soft-typing/papers"&gt;dissertation&lt;/a&gt; for proof.&lt;/p&gt;
+
+&lt;h2 id="can-i-use-andrew-wrights-soft-type-system"&gt;Can I use Andrew Wright&amp;rsquo;s soft type system?&lt;/h2&gt;
+
+&lt;p&gt;Not sure, but you may download the code for it:&lt;/p&gt;
+
+&lt;ul&gt;
+ &lt;li&gt;&lt;a href="https://github.com/nuprl/softscheme"&gt;https://github.com/nuprl/softscheme&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;
+
+&lt;h2 id="please-explain-fagans--wrights-soft-types"&gt;Please explain Fagan&amp;rsquo;s / Wright&amp;rsquo;s soft types&lt;/h2&gt;
+
+&lt;p&gt;Types &lt;code&gt;t&lt;/code&gt; are made of constructors &lt;code&gt;k&lt;/code&gt;, flags &lt;code&gt;f&lt;/code&gt;, and type variables &lt;code&gt;a&lt;/code&gt;. The grammar for types is basically:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;  t ::= a | (k f t ...) U t
+  k ::= Int | Pair | -&amp;gt;
+  f ::= ++ | -- | b
+  a ::= a0 | a1 | a2 | a3 | ....
+  b ::= b0 | b1 | b2 | b3 | ....&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;where:&lt;/p&gt;
+
+&lt;ul&gt;
+ &lt;li&gt;&lt;code&gt;U&lt;/code&gt; is just a symbol, represents &amp;ldquo;union&amp;rdquo;&lt;/li&gt;
+ &lt;li&gt;&lt;code&gt;a&lt;/code&gt; is a type variable; there are infinitely many type variables&lt;/li&gt;
+ &lt;li&gt;&lt;code&gt;b&lt;/code&gt; is a flag variable; the set of flag variables is also infinte&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;There are also some rules for types to be well-formed.&lt;/p&gt;
+
+&lt;p&gt;Here are two well-formed types:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;(Int ++) U a0
+
+(-&amp;gt; ++ ((Int b0) U a1)
+       ((Int ++) U a2)) U a3&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Here are two types that match the grammar, but are &lt;strong&gt;NOT&lt;/strong&gt; well-formed:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;(Int ++ a0) U a1
+
+(-&amp;gt; --) U a2&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Finally, some intuition:&lt;/p&gt;
+
+&lt;ul&gt;
+ &lt;li&gt;A constructor &lt;code&gt;k&lt;/code&gt; is like a behavior,&lt;/li&gt;
+ &lt;li&gt;a type &lt;em&gt;describes&lt;/em&gt; the behaviors a value can have.&lt;/li&gt;
+ &lt;li&gt;The description is like a bitvector of &amp;ldquo;yes&amp;rdquo;, &amp;ldquo;no&amp;rdquo;, or &amp;ldquo;maybe&amp;rdquo; for each possible behavior.&lt;/li&gt;
+ &lt;li&gt;A flag variable is the way to say &amp;ldquo;maybe&amp;rdquo;.&lt;/li&gt;
+ &lt;li&gt;Every type ends with a type variable because every typed expression might  flow to a context that expects a more general type.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;The type and flag variables let Fagan and Wright encode subtyping using  polymorphism. It&amp;rsquo;s a very cool idea, introduced in Didier Remy&amp;rsquo;s  &lt;a href="https://github.com/nuprl/hopl-s2017/tree/master/soft-typing/papers"&gt;POPL 1989 paper&lt;/a&gt;. But it adds a learning curve, and has some drawbacks for type inference.&lt;/p&gt;
+
+&lt;h2 id="stream-of-consciousness-notes-from-the-hopl-lecture"&gt;Stream-of-consciousness notes from the HOPL lecture&lt;/h2&gt;
+
+&lt;ul&gt;
+ &lt;li&gt;&lt;a href="/blog/static/soft-typing.pdf"&gt;Local copy&lt;/a&gt;&lt;/li&gt;
+ &lt;li&gt;&lt;a href="https://github.com/nuprl/hopl-s2017/tree/master/soft-typing"&gt;Source of Truth&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;</content></entry>
  <entry>
   <title type="text">Top Five Results of the Past 50 Years of Programming Languages Research</title>
   <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2017/04/04/top-five-results-of-the-past-50-years-of-programming-languages-research/?utm_source=by-Ben-Greenman&amp;utm_medium=Atom" />
@@ -281,7 +389,8 @@
 &lt;p&gt;Full notes:&lt;/p&gt;
 
 &lt;ul&gt;
- &lt;li&gt;&lt;a href="https://github.com/nuprl/hopl-s2017/blob/master/datalog-for-static-analysis/datalog-for-static-analysis.pdf"&gt;https://github.com/nuprl/hopl-s2017/blob/master/datalog-for-static-analysis/datalog-for-static-analysis.pdf&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;
+ &lt;li&gt;&lt;a href="/blog/static/datalog-for-static-analysis.pdf"&gt;Local Copy&lt;/a&gt;&lt;/li&gt;
+ &lt;li&gt;&lt;a href="https://github.com/nuprl/hopl-s2017/tree/master/datalog-for-static-analysis"&gt;Source of Truth&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;
 
 &lt;hr /&gt;
 

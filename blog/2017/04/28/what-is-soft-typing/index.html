@@ -3,15 +3,15 @@
   <head>
 
     <meta charset="utf-8">
-    <title>Datalog for Static Analysis</title>
+    <title>What is Soft Typing?</title>
     <meta name="description" content="...">
     <meta name="author"      content="PRL">
     <meta name="keywords"    content="HOPL, by Ben Greenman">
     <meta name="viewport"    content="width=device-width, initial-scale=1.0">
     <link rel="icon"      href="/img/favicon.ico">
-    <link rel="canonical" href="http://prl.ccs.neu.edu/blog/2017/02/21/datalog-for-static-analysis/">
-    <link rel="next" href="/blog/2017/02/15/conversational-context-and-concurrency/">
-    <link rel="prev" href="/blog/2017/02/21/bullets-are-good-for-your-coq-proofs/">
+    <link rel="canonical" href="http://prl.ccs.neu.edu/blog/2017/04/28/what-is-soft-typing/">
+    <link rel="next" href="/blog/2017/04/25/prl-at-snapl-17/">
+
     <script type="text/javascript"
             src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
     </script>
@@ -79,46 +79,110 @@
 
               <article>
   <header>
-    <h1>Datalog for Static Analysis</h1>
+    <h1>What is Soft Typing?</h1>
     <p class='date-and-tags'>
-<time datetime="2017-02-21" pubdate="true">2017-02-21</time> :: <span class="tags"><a href="/blog/tags/HOPL.html">HOPL</a>, <a href="/blog/tags/by-Ben-Greenman.html">by Ben Greenman</a></span></p>
+<time datetime="2017-04-28" pubdate="true">2017-04-28</time> :: <span class="tags"><a href="/blog/tags/HOPL.html">HOPL</a>, <a href="/blog/tags/by-Ben-Greenman.html">by Ben Greenman</a></span></p>
   </header>
   <!-- more-->
 
-<p>Datalog is an old DSL that frequently appears in work on static analysis. This edition of <a href="/blog/2017/02/15/introducing-hopl-2017/">HOPL 2017</a> explores the origins of Datalog in general, its early use in program analysis, and why Datalog remains a useful tool.</p>
-
-<p>Full notes:</p>
-
-<ul>
- <li><a href="/blog/static/datalog-for-static-analysis.pdf">Local Copy</a></li>
- <li><a href="https://github.com/nuprl/hopl-s2017/tree/master/datalog-for-static-analysis">Source of Truth</a></li></ul>
+<p>A soft type system rewrites programs and meets a few <em>design criteria</em>.</p>
 
 <hr />
 
-<p>Datalog as a language was introduced by 1978 (its semantic foundations date back to 1976). It is <em>predicate logic</em> as a database query language. The traditional view of a Datalog program is a <em>time invariant</em> transformation over the <em>time varying</em> data stored in an external database.</p>
+<h2 id="what-are-the-design-criteria">What are the Design Criteria?</h2>
 
-<p>In the early 1990&rsquo;s, Uwe Aβmann designed a graph rewriting systems (EARS) that could:</p>
-
-<ol>
- <li>Uniformly express various problems in static analysis</li>
- <li>Systematically derive efficient solutions to such problems.</li></ol>
-
-<p>(Prior work had derived the same solutions with ad-hoc methods.) Aβmann&rsquo;s system is equivalent to Datalog.</p>
-
-<p>In 1993, Reps used the 
- <tt>CORAL</tt> deductive database (an implementation of Datalog) to derive an on-demand (read: lazy) implementation of program slicing from a <em>specification</em> of the slicing problem.</p>
-
-<p>Both Aβmann&rsquo;s and Reps work appeared in 1994. This was the first time Datalog had been used to implement a static analysis.</p>
-
-<p>Researchers continue to use Datalog because:</p>
+<p>According to Mike Fagan&rsquo;s 1991 <a href="https://github.com/nuprl/hopl-s2017/tree/master/soft-typing/papers">dissertation</a>,  a soft type system must:</p>
 
 <ul>
- <li>predicate logic (specifically: Horn clauses without function symbols or negation)  is useful for expressing recursive relations &hellip; and static analyses are all about recursive relations</li>
- <li>the language separates <em>specifications</em> from their <em>implementation</em></li>
- <li>there are many techniques for efficiently serving a Datalog query</li>
- <li>these techniques have been implemented in <a href="https://developer.logicblox.com/wp-content/uploads/2016/01/logicblox-sigmod15.pdf">at least one</a>  commercial Datalog engine</li></ul>
+ <li>accept all <em>syntactically correct</em> programs as input;</li>
+ <li>produce equivalent, <em>memory-safe</em> programs as output; and</li>
+ <li>be <em>unobtrusive</em></li></ul>
 
-<p>For an excellent description of how Datalog can benefit static analysis, see the introduction to <a href="http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.648.1834&amp;rep=rep1&amp;type=pdf">Rep&rsquo;s paper</a>.</p>
+<h3 id="important-details">Important details:</h3>
+
+<ul>
+ <li>In this context, <em>memory safe</em> basically means &ldquo;no segfaults&rdquo;.  Programs output by a soft type system should be as safe as statically-typed  Java programs or dynamically-typed Python programs.</li>
+ <li>Fagan characterizes <em>unobtrusive</em> with two general principles:</li>
+ <li><em>minimal text principle</em> : the type checker should work without any programmer-supplied annotations</li>
+ <li><em>minimal failure principle</em> : the type checker should assign <em>useful</em> types to <em>idiomatic</em> programs  (basically, don&rsquo;t just say that every expression has &ldquo;unknown&rdquo; or &ldquo;top&rdquo; type)</li></ul>
+
+<h2 id="why-would-i-want-to-use-a-soft-type-system">Why would I want to use a soft type system?</h2>
+
+<p>If you:</p>
+
+<ul>
+ <li>like dynamic typing</li>
+ <li>want some <em>benefits</em> of static typing</li>
+ <li>refuse to (or <em>cannot</em>!) change your code to satisfy a type checker</li></ul>
+
+<p>then Soft Typing is a perfect fit. You just need to find/build a soft type checker.</p>
+
+<h3 id="clarification">Clarification</h3>
+
+<p>The <em>benefits</em> of static typing that a soft type system can give are:</p>
+
+<ul>
+ <li>early detection of typos and simple logical errors</li>
+ <li>documentation, through (inferred) type signatures</li>
+ <li>speed, when the types can justify removing a runtime safety check</li></ul>
+
+<p>See Andrew Wright&rsquo;s 1994 <a href="https://github.com/nuprl/hopl-s2017/tree/master/soft-typing/papers">dissertation</a> for proof.</p>
+
+<h2 id="can-i-use-andrew-wrights-soft-type-system">Can I use Andrew Wright&rsquo;s soft type system?</h2>
+
+<p>Not sure, but you may download the code for it:</p>
+
+<ul>
+ <li><a href="https://github.com/nuprl/softscheme">https://github.com/nuprl/softscheme</a></li></ul>
+
+<h2 id="please-explain-fagans--wrights-soft-types">Please explain Fagan&rsquo;s / Wright&rsquo;s soft types</h2>
+
+<p>Types <code>t</code> are made of constructors <code>k</code>, flags <code>f</code>, and type variables <code>a</code>. The grammar for types is basically:</p>
+
+<pre><code>  t ::= a | (k f t ...) U t
+  k ::= Int | Pair | -&gt;
+  f ::= ++ | -- | b
+  a ::= a0 | a1 | a2 | a3 | ....
+  b ::= b0 | b1 | b2 | b3 | ....</code></pre>
+
+<p>where:</p>
+
+<ul>
+ <li><code>U</code> is just a symbol, represents &ldquo;union&rdquo;</li>
+ <li><code>a</code> is a type variable; there are infinitely many type variables</li>
+ <li><code>b</code> is a flag variable; the set of flag variables is also infinte</li></ul>
+
+<p>There are also some rules for types to be well-formed.</p>
+
+<p>Here are two well-formed types:</p>
+
+<pre><code>(Int ++) U a0
+
+(-&gt; ++ ((Int b0) U a1)
+       ((Int ++) U a2)) U a3</code></pre>
+
+<p>Here are two types that match the grammar, but are <strong>NOT</strong> well-formed:</p>
+
+<pre><code>(Int ++ a0) U a1
+
+(-&gt; --) U a2</code></pre>
+
+<p>Finally, some intuition:</p>
+
+<ul>
+ <li>A constructor <code>k</code> is like a behavior,</li>
+ <li>a type <em>describes</em> the behaviors a value can have.</li>
+ <li>The description is like a bitvector of &ldquo;yes&rdquo;, &ldquo;no&rdquo;, or &ldquo;maybe&rdquo; for each possible behavior.</li>
+ <li>A flag variable is the way to say &ldquo;maybe&rdquo;.</li>
+ <li>Every type ends with a type variable because every typed expression might  flow to a context that expects a more general type.</li></ul>
+
+<p>The type and flag variables let Fagan and Wright encode subtyping using  polymorphism. It&rsquo;s a very cool idea, introduced in Didier Remy&rsquo;s  <a href="https://github.com/nuprl/hopl-s2017/tree/master/soft-typing/papers">POPL 1989 paper</a>. But it adds a learning curve, and has some drawbacks for type inference.</p>
+
+<h2 id="stream-of-consciousness-notes-from-the-hopl-lecture">Stream-of-consciousness notes from the HOPL lecture</h2>
+
+<ul>
+ <li><a href="/blog/static/soft-typing.pdf">Local copy</a></li>
+ <li><a href="https://github.com/nuprl/hopl-s2017/tree/master/soft-typing">Source of Truth</a></li></ul>
   <br/><br/>
   <footer>
     <script type="text/javascript">
@@ -134,17 +198,15 @@
     </script>
     <a href="https://twitter.com/share"
        class="twitter-share-button"
-       data-url="http://prl.ccs.neu.edu/blog/2017/02/21/datalog-for-static-analysis/"
+       data-url="http://prl.ccs.neu.edu/blog/2017/04/28/what-is-soft-typing/"
        data-dnt="true">
       "Tweet"</a>
     <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
-    <g:plusone size="medium" href="http://prl.ccs.neu.edu/blog/2017/02/21/datalog-for-static-analysis/"></g:plusone>
+    <g:plusone size="medium" href="http://prl.ccs.neu.edu/blog/2017/04/28/what-is-soft-typing/"></g:plusone>
     <ul class="pager">
-    <li class="previous">
-      <a href="/blog/2017/02/21/bullets-are-good-for-your-coq-proofs/">&larr; <em>Bullets are good for your Coq proofs</em></a>
-    </li>
+
     <li class="next">
-      <a href="/blog/2017/02/15/conversational-context-and-concurrency/"><em>Conversational Context and Concurrency</em> &rarr;</a>
+      <a href="/blog/2017/04/25/prl-at-snapl-17/"><em>PRL at SNAPL&rsquo;17</em> &rarr;</a>
     </li>
     </ul>
   </footer>
