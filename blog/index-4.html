@@ -6,7 +6,7 @@
     <title>PRL Blog (page 4)</title>
     <meta name="description" content="PRL Blog (page 4)">
     <meta name="author"      content="PRL">
-    <meta name="keywords"    content="instrumentation, HOPL, garbage collection, compiler correctness, tutorial, lang-extension, PL Junior, ocaml, icfp, by Asumu Takikawa, package, dawn of the digital era, gradual typing, PLT Redex, haskell, by Milo Davis, coq, about, language implementation, history, semantics, by Kevin Clancy, math, category theory, adjunction, lost time, event, by Max New, Emacs, reduction, by Gabriel Scherer, by Jan Vitek, by Jonathan Schuster, latency, by Rob Kleffner, by Ben Greenman, FFI, by Ben Chung, calculus, galois connection, racket, PI meeting, by William J. Bowman, System Administration, NEPLS, beta, lectures, performance, ghc, proceedings, all, ICFP, by Ming-Ho Yee, conference, by Tony Garnock-Jones, by Leif Andersen, books, 1st blog post, Racket, constructions, benchmarking, lambda, by Sam Caldwell, by Daniel Patterson">
+    <meta name="keywords"    content="instrumentation, HOPL, dynamic typing, compiler correctness, tutorial, lang-extension, PL Junior, ocaml, icfp, by Asumu Takikawa, package, dawn of the digital era, garbage collection, gradual typing, PLT Redex, haskell, by Milo Davis, coq, about, language implementation, history, semantics, by Kevin Clancy, math, category theory, adjunction, lost time, event, by Max New, Emacs, reduction, by Gabriel Scherer, by Jan Vitek, by Jonathan Schuster, latency, by Rob Kleffner, by Ben Greenman, FFI, by Ben Chung, calculus, galois connection, racket, PI meeting, by William J. Bowman, System Administration, NEPLS, beta, lectures, performance, ghc, proceedings, all, ICFP, by Ming-Ho Yee, conference, by Tony Garnock-Jones, by Leif Andersen, books, 1st blog post, Racket, constructions, benchmarking, lambda, by Sam Caldwell, by Daniel Patterson">
     <meta name="viewport"    content="width=device-width, initial-scale=1.0">
     <link rel="icon"      href="/img/favicon.ico">
     <link rel="canonical" href="http://prl.ccs.neu.edu/blog/index-4.html">
@@ -78,6 +78,26 @@
 
 
               <article>
+  <header>
+    <h2><a href='/blog/2016/07/11/tutorial-racket-ffi-part-3/'>Tutorial: Racket FFI, part 3</a></h2>
+    <p class='date-and-tags'>
+<time datetime="2016-07-11" pubdate="true">2016-07-11</time> :: <span class="tags"><a href="/blog/tags/Racket.html">Racket</a>, <a href="/blog/tags/FFI.html">FFI</a>, <a href="/blog/tags/tutorial.html">tutorial</a>, <a href="/blog/tags/by-Asumu-Takikawa.html">by Asumu Takikawa</a></span></p>
+  </header>
+
+<p>This is part 3 of my tutorial for using the Racket FFI. You can find part 1
+<a href="http://prl.ccs.neu.edu/blog/2016/06/27/tutorial-using-racket-s-ffi/">here</a>
+and part 2
+<a href="http://prl.ccs.neu.edu/blog/2016/06/29/tutorial-racket-ffi-part-2/">here</a>.</p>
+
+<p>In this post, we will experiment with some low-level operations with pointers,
+union types, and custom C types. The main takeaway will be the custom C types,
+which let you define abstractions that hide the details of the C representation
+when manipulating data in Racket.</p>
+  <footer>
+    <a href='/blog/2016/07/11/tutorial-racket-ffi-part-3/'>&hellip; more &hellip;</a>
+  </footer>
+</article>
+<article>
   <header>
     <h2><a href='/blog/2016/06/29/tutorial-racket-ffi-part-2/'>Tutorial: Racket FFI, Part 2</a></h2>
     <p class='date-and-tags'>
