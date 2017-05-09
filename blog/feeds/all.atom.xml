@@ -4,7 +4,32 @@
  <link rel="self" href="http://prl.ccs.neu.edu/blog/feeds/all.atom.xml" />
  <link href="http://prl.ccs.neu.edu/blog/index.html" />
  <id>urn:http-prl-ccs-neu-edu:-blog-index-html</id>
- <updated>2017-05-04T18:26:48Z</updated>
+ <updated>2017-05-09T14:04:31Z</updated>
+ <entry>
+  <title type="text">No Good Answers, Gradually Typed Object-Oriented Languages</title>
+  <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2017/05/09/no-good-answers-gradually-typed-object-oriented-languages/?utm_source=all&amp;utm_medium=Atom" />
+  <id>urn:http-prl-ccs-neu-edu:-blog-2017-05-09-no-good-answers-gradually-typed-object-oriented-languages</id>
+  <published>2017-05-09T14:04:31Z</published>
+  <updated>2017-05-09T14:04:31Z</updated>
+  <author>
+   <name>PRL</name></author>
+  <content type="html">&lt;!-- more--&gt;
+
+&lt;p&gt;Untyped code remains a real problem in practice, as a result of reduced performance and hindered readability. One approach to solve this problem is gradual typing.&lt;/p&gt;
+
+&lt;p&gt;Gradual typing puts the onus on the developer to add type annotations, statically checks whatever type annotations have been written, and dynamically ensures that untyped code does not violate those annotations. A number of approaches have been put forward to try to achieve these objectives while retaining efficiency, semantic meaning, and the ability to actually type untyped code.&lt;/p&gt;
+
+&lt;p&gt;I discussed three systems, all of which achieve the objective of typing untyped code in different ways, and all of which have different tradeoffs.&lt;/p&gt;
+
+&lt;p&gt;Unofficial Notes:&lt;/p&gt;
+
+&lt;ul&gt;
+ &lt;li&gt;&lt;a href="https://github.com/nuprl/hopl-s2017/blob/master/lecture_notes/2017-04-18.md"&gt;https://github.com/nuprl/hopl-s2017/blob/master/lecture_notes/2017-04-18.md&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;Code Examples:&lt;/p&gt;
+
+&lt;ul&gt;
+ &lt;li&gt;&lt;a href="https://github.com/BenChung/GradualComparison/tree/master/examples/HOPL"&gt;https://github.com/BenChung/GradualComparison/tree/master/examples/HOPL&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;</content></entry>
  <entry>
   <title type="text">Rank Polymorphism</title>
   <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2017/05/04/rank-polymorphism/?utm_source=all&amp;utm_medium=Atom" />
@@ -981,77 +1006,4 @@ rest of the proof using H:foo.&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;If we continue learning more about dependent types it would be by: 1) Doing more reading, such as the &lt;a href="https://www.cis.upenn.edu/~bcpierce/attapl/"&gt;ATTAPL&lt;/a&gt; chapter or the programming in Martin-Löf’s type theory material. 2) Actually trying to implement some of the things we’ve learned this semester 3) Playing around with more of the various dependent type systems and theorem provers out there&lt;/p&gt;
 
-&lt;p&gt;For future pl junior cohorts or anyone else in learning about dependent types: Pi-for-all is useful material, but could be condensed into two weeks (for example, by watching the lectures at 1.5x speed) instead of four. Don’t worry about Type-in-Type. The Epigram material is OK but you might be better served looking at ATTAPL first. At some point, you will have to read the dense papers, but pi-for-all is a good introduction.&lt;/p&gt;</content></entry>
- <entry>
-  <title type="text">Measuring the submission/review balance</title>
-  <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2016/12/17/measuring-the-submission-review-balance/?utm_source=all&amp;utm_medium=Atom" />
-  <id>urn:http-prl-ccs-neu-edu:-blog-2016-12-17-measuring-the-submission-review-balance</id>
-  <published>2016-12-17T16:33:10Z</published>
-  <updated>2016-12-17T16:33:10Z</updated>
-  <author>
-   <name>PRL</name></author>
-  <content type="html">
-&lt;p&gt;How do researchers know whether they are doing &amp;ldquo;enough&amp;rdquo; or &amp;ldquo;too many&amp;rdquo; reviews? A measurable goal is to be review-neutral: to have demanded, through our submissions, as many reviews as we have produced as reviewers.&lt;/p&gt;
-&lt;!-- more--&gt;
-
-&lt;h3 id="reviewing-is-good"&gt;Reviewing is good&lt;/h3&gt;
-
-&lt;p&gt;I like to review academic papers. It is a very rewarding activity in many different ways. One gets to serve the academic community, helping it function smoothly. One gets a chance at acquiring a much better understanding of someone else&amp;rsquo;s work than idle paper-skimming allows. One gets to send feedback to our colleagues and help them improve their work and its presentation &amp;mdash; it is also an essential way in which we can participate to the formation of student researchers all over the world. Finally, doing reviews helped me develop the skill the judge someone else&amp;rsquo;s work and of forcing oneself to come up with a decisive opinion &amp;mdash; it is surprisingly difficult and only comes with training.&lt;/p&gt;
-
-&lt;p&gt;Doing reviews is also fairly time-consuming. I noticed that the time I spend on each review is generally stable (excursions into previous or related work excluded): around one day and a half for conference reviews, and at least twice more for journal reviews &amp;mdash; I&amp;rsquo;m sure other people have wildly different figures, but I would expect it to be a noticeable time commitment in any case. (Workshop reviews are much easier, at least for the formats I have seen of 2-page extended abstracts, I&amp;rsquo;d say one hour per review.)&lt;/p&gt;
-
-&lt;h3 id="how-many-reviews"&gt;How many reviews?&lt;/h3&gt;
-
-&lt;p&gt;Because it is so time-consuming, deciding whether to say &amp;ldquo;yes&amp;rdquo; or &amp;ldquo;no&amp;rdquo; to invitations to review a new paper is not easy: in general I want to say &amp;ldquo;yes&amp;rdquo; (unless I can tell that I will not enjoy reading the paper at all), but it is not reasonable to say &amp;ldquo;yes&amp;rdquo; all the time, because I also need to spend time on other things. When should I say &amp;ldquo;no&amp;rdquo; because I have done &amp;ldquo;too many&amp;rdquo; reviews already?&lt;/p&gt;
-
-&lt;p&gt;We can count the number of reviews that we have done, and we can also estimate the number of reviews that we have demanded of others through our submissions. A natural goal for researchers is to produce at least as many reviews as they demand; if everyone reached this goal, the peer-review system would be at equilibrium without imposing too much of a workload on anyone.&lt;/p&gt;
-
-&lt;p&gt;To estimate the number of reviews a researcher demanded from their peers, you can sum, for each of their submissions to a peer-reviewed venue, the number of reviews that they received, divided by the total number of authors of the submissions.&lt;/p&gt;
-
-&lt;p&gt;
- &lt;script type="math/tex; mode=display"&gt; \sum_{p \in \mathtt{Submissions}} \frac{\mathtt{reviews}(p)}{\mathtt{authors}(p)}&lt;/script&gt;&lt;/p&gt;
-
-&lt;p&gt;Out of curiosity, I just measured this balance for myself: over my years doing research I have &amp;ldquo;demanded&amp;rdquo; 10 workshop reviews and 28.5 conference reviews, and &amp;ldquo;produced&amp;rdquo; 6 workshop reviews and 17 conference reviews. If you think that an article would interest me, you shouldn&amp;rsquo;t feel bad about asking me to review it, for now. (On the other hand, my balance &lt;em&gt;this year&lt;/em&gt; is positive, so I wouldn&amp;rsquo;t feel to bad about refusing if I had to.)&lt;/p&gt;
-
-&lt;p&gt;Of course, a researcher&amp;rsquo;s balance is highly dependent on where they are in their academic career &amp;mdash; maybe more so that on their personal choices. Students are supposed to submit articles, but are offered few opportunities for doing reviews. When they are invited to do reviews, it is often as sub-reviewer, one review at a time. More established researchers participate in program committees, where they have to do a fair amount of reviews at once &amp;mdash; ten to twenty can be typical in Programming Languages conferences. This means that one naturally starts with a deficit of reviews, and that the opportunity to become balanced or positive only comes over the years.&lt;/p&gt;
-
-&lt;p&gt;(There is much more that could be said about the dynamics of the submission/review balance. I think the idea that a single person should be neutral should not be taken too seriously, because the dynamics are so complex. For example, some people stop doing reviews with a negative balance (students going to the industry for example), so long-time researchers necessarily have a &lt;em&gt;very positive&lt;/em&gt; balance that may make short-time researchers balance considerations mostly irrelevant. Another thing is that there is no point doing more reviews than required by the submission flow, and that doing more reviews would build up more reviewing debt under this neutrality criterion &amp;mdash; you can never have everyone positive.)&lt;/p&gt;
-
-&lt;h3 id="quality"&gt;Quality&lt;/h3&gt;
-
-&lt;p&gt;This is only a comment on the quantitative aspects of reviewing. Much more important is the qualitative part: are the reviews you receive and produce good reviews? (There is no objective definition of what a good review is; I like reviews that are constructive, help improve the work and its presentation, and catch mistakes.) For a given paper, one or a few very good reviews is more helpful than many bad reviews, so one should not compromise on the quality of one&amp;rsquo;s reviews in order to reach a quantitative goal.&lt;/p&gt;
-
-&lt;h3 id="advice-for-students"&gt;Advice for students?&lt;/h3&gt;
-
-&lt;p&gt;While proof-reading this post (thanks!), Ben asked some questions that may be of interest to others &amp;mdash; mostly students, I suppose.&lt;/p&gt;
-
-&lt;blockquote&gt;
- &lt;p&gt;If I want to be review-neutral, but I have to accumulate a &amp;ldquo;review debt&amp;rdquo; before I can start reviewing, does this mean I should accept my first opportunity to review and every one that follows (until I&amp;rsquo;m neutral)?&lt;/p&gt;&lt;/blockquote&gt;
-
-&lt;p&gt;The answer is of course &amp;ldquo;no&amp;rdquo;: one should never feel forced to accept reviews. On the other hand, I do think that it is worthwhile for PhD students to take advantage of the reviews they are offered, so &amp;ldquo;saying yes most of the time&amp;rdquo; sounds like a reasonable strategy to me &amp;mdash; this is just a personal opinion. Some reasons:&lt;/p&gt;
-
-&lt;ul&gt;
- &lt;li&gt;
-  &lt;p&gt;Reviewing is hard and takes training, I think it is good to start  practicing early. Students are in a good situation to exercise their  reviewing skills at a fairly calm peace (you won&amp;rsquo;t get many  reviews anyway), and with more time than more senior people.&lt;/p&gt;&lt;/li&gt;
- &lt;li&gt;
-  &lt;p&gt;Student reviews are often done as sub-reviewer: someone does  a review, but also asks for your opinion and includes your  sub-review in their review. It is a low-pressure way to do your  first reviews, and the ability to exchange opinions with the other  reviewer and discuss both reviews is really helpful. Students can  also ask for feedback on their reviews to their advisor, which is  also very helpful.&lt;/p&gt;&lt;/li&gt;
- &lt;li&gt;
-  &lt;p&gt;Reviewing teaches a few useful things about writing papers as  well &amp;mdash; it&amp;rsquo;s always easier to recognize the flaws in others&amp;rsquo; work.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;
-
-&lt;p&gt;On the other hand, I think you should not accept reviews at times when you cannot invest enough work in the review, or when doing so would be detrimental to you &amp;mdash; whether you are on a deadline, or under too much pressure, or have conflicting commitments, etc. This is more important than anything about a submission/review balance.&lt;/p&gt;
-
-&lt;blockquote&gt;
- &lt;p&gt;Do you have any ideas for how young researchers / new researchers can reduce their &amp;ldquo;review footprint&amp;rdquo;? For example, is it possible to volunteer for reviews?&lt;/p&gt;&lt;/blockquote&gt;
-
-&lt;p&gt;Yes, you can volunteer for reviews by telling the colleagues in your lab that you would be interested in doing reviews and that they should consider giving you some.&lt;/p&gt;
-
-&lt;p&gt;(With the increased use of double-blind submission processes, it is becoming more difficult to pass conference reviews to external researchers. This means that students are relatively unlikely to receive review offers from outside their close colleagues.)&lt;/p&gt;
-
-&lt;p&gt;Besides doing more reviews, the two other factors one could in theory play with are: submitting less papers, and having more co-authors. I think there is something to be said for the first one: one reason to not submit unfinished, buggy or topically-inappropriate articles is that it has a review cost. The second factor should not be considered, I think: &amp;ldquo;did this person contribute to the work?&amp;rdquo; should weight infinitely more for co-authorship decisions.&lt;/p&gt;
-
-&lt;p&gt;Note: Another thing you can ask for is &lt;em&gt;reading reviews other people received&lt;/em&gt;. I think that reading reviews is also very helpful for research beginners &amp;mdash; whether reviews of one&amp;rsquo;s own work or someone else&amp;rsquo;s. In particular, I wouldn&amp;rsquo;t know how to write reviews if I hadn&amp;rsquo;t had the opportunity to read reviews before that. If someone you are close to receives reviews, you should consider asking them whether you could have a look.&lt;/p&gt;
-
-&lt;blockquote&gt;
- &lt;p&gt;Is being a student volunteer at a conference equal to &amp;ldquo;one review&amp;rdquo;?&lt;/p&gt;&lt;/blockquote&gt;
-
-&lt;p&gt;I think it is a distinct form of academic service. I don&amp;rsquo;t know how to measure the &amp;ldquo;conference organization cost&amp;rdquo; we impose to our academic colleagues. (If there are around 500 attendants to a typical Programming Languages conference, it means that for every 500 conferences you attend you should organize one all by yourself.)&lt;/p&gt;</content></entry></feed>
+&lt;p&gt;For future pl junior cohorts or anyone else in learning about dependent types: Pi-for-all is useful material, but could be condensed into two weeks (for example, by watching the lectures at 1.5x speed) instead of four. Don’t worry about Type-in-Type. The Epigram material is OK but you might be better served looking at ATTAPL first. At some point, you will have to read the dense papers, but pi-for-all is a good introduction.&lt;/p&gt;</content></entry></feed>
