@@ -4,7 +4,57 @@
  <link rel="self" href="http://prl.ccs.neu.edu/blog/feeds/all.atom.xml" />
  <link href="http://prl.ccs.neu.edu/blog/index.html" />
  <id>urn:http-prl-ccs-neu-edu:-blog-index-html</id>
- <updated>2017-05-09T14:04:31Z</updated>
+ <updated>2017-05-15T10:08:31Z</updated>
+ <entry>
+  <title type="text">Artifacts for Semantics</title>
+  <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2017/05/15/artifacts-for-semantics/?utm_source=all&amp;utm_medium=Atom" />
+  <id>urn:http-prl-ccs-neu-edu:-blog-2017-05-15-artifacts-for-semantics</id>
+  <published>2017-05-15T10:08:31Z</published>
+  <updated>2017-05-15T10:08:31Z</updated>
+  <author>
+   <name>PRL</name></author>
+  <content type="html">
+&lt;p&gt;&lt;a href="http://gallium.inria.fr/~scherer/"&gt;Gabriel Scherer&lt;/a&gt; and I recently wrote an &lt;a href="https://dbp.io/artifacts/funtal"&gt;artifact&lt;/a&gt; for a semantics &lt;a href="https://dbp.io/pubs/2017/funtal.pdf"&gt;paper&lt;/a&gt; on a typed assembly language interoperating with a high-level functional language.&lt;/p&gt;
+&lt;!-- more--&gt;
+
+&lt;p&gt;We wrote a interpreter, typechecker, and parser in OCaml, compiled it to Javascript using &lt;a href="http://ocsigen.org/js_of_ocaml/"&gt;js_of_ocaml&lt;/a&gt;, and then put it on a webpage (with an editor with syntax highlighting and error reporting) that allows people to step through examples from the paper or write their own. (Feel free to start by playing a bit with &lt;a href="https://dbp.io/artifacts/funtal"&gt;our artifact&lt;/a&gt;).&lt;/p&gt;
+
+&lt;p&gt;This post will summarize the different parts to make it easier for others to repeat this process. We think it was a total success, and have gotten feedback that it makes understanding the (somewhat complex) language from the paper much easier. We argue that building such interpreters / typecheckers is easy enough that all papers should do this. Further, while our interpreter / typechecker is completely unverified, since we wrote it in OCaml, this approach should work equally well for semantics verified in Coq and then extracted to OCaml.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;The paper in question, &lt;a href="https://dbp.io/pubs/2017/funtal.pdf"&gt;FunTAL: Reasonably Mixing a Functional Language with Assembly&lt;/a&gt; (to appear in PLDI17), presents a multi-language that incorporates a typed assembly language (TAL) and a simple functional language where each can be embedded within the other. The paper then develops a logical relation that can be used to reason about the equivalence of such mixed programs. For example in the paper we show an imperative register-based factorial and a functional factorial equivalent.&lt;/p&gt;
+
+&lt;p&gt;Both the static and dynamic semantics are relatively complex. The typed assembly has registers (which store word-sized values), a heap (which stores code-blocks and tuples), and a stack (not a call-stack, simply a place where word-sized values can be pushed and popped). Code-blocks have pre-conditions on the state of the registers and the stack, and allow the tail of the stack to be abstracted over polymorphically. This allows values to be protected on the stack before jumping to blocks that otherwise could change them. This is used, along with a novel notion of &lt;strong&gt;return markers&lt;/strong&gt;, to ensure well-bracketing in the control flow of the typed assembly. The return markers indicate the location that points to the block that will eventually be returned to (assuming it doesn&amp;rsquo;t loop infinitely). At the top level, the return marker &lt;code&gt;end&lt;/code&gt; indicates that, assuming it does not loop, eventually the program will stop, rather than returning somewhere else.&lt;/p&gt;
+
+&lt;p&gt;Understanding the dynamic semantics requires tracking how values flow through the registers, the heap, and the stack, and rather than a call-stack, the user has to track the control flow through the statically-enforced return markers. This allows a good deal of low-level control-flow while still ensuring that calls will eventually return to the right place. This well-bracketing is vital to be able to reason about &amp;ldquo;components&amp;rdquo; that eventually return a value of a particular type, a necessity when embedding these components in a typed high-level program! However, it does mean that understanding the static and dynamic semantics from a few rules alone is a tall order. Our functional language is more standard, though we use (iso)-recursive types to allow recursion, which can easily trip up people, especially when you don&amp;rsquo;t have a type-checker to catch typos!&lt;/p&gt;
+
+&lt;p&gt;For that reason, when working through examples for the paper I implemented a simple interpreter for the multi-language. I did this in OCaml, in the most straightforward way possible: by translating the definitions from the paper into type definitions (&lt;a href="https://github.com/dbp/funtal/blob/032be70f33f77e80f4fab7e62016bfabf96476f3/ftal.ml#L835"&gt;for F&lt;/a&gt; and &lt;a href="https://github.com/dbp/funtal/blob/032be70f33f77e80f4fab7e62016bfabf96476f3/ftal.ml#L1209"&gt;for TAL&lt;/a&gt;), and the reduction relation into a &lt;a href="https://github.com/dbp/funtal/blob/032be70f33f77e80f4fab7e62016bfabf96476f3/ftal.ml#L1155"&gt;&amp;ldquo;step&amp;rdquo; function&lt;/a&gt; that (assuming it wasn&amp;rsquo;t stuck or a value), did one step of evaluation. Later, I did the same thing for the type-checker, translating rules into a &lt;a href="https://github.com/dbp/funtal/blob/032be70f33f77e80f4fab7e62016bfabf96476f3/ftal.ml#L282"&gt;type-checking function&lt;/a&gt;. The latter had to deviate from the rules in the paper in a few minor ways, as the typing rules we had in the paper were slightly not syntax directed.&lt;/p&gt;
+
+&lt;p&gt;Having the interpreter and type-checker was very useful for me, as I could check that the examples from the paper did not contain typos, but it was much less useful as an artifact for a reader of the paper. To use it the reader would have to download the source, install OCaml, write out examples as OCaml data constructors in a test file, compile it, run it, and then interpret the (quite overwhelming) output of every step of evaluation. At each step, I printed the current registers, current stack, current heap, what the evaluation context was (as you might be evaluating TAL instructions that were embedded inside a functional program that, in turn, was embedded in further TAL instructions), and what the current reduction was.&lt;/p&gt;
+
+&lt;p&gt;To get from that useful-for-the-authors artifact to a useful-to-readers artifact requires doing three things:&lt;/p&gt;
+
+&lt;ol&gt;
+ &lt;li&gt;Allow reading/writing programs in a notation as close to the paper as  possible. In our paper we use superscripts, subscripts, and a few greek  letters, but ended up with a syntax otherwise very close to the paper &amp;mdash; the biggest  differences were a few extra delimiters introduced to reduce ambiguity.&lt;/li&gt;
+ &lt;li&gt;Present an interface that highlights type errors at the location they  occurred in, and allow a reader to step forward and backwards through the  evaluation. Printing console output traces is fine for authors, but adds too  much effort for readers.&lt;/li&gt;
+ &lt;li&gt;Put it online! Don&amp;rsquo;t require installing any software! Conveniently,  implementing 2 is also made easier once done online, as we could use existing  editor tooling to present the code, highlight errors, etc. By using OCaml, we  were able to easily use the  excellent &lt;a href="http://ocsigen.org/js_of_ocaml/"&gt;js_of_ocaml&lt;/a&gt;.&lt;/li&gt;&lt;/ol&gt;
+
+&lt;p&gt;The first was done by Gabriel, who wrote a grammar using &lt;a href="http://gallium.inria.fr/~fpottier/menhir/"&gt;Menhir&lt;/a&gt;, and then equipped it with custom parsing error messages that provide much better feedback when there are typos in what people are trying. We also wrote a pretty-printer using the &lt;a href="http://gallium.inria.fr/blog/first-release-of-pprint/"&gt;PPrint&lt;/a&gt; library, so we could show intermediate program states through the UI. After writing this, we were able to convert our existing suite of test cases and examples to be written textually, which was a huge improvement for us as well! These and other tests were used to ensure that the parser/pretty-printer would round-trip properly.&lt;/p&gt;
+
+&lt;p&gt;For the interface, I built a simple web page that had the &lt;a href="https://codemirror.net/"&gt;CodeMirror&lt;/a&gt; editor equipped with a very simple syntax highlighter (&lt;a href="https://github.com/dbp/funtal/blob/032be70f33f77e80f4fab7e62016bfabf96476f3/artifact/index.html#L247"&gt;8 lines of code&lt;/a&gt; to highlight keywords &amp;amp; atoms, plus a CodeMirror extension to highlight matching brackets) and error highlighting (which is triggered by the OCaml code). I then made a simple &amp;ldquo;machine state&amp;rdquo; UI that showed, in pretty-printed format, the heap, stack, registers, context, and redex. On the OCaml side, when the &amp;ldquo;run&amp;rdquo; button is clicked, we parse and typecheck and, assuming no errors occur, store the current state as our &amp;ldquo;history&amp;rdquo;. As the user clicks forward or backwards, we run the step function and append to the history of states or pop states off of the history. In total, there are &lt;a href="https://github.com/dbp/funtal/blob/032be70f33f77e80f4fab7e62016bfabf96476f3/artifact/index.html#L246"&gt;50 lines of Javascript&lt;/a&gt; and about &lt;a href="https://github.com/dbp/funtal/blob/032be70f33f77e80f4fab7e62016bfabf96476f3/web.ml"&gt;150 lines of OCaml&lt;/a&gt; that handle the logic for this interactive UI.&lt;/p&gt;
+
+&lt;p&gt;Putting it online was very easy, based on the choice of tools used earlier. We compile the main file (&lt;a href="https://github.com/dbp/funtal/blob/032be70f33f77e80f4fab7e62016bfabf96476f3/web.ml"&gt;web.ml&lt;/a&gt;) to Javascript using &lt;a href="http://ocsigen.org/js_of_ocaml/"&gt;js_of_ocaml&lt;/a&gt;, and it pulls in the parser, type-checker, interpreter, examples, etc. The rest of the artifact is a single html file, a CSS file, and a few javascript files for CodeMirror. It requires no server backend, is easy to archive and save, and will even run on smartphones!&lt;/p&gt;
+
+&lt;p&gt;The total time spent implementing the artifact was a small fraction of the time spent on the paper (probably 15 days of person-time), and while it was not in any critical way essential for the success of the paper, it does make the paper much easier to read, and we would argue that all semantics papers would be better off with easy to use artifacts for experimentation. Also, while implementing the artifact we found a few mistakes in the typing judgments for the language. The most interesting one was for our &lt;code&gt;protect&lt;/code&gt; TAL instruction, which exists to protect the tail of the stack in a fresh type variable. We had written this as a typing rule that type-checked the rest of the instruction sequence with the abstracted tail, but this never allowed the tail to be accessed again. By translating the typing judgments exactly into code, we realized that there was a problem, because examples that should have worked did not type-check! We were then able to fix the typing rule to conform to what we originally thought it achieved &amp;mdash; locally abstracting, but not abstracting from outside the component. What is interesting is that this did not come up in our proofs because the typing rule was perfectly valid &amp;mdash; it just did not allow non-trivial programs that used the &lt;code&gt;protect&lt;/code&gt; instruction. It&amp;rsquo;s quite possible we would have noticed this without implementing the artifact, but the artifact certainly made it easier!&lt;/p&gt;
+
+&lt;p&gt;To see the artifact online, visit:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="https://dbp.io/artifacts/funtal"&gt;https://dbp.io/artifacts/funtal&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;The source code is at:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="https://github.com/dbp/funtal/tree/032be70f33f77e80f4fab7e62016bfabf96476f3"&gt;https://github.com/dbp/funtal&lt;/a&gt;&lt;/p&gt;</content></entry>
  <entry>
   <title type="text">No Good Answers, Gradually Typed Object-Oriented Languages</title>
   <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2017/05/09/no-good-answers-gradually-typed-object-oriented-languages/?utm_source=all&amp;utm_medium=Atom" />
@@ -967,43 +1017,4 @@ rest of the proof using H:foo.&lt;/code&gt;&lt;/pre&gt;
   <updated>2017-01-03T15:15:57Z</updated>
   <author>
    <name>PRL</name></author>
-  <content type="html"></content></entry>
- <entry>
-  <title type="text">Fall 2016 PL Junior Retrospective</title>
-  <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2017/01/02/fall-2016-pl-junior-retrospective/?utm_source=all&amp;utm_medium=Atom" />
-  <id>urn:http-prl-ccs-neu-edu:-blog-2017-01-02-fall-2016-pl-junior-retrospective</id>
-  <published>2017-01-02T16:39:37Z</published>
-  <updated>2017-01-02T16:39:37Z</updated>
-  <author>
-   <name>PRL</name></author>
-  <content type="html">
-&lt;p&gt;The &lt;a href="http://prl.ccs.neu.edu/seminars.html"&gt;Programming Language Seminar, Junior&lt;/a&gt; (or “PL Junior”), is a seminar for junior students to learn and discuss topics at a pace more suitable to our background. This semester, we decided to study dependent types. We chose this topic because&lt;/p&gt;
-
-&lt;ol&gt;
- &lt;li&gt;working from the &lt;a href="https://mitpress.mit.edu/books/types-and-programming-languages"&gt;TAPL&lt;/a&gt; presentation of type systems, dependent types are a step up in difficulty (excepting F-omega-sub), and&lt;/li&gt;
- &lt;li&gt;they represent a significant increase in the reasoning power of types over programs.&lt;/li&gt;&lt;/ol&gt;
-&lt;!-- more--&gt;
-
-&lt;p&gt;There was a preference for learning how to implement a dependent type system, instead of spending a significant amount of time reading papers, especially dense type-theoretic papers suggested by &lt;a href="http://purelytheoretical.com/sywtltt.html"&gt;posts&lt;/a&gt; like &lt;a href="http://jozefg.bitbucket.org/posts/2015-08-14-learn-tt.html"&gt;these&lt;/a&gt;. So we followed the &lt;a href="https://github.com/sweirich/pi-forall"&gt;pi-for-all&lt;/a&gt; lecture series given by Stephanie Weirich at &lt;a href="https://www.cis.upenn.edu/~bcpierce/attapl/"&gt;OPLSS&lt;/a&gt;, which focuses on implementing a simple dependently-typed programming language.&lt;/p&gt;
-
-&lt;p&gt;After the pi-for-all lectures, we read chapter two of Edwin Brady’s &lt;a href="https://eb.host.cs.st-andrews.ac.uk/writings/thesis.pdf"&gt;dissertation on implementing dependently typed languages&lt;/a&gt;. The thesis includes a relatively approachable introduction to TT, the core dependent type theory of Epigram.&lt;/p&gt;
-
-&lt;p&gt;Along the way, we became sidetracked by &lt;a href="https://en.wikipedia.org/wiki/System_U#Girard.27s_paradox"&gt;Girard’s paradox&lt;/a&gt;. In the first pi-for-all lecture, we came across the Type-in-Type rule. (In a dependent type system the term and the type languages are the same. However, we still need to distinguish what is a “program” and what is a “type,” for instance, so that we can determine that the annotation of a function’s argument is valid. So a construct in the term language is Type, which is meant to describe those things that are valid in programs where we expect to find a type). In the lecture, this prompted the comment that this (“of course”) makes our system inconsistent as a logic, but there was no further elaboration, and we could not figure out how to use this fact to show inconsistency.&lt;/p&gt;
-
-&lt;p&gt;It turns out the reason Type-in-Type is inconsistent is quite complicated. It is explained in a &lt;a href="https://www.cs.cmu.edu/~kw/scans/hurkens95tlca.pdf"&gt;paper&lt;/a&gt; that we had difficulty understanding. So we turned to the students in our lab that have expertise in the area. The answer we received is that, intuitively, it is inconsistent for the same reason as Russell’s paradox (or the Burali-Forti paradox), but the actual proof is actually quite involved. The lesson we drew is that despite being “obvious,” Type-in-Type being inconsistent is not easy to prove. The way people seem to throw around this conclusion is confusing from a beginner’s point of view.&lt;/p&gt;
-
-&lt;p&gt;The best thing about the pi-for-all series is that it demystified dependent types for us. We gained confidence in being able to whiteboard a dependent type system with the ease of System-F or STLC. If we had one complaint, the presentation of the material relied heavily on Haskell details. The unbound library to handle variables in the implementation results in a somewhat “magicy” representation of binding; it’s not clear that the benefits are so great as to outweigh the cost of just implementing alpha-equivalence and capture-avoiding-substitution. Overall they were high-quality lectures. As hinted above, we didn’t particularly care for the second lecture that was mostly a code walk-through. One advantage of watching videos was that we could speed through parts we were already comfortable with.&lt;/p&gt;
-
-&lt;p&gt;With Edwin Brady’s dissertation, we got a glimpse of how quickly the details of a dependently typed language get hairy. Looking at you, inductive data definitions and eliminations. There were some extremely large type signatures. While this exercise boosted our confidence that we could read Serious Dependent Types™ papers, it also gave evidence that our fears of incomprehensibility were not completely unfounded.&lt;/p&gt;
-
-&lt;p&gt;This issue appeared before in our discussion of Girard’s Paradox. In the discussion of the paradox, we got stuck when we tried to understand the very complex term that inhabited the bottom type. Dependent typing, and discussions thereof, allow very rich, meaningful, and complex types that are as complex as the code that they abstract over. While we are used to understanding these structures in code, parsing a complex type and its fundamental meaning gave us considerable difficulty.&lt;/p&gt;
-
-&lt;h2 id="thoughts-on-the-format"&gt;Thoughts on the format&lt;/h2&gt;
-
-&lt;p&gt;Our meetings this semester were all of the form “we’ll watch this lecture or read this chapter, and then discuss it next week.” Next semester we would like to go back to presenting each week. We feel doing presentations forces the presenter to reach a deeper understanding of the material. This semester we got a relatively shallow understanding of a broad area. A deeper understanding with a narrower focus may be more beneficial (or complementary).&lt;/p&gt;
-
-&lt;p&gt;[[Sam’s defense as Grand Convener of PL Junior: Once we picked dependent types as a topic, doing presentations was not an option. We didn’t have the expertise in the area to pick out different sub-topics and papers suitable for presentations. And, since we were short-handed (4 people each week), we would be presenting once a month!]]&lt;/p&gt;
-
-&lt;p&gt;If we continue learning more about dependent types it would be by: 1) Doing more reading, such as the &lt;a href="https://www.cis.upenn.edu/~bcpierce/attapl/"&gt;ATTAPL&lt;/a&gt; chapter or the programming in Martin-Löf’s type theory material. 2) Actually trying to implement some of the things we’ve learned this semester 3) Playing around with more of the various dependent type systems and theorem provers out there&lt;/p&gt;
-
-&lt;p&gt;For future pl junior cohorts or anyone else in learning about dependent types: Pi-for-all is useful material, but could be condensed into two weeks (for example, by watching the lectures at 1.5x speed) instead of four. Don’t worry about Type-in-Type. The Epigram material is OK but you might be better served looking at ATTAPL first. At some point, you will have to read the dense papers, but pi-for-all is a good introduction.&lt;/p&gt;</content></entry></feed>
+  <content type="html"></content></entry></feed>
