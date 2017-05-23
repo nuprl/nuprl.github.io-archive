@@ -94,8 +94,20 @@
 <p>To use it, I have this code as <code>/usr/bin/editor</code>:</p>
 
 <div class="brush: sh">
- <pre><code>#!/bin/bash
-emacsclient -a "" -c "$@"</code></pre></div>
+ <table class="sourcetable">
+  <tbody>
+   <tr>
+    <td class="linenos">
+     <div class="linenodiv">
+      <pre>1
+2</pre></div></td>
+    <td class="code">
+     <div class="source">
+      <pre><span class="c">#!/bin/bash</span>
+emacsclient -a <span class="s2">""</span> -c <span class="s2">"$@"</span>
+</pre></div>
+</td></tr></tbody></table>
+</div>
 
 <p>The empty <code>-a</code> parameter means that if no daemon exists, it should start one in the background and retry. The <code>-c</code> option means that a new frame (window) should be created instead of reusing an existing one. <code>"$@"</code>means that when the script is invoked with a path as command-line parameter (<code>editor /tmp/foo.txt</code>), the corresponding file will be opened.</p>
 
@@ -112,8 +124,20 @@ emacsclient -a "" -c "$@"</code></pre></div>
 <p>P.S.: To precisely measure the startup time, ask Emacs to evaluate a Lisp expression on startup, to kill it immediately.:</p>
 
 <div class="brush: sh">
- <pre><code>$ time emacs --eval "(save-buffers-kill-terminal)"
-$ time emacsclient -a '' -c -e "(save-buffers-kill-terminal)"</code></pre></div>
+ <table class="sourcetable">
+  <tbody>
+   <tr>
+    <td class="linenos">
+     <div class="linenodiv">
+      <pre>1
+2</pre></div></td>
+    <td class="code">
+     <div class="source">
+      <pre><span class="nv">$ </span><span class="nb">time </span>emacs --eval <span class="s2">"(save-buffers-kill-terminal)"</span>
+<span class="nv">$ </span><span class="nb">time </span>emacsclient -a <span class="s1">&#39;&#39;</span> -c -e <span class="s2">"(save-buffers-kill-terminal)"</span>
+</pre></div>
+</td></tr></tbody></table>
+</div>
   <br/><br/>
   <footer>
     <script type="text/javascript">
