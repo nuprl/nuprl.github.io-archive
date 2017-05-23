@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+
+    <meta charset="utf-8">
+    <title>Building a Website with Scribble</title>
+    <meta name="description" content="The source code for the PRL website is written using Scribble, the Racket  documentation tool. I am very happy with this choice, and you should be too!...">
+    <meta name="author"      content="PRL">
+    <meta name="keywords"    content="Scribble, tutorial, by Ben Greenman">
+    <meta name="viewport"    content="width=device-width, initial-scale=1.0">
+    <link rel="icon"      href="/img/favicon.ico">
+    <link rel="canonical" href="http://prl.ccs.neu.edu/blog/2017/05/23/building-a-website-with-scribble/">
+    <link rel="next" href="/blog/2017/05/15/artifacts-for-semantics/">
+
+    <script type="text/javascript" async
+            src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/pygments.css">
+    <link rel="stylesheet" type="text/css" href="/css/custom.css">
+    <link rel="stylesheet" type="text/css" href="/css/racket.css">
+    <link rel="stylesheet" type="text/css" href="/css/scribble.css">
+    <!-- Feeds -->
+    <link rel="alternate" type="application/atom+xml"
+          href="/blog/feeds/all.atom.xml" title="Atom Feed">
+    <link rel="alternate" type="application/rss+xml"
+          href="/blog/feeds/all.rss.xml" title="RSS Feed">
+  </head>
+  <body id="pn-top" class="subpages">
+    <nav class="navbar navbar-inverse">
+      <div class="container">
+        <div class="row">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+          </div>
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+              <li role="presentation"><a href="/">Home</a></li>
+              <li role="presentation"><a href="/people.html">People</a></li>
+              <li role="presentation"><a href="/teaching.html">Teaching</a></li>
+              <li role="presentation"><a href="/seminars.html">Seminars</a></li>
+              <li role="presentation"><a href="/software.html">Software</a></li>
+              <li role="presentation"><a href="/publications.html">Publications</a></li>
+              <li role="presentation"><a href="/new-members.html">New Members</a></li>
+              <li role="presentation"><a href="/contact.html">Contact</a></li>
+              <li role="presentation" class="active"><a href="/blog/index.html">Blog</a></li>
+            </ul>
+          </div><!--/.navbar-collapse -->
+        </div>
+      </div>
+    </nav>
+    <div class="jumbotron subpages">
+      <div class="container">
+        <div class="row">
+          <a style="text-decoration:none; color:white" href="/blog/index.html">
+            <div class="col-md-12">
+              <h1>Inside PRL</h1>
+              <p>Reading between the parentheses</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="pn-main-wrapper">
+      <div class="content">
+        <div class="container">
+          <div class="row">
+
+            <!-- Main column -->
+            <div id="content" class="col-md-12">
+
+
+
+              <article>
+  <header>
+    <h1>Building a Website with Scribble</h1>
+    <p class='date-and-tags'>
+<time datetime="2017-05-23" pubdate="true">2017-05-23</time> :: <span class="tags"><a href="/blog/tags/Scribble.html">Scribble</a>, <a href="/blog/tags/tutorial.html">tutorial</a>, <a href="/blog/tags/by-Ben-Greenman.html">by Ben Greenman</a></span></p>
+  </header>
+
+<p>The source code for the PRL website is written using Scribble, the Racket  documentation tool. I am very happy with this choice, and you should be too!</p>
+<!-- more-->
+
+<h2 id="the-story-so-far">The Story so Far</h2>
+
+<p>Last Fall, I took a flight to Chicago (on my way to <a href="http://con.racket-lang.org/2016/">RacketCon 2016</a>). When I landed, there was a new message in my inbox:</p>
+
+<pre><code>    Subject: Web Page
+    Date: 2016-09-15
+
+    You have been nominated webmaster by public acclamation. Congratulations!</code></pre>
+
+<p>Emboldened by the trust of my people, I promptly converted the PRL website  from Racket-generating-HTML to the fine <a href="http://docs.racket-lang.org/scribble-pp/html.html"><code>scribble/html</code></a>  preprocessor language (commit <a href="https://github.com/nuprl/website/commit/a0600d32fec4bd70c5530b2717aec32979d634f7"><code>a0600d</code></a>) This bold action polarized the community.</p>
+
+<blockquote>
+ <p>I can&rsquo;t read the source anymore! Is this really an improvement?</p></blockquote>
+
+<p>Fear not, citizens. The switch to <a href="http://docs.racket-lang.org/scribble-pp/html.html"><code>scribble/html</code></a> was the right choice, and you  too can learn to read the source code.</p>
+
+<h2 id="how-to-read-scribblehtml-programs">How to Read <code>scribble/html</code> Programs</h2>
+
+<h3 id="basics">Basics</h3>
+
+<p>Scribble is a language for writing Racket documentation. The key innovation in Scribble is the <em>@-expression</em> (read: &ldquo;at expression&rdquo;). The <a href="http://docs.racket-lang.org/scribble-pp/html.html"><code>scribble/html</code></a> language combines @-expression syntax with  functions that generate HTML.</p>
+
+<h4 id="-syntax">@-syntax</h4>
+
+<p><a href="http://www.greghendershott.com/2015/08/at-expressions.html">Greg Hendershott</a> and the <a href="http://docs.racket-lang.org/scribble/reader.html">Scribble Documentation</a> explain @-expressions properly. Here&rsquo;s a short tutorial (Part 1 of 2, &ldquo;the basics&rdquo;):</p>
+
+<ul>
+ <li>Scribble programs start in &ldquo;text mode&rdquo;.  Every character you type goes straight to the document you are building.</li>
+ <li>The @-sign toggles to &ldquo;Racket mode&rdquo; for the next expression.  In Racket mode, the characters you type will be evaluated as a Racket program  to produce part of the document.</li></ul>
+
+<p><em>Examples:</em> Evaluating <code>"Hello Dave"</code> puts &ldquo;Hello Dave&rdquo; in your document. Evaluating <code>"Hello @Dave"</code> puts &ldquo;Hello ???&rdquo; in your document, where "???" is the value of the variable <code>Dave</code>. Finally if <code>Dave</code> is the name of a function, then <code>"Hello @(Dave)"</code> calls the <code>Dave</code> function with zero arguments and puts whatever it returns into your document.</p>
+
+<p>To make it easy to interleave text, function calls, and code, Scribble  discriminates between 4 kinds of parentheses when they follow an @-sign (Part 2 of 2, &ldquo;the parens&rdquo;):</p>
+
+<ul>
+ <li><code>@(f A B)</code> is just like the function call <code>(f A B)</code> in Racket</li>
+ <li><code>@f[A B]</code> is the same as <code>@(f A B)</code>, but typically more useful because &hellip;</li>
+ <li><code>@f[A B]{....}</code> evaluates the <code>....</code> in &ldquo;text mode&rdquo; to a list of words <code>w*</code>,  then calls <code>f</code> just like <code>(apply f A B w*)</code></li>
+ <li><code>@f{....}</code> evaluates the <code>....</code> in &ldquo;text mode&rdquo; and calls <code>f</code> with the results</li>
+ <li><code>@f|{....}|</code> is similar, but the <code>....</code> are in &ldquo;unescapable text mode&rdquo;</li></ul>
+
+<p>&ldquo;Unescapable text mode&rdquo; treats @-signs as text instead of toggling between modes.</p>
+
+<h4 id="generating-html">Generating HTML</h4>
+
+<p>The <a href="http://docs.racket-lang.org/scribble-pp/html.html"><code>scribble/html</code></a> language comes with functions that render HTML. These functions have the same name as the corresponding HTML tag.</p>
+
+<p>Example program:</p>
+
+<pre><code>#lang scribble/html
+@p{Hello World}</code></pre>
+
+<p>Running this program prints:</p>
+
+<pre><code>&lt;p&gt;Hello World&lt;/p&gt;</code></pre>
+
+<p>No surprises.</p>
+
+<p>One thing that <em>is</em> surprising is how <code>scribble/html</code> handles tag attributes. Every tag-rendering function accepts &ldquo;Racket mode&rdquo; arguments that specify  an attribute name and attribute value.</p>
+
+<p>For example:</p>
+
+<pre><code>#lang scribble/html
+@p[style: "color:red"]{Hello World}</code></pre>
+
+<p>Prints:</p>
+
+<pre><code>&lt;p style="color:red"&gt;Hello World&lt;/p&gt;</code></pre>
+
+<p>Hope the output looks familiar. The input syntax is strange, but that&rsquo;s what it is.</p>
+
+<p>Larger programs print larger webpages. Each page on the PRL website is HTML generated by one <code>scribble/html</code> program.</p>
+
+<h2 id="why-scribblehtml-is-an-improvement">Why <code>scribble/html</code> is an Improvement</h2>
+
+<p>Before <code>scribble/html</code>, the PRL website was implemented in <code>scribble/text</code>. A <code>scribble/text</code> program renders and prints text. There is no extra support for HTML.</p>
+
+<p>To compare, here&rsquo;s the start of the old homepage:</p>
+
+<pre><code>#lang scribble/text
+@(require "templates.rkt")
+
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+  @(header "Home")
+  &lt;body id="pn-top"&gt;
+    @(navbar "Home")
+    &lt;div class="jumbotron"&gt;</code></pre>
+
+<p>And here is the start of the <code>scribble/html</code>&rsquo;d homepage:</p>
+
+<pre><code>#lang scribble/html
+@require["templates.rkt"]
+
+@doctype{html}
+@html[lang: "en"]{
+  @header{Home}
+    @body[id: "pn-top"]{
+      @navbar{Home}
+      @div[class: "jumbotron"]{</code></pre>
+
+<p>The pages look similar. The new one has more @-signs and parentheses, the old one has more <code>&lt;</code>-signs  and quotes. If you were able to edit the old page, you should be able to edit the new page.</p>
+
+<p>The <strong>key improvement</strong> in the new page is that <strong>common mistakes are now  compile-time errors</strong>.</p>
+
+<ul>
+ <li>
+  <p>Before, a typo like <code>&lt;hmtl&gt;</code> would generate an ugly webpage.  After, a typo like <code>@hmtl</code> is a syntax error.</p></li>
+ <li>
+  <p>Before, a typo like <code>&lt;b&gt;....</code> with no closing tag would generate an ugly webpage.  After, a typo like <code>@b{....</code> is a syntax error.</p></li></ul>
+
+<p>Both flavors of error message come with source-code line numbers. This is very very helpful.</p>
+
+<h3 id="small-improvements">Small Improvements</h3>
+
+<h4 id="1-more-functions">1. More Functions</h4>
+
+<p>Before, the <a href="http://prl.ccs.neu.edu/teaching.html">Teaching page</a> contained  some interesting HTML for rendering vertical text (look for the word &ldquo;Semantics&rdquo; to see how this was used):</p>
+
+<pre><code>&lt;span class="how-to-design-programs"&gt;S&lt;br /&gt;e&lt;br /&gt;m&lt;br /&gt;a&lt;br /&gt;n&lt;br /&gt;t&lt;br /&gt;i&lt;br /&gt;c&lt;br /&gt;s&lt;br /&gt;&lt;br /&gt;&lt;/span&gt;</code></pre>
+
+<p>After, the same text is generated from a function call:</p>
+
+<pre><code>@span[class: "how-to-design-programs"]{@vertical-text{Semantics}}</code></pre>
+
+<p>The <code>vertical-text</code> function is simple:</p>
+
+<pre><code>@require[(only-in racket/list add-between)]
+
+@(define (vertical-text . str*)
+   (add-between (string-&gt;list (append* str*)) (br)))</code></pre>
+
+<h4 id="2-more-structure-less-boilerplate">2. More Structure, Less Boilerplate</h4>
+
+<p>Here&rsquo;s part of the old definition of &ldquo;Ben Greenman&rdquo; on the <a href="http://prl.ccs.neu.edu/people.html">People page</a>:</p>
+
+<pre><code>&lt;div class="row pn-person"&gt;
+  &lt;div class="col-md-12 pn-row-eq-height"&gt;
+    &lt;div class="col-md-3 pn-photo"&gt;
+      &lt;div class="img-wrapper"&gt;
+        &lt;img src="img/ben_greenman.jpg" title="Ben Greenman" alt="Ben Greenman" /&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="col-md-9"&gt;
+      &lt;div class="col-md-4 pn-contact"&gt;
+        &lt;span class="pn-name"&gt;Ben Greenman&lt;/span&gt;&lt;br /&gt;
+        Advisor: Matthias Felleisen&lt;br /&gt;
+        &lt;a href="mailto:types@"@"ccs.neu.edu"&gt;types@"@"ccs.neu.edu&lt;/a&gt;&lt;br /&gt;
+        &lt;a href="http://www.ccs.neu.edu/home/types"&gt;www.ccs.neu.edu/home/types&lt;/a&gt;
+      &lt;/div&gt;
+      &lt;div class="col-md-3 pn-muted col-md-offset-5"&gt;
+        Joined 2014
+      &lt;/div&gt;
+      &lt;div class="col-md-12 pn-bio"&gt;
+        &lt;p&gt;I like constructions .... &lt;/p&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<p>The new definition uses a helper function with keyword arguments for each  &ldquo;field&rdquo; of the person:</p>
+
+<pre><code>@person[#:name "Ben Greenman"
+        #:title "Advisor: Matthias Felleisen"
+        #:e-mail "types@ccs.neu.edu"
+        #:website "http://ccs.neu.edu/home/types"
+        #:history @list["Joined 2014"]
+        #:img "ben_greenman.jpg"]{
+  I like constructions ....
+}</code></pre>
+
+<h4 id="3-less-string-formatting">3. Less String-Formatting</h4>
+
+<p>Before, the code did a lot of string formatting (<a href="https://github.com/nuprl/website/commit/a0600d#diff-1921e33ce89be28dd277cf1c7880d1beL9">link</a>):</p>
+
+<pre><code>(define (link url body)
+  (string-append "&lt;a href=\"" url "\"&gt;" body "&lt;/a&gt;"))</code></pre>
+
+<p>The new code has no need for such helper functions.</p>
+
+<pre><code>@a[href: url body]</code></pre>
+
+<h4 id="bottom-line">Bottom Line</h4>
+
+<p>Scribble is a good language for making static HTML pages.</p>
+
+<hr />
+
+<p><em>If you liked this post, you may also be interested in:</em></p>
+
+<ul>
+ <li><a href="http://docs.racket-lang.org/pollen/index.html">Pollen</a></li>
+ <li><a href="https://github.com/vishesh/racketscript">RacketScript</a></li>
+ <li>Other websites built using <a href="http://docs.racket-lang.org/scribble-pp/html.html"><code>scribble/html</code></a>:  (1) <a href="http://nanopass.org/">nanopass.github.io</a> (<a href="https://github.com/nanopass/nanopass.github.io">source code</a>),  (2) <a href="http://prl.ccs.neu.edu/gtp/">Gradual Typing Across the Spectrum</a> (<a href="https://github.com/nuprl/gtp">source code</a>).</li>
+ <li><a href="http://prl.ccs.neu.edu/blog/2016/05/18/gradual-typing-across-the-spectrum/">Notes from a Gradual Typing Across the Spectrum PI meeting</a></li></ul>
+  <br/><br/>
+  <footer>
+    <script type="text/javascript">
+      !function(d,s,id){
+          var js,fjs=d.getElementsByTagName(s)[0];
+          if(!d.getElementById(id)){
+              js=d.createElement(s);
+              js.id=id;
+              js.src="//platform.twitter.com/widgets.js";
+              fjs.parentNode.insertBefore(js,fjs);
+          }
+      }(document,"script","twitter-wjs");
+    </script>
+    <a href="https://twitter.com/share"
+       class="twitter-share-button"
+       data-url="http://prl.ccs.neu.edu/blog/2017/05/23/building-a-website-with-scribble/"
+       data-dnt="true">
+      "Tweet"</a>
+    <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+    <g:plusone size="medium" href="http://prl.ccs.neu.edu/blog/2017/05/23/building-a-website-with-scribble/"></g:plusone>
+    <ul class="pager">
+
+    <li class="next">
+      <a href="/blog/2017/05/15/artifacts-for-semantics/"><em>Artifacts for Semantics</em> &rarr;</a>
+    </li>
+    </ul>
+  </footer>
+</article>
+            </div>
+          </div>
+        </div>
+        <footer class="footer">
+          <hr />
+          <p><a href="https://twitter.com/racketlang"
+                class="twitter-follow-button"
+                data-show-count="false"
+                data-lang="en">
+               "Follow RacketLang"
+             </a>
+             <script type="text/javascript">
+               !function(d,s,id){
+                   var js,fjs=d.getElementsByTagName(s)[0];
+                   if(!d.getElementById(id)){
+                       js=d.createElement(s);
+                       js.id=id;
+                       js.src="//platform.twitter.com/widgets.js";
+                       fjs.parentNode.insertBefore(js,fjs);
+                   }
+               }(document,"script","twitter-wjs");
+             </script></p>
+          <p>Blog generated
+          by <a href="https://github.com/greghendershott/frog">Frog</a>,
+          using <a href="http://twitter.github.com/bootstrap/index.html">Bootstrap</a>.</p>
+          <p>© Copyright Programming Research Laboratory 2015-2016 | made by <a href="http://www.catchexception.cz/" target="_blank">Catchexception s.r.o.</a></p>
+        </footer>
+      </div>
+    </div>
+    <!-- </body> JS -->
+    <script type="text/javascript" src="//code.jquery.com/jquery.min.js"></script>
+    <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/js/custom.js"></script>
+    <script type="text/javascript" src="/js/analytics.js"></script>
+  </body>
+</html>

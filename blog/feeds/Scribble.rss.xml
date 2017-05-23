@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?> 
+<rss version="2.0">
+ <channel>
+  <title>PRL Blog: Posts tagged 'Scribble'</title>
+  <description>PRL Blog: Posts tagged 'Scribble'</description>
+  <link>http://prl.ccs.neu.edu/blog/tags/Scribble.html</link>
+  <lastBuildDate>Tue, 23 May 2017 01:53:13 UT</lastBuildDate>
+  <pubDate>Tue, 23 May 2017 01:53:13 UT</pubDate>
+  <ttl>1800</ttl>
+  <item>
+   <title>Building a Website with Scribble</title>
+   <link>http://prl.ccs.neu.edu/blog/2017/05/23/building-a-website-with-scribble/?utm_source=Scribble&amp;utm_medium=RSS</link>
+   <guid isPermaLink="false">urn:http-prl-ccs-neu-edu:-blog-2017-05-23-building-a-website-with-scribble</guid>
+   <pubDate>Tue, 23 May 2017 01:53:13 UT</pubDate>
+   <author>PRL</author>
+   <description>
+&lt;p&gt;The source code for the PRL website is written using Scribble, the Racket  documentation tool. I am very happy with this choice, and you should be too!&lt;/p&gt;
+&lt;!-- more--&gt;
+
+&lt;h2 id="the-story-so-far"&gt;The Story so Far&lt;/h2&gt;
+
+&lt;p&gt;Last Fall, I took a flight to Chicago (on my way to &lt;a href="http://con.racket-lang.org/2016/"&gt;RacketCon 2016&lt;/a&gt;). When I landed, there was a new message in my inbox:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;    Subject: Web Page
+    Date: 2016-09-15
+
+    You have been nominated webmaster by public acclamation. Congratulations!&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Emboldened by the trust of my people, I promptly converted the PRL website  from Racket-generating-HTML to the fine &lt;a href="http://docs.racket-lang.org/scribble-pp/html.html"&gt;&lt;code&gt;scribble/html&lt;/code&gt;&lt;/a&gt;  preprocessor language (commit &lt;a href="https://github.com/nuprl/website/commit/a0600d32fec4bd70c5530b2717aec32979d634f7"&gt;&lt;code&gt;a0600d&lt;/code&gt;&lt;/a&gt;) This bold action polarized the community.&lt;/p&gt;
+
+&lt;blockquote&gt;
+ &lt;p&gt;I can&amp;rsquo;t read the source anymore! Is this really an improvement?&lt;/p&gt;&lt;/blockquote&gt;
+
+&lt;p&gt;Fear not, citizens. The switch to &lt;a href="http://docs.racket-lang.org/scribble-pp/html.html"&gt;&lt;code&gt;scribble/html&lt;/code&gt;&lt;/a&gt; was the right choice, and you  too can learn to read the source code.&lt;/p&gt;
+
+&lt;h2 id="how-to-read-scribblehtml-programs"&gt;How to Read &lt;code&gt;scribble/html&lt;/code&gt; Programs&lt;/h2&gt;
+
+&lt;h3 id="basics"&gt;Basics&lt;/h3&gt;
+
+&lt;p&gt;Scribble is a language for writing Racket documentation. The key innovation in Scribble is the &lt;em&gt;@-expression&lt;/em&gt; (read: &amp;ldquo;at expression&amp;rdquo;). The &lt;a href="http://docs.racket-lang.org/scribble-pp/html.html"&gt;&lt;code&gt;scribble/html&lt;/code&gt;&lt;/a&gt; language combines @-expression syntax with  functions that generate HTML.&lt;/p&gt;
+
+&lt;h4 id="-syntax"&gt;@-syntax&lt;/h4&gt;
+
+&lt;p&gt;&lt;a href="http://www.greghendershott.com/2015/08/at-expressions.html"&gt;Greg Hendershott&lt;/a&gt; and the &lt;a href="http://docs.racket-lang.org/scribble/reader.html"&gt;Scribble Documentation&lt;/a&gt; explain @-expressions properly. Here&amp;rsquo;s a short tutorial (Part 1 of 2, &amp;ldquo;the basics&amp;rdquo;):&lt;/p&gt;
+
+&lt;ul&gt;
+ &lt;li&gt;Scribble programs start in &amp;ldquo;text mode&amp;rdquo;.  Every character you type goes straight to the document you are building.&lt;/li&gt;
+ &lt;li&gt;The @-sign toggles to &amp;ldquo;Racket mode&amp;rdquo; for the next expression.  In Racket mode, the characters you type will be evaluated as a Racket program  to produce part of the document.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;em&gt;Examples:&lt;/em&gt; Evaluating &lt;code&gt;"Hello Dave"&lt;/code&gt; puts &amp;ldquo;Hello Dave&amp;rdquo; in your document. Evaluating &lt;code&gt;"Hello @Dave"&lt;/code&gt; puts &amp;ldquo;Hello ???&amp;rdquo; in your document, where "???" is the value of the variable &lt;code&gt;Dave&lt;/code&gt;. Finally if &lt;code&gt;Dave&lt;/code&gt; is the name of a function, then &lt;code&gt;"Hello @(Dave)"&lt;/code&gt; calls the &lt;code&gt;Dave&lt;/code&gt; function with zero arguments and puts whatever it returns into your document.&lt;/p&gt;
+
+&lt;p&gt;To make it easy to interleave text, function calls, and code, Scribble  discriminates between 4 kinds of parentheses when they follow an @-sign (Part 2 of 2, &amp;ldquo;the parens&amp;rdquo;):&lt;/p&gt;
+
+&lt;ul&gt;
+ &lt;li&gt;&lt;code&gt;@(f A B)&lt;/code&gt; is just like the function call &lt;code&gt;(f A B)&lt;/code&gt; in Racket&lt;/li&gt;
+ &lt;li&gt;&lt;code&gt;@f[A B]&lt;/code&gt; is the same as &lt;code&gt;@(f A B)&lt;/code&gt;, but typically more useful because &amp;hellip;&lt;/li&gt;
+ &lt;li&gt;&lt;code&gt;@f[A B]{....}&lt;/code&gt; evaluates the &lt;code&gt;....&lt;/code&gt; in &amp;ldquo;text mode&amp;rdquo; to a list of words &lt;code&gt;w*&lt;/code&gt;,  then calls &lt;code&gt;f&lt;/code&gt; just like &lt;code&gt;(apply f A B w*)&lt;/code&gt;&lt;/li&gt;
+ &lt;li&gt;&lt;code&gt;@f{....}&lt;/code&gt; evaluates the &lt;code&gt;....&lt;/code&gt; in &amp;ldquo;text mode&amp;rdquo; and calls &lt;code&gt;f&lt;/code&gt; with the results&lt;/li&gt;
+ &lt;li&gt;&lt;code&gt;@f|{....}|&lt;/code&gt; is similar, but the &lt;code&gt;....&lt;/code&gt; are in &amp;ldquo;unescapable text mode&amp;rdquo;&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&amp;ldquo;Unescapable text mode&amp;rdquo; treats @-signs as text instead of toggling between modes.&lt;/p&gt;
+
+&lt;h4 id="generating-html"&gt;Generating HTML&lt;/h4&gt;
+
+&lt;p&gt;The &lt;a href="http://docs.racket-lang.org/scribble-pp/html.html"&gt;&lt;code&gt;scribble/html&lt;/code&gt;&lt;/a&gt; language comes with functions that render HTML. These functions have the same name as the corresponding HTML tag.&lt;/p&gt;
+
+&lt;p&gt;Example program:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;#lang scribble/html
+@p{Hello World}&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Running this program prints:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;p&amp;gt;Hello World&amp;lt;/p&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;No surprises.&lt;/p&gt;
+
+&lt;p&gt;One thing that &lt;em&gt;is&lt;/em&gt; surprising is how &lt;code&gt;scribble/html&lt;/code&gt; handles tag attributes. Every tag-rendering function accepts &amp;ldquo;Racket mode&amp;rdquo; arguments that specify  an attribute name and attribute value.&lt;/p&gt;
+
+&lt;p&gt;For example:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;#lang scribble/html
+@p[style: "color:red"]{Hello World}&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Prints:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;p style="color:red"&amp;gt;Hello World&amp;lt;/p&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Hope the output looks familiar. The input syntax is strange, but that&amp;rsquo;s what it is.&lt;/p&gt;
+
+&lt;p&gt;Larger programs print larger webpages. Each page on the PRL website is HTML generated by one &lt;code&gt;scribble/html&lt;/code&gt; program.&lt;/p&gt;
+
+&lt;h2 id="why-scribblehtml-is-an-improvement"&gt;Why &lt;code&gt;scribble/html&lt;/code&gt; is an Improvement&lt;/h2&gt;
+
+&lt;p&gt;Before &lt;code&gt;scribble/html&lt;/code&gt;, the PRL website was implemented in &lt;code&gt;scribble/text&lt;/code&gt;. A &lt;code&gt;scribble/text&lt;/code&gt; program renders and prints text. There is no extra support for HTML.&lt;/p&gt;
+
+&lt;p&gt;To compare, here&amp;rsquo;s the start of the old homepage:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;#lang scribble/text
+@(require "templates.rkt")
+
+&amp;lt;!DOCTYPE html&amp;gt;
+&amp;lt;html lang="en"&amp;gt;
+  @(header "Home")
+  &amp;lt;body id="pn-top"&amp;gt;
+    @(navbar "Home")
+    &amp;lt;div class="jumbotron"&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;And here is the start of the &lt;code&gt;scribble/html&lt;/code&gt;&amp;rsquo;d homepage:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;#lang scribble/html
+@require["templates.rkt"]
+
+@doctype{html}
+@html[lang: "en"]{
+  @header{Home}
+    @body[id: "pn-top"]{
+      @navbar{Home}
+      @div[class: "jumbotron"]{&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The pages look similar. The new one has more @-signs and parentheses, the old one has more &lt;code&gt;&amp;lt;&lt;/code&gt;-signs  and quotes. If you were able to edit the old page, you should be able to edit the new page.&lt;/p&gt;
+
+&lt;p&gt;The &lt;strong&gt;key improvement&lt;/strong&gt; in the new page is that &lt;strong&gt;common mistakes are now  compile-time errors&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;ul&gt;
+ &lt;li&gt;
+  &lt;p&gt;Before, a typo like &lt;code&gt;&amp;lt;hmtl&amp;gt;&lt;/code&gt; would generate an ugly webpage.  After, a typo like &lt;code&gt;@hmtl&lt;/code&gt; is a syntax error.&lt;/p&gt;&lt;/li&gt;
+ &lt;li&gt;
+  &lt;p&gt;Before, a typo like &lt;code&gt;&amp;lt;b&amp;gt;....&lt;/code&gt; with no closing tag would generate an ugly webpage.  After, a typo like &lt;code&gt;@b{....&lt;/code&gt; is a syntax error.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;Both flavors of error message come with source-code line numbers. This is very very helpful.&lt;/p&gt;
+
+&lt;h3 id="small-improvements"&gt;Small Improvements&lt;/h3&gt;
+
+&lt;h4 id="1-more-functions"&gt;1. More Functions&lt;/h4&gt;
+
+&lt;p&gt;Before, the &lt;a href="http://prl.ccs.neu.edu/teaching.html"&gt;Teaching page&lt;/a&gt; contained  some interesting HTML for rendering vertical text (look for the word &amp;ldquo;Semantics&amp;rdquo; to see how this was used):&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;span class="how-to-design-programs"&amp;gt;S&amp;lt;br /&amp;gt;e&amp;lt;br /&amp;gt;m&amp;lt;br /&amp;gt;a&amp;lt;br /&amp;gt;n&amp;lt;br /&amp;gt;t&amp;lt;br /&amp;gt;i&amp;lt;br /&amp;gt;c&amp;lt;br /&amp;gt;s&amp;lt;br /&amp;gt;&amp;lt;br /&amp;gt;&amp;lt;/span&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;After, the same text is generated from a function call:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;@span[class: "how-to-design-programs"]{@vertical-text{Semantics}}&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The &lt;code&gt;vertical-text&lt;/code&gt; function is simple:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;@require[(only-in racket/list add-between)]
+
+@(define (vertical-text . str*)
+   (add-between (string-&amp;gt;list (append* str*)) (br)))&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id="2-more-structure-less-boilerplate"&gt;2. More Structure, Less Boilerplate&lt;/h4&gt;
+
+&lt;p&gt;Here&amp;rsquo;s part of the old definition of &amp;ldquo;Ben Greenman&amp;rdquo; on the &lt;a href="http://prl.ccs.neu.edu/people.html"&gt;People page&lt;/a&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;div class="row pn-person"&amp;gt;
+  &amp;lt;div class="col-md-12 pn-row-eq-height"&amp;gt;
+    &amp;lt;div class="col-md-3 pn-photo"&amp;gt;
+      &amp;lt;div class="img-wrapper"&amp;gt;
+        &amp;lt;img src="img/ben_greenman.jpg" title="Ben Greenman" alt="Ben Greenman" /&amp;gt;
+      &amp;lt;/div&amp;gt;
+    &amp;lt;/div&amp;gt;
+    &amp;lt;div class="col-md-9"&amp;gt;
+      &amp;lt;div class="col-md-4 pn-contact"&amp;gt;
+        &amp;lt;span class="pn-name"&amp;gt;Ben Greenman&amp;lt;/span&amp;gt;&amp;lt;br /&amp;gt;
+        Advisor: Matthias Felleisen&amp;lt;br /&amp;gt;
+        &amp;lt;a href="mailto:types@"@"ccs.neu.edu"&amp;gt;types@"@"ccs.neu.edu&amp;lt;/a&amp;gt;&amp;lt;br /&amp;gt;
+        &amp;lt;a href="http://www.ccs.neu.edu/home/types"&amp;gt;www.ccs.neu.edu/home/types&amp;lt;/a&amp;gt;
+      &amp;lt;/div&amp;gt;
+      &amp;lt;div class="col-md-3 pn-muted col-md-offset-5"&amp;gt;
+        Joined 2014
+      &amp;lt;/div&amp;gt;
+      &amp;lt;div class="col-md-12 pn-bio"&amp;gt;
+        &amp;lt;p&amp;gt;I like constructions .... &amp;lt;/p&amp;gt;
+      &amp;lt;/div&amp;gt;
+    &amp;lt;/div&amp;gt;
+  &amp;lt;/div&amp;gt;
+&amp;lt;/div&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The new definition uses a helper function with keyword arguments for each  &amp;ldquo;field&amp;rdquo; of the person:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;@person[#:name "Ben Greenman"
+        #:title "Advisor: Matthias Felleisen"
+        #:e-mail "types@ccs.neu.edu"
+        #:website "http://ccs.neu.edu/home/types"
+        #:history @list["Joined 2014"]
+        #:img "ben_greenman.jpg"]{
+  I like constructions ....
+}&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id="3-less-string-formatting"&gt;3. Less String-Formatting&lt;/h4&gt;
+
+&lt;p&gt;Before, the code did a lot of string formatting (&lt;a href="https://github.com/nuprl/website/commit/a0600d#diff-1921e33ce89be28dd277cf1c7880d1beL9"&gt;link&lt;/a&gt;):&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;(define (link url body)
+  (string-append "&amp;lt;a href=\"" url "\"&amp;gt;" body "&amp;lt;/a&amp;gt;"))&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The new code has no need for such helper functions.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;@a[href: url body]&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id="bottom-line"&gt;Bottom Line&lt;/h4&gt;
+
+&lt;p&gt;Scribble is a good language for making static HTML pages.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;em&gt;If you liked this post, you may also be interested in:&lt;/em&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+ &lt;li&gt;&lt;a href="http://docs.racket-lang.org/pollen/index.html"&gt;Pollen&lt;/a&gt;&lt;/li&gt;
+ &lt;li&gt;&lt;a href="https://github.com/vishesh/racketscript"&gt;RacketScript&lt;/a&gt;&lt;/li&gt;
+ &lt;li&gt;Other websites built using &lt;a href="http://docs.racket-lang.org/scribble-pp/html.html"&gt;&lt;code&gt;scribble/html&lt;/code&gt;&lt;/a&gt;:  (1) &lt;a href="http://nanopass.org/"&gt;nanopass.github.io&lt;/a&gt; (&lt;a href="https://github.com/nanopass/nanopass.github.io"&gt;source code&lt;/a&gt;),  (2) &lt;a href="http://prl.ccs.neu.edu/gtp/"&gt;Gradual Typing Across the Spectrum&lt;/a&gt; (&lt;a href="https://github.com/nuprl/gtp"&gt;source code&lt;/a&gt;).&lt;/li&gt;
+ &lt;li&gt;&lt;a href="http://prl.ccs.neu.edu/blog/2016/05/18/gradual-typing-across-the-spectrum/"&gt;Notes from a Gradual Typing Across the Spectrum PI meeting&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;</description></item></channel></rss>
