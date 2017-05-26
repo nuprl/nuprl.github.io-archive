@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?> 
+<rss version="2.0">
+ <channel>
+  <title>PRL Blog: Posts tagged 'by Artem Pelenitsyn'</title>
+  <description>PRL Blog: Posts tagged 'by Artem Pelenitsyn'</description>
+  <link>http://prl.ccs.neu.edu/blog/tags/by-Artem-Pelenitsyn.html</link>
+  <lastBuildDate>Wed, 24 May 2017 12:25:17 UT</lastBuildDate>
+  <pubDate>Wed, 24 May 2017 12:25:17 UT</pubDate>
+  <ttl>1800</ttl>
+  <item>
+   <title>Programming Language Conference in Russia</title>
+   <link>http://prl.ccs.neu.edu/blog/2017/05/24/programming-language-conference-in-russia/?utm_source=by-Artem-Pelenitsyn&amp;utm_medium=RSS</link>
+   <guid isPermaLink="false">urn:http-prl-ccs-neu-edu:-blog-2017-05-24-programming-language-conference-in-russia</guid>
+   <pubDate>Wed, 24 May 2017 12:25:17 UT</pubDate>
+   <author>PRL</author>
+   <description>
+&lt;p&gt;In April 3&amp;mdash;5 I took part into a Russian conference exclusively devoted to programming languages: &lt;a href="http://plc.sfedu.ru/"&gt;Programming Languages and Compilers&lt;/a&gt; (&lt;a href="https://translate.google.com/translate?sl=auto&amp;amp;tl=en&amp;amp;js=y&amp;amp;prev=_t&amp;amp;hl=en&amp;amp;ie=UTF-8&amp;amp;u=http%3A%2F%2Fplc.sfedu.ru%2F&amp;amp;edit-text=&amp;amp;act=url"&gt;Google.Translated version of the site&lt;/a&gt;). I was a member of organizing committee and had a paper there.&lt;/p&gt;
+
+&lt;p&gt;This is the first conference in Russia highly focused on our area of PL. At least for the last several decades (I believe, there were conferences of the kind back in USSR). The conference was devoted to the memory of prominent Soviet PL-researcher from Rostov-on-Don, Adolf Fuksman who worked on ideas quite similar to what we know as the aspect-oriented programming back in the 70-s.&lt;/p&gt;
+&lt;!-- more--&gt;
+
+&lt;p&gt;We designed and implemented the conference with my colleagues from I.I.Vorovich institute of Mathematics, Mechanics and Computer Science, Southern Federal University (&lt;a href="https://www.google.com/maps/place/Rostov-on-Don,+Rostov+Oblast,+Russia/@49.8345629,18.9321123,4.5z/data=!4m5!3m4!1s0x40e3c777c3b4b6ef:0x8248b451e48b4d04!8m2!3d47.2357137!4d39.701505"&gt;Rostov-on-Don&lt;/a&gt;, Russia). We aimed at gathering as much PL-researchers and enthusiasts from academia in Russia as we could. One of the consequences of the aim was a decision to run the conference in Russian. Though we missed expertise from our non-Russian speaking colleagues, we got thorough participation from all over Russia:&lt;/p&gt;
+
+&lt;blockquote&gt;
+ &lt;p&gt;Saint-Petersburg, Moscow, Novosibirsk, Krasnoyarsk, Ekaterinburg, Kazan, etc.&lt;/p&gt;&lt;/blockquote&gt;
+
+&lt;p&gt;I only mention here the cities with more than 1 mil. population in decreasing in number of conference participants order (and excluding Rostov itself, of course).&lt;/p&gt;
+
+&lt;p&gt;I particularly liked talks by invited speakers. When searching for ones, we targeted Russians who work at prominent universities and/or have some visibility at the international level. We ended up with two researchers: &lt;a href="http://ilyasergey.net/"&gt;Ilya Sergey&lt;/a&gt; (University College of London) and &lt;a href="http://www.macs.hw.ac.uk/~ek19/"&gt;Ekaterina Komendantskaya&lt;/a&gt; (Heriot-Watt U., Edinburg, UK). Interestingly, their talks were quite close to each other:&lt;/p&gt;
+
+&lt;ul&gt;
+ &lt;li&gt;I. Sergey, Dependent Types for verification of real-world programs,&lt;/li&gt;
+ &lt;li&gt;E. Komendantskaya, Automated Theorem Proving for Type Inference, Constructively.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;Both of them talked about types as a logic tool to ensure program correctness.&lt;/p&gt;
+
+&lt;p&gt;Biggest opening in this conference for me was a team from Languages Tools Laboratory of &lt;a href="https://en.wikipedia.org/wiki/JetBrains"&gt;JetBrains&lt;/a&gt;. Surely, you heard about JB: either about their famous IDE, IntelliJ IDEA, or the Kotlin programming language (which, by the way, &lt;a href="https://blog.jetbrains.com/kotlin/2017/05/kotlin-on-android-now-official/"&gt;is endorsed&lt;/a&gt; for Android development these days). You may also have noticed that JB become sponsors of ECOOP and OPLSS this year. So we had a whole team of researchers from Saint-Petersburg office of JB. Among their topics: &lt;code&gt;OCaml&lt;/code&gt; embedding of &lt;code&gt;miniKanren&lt;/code&gt; (some results was presented on ML Workshop 2016), parser combinator libraries for &lt;code&gt;OCaml&lt;/code&gt; and constrained graph querying (this is not specifically a PL problem, see &lt;a href="https://arxiv.org/abs/1502.02242"&gt;arXiv:1502.02242&lt;/a&gt; for details).&lt;/p&gt;
+
+&lt;p&gt;Otherwise the spectrum of topics presented on the conference was quite broad, here are some:&lt;/p&gt;
+
+&lt;ul&gt;
+ &lt;li&gt;Static analysis with PVS-studio (a sponsor talk),&lt;/li&gt;
+ &lt;li&gt;supercompilation (a talk by researchers from Pereslavl-Zalesskiy, where the topic is actively developed for decades),&lt;/li&gt;
+ &lt;li&gt;C++ and beyond (by a member of the ISO C++ committee),&lt;/li&gt;
+ &lt;li&gt;architecture-agnostic parallel programming languages and compilation techniques for parallel architectures,&lt;/li&gt;
+ &lt;li&gt;game semantics and ontologies for PL semantics,&lt;/li&gt;
+ &lt;li&gt;program analysis,&lt;/li&gt;
+ &lt;li&gt;compiler architectures.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;Full program with links to slides in Russian is available &lt;a href="https://docs.google.com/spreadsheets/d/11QiFUqJG_NiBHVUfji_6-FiqP3aQWmdDBN13abM32nY/edit?usp=sharing"&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Let me mention my submission: that was a joint work with a student of mine on exploring design space for parser combinator libraries using programming language with direct support of effect system, namely &lt;a href="http://popl17.sigplan.org/event/popl-2017-papers-do-be-do-be-do"&gt;Frank&lt;/a&gt;. &lt;a href="http://staff.mmcs.sfedu.ru/%7Ejuliet/index.en.html"&gt;Julia Belyakova&lt;/a&gt; also participated in the conference with her work on Coq-certified interpreter for an extension of lambda-calculus with concept-parameters (module-like kind of thing). The follow-up of that work is accepted for FTfJP workshop this year. You can also listen to her on the topic at the &lt;a href="http://www.nepls.org/Events/30/"&gt;NEPLS&lt;/a&gt; next week.&lt;/p&gt;
+
+&lt;p&gt;I hope that we will find sources, time, and, most important, high quality submissions for PLC&amp;ndash;2018.&lt;/p&gt;</description></item></channel></rss>

@@ -20,6 +20,7 @@ http://prl.ccs.neu.edu/blog/2017/01/02/fall-2016-pl-junior-retrospective/
 http://prl.ccs.neu.edu/blog/2017/04/17/type-directed-compilation-parts-i-and-ii/
 http://prl.ccs.neu.edu/blog/2017/05/01/categorical-semantics-for-dynamically-typed-programming-languages/
 http://prl.ccs.neu.edu/blog/2017/04/04/top-five-results-of-the-past-50-years-of-programming-languages-research/
+http://prl.ccs.neu.edu/blog/2017/05/24/programming-language-conference-in-russia/
 http://prl.ccs.neu.edu/blog/2017/02/21/bullets-are-good-for-your-coq-proofs/
 http://prl.ccs.neu.edu/blog/2017/05/15/artifacts-for-semantics/
 http://prl.ccs.neu.edu/blog/2016/08/02/tutorial-zero-to-sixty-in-racket/
