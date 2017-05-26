@@ -4,7 +4,30 @@
  <link rel="self" href="http://prl.ccs.neu.edu/blog/feeds/all.atom.xml" />
  <link href="http://prl.ccs.neu.edu/blog/index.html" />
  <id>urn:http-prl-ccs-neu-edu:-blog-index-html</id>
- <updated>2017-05-24T12:25:17Z</updated>
+ <updated>2017-05-26T17:00:28Z</updated>
+ <entry>
+  <title type="text">Racket 4.9 and Windows 10 Creative Update</title>
+  <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2017/05/26/racket-4-9-and-windows-10-creative-update/?utm_source=all&amp;utm_medium=Atom" />
+  <id>urn:http-prl-ccs-neu-edu:-blog-2017-05-26-racket-4-9-and-windows-10-creative-update</id>
+  <published>2017-05-26T17:00:28Z</published>
+  <updated>2017-05-26T17:00:28Z</updated>
+  <author>
+   <name>PRL</name></author>
+  <content type="html">
+&lt;p&gt;&lt;a href="http://racket-lang.org/"&gt;Racket&lt;/a&gt; 6.9 was released in April and it has been smooth sailing for many people. However, some people using the Windows 10 Creative Update have been experiencing &lt;a href="https://github.com/racket/racket/issues/1671"&gt;crashes&lt;/a&gt;, not just for Racket, but for the whole operating system. This is a caused by a bug Windows, not Racket. We have contacted Microsoft but they have not yet fixed their operating system. The next version of Racket will have a patch to work around this Windows bug. But until the next version is released, there is a workaround for some users: run Racket in a VM. This blog post gives you a step by step guide on how to install a VM for Racket in Windows.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="https://github.com/nuprl/website/releases/download/racket69vm/Racket_6_9.ova"&gt;A VirtualBox image with Racket preinstalled can be downloaded here.&lt;/a&gt; The rest of this blog post is a tutorial on how to install this image.&lt;/p&gt;
+&lt;!-- more--&gt;
+
+&lt;ol&gt;
+ &lt;li&gt;
+  &lt;p&gt;The first thing you need to install is virtualization software. In principle it doesn&amp;rsquo;t matter what you install, but for this tutorial, we will use &lt;a href="https://www.virtualbox.org/"&gt;VirtualBox&lt;/a&gt;. Go to their &lt;a href="https://www.virtualbox.org/wiki/Downloads"&gt;downloads&lt;/a&gt; page and download and install the version for your platform (most likely Windows).&lt;/p&gt;&lt;/li&gt;
+ &lt;li&gt;
+  &lt;p&gt;Once installed, you need to download a virtual image and install Racket on it. We have prepared an image that comes with Racket pre-installed, which &lt;a href="https://github.com/nuprl/website/releases/download/racket69vm/Racket_6_9.ova"&gt;you can download here&lt;/a&gt;. The rest of this tutorial will assume you are using this image.&lt;/p&gt;&lt;/li&gt;
+ &lt;li&gt;
+  &lt;p&gt;Start up VirtualBox and import the virtual machine. You can do this by clicking on &lt;code&gt;File -&amp;gt; Import Appliance&lt;/code&gt;. In the dialog, select the image you downloaded and hit &lt;code&gt;Continue&lt;/code&gt;. The next window lets you change the specs for your virtual machine. Feel free to make any changes you want, but the defaults work fine for this image. Once you are satisfied click &lt;code&gt;Import&lt;/code&gt;.&lt;/p&gt;&lt;/li&gt;
+ &lt;li&gt;
+  &lt;p&gt;That&amp;rsquo;s it. You should now see your new VM in the list on the left of the VirtualBox manager. Select it and hit &lt;code&gt;Start&lt;/code&gt;. Once started up, you will see DrRacket and Firefox on the VM&amp;rsquo;s desktop.&lt;/p&gt;&lt;/li&gt;&lt;/ol&gt;</content></entry>
  <entry>
   <title type="text">Programming Language Conference in Russia</title>
   <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2017/05/24/programming-language-conference-in-russia/?utm_source=all&amp;utm_medium=Atom" />
@@ -1539,41 +1562,4 @@ rest of the proof using H:foo.&lt;/code&gt;&lt;/pre&gt;
  &lt;li&gt;there are many techniques for efficiently serving a Datalog query&lt;/li&gt;
  &lt;li&gt;these techniques have been implemented in &lt;a href="https://developer.logicblox.com/wp-content/uploads/2016/01/logicblox-sigmod15.pdf"&gt;at least one&lt;/a&gt;  commercial Datalog engine&lt;/li&gt;&lt;/ul&gt;
 
-&lt;p&gt;For an excellent description of how Datalog can benefit static analysis, see the introduction to &lt;a href="http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.648.1834&amp;amp;rep=rep1&amp;amp;type=pdf"&gt;Rep&amp;rsquo;s paper&lt;/a&gt;.&lt;/p&gt;</content></entry>
- <entry>
-  <title type="text">Conversational Context and Concurrency</title>
-  <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2017/02/15/conversational-context-and-concurrency/?utm_source=all&amp;utm_medium=Atom" />
-  <id>urn:http-prl-ccs-neu-edu:-blog-2017-02-15-conversational-context-and-concurrency</id>
-  <published>2017-02-15T01:21:55Z</published>
-  <updated>2017-02-15T01:21:55Z</updated>
-  <author>
-   <name>PRL</name></author>
-  <content type="html">&lt;!-- more--&gt;
-
-&lt;p&gt;When programs are written with concurrency in mind, the programmer reasons about the interactions between concurrent components or agents in the program. This includes exchange of information, as well as management of resources, handling of partial failure, collective decision-making and so on.&lt;/p&gt;
-
-&lt;p&gt;These components might be objects, or threads, or processes, or actors, or some more nebulous and loosely-defined concept; a group of callbacks, perhaps. The programmer has the notion of an agent in their mind, which translates into some representation of that agent in the program.&lt;/p&gt;
-
-&lt;p&gt;We think about the contexts (because there can be more than one) in which agents exist in two different ways. From each agent&amp;rsquo;s perspective, the important thing to think about is the boundary between the agent and everything else in the system. But from the system perspective, we often think about &lt;em&gt;conversations&lt;/em&gt; between agents, whether it&amp;rsquo;s just two having an exchange, or a whole group collaborating on some task. Agents in a conversation play different roles, join and leave the group, and build shared conversational state.&lt;/p&gt;
-
-&lt;p&gt;In this talk, I used the idea of these &lt;em&gt;conversational contexts&lt;/em&gt; as a lens through which to view the development of various metaphors and mechanisms of communication and coordination. I presented four &lt;em&gt;computational models&lt;/em&gt; for concurrent interaction:&lt;/p&gt;
-
-&lt;ul&gt;
- &lt;li&gt;monitors, and shared memory concurrency generally&lt;/li&gt;
- &lt;li&gt;the actor model&lt;/li&gt;
- &lt;li&gt;channel-based communication&lt;/li&gt;
- &lt;li&gt;tuplespaces&lt;/li&gt;&lt;/ul&gt;
-
-&lt;p&gt;These aren&amp;rsquo;t full programming languages, but there are many &lt;em&gt;programming models&lt;/em&gt; that build upon them. In some cases, development of these ideas has progressed all the way up to &lt;em&gt;system models&lt;/em&gt; including user interaction and so forth.&lt;/p&gt;
-
-&lt;p&gt;The linked lecture notes include informal sketches of reduction semantics for each of the four models, plus a handful of small examples to give a feel for them.&lt;/p&gt;
-
-&lt;p&gt;Lecture Notes:&lt;/p&gt;
-
-&lt;ul&gt;
- &lt;li&gt;&lt;a href="https://github.com/nuprl/hopl-s2017/tree/master/conversational-context-and-concurrency/index.md"&gt;https://github.com/nuprl/hopl-s2017/tree/master/conversational-context-and-concurrency/index.md&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;
-
-&lt;p&gt;Discussion summary:&lt;/p&gt;
-
-&lt;ul&gt;
- &lt;li&gt;&lt;a href="https://github.com/nuprl/hopl-s2017/blob/master/lecture_notes/2017-01-31.md"&gt;https://github.com/nuprl/hopl-s2017/blob/master/lecture_notes/2017&amp;ndash;01&amp;ndash;31.md&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;</content></entry></feed>
+&lt;p&gt;For an excellent description of how Datalog can benefit static analysis, see the introduction to &lt;a href="http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.648.1834&amp;amp;rep=rep1&amp;amp;type=pdf"&gt;Rep&amp;rsquo;s paper&lt;/a&gt;.&lt;/p&gt;</content></entry></feed>

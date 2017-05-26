@@ -3,14 +3,14 @@
   <head>
 
     <meta charset="utf-8">
-    <title>Posts tagged 'by Leif Andersen'</title>
-    <meta name="description" content="Posts tagged 'by Leif Andersen'">
+    <title>Racket 4.9 and Windows 10 Creative Update</title>
+    <meta name="description" content="Racket 6.9 was released in April and it has been smooth sailing for many people. However, some people using the Windows 10 Creative Update have been experiencing crashes, not just for Racket, but for the whole operating system. This is a caused by a bug W...">
     <meta name="author"      content="PRL">
-    <meta name="keywords"    content="by Leif Andersen">
+    <meta name="keywords"    content="racket, windows, bugs, by Leif Andersen">
     <meta name="viewport"    content="width=device-width, initial-scale=1.0">
     <link rel="icon"      href="/img/favicon.ico">
-    <link rel="canonical" href="http://prl.ccs.neu.edu/blog/tags/by-Leif-Andersen.html">
-
+    <link rel="canonical" href="http://prl.ccs.neu.edu/blog/2017/05/26/racket-4-9-and-windows-10-creative-update/">
+    <link rel="next" href="/blog/2017/05/24/programming-language-conference-in-russia/">
 
     <script type="text/javascript" async
             src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
@@ -75,11 +75,11 @@
             <!-- Main column -->
             <div id="content" class="col-md-12">
 
-              <h1>Posts tagged <em>by Leif Andersen</em></h1>
+
 
               <article>
   <header>
-    <h2><a href='/blog/2017/05/26/racket-4-9-and-windows-10-creative-update/'>Racket 4.9 and Windows 10 Creative Update</a></h2>
+    <h1>Racket 4.9 and Windows 10 Creative Update</h1>
     <p class='date-and-tags'>
 <time datetime="2017-05-26" pubdate="true">2017-05-26</time> :: <span class="tags"><a href="/blog/tags/racket.html">racket</a>, <a href="/blog/tags/windows.html">windows</a>, <a href="/blog/tags/bugs.html">bugs</a>, <a href="/blog/tags/by-Leif-Andersen.html">by Leif Andersen</a></span></p>
   </header>
@@ -87,19 +87,43 @@
 <p><a href="http://racket-lang.org/">Racket</a> 6.9 was released in April and it has been smooth sailing for many people. However, some people using the Windows 10 Creative Update have been experiencing <a href="https://github.com/racket/racket/issues/1671">crashes</a>, not just for Racket, but for the whole operating system. This is a caused by a bug Windows, not Racket. We have contacted Microsoft but they have not yet fixed their operating system. The next version of Racket will have a patch to work around this Windows bug. But until the next version is released, there is a workaround for some users: run Racket in a VM. This blog post gives you a step by step guide on how to install a VM for Racket in Windows.</p>
 
 <p><a href="https://github.com/nuprl/website/releases/download/racket69vm/Racket_6_9.ova">A VirtualBox image with Racket preinstalled can be downloaded here.</a> The rest of this blog post is a tutorial on how to install this image.</p>
-  <footer>
-    <a href='/blog/2017/05/26/racket-4-9-and-windows-10-creative-update/'>&hellip; more &hellip;</a>
-  </footer>
-</article>
-<article>
-  <header>
-    <h2><a href='/blog/2017/04/17/type-directed-compilation-parts-i-and-ii/'>Type-Directed Compilation, Parts I and II</a></h2>
-    <p class='date-and-tags'>
-<time datetime="2017-04-17" pubdate="true">2017-04-17</time> :: <span class="tags"><a href="/blog/tags/HOPL.html">HOPL</a>, <a href="/blog/tags/by-Leif-Andersen.html">by Leif Andersen</a>, <a href="/blog/tags/by-William-J-Bowman.html">by William J. Bowman</a></span></p>
-  </header>
+<!-- more-->
 
+<ol>
+ <li>
+  <p>The first thing you need to install is virtualization software. In principle it doesn&rsquo;t matter what you install, but for this tutorial, we will use <a href="https://www.virtualbox.org/">VirtualBox</a>. Go to their <a href="https://www.virtualbox.org/wiki/Downloads">downloads</a> page and download and install the version for your platform (most likely Windows).</p></li>
+ <li>
+  <p>Once installed, you need to download a virtual image and install Racket on it. We have prepared an image that comes with Racket pre-installed, which <a href="https://github.com/nuprl/website/releases/download/racket69vm/Racket_6_9.ova">you can download here</a>. The rest of this tutorial will assume you are using this image.</p></li>
+ <li>
+  <p>Start up VirtualBox and import the virtual machine. You can do this by clicking on <code>File -&gt; Import Appliance</code>. In the dialog, select the image you downloaded and hit <code>Continue</code>. The next window lets you change the specs for your virtual machine. Feel free to make any changes you want, but the defaults work fine for this image. Once you are satisfied click <code>Import</code>.</p></li>
+ <li>
+  <p>That&rsquo;s it. You should now see your new VM in the list on the left of the VirtualBox manager. Select it and hit <code>Start</code>. Once started up, you will see DrRacket and Firefox on the VM&rsquo;s desktop.</p></li></ol>
+  <br/><br/>
   <footer>
-    <a href='/blog/2017/04/17/type-directed-compilation-parts-i-and-ii/'>&hellip; more &hellip;</a>
+    <script type="text/javascript">
+      !function(d,s,id){
+          var js,fjs=d.getElementsByTagName(s)[0];
+          if(!d.getElementById(id)){
+              js=d.createElement(s);
+              js.id=id;
+              js.src="//platform.twitter.com/widgets.js";
+              fjs.parentNode.insertBefore(js,fjs);
+          }
+      }(document,"script","twitter-wjs");
+    </script>
+    <a href="https://twitter.com/share"
+       class="twitter-share-button"
+       data-url="http://prl.ccs.neu.edu/blog/2017/05/26/racket-4-9-and-windows-10-creative-update/"
+       data-dnt="true">
+      "Tweet"</a>
+    <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+    <g:plusone size="medium" href="http://prl.ccs.neu.edu/blog/2017/05/26/racket-4-9-and-windows-10-creative-update/"></g:plusone>
+    <ul class="pager">
+
+    <li class="next">
+      <a href="/blog/2017/05/24/programming-language-conference-in-russia/"><em>Programming Language Conference in Russia</em> &rarr;</a>
+    </li>
+    </ul>
   </footer>
 </article>
             </div>
