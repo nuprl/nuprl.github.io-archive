@@ -17,6 +17,8 @@
 &lt;p&gt;&lt;a href="http://racket-lang.org/"&gt;Racket&lt;/a&gt; 6.9 was released in April and it has been smooth sailing for many people. However, some people using the Windows 10 Creative Update have been experiencing &lt;a href="https://github.com/racket/racket/issues/1671"&gt;crashes&lt;/a&gt;, not just for Racket, but for the whole operating system. This is a caused by a bug Windows, not Racket. We have contacted Microsoft but they have not yet fixed their operating system. The next version of Racket will have a patch to work around this Windows bug. But until the next version is released, there is a workaround for some users: run Racket in a VM. This blog post gives you a step by step guide on how to install a VM for Racket in Windows.&lt;/p&gt;
 
 &lt;p&gt;&lt;a href="https://github.com/nuprl/website/releases/download/racket69vm/Racket_6_9.ova"&gt;A VirtualBox image with Racket preinstalled can be downloaded here.&lt;/a&gt; The rest of this blog post is a tutorial on how to install this image.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Update&lt;/strong&gt; The username and password for this machine are both &lt;code&gt;racket&lt;/code&gt;.&lt;/p&gt;
 &lt;!-- more--&gt;
 
 &lt;ol&gt;
