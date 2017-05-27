@@ -3,7 +3,7 @@ http://prl.ccs.neu.edu/blog/2017/02/28/linear-types-for-low-level-languages/
 http://prl.ccs.neu.edu/blog/2016/06/07/icfp-2016-looking-for-student-volunteers/
 http://prl.ccs.neu.edu/blog/2016/10/11/compcert-overview/
 http://prl.ccs.neu.edu/blog/2017/05/23/building-a-website-with-scribble/
-http://prl.ccs.neu.edu/blog/2017/05/26/racket-6-9-and-windows-10-creative-update/
+http://prl.ccs.neu.edu/blog/2017/05/26/racket-6-9-and-windows-10-creators-update/
 http://prl.ccs.neu.edu/blog/2017/04/28/what-is-soft-typing/
 http://prl.ccs.neu.edu/blog/2016/05/03/nepls-on-may-31st-at-umass-amherst/
 http://prl.ccs.neu.edu/blog/2017/02/15/conversational-context-and-concurrency/
