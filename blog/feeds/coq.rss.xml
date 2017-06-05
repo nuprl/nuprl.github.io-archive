@@ -9,7 +9,7 @@
   <ttl>1800</ttl>
   <item>
    <title>Bullets are good for your Coq proofs</title>
-   <link>http://prl.ccs.neu.edu/blog/2017/02/21/bullets-are-good-for-your-coq-proofs/?utm_source=coq&amp;utm_medium=RSS</link>
+   <link>http://prl.ccs.neu.edu/blog/2017/02/21/bullets-are-good-for-your-coq-proofs?utm_source=coq&amp;utm_medium=RSS</link>
    <guid isPermaLink="false">urn:http-prl-ccs-neu-edu:-blog-2017-02-21-bullets-are-good-for-your-coq-proofs</guid>
    <pubDate>Tue, 21 Feb 2017 19:04:28 UT</pubDate>
    <author>PRL</author>
@@ -138,7 +138,7 @@ rest of the proof using H:foo.&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;If you are the kind of programmer that is passionate about indentation style, I should now have tricked you to use bullets to propose a different variant. Otherwise, please consider using bullets anyway, for example by following the style above, it will make your life easier in the face of changing developments.&lt;/p&gt;</description></item>
   <item>
    <title>CompCert Overview</title>
-   <link>http://prl.ccs.neu.edu/blog/2016/10/11/compcert-overview/?utm_source=coq&amp;utm_medium=RSS</link>
+   <link>http://prl.ccs.neu.edu/blog/2016/10/11/compcert-overview?utm_source=coq&amp;utm_medium=RSS</link>
    <guid isPermaLink="false">urn:http-prl-ccs-neu-edu:-blog-2016-10-11-compcert-overview</guid>
    <pubDate>Tue, 11 Oct 2016 17:41:16 UT</pubDate>
    <author>PRL</author>

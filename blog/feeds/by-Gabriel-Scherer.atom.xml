@@ -7,7 +7,7 @@
  <updated>2017-04-25T16:46:54Z</updated>
  <entry>
   <title type="text">PRL at SNAPL'17</title>
-  <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2017/04/25/prl-at-snapl-17/?utm_source=by-Gabriel-Scherer&amp;utm_medium=Atom" />
+  <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2017/04/25/prl-at-snapl-17?utm_source=by-Gabriel-Scherer&amp;utm_medium=Atom" />
   <id>urn:http-prl-ccs-neu-edu:-blog-2017-04-25-prl-at-snapl-17</id>
   <published>2017-04-25T16:46:54Z</published>
   <updated>2017-04-25T16:46:54Z</updated>
@@ -53,7 +53,7 @@
 &lt;p&gt;SNAPL is not dissimilar to the (french-speaking) &lt;a href="http://jfla.inria.fr/"&gt;JFLA&lt;/a&gt; that I am more familiar with &amp;mdash; with an added irritating call for paper and unreasonable registration price. It has an interesting diversity of topics of presentation: see also the complete &lt;a href="http://snapl.org/2017/papers.html"&gt;list of accepted papers&lt;/a&gt; this year, and the &lt;a href="http://snapl.org/2015/papers.html"&gt;list of the previous edition&lt;/a&gt;.&lt;/p&gt;</content></entry>
  <entry>
   <title type="text">Bullets are good for your Coq proofs</title>
-  <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2017/02/21/bullets-are-good-for-your-coq-proofs/?utm_source=by-Gabriel-Scherer&amp;utm_medium=Atom" />
+  <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2017/02/21/bullets-are-good-for-your-coq-proofs?utm_source=by-Gabriel-Scherer&amp;utm_medium=Atom" />
   <id>urn:http-prl-ccs-neu-edu:-blog-2017-02-21-bullets-are-good-for-your-coq-proofs</id>
   <published>2017-02-21T19:04:28Z</published>
   <updated>2017-02-21T19:04:28Z</updated>
@@ -184,7 +184,7 @@ rest of the proof using H:foo.&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;If you are the kind of programmer that is passionate about indentation style, I should now have tricked you to use bullets to propose a different variant. Otherwise, please consider using bullets anyway, for example by following the style above, it will make your life easier in the face of changing developments.&lt;/p&gt;</content></entry>
  <entry>
   <title type="text">Measuring the submission/review balance</title>
-  <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2016/12/17/measuring-the-submission-review-balance/?utm_source=by-Gabriel-Scherer&amp;utm_medium=Atom" />
+  <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2016/12/17/measuring-the-submission-review-balance?utm_source=by-Gabriel-Scherer&amp;utm_medium=Atom" />
   <id>urn:http-prl-ccs-neu-edu:-blog-2016-12-17-measuring-the-submission-review-balance</id>
   <published>2016-12-17T16:33:10Z</published>
   <updated>2016-12-17T16:33:10Z</updated>
@@ -257,7 +257,7 @@ rest of the proof using H:foo.&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;I think it is a distinct form of academic service. I don&amp;rsquo;t know how to measure the &amp;ldquo;conference organization cost&amp;rdquo; we impose to our academic colleagues. (If there are around 500 attendants to a typical Programming Languages conference, it means that for every 500 conferences you attend you should organize one all by yourself.)&lt;/p&gt;</content></entry>
  <entry>
   <title type="text">SRC-submissions</title>
-  <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2016/11/17/src-submissions/?utm_source=by-Gabriel-Scherer&amp;utm_medium=Atom" />
+  <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2016/11/17/src-submissions?utm_source=by-Gabriel-Scherer&amp;utm_medium=Atom" />
   <id>urn:http-prl-ccs-neu-edu:-blog-2016-11-17-src-submissions</id>
   <published>2016-11-17T13:52:52Z</published>
   <updated>2016-11-17T13:52:52Z</updated>
@@ -309,7 +309,7 @@ rest of the proof using H:foo.&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;I think we could have &amp;ldquo;Student Research Sessions&amp;rdquo; or &amp;ldquo;Student Poster Sessions&amp;rdquo;, where students are encouraged to present their work, would write those nice extended abstracts and posters, interact with researchers at the conference, and get travel money, without the ranking and prize stuff. (I would still encourage students to participate to SRC today, it seems to be worth it.)&lt;/p&gt;</content></entry>
  <entry>
   <title type="text">Emacs daemon for fast editor startup</title>
-  <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2016/10/17/emacs-daemon-for-fast-editor-startup/?utm_source=by-Gabriel-Scherer&amp;utm_medium=Atom" />
+  <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2016/10/17/emacs-daemon-for-fast-editor-startup?utm_source=by-Gabriel-Scherer&amp;utm_medium=Atom" />
   <id>urn:http-prl-ccs-neu-edu:-blog-2016-10-17-emacs-daemon-for-fast-editor-startup</id>
   <published>2016-10-17T21:48:25Z</published>
   <updated>2016-10-17T21:48:25Z</updated>
@@ -372,7 +372,7 @@ emacsclient -a &lt;span class="s2"&gt;""&lt;/span&gt; -c &lt;span class="s2"&gt;
 &lt;/div&gt;</content></entry>
  <entry>
   <title type="text">Does anyone still care about printed proceedings? (Grab some at NEU this week!)</title>
-  <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2016/06/13/does-anyone-still-care-about-printed-proceedings-grab-some-at-neu-this-week/?utm_source=by-Gabriel-Scherer&amp;utm_medium=Atom" />
+  <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2016/06/13/does-anyone-still-care-about-printed-proceedings-grab-some-at-neu-this-week?utm_source=by-Gabriel-Scherer&amp;utm_medium=Atom" />
   <id>urn:http-prl-ccs-neu-edu:-blog-2016-06-13-does-anyone-still-care-about-printed-proceedings-grab-some-at-neu-this-week</id>
   <published>2016-06-13T10:50:14Z</published>
   <updated>2016-06-13T10:50:14Z</updated>
@@ -391,7 +391,7 @@ emacsclient -a &lt;span class="s2"&gt;""&lt;/span&gt; -c &lt;span class="s2"&gt;
 &lt;p&gt;Not caring about printed proceedings is perfectly fine; but please care about people outside institutions that want to access your work &amp;mdash; for example, master student myself.&lt;/p&gt;</content></entry>
  <entry>
   <title type="text">ICFP 2016: looking for student volunteers</title>
-  <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2016/06/07/icfp-2016-looking-for-student-volunteers/?utm_source=by-Gabriel-Scherer&amp;utm_medium=Atom" />
+  <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2016/06/07/icfp-2016-looking-for-student-volunteers?utm_source=by-Gabriel-Scherer&amp;utm_medium=Atom" />
   <id>urn:http-prl-ccs-neu-edu:-blog-2016-06-07-icfp-2016-looking-for-student-volunteers</id>
   <published>2016-06-07T11:53:47Z</published>
   <updated>2016-06-07T11:53:47Z</updated>
@@ -425,7 +425,7 @@ emacsclient -a &lt;span class="s2"&gt;""&lt;/span&gt; -c &lt;span class="s2"&gt;
 &lt;p&gt;Another thing you should think about is applying to &lt;a href="http://conf.researchr.org/track/icfp-2016/PLMW-ICFP-2016"&gt;PLMW&lt;/a&gt;, the Programming Languages Mentoring Workshop that happens at ICFP, POPL, and PLDI. PLMW funding covers the whole conference cost (travel, housing, registration, dinners), so if you get PLMW funding you have no financial motivation to be a student volunteer. This year, PLMW focuses on early career graduate students.&lt;/p&gt;</content></entry>
  <entry>
   <title type="text">Measuring GC latencies in Haskell, OCaml, Racket</title>
-  <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2016/05/24/measuring-gc-latencies-in-haskell-ocaml-racket/?utm_source=by-Gabriel-Scherer&amp;utm_medium=Atom" />
+  <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2016/05/24/measuring-gc-latencies-in-haskell-ocaml-racket?utm_source=by-Gabriel-Scherer&amp;utm_medium=Atom" />
   <id>urn:http-prl-ccs-neu-edu:-blog-2016-05-24-measuring-gc-latencies-in-haskell-ocaml-racket</id>
   <published>2016-05-24T10:51:34Z</published>
   <updated>2016-05-24T10:51:34Z</updated>
@@ -874,7 +874,7 @@ GC: 0:MAJ @ 1,406,514K(+149,645K)[+1,560K]; free 577,765K(-577,765K) 21ms @ 5069
 &lt;p&gt;To summarize, Racket&amp;rsquo;s incremental GC exhibits a decent-but-not-excellent steady state behavior, with maximal latencies of around 22ms, but currently suffers from a GC control issues that cause much larger pauses during the benchmark ramp-up period. Explicit GC calls can partly mitigate them.&lt;/p&gt;</content></entry>
  <entry>
   <title type="text">NEPLS on May 31st at UMass, Amherst</title>
-  <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2016/05/03/nepls-on-may-31st-at-umass-amherst/?utm_source=by-Gabriel-Scherer&amp;utm_medium=Atom" />
+  <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2016/05/03/nepls-on-may-31st-at-umass-amherst?utm_source=by-Gabriel-Scherer&amp;utm_medium=Atom" />
   <id>urn:http-prl-ccs-neu-edu:-blog-2016-05-03-nepls-on-may-31st-at-umass-amherst</id>
   <published>2016-05-03T08:21:07Z</published>
   <updated>2016-05-03T08:21:07Z</updated>

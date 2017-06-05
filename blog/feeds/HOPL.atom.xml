@@ -7,7 +7,7 @@
  <updated>2017-05-09T14:04:31Z</updated>
  <entry>
   <title type="text">No Good Answers, Gradually Typed Object-Oriented Languages</title>
-  <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2017/05/09/no-good-answers-gradually-typed-object-oriented-languages/?utm_source=HOPL&amp;utm_medium=Atom" />
+  <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2017/05/09/no-good-answers-gradually-typed-object-oriented-languages?utm_source=HOPL&amp;utm_medium=Atom" />
   <id>urn:http-prl-ccs-neu-edu:-blog-2017-05-09-no-good-answers-gradually-typed-object-oriented-languages</id>
   <published>2017-05-09T14:04:31Z</published>
   <updated>2017-05-09T14:04:31Z</updated>
@@ -32,7 +32,7 @@
  &lt;li&gt;&lt;a href="https://github.com/BenChung/GradualComparison/tree/master/examples/HOPL"&gt;https://github.com/BenChung/GradualComparison/tree/master/examples/HOPL&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;</content></entry>
  <entry>
   <title type="text">Categorical Semantics for Dynamically Typed Programming Languages</title>
-  <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2017/05/01/categorical-semantics-for-dynamically-typed-programming-languages/?utm_source=HOPL&amp;utm_medium=Atom" />
+  <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2017/05/01/categorical-semantics-for-dynamically-typed-programming-languages?utm_source=HOPL&amp;utm_medium=Atom" />
   <id>urn:http-prl-ccs-neu-edu:-blog-2017-05-01-categorical-semantics-for-dynamically-typed-programming-languages</id>
   <published>2017-05-01T12:25:17Z</published>
   <updated>2017-05-01T12:25:17Z</updated>
@@ -47,7 +47,7 @@
 &lt;p&gt;&lt;a href="/blog/static/dyn-cats.pdf"&gt;My Full Notes&lt;/a&gt; continue the story, and you might also be interested in the &lt;a href="https://github.com/nuprl/hopl-s2017/blob/master/lecture_notes/2017-04-07.md"&gt;discussion during the lecture&lt;/a&gt;.&lt;/p&gt;</content></entry>
  <entry>
   <title type="text">What is Soft Typing?</title>
-  <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2017/04/28/what-is-soft-typing/?utm_source=HOPL&amp;utm_medium=Atom" />
+  <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2017/04/28/what-is-soft-typing?utm_source=HOPL&amp;utm_medium=Atom" />
   <id>urn:http-prl-ccs-neu-edu:-blog-2017-04-28-what-is-soft-typing</id>
   <published>2017-04-28T12:25:17Z</published>
   <updated>2017-04-28T12:25:17Z</updated>
@@ -155,7 +155,7 @@
  &lt;li&gt;&lt;a href="https://github.com/nuprl/hopl-s2017/tree/master/soft-typing"&gt;Source of Truth&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;</content></entry>
  <entry>
   <title type="text">Refinement Types</title>
-  <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2017/04/20/refinement-types/?utm_source=HOPL&amp;utm_medium=Atom" />
+  <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2017/04/20/refinement-types?utm_source=HOPL&amp;utm_medium=Atom" />
   <id>urn:http-prl-ccs-neu-edu:-blog-2017-04-20-refinement-types</id>
   <published>2017-04-20T23:38:23Z</published>
   <updated>2017-04-20T23:38:23Z</updated>
@@ -179,7 +179,7 @@
  &lt;li&gt;&lt;a href="https://github.com/nuprl/hopl-s2017/tree/master/refinement-types"&gt;GitHub&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;</content></entry>
  <entry>
   <title type="text">Type-Directed Compilation, Parts I and II</title>
-  <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2017/04/17/type-directed-compilation-parts-i-and-ii/?utm_source=HOPL&amp;utm_medium=Atom" />
+  <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2017/04/17/type-directed-compilation-parts-i-and-ii?utm_source=HOPL&amp;utm_medium=Atom" />
   <id>urn:http-prl-ccs-neu-edu:-blog-2017-04-17-type-directed-compilation-parts-i-and-ii</id>
   <published>2017-04-17T12:00:17Z</published>
   <updated>2017-04-17T12:00:17Z</updated>
@@ -211,7 +211,7 @@
  &lt;li&gt;&lt;a href="https://github.com/nuprl/hopl-s2017/blob/master/dependent-type-preserving-compilation"&gt;https://github.com/nuprl/hopl-s2017/blob/master/dependent-type-preserving-compilation&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;</content></entry>
  <entry>
   <title type="text">Top Five Results of the Past 50 Years of Programming Languages Research</title>
-  <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2017/04/04/top-five-results-of-the-past-50-years-of-programming-languages-research/?utm_source=HOPL&amp;utm_medium=Atom" />
+  <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2017/04/04/top-five-results-of-the-past-50-years-of-programming-languages-research?utm_source=HOPL&amp;utm_medium=Atom" />
   <id>urn:http-prl-ccs-neu-edu:-blog-2017-04-04-top-five-results-of-the-past-50-years-of-programming-languages-research</id>
   <published>2017-04-04T10:21:36Z</published>
   <updated>2017-04-04T10:21:36Z</updated>
@@ -278,7 +278,7 @@
  &lt;li&gt;&lt;a href="https://williamjbowman.com/blog/2017/03/24/what-even-is-compiler-correctness/"&gt;What even is compiler correctness?&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;</content></entry>
  <entry>
   <title type="text">Tracing JITs for Dynamic Languages</title>
-  <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2017/03/15/tracing-jits-for-dynamic-languages/?utm_source=HOPL&amp;utm_medium=Atom" />
+  <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2017/03/15/tracing-jits-for-dynamic-languages?utm_source=HOPL&amp;utm_medium=Atom" />
   <id>urn:http-prl-ccs-neu-edu:-blog-2017-03-15-tracing-jits-for-dynamic-languages</id>
   <published>2017-03-15T10:54:39Z</published>
   <updated>2017-03-15T10:54:39Z</updated>
@@ -301,7 +301,7 @@
  &lt;li&gt;&lt;a href="https://github.com/nuprl/hopl-s2017/blob/master/tracing-jit/annotated.txt"&gt;Annotated bibliography&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;</content></entry>
  <entry>
   <title type="text">Type Inference in Stack-Based Programming Languages</title>
-  <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2017/03/10/type-inference-in-stack-based-programming-languages/?utm_source=HOPL&amp;utm_medium=Atom" />
+  <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2017/03/10/type-inference-in-stack-based-programming-languages?utm_source=HOPL&amp;utm_medium=Atom" />
   <id>urn:http-prl-ccs-neu-edu:-blog-2017-03-10-type-inference-in-stack-based-programming-languages</id>
   <published>2017-03-10T16:23:30Z</published>
   <updated>2017-03-10T16:23:30Z</updated>
@@ -328,7 +328,7 @@
  &lt;li&gt;&lt;a href="/blog/static/stack-languages-annotated-bib.pdf"&gt;Annotated bibliography&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;</content></entry>
  <entry>
   <title type="text">Linear Types for Low-level Languages</title>
-  <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2017/02/28/linear-types-for-low-level-languages/?utm_source=HOPL&amp;utm_medium=Atom" />
+  <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2017/02/28/linear-types-for-low-level-languages?utm_source=HOPL&amp;utm_medium=Atom" />
   <id>urn:http-prl-ccs-neu-edu:-blog-2017-02-28-linear-types-for-low-level-languages</id>
   <published>2017-02-28T09:51:55Z</published>
   <updated>2017-02-28T09:51:55Z</updated>
@@ -361,7 +361,7 @@
  &lt;li&gt;Managing type annotations is a low-level detail in ML programs&lt;/li&gt;&lt;/ul&gt;</content></entry>
  <entry>
   <title type="text">Datalog for Static Analysis</title>
-  <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2017/02/21/datalog-for-static-analysis/?utm_source=HOPL&amp;utm_medium=Atom" />
+  <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2017/02/21/datalog-for-static-analysis?utm_source=HOPL&amp;utm_medium=Atom" />
   <id>urn:http-prl-ccs-neu-edu:-blog-2017-02-21-datalog-for-static-analysis</id>
   <published>2017-02-21T12:58:27Z</published>
   <updated>2017-02-21T12:58:27Z</updated>
@@ -405,7 +405,7 @@
 &lt;p&gt;For an excellent description of how Datalog can benefit static analysis, see the introduction to &lt;a href="http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.648.1834&amp;amp;rep=rep1&amp;amp;type=pdf"&gt;Rep&amp;rsquo;s paper&lt;/a&gt;.&lt;/p&gt;</content></entry>
  <entry>
   <title type="text">Conversational Context and Concurrency</title>
-  <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2017/02/15/conversational-context-and-concurrency/?utm_source=HOPL&amp;utm_medium=Atom" />
+  <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2017/02/15/conversational-context-and-concurrency?utm_source=HOPL&amp;utm_medium=Atom" />
   <id>urn:http-prl-ccs-neu-edu:-blog-2017-02-15-conversational-context-and-concurrency</id>
   <published>2017-02-15T01:21:55Z</published>
   <updated>2017-02-15T01:21:55Z</updated>
@@ -442,7 +442,7 @@
  &lt;li&gt;&lt;a href="https://github.com/nuprl/hopl-s2017/blob/master/lecture_notes/2017-01-31.md"&gt;https://github.com/nuprl/hopl-s2017/blob/master/lecture_notes/2017&amp;ndash;01&amp;ndash;31.md&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;</content></entry>
  <entry>
   <title type="text">Introducing HOPL 2017</title>
-  <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2017/02/15/introducing-hopl-2017/?utm_source=HOPL&amp;utm_medium=Atom" />
+  <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2017/02/15/introducing-hopl-2017?utm_source=HOPL&amp;utm_medium=Atom" />
   <id>urn:http-prl-ccs-neu-edu:-blog-2017-02-15-introducing-hopl-2017</id>
   <published>2017-02-15T01:21:37Z</published>
   <updated>2017-02-15T01:21:37Z</updated>

@@ -4,10 +4,73 @@
  <link rel="self" href="http://prl.ccs.neu.edu/blog/feeds/all.atom.xml" />
  <link href="http://prl.ccs.neu.edu/blog/index.html" />
  <id>urn:http-prl-ccs-neu-edu:-blog-index-html</id>
- <updated>2017-05-26T17:00:28Z</updated>
+ <updated>2017-06-05T15:47:59Z</updated>
+ <entry>
+  <title type="text">Report: PLISS 2017</title>
+  <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2017/06/05/report-pliss-2017?utm_source=all&amp;utm_medium=Atom" />
+  <id>urn:http-prl-ccs-neu-edu:-blog-2017-06-05-report-pliss-2017</id>
+  <published>2017-06-05T15:47:59Z</published>
+  <updated>2017-06-05T15:47:59Z</updated>
+  <author>
+   <name>PRL</name></author>
+  <content type="html">
+&lt;p&gt;Two weeks ago, I attended the first &lt;a href="https://pliss2017.github.io/"&gt;Programming Language Implementation Summer School&lt;/a&gt;, held in beautiful Bertinoro, Italy.&lt;/p&gt;
+
+&lt;p&gt;The goal of PLISS was &amp;ldquo;to prepare early graduate students and advanced undergraduates for research in the field,&amp;rdquo; and I think it successfully accomplished that. There were many talks in a variety of areas, such as just-in-time compilers, garbage collection, static analysis, and distributed systems. But PLISS was more than just a series of talks: PLISS provided an environment for interacting with other students as well as senior researchers.&lt;/p&gt;
+&lt;!-- more--&gt;
+
+&lt;h2 id="the-talks"&gt;The Talks&lt;/h2&gt;
+
+&lt;p&gt;With the amount of technical content at PLISS, there was easily something for everyone. &lt;a href="http://janvitek.org/"&gt;Jan Vitek&lt;/a&gt; and &lt;a href="http://tratt.net/laurie/"&gt;Laurence Tratt&lt;/a&gt; gave lectures that included hands-on exercises where we worked on JITs. &lt;a href="https://www.cs.purdue.edu/homes/suresh/"&gt;Suresh Jagannathan&lt;/a&gt; dived into the operational semantics of a distributed system, so we could reason about different weak consistency models. Francesco Logozzo gave us a whirlwind tour of abstract interpretation.&lt;/p&gt;
+
+&lt;p&gt;Most of my favorite talks included some form of extra content, such as exercises, live-coding presentations, or demos. I found it really helpful to write actual code and apply what I had just learned, or to look at some concrete examples. The examples and exercises also helped with the pacing, as actively listening to four 90-minute talks every day is exhausting!&lt;/p&gt;
+
+&lt;p&gt;Off the top of my head, these were some of my favorite talks:&lt;/p&gt;
+
+&lt;ul&gt;
+ &lt;li&gt;
+  &lt;p&gt;&lt;strong&gt;Dynamic Programming Language Implementation with LLVM&lt;/strong&gt;, by Petr Maj, Oli  Flückiger, and &lt;a href="http://janvitek.org/"&gt;Jan Vitek&lt;/a&gt;. As the first talk of the summer school, this  was a gentle introduction for the rest of the week. We had &lt;a href="https://github.com/PRL-PRG/pliss-rift/"&gt;exercises&lt;/a&gt;  (with intentional bugs to make us think!), and also brief overviews of  intermediate languages, static analysis, and garbage collection. These three  topics would later show up in more detail.&lt;/p&gt;&lt;/li&gt;
+ &lt;li&gt;
+  &lt;p&gt;&lt;strong&gt;Micro Virtual Machines&lt;/strong&gt;, by &lt;a href="http://users.cecs.anu.edu.au/~steveb/"&gt;Steve Blackburn&lt;/a&gt;. This talk covered  background information on virtual machines, and also the &lt;a href="http://microvm.github.io/"&gt;Micro VM&lt;/a&gt;  project that Steve&amp;rsquo;s group has been working on. A lot of the material was  already familiar to me, but I still enjoyed the talk, and even got a few  ideas for the project I&amp;rsquo;m working on!&lt;/p&gt;&lt;/li&gt;
+ &lt;li&gt;
+  &lt;p&gt;&lt;strong&gt;Static Analysis&lt;/strong&gt;, by &lt;a href="http://matt.might.net/"&gt;Matt Might&lt;/a&gt;. Matt&amp;rsquo;s talk was based on one of  his &lt;a href="http://matt.might.net/articles/intro-static-analysis/"&gt;articles&lt;/a&gt; and an older talk he&amp;rsquo;s given. Impressively, the entire  example was live-coded, with only a single mistake!&lt;/p&gt;&lt;/li&gt;
+ &lt;li&gt;
+  &lt;p&gt;&lt;strong&gt;Testing Language Implementations&lt;/strong&gt;, by &lt;a href="http://multicore.doc.ic.ac.uk/"&gt;Alastair Donaldson&lt;/a&gt;. This was  an entertaining talk, since Ally showed multiple examples of crashing  compilers, and causing other kinds of mischief by triggering compiler bugs.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;If you&amp;rsquo;re disappointed that you couldn&amp;rsquo;t see these talks, don&amp;rsquo;t worry! The talks were recorded and will be posted very shortly.&lt;/p&gt;
+
+&lt;h2 id="the-people"&gt;The People&lt;/h2&gt;
+
+&lt;p&gt;But there&amp;rsquo;s more to PLISS than the talks. I&amp;rsquo;m referring to &lt;em&gt;networking&lt;/em&gt;, or the opportunity to get out and talk to other people about research.&lt;/p&gt;
+
+&lt;p&gt;As an early graduate student, I&amp;rsquo;ve been given a lot of advice about talking to people at conferences and the importance of the &amp;ldquo;hallway track.&amp;rdquo; I still have difficulty doing this at an actual conference, like &lt;a href="http://pldi17.sigplan.org/home"&gt;PLDI&lt;/a&gt; or &lt;a href="http://2017.ecoop.org/"&gt;ECOOP&lt;/a&gt;. When there are hundreds of attendees, or when people already know each other and are in conversation groups, I find it difficult to approach them.&lt;/p&gt;
+
+&lt;p&gt;This was not the case at PLISS. There were fewer attendees: about fifty students and a dozen speakers. There was a good mix of undergraduate, master&amp;rsquo;s, first-year PhD, and more senior PhD students. All our breakfasts, lunches, and breaks were together, so we would see the same people again and again, and inevitably start to learn each other&amp;rsquo;s names. The speakers would also be among us, and there was a good ratio of speakers to students for discussions and mealtime mentoring.&lt;/p&gt;
+
+&lt;p&gt;I had many opportunities to practice my &amp;ldquo;research pitch.&amp;rdquo; I talked to senior students and got advice. I talked to junior students and gave advice. Two different people I talked to about my research pointed me to the same paper to read. I found another student who was working with &lt;a href="http://research.cs.wisc.edu/wpis/papers/popl95.pdf"&gt;IFDS&lt;/a&gt;, an algorithm I have spent much time trying to understand. And, one day at lunch, my table discovered that we were all working on static analysis!&lt;/p&gt;
+
+&lt;p&gt;As much as I enjoyed the talks, I think the best part of PLISS was meeting and talking to other people. You can replace talks with videos (but you lose the speaker-audience interaction), and you can replace conversations with other forms of communication. But there isn&amp;rsquo;t really anything that can replace the serendipity of bumping into someone with a shared interest.&lt;/p&gt;
+
+&lt;h2 id="the-location"&gt;The Location&lt;/h2&gt;
+
+&lt;p&gt;Actually, the &lt;em&gt;other&lt;/em&gt; best part of PLISS was the location. Italy is a beautiful country with delicious food. And Bertinoro is a small town on the top of a hill, with a breathtaking view of the surrounding area. The lectures were held in a &lt;a href="https://pliss2017.github.io/images/pics/7.jpg"&gt;castle at the top of the hill&lt;/a&gt; (photo credit: Steve Blackburn). The speakers lived in the castle for the week, while the students lived in the former monastery (seems fitting), which has been renovated into a university residence.&lt;/p&gt;
+
+&lt;p&gt;Here are my two favorite pictures I took (click for full size):&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="/img/pliss2017-1.jpg"&gt;&lt;img src="/img/pliss2017-1-thumb.jpg" alt="View from the castle" /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="/img/pliss2017-2.jpg"&gt;&lt;img src="/img/pliss2017-2-thumb.jpg" alt="Panorama" /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Steve Blackburn has more pictures posted on the &lt;a href="https://pliss2017.github.io/"&gt;PLISS website&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id="final-thoughts"&gt;Final Thoughts&lt;/h2&gt;
+
+&lt;p&gt;PLISS was a wonderful event. Many thanks need to be given to the speakers, organizers, and sponsors, for making this possible!&lt;/p&gt;
+
+&lt;p&gt;If and when there is a second PLISS, I highly encourage students to apply! You will learn a lot from the lectures, from talking to the speakers, and meeting other students. And if it&amp;rsquo;s in Bertinoro again, you can enjoy the weather and nice view!&lt;/p&gt;</content></entry>
  <entry>
   <title type="text">Racket 6.9 and Windows 10 Creators Update</title>
-  <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2017/05/26/racket-6-9-and-windows-10-creators-update/?utm_source=all&amp;utm_medium=Atom" />
+  <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2017/05/26/racket-6-9-and-windows-10-creators-update?utm_source=all&amp;utm_medium=Atom" />
   <id>urn:http-prl-ccs-neu-edu:-blog-2017-05-26-racket-6-9-and-windows-10-creators-update</id>
   <published>2017-05-26T17:00:28Z</published>
   <updated>2017-05-26T17:00:28Z</updated>
@@ -37,7 +100,7 @@
   &lt;p&gt;After import finishes, you should now see your new VM in the list on the left of the VirtualBox manager. Select it and hit &lt;code&gt;Start&lt;/code&gt;. Once started up, you will see DrRacket and Firefox on the VM&amp;rsquo;s desktop.&lt;/p&gt;&lt;/li&gt;&lt;/ol&gt;</content></entry>
  <entry>
   <title type="text">Programming Language Conference in Russia</title>
-  <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2017/05/24/programming-language-conference-in-russia/?utm_source=all&amp;utm_medium=Atom" />
+  <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2017/05/24/programming-language-conference-in-russia?utm_source=all&amp;utm_medium=Atom" />
   <id>urn:http-prl-ccs-neu-edu:-blog-2017-05-24-programming-language-conference-in-russia</id>
   <published>2017-05-24T12:25:17Z</published>
   <updated>2017-05-24T12:25:17Z</updated>
@@ -84,7 +147,7 @@
 &lt;p&gt;I hope that we will find sources, time, and, most important, high quality submissions for PLC&amp;ndash;2018.&lt;/p&gt;</content></entry>
  <entry>
   <title type="text">Building a Website with Scribble</title>
-  <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2017/05/23/building-a-website-with-scribble/?utm_source=all&amp;utm_medium=Atom" />
+  <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2017/05/23/building-a-website-with-scribble?utm_source=all&amp;utm_medium=Atom" />
   <id>urn:http-prl-ccs-neu-edu:-blog-2017-05-23-building-a-website-with-scribble</id>
   <published>2017-05-23T01:53:13Z</published>
   <updated>2017-05-23T01:53:13Z</updated>
@@ -498,7 +561,7 @@
  &lt;li&gt;&lt;a href="http://prl.ccs.neu.edu/blog/2016/05/18/gradual-typing-across-the-spectrum/"&gt;Notes from a Gradual Typing Across the Spectrum PI meeting&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;</content></entry>
  <entry>
   <title type="text">Artifacts for Semantics</title>
-  <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2017/05/15/artifacts-for-semantics/?utm_source=all&amp;utm_medium=Atom" />
+  <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2017/05/15/artifacts-for-semantics?utm_source=all&amp;utm_medium=Atom" />
   <id>urn:http-prl-ccs-neu-edu:-blog-2017-05-15-artifacts-for-semantics</id>
   <published>2017-05-15T10:08:31Z</published>
   <updated>2017-05-15T10:08:31Z</updated>
@@ -548,7 +611,7 @@
 &lt;p&gt;&lt;a href="https://github.com/dbp/funtal/tree/032be70f33f77e80f4fab7e62016bfabf96476f3"&gt;https://github.com/dbp/funtal&lt;/a&gt;&lt;/p&gt;</content></entry>
  <entry>
   <title type="text">No Good Answers, Gradually Typed Object-Oriented Languages</title>
-  <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2017/05/09/no-good-answers-gradually-typed-object-oriented-languages/?utm_source=all&amp;utm_medium=Atom" />
+  <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2017/05/09/no-good-answers-gradually-typed-object-oriented-languages?utm_source=all&amp;utm_medium=Atom" />
   <id>urn:http-prl-ccs-neu-edu:-blog-2017-05-09-no-good-answers-gradually-typed-object-oriented-languages</id>
   <published>2017-05-09T14:04:31Z</published>
   <updated>2017-05-09T14:04:31Z</updated>
@@ -573,7 +636,7 @@
  &lt;li&gt;&lt;a href="https://github.com/BenChung/GradualComparison/tree/master/examples/HOPL"&gt;https://github.com/BenChung/GradualComparison/tree/master/examples/HOPL&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;</content></entry>
  <entry>
   <title type="text">Rank Polymorphism</title>
-  <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2017/05/04/rank-polymorphism/?utm_source=all&amp;utm_medium=Atom" />
+  <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2017/05/04/rank-polymorphism?utm_source=all&amp;utm_medium=Atom" />
   <id>urn:http-prl-ccs-neu-edu:-blog-2017-05-04-rank-polymorphism</id>
   <published>2017-05-04T18:26:48Z</published>
   <updated>2017-05-04T18:26:48Z</updated>
@@ -620,7 +683,7 @@
  &lt;li&gt;&lt;a href="http://prl.ccs.neu.edu/blog/2017/02/21/datalog-for-static-analysis/"&gt;Datalog for Static Analysis&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;</content></entry>
  <entry>
   <title type="text">Categorical Semantics for Dynamically Typed Programming Languages</title>
-  <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2017/05/01/categorical-semantics-for-dynamically-typed-programming-languages/?utm_source=all&amp;utm_medium=Atom" />
+  <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2017/05/01/categorical-semantics-for-dynamically-typed-programming-languages?utm_source=all&amp;utm_medium=Atom" />
   <id>urn:http-prl-ccs-neu-edu:-blog-2017-05-01-categorical-semantics-for-dynamically-typed-programming-languages</id>
   <published>2017-05-01T12:25:17Z</published>
   <updated>2017-05-01T12:25:17Z</updated>
@@ -635,7 +698,7 @@
 &lt;p&gt;&lt;a href="/blog/static/dyn-cats.pdf"&gt;My Full Notes&lt;/a&gt; continue the story, and you might also be interested in the &lt;a href="https://github.com/nuprl/hopl-s2017/blob/master/lecture_notes/2017-04-07.md"&gt;discussion during the lecture&lt;/a&gt;.&lt;/p&gt;</content></entry>
  <entry>
   <title type="text">What is Soft Typing?</title>
-  <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2017/04/28/what-is-soft-typing/?utm_source=all&amp;utm_medium=Atom" />
+  <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2017/04/28/what-is-soft-typing?utm_source=all&amp;utm_medium=Atom" />
   <id>urn:http-prl-ccs-neu-edu:-blog-2017-04-28-what-is-soft-typing</id>
   <published>2017-04-28T12:25:17Z</published>
   <updated>2017-04-28T12:25:17Z</updated>
@@ -743,7 +806,7 @@
  &lt;li&gt;&lt;a href="https://github.com/nuprl/hopl-s2017/tree/master/soft-typing"&gt;Source of Truth&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;</content></entry>
  <entry>
   <title type="text">PRL at SNAPL'17</title>
-  <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2017/04/25/prl-at-snapl-17/?utm_source=all&amp;utm_medium=Atom" />
+  <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2017/04/25/prl-at-snapl-17?utm_source=all&amp;utm_medium=Atom" />
   <id>urn:http-prl-ccs-neu-edu:-blog-2017-04-25-prl-at-snapl-17</id>
   <published>2017-04-25T16:46:54Z</published>
   <updated>2017-04-25T16:46:54Z</updated>
@@ -789,7 +852,7 @@
 &lt;p&gt;SNAPL is not dissimilar to the (french-speaking) &lt;a href="http://jfla.inria.fr/"&gt;JFLA&lt;/a&gt; that I am more familiar with &amp;mdash; with an added irritating call for paper and unreasonable registration price. It has an interesting diversity of topics of presentation: see also the complete &lt;a href="http://snapl.org/2017/papers.html"&gt;list of accepted papers&lt;/a&gt; this year, and the &lt;a href="http://snapl.org/2015/papers.html"&gt;list of the previous edition&lt;/a&gt;.&lt;/p&gt;</content></entry>
  <entry>
   <title type="text">Refinement Types</title>
-  <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2017/04/20/refinement-types/?utm_source=all&amp;utm_medium=Atom" />
+  <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2017/04/20/refinement-types?utm_source=all&amp;utm_medium=Atom" />
   <id>urn:http-prl-ccs-neu-edu:-blog-2017-04-20-refinement-types</id>
   <published>2017-04-20T23:38:23Z</published>
   <updated>2017-04-20T23:38:23Z</updated>
@@ -813,7 +876,7 @@
  &lt;li&gt;&lt;a href="https://github.com/nuprl/hopl-s2017/tree/master/refinement-types"&gt;GitHub&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;</content></entry>
  <entry>
   <title type="text">Type-Directed Compilation, Parts I and II</title>
-  <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2017/04/17/type-directed-compilation-parts-i-and-ii/?utm_source=all&amp;utm_medium=Atom" />
+  <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2017/04/17/type-directed-compilation-parts-i-and-ii?utm_source=all&amp;utm_medium=Atom" />
   <id>urn:http-prl-ccs-neu-edu:-blog-2017-04-17-type-directed-compilation-parts-i-and-ii</id>
   <published>2017-04-17T12:00:17Z</published>
   <updated>2017-04-17T12:00:17Z</updated>
@@ -845,7 +908,7 @@
  &lt;li&gt;&lt;a href="https://github.com/nuprl/hopl-s2017/blob/master/dependent-type-preserving-compilation"&gt;https://github.com/nuprl/hopl-s2017/blob/master/dependent-type-preserving-compilation&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;</content></entry>
  <entry>
   <title type="text">Top Five Results of the Past 50 Years of Programming Languages Research</title>
-  <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2017/04/04/top-five-results-of-the-past-50-years-of-programming-languages-research/?utm_source=all&amp;utm_medium=Atom" />
+  <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2017/04/04/top-five-results-of-the-past-50-years-of-programming-languages-research?utm_source=all&amp;utm_medium=Atom" />
   <id>urn:http-prl-ccs-neu-edu:-blog-2017-04-04-top-five-results-of-the-past-50-years-of-programming-languages-research</id>
   <published>2017-04-04T10:21:36Z</published>
   <updated>2017-04-04T10:21:36Z</updated>
@@ -912,7 +975,7 @@
  &lt;li&gt;&lt;a href="https://williamjbowman.com/blog/2017/03/24/what-even-is-compiler-correctness/"&gt;What even is compiler correctness?&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;</content></entry>
  <entry>
   <title type="text">[What even is compiler correctness? (cross-post)](https://williamjbowman.com/blog/2017/03/24/what-even-is-compiler-correctness/)</title>
-  <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2017/03/24/-what-even-is-compiler-correctness-cross-post-https-williamjbowman-com-blog-2017-03-24-what-even-is-compiler-correctness/?utm_source=all&amp;utm_medium=Atom" />
+  <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2017/03/24/-what-even-is-compiler-correctness-cross-post-https-williamjbowman-com-blog-2017-03-24-what-even-is-compiler-correctness?utm_source=all&amp;utm_medium=Atom" />
   <id>urn:http-prl-ccs-neu-edu:-blog-2017-03-24-what-even-is-compiler-correctness-cross-post-https-williamjbowman-com-blog-2017-03-24-what-even-is-compiler-correctness</id>
   <published>2017-03-24T23:11:17Z</published>
   <updated>2017-03-24T23:11:17Z</updated>
@@ -921,7 +984,7 @@
   <content type="html"></content></entry>
  <entry>
   <title type="text">Tracing JITs for Dynamic Languages</title>
-  <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2017/03/15/tracing-jits-for-dynamic-languages/?utm_source=all&amp;utm_medium=Atom" />
+  <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2017/03/15/tracing-jits-for-dynamic-languages?utm_source=all&amp;utm_medium=Atom" />
   <id>urn:http-prl-ccs-neu-edu:-blog-2017-03-15-tracing-jits-for-dynamic-languages</id>
   <published>2017-03-15T10:54:39Z</published>
   <updated>2017-03-15T10:54:39Z</updated>
@@ -944,7 +1007,7 @@
  &lt;li&gt;&lt;a href="https://github.com/nuprl/hopl-s2017/blob/master/tracing-jit/annotated.txt"&gt;Annotated bibliography&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;</content></entry>
  <entry>
   <title type="text">Type Inference in Stack-Based Programming Languages</title>
-  <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2017/03/10/type-inference-in-stack-based-programming-languages/?utm_source=all&amp;utm_medium=Atom" />
+  <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2017/03/10/type-inference-in-stack-based-programming-languages?utm_source=all&amp;utm_medium=Atom" />
   <id>urn:http-prl-ccs-neu-edu:-blog-2017-03-10-type-inference-in-stack-based-programming-languages</id>
   <published>2017-03-10T16:23:30Z</published>
   <updated>2017-03-10T16:23:30Z</updated>
@@ -971,7 +1034,7 @@
  &lt;li&gt;&lt;a href="/blog/static/stack-languages-annotated-bib.pdf"&gt;Annotated bibliography&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;</content></entry>
  <entry>
   <title type="text">PLT Redex: mf-apply</title>
-  <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2017/03/03/plt-redex-mf-apply/?utm_source=all&amp;utm_medium=Atom" />
+  <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2017/03/03/plt-redex-mf-apply?utm_source=all&amp;utm_medium=Atom" />
   <id>urn:http-prl-ccs-neu-edu:-blog-2017-03-03-plt-redex-mf-apply</id>
   <published>2017-03-03T08:54:20Z</published>
   <updated>2017-03-03T08:54:20Z</updated>
@@ -1326,7 +1389,7 @@
  &lt;li&gt;&lt;a href="http://summer-school.racket-lang.org/2017/"&gt;http://summer-school.racket-lang.org/2017/&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;</content></entry>
  <entry>
   <title type="text">PLISS: Oregon without the greek</title>
-  <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2017/02/28/pliss-oregon-without-the-greek/?utm_source=all&amp;utm_medium=Atom" />
+  <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2017/02/28/pliss-oregon-without-the-greek?utm_source=all&amp;utm_medium=Atom" />
   <id>urn:http-prl-ccs-neu-edu:-blog-2017-02-28-pliss-oregon-without-the-greek</id>
   <published>2017-02-28T23:01:00Z</published>
   <updated>2017-02-28T23:01:00Z</updated>
@@ -1364,7 +1427,7 @@
 &lt;p&gt;(Oregon is a reference to the &lt;a href="https://www.cs.uoregon.edu/research/summerschool/summer17/"&gt;OPLSS&lt;/a&gt;, in which you may also be interested.)&lt;/p&gt;</content></entry>
  <entry>
   <title type="text">Linear Types for Low-level Languages</title>
-  <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2017/02/28/linear-types-for-low-level-languages/?utm_source=all&amp;utm_medium=Atom" />
+  <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2017/02/28/linear-types-for-low-level-languages?utm_source=all&amp;utm_medium=Atom" />
   <id>urn:http-prl-ccs-neu-edu:-blog-2017-02-28-linear-types-for-low-level-languages</id>
   <published>2017-02-28T09:51:55Z</published>
   <updated>2017-02-28T09:51:55Z</updated>
@@ -1397,7 +1460,7 @@
  &lt;li&gt;Managing type annotations is a low-level detail in ML programs&lt;/li&gt;&lt;/ul&gt;</content></entry>
  <entry>
   <title type="text">Bullets are good for your Coq proofs</title>
-  <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2017/02/21/bullets-are-good-for-your-coq-proofs/?utm_source=all&amp;utm_medium=Atom" />
+  <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2017/02/21/bullets-are-good-for-your-coq-proofs?utm_source=all&amp;utm_medium=Atom" />
   <id>urn:http-prl-ccs-neu-edu:-blog-2017-02-21-bullets-are-good-for-your-coq-proofs</id>
   <published>2017-02-21T19:04:28Z</published>
   <updated>2017-02-21T19:04:28Z</updated>
@@ -1525,48 +1588,4 @@ rest of the proof using H:foo.&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;(This is the only time where I use several bullet levels.)&lt;/p&gt;
 
-&lt;p&gt;If you are the kind of programmer that is passionate about indentation style, I should now have tricked you to use bullets to propose a different variant. Otherwise, please consider using bullets anyway, for example by following the style above, it will make your life easier in the face of changing developments.&lt;/p&gt;</content></entry>
- <entry>
-  <title type="text">Datalog for Static Analysis</title>
-  <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2017/02/21/datalog-for-static-analysis/?utm_source=all&amp;utm_medium=Atom" />
-  <id>urn:http-prl-ccs-neu-edu:-blog-2017-02-21-datalog-for-static-analysis</id>
-  <published>2017-02-21T12:58:27Z</published>
-  <updated>2017-02-21T12:58:27Z</updated>
-  <author>
-   <name>PRL</name></author>
-  <content type="html">&lt;!-- more--&gt;
-
-&lt;p&gt;Datalog is an old DSL that frequently appears in work on static analysis. This edition of &lt;a href="/blog/2017/02/15/introducing-hopl-2017/"&gt;HOPL 2017&lt;/a&gt; explores the origins of Datalog in general, its early use in program analysis, and why Datalog remains a useful tool.&lt;/p&gt;
-
-&lt;p&gt;Full notes:&lt;/p&gt;
-
-&lt;ul&gt;
- &lt;li&gt;&lt;a href="/blog/static/datalog-for-static-analysis.pdf"&gt;Local Copy&lt;/a&gt;&lt;/li&gt;
- &lt;li&gt;&lt;a href="https://github.com/nuprl/hopl-s2017/tree/master/datalog-for-static-analysis"&gt;Source of Truth&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;Datalog as a language was introduced by 1978 (its semantic foundations date back to 1976). It is &lt;em&gt;predicate logic&lt;/em&gt; as a database query language. The traditional view of a Datalog program is a &lt;em&gt;time invariant&lt;/em&gt; transformation over the &lt;em&gt;time varying&lt;/em&gt; data stored in an external database.&lt;/p&gt;
-
-&lt;p&gt;In the early 1990&amp;rsquo;s, Uwe Aβmann designed a graph rewriting systems (EARS) that could:&lt;/p&gt;
-
-&lt;ol&gt;
- &lt;li&gt;Uniformly express various problems in static analysis&lt;/li&gt;
- &lt;li&gt;Systematically derive efficient solutions to such problems.&lt;/li&gt;&lt;/ol&gt;
-
-&lt;p&gt;(Prior work had derived the same solutions with ad-hoc methods.) Aβmann&amp;rsquo;s system is equivalent to Datalog.&lt;/p&gt;
-
-&lt;p&gt;In 1993, Reps used the 
- &lt;tt&gt;CORAL&lt;/tt&gt; deductive database (an implementation of Datalog) to derive an on-demand (read: lazy) implementation of program slicing from a &lt;em&gt;specification&lt;/em&gt; of the slicing problem.&lt;/p&gt;
-
-&lt;p&gt;Both Aβmann&amp;rsquo;s and Reps work appeared in 1994. This was the first time Datalog had been used to implement a static analysis.&lt;/p&gt;
-
-&lt;p&gt;Researchers continue to use Datalog because:&lt;/p&gt;
-
-&lt;ul&gt;
- &lt;li&gt;predicate logic (specifically: Horn clauses without function symbols or negation)  is useful for expressing recursive relations &amp;hellip; and static analyses are all about recursive relations&lt;/li&gt;
- &lt;li&gt;the language separates &lt;em&gt;specifications&lt;/em&gt; from their &lt;em&gt;implementation&lt;/em&gt;&lt;/li&gt;
- &lt;li&gt;there are many techniques for efficiently serving a Datalog query&lt;/li&gt;
- &lt;li&gt;these techniques have been implemented in &lt;a href="https://developer.logicblox.com/wp-content/uploads/2016/01/logicblox-sigmod15.pdf"&gt;at least one&lt;/a&gt;  commercial Datalog engine&lt;/li&gt;&lt;/ul&gt;
-
-&lt;p&gt;For an excellent description of how Datalog can benefit static analysis, see the introduction to &lt;a href="http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.648.1834&amp;amp;rep=rep1&amp;amp;type=pdf"&gt;Rep&amp;rsquo;s paper&lt;/a&gt;.&lt;/p&gt;</content></entry></feed>
+&lt;p&gt;If you are the kind of programmer that is passionate about indentation style, I should now have tricked you to use bullets to propose a different variant. Otherwise, please consider using bullets anyway, for example by following the style above, it will make your life easier in the face of changing developments.&lt;/p&gt;</content></entry></feed>

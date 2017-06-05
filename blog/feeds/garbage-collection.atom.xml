@@ -7,7 +7,7 @@
  <updated>2016-05-24T10:51:34Z</updated>
  <entry>
   <title type="text">Measuring GC latencies in Haskell, OCaml, Racket</title>
-  <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2016/05/24/measuring-gc-latencies-in-haskell-ocaml-racket/?utm_source=garbage-collection&amp;utm_medium=Atom" />
+  <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2016/05/24/measuring-gc-latencies-in-haskell-ocaml-racket?utm_source=garbage-collection&amp;utm_medium=Atom" />
   <id>urn:http-prl-ccs-neu-edu:-blog-2016-05-24-measuring-gc-latencies-in-haskell-ocaml-racket</id>
   <published>2016-05-24T10:51:34Z</published>
   <updated>2016-05-24T10:51:34Z</updated>

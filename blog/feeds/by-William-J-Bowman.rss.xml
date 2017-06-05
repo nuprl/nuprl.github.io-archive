@@ -9,7 +9,7 @@
   <ttl>1800</ttl>
   <item>
    <title>Type-Directed Compilation, Parts I and II</title>
-   <link>http://prl.ccs.neu.edu/blog/2017/04/17/type-directed-compilation-parts-i-and-ii/?utm_source=by-William-J-Bowman&amp;utm_medium=RSS</link>
+   <link>http://prl.ccs.neu.edu/blog/2017/04/17/type-directed-compilation-parts-i-and-ii?utm_source=by-William-J-Bowman&amp;utm_medium=RSS</link>
    <guid isPermaLink="false">urn:http-prl-ccs-neu-edu:-blog-2017-04-17-type-directed-compilation-parts-i-and-ii</guid>
    <pubDate>Mon, 17 Apr 2017 12:00:17 UT</pubDate>
    <author>PRL</author>
@@ -39,14 +39,14 @@
  &lt;li&gt;&lt;a href="https://github.com/nuprl/hopl-s2017/blob/master/dependent-type-preserving-compilation"&gt;https://github.com/nuprl/hopl-s2017/blob/master/dependent-type-preserving-compilation&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;</description></item>
   <item>
    <title>[What even is compiler correctness? (cross-post)](https://williamjbowman.com/blog/2017/03/24/what-even-is-compiler-correctness/)</title>
-   <link>http://prl.ccs.neu.edu/blog/2017/03/24/-what-even-is-compiler-correctness-cross-post-https-williamjbowman-com-blog-2017-03-24-what-even-is-compiler-correctness/?utm_source=by-William-J-Bowman&amp;utm_medium=RSS</link>
+   <link>http://prl.ccs.neu.edu/blog/2017/03/24/-what-even-is-compiler-correctness-cross-post-https-williamjbowman-com-blog-2017-03-24-what-even-is-compiler-correctness?utm_source=by-William-J-Bowman&amp;utm_medium=RSS</link>
    <guid isPermaLink="false">urn:http-prl-ccs-neu-edu:-blog-2017-03-24-what-even-is-compiler-correctness-cross-post-https-williamjbowman-com-blog-2017-03-24-what-even-is-compiler-correctness</guid>
    <pubDate>Fri, 24 Mar 2017 23:11:17 UT</pubDate>
    <author>PRL</author>
    <description></description></item>
   <item>
    <title>[Toward Type-Preserving Compilation of Coq, at POPL17 SRC (cross-post)](https://williamjbowman.com/blog/2017/01/03/toward-type-preserving-compilation-of-coq-at-popl17-src/)</title>
-   <link>http://prl.ccs.neu.edu/blog/2017/01/03/-toward-type-preserving-compilation-of-coq-at-popl17-src-cross-post-https-williamjbowman-com-blog-2017-01-03-toward-type-preserving-compilation-of-coq-at-popl17-src/?utm_source=by-William-J-Bowman&amp;utm_medium=RSS</link>
+   <link>http://prl.ccs.neu.edu/blog/2017/01/03/-toward-type-preserving-compilation-of-coq-at-popl17-src-cross-post-https-williamjbowman-com-blog-2017-01-03-toward-type-preserving-compilation-of-coq-at-popl17-src?utm_source=by-William-J-Bowman&amp;utm_medium=RSS</link>
    <guid isPermaLink="false">urn:http-prl-ccs-neu-edu:-blog-2017-01-03-toward-type-preserving-compilation-of-coq-at-popl17-src-cross-post-https-williamjbowman-com-blog-2017-01-03-toward-type-preserving-compilation-of-coq-at-popl17-src</guid>
    <pubDate>Tue, 03 Jan 2017 15:15:57 UT</pubDate>
    <author>PRL</author>

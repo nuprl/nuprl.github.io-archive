@@ -7,7 +7,7 @@
  <updated>2017-05-01T12:25:17Z</updated>
  <entry>
   <title type="text">Categorical Semantics for Dynamically Typed Programming Languages</title>
-  <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2017/05/01/categorical-semantics-for-dynamically-typed-programming-languages/?utm_source=gradual-typing&amp;utm_medium=Atom" />
+  <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2017/05/01/categorical-semantics-for-dynamically-typed-programming-languages?utm_source=gradual-typing&amp;utm_medium=Atom" />
   <id>urn:http-prl-ccs-neu-edu:-blog-2017-05-01-categorical-semantics-for-dynamically-typed-programming-languages</id>
   <published>2017-05-01T12:25:17Z</published>
   <updated>2017-05-01T12:25:17Z</updated>
@@ -22,7 +22,7 @@
 &lt;p&gt;&lt;a href="/blog/static/dyn-cats.pdf"&gt;My Full Notes&lt;/a&gt; continue the story, and you might also be interested in the &lt;a href="https://github.com/nuprl/hopl-s2017/blob/master/lecture_notes/2017-04-07.md"&gt;discussion during the lecture&lt;/a&gt;.&lt;/p&gt;</content></entry>
  <entry>
   <title type="text">Gradual Typing Across the Spectrum</title>
-  <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2016/05/18/gradual-typing-across-the-spectrum/?utm_source=gradual-typing&amp;utm_medium=Atom" />
+  <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2016/05/18/gradual-typing-across-the-spectrum?utm_source=gradual-typing&amp;utm_medium=Atom" />
   <id>urn:http-prl-ccs-neu-edu:-blog-2016-05-18-gradual-typing-across-the-spectrum</id>
   <published>2016-05-18T07:58:56Z</published>
   <updated>2016-05-18T07:58:56Z</updated>
