@@ -69,6 +69,336 @@
 
 &lt;p&gt;If and when there is a second PLISS, I highly encourage students to apply! You will learn a lot from the lectures, from talking to the speakers, and meeting other students. And if it&amp;rsquo;s in Bertinoro again, you can enjoy the weather and nice view!&lt;/p&gt;</description></item>
   <item>
+   <title>Syntactic parametricity strikes again</title>
+   <link>http://prl.ccs.neu.edu/blog/2017/06/05/syntactic-parametricity-strikes-again?utm_source=all&amp;utm_medium=RSS</link>
+   <guid isPermaLink="false">urn:http-prl-ccs-neu-edu:-blog-2017-06-05-syntactic-parametricity-strikes-again</guid>
+   <pubDate>Mon, 05 Jun 2017 14:27:44 UT</pubDate>
+   <author>PRL</author>
+   <description>
+&lt;p&gt;
+ &lt;script type="math/tex; mode=display"&gt;
+\newcommand{\List}[1]{\mathsf{List}~#1}
+\newcommand{\Fin}[1]{\mathsf{Fin}~#1}
+\newcommand{\Nat}[1]{\mathbb{N}}
+\newcommand{\rule}[2]{\frac{\displaystyle \array{#1}}{\displaystyle #2}}
+\newcommand{\judge}[2]{{#1} \vdash {#2}}
+\newcommand{\emptyrule}[1]{\begin{array}{c}\\[-1em] #1 \end{array}}&lt;/script&gt;&lt;/p&gt;
+
+&lt;p&gt;In this blog post, reporting on a collaboration with &lt;a href="https://poisson.chat/"&gt;Li-Yao Xia&lt;/a&gt;, I will show an example of how some results that we traditionally think of as arising from free theorems / parametricity can be established in a purely &amp;ldquo;syntactic&amp;rdquo; way, by looking at the structure of canonical derivations. More precisely, I prove that 
+ &lt;script type="math/tex"&gt;
+  ∀α. \List α → \List \alpha&lt;/script&gt; is isomorphic to 
+ &lt;script type="math/tex"&gt;
+    Π(n:\Nat{}). \List{(\Fin{n})}&lt;/script&gt; where 
+ &lt;script type="math/tex"&gt;\Fin{n}&lt;/script&gt; is the type of integers smaller than 
+ &lt;script type="math/tex"&gt;n&lt;/script&gt;, corresponding to the set 
+ &lt;script type="math/tex"&gt;\{0, 1, \dots, n-1\}&lt;/script&gt;.&lt;/p&gt;
+&lt;!-- more--&gt;
+
+&lt;p&gt;Context: Last week I had the pleasure of visiting UPenn, where I had many interesting discussions with various people. It was also an occasion to temporarily resume a discussion/collaboration I have with Li-Yao Xia, who is currently an intern there, and Jean-Philippe Bernardy, about testing polymorphic programs and its relation to canonical representations for System F.&lt;/p&gt;
+
+&lt;p&gt;During one of our blackboard discussion, Li-Yao and I did a manual proof of a cool result: we proved a parametricity theorem for 
+ &lt;script type="math/tex"&gt;∀α. \List α → \List α&lt;/script&gt; using syntactic methods, namely proof search among canonical proofs. (This is an idea that I have been playing with since the last year of my &lt;a href="http://www.ccs.neu.edu/home/gasche/phd_thesis/"&gt;PhD thesis&lt;/a&gt;, where I unsuccessfully tried to extend my work on canonical forms for the simply-typed lambda-calculus to polymorphism. It is here worked out on an specific example, but my end goal is to turn the manual reasoning into an algorithm.)&lt;/p&gt;
+
+&lt;p&gt;You may wonder, first, why the isomorphism holds. The idea is that a polymorphic function of type 
+ &lt;script type="math/tex"&gt;\List α → \List α&lt;/script&gt; cannot inspect the elements of the input list; it can only use them in the resulting list, possibly duplicating, reordering or dropping some elements. On any input list of size 
+ &lt;script type="math/tex"&gt;n&lt;/script&gt;, the behavior of the function can be described by a list of indices in 
+ &lt;script type="math/tex"&gt;[0; n-1]&lt;/script&gt;. For example, if the input 
+ &lt;script type="math/tex"&gt;[x, y, z]&lt;/script&gt; (for some values of 
+ &lt;script type="math/tex"&gt;x, y, z&lt;/script&gt;) gives the output 
+ &lt;script type="math/tex"&gt;[y, y, x]&lt;/script&gt;, then this relation will hold on &lt;em&gt;any&lt;/em&gt; value of 
+ &lt;script type="math/tex"&gt;x, y, z&lt;/script&gt;, as the function cannot inspect their value or even test them for equality. The behavior of this function on lists of size 3 can be fully described by the list of indices 
+ &lt;script type="math/tex"&gt;[1, 1, 0]&lt;/script&gt;. Its whole behavior is then uniquely determined by one such list for each possible size:&lt;/p&gt;
+
+&lt;p&gt;
+ &lt;script type="math/tex; mode=display"&gt;
+    ∀α. \List α → \List α  \quad≃\quad  Π(n:\Nat{}). \List{(\Fin n)}&lt;/script&gt;&lt;/p&gt;
+
+&lt;p&gt;The idea behind the &amp;ldquo;syntactic&amp;rdquo; (proof-theoretic?) proof method is the following: the set of closed values at a type 
+ &lt;script type="math/tex"&gt;A&lt;/script&gt; is isomorphic to the &lt;em&gt;search space&lt;/em&gt; for canonical/normal derivations of 
+ &lt;script type="math/tex"&gt;\judge{}{A}&lt;/script&gt;. We have tools (in particular the notion of &lt;em&gt;invertible&lt;/em&gt; inference rules) to reason on those – in this post I will only present the reasoning informally, but it can easily be made formally precise.&lt;/p&gt;
+
+&lt;p&gt;We start by looking at the shape of the search space for&lt;/p&gt;
+
+&lt;p&gt;
+ &lt;script type="math/tex; mode=display"&gt;
+    \judge{}{∀α. \List α → \List α}&lt;/script&gt; or, said otherwise, of the judgment 
+ &lt;script type="math/tex; mode=display"&gt;
+    \judge{}{\List α → \List α}&lt;/script&gt;&lt;/p&gt;
+
+&lt;p&gt;with a fresh/abstract type variable 
+ &lt;script type="math/tex"&gt;α&lt;/script&gt;. (I will not be keeping opened type variables in context to avoid confusing them with hypotheses.)&lt;/p&gt;
+
+&lt;p&gt;Any derivation of a function type, without loss of generality (w.l.o.g), is equivalent to a derivation starting with a function introduction. This is the η-expansion rule for functions: any proof term 
+ &lt;script type="math/tex"&gt;e&lt;/script&gt; is equivalent to 
+ &lt;script type="math/tex"&gt;λx.~(e~x)&lt;/script&gt;, a proof that starts with a 
+ &lt;script type="math/tex"&gt;λ&lt;/script&gt;. So any proof can be taken to start as follows: 
+ &lt;script type="math/tex; mode=display"&gt;
+\rule{
+\judge{\List \alpha}{\List \alpha}
+}{
+\judge{}{\List \alpha \to \List \alpha}
+}&lt;/script&gt; we can, w.l.o.g, unfold the recursive type in the context (\(\List α = 1 + (α × \List α)\)): 
+ &lt;script type="math/tex; mode=display"&gt;
+\rule{
+\judge{1 + (α × \List α)}{\List α}
+}{
+\rule{
+\judge{\List α}{\List α}
+}{
+\judge{}{\List α → \List α}
+}}&lt;/script&gt;&lt;/p&gt;
+
+&lt;p&gt;A derivation with a sum type as hypothesis can, w.l.o.g, be assumed to start by splitting on this pair (this is the η-expansion rule for sums): 
+ &lt;script type="math/tex; mode=display"&gt;
+\rule{
+\judge{1}{\List α}
+\quad
+\judge{α × \List α}{\List α}
+}{
+\rule{
+\judge{1 + (α × \List α)}{\List α}
+}{
+\rule{
+\judge{\List α}{\List α}
+}{
+\judge{}{\List α → \List α}
+}}}&lt;/script&gt;&lt;/p&gt;
+
+&lt;p&gt;In the right subgoal, we can always, w.l.o.g, split a hypothesis of product type: 
+ &lt;script type="math/tex; mode=display"&gt;
+\rule{
+\emptyrule{\judge{1}{\List α}}
+\quad
+\rule{
+\judge{α, \List α}{\List α}
+}{
+\judge{α × \List α}{\List α}
+}}{
+\rule{
+\judge{1 + (α × \List α)}{\List α}
+}{
+\rule{
+\judge{\List α}{\List α}
+}{
+\judge{}{\List α → \List α}
+}}}&lt;/script&gt;&lt;/p&gt;
+
+&lt;p&gt;Now, an interesting pattern emerges. In the process of trying to prove 
+ &lt;script type="math/tex"&gt;\judge{\List α}{\List α}&lt;/script&gt;, we have to prove the (right) subgoal 
+ &lt;script type="math/tex"&gt;\judge{α,\List α}{α}&lt;/script&gt;. We can generalize this derivation by assuming that we start with some number 
+ &lt;script type="math/tex"&gt;n&lt;/script&gt; of variables of type 
+ &lt;script type="math/tex"&gt;α&lt;/script&gt; in the context (we write 
+ &lt;script type="math/tex"&gt;α^n&lt;/script&gt; for this): 
+ &lt;script type="math/tex; mode=display"&gt;
+\rule{
+\rule{
+\judge{\alpha^n}{\List \alpha}
+}{
+\judge{\alpha^n, 1}{\List \alpha}
+}
+\quad
+\rule{
+\judge{\alpha^{n+1}, \List \alpha}{\List \alpha}
+}{
+\judge{\alpha^n, \alpha \times \List \alpha}{\List \alpha}
+}}{
+\rule{
+\judge{\alpha^n, 1 + (\alpha \times \List \alpha)}{\List \alpha}
+}{
+\judge{\alpha^n, \List \alpha}{\List \alpha}
+}}&lt;/script&gt;&lt;/p&gt;
+
+&lt;p&gt;
+ &lt;script type="math/tex; mode=display"&gt;
+\newcommand{\llbracket}{〚}
+\newcommand{\rrbracket}{〛}
+\newcommand{\sem}[1]{\llbracket{} #1 \rrbracket{}}&lt;/script&gt;&lt;/p&gt;
+
+&lt;p&gt;Let us write 
+ &lt;script type="math/tex"&gt;\sem{\judge{\alpha^n, \List \alpha}{\List \alpha}}&lt;/script&gt; for the search space corresponding to all possible derivations of the judgment 
+ &lt;script type="math/tex"&gt;\judge{\alpha^n, \List \alpha}{\List \alpha}&lt;/script&gt;. All the proof steps above have been done &amp;ldquo;without loss of generality&amp;rdquo; (in terms of focusing, we only used invertible rules), so they appear in any such derivation. Similarly, let us write 
+ &lt;script type="math/tex"&gt;\sem{\judge{\alpha^n}{\List \alpha}}&lt;/script&gt; for the space of all possible derivations of 
+ &lt;script type="math/tex"&gt;\judge{\alpha^n}{\List \alpha}&lt;/script&gt;, then above we have proven that 
+ &lt;script type="math/tex; mode=display"&gt;
+\sem{\judge{\alpha^n, \List \alpha}{\List \alpha}}
+\quad=\quad
+\sem{\judge{\alpha^n}{\List \alpha}}
+\times
+\sem{\judge{\alpha^{n+1}, \List \alpha}{\List \alpha}}&lt;/script&gt;&lt;/p&gt;
+
+&lt;p&gt;This equality can be unfolded at will 
+ &lt;script type="math/tex; mode=display"&gt;
+\begin{align}
+&amp; \sem{\judge{\alpha^n, \List \alpha}{\List \alpha}} \\
+= &amp; \sem{\judge{\alpha^n}{\List \alpha}}
+    \times
+    \sem{\judge{\alpha^{n+1}, \List \alpha}{\List \alpha}} \\
+= &amp; \sem{\judge{\alpha^n}{\List \alpha}}
+    \times
+    \sem{\judge{\alpha^{n+1}}{\List \alpha}}
+    \times
+    \sem{\judge{\alpha^{n+2}, \List \alpha}{\List \alpha}} \\
+= &amp; \sem{\judge{\alpha^n}{\List \alpha}}
+    \times
+    \sem{\judge{\alpha^{n+1}}{\List \alpha}}
+    \times
+    \sem{\judge{\alpha^{n+2}}{\List \alpha}}
+    \times
+    \sem{\judge{\alpha^{n+3}, \List \alpha}{\List \alpha}} \\
+= &amp; \dots \\
+\end{align}&lt;/script&gt;&lt;/p&gt;
+
+&lt;p&gt;or written as an infinite product 
+ &lt;script type="math/tex; mode=display"&gt;
+    \sem{\judge{\alpha^n, \List \alpha}{\List \alpha}}
+    \quad=\quad
+    \prod_{k \in \Nat{}}{\sem{\judge{\alpha^{n+k}}{\List \alpha}}}&lt;/script&gt; and, in particular, 
+ &lt;script type="math/tex; mode=display"&gt;
+\begin{align}
+&amp; \sem{\judge{}{\List \alpha \to \List \alpha}} \\
+= &amp; \sem{\judge{\alpha^0, \List \alpha}{\List \alpha}} \\
+= &amp; \prod_{n \in \Nat{}}{\sem{\judge{\alpha^n}{\List \alpha}}} \\
+\end{align}&lt;/script&gt;&lt;/p&gt;
+
+&lt;p&gt;Now let&amp;rsquo;s look at the structure of the derivations of 
+ &lt;script type="math/tex"&gt;\judge{\alpha^n}{\List \alpha}&lt;/script&gt;. A proof of this judgment cannot start with a &amp;ldquo;left rule&amp;rdquo;, inspecting the value of one of the 
+ &lt;script type="math/tex"&gt;n&lt;/script&gt; variables of type 
+ &lt;script type="math/tex"&gt;α&lt;/script&gt;, given that the structure of 
+ &lt;script type="math/tex"&gt;α&lt;/script&gt; is unknown/abstract. It must start by choosing to either build the empty list or a cons cell. We write this as follows (after unfolding the type):&lt;/p&gt;
+
+&lt;p&gt;
+ &lt;script type="math/tex; mode=display"&gt;
+\rule{
+\rule{
+\judge{\alpha^n}{1}
+\quad\oplus\quad
+\judge{\alpha^n}{\alpha \times \List \alpha}
+}{
+\judge{\alpha^n}{1 + (\alpha \times \List \alpha)}
+}}{
+\judge{\alpha^n}{\List \alpha}
+}&lt;/script&gt;&lt;/p&gt;
+
+&lt;p&gt;The 
+ &lt;script type="math/tex"&gt;\oplus&lt;/script&gt; notation between two judgments is non-standard; it means that they are not two requirements of the same proof, but two alternatives for possible proofs. All valid proofs fit that structure, and they either have a 
+ &lt;script type="math/tex"&gt;\judge{\alpha^n}{1}&lt;/script&gt; premise or a 
+ &lt;script type="math/tex"&gt;\judge{\alpha^n}{\alpha \times \List \alpha}&lt;/script&gt; premise. With this syntax, we are describing a set of possible derivations, rather than a single (partial) derivation.&lt;/p&gt;
+
+&lt;p&gt;Proofs of 
+ &lt;script type="math/tex"&gt;\judge{\Gamma}{1}&lt;/script&gt; are trivial, and a proof of a product is always, w.l.o.g, a product of proofs (in intuitionistic logic / the λ-calculus they reuse the same context), so we can decompose further: 
+ &lt;script type="math/tex; mode=display"&gt;
+\rule{
+\rule{
+\rule{
+}{
+\judge{\alpha^n}{1}
+}
+\quad\oplus\quad
+\rule
+{
+\judge{\alpha^n}{\alpha}
+\quad
+\judge{\alpha^n}{\List \alpha}
+}{
+\judge{\alpha^n}{\alpha \times \List \alpha}
+}
+}{
+\judge{\alpha^n}{1 + (\alpha \times \List \alpha)}
+}}{
+\judge{\alpha^n}{\List \alpha}
+}&lt;/script&gt;&lt;/p&gt;
+
+&lt;p&gt;There is exactly one possible proof of 
+ &lt;script type="math/tex"&gt;\judge{\alpha^n}{1}&lt;/script&gt;, so its search space is 
+ &lt;script type="math/tex"&gt;1&lt;/script&gt;, the unit set (with a single element). There are exactly 
+ &lt;script type="math/tex"&gt;n&lt;/script&gt; possible proofs of 
+ &lt;script type="math/tex"&gt;\judge{\alpha^n}{\alpha}&lt;/script&gt;, so the search space is just 
+ &lt;script type="math/tex"&gt;n&lt;/script&gt;, seen as a set, or, in type-theoretic notation, 
+ &lt;script type="math/tex"&gt;\Fin{n}&lt;/script&gt;. We thus have the recursive equation: 
+ &lt;script type="math/tex; mode=display"&gt;
+\sem{\judge{\alpha^n}{\List \alpha}}
+\quad=\quad
+1 + (\Fin n \times \sem{\judge{\alpha^n}{\List \alpha}})&lt;/script&gt;&lt;/p&gt;
+
+&lt;p&gt;This type is either 
+ &lt;script type="math/tex"&gt;1&lt;/script&gt;, or a 
+ &lt;script type="math/tex"&gt;\Fin{n}&lt;/script&gt; and itself, recursively. This is exactly a list: 
+ &lt;script type="math/tex; mode=display"&gt;
+\sem{\judge{\alpha^n}{\List \alpha}}
+\quad=\quad
+\List{(\Fin{n})}&lt;/script&gt;&lt;/p&gt;
+
+&lt;p&gt;so, plugging everything together: 
+ &lt;script type="math/tex; mode=display"&gt;
+\begin{align}
+&amp; \sem{\forall \alpha. \List \alpha \to \List \alpha} \\
+= &amp; \prod_{n \in \Nat{}}{\sem{\judge{\alpha^n}{\List \alpha}}} \\
+= &amp; \prod_{n \in \Nat{}}{\List{(\Fin{n})}} \\
+\end{align}&lt;/script&gt;&lt;/p&gt;
+
+&lt;h3 id="post-scriptum"&gt;Post Scriptum&lt;/h3&gt;
+
+&lt;p&gt;Some of reasoning steps above can be formulated in a way that is less clear but more familiar, as a sequence of type isomorphisms. For example, the first part on 
+ &lt;script type="math/tex"&gt;\sem{\judge{\alpha^n, \List
+\alpha}{\List \alpha}}&lt;/script&gt; can written as:&lt;/p&gt;
+
+&lt;p&gt;
+ &lt;script type="math/tex; mode=display"&gt;
+\begin{align}
+&amp;
+∀α. αⁿ × \List α → \List α
+\\ &amp;
+= \text{(unfold List)}
+\\ &amp;
+    ∀α. αⁿ × (1 + α × \List α) → \List α
+\\ &amp;
+    = \text{(distribute × over +)}
+\\ &amp;
+    ∀α. ((αⁿ × 1) + (αⁿ⁺¹ × \List α)) → \List α
+\\ &amp;
+    = \text{(A × 1 ≃ A)}
+\\ &amp;
+    ∀α. (αⁿ + (αⁿ⁺¹ × \List α)) → \List α
+\\ &amp;
+    = \text{(A+B) → C ≃ (A→C)×(B→C)}
+\\ &amp;
+    ∀α. (αⁿ → \List α) × (αⁿ⁺¹ × \List α → \List α)
+\\ &amp;
+    = \text{(distribute ∀α below product)}
+\\ &amp;
+    (∀α. αⁿ → \List α) × (∀α. αⁿ⁺¹ × \List α → \List α)
+\\
+\end{align}&lt;/script&gt;&lt;/p&gt;
+
+&lt;p&gt;Reading this equational sequence, it may look like we had to make the right choice at each step; but the proof-search perspective reveals that there were in fact no choices, as each time we apply invertible rules (&amp;ldquo;w.l.o.g. rules&amp;rdquo;).&lt;/p&gt;
+
+&lt;p&gt;Furthermore, some parts cannot be derived in this style; in the latter part of the proof, the isomorphism between 
+ &lt;script type="math/tex"&gt;∀\alpha. \alpha^n → \alpha&lt;/script&gt; and 
+ &lt;script type="math/tex"&gt;\Fin{n}&lt;/script&gt;, which is immediate from a proof search perspective, cannot be justified in this way. (In particular, 
+ &lt;script type="math/tex"&gt;A×B → C&lt;/script&gt; is &lt;em&gt;not&lt;/em&gt; isomorphic to 
+ &lt;script type="math/tex"&gt;(A→C)+(B→C)&lt;/script&gt;.)&lt;/p&gt;
+
+&lt;h3 id="going-further"&gt;Going further&lt;/h3&gt;
+
+&lt;ul&gt;
+ &lt;li&gt;
+  &lt;p&gt;It is an unfortunately-little-known obvious fact that many things we  associate to &amp;ldquo;free theorems&amp;rdquo; can be recovered by proof search. For  example, it is much simpler to prove that the only inhabitant of  
+   &lt;script type="math/tex"&gt;\forall \alpha. \alpha \to \alpha&lt;/script&gt; is the identity using proof  search than parametricity. I briefly discussed the idea in the  section 1.3 of my 2015 article, &lt;a href="http://gallium.inria.fr/~scherer/research/unique_inhabitants/unique_stlc_sums-long.pdf"&gt;Which simple types have a unique  inhabitant?&lt;/a&gt;.&lt;/p&gt;&lt;/li&gt;
+ &lt;li&gt;
+  &lt;p&gt;If you are unfamiliar with proof search (or the LF community) and  curious about what I mean by &amp;ldquo;canonical forms&amp;rdquo; and why I think this  is an important idea, see my non-technical 2017 article &lt;a href="http://www.ccs.neu.edu/home/gasche/research/canonical-forms/snapl.pdf"&gt;Search for  Program  Structure&lt;/a&gt;. The  problem of extending the notion of canonical forms to arbitrary  polymorphic types is briefly discussed in the section 14.5 of my  2016 &lt;a href="http://www.ccs.neu.edu/home/gasche/phd_thesis/scherer-thesis.pdf"&gt;phd  manuscript&lt;/a&gt;.&lt;/p&gt;&lt;/li&gt;
+ &lt;li&gt;
+  &lt;p&gt;If you haven&amp;rsquo;t heard of it yet, you would probably be interested in  the 2010 article &lt;a href="http://publications.lib.chalmers.se/records/fulltext/local_99387.pdf"&gt;Testing Polymorphic  Properties&lt;/a&gt;  by Jean-Philippe Bernardy, Patrik Jansson and Koen Claessen. Li-Yao  has a 2016 implementation called  &lt;a href="https://github.com/Lysxia/metamorph"&gt;Metamorph&lt;/a&gt; that got us talking  together. The problems of understanding canonical forms and testing  are quite related, but yet not exactly the same&amp;hellip;&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;
+
+&lt;h3 id="you-might-also-like"&gt;You might also like&lt;/h3&gt;
+
+&lt;ul&gt;
+ &lt;li&gt;
+  &lt;p&gt;&lt;a href="blog/2017/05/01/categorical-semantics-for-dynamically-typed-programming-languages/"&gt;Categorical Semantics for Dynamically Typed Programming Languages&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+ &lt;li&gt;
+  &lt;p&gt;&lt;a href="https://williamjbowman.com/blog/2017/01/03/toward-type-preserving-compilation-of-coq-at-popl17-src/"&gt;Toward Type-Preserving Compilation of Coq, at POPL17 SRC&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+ &lt;li&gt;
+  &lt;p&gt;&lt;a href="blog/2016/11/16/understanding-constructive-galois-connections/"&gt;Understanding Constructive Galois Connections&lt;/a&gt;.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;</description></item>
+  <item>
    <title>Racket 6.9 and Windows 10 Creators Update</title>
    <link>http://prl.ccs.neu.edu/blog/2017/05/26/racket-6-9-and-windows-10-creators-update?utm_source=all&amp;utm_medium=RSS</link>
    <guid isPermaLink="false">urn:http-prl-ccs-neu-edu:-blog-2017-05-26-racket-6-9-and-windows-10-creators-update</guid>
@@ -1421,133 +1751,4 @@
  &lt;li&gt;Calling conventions and endian-ness (facets of the damn machine running  the programs) are almost always low-level&lt;/li&gt;
  &lt;li&gt;Whether a given value is serializable is usually low-level&lt;/li&gt;
  &lt;li&gt;Possible side effects, thrown exceptions, and optional arguments can all  be considered &amp;ldquo;low level&amp;rdquo; aspects of library functions. This is low-level  in the sense that &amp;ldquo;I&amp;rsquo;d rather use a simpler type to think about this library&amp;rdquo;&lt;/li&gt;
- &lt;li&gt;Managing type annotations is a low-level detail in ML programs&lt;/li&gt;&lt;/ul&gt;</description></item>
-  <item>
-   <title>Bullets are good for your Coq proofs</title>
-   <link>http://prl.ccs.neu.edu/blog/2017/02/21/bullets-are-good-for-your-coq-proofs?utm_source=all&amp;utm_medium=RSS</link>
-   <guid isPermaLink="false">urn:http-prl-ccs-neu-edu:-blog-2017-02-21-bullets-are-good-for-your-coq-proofs</guid>
-   <pubDate>Tue, 21 Feb 2017 19:04:28 UT</pubDate>
-   <author>PRL</author>
-   <description>
-&lt;p&gt;I believe that bullets are one of the most impactful features of recent versions of Coq, among those that non-super-expert users can enjoy. They had a big impact on the maintainability of my proofs. Unfortunately, they are not very well-known, due to the fact that some introductory documents have not been updated to use them.&lt;/p&gt;
-
-&lt;p&gt;Bullets are a very general construction and there are several possible ways to use them; I have iterated through different styles. In this post I will give the general rules, and explain my current usage style.&lt;/p&gt;
-&lt;!-- more--&gt;
-
-&lt;h2 id="why-bullets"&gt;Why bullets&lt;/h2&gt;
-
-&lt;p&gt;While you are doing a proof, Coq shows a list of subgoals that have to be proved before the whole proof is complete. Most proof steps will operate on the current active subgoal, changing the hypotheses or the goal to prove, but some proof steps will split it into several subgoals (growing the total list of goals), or may terminate the proof of the current subgoal and show you the next active subgoal.&lt;/p&gt;
-
-&lt;p&gt;Before bullets, a typical proof script would contain the proofs of each subgoal, one after another.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;induction foo. (* this creates many subgoal *)
-
-proof of first subgoal.
-
-proof of second subgoal.&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;There are many ways to structure this to make the structure more apparent: people would typically have a comment on each subgoal, or make disciplined use of indentation and blank lines. But, in my experience, a major problem with this style was maintainability in the face of changes to the definitions or parts of automation. It could be very hard of what was happening when a proof suddenly broke after a change before in the file:&lt;/p&gt;
-
-&lt;ul&gt;
- &lt;li&gt;
-  &lt;p&gt;If a proof step now proves &lt;em&gt;less&lt;/em&gt; things, then what used to be the  end of a subgoal may not be anymore. Coq would then start reading  the proof of the next subgoal and try to apply it to the unfinished  previous goals, generating very confusing errors (you believe you  are in the second subgoal, but the context talks about a leaf case  of the first goal).&lt;/p&gt;&lt;/li&gt;
- &lt;li&gt;
-  &lt;p&gt;If a proof step now proves &lt;em&gt;more&lt;/em&gt; things, it is also very bad! The  next proof steps, meant for the first subgoal (for example), would  then apply to the beginning of the second subgoal, and you get very  confusing errors again.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;
-
-&lt;p&gt;What we need for robustness is a way to indicate our &lt;em&gt;intent&lt;/em&gt; to Coq, when we think that a subgoal is finished and that a new subgoal starts, so that Coq can fail loudly at the moment where it notices that this intent does not match reality, instead of at an arbitrary later time.&lt;/p&gt;
-
-&lt;p&gt;(The &lt;code&gt;S*Case&lt;/code&gt; tactics used in (older versions of) Software Foundations can solve this problem if used in a carefully, systematic way, and additionally provides naming. Alexandre Pilkiewicz implemented an even more powerful &lt;a href="https://github.com/pilki/cases"&gt;cases&lt;/a&gt; plugin. Bullets are available in standard Coq since 8.4 (released in 2012), and can be used with no effort.)&lt;/p&gt;
-
-&lt;p&gt;There is not much discussion of bullets around; see the &lt;a href="https://coq.inria.fr/distrib/8.6/refman/Reference-Manual009.html#sec326"&gt;documentation&lt;/a&gt; in the Coq manual. I learned a lot from Arthur Azevedo de Amorim&amp;rsquo;s &lt;a href="https://github.com/arthuraa/poleiro/blob/master/theories/Bullets.v"&gt;Bullets.v&lt;/a&gt; file.&lt;/p&gt;
-
-&lt;p&gt;Finally, some people don&amp;rsquo;t use bullets, because they systematically use so much automation that they never see subgoals &amp;mdash; each lemma has a one-line proof. This is also a valid style. (I have been going to Adam Chlipala&amp;rsquo;s &lt;a href="https://frap.csail.mit.edu/main"&gt;Formal Reasoning about Programs&lt;/a&gt; 2017 class, where Adam ignores bullets because that is his usual style.) Because I am not crushy enough to do this from the start, my proofs tend to start with cases and subgoals, and then I refine them to add more automation for robustness. I found bullets very useful for the first step, and during the refinement process.&lt;/p&gt;
-
-&lt;h2 id="bullets"&gt;Bullets&lt;/h2&gt;
-
-&lt;p&gt;Bullets are actually a combination of two features, braces &lt;code&gt;{ ... }&lt;/code&gt; and actual list bullets &amp;mdash; &lt;code&gt;-&lt;/code&gt;, &lt;code&gt;+&lt;/code&gt;, &lt;code&gt;*&lt;/code&gt;, or homogeneous repetitions of those, for example &lt;code&gt;--&lt;/code&gt; or &lt;code&gt;***&lt;/code&gt;.&lt;/p&gt;
-
-&lt;h3 id="braces"&gt;Braces&lt;/h3&gt;
-
-&lt;p&gt;The opening brace &lt;code&gt;{&lt;/code&gt; focuses the proof on the current subgoal. If you finish the proof of the subgoal, the following subgoal will not become accessible automatically; you have to use the closing brace &lt;code&gt;}&lt;/code&gt; first. (If you finish the goal earlier than you think, you get an error.) Conversely, &lt;code&gt;}&lt;/code&gt; fails if the subgoal is not complete. (If you fail to finish, you get an error.)&lt;/p&gt;
-
-&lt;p&gt;The previous example can thus be written as follows, and will be more robust:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;induction foo. (* this creates many subgoal *)
-{
-  proof of first subgoal.
-}
-{
-  proof of second subgoal.
-}&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;If you also want to make sure that an error occurs if the number of subgoals changes (for example if new constructors are added to the inductive type of &lt;code&gt;foo&lt;/code&gt;), you can use an outer layer of braces:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;{ induction foo. (* this creates many subgoal *)
-  {
-    proof of first subgoal.
-  }
-  {
-    proof of second subgoal.
-  }
-} (* would fail if a new subgoal appeared *)&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id="list-bullets"&gt;List bullets&lt;/h3&gt;
-
-&lt;p&gt;A bullet, for example &lt;code&gt;--&lt;/code&gt;, also focuses on the next subgoal. The difference is that when the subgoal is finished, you do not have a closing construction, you must use the same bullet to move to the next subgoal. (Again, this fails if the first proof step changes to prove too much or too little.) With bullets you would write&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;induction foo. (* this creates many subgoal *)
-+ proof of first subgoal.
-+ proof of second subgoal.&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Bullets can be nested, but you must use different bullets for the different nesting levels. For example, if this proof is only one subgoal of a larger proof, you can use:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;- induction foo. (* this creates many subgoal *)
-  + proof of first subgoal.
-  + proof of second subgoal.
-- (* would fail if a new subgoal appeared *)
-  rest of the proof&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;The natural ordering of bullets, I think, is by increasing number of lines: &lt;code&gt;-&lt;/code&gt;, &lt;code&gt;+&lt;/code&gt; then &lt;code&gt;*&lt;/code&gt; (and then multi-character bullets, I guess). You can also mix bullets with braces: the opening brace resets the bullet scope, any bullet can be used again with the subgoal.&lt;/p&gt;
-
-&lt;p&gt;This gives a large space of freedom in how you want to use these features. You can use only braces, only bullets, braces and only one level of bullets, etc. My own style evolved with experience using the feature, and I will present the current status below.&lt;/p&gt;
-
-&lt;h2 id="my-current-bullet-style"&gt;My current bullet style&lt;/h2&gt;
-
-&lt;p&gt;When deciding how to use bullets, one distinguishes the commands that preserve the number of subgoals and those that may create new subgoals. I use some additional distinctions.&lt;/p&gt;
-
-&lt;p&gt;Some tactics, for example &lt;code&gt;assert&lt;/code&gt;, create a number of subgoals that is &lt;em&gt;statically&lt;/em&gt; known, always the same for the tactic. I then use braces around each sub-proof, except the last one, which I think of as the &amp;ldquo;rest&amp;rdquo; of the current proof.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;assert foo as H.
-{ proof of foo. }
-rest of the proof using H:foo.&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;(If the proof of &lt;code&gt;foo&lt;/code&gt; takes several lines, I two-indent them, with the braces alone on their lines.)&lt;/p&gt;
-
-&lt;p&gt;Most tactics create a &lt;em&gt;dynamic&lt;/em&gt; number of subgoals, that depends on the specifics of the objects being operated on; this is the case of &lt;code&gt;case&lt;/code&gt;, &lt;code&gt;destruct&lt;/code&gt;, &lt;code&gt;induction&lt;/code&gt; for example. In this case, I open a brace before the tactic, and use a bullet for each subgoal.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;{ induction foo; simpl; auto.
-- proof of first remaining subgoal.
-- proof of second remaining subgoal.
-  rest of the proof of the second subgoal.
-}&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;(Notice that the subgoal-creating step is vertically aligned with the proof steps: I use both braces and bullets, but take only one indentation level each time.)&lt;/p&gt;
-
-&lt;p&gt;As an exception, I may omit the braces if we are at the toplevel of the proof (&lt;code&gt;Proof .. Qed&lt;/code&gt; serve as braces).&lt;/p&gt;
-
-&lt;p&gt;Note that omitting the braces here and using different bullets when you nest is also just fine. In my experience it gives proofs that are a bit more pleasant to read but also a bit more cumbersome to edit and move around.&lt;/p&gt;
-
-&lt;p&gt;Finally, a not-uncommon mode of use of &amp;ldquo;dynamic&amp;rdquo; tactics in the sense above is to expect all the cases, except one, to be discharged by direct automation (for example they are all absurd except one). When it is my intent that all cases but one be discharged (and not a coincidence), I express it by not using braces (this command preserves the number of subgoals), but marking the remaining subgoal with a new bullet &lt;em&gt;without&lt;/em&gt; increasing the indentation level.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;{ induction foo.
-- first subgoal.
-- second subgoal.
-  case blah; discharge all sub-subgoals but one.
-+ remaining sub-subgoal of the second subgoal.
-  finish the sub-subgoal.
-- third subgoal.
-}&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;(This is the only time where I use several bullet levels.)&lt;/p&gt;
-
-&lt;p&gt;If you are the kind of programmer that is passionate about indentation style, I should now have tricked you to use bullets to propose a different variant. Otherwise, please consider using bullets anyway, for example by following the style above, it will make your life easier in the face of changing developments.&lt;/p&gt;</description></item></channel></rss>
+ &lt;li&gt;Managing type annotations is a low-level detail in ML programs&lt;/li&gt;&lt;/ul&gt;</description></item></channel></rss>
