@@ -14,17 +14,14 @@
    <pubDate>Mon, 05 Jun 2017 14:27:44 UT</pubDate>
    <author>PRL</author>
    <description>
-&lt;p&gt;
- &lt;script type="math/tex; mode=display"&gt;
+&lt;p&gt;In this blog post, reporting on a collaboration with &lt;a href="https://poisson.chat/"&gt;Li-Yao Xia&lt;/a&gt;, I will show an example of how some results that we traditionally think of as arising from free theorems / parametricity can be established in a purely &amp;ldquo;syntactic&amp;rdquo; way, by looking at the structure of canonical derivations. More precisely, I prove that 
+ &lt;script type="math/tex"&gt;
 \newcommand{\List}[1]{\mathsf{List}~#1}
 \newcommand{\Fin}[1]{\mathsf{Fin}~#1}
 \newcommand{\Nat}[1]{\mathbb{N}}
 \newcommand{\rule}[2]{\frac{\displaystyle \array{#1}}{\displaystyle #2}}
 \newcommand{\judge}[2]{{#1} \vdash {#2}}
-\newcommand{\emptyrule}[1]{\begin{array}{c}\\[-1em] #1 \end{array}}&lt;/script&gt;&lt;/p&gt;
-
-&lt;p&gt;In this blog post, reporting on a collaboration with &lt;a href="https://poisson.chat/"&gt;Li-Yao Xia&lt;/a&gt;, I will show an example of how some results that we traditionally think of as arising from free theorems / parametricity can be established in a purely &amp;ldquo;syntactic&amp;rdquo; way, by looking at the structure of canonical derivations. More precisely, I prove that 
- &lt;script type="math/tex"&gt;
+\newcommand{\emptyrule}[1]{\begin{array}{c}\\[-1em] #1 \end{array}}
   ∀α. \List α → \List \alpha&lt;/script&gt; is isomorphic to 
  &lt;script type="math/tex"&gt;
     Π(n:\Nat{}). \List{(\Fin{n})}&lt;/script&gt; where 
