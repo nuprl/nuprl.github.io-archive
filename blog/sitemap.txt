@@ -32,6 +32,7 @@ http://prl.ccs.neu.edu/blog/2017/05/26/racket-6-9-and-windows-10-creators-update
 http://prl.ccs.neu.edu/blog/2017/02/15/conversational-context-and-concurrency
 http://prl.ccs.neu.edu/blog/2016/06/29/tutorial-racket-ffi-part-2
 http://prl.ccs.neu.edu/blog/2016/11/30/-getting-started-in-programming-languages-cross-post-http-jschuster-org-blog-2016-11-29-getting-started-in-programming-languages
+http://prl.ccs.neu.edu/blog/2017/06/06/spring-2017-pl-junior-retrospective
 http://prl.ccs.neu.edu/blog/2017/01/03/-toward-type-preserving-compilation-of-coq-at-popl17-src-cross-post-https-williamjbowman-com-blog-2017-01-03-toward-type-preserving-compilation-of-coq-at-popl17-src
 http://prl.ccs.neu.edu/blog/2016/11/17/src-submissions
 http://prl.ccs.neu.edu/blog/2017/05/24/programming-language-conference-in-russia
