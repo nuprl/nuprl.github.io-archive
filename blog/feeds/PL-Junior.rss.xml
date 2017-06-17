@@ -4,14 +4,14 @@
   <title>PRL Blog: Posts tagged 'PL Junior'</title>
   <description>PRL Blog: Posts tagged 'PL Junior'</description>
   <link>http://prl.ccs.neu.edu/blog/tags/PL-Junior.html</link>
-  <lastBuildDate>Tue, 06 Jun 2017 11:38:25 UT</lastBuildDate>
-  <pubDate>Tue, 06 Jun 2017 11:38:25 UT</pubDate>
+  <lastBuildDate>Fri, 16 Jun 2017 11:38:25 UT</lastBuildDate>
+  <pubDate>Fri, 16 Jun 2017 11:38:25 UT</pubDate>
   <ttl>1800</ttl>
   <item>
    <title>Spring 2017 PL Junior Retrospective</title>
-   <link>http://prl.ccs.neu.edu/blog/2017/06/06/spring-2017-pl-junior-retrospective?utm_source=PL-Junior&amp;utm_medium=RSS</link>
-   <guid isPermaLink="false">urn:http-prl-ccs-neu-edu:-blog-2017-06-06-spring-2017-pl-junior-retrospective</guid>
-   <pubDate>Tue, 06 Jun 2017 11:38:25 UT</pubDate>
+   <link>http://prl.ccs.neu.edu/blog/2017/06/16/spring-2017-pl-junior-retrospective?utm_source=PL-Junior&amp;utm_medium=RSS</link>
+   <guid isPermaLink="false">urn:http-prl-ccs-neu-edu:-blog-2017-06-16-spring-2017-pl-junior-retrospective</guid>
+   <pubDate>Fri, 16 Jun 2017 11:38:25 UT</pubDate>
    <author>PRL</author>
    <description>
 &lt;p&gt;The &lt;a href="http://prl.ccs.neu.edu/seminars.html"&gt;PL Junior Seminar&lt;/a&gt; is for beginning PhD and interested undergrad and masters students to understand the foundations of programming languages research. It serves to fill in background knowledge and get up to speed with different areas of PL research.&lt;/p&gt;
@@ -29,9 +29,9 @@
 
 &lt;h2 id="synthesis"&gt;Synthesis&lt;/h2&gt;
 
-&lt;p&gt;The first paper on program synthesis that we looked at was &lt;a href="https://www.sri.com/sites/default/files/uploads/publications/pdf/725.pdf"&gt;A Deductive Approach to Program Synthesis&lt;/a&gt; by Zohar and Manna. We chose this paper because it&amp;rsquo;s old and has a lot of citations so it&amp;rsquo;s probably Important. It was interesting and provided an OK introduction to proof search but the method presented seems far removed from modern synthesis techniques.&lt;/p&gt;
+&lt;p&gt;The first paper on program synthesis that we looked at was &lt;a href="https://www.sri.com/sites/default/files/uploads/publications/pdf/725.pdf"&gt;A Deductive Approach to Program Synthesis&lt;/a&gt; by Manna and Waldinger. We chose this paper because it&amp;rsquo;s old and has a lot of citations so it&amp;rsquo;s probably Important. It was interesting and provided an OK introduction to proof search but the method presented seems far removed from modern synthesis techniques.&lt;/p&gt;
 
-&lt;p&gt;The next paper was &lt;a href="https://arxiv.org/abs/1507.02988"&gt;Programmatic and Direct Manipulation, Together&lt;/a&gt; by Chugh et al which presents the &lt;a href="https://ravichugh.github.io/sketch-n-sketch/index.html"&gt;Sketch-n-Sketch&lt;/a&gt; system. Sketch-n-Sketch is a cool system. It demonstrates that a narrow application of synthesis - trying to fill in the constant values in a program (sketching) - can be used for great effect. We were left wondering, however, if it was too narrow an application of synthesis to give much of an indication of what the entire field is like.&lt;/p&gt;
+&lt;p&gt;The next paper was &lt;a href="https://arxiv.org/abs/1507.02988"&gt;Programmatic and Direct Manipulation, Together&lt;/a&gt; by Chugh, Hempel,  Spradlin, and Alders, which presents the &lt;a href="https://ravichugh.github.io/sketch-n-sketch/index.html"&gt;Sketch-n-Sketch&lt;/a&gt; system. Sketch-n-Sketch is a cool system. It demonstrates that a narrow application of synthesis - trying to fill in the constant values in a program (sketching) - can be used for great effect. We were left wondering, however, if it was too narrow an application of synthesis to give much of an indication of what the entire field is like.&lt;/p&gt;
 
 &lt;p&gt;We concluded our program synthesis segment with &lt;a href="http://www.cis.upenn.edu/~stevez/papers/OZ15.pdf"&gt;Type-and-Example-Directed Program Synthesis&lt;/a&gt; by Osera and Zdancewic, another relatively recent paper. This seems like a relevant paper because we are under the impression that using examples to do synthesis is a big thing right now. Using types to constrain the search is another interesting perspective on techniques for synthesis.&lt;/p&gt;
 

@@ -4,22 +4,13 @@
  <link rel="self" href="http://prl.ccs.neu.edu/blog/feeds/all.atom.xml" />
  <link href="http://prl.ccs.neu.edu/blog/index.html" />
  <id>urn:http-prl-ccs-neu-edu:-blog-index-html</id>
- <updated>2017-06-09T13:36:56Z</updated>
- <entry>
-  <title type="text">[Bridging the System Configuration Gap (Cross-Post)](https://aaronweiss.us/posts/2017-06-05-bridging-the-system-configuration-gap.html)</title>
-  <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2017/06/09/-bridging-the-system-configuration-gap-cross-post-https-aaronweiss-us-posts-2017-06-05-bridging-the-system-configuration-gap-html?utm_source=all&amp;utm_medium=Atom" />
-  <id>urn:http-prl-ccs-neu-edu:-blog-2017-06-09-bridging-the-system-configuration-gap-cross-post-https-aaronweiss-us-posts-2017-06-05-bridging-the-system-configuration-gap-html</id>
-  <published>2017-06-09T13:36:56Z</published>
-  <updated>2017-06-09T13:36:56Z</updated>
-  <author>
-   <name>PRL</name></author>
-  <content type="html"></content></entry>
+ <updated>2017-06-16T11:38:25Z</updated>
  <entry>
   <title type="text">Spring 2017 PL Junior Retrospective</title>
-  <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2017/06/06/spring-2017-pl-junior-retrospective?utm_source=all&amp;utm_medium=Atom" />
-  <id>urn:http-prl-ccs-neu-edu:-blog-2017-06-06-spring-2017-pl-junior-retrospective</id>
-  <published>2017-06-06T11:38:25Z</published>
-  <updated>2017-06-06T11:38:25Z</updated>
+  <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2017/06/16/spring-2017-pl-junior-retrospective?utm_source=all&amp;utm_medium=Atom" />
+  <id>urn:http-prl-ccs-neu-edu:-blog-2017-06-16-spring-2017-pl-junior-retrospective</id>
+  <published>2017-06-16T11:38:25Z</published>
+  <updated>2017-06-16T11:38:25Z</updated>
   <author>
    <name>PRL</name></author>
   <content type="html">
@@ -38,9 +29,9 @@
 
 &lt;h2 id="synthesis"&gt;Synthesis&lt;/h2&gt;
 
-&lt;p&gt;The first paper on program synthesis that we looked at was &lt;a href="https://www.sri.com/sites/default/files/uploads/publications/pdf/725.pdf"&gt;A Deductive Approach to Program Synthesis&lt;/a&gt; by Zohar and Manna. We chose this paper because it&amp;rsquo;s old and has a lot of citations so it&amp;rsquo;s probably Important. It was interesting and provided an OK introduction to proof search but the method presented seems far removed from modern synthesis techniques.&lt;/p&gt;
+&lt;p&gt;The first paper on program synthesis that we looked at was &lt;a href="https://www.sri.com/sites/default/files/uploads/publications/pdf/725.pdf"&gt;A Deductive Approach to Program Synthesis&lt;/a&gt; by Manna and Waldinger. We chose this paper because it&amp;rsquo;s old and has a lot of citations so it&amp;rsquo;s probably Important. It was interesting and provided an OK introduction to proof search but the method presented seems far removed from modern synthesis techniques.&lt;/p&gt;
 
-&lt;p&gt;The next paper was &lt;a href="https://arxiv.org/abs/1507.02988"&gt;Programmatic and Direct Manipulation, Together&lt;/a&gt; by Chugh et al which presents the &lt;a href="https://ravichugh.github.io/sketch-n-sketch/index.html"&gt;Sketch-n-Sketch&lt;/a&gt; system. Sketch-n-Sketch is a cool system. It demonstrates that a narrow application of synthesis - trying to fill in the constant values in a program (sketching) - can be used for great effect. We were left wondering, however, if it was too narrow an application of synthesis to give much of an indication of what the entire field is like.&lt;/p&gt;
+&lt;p&gt;The next paper was &lt;a href="https://arxiv.org/abs/1507.02988"&gt;Programmatic and Direct Manipulation, Together&lt;/a&gt; by Chugh, Hempel,  Spradlin, and Alders, which presents the &lt;a href="https://ravichugh.github.io/sketch-n-sketch/index.html"&gt;Sketch-n-Sketch&lt;/a&gt; system. Sketch-n-Sketch is a cool system. It demonstrates that a narrow application of synthesis - trying to fill in the constant values in a program (sketching) - can be used for great effect. We were left wondering, however, if it was too narrow an application of synthesis to give much of an indication of what the entire field is like.&lt;/p&gt;
 
 &lt;p&gt;We concluded our program synthesis segment with &lt;a href="http://www.cis.upenn.edu/~stevez/papers/OZ15.pdf"&gt;Type-and-Example-Directed Program Synthesis&lt;/a&gt; by Osera and Zdancewic, another relatively recent paper. This seems like a relevant paper because we are under the impression that using examples to do synthesis is a big thing right now. Using types to constrain the search is another interesting perspective on techniques for synthesis.&lt;/p&gt;
 
@@ -83,6 +74,15 @@
 &lt;p&gt;Having papers in a theme helped a lot over previous paper-presentation iterations of pl junior. It helped each week being able to build on what we learned last week, as opposed to having a whirlwind of unrelated topics.&lt;/p&gt;
 
 &lt;p&gt;Writing this retrospective has also proven to be a beneficial exercise. Especially with our sequences of connected topics, looking back has allowed us to put the earlier papers into perspective and better assess both their relevance and presentation.&lt;/p&gt;</content></entry>
+ <entry>
+  <title type="text">[Bridging the System Configuration Gap (Cross-Post)](https://aaronweiss.us/posts/2017-06-05-bridging-the-system-configuration-gap.html)</title>
+  <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2017/06/09/-bridging-the-system-configuration-gap-cross-post-https-aaronweiss-us-posts-2017-06-05-bridging-the-system-configuration-gap-html?utm_source=all&amp;utm_medium=Atom" />
+  <id>urn:http-prl-ccs-neu-edu:-blog-2017-06-09-bridging-the-system-configuration-gap-cross-post-https-aaronweiss-us-posts-2017-06-05-bridging-the-system-configuration-gap-html</id>
+  <published>2017-06-09T13:36:56Z</published>
+  <updated>2017-06-09T13:36:56Z</updated>
+  <author>
+   <name>PRL</name></author>
+  <content type="html"></content></entry>
  <entry>
   <title type="text">Report: PLISS 2017</title>
   <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2017/06/05/report-pliss-2017?utm_source=all&amp;utm_medium=Atom" />
