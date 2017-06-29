@@ -26,6 +26,7 @@ http://prl.ccs.neu.edu/blog/2017/04/17/type-directed-compilation-parts-i-and-ii
 http://prl.ccs.neu.edu/blog/2017/03/15/tracing-jits-for-dynamic-languages
 http://prl.ccs.neu.edu/blog/2016/10/11/compcert-overview
 http://prl.ccs.neu.edu/blog/2017/04/28/what-is-soft-typing
+http://prl.ccs.neu.edu/blog/2017/06/24/quotes-and-stories-from-turing-50
 http://prl.ccs.neu.edu/blog/2017/02/15/introducing-hopl-2017
 http://prl.ccs.neu.edu/blog/2016/06/27/tutorial-using-racket-s-ffi
 http://prl.ccs.neu.edu/blog/2017/05/26/racket-6-9-and-windows-10-creators-update
