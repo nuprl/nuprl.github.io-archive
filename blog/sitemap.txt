@@ -21,6 +21,7 @@ http://prl.ccs.neu.edu/blog/2016/04/29/welcome-to-the-prl-blog
 http://prl.ccs.neu.edu/blog/2016/11/16/understanding-constructive-galois-connections
 http://prl.ccs.neu.edu/blog/2017/03/24/-what-even-is-compiler-correctness-cross-post-https-williamjbowman-com-blog-2017-03-24-what-even-is-compiler-correctness
 http://prl.ccs.neu.edu/blog/2016/07/11/tutorial-racket-ffi-part-3
+http://prl.ccs.neu.edu/blog/2017/07/17/continuations
 http://prl.ccs.neu.edu/blog/2017/05/09/no-good-answers-gradually-typed-object-oriented-languages
 http://prl.ccs.neu.edu/blog/2017/04/17/type-directed-compilation-parts-i-and-ii
 http://prl.ccs.neu.edu/blog/2017/03/15/tracing-jits-for-dynamic-languages

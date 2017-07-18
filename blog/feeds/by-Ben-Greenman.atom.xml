@@ -4,7 +4,25 @@
  <link rel="self" href="http://prl.ccs.neu.edu/blog/feeds/by-Ben-Greenman.atom.xml" />
  <link href="http://prl.ccs.neu.edu/blog/tags/by-Ben-Greenman.html" />
  <id>urn:http-prl-ccs-neu-edu:-blog-tags-by-Ben-Greenman-html</id>
- <updated>2017-06-24T20:00:52Z</updated>
+ <updated>2017-07-17T12:52:07Z</updated>
+ <entry>
+  <title type="text">Continuations</title>
+  <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2017/07/17/continuations?utm_source=by-Ben-Greenman&amp;utm_medium=Atom" />
+  <id>urn:http-prl-ccs-neu-edu:-blog-2017-07-17-continuations</id>
+  <published>2017-07-17T12:52:07Z</published>
+  <updated>2017-07-17T12:52:07Z</updated>
+  <author>
+   <name>PRL</name></author>
+  <content type="html">
+&lt;p&gt;From the PRL archives:&lt;/p&gt;
+
+&lt;blockquote&gt;
+ &lt;p&gt;It was also a concept that grabbed my mind, ran off with it, and only returned it after substantial renovation and expansion. &amp;mdash; &lt;a href="/img/nall-continuations-1983.pdf"&gt;&lt;em&gt;Continuations&lt;/em&gt;&lt;/a&gt; by Alan Nall, Indiana University, 1983&lt;/p&gt;&lt;/blockquote&gt;
+&lt;!-- more--&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;I first encountered this essay on continuations in a green folder in the PRL. When I know more about its history, I&amp;rsquo;ll write that down here. Until then, Enjoy.&lt;/p&gt;</content></entry>
  <entry>
   <title type="text">Quotes and Stories from "Turing 50"</title>
   <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2017/06/24/quotes-and-stories-from-turing-50?utm_source=by-Ben-Greenman&amp;utm_medium=Atom" />
