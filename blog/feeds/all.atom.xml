@@ -33,24 +33,24 @@
  &lt;li&gt;
   &lt;p&gt;If you are a program committee chair or a Magical HotCRP Wizard,  please remove this silly recommendation to keep responses to 500  words. (See an alternative proposal at the end of this post.)&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;
 
-&lt;h3 id="my-personal-response-format"&gt;My personal response format&lt;/h3&gt;
+&lt;h2 id="my-personal-response-format"&gt;My personal response format&lt;/h2&gt;
 
 &lt;p&gt;My author responses start with general comments that elaborate on the main point I want to tell all reviewers. Then, a second part contains per-reviewer comments (one section per reviewer); it is clearly marked as skippable. Here is the skeleton of the last response I wrote:&lt;/p&gt;
 
 &lt;blockquote&gt;
  &lt;p&gt;We thank the reviewers for their work on our article and their detailed feedback. We start with a general discussion that responds to the salient points raised by reviewers. In a second part, we provide detailed responses to the questions/remarks of each reviewer.&lt;/p&gt;
- &lt;h2 id="general-discussion"&gt;General discussion&lt;/h2&gt;
+ &lt;h3 id="general-discussion"&gt;General discussion&lt;/h3&gt;
  &lt;p&gt;[..]&lt;/p&gt;
- &lt;h2 id="specific-questionscomments-review-a"&gt;Specific questions/comments: review #A&lt;/h2&gt;
+ &lt;h3 id="specific-questionscomments-review-a"&gt;Specific questions/comments: review #A&lt;/h3&gt;
  &lt;p&gt;[..]&lt;/p&gt;
- &lt;h2 id="specific-questionscomments-review-b"&gt;Specific questions/comments: review #B&lt;/h2&gt;
+ &lt;h3 id="specific-questionscomments-review-b"&gt;Specific questions/comments: review #B&lt;/h3&gt;
  &lt;p&gt;[..]&lt;/p&gt;
- &lt;h2 id="specific-questionscomments-review-c"&gt;Specific questions/comments: review #C&lt;/h2&gt;
+ &lt;h3 id="specific-questionscomments-review-c"&gt;Specific questions/comments: review #C&lt;/h3&gt;
  &lt;p&gt;[&amp;hellip;]&lt;/p&gt;&lt;/blockquote&gt;
 
 &lt;p&gt;For this particular response, the &amp;ldquo;General discussion&amp;rdquo; section used 1296 words according to &lt;code&gt;wc -w&lt;/code&gt; (M-x shell-command-on-region). In the following sections, I quote the reviews to answer specific points, email-style (following the Markdown syntax that HotCRP renders properly).&lt;/p&gt;
 
-&lt;h3 id="suggested-wording-for-pc-chairs"&gt;Suggested wording for PC chairs&lt;/h3&gt;
+&lt;h2 id="suggested-wording-for-pc-chairs"&gt;Suggested wording for PC chairs&lt;/h2&gt;
 
 &lt;p&gt;If you are a PC chair, you should remove the suggestion of respecting a 500 words limit for your conference. Here would be a suggested alternative wording:&lt;/p&gt;
 
