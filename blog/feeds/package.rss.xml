@@ -24,84 +24,7 @@
 &lt;p&gt;Have you used PLT Redex? Good! Maybe this has happened to you:&lt;/p&gt;
 
 &lt;div class="brush: racket"&gt;
- &lt;table class="sourcetable"&gt;
-  &lt;tbody&gt;
-   &lt;tr&gt;
-    &lt;td class="linenos"&gt;
-     &lt;div class="linenodiv"&gt;
-      &lt;pre&gt; 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41
-42
-43
-44
-45
-46
-47
-48
-49
-50
-51
-52
-53
-54
-55
-56
-57
-58
-59
-60
-61
-62
-63
-64
-65
-66
-67
-68
-69
-70&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;
-    &lt;td class="code"&gt;
-     &lt;div class="source"&gt;
-      &lt;pre&gt;#lang racket
+ &lt;pre&gt;&lt;code&gt;#lang racket
 (require redex)
 
 ;; -----------------------------------------------------------------------------
@@ -170,32 +93,16 @@
 (judgment-holds
   (free-variables (closure (λ (x : Int) x) ())
                   ()))
-;; ==&amp;gt; #f
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
-&lt;/div&gt;
+;; ==&amp;gt; #f&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;&lt;strong&gt;WHAT HAPPENED??!&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;The problem is this line in the &lt;code&gt;FVS-Closure&lt;/code&gt; rule:&lt;/p&gt;
 
 &lt;div class="brush: racket"&gt;
- &lt;table class="sourcetable"&gt;
-  &lt;tbody&gt;
-   &lt;tr&gt;
-    &lt;td class="linenos"&gt;
-     &lt;div class="linenodiv"&gt;
-      &lt;pre&gt;1
-2
-3&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;
-    &lt;td class="code"&gt;
-     &lt;div class="source"&gt;
-      &lt;pre&gt;   ....
+ &lt;pre&gt;&lt;code&gt;   ....
    (where ((x_1 τ_1) ...) (closure-env C))
-   ....
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
-&lt;/div&gt;
+   ....&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;which checks that the list &lt;code&gt;(closure-env C)&lt;/code&gt; (whose first element is the  symbol &lt;code&gt;closure-env&lt;/code&gt; and second element is the symbol &lt;code&gt;C&lt;/code&gt;) matches the pattern  &lt;code&gt;((x_1 τ_1) ...)&lt;/code&gt;.&lt;/p&gt;
 
@@ -206,22 +113,9 @@
 &lt;p&gt;We can fix this code with the new &lt;a href="https://www.cs.utah.edu/plt/snapshots/current/doc/redex/The_Redex_Reference.html#%28form._%28%28lib._redex%2Freduction-semantics..rkt%29._mf-apply%29%29"&gt;&lt;code&gt;mf-apply&lt;/code&gt;&lt;/a&gt; keyword (available on &lt;a href="https://github.com/racket/racket"&gt;GitHub&lt;/a&gt; or in a &lt;a href="https://www.cs.utah.edu/plt/snapshots/"&gt;snapshot build&lt;/a&gt;):&lt;/p&gt;
 
 &lt;div class="brush: racket"&gt;
- &lt;table class="sourcetable"&gt;
-  &lt;tbody&gt;
-   &lt;tr&gt;
-    &lt;td class="linenos"&gt;
-     &lt;div class="linenodiv"&gt;
-      &lt;pre&gt;1
-2
-3&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;
-    &lt;td class="code"&gt;
-     &lt;div class="source"&gt;
-      &lt;pre&gt;   ....
+ &lt;pre&gt;&lt;code&gt;   ....
    (where ((x_1 τ_1) ...) (mf-apply closure-env C))
-   ....
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
-&lt;/div&gt;
+   ....&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Running &lt;code&gt;raco make&lt;/code&gt; now gives a compile-time error.&lt;/p&gt;
 
@@ -239,22 +133,9 @@
 &lt;p&gt;That is, if you accidentally write:&lt;/p&gt;
 
 &lt;div class="brush: racket"&gt;
- &lt;table class="sourcetable"&gt;
-  &lt;tbody&gt;
-   &lt;tr&gt;
-    &lt;td class="linenos"&gt;
-     &lt;div class="linenodiv"&gt;
-      &lt;pre&gt;1
-2
-3&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;
-    &lt;td class="code"&gt;
-     &lt;div class="source"&gt;
-      &lt;pre&gt;   ....
+ &lt;pre&gt;&lt;code&gt;   ....
    (where ((x_1 τ_1) ...) (mf-applu closure-env C))
-   ....
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
-&lt;/div&gt;
+   ....&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Then the code compiles, thinking you intend to match a list of three elements  against the pattern.&lt;/p&gt;
 
@@ -265,24 +146,10 @@
 &lt;p&gt;A simple fix is to rename the &lt;code&gt;mf-apply&lt;/code&gt; keyword to something shorter (and harder to mis-type):&lt;/p&gt;
 
 &lt;div class="brush: racket"&gt;
- &lt;table class="sourcetable"&gt;
-  &lt;tbody&gt;
-   &lt;tr&gt;
-    &lt;td class="linenos"&gt;
-     &lt;div class="linenodiv"&gt;
-      &lt;pre&gt;1
-2
-3
-4&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;
-    &lt;td class="code"&gt;
-     &lt;div class="source"&gt;
-      &lt;pre&gt;#lang racket
+ &lt;pre&gt;&lt;code&gt;#lang racket
 (require redex
          (rename-in redex
-           [mf-apply MF]))
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
-&lt;/div&gt;
+           [mf-apply MF]))&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;h4 id="solution-2-the-mf-apply-lang-extension"&gt;Solution 2: the &lt;code&gt;mf-apply&lt;/code&gt; lang extension&lt;/h4&gt;
 
@@ -293,46 +160,18 @@
 &lt;p&gt;This language updates the &lt;a href="http://docs.racket-lang.org/reference/readtables.html#%28tech._readtable%29"&gt;&lt;em&gt;readtable&lt;/em&gt;&lt;/a&gt;  to interpret S-expressions that begin with &lt;code&gt;#{&lt;/code&gt;:&lt;/p&gt;
 
 &lt;div class="brush: racket"&gt;
- &lt;table class="sourcetable"&gt;
-  &lt;tbody&gt;
-   &lt;tr&gt;
-    &lt;td class="linenos"&gt;
-     &lt;div class="linenodiv"&gt;
-      &lt;pre&gt;1
-2
-3
-4&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;
-    &lt;td class="code"&gt;
-     &lt;div class="source"&gt;
-      &lt;pre&gt;#lang mf-apply racket
+ &lt;pre&gt;&lt;code&gt;#lang mf-apply racket
 (require redex)
 
-(term #{f x ...})
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
-&lt;/div&gt;
+(term #{f x ...})&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;as a metafunction application:&lt;/p&gt;
 
 &lt;div class="brush: racket"&gt;
- &lt;table class="sourcetable"&gt;
-  &lt;tbody&gt;
-   &lt;tr&gt;
-    &lt;td class="linenos"&gt;
-     &lt;div class="linenodiv"&gt;
-      &lt;pre&gt;1
-2
-3
-4&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;
-    &lt;td class="code"&gt;
-     &lt;div class="source"&gt;
-      &lt;pre&gt;#lang mf-apply racket
+ &lt;pre&gt;&lt;code&gt;#lang mf-apply racket
 (require redex)
 
-(term (mf-apply f x ...))
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
-&lt;/div&gt;
+(term (mf-apply f x ...))&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;You the programmer only needs to write the &lt;code&gt;#{....}&lt;/code&gt; syntax.&lt;/p&gt;
 

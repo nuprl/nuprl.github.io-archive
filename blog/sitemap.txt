@@ -46,6 +46,7 @@ http://prl.ccs.neu.edu/blog/2017/05/23/building-a-website-with-scribble
 http://prl.ccs.neu.edu/blog/2017/07/19/trees-1973
 http://prl.ccs.neu.edu/blog/2017/06/09/-bridging-the-system-configuration-gap-cross-post-https-aaronweiss-us-posts-2017-06-05-bridging-the-system-configuration-gap-html
 http://prl.ccs.neu.edu/blog/2016/09/15/nepls-on-october-7th-at-northeastern-university
+http://prl.ccs.neu.edu/blog/2017/08/13/reviews-and-author-responses-we-should-stop-asking-for-500-word-responses
 http://prl.ccs.neu.edu/blog/2017/02/21/bullets-are-good-for-your-coq-proofs
 http://prl.ccs.neu.edu/blog/2017/02/28/pliss-oregon-without-the-greek
 http://prl.ccs.neu.edu/blog/2017/05/04/rank-polymorphism
