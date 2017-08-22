@@ -3,6 +3,7 @@ http://prl.ccs.neu.edu/blog/2016/06/07/icfp-2016-looking-for-student-volunteers
 http://prl.ccs.neu.edu/blog/2017/04/04/top-five-results-of-the-past-50-years-of-programming-languages-research
 http://prl.ccs.neu.edu/blog/2017/06/05/report-pliss-2017
 http://prl.ccs.neu.edu/blog/2017/01/02/fall-2016-pl-junior-retrospective
+http://prl.ccs.neu.edu/blog/2017/08/12/gradual-typing-across-the-spectrum-part-ii
 http://prl.ccs.neu.edu/blog/2016/12/17/measuring-the-submission-review-balance
 http://prl.ccs.neu.edu/blog/2016/05/24/measuring-gc-latencies-in-haskell-ocaml-racket
 http://prl.ccs.neu.edu/blog/2017/04/25/prl-at-snapl-17
