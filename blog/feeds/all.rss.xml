@@ -4,63 +4,14 @@
   <title>PRL Blog: PRL Blog</title>
   <description>PRL Blog: PRL Blog</description>
   <link>http://prl.ccs.neu.edu/blog/index.html</link>
-  <lastBuildDate>Sun, 13 Aug 2017 14:29:41 UT</lastBuildDate>
-  <pubDate>Sun, 13 Aug 2017 14:29:41 UT</pubDate>
+  <lastBuildDate>Tue, 22 Aug 2017 15:54:06 UT</lastBuildDate>
+  <pubDate>Tue, 22 Aug 2017 15:54:06 UT</pubDate>
   <ttl>1800</ttl>
   <item>
-   <title>Reviews and author responses: we should stop asking for 500-word responses</title>
-   <link>http://prl.ccs.neu.edu/blog/2017/08/13/reviews-and-author-responses-we-should-stop-asking-for-500-word-responses?utm_source=all&amp;utm_medium=RSS</link>
-   <guid isPermaLink="false">urn:http-prl-ccs-neu-edu:-blog-2017-08-13-reviews-and-author-responses-we-should-stop-asking-for-500-word-responses</guid>
-   <pubDate>Sun, 13 Aug 2017 14:29:41 UT</pubDate>
-   <author>PRL</author>
-   <description>
-&lt;p&gt;This year I reviewed many ICFP submissions, and got to be on the receiving end of equally many author responses (also sometimes called, somewhat combatively, rebuttals). I found that there was a large difference between the official written advice on author responses and what I, as a reviewer reading the responses, found effective. In particular, I now believe that limiting yourself to 500 words should strongly be avoided &amp;mdash; we should even stop giving that advice.&lt;/p&gt;
-&lt;!-- more--&gt;
-
-&lt;p&gt;This year, I had the honor (and accompanying load of work) of being a Program Committee (PC) member at the ICFP conference. It was my first time being a PC member at a conference, and I found it extremely pleasant and interesting, thanks to the authors who sent us articles to review, my fellow PC members, and the ever-smiling careful balancing work of our PC chair, Mark Jones. It was also a lot of work, starting with 18 reviews to do over a month and a half, an intense PC meeting, and the new &amp;ldquo;second phase&amp;rdquo; process with the opportunity for authors and reviewers to exchange feedback on changes requested by the program committee.&lt;/p&gt;
-
-&lt;p&gt;There is little guidance on how to write author responses, although this &lt;a href="http://www.pl-enthusiast.net/2014/09/17/advice-writing-author-response/"&gt;blog post&lt;/a&gt; by Michael Hicks on pl-enthusiast is quite good. One thing that is obvious as a reviewer and is only slightly brushed in this post, however, is that author responses should &lt;em&gt;not&lt;/em&gt; aim to fit a 500 words limit, and in fact I believe that it is a bad idea to do so.&lt;/p&gt;
-
-&lt;p&gt;As for most conference, the ICFP review system recommends (in writing) to authors to keep their response to 500 words (some systems also highlight words after those in red to make the point clear). Don&amp;rsquo;t do this! The least convincing responses I have seen are those that followed this recommendation.&lt;/p&gt;
-
-&lt;p&gt;(I have also seen at least 18*2 other reviewers read the same responses I read, most of them well over 500 words, and &lt;em&gt;none&lt;/em&gt; of them made any comment on the length of the author responses.)&lt;/p&gt;
-
-&lt;p&gt;We have a frustrating situation where the explicit rule is different from the thing people do in practice. This is bad for newcomers that do not know the norms and cannot tell if ignoring the rule may hurt them. This is the point of this blog post:&lt;/p&gt;
-
-&lt;ul&gt;
- &lt;li&gt;
-  &lt;p&gt;If you are an author, please know that disrespecting the 500-words  limit is the &lt;em&gt;right thing&lt;/em&gt; to do. You should also know, of course,  that people have limited time, so keep the main body of your  response reasonably long. (I spent a day and a half on your paper  already, I am willing to spend 10 additional minutes reading the  response.)&lt;/p&gt;&lt;/li&gt;
- &lt;li&gt;
-  &lt;p&gt;If you are a program committee chair or a Magical HotCRP Wizard,  please remove this silly recommendation to keep responses to 500  words. (See an alternative proposal at the end of this post.)&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;
-
-&lt;h2 id="my-personal-response-format"&gt;My personal response format&lt;/h2&gt;
-
-&lt;p&gt;My author responses start with general comments that elaborate on the main point I want to tell all reviewers. Then, a second part contains per-reviewer comments (one section per reviewer); it is clearly marked as skippable. Here is the skeleton of the last response I wrote:&lt;/p&gt;
-
-&lt;blockquote&gt;
- &lt;p&gt;We thank the reviewers for their work on our article and their detailed feedback. We start with a general discussion that responds to the salient points raised by reviewers. In a second part, we provide detailed responses to the questions/remarks of each reviewer.&lt;/p&gt;
- &lt;h3 id="general-discussion"&gt;General discussion&lt;/h3&gt;
- &lt;p&gt;[..]&lt;/p&gt;
- &lt;h3 id="specific-questionscomments-review-a"&gt;Specific questions/comments: review #A&lt;/h3&gt;
- &lt;p&gt;[..]&lt;/p&gt;
- &lt;h3 id="specific-questionscomments-review-b"&gt;Specific questions/comments: review #B&lt;/h3&gt;
- &lt;p&gt;[..]&lt;/p&gt;
- &lt;h3 id="specific-questionscomments-review-c"&gt;Specific questions/comments: review #C&lt;/h3&gt;
- &lt;p&gt;[&amp;hellip;]&lt;/p&gt;&lt;/blockquote&gt;
-
-&lt;p&gt;For this particular response, the &amp;ldquo;General discussion&amp;rdquo; section used 1296 words according to &lt;code&gt;wc -w&lt;/code&gt; (M-x shell-command-on-region). In the following sections, I quote the reviews to answer specific points, email-style (following the Markdown syntax that HotCRP renders properly).&lt;/p&gt;
-
-&lt;h2 id="suggested-wording-for-pc-chairs"&gt;Suggested wording for PC chairs&lt;/h2&gt;
-
-&lt;p&gt;If you are a PC chair, you should remove the suggestion of respecting a 500 words limit for your conference. Here would be a suggested alternative wording:&lt;/p&gt;
-
-&lt;blockquote&gt;
- &lt;p&gt;Please remember, in writing your author response, that reviewers may stop reading the response at any point. We suggest having a reasonably-sized main section where you make your most important high-level comments, and clearly marked sections where you answer individual reviewer&amp;rsquo;s questions. It is not useful nor productive to answer every point of each review, you should focus on the comments that you believe the reviewers are most interested in.&lt;/p&gt;&lt;/blockquote&gt;</description></item>
-  <item>
    <title>Gradual Typing Across the Spectrum, part II</title>
-   <link>http://prl.ccs.neu.edu/blog/2017/08/12/gradual-typing-across-the-spectrum-part-ii?utm_source=all&amp;utm_medium=RSS</link>
-   <guid isPermaLink="false">urn:http-prl-ccs-neu-edu:-blog-2017-08-12-gradual-typing-across-the-spectrum-part-ii</guid>
-   <pubDate>Sat, 12 Aug 2017 17:59:58 UT</pubDate>
+   <link>http://prl.ccs.neu.edu/blog/2017/08/22/gradual-typing-across-the-spectrum-part-ii?utm_source=all&amp;utm_medium=RSS</link>
+   <guid isPermaLink="false">urn:http-prl-ccs-neu-edu:-blog-2017-08-22-gradual-typing-across-the-spectrum-part-ii</guid>
+   <pubDate>Tue, 22 Aug 2017 15:54:06 UT</pubDate>
    <author>PRL</author>
    <description>
 &lt;p&gt;Last week, Northeastern hosted a PI meeting for the &lt;a href="http://prl.ccs.neu.edu/gtp/"&gt;Gradual Typing Across the  Spectrum&lt;/a&gt; NSF grant. The meeting was made of 20+ researchers from four institutions,  and 12 technical talks. Schedule:&lt;/p&gt;
@@ -124,6 +75,55 @@
 
 &lt;blockquote&gt;
  &lt;p&gt;If you want to know about the future, you need to ask the young people who will create it. Young people don&amp;rsquo;t know what can&amp;rsquo;t be done, and so they go ahead and do it. &amp;mdash; &lt;a href="https://www.youtube.com/watch?v=sM1bNR4DmhU"&gt;Ivan Sutherland&lt;/a&gt;&lt;/p&gt;&lt;/blockquote&gt;</description></item>
+  <item>
+   <title>Reviews and author responses: we should stop asking for 500-word responses</title>
+   <link>http://prl.ccs.neu.edu/blog/2017/08/13/reviews-and-author-responses-we-should-stop-asking-for-500-word-responses?utm_source=all&amp;utm_medium=RSS</link>
+   <guid isPermaLink="false">urn:http-prl-ccs-neu-edu:-blog-2017-08-13-reviews-and-author-responses-we-should-stop-asking-for-500-word-responses</guid>
+   <pubDate>Sun, 13 Aug 2017 14:29:41 UT</pubDate>
+   <author>PRL</author>
+   <description>
+&lt;p&gt;This year I reviewed many ICFP submissions, and got to be on the receiving end of equally many author responses (also sometimes called, somewhat combatively, rebuttals). I found that there was a large difference between the official written advice on author responses and what I, as a reviewer reading the responses, found effective. In particular, I now believe that limiting yourself to 500 words should strongly be avoided &amp;mdash; we should even stop giving that advice.&lt;/p&gt;
+&lt;!-- more--&gt;
+
+&lt;p&gt;This year, I had the honor (and accompanying load of work) of being a Program Committee (PC) member at the ICFP conference. It was my first time being a PC member at a conference, and I found it extremely pleasant and interesting, thanks to the authors who sent us articles to review, my fellow PC members, and the ever-smiling careful balancing work of our PC chair, Mark Jones. It was also a lot of work, starting with 18 reviews to do over a month and a half, an intense PC meeting, and the new &amp;ldquo;second phase&amp;rdquo; process with the opportunity for authors and reviewers to exchange feedback on changes requested by the program committee.&lt;/p&gt;
+
+&lt;p&gt;There is little guidance on how to write author responses, although this &lt;a href="http://www.pl-enthusiast.net/2014/09/17/advice-writing-author-response/"&gt;blog post&lt;/a&gt; by Michael Hicks on pl-enthusiast is quite good. One thing that is obvious as a reviewer and is only slightly brushed in this post, however, is that author responses should &lt;em&gt;not&lt;/em&gt; aim to fit a 500 words limit, and in fact I believe that it is a bad idea to do so.&lt;/p&gt;
+
+&lt;p&gt;As for most conference, the ICFP review system recommends (in writing) to authors to keep their response to 500 words (some systems also highlight words after those in red to make the point clear). Don&amp;rsquo;t do this! The least convincing responses I have seen are those that followed this recommendation.&lt;/p&gt;
+
+&lt;p&gt;(I have also seen at least 18*2 other reviewers read the same responses I read, most of them well over 500 words, and &lt;em&gt;none&lt;/em&gt; of them made any comment on the length of the author responses.)&lt;/p&gt;
+
+&lt;p&gt;We have a frustrating situation where the explicit rule is different from the thing people do in practice. This is bad for newcomers that do not know the norms and cannot tell if ignoring the rule may hurt them. This is the point of this blog post:&lt;/p&gt;
+
+&lt;ul&gt;
+ &lt;li&gt;
+  &lt;p&gt;If you are an author, please know that disrespecting the 500-words  limit is the &lt;em&gt;right thing&lt;/em&gt; to do. You should also know, of course,  that people have limited time, so keep the main body of your  response reasonably long. (I spent a day and a half on your paper  already, I am willing to spend 10 additional minutes reading the  response.)&lt;/p&gt;&lt;/li&gt;
+ &lt;li&gt;
+  &lt;p&gt;If you are a program committee chair or a Magical HotCRP Wizard,  please remove this silly recommendation to keep responses to 500  words. (See an alternative proposal at the end of this post.)&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;
+
+&lt;h2 id="my-personal-response-format"&gt;My personal response format&lt;/h2&gt;
+
+&lt;p&gt;My author responses start with general comments that elaborate on the main point I want to tell all reviewers. Then, a second part contains per-reviewer comments (one section per reviewer); it is clearly marked as skippable. Here is the skeleton of the last response I wrote:&lt;/p&gt;
+
+&lt;blockquote&gt;
+ &lt;p&gt;We thank the reviewers for their work on our article and their detailed feedback. We start with a general discussion that responds to the salient points raised by reviewers. In a second part, we provide detailed responses to the questions/remarks of each reviewer.&lt;/p&gt;
+ &lt;h3 id="general-discussion"&gt;General discussion&lt;/h3&gt;
+ &lt;p&gt;[..]&lt;/p&gt;
+ &lt;h3 id="specific-questionscomments-review-a"&gt;Specific questions/comments: review #A&lt;/h3&gt;
+ &lt;p&gt;[..]&lt;/p&gt;
+ &lt;h3 id="specific-questionscomments-review-b"&gt;Specific questions/comments: review #B&lt;/h3&gt;
+ &lt;p&gt;[..]&lt;/p&gt;
+ &lt;h3 id="specific-questionscomments-review-c"&gt;Specific questions/comments: review #C&lt;/h3&gt;
+ &lt;p&gt;[&amp;hellip;]&lt;/p&gt;&lt;/blockquote&gt;
+
+&lt;p&gt;For this particular response, the &amp;ldquo;General discussion&amp;rdquo; section used 1296 words according to &lt;code&gt;wc -w&lt;/code&gt; (M-x shell-command-on-region). In the following sections, I quote the reviews to answer specific points, email-style (following the Markdown syntax that HotCRP renders properly).&lt;/p&gt;
+
+&lt;h2 id="suggested-wording-for-pc-chairs"&gt;Suggested wording for PC chairs&lt;/h2&gt;
+
+&lt;p&gt;If you are a PC chair, you should remove the suggestion of respecting a 500 words limit for your conference. Here would be a suggested alternative wording:&lt;/p&gt;
+
+&lt;blockquote&gt;
+ &lt;p&gt;Please remember, in writing your author response, that reviewers may stop reading the response at any point. We suggest having a reasonably-sized main section where you make your most important high-level comments, and clearly marked sections where you answer individual reviewer&amp;rsquo;s questions. It is not useful nor productive to answer every point of each review, you should focus on the comments that you believe the reviewers are most interested in.&lt;/p&gt;&lt;/blockquote&gt;</description></item>
   <item>
    <title>Trees, 1973</title>
    <link>http://prl.ccs.neu.edu/blog/2017/07/19/trees-1973?utm_source=all&amp;utm_medium=RSS</link>
