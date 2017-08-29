@@ -4,7 +4,16 @@
  <link rel="self" href="http://prl.ccs.neu.edu/blog/feeds/by-William-J-Bowman.atom.xml" />
  <link href="http://prl.ccs.neu.edu/blog/tags/by-William-J-Bowman.html" />
  <id>urn:http-prl-ccs-neu-edu:-blog-tags-by-William-J-Bowman-html</id>
- <updated>2017-04-17T12:00:17Z</updated>
+ <updated>2017-08-29T13:33:21Z</updated>
+ <entry>
+  <title type="text">[Why am I going to ICFP 2017? (cross-post)](https://williamjbowman.com/blog/2017/08/29/why-am-i-going-to-icfp-2017/)</title>
+  <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2017/08/29/-why-am-i-going-to-icfp-2017-cross-post-https-williamjbowman-com-blog-2017-08-29-why-am-i-going-to-icfp-2017?utm_source=by-William-J-Bowman&amp;utm_medium=Atom" />
+  <id>urn:http-prl-ccs-neu-edu:-blog-2017-08-29-why-am-i-going-to-icfp-2017-cross-post-https-williamjbowman-com-blog-2017-08-29-why-am-i-going-to-icfp-2017</id>
+  <published>2017-08-29T13:33:21Z</published>
+  <updated>2017-08-29T13:33:21Z</updated>
+  <author>
+   <name>PRL</name></author>
+  <content type="html"></content></entry>
  <entry>
   <title type="text">Type-Directed Compilation, Parts I and II</title>
   <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2017/04/17/type-directed-compilation-parts-i-and-ii?utm_source=by-William-J-Bowman&amp;utm_medium=Atom" />

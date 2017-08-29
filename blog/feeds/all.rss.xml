@@ -4,9 +4,16 @@
   <title>PRL Blog: PRL Blog</title>
   <description>PRL Blog: PRL Blog</description>
   <link>http://prl.ccs.neu.edu/blog/index.html</link>
-  <lastBuildDate>Mon, 28 Aug 2017 10:30:00 UT</lastBuildDate>
-  <pubDate>Mon, 28 Aug 2017 10:30:00 UT</pubDate>
+  <lastBuildDate>Tue, 29 Aug 2017 13:33:21 UT</lastBuildDate>
+  <pubDate>Tue, 29 Aug 2017 13:33:21 UT</pubDate>
   <ttl>1800</ttl>
+  <item>
+   <title>[Why am I going to ICFP 2017? (cross-post)](https://williamjbowman.com/blog/2017/08/29/why-am-i-going-to-icfp-2017/)</title>
+   <link>http://prl.ccs.neu.edu/blog/2017/08/29/-why-am-i-going-to-icfp-2017-cross-post-https-williamjbowman-com-blog-2017-08-29-why-am-i-going-to-icfp-2017?utm_source=all&amp;utm_medium=RSS</link>
+   <guid isPermaLink="false">urn:http-prl-ccs-neu-edu:-blog-2017-08-29-why-am-i-going-to-icfp-2017-cross-post-https-williamjbowman-com-blog-2017-08-29-why-am-i-going-to-icfp-2017</guid>
+   <pubDate>Tue, 29 Aug 2017 13:33:21 UT</pubDate>
+   <author>PRL</author>
+   <description></description></item>
   <item>
    <title>Closure Conversion as CoYoneda</title>
    <link>http://prl.ccs.neu.edu/blog/2017/08/28/closure-conversion-as-coyoneda?utm_source=all&amp;utm_medium=RSS</link>
@@ -2303,26 +2310,4 @@ A&lt;/script&gt; and
 
 &lt;p&gt;.&lt;/p&gt;
 
-&lt;p&gt;SNAPL is not dissimilar to the (french-speaking) &lt;a href="http://jfla.inria.fr/"&gt;JFLA&lt;/a&gt; that I am more familiar with &amp;mdash; with an added irritating call for paper and unreasonable registration price. It has an interesting diversity of topics of presentation: see also the complete &lt;a href="http://snapl.org/2017/papers.html"&gt;list of accepted papers&lt;/a&gt; this year, and the &lt;a href="http://snapl.org/2015/papers.html"&gt;list of the previous edition&lt;/a&gt;.&lt;/p&gt;</description></item>
-  <item>
-   <title>Refinement Types</title>
-   <link>http://prl.ccs.neu.edu/blog/2017/04/20/refinement-types?utm_source=all&amp;utm_medium=RSS</link>
-   <guid isPermaLink="false">urn:http-prl-ccs-neu-edu:-blog-2017-04-20-refinement-types</guid>
-   <pubDate>Thu, 20 Apr 2017 23:38:23 UT</pubDate>
-   <author>PRL</author>
-   <description>&lt;!-- more--&gt;
-
-&lt;p&gt;Roughly, a refinement type system is an extra layer of precision, enforced through subtyping, added onto an existing type system. A base type is decomposed into a set of &lt;em&gt;base refinements&lt;/em&gt;, each of which denotes a subset of the values belonging to the base type. A subtyping relation respecting set inclusion can then be defined among the refinements of the base type. These subtyping relations can be lifted onto a subtyping relation for compound types using a standard arrow subtyping rule.&lt;/p&gt;
-
-&lt;p&gt;Extra type-checking precision sounds great, but what in practical terms does this precision look like? Freeman and Pfenning&amp;rsquo;s &amp;rsquo;92 paper &lt;em&gt;Refinement Types for ML&lt;/em&gt; proposes extending ML&amp;rsquo;s type definition language with constructs for decomposing a discriminated union type into a lattice of subtypes. For example, it allows the decomposition of a list type into a lattice including base refinements for empty lists, non-empty lists, and singletons. Those with experience in functional programming will realize this alleviates the dreaded and inescapable “non-exhaustive pattern match” warning, which tends to crop up in situations where the programmer understands that an exhaustive pattern match is not necessary.&lt;/p&gt;
-
-&lt;p&gt;In the late 90&amp;rsquo;s Xi and Pfenning advanced the state of refinement types by introducing a dependent refinement type system, implemented as a tool called Dependent ML. Their approach identifies a base refinement using a tuple of terms drawn from some computationally tractable constraint language called an &lt;em&gt;index language&lt;/em&gt;. A list datatype can then be refined with a term of the &lt;em&gt;linear integer arithmetic&lt;/em&gt; index language, denoting the subset of all lists having a specific length. One list refinement is then considered a subtype of another when a constraint solver can prove their index terms equal. Vazou et. al.&amp;rsquo;s recent project Liquid Haskell is another dependent refinement type system which decides subtyping among base types by invoking an SMT solver under a context-dependent set of constraints. It differs significantly from Dependent ML in that it refines base types with certain well-behaved program terms rather than indices.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;Resources:&lt;/p&gt;
-
-&lt;ul&gt;
- &lt;li&gt;&lt;a href="/blog/static/refinement_types_lecture.pdf"&gt;Full Notes&lt;/a&gt;&lt;/li&gt;
- &lt;li&gt;&lt;a href="/blog/static/refinement_types_bib.pdf"&gt;Annotated Bibliography&lt;/a&gt;&lt;/li&gt;
- &lt;li&gt;&lt;a href="https://github.com/nuprl/hopl-s2017/tree/master/refinement-types"&gt;GitHub&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;</description></item></channel></rss>
+&lt;p&gt;SNAPL is not dissimilar to the (french-speaking) &lt;a href="http://jfla.inria.fr/"&gt;JFLA&lt;/a&gt; that I am more familiar with &amp;mdash; with an added irritating call for paper and unreasonable registration price. It has an interesting diversity of topics of presentation: see also the complete &lt;a href="http://snapl.org/2017/papers.html"&gt;list of accepted papers&lt;/a&gt; this year, and the &lt;a href="http://snapl.org/2015/papers.html"&gt;list of the previous edition&lt;/a&gt;.&lt;/p&gt;</description></item></channel></rss>

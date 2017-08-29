@@ -43,6 +43,7 @@ http://prl.ccs.neu.edu/blog/2017/05/15/artifacts-for-semantics
 http://prl.ccs.neu.edu/blog/2016/08/02/tutorial-zero-to-sixty-in-racket
 http://prl.ccs.neu.edu/blog/2017/02/21/datalog-for-static-analysis
 http://prl.ccs.neu.edu/blog/2017/08/22/gradual-typing-across-the-spectrum-part-ii
+http://prl.ccs.neu.edu/blog/2017/08/29/-why-am-i-going-to-icfp-2017-cross-post-https-williamjbowman-com-blog-2017-08-29-why-am-i-going-to-icfp-2017
 http://prl.ccs.neu.edu/blog/2016/10/17/emacs-daemon-for-fast-editor-startup
 http://prl.ccs.neu.edu/blog/2017/05/23/building-a-website-with-scribble
 http://prl.ccs.neu.edu/blog/2017/07/19/trees-1973
