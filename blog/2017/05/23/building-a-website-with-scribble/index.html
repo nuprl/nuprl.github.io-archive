@@ -137,13 +137,36 @@
 <p>Example program:</p>
 
 <div class="brush: racket">
- <pre><code>#lang scribble/html
-@p{Hello World}</code></pre></div>
+ <table class="sourcetable">
+  <tbody>
+   <tr>
+    <td class="linenos">
+     <div class="linenodiv">
+      <pre>1
+2</pre></div></td>
+    <td class="code">
+     <div class="source">
+      <pre><span class="kn">#lang scribble/html</span>
+<span class="nv">@p</span><span class="p">{</span><span class="nf">Hello</span> <span class="nv">World</span><span class="p">}</span>
+</pre></div>
+</td></tr></tbody></table>
+</div>
 
 <p>Running this program prints:</p>
 
 <div class="brush: html">
- <pre><code>&lt;p&gt;Hello World&lt;/p&gt;</code></pre></div>
+ <table class="sourcetable">
+  <tbody>
+   <tr>
+    <td class="linenos">
+     <div class="linenodiv">
+      <pre>1</pre></div></td>
+    <td class="code">
+     <div class="source">
+      <pre><span class="nt">&lt;p&gt;</span>Hello World<span class="nt">&lt;/p&gt;</span>
+</pre></div>
+</td></tr></tbody></table>
+</div>
 
 <p>No surprises.</p>
 
@@ -152,13 +175,36 @@
 <p>For example:</p>
 
 <div class="brush: racket">
- <pre><code>#lang scribble/html
-@p[style: "color:red"]{Hello World}</code></pre></div>
+ <table class="sourcetable">
+  <tbody>
+   <tr>
+    <td class="linenos">
+     <div class="linenodiv">
+      <pre>1
+2</pre></div></td>
+    <td class="code">
+     <div class="source">
+      <pre><span class="kn">#lang scribble/html</span>
+<span class="nv">@p</span><span class="p">[</span><span class="nf">style:</span> <span class="s">"color:red"</span><span class="p">]{</span><span class="nf">Hello</span> <span class="nv">World</span><span class="p">}</span>
+</pre></div>
+</td></tr></tbody></table>
+</div>
 
 <p>Prints:</p>
 
 <div class="brush: html">
- <pre><code>&lt;p style="color:red"&gt;Hello World&lt;/p&gt;</code></pre></div>
+ <table class="sourcetable">
+  <tbody>
+   <tr>
+    <td class="linenos">
+     <div class="linenodiv">
+      <pre>1</pre></div></td>
+    <td class="code">
+     <div class="source">
+      <pre><span class="nt">&lt;p</span> <span class="na">style=</span><span class="s">"color:red"</span><span class="nt">&gt;</span>Hello World<span class="nt">&lt;/p&gt;</span>
+</pre></div>
+</td></tr></tbody></table>
+</div>
 
 <p>Hope the output looks familiar. The input syntax is strange, but that&rsquo;s what it is.</p>
 
@@ -171,28 +217,66 @@
 <p>To compare, here&rsquo;s the start of the old homepage:</p>
 
 <div class="brush: racket">
- <pre><code>#lang scribble/text
-@(require "templates.rkt")
+ <table class="sourcetable">
+  <tbody>
+   <tr>
+    <td class="linenos">
+     <div class="linenodiv">
+      <pre>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td>
+    <td class="code">
+     <div class="source">
+      <pre><span class="kn">#lang scribble/text</span>
+<span class="nv">@</span><span class="p">(</span><span class="k"><a href="http://docs.racket-lang.org/reference/require.html#(form._((lib._racket/private/base..rkt)._require))" style="color: inherit">require</a> </span><span class="s">"templates.rkt"</span><span class="p">)</span>
 
-&lt;!DOCTYPE html&gt;
-&lt;html lang="en"&gt;
-  @(header "Home")
-  &lt;body id="pn-top"&gt;
-    @(navbar "Home")
-    &lt;div class="jumbotron"&gt;</code></pre></div>
+<span class="nv">&lt;!DOCTYPE</span> <span class="nv">html&gt;</span>
+<span class="nv">&lt;html</span> <span class="nv">lang=</span><span class="s">"en"</span><span class="nv"><a href="http://docs.racket-lang.org/reference/generic-numbers.html#(def._((quote._~23~25kernel)._~3e))" style="color: inherit">&gt;</a></span>
+  <span class="nv">@</span><span class="p">(</span><span class="nf">header</span> <span class="s">"Home"</span><span class="p">)</span>
+  <span class="nv">&lt;body</span> <span class="nv">id=</span><span class="s">"pn-top"</span><span class="nv"><a href="http://docs.racket-lang.org/reference/generic-numbers.html#(def._((quote._~23~25kernel)._~3e))" style="color: inherit">&gt;</a></span>
+    <span class="nv">@</span><span class="p">(</span><span class="nf">navbar</span> <span class="s">"Home"</span><span class="p">)</span>
+    <span class="nv">&lt;div</span> <span class="nv">class=</span><span class="s">"jumbotron"</span><span class="nv"><a href="http://docs.racket-lang.org/reference/generic-numbers.html#(def._((quote._~23~25kernel)._~3e))" style="color: inherit">&gt;</a></span>
+</pre></div>
+</td></tr></tbody></table>
+</div>
 
 <p>And here is the start of the <code>scribble/html</code>&rsquo;d homepage:</p>
 
 <div class="brush: racket">
- <pre><code>#lang scribble/html
-@require["templates.rkt"]
+ <table class="sourcetable">
+  <tbody>
+   <tr>
+    <td class="linenos">
+     <div class="linenodiv">
+      <pre>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td>
+    <td class="code">
+     <div class="source">
+      <pre><span class="kn">#lang scribble/html</span>
+<span class="nv">@require</span><span class="p">[</span><span class="s">"templates.rkt"</span><span class="p">]</span>
 
-@doctype{html}
-@html[lang: "en"]{
-  @header{Home}
-    @body[id: "pn-top"]{
-      @navbar{Home}
-      @div[class: "jumbotron"]{</code></pre></div>
+<span class="nv">@doctype</span><span class="p">{</span><span class="nf">html</span><span class="p">}</span>
+<span class="nv">@html</span><span class="p">[</span><span class="nf">lang:</span> <span class="s">"en"</span><span class="p">]{</span>
+  <span class="nv">@header</span><span class="p">{</span><span class="nf">Home</span><span class="p">}</span>
+    <span class="nv">@body</span><span class="p">[</span><span class="nf">id:</span> <span class="s">"pn-top"</span><span class="p">]{</span>
+      <span class="nv">@navbar</span><span class="p">{</span><span class="nf">Home</span><span class="p">}</span>
+      <span class="nv">@div</span><span class="p">[</span><span class="nf">class:</span> <span class="s">"jumbotron"</span><span class="p">]{</span>
+</pre></div>
+</td></tr></tbody></table>
+</div>
 
 <p>The pages look similar. The new one has more @-signs and parentheses, the old one has more <code>&lt;</code>-signs  and quotes. If you were able to edit the old page, you should be able to edit the new page.</p>
 
@@ -213,74 +297,184 @@
 <p>Before, the <a href="http://prl.ccs.neu.edu/teaching.html">Teaching page</a> contained  some interesting HTML for rendering vertical text (look for the word &ldquo;Semantics&rdquo; to see how this was used):</p>
 
 <div class="brush: html">
- <pre><code>&lt;span class="how-to-design-programs"&gt;S&lt;br /&gt;e&lt;br /&gt;m&lt;br /&gt;a&lt;br /&gt;n&lt;br /&gt;t&lt;br /&gt;i&lt;br /&gt;c&lt;br /&gt;s&lt;br /&gt;&lt;br /&gt;&lt;/span&gt;</code></pre></div>
+ <table class="sourcetable">
+  <tbody>
+   <tr>
+    <td class="linenos">
+     <div class="linenodiv">
+      <pre>1</pre></div></td>
+    <td class="code">
+     <div class="source">
+      <pre><span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"how-to-design-programs"</span><span class="nt">&gt;</span>S<span class="nt">&lt;br</span> <span class="nt">/&gt;</span>e<span class="nt">&lt;br</span> <span class="nt">/&gt;</span>m<span class="nt">&lt;br</span> <span class="nt">/&gt;</span>a<span class="nt">&lt;br</span> <span class="nt">/&gt;</span>n<span class="nt">&lt;br</span> <span class="nt">/&gt;</span>t<span class="nt">&lt;br</span> <span class="nt">/&gt;</span>i<span class="nt">&lt;br</span> <span class="nt">/&gt;</span>c<span class="nt">&lt;br</span> <span class="nt">/&gt;</span>s<span class="nt">&lt;br</span> <span class="nt">/&gt;&lt;br</span> <span class="nt">/&gt;&lt;/span&gt;</span>
+</pre></div>
+</td></tr></tbody></table>
+</div>
 
 <p>After, the same text is generated from a function call:</p>
 
 <div class="brush: racket">
- <pre><code>@span[class: "how-to-design-programs"]{@vertical-text{Semantics}}</code></pre></div>
+ <table class="sourcetable">
+  <tbody>
+   <tr>
+    <td class="linenos">
+     <div class="linenodiv">
+      <pre>1</pre></div></td>
+    <td class="code">
+     <div class="source">
+      <pre><span class="nv">@span</span><span class="p">[</span><span class="nf">class:</span> <span class="s">"how-to-design-programs"</span><span class="p">]{</span><span class="nf">@vertical-text</span><span class="p">{</span><span class="nf">Semantics</span><span class="p">}}</span>
+</pre></div>
+</td></tr></tbody></table>
+</div>
 
 <p>The <code>vertical-text</code> function is simple:</p>
 
 <div class="brush: racket">
- <pre><code>@require[(only-in racket/list add-between)]
+ <table class="sourcetable">
+  <tbody>
+   <tr>
+    <td class="linenos">
+     <div class="linenodiv">
+      <pre>1
+2
+3
+4</pre></div></td>
+    <td class="code">
+     <div class="source">
+      <pre><span class="nv">@require</span><span class="p">[(</span><span class="nf"><a href="http://docs.racket-lang.org/reference/require.html#(form._((lib._racket/private/base..rkt)._only-in))" style="color: inherit">only-in</a></span> <span class="nv">racket/list</span> <span class="nv"><a href="http://docs.racket-lang.org/reference/pairs.html#(def._((lib._racket/list..rkt)._add-between))" style="color: inherit">add-between</a></span><span class="p">)]</span>
 
-@(define (vertical-text . str*)
-   (add-between (string-&gt;list (append* str*)) (br)))</code></pre></div>
+<span class="nv">@</span><span class="p">(</span><span class="k"><a href="http://docs.racket-lang.org/reference/define.html#(form._((lib._racket/private/base..rkt)._define))" style="color: inherit">define</a> </span><span class="p">(</span><span class="nf">vertical-text</span> <span class="o">.</span> <span class="nv">str*</span><span class="p">)</span>
+   <span class="p">(</span><span class="nf"><a href="http://docs.racket-lang.org/reference/pairs.html#(def._((lib._racket/list..rkt)._add-between))" style="color: inherit">add-between</a></span> <span class="p">(</span><span class="nb"><a href="http://docs.racket-lang.org/reference/strings.html#(def._((quote._~23~25kernel)._string-~3elist))" style="color: inherit">string-&gt;list</a> </span><span class="p">(</span><span class="nf"><a href="http://docs.racket-lang.org/reference/pairs.html#(def._((lib._racket/list..rkt)._append*))" style="color: inherit">append*</a></span> <span class="nv">str*</span><span class="p">))</span> <span class="p">(</span><span class="nf">br</span><span class="p">)))</span>
+</pre></div>
+</td></tr></tbody></table>
+</div>
 
 <h4 id="2-more-structure-less-boilerplate">2. More Structure, Less Boilerplate</h4>
 
 <p>Here&rsquo;s part of the old definition of &ldquo;Ben Greenman&rdquo; on the <a href="http://prl.ccs.neu.edu/people.html">People page</a>:</p>
 
 <div class="brush: html">
- <pre><code>&lt;div class="row pn-person"&gt;
-  &lt;div class="col-md-12 pn-row-eq-height"&gt;
-    &lt;div class="col-md-3 pn-photo"&gt;
-      &lt;div class="img-wrapper"&gt;
-        &lt;img src="img/ben_greenman.jpg" title="Ben Greenman" alt="Ben Greenman" /&gt;
-      &lt;/div&gt;
-    &lt;/div&gt;
-    &lt;div class="col-md-9"&gt;
-      &lt;div class="col-md-4 pn-contact"&gt;
-        &lt;span class="pn-name"&gt;Ben Greenman&lt;/span&gt;&lt;br /&gt;
-        Advisor: Matthias Felleisen&lt;br /&gt;
-        &lt;a href="mailto:types@"@"ccs.neu.edu"&gt;types@"@"ccs.neu.edu&lt;/a&gt;&lt;br /&gt;
-        &lt;a href="http://www.ccs.neu.edu/home/types"&gt;www.ccs.neu.edu/home/types&lt;/a&gt;
-      &lt;/div&gt;
-      &lt;div class="col-md-3 pn-muted col-md-offset-5"&gt;
+ <table class="sourcetable">
+  <tbody>
+   <tr>
+    <td class="linenos">
+     <div class="linenodiv">
+      <pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23</pre></div></td>
+    <td class="code">
+     <div class="source">
+      <pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row pn-person"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-12 pn-row-eq-height"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-3 pn-photo"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"img-wrapper"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"img/ben_greenman.jpg"</span> <span class="na">title=</span><span class="s">"Ben Greenman"</span> <span class="na">alt=</span><span class="s">"Ben Greenman"</span> <span class="nt">/&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-9"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-4 pn-contact"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"pn-name"</span><span class="nt">&gt;</span>Ben Greenman<span class="nt">&lt;/span&gt;&lt;br</span> <span class="nt">/&gt;</span>
+        Advisor: Matthias Felleisen<span class="nt">&lt;br</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"mailto:types@"</span><span class="err">@"</span><span class="na">ccs</span><span class="err">.</span><span class="na">neu</span><span class="err">.</span><span class="na">edu</span><span class="err">"</span><span class="nt">&gt;</span>types@"@"ccs.neu.edu<span class="nt">&lt;/a&gt;&lt;br</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"http://www.ccs.neu.edu/home/types"</span><span class="nt">&gt;</span>www.ccs.neu.edu/home/types<span class="nt">&lt;/a&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-3 pn-muted col-md-offset-5"</span><span class="nt">&gt;</span>
         Joined 2014
-      &lt;/div&gt;
-      &lt;div class="col-md-12 pn-bio"&gt;
-        &lt;p&gt;I like constructions .... &lt;/p&gt;
-      &lt;/div&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
-&lt;/div&gt;</code></pre></div>
+      <span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-12 pn-bio"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;p&gt;</span>I like constructions .... <span class="nt">&lt;/p&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</pre></div>
+</td></tr></tbody></table>
+</div>
 
 <p>The new definition uses a helper function with keyword arguments for each  &ldquo;field&rdquo; of the person:</p>
 
 <div class="brush: racket">
- <pre><code>@person[#:name "Ben Greenman"
-        #:title "Advisor: Matthias Felleisen"
-        #:e-mail "types@ccs.neu.edu"
-        #:website "http://ccs.neu.edu/home/types"
-        #:history @list["Joined 2014"]
-        #:img "ben_greenman.jpg"]{
-  I like constructions ....
-}</code></pre></div>
+ <table class="sourcetable">
+  <tbody>
+   <tr>
+    <td class="linenos">
+     <div class="linenodiv">
+      <pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td>
+    <td class="code">
+     <div class="source">
+      <pre><span class="nv">@person</span><span class="p">[</span><span class="kd">#:name</span> <span class="s">"Ben Greenman"</span>
+        <span class="kd">#:title</span> <span class="s">"Advisor: Matthias Felleisen"</span>
+        <span class="kd">#:e-mail</span> <span class="s">"types@ccs.neu.edu"</span>
+        <span class="kd">#:website</span> <span class="s">"http://ccs.neu.edu/home/types"</span>
+        <span class="kd">#:history</span> <span class="nv">@list</span><span class="p">[</span><span class="s">"Joined 2014"</span><span class="p">]</span>
+        <span class="kd">#:img</span> <span class="s">"ben_greenman.jpg"</span><span class="p">]{</span>
+  <span class="nv">I</span> <span class="nv">like</span> <span class="nv">constructions</span> <span class="o">....</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></tbody></table>
+</div>
 
 <h4 id="3-less-string-formatting">3. Less String-Formatting</h4>
 
 <p>Before, the code did a lot of string formatting (<a href="https://github.com/nuprl/website/commit/a0600d#diff-1921e33ce89be28dd277cf1c7880d1beL9">link</a>):</p>
 
 <div class="brush: racket">
- <pre><code>(define (link url body)
-  (string-append "&lt;a href=\"" url "\"&gt;" body "&lt;/a&gt;"))</code></pre></div>
+ <table class="sourcetable">
+  <tbody>
+   <tr>
+    <td class="linenos">
+     <div class="linenodiv">
+      <pre>1
+2</pre></div></td>
+    <td class="code">
+     <div class="source">
+      <pre><span class="p">(</span><span class="k"><a href="http://docs.racket-lang.org/reference/define.html#(form._((lib._racket/private/base..rkt)._define))" style="color: inherit">define</a> </span><span class="p">(</span><span class="nf"><a href="http://docs.racket-lang.org/reference/creatingunits.html#(form._((lib._racket/unit..rkt)._link))" style="color: inherit">link</a></span> <span class="nv">url</span> <span class="nv">body</span><span class="p">)</span>
+  <span class="p">(</span><span class="nb"><a href="http://docs.racket-lang.org/reference/strings.html#(def._((quote._~23~25kernel)._string-append))" style="color: inherit">string-append</a> </span><span class="s">"&lt;a href=\""</span> <span class="nv">url</span> <span class="s">"\"&gt;"</span> <span class="nv">body</span> <span class="s">"&lt;/a&gt;"</span><span class="p">))</span>
+</pre></div>
+</td></tr></tbody></table>
+</div>
 
 <p>The new code has no need for such helper functions.</p>
 
 <div class="brush: racket">
- <pre><code>@a[href: url body]</code></pre></div>
+ <table class="sourcetable">
+  <tbody>
+   <tr>
+    <td class="linenos">
+     <div class="linenodiv">
+      <pre>1</pre></div></td>
+    <td class="code">
+     <div class="source">
+      <pre><span class="nv">@a</span><span class="p">[</span><span class="nf">href:</span> <span class="nv">url</span> <span class="nv">body</span><span class="p">]</span>
+</pre></div>
+</td></tr></tbody></table>
+</div>
 
 <h4 id="bottom-line">Bottom Line</h4>
 

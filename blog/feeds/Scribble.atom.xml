@@ -67,13 +67,36 @@
 &lt;p&gt;Example program:&lt;/p&gt;
 
 &lt;div class="brush: racket"&gt;
- &lt;pre&gt;&lt;code&gt;#lang scribble/html
-@p{Hello World}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+ &lt;table class="sourcetable"&gt;
+  &lt;tbody&gt;
+   &lt;tr&gt;
+    &lt;td class="linenos"&gt;
+     &lt;div class="linenodiv"&gt;
+      &lt;pre&gt;1
+2&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;
+    &lt;td class="code"&gt;
+     &lt;div class="source"&gt;
+      &lt;pre&gt;&lt;span class="kn"&gt;#lang scribble/html&lt;/span&gt;
+&lt;span class="nv"&gt;@p&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="nf"&gt;Hello&lt;/span&gt; &lt;span class="nv"&gt;World&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+&lt;/div&gt;
 
 &lt;p&gt;Running this program prints:&lt;/p&gt;
 
 &lt;div class="brush: html"&gt;
- &lt;pre&gt;&lt;code&gt;&amp;lt;p&amp;gt;Hello World&amp;lt;/p&amp;gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+ &lt;table class="sourcetable"&gt;
+  &lt;tbody&gt;
+   &lt;tr&gt;
+    &lt;td class="linenos"&gt;
+     &lt;div class="linenodiv"&gt;
+      &lt;pre&gt;1&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;
+    &lt;td class="code"&gt;
+     &lt;div class="source"&gt;
+      &lt;pre&gt;&lt;span class="nt"&gt;&amp;lt;p&amp;gt;&lt;/span&gt;Hello World&lt;span class="nt"&gt;&amp;lt;/p&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+&lt;/div&gt;
 
 &lt;p&gt;No surprises.&lt;/p&gt;
 
@@ -82,13 +105,36 @@
 &lt;p&gt;For example:&lt;/p&gt;
 
 &lt;div class="brush: racket"&gt;
- &lt;pre&gt;&lt;code&gt;#lang scribble/html
-@p[style: "color:red"]{Hello World}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+ &lt;table class="sourcetable"&gt;
+  &lt;tbody&gt;
+   &lt;tr&gt;
+    &lt;td class="linenos"&gt;
+     &lt;div class="linenodiv"&gt;
+      &lt;pre&gt;1
+2&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;
+    &lt;td class="code"&gt;
+     &lt;div class="source"&gt;
+      &lt;pre&gt;&lt;span class="kn"&gt;#lang scribble/html&lt;/span&gt;
+&lt;span class="nv"&gt;@p&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="nf"&gt;style:&lt;/span&gt; &lt;span class="s"&gt;"color:red"&lt;/span&gt;&lt;span class="p"&gt;]{&lt;/span&gt;&lt;span class="nf"&gt;Hello&lt;/span&gt; &lt;span class="nv"&gt;World&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+&lt;/div&gt;
 
 &lt;p&gt;Prints:&lt;/p&gt;
 
 &lt;div class="brush: html"&gt;
- &lt;pre&gt;&lt;code&gt;&amp;lt;p style="color:red"&amp;gt;Hello World&amp;lt;/p&amp;gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+ &lt;table class="sourcetable"&gt;
+  &lt;tbody&gt;
+   &lt;tr&gt;
+    &lt;td class="linenos"&gt;
+     &lt;div class="linenodiv"&gt;
+      &lt;pre&gt;1&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;
+    &lt;td class="code"&gt;
+     &lt;div class="source"&gt;
+      &lt;pre&gt;&lt;span class="nt"&gt;&amp;lt;p&lt;/span&gt; &lt;span class="na"&gt;style=&lt;/span&gt;&lt;span class="s"&gt;"color:red"&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;Hello World&lt;span class="nt"&gt;&amp;lt;/p&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+&lt;/div&gt;
 
 &lt;p&gt;Hope the output looks familiar. The input syntax is strange, but that&amp;rsquo;s what it is.&lt;/p&gt;
 
@@ -101,28 +147,66 @@
 &lt;p&gt;To compare, here&amp;rsquo;s the start of the old homepage:&lt;/p&gt;
 
 &lt;div class="brush: racket"&gt;
- &lt;pre&gt;&lt;code&gt;#lang scribble/text
-@(require "templates.rkt")
+ &lt;table class="sourcetable"&gt;
+  &lt;tbody&gt;
+   &lt;tr&gt;
+    &lt;td class="linenos"&gt;
+     &lt;div class="linenodiv"&gt;
+      &lt;pre&gt;1
+2
+3
+4
+5
+6
+7
+8
+9&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;
+    &lt;td class="code"&gt;
+     &lt;div class="source"&gt;
+      &lt;pre&gt;&lt;span class="kn"&gt;#lang scribble/text&lt;/span&gt;
+&lt;span class="nv"&gt;@&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;&lt;a href="http://docs.racket-lang.org/reference/require.html#(form._((lib._racket/private/base..rkt)._require))" style="color: inherit"&gt;require&lt;/a&gt; &lt;/span&gt;&lt;span class="s"&gt;"templates.rkt"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 
-&amp;lt;!DOCTYPE html&amp;gt;
-&amp;lt;html lang="en"&amp;gt;
-  @(header "Home")
-  &amp;lt;body id="pn-top"&amp;gt;
-    @(navbar "Home")
-    &amp;lt;div class="jumbotron"&amp;gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;span class="nv"&gt;&amp;lt;!DOCTYPE&lt;/span&gt; &lt;span class="nv"&gt;html&amp;gt;&lt;/span&gt;
+&lt;span class="nv"&gt;&amp;lt;html&lt;/span&gt; &lt;span class="nv"&gt;lang=&lt;/span&gt;&lt;span class="s"&gt;"en"&lt;/span&gt;&lt;span class="nv"&gt;&lt;a href="http://docs.racket-lang.org/reference/generic-numbers.html#(def._((quote._~23~25kernel)._~3e))" style="color: inherit"&gt;&amp;gt;&lt;/a&gt;&lt;/span&gt;
+  &lt;span class="nv"&gt;@&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nf"&gt;header&lt;/span&gt; &lt;span class="s"&gt;"Home"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+  &lt;span class="nv"&gt;&amp;lt;body&lt;/span&gt; &lt;span class="nv"&gt;id=&lt;/span&gt;&lt;span class="s"&gt;"pn-top"&lt;/span&gt;&lt;span class="nv"&gt;&lt;a href="http://docs.racket-lang.org/reference/generic-numbers.html#(def._((quote._~23~25kernel)._~3e))" style="color: inherit"&gt;&amp;gt;&lt;/a&gt;&lt;/span&gt;
+    &lt;span class="nv"&gt;@&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nf"&gt;navbar&lt;/span&gt; &lt;span class="s"&gt;"Home"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="nv"&gt;&amp;lt;div&lt;/span&gt; &lt;span class="nv"&gt;class=&lt;/span&gt;&lt;span class="s"&gt;"jumbotron"&lt;/span&gt;&lt;span class="nv"&gt;&lt;a href="http://docs.racket-lang.org/reference/generic-numbers.html#(def._((quote._~23~25kernel)._~3e))" style="color: inherit"&gt;&amp;gt;&lt;/a&gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+&lt;/div&gt;
 
 &lt;p&gt;And here is the start of the &lt;code&gt;scribble/html&lt;/code&gt;&amp;rsquo;d homepage:&lt;/p&gt;
 
 &lt;div class="brush: racket"&gt;
- &lt;pre&gt;&lt;code&gt;#lang scribble/html
-@require["templates.rkt"]
+ &lt;table class="sourcetable"&gt;
+  &lt;tbody&gt;
+   &lt;tr&gt;
+    &lt;td class="linenos"&gt;
+     &lt;div class="linenodiv"&gt;
+      &lt;pre&gt;1
+2
+3
+4
+5
+6
+7
+8
+9&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;
+    &lt;td class="code"&gt;
+     &lt;div class="source"&gt;
+      &lt;pre&gt;&lt;span class="kn"&gt;#lang scribble/html&lt;/span&gt;
+&lt;span class="nv"&gt;@require&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s"&gt;"templates.rkt"&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
 
-@doctype{html}
-@html[lang: "en"]{
-  @header{Home}
-    @body[id: "pn-top"]{
-      @navbar{Home}
-      @div[class: "jumbotron"]{&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;span class="nv"&gt;@doctype&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="nf"&gt;html&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="nv"&gt;@html&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="nf"&gt;lang:&lt;/span&gt; &lt;span class="s"&gt;"en"&lt;/span&gt;&lt;span class="p"&gt;]{&lt;/span&gt;
+  &lt;span class="nv"&gt;@header&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="nf"&gt;Home&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+    &lt;span class="nv"&gt;@body&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="nf"&gt;id:&lt;/span&gt; &lt;span class="s"&gt;"pn-top"&lt;/span&gt;&lt;span class="p"&gt;]{&lt;/span&gt;
+      &lt;span class="nv"&gt;@navbar&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="nf"&gt;Home&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+      &lt;span class="nv"&gt;@div&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="nf"&gt;class:&lt;/span&gt; &lt;span class="s"&gt;"jumbotron"&lt;/span&gt;&lt;span class="p"&gt;]{&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+&lt;/div&gt;
 
 &lt;p&gt;The pages look similar. The new one has more @-signs and parentheses, the old one has more &lt;code&gt;&amp;lt;&lt;/code&gt;-signs  and quotes. If you were able to edit the old page, you should be able to edit the new page.&lt;/p&gt;
 
@@ -143,74 +227,184 @@
 &lt;p&gt;Before, the &lt;a href="http://prl.ccs.neu.edu/teaching.html"&gt;Teaching page&lt;/a&gt; contained  some interesting HTML for rendering vertical text (look for the word &amp;ldquo;Semantics&amp;rdquo; to see how this was used):&lt;/p&gt;
 
 &lt;div class="brush: html"&gt;
- &lt;pre&gt;&lt;code&gt;&amp;lt;span class="how-to-design-programs"&amp;gt;S&amp;lt;br /&amp;gt;e&amp;lt;br /&amp;gt;m&amp;lt;br /&amp;gt;a&amp;lt;br /&amp;gt;n&amp;lt;br /&amp;gt;t&amp;lt;br /&amp;gt;i&amp;lt;br /&amp;gt;c&amp;lt;br /&amp;gt;s&amp;lt;br /&amp;gt;&amp;lt;br /&amp;gt;&amp;lt;/span&amp;gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+ &lt;table class="sourcetable"&gt;
+  &lt;tbody&gt;
+   &lt;tr&gt;
+    &lt;td class="linenos"&gt;
+     &lt;div class="linenodiv"&gt;
+      &lt;pre&gt;1&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;
+    &lt;td class="code"&gt;
+     &lt;div class="source"&gt;
+      &lt;pre&gt;&lt;span class="nt"&gt;&amp;lt;span&lt;/span&gt; &lt;span class="na"&gt;class=&lt;/span&gt;&lt;span class="s"&gt;"how-to-design-programs"&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;S&lt;span class="nt"&gt;&amp;lt;br&lt;/span&gt; &lt;span class="nt"&gt;/&amp;gt;&lt;/span&gt;e&lt;span class="nt"&gt;&amp;lt;br&lt;/span&gt; &lt;span class="nt"&gt;/&amp;gt;&lt;/span&gt;m&lt;span class="nt"&gt;&amp;lt;br&lt;/span&gt; &lt;span class="nt"&gt;/&amp;gt;&lt;/span&gt;a&lt;span class="nt"&gt;&amp;lt;br&lt;/span&gt; &lt;span class="nt"&gt;/&amp;gt;&lt;/span&gt;n&lt;span class="nt"&gt;&amp;lt;br&lt;/span&gt; &lt;span class="nt"&gt;/&amp;gt;&lt;/span&gt;t&lt;span class="nt"&gt;&amp;lt;br&lt;/span&gt; &lt;span class="nt"&gt;/&amp;gt;&lt;/span&gt;i&lt;span class="nt"&gt;&amp;lt;br&lt;/span&gt; &lt;span class="nt"&gt;/&amp;gt;&lt;/span&gt;c&lt;span class="nt"&gt;&amp;lt;br&lt;/span&gt; &lt;span class="nt"&gt;/&amp;gt;&lt;/span&gt;s&lt;span class="nt"&gt;&amp;lt;br&lt;/span&gt; &lt;span class="nt"&gt;/&amp;gt;&amp;lt;br&lt;/span&gt; &lt;span class="nt"&gt;/&amp;gt;&amp;lt;/span&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+&lt;/div&gt;
 
 &lt;p&gt;After, the same text is generated from a function call:&lt;/p&gt;
 
 &lt;div class="brush: racket"&gt;
- &lt;pre&gt;&lt;code&gt;@span[class: "how-to-design-programs"]{@vertical-text{Semantics}}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+ &lt;table class="sourcetable"&gt;
+  &lt;tbody&gt;
+   &lt;tr&gt;
+    &lt;td class="linenos"&gt;
+     &lt;div class="linenodiv"&gt;
+      &lt;pre&gt;1&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;
+    &lt;td class="code"&gt;
+     &lt;div class="source"&gt;
+      &lt;pre&gt;&lt;span class="nv"&gt;@span&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="nf"&gt;class:&lt;/span&gt; &lt;span class="s"&gt;"how-to-design-programs"&lt;/span&gt;&lt;span class="p"&gt;]{&lt;/span&gt;&lt;span class="nf"&gt;@vertical-text&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="nf"&gt;Semantics&lt;/span&gt;&lt;span class="p"&gt;}}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+&lt;/div&gt;
 
 &lt;p&gt;The &lt;code&gt;vertical-text&lt;/code&gt; function is simple:&lt;/p&gt;
 
 &lt;div class="brush: racket"&gt;
- &lt;pre&gt;&lt;code&gt;@require[(only-in racket/list add-between)]
+ &lt;table class="sourcetable"&gt;
+  &lt;tbody&gt;
+   &lt;tr&gt;
+    &lt;td class="linenos"&gt;
+     &lt;div class="linenodiv"&gt;
+      &lt;pre&gt;1
+2
+3
+4&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;
+    &lt;td class="code"&gt;
+     &lt;div class="source"&gt;
+      &lt;pre&gt;&lt;span class="nv"&gt;@require&lt;/span&gt;&lt;span class="p"&gt;[(&lt;/span&gt;&lt;span class="nf"&gt;&lt;a href="http://docs.racket-lang.org/reference/require.html#(form._((lib._racket/private/base..rkt)._only-in))" style="color: inherit"&gt;only-in&lt;/a&gt;&lt;/span&gt; &lt;span class="nv"&gt;racket/list&lt;/span&gt; &lt;span class="nv"&gt;&lt;a href="http://docs.racket-lang.org/reference/pairs.html#(def._((lib._racket/list..rkt)._add-between))" style="color: inherit"&gt;add-between&lt;/a&gt;&lt;/span&gt;&lt;span class="p"&gt;)]&lt;/span&gt;
 
-@(define (vertical-text . str*)
-   (add-between (string-&amp;gt;list (append* str*)) (br)))&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;span class="nv"&gt;@&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;&lt;a href="http://docs.racket-lang.org/reference/define.html#(form._((lib._racket/private/base..rkt)._define))" style="color: inherit"&gt;define&lt;/a&gt; &lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nf"&gt;vertical-text&lt;/span&gt; &lt;span class="o"&gt;.&lt;/span&gt; &lt;span class="nv"&gt;str*&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+   &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nf"&gt;&lt;a href="http://docs.racket-lang.org/reference/pairs.html#(def._((lib._racket/list..rkt)._add-between))" style="color: inherit"&gt;add-between&lt;/a&gt;&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;&lt;a href="http://docs.racket-lang.org/reference/strings.html#(def._((quote._~23~25kernel)._string-~3elist))" style="color: inherit"&gt;string-&amp;gt;list&lt;/a&gt; &lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nf"&gt;&lt;a href="http://docs.racket-lang.org/reference/pairs.html#(def._((lib._racket/list..rkt)._append*))" style="color: inherit"&gt;append*&lt;/a&gt;&lt;/span&gt; &lt;span class="nv"&gt;str*&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nf"&gt;br&lt;/span&gt;&lt;span class="p"&gt;)))&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+&lt;/div&gt;
 
 &lt;h4 id="2-more-structure-less-boilerplate"&gt;2. More Structure, Less Boilerplate&lt;/h4&gt;
 
 &lt;p&gt;Here&amp;rsquo;s part of the old definition of &amp;ldquo;Ben Greenman&amp;rdquo; on the &lt;a href="http://prl.ccs.neu.edu/people.html"&gt;People page&lt;/a&gt;:&lt;/p&gt;
 
 &lt;div class="brush: html"&gt;
- &lt;pre&gt;&lt;code&gt;&amp;lt;div class="row pn-person"&amp;gt;
-  &amp;lt;div class="col-md-12 pn-row-eq-height"&amp;gt;
-    &amp;lt;div class="col-md-3 pn-photo"&amp;gt;
-      &amp;lt;div class="img-wrapper"&amp;gt;
-        &amp;lt;img src="img/ben_greenman.jpg" title="Ben Greenman" alt="Ben Greenman" /&amp;gt;
-      &amp;lt;/div&amp;gt;
-    &amp;lt;/div&amp;gt;
-    &amp;lt;div class="col-md-9"&amp;gt;
-      &amp;lt;div class="col-md-4 pn-contact"&amp;gt;
-        &amp;lt;span class="pn-name"&amp;gt;Ben Greenman&amp;lt;/span&amp;gt;&amp;lt;br /&amp;gt;
-        Advisor: Matthias Felleisen&amp;lt;br /&amp;gt;
-        &amp;lt;a href="mailto:types@"@"ccs.neu.edu"&amp;gt;types@"@"ccs.neu.edu&amp;lt;/a&amp;gt;&amp;lt;br /&amp;gt;
-        &amp;lt;a href="http://www.ccs.neu.edu/home/types"&amp;gt;www.ccs.neu.edu/home/types&amp;lt;/a&amp;gt;
-      &amp;lt;/div&amp;gt;
-      &amp;lt;div class="col-md-3 pn-muted col-md-offset-5"&amp;gt;
+ &lt;table class="sourcetable"&gt;
+  &lt;tbody&gt;
+   &lt;tr&gt;
+    &lt;td class="linenos"&gt;
+     &lt;div class="linenodiv"&gt;
+      &lt;pre&gt; 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;
+    &lt;td class="code"&gt;
+     &lt;div class="source"&gt;
+      &lt;pre&gt;&lt;span class="nt"&gt;&amp;lt;div&lt;/span&gt; &lt;span class="na"&gt;class=&lt;/span&gt;&lt;span class="s"&gt;"row pn-person"&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class="nt"&gt;&amp;lt;div&lt;/span&gt; &lt;span class="na"&gt;class=&lt;/span&gt;&lt;span class="s"&gt;"col-md-12 pn-row-eq-height"&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;div&lt;/span&gt; &lt;span class="na"&gt;class=&lt;/span&gt;&lt;span class="s"&gt;"col-md-3 pn-photo"&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+      &lt;span class="nt"&gt;&amp;lt;div&lt;/span&gt; &lt;span class="na"&gt;class=&lt;/span&gt;&lt;span class="s"&gt;"img-wrapper"&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class="nt"&gt;&amp;lt;img&lt;/span&gt; &lt;span class="na"&gt;src=&lt;/span&gt;&lt;span class="s"&gt;"img/ben_greenman.jpg"&lt;/span&gt; &lt;span class="na"&gt;title=&lt;/span&gt;&lt;span class="s"&gt;"Ben Greenman"&lt;/span&gt; &lt;span class="na"&gt;alt=&lt;/span&gt;&lt;span class="s"&gt;"Ben Greenman"&lt;/span&gt; &lt;span class="nt"&gt;/&amp;gt;&lt;/span&gt;
+      &lt;span class="nt"&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;div&lt;/span&gt; &lt;span class="na"&gt;class=&lt;/span&gt;&lt;span class="s"&gt;"col-md-9"&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+      &lt;span class="nt"&gt;&amp;lt;div&lt;/span&gt; &lt;span class="na"&gt;class=&lt;/span&gt;&lt;span class="s"&gt;"col-md-4 pn-contact"&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class="nt"&gt;&amp;lt;span&lt;/span&gt; &lt;span class="na"&gt;class=&lt;/span&gt;&lt;span class="s"&gt;"pn-name"&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;Ben Greenman&lt;span class="nt"&gt;&amp;lt;/span&amp;gt;&amp;lt;br&lt;/span&gt; &lt;span class="nt"&gt;/&amp;gt;&lt;/span&gt;
+        Advisor: Matthias Felleisen&lt;span class="nt"&gt;&amp;lt;br&lt;/span&gt; &lt;span class="nt"&gt;/&amp;gt;&lt;/span&gt;
+        &lt;span class="nt"&gt;&amp;lt;a&lt;/span&gt; &lt;span class="na"&gt;href=&lt;/span&gt;&lt;span class="s"&gt;"mailto:types@"&lt;/span&gt;&lt;span class="err"&gt;@"&lt;/span&gt;&lt;span class="na"&gt;ccs&lt;/span&gt;&lt;span class="err"&gt;.&lt;/span&gt;&lt;span class="na"&gt;neu&lt;/span&gt;&lt;span class="err"&gt;.&lt;/span&gt;&lt;span class="na"&gt;edu&lt;/span&gt;&lt;span class="err"&gt;"&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;types@"@"ccs.neu.edu&lt;span class="nt"&gt;&amp;lt;/a&amp;gt;&amp;lt;br&lt;/span&gt; &lt;span class="nt"&gt;/&amp;gt;&lt;/span&gt;
+        &lt;span class="nt"&gt;&amp;lt;a&lt;/span&gt; &lt;span class="na"&gt;href=&lt;/span&gt;&lt;span class="s"&gt;"http://www.ccs.neu.edu/home/types"&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;www.ccs.neu.edu/home/types&lt;span class="nt"&gt;&amp;lt;/a&amp;gt;&lt;/span&gt;
+      &lt;span class="nt"&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+      &lt;span class="nt"&gt;&amp;lt;div&lt;/span&gt; &lt;span class="na"&gt;class=&lt;/span&gt;&lt;span class="s"&gt;"col-md-3 pn-muted col-md-offset-5"&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
         Joined 2014
-      &amp;lt;/div&amp;gt;
-      &amp;lt;div class="col-md-12 pn-bio"&amp;gt;
-        &amp;lt;p&amp;gt;I like constructions .... &amp;lt;/p&amp;gt;
-      &amp;lt;/div&amp;gt;
-    &amp;lt;/div&amp;gt;
-  &amp;lt;/div&amp;gt;
-&amp;lt;/div&amp;gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+      &lt;span class="nt"&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+      &lt;span class="nt"&gt;&amp;lt;div&lt;/span&gt; &lt;span class="na"&gt;class=&lt;/span&gt;&lt;span class="s"&gt;"col-md-12 pn-bio"&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class="nt"&gt;&amp;lt;p&amp;gt;&lt;/span&gt;I like constructions .... &lt;span class="nt"&gt;&amp;lt;/p&amp;gt;&lt;/span&gt;
+      &lt;span class="nt"&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+  &lt;span class="nt"&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+&lt;span class="nt"&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+&lt;/div&gt;
 
 &lt;p&gt;The new definition uses a helper function with keyword arguments for each  &amp;ldquo;field&amp;rdquo; of the person:&lt;/p&gt;
 
 &lt;div class="brush: racket"&gt;
- &lt;pre&gt;&lt;code&gt;@person[#:name "Ben Greenman"
-        #:title "Advisor: Matthias Felleisen"
-        #:e-mail "types@ccs.neu.edu"
-        #:website "http://ccs.neu.edu/home/types"
-        #:history @list["Joined 2014"]
-        #:img "ben_greenman.jpg"]{
-  I like constructions ....
-}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+ &lt;table class="sourcetable"&gt;
+  &lt;tbody&gt;
+   &lt;tr&gt;
+    &lt;td class="linenos"&gt;
+     &lt;div class="linenodiv"&gt;
+      &lt;pre&gt;1
+2
+3
+4
+5
+6
+7
+8&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;
+    &lt;td class="code"&gt;
+     &lt;div class="source"&gt;
+      &lt;pre&gt;&lt;span class="nv"&gt;@person&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="kd"&gt;#:name&lt;/span&gt; &lt;span class="s"&gt;"Ben Greenman"&lt;/span&gt;
+        &lt;span class="kd"&gt;#:title&lt;/span&gt; &lt;span class="s"&gt;"Advisor: Matthias Felleisen"&lt;/span&gt;
+        &lt;span class="kd"&gt;#:e-mail&lt;/span&gt; &lt;span class="s"&gt;"types@ccs.neu.edu"&lt;/span&gt;
+        &lt;span class="kd"&gt;#:website&lt;/span&gt; &lt;span class="s"&gt;"http://ccs.neu.edu/home/types"&lt;/span&gt;
+        &lt;span class="kd"&gt;#:history&lt;/span&gt; &lt;span class="nv"&gt;@list&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s"&gt;"Joined 2014"&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+        &lt;span class="kd"&gt;#:img&lt;/span&gt; &lt;span class="s"&gt;"ben_greenman.jpg"&lt;/span&gt;&lt;span class="p"&gt;]{&lt;/span&gt;
+  &lt;span class="nv"&gt;I&lt;/span&gt; &lt;span class="nv"&gt;like&lt;/span&gt; &lt;span class="nv"&gt;constructions&lt;/span&gt; &lt;span class="o"&gt;....&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+&lt;/div&gt;
 
 &lt;h4 id="3-less-string-formatting"&gt;3. Less String-Formatting&lt;/h4&gt;
 
 &lt;p&gt;Before, the code did a lot of string formatting (&lt;a href="https://github.com/nuprl/website/commit/a0600d#diff-1921e33ce89be28dd277cf1c7880d1beL9"&gt;link&lt;/a&gt;):&lt;/p&gt;
 
 &lt;div class="brush: racket"&gt;
- &lt;pre&gt;&lt;code&gt;(define (link url body)
-  (string-append "&amp;lt;a href=\"" url "\"&amp;gt;" body "&amp;lt;/a&amp;gt;"))&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+ &lt;table class="sourcetable"&gt;
+  &lt;tbody&gt;
+   &lt;tr&gt;
+    &lt;td class="linenos"&gt;
+     &lt;div class="linenodiv"&gt;
+      &lt;pre&gt;1
+2&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;
+    &lt;td class="code"&gt;
+     &lt;div class="source"&gt;
+      &lt;pre&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;&lt;a href="http://docs.racket-lang.org/reference/define.html#(form._((lib._racket/private/base..rkt)._define))" style="color: inherit"&gt;define&lt;/a&gt; &lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nf"&gt;&lt;a href="http://docs.racket-lang.org/reference/creatingunits.html#(form._((lib._racket/unit..rkt)._link))" style="color: inherit"&gt;link&lt;/a&gt;&lt;/span&gt; &lt;span class="nv"&gt;url&lt;/span&gt; &lt;span class="nv"&gt;body&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+  &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;&lt;a href="http://docs.racket-lang.org/reference/strings.html#(def._((quote._~23~25kernel)._string-append))" style="color: inherit"&gt;string-append&lt;/a&gt; &lt;/span&gt;&lt;span class="s"&gt;"&amp;lt;a href=\""&lt;/span&gt; &lt;span class="nv"&gt;url&lt;/span&gt; &lt;span class="s"&gt;"\"&amp;gt;"&lt;/span&gt; &lt;span class="nv"&gt;body&lt;/span&gt; &lt;span class="s"&gt;"&amp;lt;/a&amp;gt;"&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+&lt;/div&gt;
 
 &lt;p&gt;The new code has no need for such helper functions.&lt;/p&gt;
 
 &lt;div class="brush: racket"&gt;
- &lt;pre&gt;&lt;code&gt;@a[href: url body]&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+ &lt;table class="sourcetable"&gt;
+  &lt;tbody&gt;
+   &lt;tr&gt;
+    &lt;td class="linenos"&gt;
+     &lt;div class="linenodiv"&gt;
+      &lt;pre&gt;1&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;
+    &lt;td class="code"&gt;
+     &lt;div class="source"&gt;
+      &lt;pre&gt;&lt;span class="nv"&gt;@a&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="nf"&gt;href:&lt;/span&gt; &lt;span class="nv"&gt;url&lt;/span&gt; &lt;span class="nv"&gt;body&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+&lt;/div&gt;
 
 &lt;h4 id="bottom-line"&gt;Bottom Line&lt;/h4&gt;
 

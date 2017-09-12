@@ -38,11 +38,11 @@
 
 &lt;p&gt;would be converted to something like&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;let x = 3 in ([x: 3], \lambda env, y. let x = env.x in x + y) &lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;let x = 3 in ([x: 3], λ env, y. let x = env.x in x + y)&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;Can we give a type to the resulting code? The source program has type &lt;code&gt;Number -&amp;gt; Number&lt;/code&gt;, but the target has a type more like&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;{ x: Number} \times ({x : Number} \times Number -&amp;gt; Number).&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;{ x: Number} × ({x : Number} × Number -&amp;gt; Number).&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;In addition to being ugly, this type is leaking irrelevant details of the function&amp;rsquo;s implementation: all of its free variables are there in its type, so two terms with the same function type but different free variables would be translated to different types. Also high-level program equivalences like 
  &lt;script type="math/tex"&gt;\beta&lt;/script&gt;-reducing the term to just &lt;code&gt;λ y. 3 + y&lt;/code&gt; would not even preserve typing. Not only that, but some bad code could now supply a &lt;em&gt;different&lt;/em&gt;, well-typed value for &lt;code&gt;x&lt;/code&gt; than allowed which could break invariants the programmer had about the function.&lt;/p&gt;

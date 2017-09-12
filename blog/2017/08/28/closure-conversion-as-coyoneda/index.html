@@ -108,11 +108,11 @@
 
 <p>would be converted to something like</p>
 
-<pre><code>let x = 3 in ([x: 3], \lambda env, y. let x = env.x in x + y) </code></pre>
+<pre><code>let x = 3 in ([x: 3], λ env, y. let x = env.x in x + y)</code></pre>
 
 <p>Can we give a type to the resulting code? The source program has type <code>Number -&gt; Number</code>, but the target has a type more like</p>
 
-<pre><code>{ x: Number} \times ({x : Number} \times Number -&gt; Number).</code></pre>
+<pre><code>{ x: Number} × ({x : Number} × Number -&gt; Number).</code></pre>
 
 <p>In addition to being ugly, this type is leaking irrelevant details of the function&rsquo;s implementation: all of its free variables are there in its type, so two terms with the same function type but different free variables would be translated to different types. Also high-level program equivalences like 
  <script type="math/tex">\beta</script>-reducing the term to just <code>λ y. 3 + y</code> would not even preserve typing. Not only that, but some bad code could now supply a <em>different</em>, well-typed value for <code>x</code> than allowed which could break invariants the programmer had about the function.</p>
