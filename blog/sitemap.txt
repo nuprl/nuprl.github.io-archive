@@ -12,6 +12,7 @@ http://prl.ccs.neu.edu/blog/2017/05/01/categorical-semantics-for-dynamically-typ
 http://prl.ccs.neu.edu/blog/2016/05/18/gradual-typing-across-the-spectrum
 http://prl.ccs.neu.edu/blog/2017/03/03/plt-redex-mf-apply
 http://prl.ccs.neu.edu/blog/2016/08/03/a-few-cores-too-many
+http://prl.ccs.neu.edu/blog/2017/09/25/plt-redex-faq
 http://prl.ccs.neu.edu/blog/2017/04/20/refinement-types
 http://prl.ccs.neu.edu/blog/2016/05/03/nepls-on-may-31st-at-umass-amherst
 http://prl.ccs.neu.edu/blog/2016/10/31/meaningful-distinctions
