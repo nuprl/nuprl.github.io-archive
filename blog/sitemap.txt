@@ -55,3 +55,4 @@ http://prl.ccs.neu.edu/blog/2017/02/21/bullets-are-good-for-your-coq-proofs
 http://prl.ccs.neu.edu/blog/2017/02/28/pliss-oregon-without-the-greek
 http://prl.ccs.neu.edu/blog/2017/05/04/rank-polymorphism
 http://prl.ccs.neu.edu/blog/2017/06/05/syntactic-parametricity-strikes-again
+http://prl.ccs.neu.edu/blog/2017/09/27/final-algebra-semantics-is-observational-equivalence
