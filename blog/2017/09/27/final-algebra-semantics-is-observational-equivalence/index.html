@@ -93,7 +93,7 @@
 
 <p>As a running example, say we wanted to implement a datatype of finite maps whose keys and values are both integers, i.e., finite multisets of integers.</p>
 
-<p>We could specify such a datatype by specifying a little language of numbers and finite multisets. We&rsquo;ll have two &ldquo;sorts&rdquo; <code>num</code> and <code>multiset</code>, a constant for every integer, and an addition function <code>'n : () -&gt; num
+<p>We could specify such a datatype by specifying a little language of numbers and finite multisets. We&rsquo;ll have two &ldquo;sorts&rdquo; <code>num</code> and <code>multiset</code>, a constant for every integer, and an addition function <code>'n : () -&gt; num;
 add : (num, num) -&gt; num</code> subject to the silly-looking equation: <code>add('n,'m) = '(n + m)</code></p>
 
 <p>and some operations on multisets <code>empty : () -&gt; multiset;
@@ -249,7 +249,7 @@ t = singleton 2 `union` singleton 1
 </td></tr></tbody></table>
 </div>
 
-<p>since <code>+</code> is commutative Equality isn&rsquo;t decidable anymore so I can&rsquo;t give you a simple piece of code to witness this, but we can test our example before and we won&rsquo;t be able to distinguish them, no surprise:</p>
+<p>since <code>+</code> is commutative. Equality isn&rsquo;t decidable anymore so I can&rsquo;t give you a simple piece of code to witness this, but we can test our example before and we won&rsquo;t be able to distinguish them, no surprise:</p>
 
 <div class="brush: Haskell">
  <table class="sourcetable">
@@ -284,7 +284,7 @@ True
 <p>A <em>Lawvere theory</em> is a category with finite products all of whose objects are finite products of a collection of <em>sorts</em> 
  <script type="math/tex">S</script>. We can construct this category from our little language above by making the objects be <em>contexts</em> 
  <script type="math/tex">x:num,y:multiset,...</script> and morphisms 
- <script type="math/tex">\Gamma ->
+ <script type="math/tex">\Gamma \to
 x_1:s_1,...,x_n:s_n</script> to be 
  <script type="math/tex">n</script>-tuples of terms 
  <script type="math/tex">\Gamma \vdash t_1 : s_1,...,
@@ -309,7 +309,8 @@ A(s)</script>.</p>
  <script type="math/tex">B</script>, but concretely this means for every sort 
  <script type="math/tex">s</script> we get a function 
  <script type="math/tex">\alpha_s : A(s) \to B(s)</script> that translates 
- <script type="math/tex">A</script>s interpretation of $s$ as a set into 
+ <script type="math/tex">A</script>s interpretation of 
+ <script type="math/tex">s</script> as a set into 
  <script type="math/tex">B</script>s. The key property that we want is that the operations according to 
  <script type="math/tex">A</script> and 
  <script type="math/tex">B</script> do the same thing as determined by 

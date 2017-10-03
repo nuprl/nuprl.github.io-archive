@@ -23,7 +23,7 @@
 
 &lt;p&gt;As a running example, say we wanted to implement a datatype of finite maps whose keys and values are both integers, i.e., finite multisets of integers.&lt;/p&gt;
 
-&lt;p&gt;We could specify such a datatype by specifying a little language of numbers and finite multisets. We&amp;rsquo;ll have two &amp;ldquo;sorts&amp;rdquo; &lt;code&gt;num&lt;/code&gt; and &lt;code&gt;multiset&lt;/code&gt;, a constant for every integer, and an addition function &lt;code&gt;'n : () -&amp;gt; num
+&lt;p&gt;We could specify such a datatype by specifying a little language of numbers and finite multisets. We&amp;rsquo;ll have two &amp;ldquo;sorts&amp;rdquo; &lt;code&gt;num&lt;/code&gt; and &lt;code&gt;multiset&lt;/code&gt;, a constant for every integer, and an addition function &lt;code&gt;'n : () -&amp;gt; num;
 add : (num, num) -&amp;gt; num&lt;/code&gt; subject to the silly-looking equation: &lt;code&gt;add('n,'m) = '(n + m)&lt;/code&gt;&lt;/p&gt;
 
 &lt;p&gt;and some operations on multisets &lt;code&gt;empty : () -&amp;gt; multiset;
@@ -179,7 +179,7 @@ t = singleton 2 `union` singleton 1
 &lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
 &lt;/div&gt;
 
-&lt;p&gt;since &lt;code&gt;+&lt;/code&gt; is commutative Equality isn&amp;rsquo;t decidable anymore so I can&amp;rsquo;t give you a simple piece of code to witness this, but we can test our example before and we won&amp;rsquo;t be able to distinguish them, no surprise:&lt;/p&gt;
+&lt;p&gt;since &lt;code&gt;+&lt;/code&gt; is commutative. Equality isn&amp;rsquo;t decidable anymore so I can&amp;rsquo;t give you a simple piece of code to witness this, but we can test our example before and we won&amp;rsquo;t be able to distinguish them, no surprise:&lt;/p&gt;
 
 &lt;div class="brush: Haskell"&gt;
  &lt;table class="sourcetable"&gt;
@@ -214,7 +214,7 @@ True
 &lt;p&gt;A &lt;em&gt;Lawvere theory&lt;/em&gt; is a category with finite products all of whose objects are finite products of a collection of &lt;em&gt;sorts&lt;/em&gt; 
  &lt;script type="math/tex"&gt;S&lt;/script&gt;. We can construct this category from our little language above by making the objects be &lt;em&gt;contexts&lt;/em&gt; 
  &lt;script type="math/tex"&gt;x:num,y:multiset,...&lt;/script&gt; and morphisms 
- &lt;script type="math/tex"&gt;\Gamma -&gt;
+ &lt;script type="math/tex"&gt;\Gamma \to
 x_1:s_1,...,x_n:s_n&lt;/script&gt; to be 
  &lt;script type="math/tex"&gt;n&lt;/script&gt;-tuples of terms 
  &lt;script type="math/tex"&gt;\Gamma \vdash t_1 : s_1,...,
@@ -239,7 +239,8 @@ A(s)&lt;/script&gt;.&lt;/p&gt;
  &lt;script type="math/tex"&gt;B&lt;/script&gt;, but concretely this means for every sort 
  &lt;script type="math/tex"&gt;s&lt;/script&gt; we get a function 
  &lt;script type="math/tex"&gt;\alpha_s : A(s) \to B(s)&lt;/script&gt; that translates 
- &lt;script type="math/tex"&gt;A&lt;/script&gt;s interpretation of $s$ as a set into 
+ &lt;script type="math/tex"&gt;A&lt;/script&gt;s interpretation of 
+ &lt;script type="math/tex"&gt;s&lt;/script&gt; as a set into 
  &lt;script type="math/tex"&gt;B&lt;/script&gt;s. The key property that we want is that the operations according to 
  &lt;script type="math/tex"&gt;A&lt;/script&gt; and 
  &lt;script type="math/tex"&gt;B&lt;/script&gt; do the same thing as determined by 
