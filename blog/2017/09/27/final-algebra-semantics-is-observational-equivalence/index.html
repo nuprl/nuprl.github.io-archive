@@ -96,11 +96,15 @@
 <p>We could specify such a datatype by specifying a little language of numbers and finite multisets. We&rsquo;ll have two &ldquo;sorts&rdquo; <code>num</code> and <code>multiset</code>, a constant for every integer, and an addition function <code>'n : () -&gt; num;
 add : (num, num) -&gt; num</code> subject to the silly-looking equation: <code>add('n,'m) = '(n + m)</code></p>
 
-<p>and some operations on multisets <code>empty : () -&gt; multiset;
+<p>and some operations on multisets</p>
+
+<pre><code>empty : () -&gt; multiset;
 singleton : (num) -&gt; multiset;
 union : (multiset, multiset) -&gt; multiset;
 remove : (num, multiset) -&gt; multiset;
-count : (num, multiset) -&gt; num</code> subject to the computational equations:</p>
+count : (num, multiset) -&gt; num</code></pre>
+
+<p>subject to the computational equations:</p>
 
 <pre><code>count('n, empty) = '0
 count('n, singleton('n)) = '1
