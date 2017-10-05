@@ -93,8 +93,14 @@
 
 <p>As a running example, say we wanted to implement a datatype of finite maps whose keys and values are both integers, i.e., finite multisets of integers.</p>
 
-<p>We could specify such a datatype by specifying a little language of numbers and finite multisets. We&rsquo;ll have two &ldquo;sorts&rdquo; <code>num</code> and <code>multiset</code>, a constant for every integer, and an addition function <code>'n : () -&gt; num;
-add : (num, num) -&gt; num</code> subject to the silly-looking equation: <code>add('n,'m) = '(n + m)</code></p>
+<p>We could specify such a datatype by specifying a little language of numbers and finite multisets. We&rsquo;ll have two &ldquo;sorts&rdquo; <code>num</code> and <code>multiset</code>, a constant for every integer, and an addition function</p>
+
+<pre><code>'n : () -&gt; num;
+add : (num, num) -&gt; num</code></pre>
+
+<p>subject to the silly-looking equation:</p>
+
+<pre><code>add('n,'m) = '(n + m)</code></pre>
 
 <p>and some operations on multisets</p>
 

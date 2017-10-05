@@ -23,8 +23,14 @@
 
 &lt;p&gt;As a running example, say we wanted to implement a datatype of finite maps whose keys and values are both integers, i.e., finite multisets of integers.&lt;/p&gt;
 
-&lt;p&gt;We could specify such a datatype by specifying a little language of numbers and finite multisets. We&amp;rsquo;ll have two &amp;ldquo;sorts&amp;rdquo; &lt;code&gt;num&lt;/code&gt; and &lt;code&gt;multiset&lt;/code&gt;, a constant for every integer, and an addition function &lt;code&gt;'n : () -&amp;gt; num;
-add : (num, num) -&amp;gt; num&lt;/code&gt; subject to the silly-looking equation: &lt;code&gt;add('n,'m) = '(n + m)&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;We could specify such a datatype by specifying a little language of numbers and finite multisets. We&amp;rsquo;ll have two &amp;ldquo;sorts&amp;rdquo; &lt;code&gt;num&lt;/code&gt; and &lt;code&gt;multiset&lt;/code&gt;, a constant for every integer, and an addition function&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;'n : () -&amp;gt; num;
+add : (num, num) -&amp;gt; num&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;subject to the silly-looking equation:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;add('n,'m) = '(n + m)&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;and some operations on multisets&lt;/p&gt;
 
