@@ -15,6 +15,7 @@
    <author>PRL</author>
    <description>
 &lt;p&gt;A few weeks back, we published a draft of an article entitled &lt;a href="https://infoscience.epfl.ch/record/231867"&gt;&lt;em&gt;Monotonicity Types&lt;/em&gt;&lt;/a&gt;. In it, we describe a type system which we hope can aid the design of distributed systems by tracking monotonicity with types.&lt;/p&gt;
+&lt;!-- more--&gt;
 
 &lt;p&gt;But first, what, precisely, do we mean by &lt;em&gt;monotonicity&lt;/em&gt;? Here&amp;rsquo;s a short definition:&lt;/p&gt;
 
@@ -59,11 +60,11 @@
 
 &lt;p&gt;Towards this aim, we have been designing a type system for tracking monotonicity, as an extension of the simply typed lambda calculus which adds a new function abstraction construct called the &lt;em&gt;sfun&lt;/em&gt;.&lt;/p&gt;
 
-&lt;p&gt;Our approach alllows the programmer to write a special kind of function definition, the body of which is type checked using a richer type system, one which reasons about function composition rather than application. Such a function can then be proven monotone by utilizing the fact that the composition of two monotone functions is itself monotone, and other related principles.&lt;/p&gt;
+&lt;p&gt;Our approach allows the programmer to write a special kind of function definition, the body of which is type checked using a richer type system, one which reasons about function composition rather than application. Such a function can then be proven monotone by utilizing the fact that the composition of two monotone functions is itself monotone, and other related principles.&lt;/p&gt;
 
 &lt;p&gt;Monotonicity is a relational property; that is, its a property involving multiple applications of the same function. Such properties are blind spot for traditional type systems, so our design requires some unusual and interesting features.&lt;/p&gt;
 
-&lt;p&gt;To give an intuition of what our type system looks like; as mentioned earlier, we introduce a special abstraction for monotone functions called an &lt;em&gt;sfun&lt;/em&gt;. Since the programmer only cares about the monotonicity of a select group of functions, a special syntax construct, the sfun, serves as a signal to the type checker. Unlike the simply typed world outside of the sfun abstraction, the body of an sfun is type checked using a refinement type system, which I call the lifted type system in which monotonicity is tracked. So in our system we have a lifted (local) type system within sfuns, and a terminal (global) type system for the typed world outside of the sfun.&lt;/p&gt;
+&lt;p&gt;Now, we will give some intuition for the type system. As mentioned earlier, we introduce a special abstraction for monotone functions called an &lt;em&gt;sfun&lt;/em&gt;. Since the programmer only cares about the monotonicity of a select group of functions, a special syntax construct, the sfun, serves as a signal to the type checker. Unlike the simply typed world outside of the sfun abstraction, the body of an sfun is type checked using a refinement type system, called the lifted type system, in which monotonicity is tracked. So in our system, we have a lifted (local) type system within sfuns, and a terminal (global) type system for the typed world outside of the sfun.&lt;/p&gt;
 
 &lt;p&gt;This terminal (global) type system is a traditional type system which is embedded as a specific kind of refinement inside of the lifted (local) type system. Applying functions is a way of projecting from the lifted (local) world into the terminal (global) world.&lt;/p&gt;
 
