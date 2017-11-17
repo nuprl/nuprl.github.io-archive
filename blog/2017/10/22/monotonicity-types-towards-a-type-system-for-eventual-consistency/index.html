@@ -3,14 +3,14 @@
   <head>
 
     <meta charset="utf-8">
-    <title>PRL Blog</title>
-    <meta name="description" content="PRL Blog">
+    <title>Monotonicity Types: Towards A Type System for Eventual Consistency</title>
+    <meta name="description" content="A few weeks back, we published a draft of an article entitled _Monotonicity Types_. In it, we describe a type system which we hope can aid the design of distributed systems by tracking monotonicity with types.  But first, what, precisely, do we mean by _m...">
     <meta name="author"      content="PRL">
-    <meta name="keywords"    content="instrumentation, closure conversion, HOPL, dynamic typing, coYoneda, compiler correctness, tutorial, lang-extension, PL Junior, observational equivalence, by Artem Pelenitsyn, icfp, by Asumu Takikawa, event, by Li-Yao Xia, garbage collection, category theory, PLT Redex, ocaml, by Milo Davis, by Julia Belyakova, coq, by Aaron Weiss, FFI, about, latency, language implementation, history, semantics, compilers, galois connection, by Kevin Clancy, math, ICFP, gradual typing, CRDTs, lost time, haskell, by Tony Garnock-Jones, Emacs, reduction, types, pliss, by Gabriel Scherer, by Jonathan Schuster, final encoding, by Rob Kleffner, by Matt Kolosick, dear diary, dawn of the digital era, eventual consistency, by Max New, bugs, monotonicity, by Ben Chung, calculus, by Jan Vitek, racket, windows, PI meeting, by William J. Bowman, System Administration, Yoneda, NEPLS, Scribble, beta, package, lectures, adjunction, array language, by Ming-Ho Yee, ghc, proceedings, all, by Dustin Jamner, by Justin Slepak, conference, by Ben Greenman, Gradual Typing, by Leif Andersen, books, 1st blog post, Racket, constructions, benchmarking, performance, lambda, by Sam Caldwell, by Daniel Patterson">
+    <meta name="keywords"    content="types, monotonicity, CRDTs, eventual consistency, by Kevin Clancy">
     <meta name="viewport"    content="width=device-width, initial-scale=1.0">
     <link rel="icon"      href="/img/favicon.ico">
-    <link rel="canonical" href="http://prl.ccs.neu.edu/blog/index.html">
-
+    <link rel="canonical" href="http://prl.ccs.neu.edu/blog/2017/10/22/monotonicity-types-towards-a-type-system-for-eventual-consistency">
+    <link rel="next" href="/blog/2017/09/27/final-algebra-semantics-is-observational-equivalence">
 
     <script type="text/javascript" async
             src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
@@ -79,7 +79,7 @@
 
               <article>
   <header>
-    <h2><a href='/blog/2017/10/22/monotonicity-types-towards-a-type-system-for-eventual-consistency'>Monotonicity Types: Towards A Type System for Eventual Consistency</a></h2>
+    <h1>Monotonicity Types: Towards A Type System for Eventual Consistency</h1>
     <p class='date-and-tags'>
 <time datetime="2017-10-22" pubdate="true">2017-10-22</time> :: <span class="tags"><a href="/blog/tags/types.html">types</a>, <a href="/blog/tags/monotonicity.html">monotonicity</a>, <a href="/blog/tags/CRDTs.html">CRDTs</a>, <a href="/blog/tags/eventual-consistency.html">eventual consistency</a>, <a href="/blog/tags/by-Kevin-Clancy.html">by Kevin Clancy</a></span></p>
   </header>
@@ -191,143 +191,34 @@ sfun sumCounters(x : GCounter, y : GCounter)
 <p><span class="ref4">L. Kuper and R. R. Newton. <em>LVars: Lattice-based data structures for deterministic parallelism</em>. In Proceedings of the 2nd ACM SIGPLAN Workshop on Functional High-performance Computing, FHPC ’13, pages 71–84, New York, NY, USA, 2013. ACM.</span></p>
 
 <p><span class="ref5">N. Vazou, E. L. Seidel, R. Jhala, D. Vytiniotis, and S. Peyton-Jones. <em>Refinement types for Haskell</em>. SIGPLAN Not. 49, 9 (August 2014), 269&ndash;282.</span></p>
-
-</article>
-<article>
-  <header>
-    <h2><a href='/blog/2017/09/27/final-algebra-semantics-is-observational-equivalence'>Final Algebra Semantics is Observational Equivalence</a></h2>
-    <p class='date-and-tags'>
-<time datetime="2017-09-27" pubdate="true">2017-09-27</time> :: <span class="tags"><a href="/blog/tags/category-theory.html">category theory</a>, <a href="/blog/tags/math.html">math</a>, <a href="/blog/tags/final-encoding.html">final encoding</a>, <a href="/blog/tags/observational-equivalence.html">observational equivalence</a>, <a href="/blog/tags/by-Max-New.html">by Max New</a></span></p>
-  </header>
-
-<p>Recently, &ldquo;final encodings&rdquo; and &ldquo;finally tagless style&rdquo; have become popular techniques for defining embedded languages in functional languages. In a recent discussion in the Northeastern PRL lab, <a href="https://github.com/michaelballantyne">Michael Ballantyne</a>, <a href="http://ccs.neu.edu/home/ryanc">Ryan Culpepper</a> and I asked &ldquo;in what category are these actually final objects&rdquo;? As it turns out our very own <a href="http://www.ccs.neu.edu/home/wand/">Mitch Wand</a> wrote one of the first papers to make exactly this idea precise, so I read it <a href="https://www.cs.indiana.edu/ftp/techreports/TR65.pdf">available here</a> and was pleasantly surprised to see that the definition of a final algebra there is essentially equivalent to the definition of observational equivalence.</p>
-
-<p>In this post, I&rsquo;ll go over some of the results of that paper and explain the connection to observational equivalence. In the process we&rsquo;ll learn a bit about categorical logic, and I&rsquo;ll reformulate some of the category theory in that paper to be a bit more modern in presentation, cleaning some things up in the process.</p>
+  <br/><br/>
   <footer>
-    <a href='/blog/2017/09/27/final-algebra-semantics-is-observational-equivalence'>&hellip; more &hellip;</a>
+    <script type="text/javascript">
+      !function(d,s,id){
+          var js,fjs=d.getElementsByTagName(s)[0];
+          if(!d.getElementById(id)){
+              js=d.createElement(s);
+              js.id=id;
+              js.src="//platform.twitter.com/widgets.js";
+              fjs.parentNode.insertBefore(js,fjs);
+          }
+      }(document,"script","twitter-wjs");
+    </script>
+    <a href="https://twitter.com/share"
+       class="twitter-share-button"
+       data-url="http://prl.ccs.neu.edu/blog/2017/10/22/monotonicity-types-towards-a-type-system-for-eventual-consistency"
+       data-dnt="true">
+      "Tweet"</a>
+    <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+    <g:plusone size="medium" href="http://prl.ccs.neu.edu/blog/2017/10/22/monotonicity-types-towards-a-type-system-for-eventual-consistency"></g:plusone>
+    <ul class="pager">
+
+    <li class="next">
+      <a href="/blog/2017/09/27/final-algebra-semantics-is-observational-equivalence"><em>Final Algebra Semantics is Observational Equivalence</em> &rarr;</a>
+    </li>
+    </ul>
   </footer>
 </article>
-<article>
-  <header>
-    <h2><a href='/blog/2017/09/25/plt-redex-faq'>PLT Redex FAQ</a></h2>
-    <p class='date-and-tags'>
-<time datetime="2017-09-25" pubdate="true">2017-09-25</time> :: <span class="tags"><a href="/blog/tags/tutorial.html">tutorial</a>, <a href="/blog/tags/PLT-Redex.html">PLT Redex</a>, <a href="/blog/tags/by-Ben-Greenman.html">by Ben Greenman</a>, <a href="/blog/tags/by-Sam-Caldwell.html">by Sam Caldwell</a></span></p>
-  </header>
-
-<p>A short guide to Redex concepts, conventions, and common mistakes.</p>
-  <footer>
-    <a href='/blog/2017/09/25/plt-redex-faq'>&hellip; more &hellip;</a>
-  </footer>
-</article>
-<article>
-  <header>
-    <h2><a href='/blog/2017/08/29/-why-am-i-going-to-icfp-2017-cross-post-https-williamjbowman-com-blog-2017-08-29-why-am-i-going-to-icfp-2017'><a href="https://williamjbowman.com/blog/2017/08/29/why-am-i-going-to-icfp-2017/">Why am I going to ICFP 2017? (cross-post)</a></a></h2>
-    <p class='date-and-tags'>
-<time datetime="2017-08-29" pubdate="true">2017-08-29</time> :: <span class="tags"><a href="/blog/tags/by-William-J-Bowman.html">by William J. Bowman</a></span></p>
-  </header>
-
-
-</article>
-<article>
-  <header>
-    <h2><a href='/blog/2017/08/28/closure-conversion-as-coyoneda'>Closure Conversion as CoYoneda</a></h2>
-    <p class='date-and-tags'>
-<time datetime="2017-08-28" pubdate="true">2017-08-28</time> :: <span class="tags"><a href="/blog/tags/Yoneda.html">Yoneda</a>, <a href="/blog/tags/coYoneda.html">coYoneda</a>, <a href="/blog/tags/category-theory.html">category theory</a>, <a href="/blog/tags/compilers.html">compilers</a>, <a href="/blog/tags/closure-conversion.html">closure conversion</a>, <a href="/blog/tags/math.html">math</a>, <a href="/blog/tags/by-Max-New.html">by Max New</a></span></p>
-  </header>
-
-<p>The continuation-passing style transform (cps) and closure conversion (cc) are two techniques widely employed by compilers for functional languages, and have been studied extensively in the compiler correctness literature. Interestingly, <em>typed</em> versions of each can be proven to be equivalence preserving using polymorphic types and parametric reasoning, as shown by my advisor Amal Ahmed and Matthias Blume (<a href="http://www.ccs.neu.edu/home/amal/papers/epc.pdf">cps</a>,<a href="http://www.ccs.neu.edu/home/amal/papers/tccpoe.pdf">cc</a>).</p>
-
-<p>In fact, there is something like a duality between the two proofs, cps uses a universal type, closure-conversion uses an existential type and the isomorphism proofs use analogous reasoning. It turns out that both are instances of general theorems in category theory: the polymorphic cps isomorphism can be proven using the Yoneda lemma, and the polymorphic closure-conversion isomorphism can be proven using a less well known theorem often called the <a href="https://ncatlab.org/nlab/show/co-Yoneda+lemma">*co*Yoneda lemma</a>.</p>
-
-<p>The connection between cps and the Yoneda embedding/lemma is detailed elsewhere in the <a href="http://www.cs.ox.ac.uk/people/daniel.james/iso/iso.pdf">literature</a> and blogosphere (<a href="https://golem.ph.utexas.edu/category/2008/01/the_continuation_passing_trans.html">ncafe</a>, <a href="https://bartoszmilewski.com/2015/09/01/the-Yoneda-lemma/">Bartosz</a>), so I&rsquo;ll focus on closure conversion here. Also, I&rsquo;ll try to go into some detail in showing how the &ldquo;usual&rdquo; version of Yoneda/coYoneda (using the category of sets) relates to the appropriate version for compilers.</p>
-
-<p>I&rsquo;ll assume some background knowledge on closure conversion and parametricity below. Fortunately, Matt Might has a <a href="http://matt.might.net/articles/closure-conversion/">nice blog post explaining untyped closure conversion</a>.</p>
-  <footer>
-    <a href='/blog/2017/08/28/closure-conversion-as-coyoneda'>&hellip; more &hellip;</a>
-  </footer>
-</article>
-<article>
-  <header>
-    <h2><a href='/blog/2017/08/22/gradual-typing-across-the-spectrum-part-ii'>Gradual Typing Across the Spectrum, part II</a></h2>
-    <p class='date-and-tags'>
-<time datetime="2017-08-22" pubdate="true">2017-08-22</time> :: <span class="tags"><a href="/blog/tags/gradual-typing.html">gradual typing</a>, <a href="/blog/tags/PI-meeting.html">PI meeting</a>, <a href="/blog/tags/by-Ben-Greenman.html">by Ben Greenman</a></span></p>
-  </header>
-
-<p>Last week, Northeastern hosted a PI meeting for the <a href="http://prl.ccs.neu.edu/gtp/">Gradual Typing Across the  Spectrum</a> NSF grant. The meeting was made of 20+ researchers from four institutions,  and 12 technical talks. Schedule:</p>
-
-<p><a href="http://prl.ccs.neu.edu/gtp/pi2017/pi2017.html">http://prl.ccs.neu.edu/gtp/pi2017/pi2017.html</a></p>
-
-<p>A common thread among the talks was the question:  <em>how to convert a research idea into a tool for software developers?</em></p>
-  <footer>
-    <a href='/blog/2017/08/22/gradual-typing-across-the-spectrum-part-ii'>&hellip; more &hellip;</a>
-  </footer>
-</article>
-<article>
-  <header>
-    <h2><a href='/blog/2017/08/13/reviews-and-author-responses-we-should-stop-asking-for-500-word-responses'>Reviews and author responses: we should stop asking for 500-word responses</a></h2>
-    <p class='date-and-tags'>
-<time datetime="2017-08-13" pubdate="true">2017-08-13</time> :: <span class="tags"><a href="/blog/tags/by-Gabriel-Scherer.html">by Gabriel Scherer</a></span></p>
-  </header>
-
-<p>This year I reviewed many ICFP submissions, and got to be on the receiving end of equally many author responses (also sometimes called, somewhat combatively, rebuttals). I found that there was a large difference between the official written advice on author responses and what I, as a reviewer reading the responses, found effective. In particular, I now believe that limiting yourself to 500 words should strongly be avoided &mdash; we should even stop giving that advice.</p>
-  <footer>
-    <a href='/blog/2017/08/13/reviews-and-author-responses-we-should-stop-asking-for-500-word-responses'>&hellip; more &hellip;</a>
-  </footer>
-</article>
-<article>
-  <header>
-    <h2><a href='/blog/2017/07/19/trees-1973'>Trees, 1973</a></h2>
-    <p class='date-and-tags'>
-<time datetime="2017-07-19" pubdate="true">2017-07-19</time> :: <span class="tags"><a href="/blog/tags/history.html">history</a>, <a href="/blog/tags/by-Ben-Greenman.html">by Ben Greenman</a></span></p>
-  </header>
-
-<p>From the PRL archives:</p>
-
-<blockquote>
- <p>I think that I shall never see a matrix lovely as a tree. &mdash; <a href="/img/gls-trees-poem-1979.pdf"><em>Trees</em></a>, by Guy L. Steele Jr., MIT, 1973</p></blockquote>
-  <footer>
-    <a href='/blog/2017/07/19/trees-1973'>&hellip; more &hellip;</a>
-  </footer>
-</article>
-<article>
-  <header>
-    <h2><a href='/blog/2017/07/17/continuations'>Continuations</a></h2>
-    <p class='date-and-tags'>
-<time datetime="2017-07-17" pubdate="true">2017-07-17</time> :: <span class="tags"><a href="/blog/tags/history.html">history</a>, <a href="/blog/tags/by-Ben-Greenman.html">by Ben Greenman</a></span></p>
-  </header>
-
-<p>From the PRL archives:</p>
-
-<blockquote>
- <p>It was also a concept that grabbed my mind, ran off with it, and only returned it after substantial renovation and expansion. &mdash; <a href="/img/nall-continuations-1983.pdf"><em>Continuations</em></a> by Alan Nall, Indiana University, 1983</p></blockquote>
-  <footer>
-    <a href='/blog/2017/07/17/continuations'>&hellip; more &hellip;</a>
-  </footer>
-</article>
-<article>
-  <header>
-    <h2><a href='/blog/2017/06/24/quotes-and-stories-from-turing-50'>Quotes and Stories from &ldquo;Turing 50&rdquo;</a></h2>
-    <p class='date-and-tags'>
-<time datetime="2017-06-24" pubdate="true">2017-06-24</time> :: <span class="tags"><a href="/blog/tags/dear-diary.html">dear diary</a>, <a href="/blog/tags/by-Ben-Greenman.html">by Ben Greenman</a></span></p>
-  </header>
-
-<p>The ACM recently hosted <a href="https://www.acm.org/turing-award-50">a celebration of 50 years of the A.M. Turing award</a>. These are some notes and thoughts from the event, including how Fred Brooks once rented a bus, Don Knuth&rsquo;s outrageous implementation of batch processing, and Judea Pearl&rsquo;s theory of homo sapiens.</p>
-  <footer>
-    <a href='/blog/2017/06/24/quotes-and-stories-from-turing-50'>&hellip; more &hellip;</a>
-  </footer>
-</article>
-<footer>
- <ul class="pagination">
-  <li class="disabled"><a href="#">
-    <quote>&larr;</quote></a></li>
-  <li class="active"><a href="/blog/index.html">1</a></li>
-  <li><a href="/blog/index-2.html">2</a></li>
-  <li><a href="/blog/index-3.html">3</a></li>
-  <li><a href="/blog/index-4.html">4</a></li>
-  <li><a href="/blog/index-5.html">5</a></li>
-  <li><a href="/blog/index-6.html">6</a></li>
-  <li><a href="/blog/index-2.html">
-    <quote>&rarr;</quote></a></li></ul></footer>
             </div>
           </div>
         </div>
