@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?> 
 <rss version="2.0">
  <channel>
-  <title>PRL Blog: Posts tagged 'types'</title>
-  <description>PRL Blog: Posts tagged 'types'</description>
-  <link>http://prl.ccs.neu.edu/blog/tags/types.html</link>
+  <title>PRL Blog: Posts tagged 'by Heather Miller'</title>
+  <description>PRL Blog: Posts tagged 'by Heather Miller'</description>
+  <link>http://prl.ccs.neu.edu/blog/tags/by-Heather-Miller.html</link>
   <lastBuildDate>Sun, 22 Oct 2017 11:59:06 UT</lastBuildDate>
   <pubDate>Sun, 22 Oct 2017 11:59:06 UT</pubDate>
   <ttl>1800</ttl>
   <item>
    <title>Monotonicity Types: Towards A Type System for Eventual Consistency</title>
-   <link>http://prl.ccs.neu.edu/blog/2017/10/22/monotonicity-types-towards-a-type-system-for-eventual-consistency?utm_source=types&amp;utm_medium=RSS</link>
+   <link>http://prl.ccs.neu.edu/blog/2017/10/22/monotonicity-types-towards-a-type-system-for-eventual-consistency?utm_source=by-Heather-Miller&amp;utm_medium=RSS</link>
    <guid isPermaLink="false">urn:http-prl-ccs-neu-edu:-blog-2017-10-22-monotonicity-types-towards-a-type-system-for-eventual-consistency</guid>
    <pubDate>Sun, 22 Oct 2017 11:59:06 UT</pubDate>
    <author>PRL</author>
