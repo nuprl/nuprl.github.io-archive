@@ -1,6 +1,6 @@
     Title: Monotonicity Types: Towards A Type System for Eventual Consistency
     Date: 2017-10-22T11:59:06
-    Tags: types, monotonicity, CRDTs, eventual consistency, by Kevin Clancy, by Heather Miller
+    Tags: types, monotonicity, CRDTs, eventual consistency, by Kevin Clancy
 
 
 A few weeks back, we published a draft of an article entitled [_Monotonicity Types_](https://infoscience.epfl.ch/record/231867). In it, we describe a type system which we hope can aid the design of distributed systems by tracking monotonicity with types.
@@ -41,7 +41,7 @@ The boolean values \\(true\\) and \\(false\\) form one of the simplest partially
 
 We believe that a type system for proving functions monotone could push the development of coordination-free distributed and concurrent applications outside of the realm of distributed systems experts, by enabling customization and extension of such systems by non-experts.
 
-Towards this aim, we have been designing a type system for tracking monotonicity, as an extension of the simply typed lambda calculus. Our approach allows the programmer to write a special kind of function definition, called an *sfun*, the body of which is type checked using a richer type system, one which reasons about function composition rather than application. Such a function can then be proven monotone by utilizing, among other principles, the fact that the composition of two monotone functions is itself monotone. Monotonicity is a relational property; that is, its a property involving multiple applications of the same function. Such properties are blind spot for traditional type systems, so our design requires some unusual and interesting features.
+Towards this aim, we have been designing a typed lambda calculus in which types track monotonicity. Our approach allows the programmer to write a special kind of function definition, called an *sfun*, the body of which is type checked using a richer type system, one which reasons about function composition rather than application. Such a function can be proven monotone by utilizing, among other principles, the fact that the composition of two monotone functions is itself monotone. Monotonicity is a relational property; that is, its a property involving multiple applications of the same function. Such properties are blind spot for traditional type systems, so our design requires some unusual and interesting features.
 
 
 Reasoning about pointwise orderings on function spaces seems a bit heavy-weight and hasn’t been necessary for any of my use cases. An sfun is therefore first order; that is, both its return type and all of its argument types must be data types rather than function types. We would like to be able to prove that a multi-argument function is monotone *separately* in each of its
@@ -154,9 +154,9 @@ It isn't sufficient to store this counter as an integer. The problem is that rep
 knowing which how many increments were performed at each replica. Suppose that replicas X and Y each start with a count of zero.
 The following actions are then performed:
 
-1.) X increments, resulting in a count of 1
-2.) X sends a synchronization message to Y, containing X's count 1
-3.) X receives a synchronization message from Y containing a count of 1
+1. X increments, resulting in a count of 1
+2. X sends a synchronization message to Y, containing X's count 1
+3. X receives a synchronization message from Y containing a count of 1
 
 At stage 3, X does not know if the received message was sent from Y before or after Y received the synchronization message
 from stage 2. Replica X therefore does not know whether to set its count to 1 or 2. To avoid this problem, a replicated
