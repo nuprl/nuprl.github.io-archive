@@ -12,6 +12,7 @@ http://prl.ccs.neu.edu/blog/2017/10/22/monotonicity-types-towards-a-type-system-
 http://prl.ccs.neu.edu/blog/2017/05/01/categorical-semantics-for-dynamically-typed-programming-languages
 http://prl.ccs.neu.edu/blog/2016/05/18/gradual-typing-across-the-spectrum
 http://prl.ccs.neu.edu/blog/2017/03/03/plt-redex-mf-apply
+http://prl.ccs.neu.edu/blog/2018/01/17/-how-to-prove-a-compiler-correct-cross-post-https-dbp-io-essays-2018-01-16-how-to-prove-a-compiler-correct-html
 http://prl.ccs.neu.edu/blog/2016/08/03/a-few-cores-too-many
 http://prl.ccs.neu.edu/blog/2017/09/25/plt-redex-faq
 http://prl.ccs.neu.edu/blog/2017/04/20/refinement-types
