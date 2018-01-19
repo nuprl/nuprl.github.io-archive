@@ -4,7 +4,16 @@
  <link rel="self" href="http://prl.ccs.neu.edu/blog/feeds/all.atom.xml" />
  <link href="http://prl.ccs.neu.edu/blog/index.html" />
  <id>urn:http-prl-ccs-neu-edu:-blog-index-html</id>
- <updated>2018-01-17T20:58:48Z</updated>
+ <updated>2018-01-19T17:05:00Z</updated>
+ <entry>
+  <title type="text">[Untyped Programs Don't Exist (cross-post)](https://williamjbowman.com/blog/2018/01/19/untyped-programs-don-t-exist/)</title>
+  <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2018/01/19/-untyped-programs-don-t-exist-cross-post-https-williamjbowman-com-blog-2018-01-19-untyped-programs-don-t-exist?utm_source=all&amp;utm_medium=Atom" />
+  <id>urn:http-prl-ccs-neu-edu:-blog-2018-01-19-untyped-programs-don-t-exist-cross-post-https-williamjbowman-com-blog-2018-01-19-untyped-programs-don-t-exist</id>
+  <published>2018-01-19T17:05:00Z</published>
+  <updated>2018-01-19T17:05:00Z</updated>
+  <author>
+   <name>PRL</name></author>
+  <content type="html"></content></entry>
  <entry>
   <title type="text">[How to prove a compiler correct (cross-post)](https://dbp.io/essays/2018-01-16-how-to-prove-a-compiler-correct.html)</title>
   <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2018/01/17/-how-to-prove-a-compiler-correct-cross-post-https-dbp-io-essays-2018-01-16-how-to-prove-a-compiler-correct-html?utm_source=all&amp;utm_medium=Atom" />
@@ -3414,29 +3423,4 @@ A&lt;/script&gt; and
 
 &lt;p&gt;The source code is at:&lt;/p&gt;
 
-&lt;p&gt;&lt;a href="https://github.com/dbp/funtal/tree/032be70f33f77e80f4fab7e62016bfabf96476f3"&gt;https://github.com/dbp/funtal&lt;/a&gt;&lt;/p&gt;</content></entry>
- <entry>
-  <title type="text">No Good Answers, Gradually Typed Object-Oriented Languages</title>
-  <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2017/05/09/no-good-answers-gradually-typed-object-oriented-languages?utm_source=all&amp;utm_medium=Atom" />
-  <id>urn:http-prl-ccs-neu-edu:-blog-2017-05-09-no-good-answers-gradually-typed-object-oriented-languages</id>
-  <published>2017-05-09T14:04:31Z</published>
-  <updated>2017-05-09T14:04:31Z</updated>
-  <author>
-   <name>PRL</name></author>
-  <content type="html">&lt;!-- more--&gt;
-
-&lt;p&gt;Untyped code remains a real problem in practice, as a result of reduced performance and hindered readability. One approach to solve this problem is gradual typing.&lt;/p&gt;
-
-&lt;p&gt;Gradual typing puts the onus on the developer to add type annotations, statically checks whatever type annotations have been written, and dynamically ensures that untyped code does not violate those annotations. A number of approaches have been put forward to try to achieve these objectives while retaining efficiency, semantic meaning, and the ability to actually type untyped code.&lt;/p&gt;
-
-&lt;p&gt;I discussed three systems, all of which achieve the objective of typing untyped code in different ways, and all of which have different tradeoffs.&lt;/p&gt;
-
-&lt;p&gt;Unofficial Notes:&lt;/p&gt;
-
-&lt;ul&gt;
- &lt;li&gt;&lt;a href="https://github.com/nuprl/hopl-s2017/blob/master/lecture_notes/2017-04-18.md"&gt;https://github.com/nuprl/hopl-s2017/blob/master/lecture_notes/2017-04-18.md&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;
-
-&lt;p&gt;Code Examples:&lt;/p&gt;
-
-&lt;ul&gt;
- &lt;li&gt;&lt;a href="https://github.com/BenChung/GradualComparison/tree/master/examples/HOPL"&gt;https://github.com/BenChung/GradualComparison/tree/master/examples/HOPL&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;</content></entry></feed>
+&lt;p&gt;&lt;a href="https://github.com/dbp/funtal/tree/032be70f33f77e80f4fab7e62016bfabf96476f3"&gt;https://github.com/dbp/funtal&lt;/a&gt;&lt;/p&gt;</content></entry></feed>
