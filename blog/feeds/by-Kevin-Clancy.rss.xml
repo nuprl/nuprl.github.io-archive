@@ -9,7 +9,7 @@
   <ttl>1800</ttl>
   <item>
    <title>Monotonicity Types: Towards A Type System for Eventual Consistency</title>
-   <link>http://prl.ccs.neu.edu/blog/2017/10/22/monotonicity-types-towards-a-type-system-for-eventual-consistency?utm_source=by-Kevin-Clancy&amp;utm_medium=RSS</link>
+   <link>http://prl.ccs.neu.edu/blog/2017/10/22/monotonicity-types-towards-a-type-system-for-eventual-consistency/?utm_source=by-Kevin-Clancy&amp;utm_medium=RSS</link>
    <guid isPermaLink="false">urn:http-prl-ccs-neu-edu:-blog-2017-10-22-monotonicity-types-towards-a-type-system-for-eventual-consistency</guid>
    <pubDate>Sun, 22 Oct 2017 11:59:06 UT</pubDate>
    <author>PRL</author>
@@ -255,7 +255,7 @@ sfun sumCounters(x : GCounter, y : GCounter)
 &lt;p&gt;&lt;span class="ref5"&gt;N. Vazou, E. L. Seidel, R. Jhala, D. Vytiniotis, and S. Peyton-Jones. &lt;em&gt;Refinement types for Haskell&lt;/em&gt;. SIGPLAN Not. 49, 9 (August 2014), 269&amp;ndash;282.&lt;/span&gt;&lt;/p&gt;</description></item>
   <item>
    <title>Refinement Types</title>
-   <link>http://prl.ccs.neu.edu/blog/2017/04/20/refinement-types?utm_source=by-Kevin-Clancy&amp;utm_medium=RSS</link>
+   <link>http://prl.ccs.neu.edu/blog/2017/04/20/refinement-types/?utm_source=by-Kevin-Clancy&amp;utm_medium=RSS</link>
    <guid isPermaLink="false">urn:http-prl-ccs-neu-edu:-blog-2017-04-20-refinement-types</guid>
    <pubDate>Thu, 20 Apr 2017 23:38:23 UT</pubDate>
    <author>PRL</author>

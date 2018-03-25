@@ -9,7 +9,7 @@
   <ttl>1800</ttl>
   <item>
    <title>Final Algebra Semantics is Observational Equivalence</title>
-   <link>http://prl.ccs.neu.edu/blog/2017/09/27/final-algebra-semantics-is-observational-equivalence?utm_source=math&amp;utm_medium=RSS</link>
+   <link>http://prl.ccs.neu.edu/blog/2017/09/27/final-algebra-semantics-is-observational-equivalence/?utm_source=math&amp;utm_medium=RSS</link>
    <guid isPermaLink="false">urn:http-prl-ccs-neu-edu:-blog-2017-09-27-final-algebra-semantics-is-observational-equivalence</guid>
    <pubDate>Wed, 27 Sep 2017 15:44:57 UT</pubDate>
    <author>PRL</author>
@@ -375,7 +375,7 @@ In(T)(s_1)\times\ldots,In(T)(s_n)&lt;/script&gt;. Then the terms are just interp
 &lt;p&gt;Another question is how to implement this when we have a proper &lt;em&gt;type theory&lt;/em&gt; and not just some boring sorts. In particular, if we have function types, then we won&amp;rsquo;t be able to get functions from functions in our term model to functions in our denotations due to contravariance. Perhaps logical relations are the solution?&lt;/p&gt;</description></item>
   <item>
    <title>Closure Conversion as CoYoneda</title>
-   <link>http://prl.ccs.neu.edu/blog/2017/08/28/closure-conversion-as-coyoneda?utm_source=math&amp;utm_medium=RSS</link>
+   <link>http://prl.ccs.neu.edu/blog/2017/08/28/closure-conversion-as-coyoneda/?utm_source=math&amp;utm_medium=RSS</link>
    <guid isPermaLink="false">urn:http-prl-ccs-neu-edu:-blog-2017-08-28-closure-conversion-as-coyoneda</guid>
    <pubDate>Mon, 28 Aug 2017 10:30:00 UT</pubDate>
    <author>PRL</author>
@@ -609,7 +609,7 @@ A&lt;/script&gt; and
   &lt;p&gt;&lt;a href="http://prl.ccs.neu.edu/blog/2016/11/16/understanding-constructive-galois-connections/"&gt;Understanding Constructive Galois  Connections&lt;/a&gt;.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;</description></item>
   <item>
    <title>Understanding Constructive Galois Connections</title>
-   <link>http://prl.ccs.neu.edu/blog/2016/11/16/understanding-constructive-galois-connections?utm_source=math&amp;utm_medium=RSS</link>
+   <link>http://prl.ccs.neu.edu/blog/2016/11/16/understanding-constructive-galois-connections/?utm_source=math&amp;utm_medium=RSS</link>
    <guid isPermaLink="false">urn:http-prl-ccs-neu-edu:-blog-2016-11-16-understanding-constructive-galois-connections</guid>
    <pubDate>Wed, 16 Nov 2016 00:00:00 UT</pubDate>
    <author>PRL</author>

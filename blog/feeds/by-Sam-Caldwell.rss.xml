@@ -9,7 +9,7 @@
   <ttl>1800</ttl>
   <item>
    <title>PLT Redex FAQ</title>
-   <link>http://prl.ccs.neu.edu/blog/2017/09/25/plt-redex-faq?utm_source=by-Sam-Caldwell&amp;utm_medium=RSS</link>
+   <link>http://prl.ccs.neu.edu/blog/2017/09/25/plt-redex-faq/?utm_source=by-Sam-Caldwell&amp;utm_medium=RSS</link>
    <guid isPermaLink="false">urn:http-prl-ccs-neu-edu:-blog-2017-09-25-plt-redex-faq</guid>
    <pubDate>Mon, 25 Sep 2017 23:39:16 UT</pubDate>
    <author>PRL</author>
@@ -74,7 +74,7 @@ Welcome to Racket v6.10.0.3.
  &lt;li&gt;&lt;em&gt;languages&lt;/em&gt;, to define a grammar for terms&lt;/li&gt;
  &lt;li&gt;&lt;em&gt;judgments&lt;/em&gt;, to describe properties of terms or relations between terms&lt;/li&gt;
  &lt;li&gt;&lt;em&gt;metafunctions&lt;/em&gt;, to transform terms&lt;/li&gt;
- &lt;li&gt;&lt;em&gt;reduction relations&lt;/em&gt;, to defining a term rewriting system&lt;/li&gt;&lt;/ul&gt;
+ &lt;li&gt;&lt;em&gt;reduction relations&lt;/em&gt;, to define a term rewriting system&lt;/li&gt;&lt;/ul&gt;
 
 &lt;p&gt;The goal of these tools is to encode a &amp;ldquo;real thing&amp;rdquo; (maybe, a programming language)  using Redex terms.&lt;/p&gt;
 
@@ -184,7 +184,7 @@ Welcome to Racket v6.10.0.3.
 &lt;ul&gt;
  &lt;li&gt;Disjunctions of patterns, e.g., &amp;ldquo;number or boolean&amp;rdquo;.  (Use a language non-terminal.)&lt;/li&gt;
  &lt;li&gt;Negations of patterns. (Compose &lt;strong&gt;not&lt;/strong&gt; with &lt;strong&gt;redex-match?&lt;/strong&gt;.)&lt;/li&gt;
- &lt;li&gt;Non-regular patterns. For example, one non-regular pattern is &amp;ldquo;all lists  that contain some number of integers followed by the same number of strings&amp;rdquo;.&lt;/li&gt;&lt;/ul&gt;
+ &lt;li&gt;Some non-regular patterns. (Named  dots &lt;a href="http://docs.racket-lang.org/redex/The_Redex_Reference.html#%28tech._pattern%29"&gt;&lt;code&gt;..._N&lt;/code&gt;&lt;/a&gt;  or &lt;a href="http://docs.racket-lang.org/redex/The_Redex_Reference.html#%28form._%28%28lib._redex%2Freduction-semantics..rkt%29._define-language%29%29"&gt;&lt;code&gt;define-language&lt;/code&gt;&lt;/a&gt;  with a side condition may be able to help.)&lt;/li&gt;&lt;/ul&gt;
 
 &lt;h3 id="q-what-is-a-judgment"&gt;Q. What is a judgment?&lt;/h3&gt;
 
@@ -495,7 +495,7 @@ Welcome to Racket v6.10.0.3.
  &lt;li&gt;Source code for this post: &lt;a href="https://github.com/nuprl/website/blob/master/blog/_src/posts/2017-09-25-redex-faq.md"&gt;https://github.com/nuprl/website/blob/master/blog/_src/posts/2017-09-25-redex-faq.md&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;</description></item>
   <item>
    <title>Spring 2017 PL Junior Retrospective</title>
-   <link>http://prl.ccs.neu.edu/blog/2017/06/16/spring-2017-pl-junior-retrospective?utm_source=by-Sam-Caldwell&amp;utm_medium=RSS</link>
+   <link>http://prl.ccs.neu.edu/blog/2017/06/16/spring-2017-pl-junior-retrospective/?utm_source=by-Sam-Caldwell&amp;utm_medium=RSS</link>
    <guid isPermaLink="false">urn:http-prl-ccs-neu-edu:-blog-2017-06-16-spring-2017-pl-junior-retrospective</guid>
    <pubDate>Fri, 16 Jun 2017 11:38:25 UT</pubDate>
    <author>PRL</author>
@@ -562,7 +562,7 @@ Welcome to Racket v6.10.0.3.
 &lt;p&gt;Writing this retrospective has also proven to be a beneficial exercise. Especially with our sequences of connected topics, looking back has allowed us to put the earlier papers into perspective and better assess both their relevance and presentation.&lt;/p&gt;</description></item>
   <item>
    <title>Fall 2016 PL Junior Retrospective</title>
-   <link>http://prl.ccs.neu.edu/blog/2017/01/02/fall-2016-pl-junior-retrospective?utm_source=by-Sam-Caldwell&amp;utm_medium=RSS</link>
+   <link>http://prl.ccs.neu.edu/blog/2017/01/02/fall-2016-pl-junior-retrospective/?utm_source=by-Sam-Caldwell&amp;utm_medium=RSS</link>
    <guid isPermaLink="false">urn:http-prl-ccs-neu-edu:-blog-2017-01-02-fall-2016-pl-junior-retrospective</guid>
    <pubDate>Mon, 02 Jan 2017 16:39:37 UT</pubDate>
    <author>PRL</author>

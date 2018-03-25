@@ -9,9 +9,9 @@
     <meta name="keywords"    content="tutorial, PLT Redex, by Ben Greenman, by Sam Caldwell">
     <meta name="viewport"    content="width=device-width, initial-scale=1.0">
     <link rel="icon"      href="/img/favicon.ico">
-    <link rel="canonical" href="http://prl.ccs.neu.edu/blog/2017/09/25/plt-redex-faq">
-    <link rel="next" href="/blog/2017/08/29/-why-am-i-going-to-icfp-2017-cross-post-https-williamjbowman-com-blog-2017-08-29-why-am-i-going-to-icfp-2017">
-    <link rel="prev" href="/blog/2017/09/27/final-algebra-semantics-is-observational-equivalence">
+    <link rel="canonical" href="http://prl.ccs.neu.edu/blog/2017/09/25/plt-redex-faq/">
+    <link rel="next" href="/blog/2017/08/29/-why-am-i-going-to-icfp-2017-cross-post-https-williamjbowman-com-blog-2017-08-29-why-am-i-going-to-icfp-2017/">
+    <link rel="prev" href="/blog/2017/09/27/final-algebra-semantics-is-observational-equivalence/">
     <script type="text/javascript" async
             src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
     </script>
@@ -144,7 +144,7 @@ Welcome to Racket v6.10.0.3.
  <li><em>languages</em>, to define a grammar for terms</li>
  <li><em>judgments</em>, to describe properties of terms or relations between terms</li>
  <li><em>metafunctions</em>, to transform terms</li>
- <li><em>reduction relations</em>, to defining a term rewriting system</li></ul>
+ <li><em>reduction relations</em>, to define a term rewriting system</li></ul>
 
 <p>The goal of these tools is to encode a &ldquo;real thing&rdquo; (maybe, a programming language)  using Redex terms.</p>
 
@@ -254,7 +254,7 @@ Welcome to Racket v6.10.0.3.
 <ul>
  <li>Disjunctions of patterns, e.g., &ldquo;number or boolean&rdquo;.  (Use a language non-terminal.)</li>
  <li>Negations of patterns. (Compose <strong>not</strong> with <strong>redex-match?</strong>.)</li>
- <li>Non-regular patterns. For example, one non-regular pattern is &ldquo;all lists  that contain some number of integers followed by the same number of strings&rdquo;.</li></ul>
+ <li>Some non-regular patterns. (Named  dots <a href="http://docs.racket-lang.org/redex/The_Redex_Reference.html#%28tech._pattern%29"><code>..._N</code></a>  or <a href="http://docs.racket-lang.org/redex/The_Redex_Reference.html#%28form._%28%28lib._redex%2Freduction-semantics..rkt%29._define-language%29%29"><code>define-language</code></a>  with a side condition may be able to help.)</li></ul>
 
 <h3 id="q-what-is-a-judgment">Q. What is a judgment?</h3>
 
@@ -578,17 +578,17 @@ Welcome to Racket v6.10.0.3.
     </script>
     <a href="https://twitter.com/share"
        class="twitter-share-button"
-       data-url="http://prl.ccs.neu.edu/blog/2017/09/25/plt-redex-faq"
+       data-url="http://prl.ccs.neu.edu/blog/2017/09/25/plt-redex-faq/"
        data-dnt="true">
       "Tweet"</a>
     <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
-    <g:plusone size="medium" href="http://prl.ccs.neu.edu/blog/2017/09/25/plt-redex-faq"></g:plusone>
+    <g:plusone size="medium" href="http://prl.ccs.neu.edu/blog/2017/09/25/plt-redex-faq/"></g:plusone>
     <ul class="pager">
     <li class="previous">
-      <a href="/blog/2017/09/27/final-algebra-semantics-is-observational-equivalence">&larr; <em>Final Algebra Semantics is Observational Equivalence</em></a>
+      <a href="/blog/2017/09/27/final-algebra-semantics-is-observational-equivalence/">&larr; <em>Final Algebra Semantics is Observational Equivalence</em></a>
     </li>
     <li class="next">
-      <a href="/blog/2017/08/29/-why-am-i-going-to-icfp-2017-cross-post-https-williamjbowman-com-blog-2017-08-29-why-am-i-going-to-icfp-2017"><em><a href="https://williamjbowman.com/blog/2017/08/29/why-am-i-going-to-icfp-2017/">Why am I going to ICFP 2017? (cross-post)</a></em> &rarr;</a>
+      <a href="/blog/2017/08/29/-why-am-i-going-to-icfp-2017-cross-post-https-williamjbowman-com-blog-2017-08-29-why-am-i-going-to-icfp-2017/"><em><a href="https://williamjbowman.com/blog/2017/08/29/why-am-i-going-to-icfp-2017/">Why am I going to ICFP 2017? (cross-post)</a></em> &rarr;</a>
     </li>
     </ul>
   </footer>

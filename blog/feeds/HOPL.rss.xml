@@ -9,7 +9,7 @@
   <ttl>1800</ttl>
   <item>
    <title>No Good Answers, Gradually Typed Object-Oriented Languages</title>
-   <link>http://prl.ccs.neu.edu/blog/2017/05/09/no-good-answers-gradually-typed-object-oriented-languages?utm_source=HOPL&amp;utm_medium=RSS</link>
+   <link>http://prl.ccs.neu.edu/blog/2017/05/09/no-good-answers-gradually-typed-object-oriented-languages/?utm_source=HOPL&amp;utm_medium=RSS</link>
    <guid isPermaLink="false">urn:http-prl-ccs-neu-edu:-blog-2017-05-09-no-good-answers-gradually-typed-object-oriented-languages</guid>
    <pubDate>Tue, 09 May 2017 14:04:31 UT</pubDate>
    <author>PRL</author>
@@ -32,7 +32,7 @@
  &lt;li&gt;&lt;a href="https://github.com/BenChung/GradualComparison/tree/master/examples/HOPL"&gt;https://github.com/BenChung/GradualComparison/tree/master/examples/HOPL&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;</description></item>
   <item>
    <title>Categorical Semantics for Dynamically Typed Programming Languages</title>
-   <link>http://prl.ccs.neu.edu/blog/2017/05/01/categorical-semantics-for-dynamically-typed-programming-languages?utm_source=HOPL&amp;utm_medium=RSS</link>
+   <link>http://prl.ccs.neu.edu/blog/2017/05/01/categorical-semantics-for-dynamically-typed-programming-languages/?utm_source=HOPL&amp;utm_medium=RSS</link>
    <guid isPermaLink="false">urn:http-prl-ccs-neu-edu:-blog-2017-05-01-categorical-semantics-for-dynamically-typed-programming-languages</guid>
    <pubDate>Mon, 01 May 2017 12:25:17 UT</pubDate>
    <author>PRL</author>
@@ -45,7 +45,7 @@
 &lt;p&gt;&lt;a href="/blog/static/dyn-cats.pdf"&gt;My Full Notes&lt;/a&gt; continue the story, and you might also be interested in the &lt;a href="https://github.com/nuprl/hopl-s2017/blob/master/lecture_notes/2017-04-07.md"&gt;discussion during the lecture&lt;/a&gt;.&lt;/p&gt;</description></item>
   <item>
    <title>What is Soft Typing?</title>
-   <link>http://prl.ccs.neu.edu/blog/2017/04/28/what-is-soft-typing?utm_source=HOPL&amp;utm_medium=RSS</link>
+   <link>http://prl.ccs.neu.edu/blog/2017/04/28/what-is-soft-typing/?utm_source=HOPL&amp;utm_medium=RSS</link>
    <guid isPermaLink="false">urn:http-prl-ccs-neu-edu:-blog-2017-04-28-what-is-soft-typing</guid>
    <pubDate>Fri, 28 Apr 2017 12:25:17 UT</pubDate>
    <author>PRL</author>
@@ -151,7 +151,7 @@
  &lt;li&gt;&lt;a href="https://github.com/nuprl/hopl-s2017/tree/master/soft-typing"&gt;Source of Truth&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;</description></item>
   <item>
    <title>Refinement Types</title>
-   <link>http://prl.ccs.neu.edu/blog/2017/04/20/refinement-types?utm_source=HOPL&amp;utm_medium=RSS</link>
+   <link>http://prl.ccs.neu.edu/blog/2017/04/20/refinement-types/?utm_source=HOPL&amp;utm_medium=RSS</link>
    <guid isPermaLink="false">urn:http-prl-ccs-neu-edu:-blog-2017-04-20-refinement-types</guid>
    <pubDate>Thu, 20 Apr 2017 23:38:23 UT</pubDate>
    <author>PRL</author>
@@ -173,7 +173,7 @@
  &lt;li&gt;&lt;a href="https://github.com/nuprl/hopl-s2017/tree/master/refinement-types"&gt;GitHub&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;</description></item>
   <item>
    <title>Type-Directed Compilation, Parts I and II</title>
-   <link>http://prl.ccs.neu.edu/blog/2017/04/17/type-directed-compilation-parts-i-and-ii?utm_source=HOPL&amp;utm_medium=RSS</link>
+   <link>http://prl.ccs.neu.edu/blog/2017/04/17/type-directed-compilation-parts-i-and-ii/?utm_source=HOPL&amp;utm_medium=RSS</link>
    <guid isPermaLink="false">urn:http-prl-ccs-neu-edu:-blog-2017-04-17-type-directed-compilation-parts-i-and-ii</guid>
    <pubDate>Mon, 17 Apr 2017 12:00:17 UT</pubDate>
    <author>PRL</author>
@@ -203,7 +203,7 @@
  &lt;li&gt;&lt;a href="https://github.com/nuprl/hopl-s2017/blob/master/dependent-type-preserving-compilation"&gt;https://github.com/nuprl/hopl-s2017/blob/master/dependent-type-preserving-compilation&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;</description></item>
   <item>
    <title>Top Five Results of the Past 50 Years of Programming Languages Research</title>
-   <link>http://prl.ccs.neu.edu/blog/2017/04/04/top-five-results-of-the-past-50-years-of-programming-languages-research?utm_source=HOPL&amp;utm_medium=RSS</link>
+   <link>http://prl.ccs.neu.edu/blog/2017/04/04/top-five-results-of-the-past-50-years-of-programming-languages-research/?utm_source=HOPL&amp;utm_medium=RSS</link>
    <guid isPermaLink="false">urn:http-prl-ccs-neu-edu:-blog-2017-04-04-top-five-results-of-the-past-50-years-of-programming-languages-research</guid>
    <pubDate>Tue, 04 Apr 2017 10:21:36 UT</pubDate>
    <author>PRL</author>
@@ -268,7 +268,7 @@
  &lt;li&gt;&lt;a href="https://williamjbowman.com/blog/2017/03/24/what-even-is-compiler-correctness/"&gt;What even is compiler correctness?&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;</description></item>
   <item>
    <title>Tracing JITs for Dynamic Languages</title>
-   <link>http://prl.ccs.neu.edu/blog/2017/03/15/tracing-jits-for-dynamic-languages?utm_source=HOPL&amp;utm_medium=RSS</link>
+   <link>http://prl.ccs.neu.edu/blog/2017/03/15/tracing-jits-for-dynamic-languages/?utm_source=HOPL&amp;utm_medium=RSS</link>
    <guid isPermaLink="false">urn:http-prl-ccs-neu-edu:-blog-2017-03-15-tracing-jits-for-dynamic-languages</guid>
    <pubDate>Wed, 15 Mar 2017 10:54:39 UT</pubDate>
    <author>PRL</author>
@@ -289,7 +289,7 @@
  &lt;li&gt;&lt;a href="https://github.com/nuprl/hopl-s2017/blob/master/tracing-jit/annotated.txt"&gt;Annotated bibliography&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;</description></item>
   <item>
    <title>Type Inference in Stack-Based Programming Languages</title>
-   <link>http://prl.ccs.neu.edu/blog/2017/03/10/type-inference-in-stack-based-programming-languages?utm_source=HOPL&amp;utm_medium=RSS</link>
+   <link>http://prl.ccs.neu.edu/blog/2017/03/10/type-inference-in-stack-based-programming-languages/?utm_source=HOPL&amp;utm_medium=RSS</link>
    <guid isPermaLink="false">urn:http-prl-ccs-neu-edu:-blog-2017-03-10-type-inference-in-stack-based-programming-languages</guid>
    <pubDate>Fri, 10 Mar 2017 16:23:30 UT</pubDate>
    <author>PRL</author>
@@ -314,7 +314,7 @@
  &lt;li&gt;&lt;a href="/blog/static/stack-languages-annotated-bib.pdf"&gt;Annotated bibliography&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;</description></item>
   <item>
    <title>Linear Types for Low-level Languages</title>
-   <link>http://prl.ccs.neu.edu/blog/2017/02/28/linear-types-for-low-level-languages?utm_source=HOPL&amp;utm_medium=RSS</link>
+   <link>http://prl.ccs.neu.edu/blog/2017/02/28/linear-types-for-low-level-languages/?utm_source=HOPL&amp;utm_medium=RSS</link>
    <guid isPermaLink="false">urn:http-prl-ccs-neu-edu:-blog-2017-02-28-linear-types-for-low-level-languages</guid>
    <pubDate>Tue, 28 Feb 2017 09:51:55 UT</pubDate>
    <author>PRL</author>
@@ -345,7 +345,7 @@
  &lt;li&gt;Managing type annotations is a low-level detail in ML programs&lt;/li&gt;&lt;/ul&gt;</description></item>
   <item>
    <title>Datalog for Static Analysis</title>
-   <link>http://prl.ccs.neu.edu/blog/2017/02/21/datalog-for-static-analysis?utm_source=HOPL&amp;utm_medium=RSS</link>
+   <link>http://prl.ccs.neu.edu/blog/2017/02/21/datalog-for-static-analysis/?utm_source=HOPL&amp;utm_medium=RSS</link>
    <guid isPermaLink="false">urn:http-prl-ccs-neu-edu:-blog-2017-02-21-datalog-for-static-analysis</guid>
    <pubDate>Tue, 21 Feb 2017 12:58:27 UT</pubDate>
    <author>PRL</author>
@@ -387,7 +387,7 @@
 &lt;p&gt;For an excellent description of how Datalog can benefit static analysis, see the introduction to &lt;a href="http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.648.1834&amp;amp;rep=rep1&amp;amp;type=pdf"&gt;Rep&amp;rsquo;s paper&lt;/a&gt;.&lt;/p&gt;</description></item>
   <item>
    <title>Conversational Context and Concurrency</title>
-   <link>http://prl.ccs.neu.edu/blog/2017/02/15/conversational-context-and-concurrency?utm_source=HOPL&amp;utm_medium=RSS</link>
+   <link>http://prl.ccs.neu.edu/blog/2017/02/15/conversational-context-and-concurrency/?utm_source=HOPL&amp;utm_medium=RSS</link>
    <guid isPermaLink="false">urn:http-prl-ccs-neu-edu:-blog-2017-02-15-conversational-context-and-concurrency</guid>
    <pubDate>Wed, 15 Feb 2017 01:21:55 UT</pubDate>
    <author>PRL</author>
@@ -422,7 +422,7 @@
  &lt;li&gt;&lt;a href="https://github.com/nuprl/hopl-s2017/blob/master/lecture_notes/2017-01-31.md"&gt;https://github.com/nuprl/hopl-s2017/blob/master/lecture_notes/2017&amp;ndash;01&amp;ndash;31.md&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;</description></item>
   <item>
    <title>Introducing HOPL 2017</title>
-   <link>http://prl.ccs.neu.edu/blog/2017/02/15/introducing-hopl-2017?utm_source=HOPL&amp;utm_medium=RSS</link>
+   <link>http://prl.ccs.neu.edu/blog/2017/02/15/introducing-hopl-2017/?utm_source=HOPL&amp;utm_medium=RSS</link>
    <guid isPermaLink="false">urn:http-prl-ccs-neu-edu:-blog-2017-02-15-introducing-hopl-2017</guid>
    <pubDate>Wed, 15 Feb 2017 01:21:37 UT</pubDate>
    <author>PRL</author>

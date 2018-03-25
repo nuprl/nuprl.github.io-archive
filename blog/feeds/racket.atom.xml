@@ -7,7 +7,7 @@
  <updated>2017-05-26T17:00:28Z</updated>
  <entry>
   <title type="text">Racket 6.9 and Windows 10 Creators Update</title>
-  <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2017/05/26/racket-6-9-and-windows-10-creators-update?utm_source=racket&amp;utm_medium=Atom" />
+  <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2017/05/26/racket-6-9-and-windows-10-creators-update/?utm_source=racket&amp;utm_medium=Atom" />
   <id>urn:http-prl-ccs-neu-edu:-blog-2017-05-26-racket-6-9-and-windows-10-creators-update</id>
   <published>2017-05-26T17:00:28Z</published>
   <updated>2017-05-26T17:00:28Z</updated>
@@ -37,7 +37,7 @@
   &lt;p&gt;After import finishes, you should now see your new VM in the list on the left of the VirtualBox manager. Select it and hit &lt;code&gt;Start&lt;/code&gt;. Once started up, you will see DrRacket and Firefox on the VM&amp;rsquo;s desktop.&lt;/p&gt;&lt;/li&gt;&lt;/ol&gt;</content></entry>
  <entry>
   <title type="text">Measuring GC latencies in Haskell, OCaml, Racket</title>
-  <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2016/05/24/measuring-gc-latencies-in-haskell-ocaml-racket?utm_source=racket&amp;utm_medium=Atom" />
+  <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2016/05/24/measuring-gc-latencies-in-haskell-ocaml-racket/?utm_source=racket&amp;utm_medium=Atom" />
   <id>urn:http-prl-ccs-neu-edu:-blog-2016-05-24-measuring-gc-latencies-in-haskell-ocaml-racket</id>
   <published>2016-05-24T10:51:34Z</published>
   <updated>2016-05-24T10:51:34Z</updated>

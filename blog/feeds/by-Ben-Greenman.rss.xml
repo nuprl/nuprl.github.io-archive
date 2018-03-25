@@ -9,7 +9,7 @@
   <ttl>1800</ttl>
   <item>
    <title>PLT Redex FAQ</title>
-   <link>http://prl.ccs.neu.edu/blog/2017/09/25/plt-redex-faq?utm_source=by-Ben-Greenman&amp;utm_medium=RSS</link>
+   <link>http://prl.ccs.neu.edu/blog/2017/09/25/plt-redex-faq/?utm_source=by-Ben-Greenman&amp;utm_medium=RSS</link>
    <guid isPermaLink="false">urn:http-prl-ccs-neu-edu:-blog-2017-09-25-plt-redex-faq</guid>
    <pubDate>Mon, 25 Sep 2017 23:39:16 UT</pubDate>
    <author>PRL</author>
@@ -74,7 +74,7 @@ Welcome to Racket v6.10.0.3.
  &lt;li&gt;&lt;em&gt;languages&lt;/em&gt;, to define a grammar for terms&lt;/li&gt;
  &lt;li&gt;&lt;em&gt;judgments&lt;/em&gt;, to describe properties of terms or relations between terms&lt;/li&gt;
  &lt;li&gt;&lt;em&gt;metafunctions&lt;/em&gt;, to transform terms&lt;/li&gt;
- &lt;li&gt;&lt;em&gt;reduction relations&lt;/em&gt;, to defining a term rewriting system&lt;/li&gt;&lt;/ul&gt;
+ &lt;li&gt;&lt;em&gt;reduction relations&lt;/em&gt;, to define a term rewriting system&lt;/li&gt;&lt;/ul&gt;
 
 &lt;p&gt;The goal of these tools is to encode a &amp;ldquo;real thing&amp;rdquo; (maybe, a programming language)  using Redex terms.&lt;/p&gt;
 
@@ -184,7 +184,7 @@ Welcome to Racket v6.10.0.3.
 &lt;ul&gt;
  &lt;li&gt;Disjunctions of patterns, e.g., &amp;ldquo;number or boolean&amp;rdquo;.  (Use a language non-terminal.)&lt;/li&gt;
  &lt;li&gt;Negations of patterns. (Compose &lt;strong&gt;not&lt;/strong&gt; with &lt;strong&gt;redex-match?&lt;/strong&gt;.)&lt;/li&gt;
- &lt;li&gt;Non-regular patterns. For example, one non-regular pattern is &amp;ldquo;all lists  that contain some number of integers followed by the same number of strings&amp;rdquo;.&lt;/li&gt;&lt;/ul&gt;
+ &lt;li&gt;Some non-regular patterns. (Named  dots &lt;a href="http://docs.racket-lang.org/redex/The_Redex_Reference.html#%28tech._pattern%29"&gt;&lt;code&gt;..._N&lt;/code&gt;&lt;/a&gt;  or &lt;a href="http://docs.racket-lang.org/redex/The_Redex_Reference.html#%28form._%28%28lib._redex%2Freduction-semantics..rkt%29._define-language%29%29"&gt;&lt;code&gt;define-language&lt;/code&gt;&lt;/a&gt;  with a side condition may be able to help.)&lt;/li&gt;&lt;/ul&gt;
 
 &lt;h3 id="q-what-is-a-judgment"&gt;Q. What is a judgment?&lt;/h3&gt;
 
@@ -495,7 +495,7 @@ Welcome to Racket v6.10.0.3.
  &lt;li&gt;Source code for this post: &lt;a href="https://github.com/nuprl/website/blob/master/blog/_src/posts/2017-09-25-redex-faq.md"&gt;https://github.com/nuprl/website/blob/master/blog/_src/posts/2017-09-25-redex-faq.md&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;</description></item>
   <item>
    <title>Gradual Typing Across the Spectrum, part II</title>
-   <link>http://prl.ccs.neu.edu/blog/2017/08/22/gradual-typing-across-the-spectrum-part-ii?utm_source=by-Ben-Greenman&amp;utm_medium=RSS</link>
+   <link>http://prl.ccs.neu.edu/blog/2017/08/22/gradual-typing-across-the-spectrum-part-ii/?utm_source=by-Ben-Greenman&amp;utm_medium=RSS</link>
    <guid isPermaLink="false">urn:http-prl-ccs-neu-edu:-blog-2017-08-22-gradual-typing-across-the-spectrum-part-ii</guid>
    <pubDate>Tue, 22 Aug 2017 15:54:06 UT</pubDate>
    <author>PRL</author>
@@ -563,7 +563,7 @@ Welcome to Racket v6.10.0.3.
  &lt;p&gt;If you want to know about the future, you need to ask the young people who will create it. Young people don&amp;rsquo;t know what can&amp;rsquo;t be done, and so they go ahead and do it. &amp;mdash; &lt;a href="https://www.youtube.com/watch?v=sM1bNR4DmhU"&gt;Ivan Sutherland&lt;/a&gt;&lt;/p&gt;&lt;/blockquote&gt;</description></item>
   <item>
    <title>Trees, 1973</title>
-   <link>http://prl.ccs.neu.edu/blog/2017/07/19/trees-1973?utm_source=by-Ben-Greenman&amp;utm_medium=RSS</link>
+   <link>http://prl.ccs.neu.edu/blog/2017/07/19/trees-1973/?utm_source=by-Ben-Greenman&amp;utm_medium=RSS</link>
    <guid isPermaLink="false">urn:http-prl-ccs-neu-edu:-blog-2017-07-19-trees-1973</guid>
    <pubDate>Wed, 19 Jul 2017 21:48:56 UT</pubDate>
    <author>PRL</author>
@@ -581,7 +581,7 @@ Welcome to Racket v6.10.0.3.
 &lt;p&gt;The poem is online in &lt;a href="http://mercury.lcs.mit.edu/~jnc/humour/lisp.tree"&gt;at least one other place&lt;/a&gt;, but the copy linked above (from &lt;a href="https://archive.org/details/byte-magazine"&gt;BYTE magazine&lt;/a&gt;) comes with a footnote on &lt;em&gt;How this poem came to be printed&lt;/em&gt;.&lt;/p&gt;</description></item>
   <item>
    <title>Continuations</title>
-   <link>http://prl.ccs.neu.edu/blog/2017/07/17/continuations?utm_source=by-Ben-Greenman&amp;utm_medium=RSS</link>
+   <link>http://prl.ccs.neu.edu/blog/2017/07/17/continuations/?utm_source=by-Ben-Greenman&amp;utm_medium=RSS</link>
    <guid isPermaLink="false">urn:http-prl-ccs-neu-edu:-blog-2017-07-17-continuations</guid>
    <pubDate>Mon, 17 Jul 2017 12:52:07 UT</pubDate>
    <author>PRL</author>
@@ -597,7 +597,7 @@ Welcome to Racket v6.10.0.3.
 &lt;p&gt;I first encountered this essay on continuations in a green folder in the PRL. It turns out, the author spent a semester at Indiana University working on the  &lt;a href="http://wiki.c2.com/?SameFringeProblem"&gt;same fringe problem&lt;/a&gt; for a graduate-level programming languages course. According to &lt;a href="https://www.cs.indiana.edu/~dfried/"&gt;the instructor&lt;/a&gt;:  &amp;ldquo;What he said was true. He could not stop thinking about the problem the entire semester.&amp;rdquo; This essay was a kind of final exam.&lt;/p&gt;</description></item>
   <item>
    <title>Quotes and Stories from "Turing 50"</title>
-   <link>http://prl.ccs.neu.edu/blog/2017/06/24/quotes-and-stories-from-turing-50?utm_source=by-Ben-Greenman&amp;utm_medium=RSS</link>
+   <link>http://prl.ccs.neu.edu/blog/2017/06/24/quotes-and-stories-from-turing-50/?utm_source=by-Ben-Greenman&amp;utm_medium=RSS</link>
    <guid isPermaLink="false">urn:http-prl-ccs-neu-edu:-blog-2017-06-24-quotes-and-stories-from-turing-50</guid>
    <pubDate>Sat, 24 Jun 2017 20:00:52 UT</pubDate>
    <author>PRL</author>
@@ -1477,7 +1477,7 @@ Welcome to Racket v6.10.0.3.
 &lt;!-- served on panels falling asleep during other panels--&gt;</description></item>
   <item>
    <title>Building a Website with Scribble</title>
-   <link>http://prl.ccs.neu.edu/blog/2017/05/23/building-a-website-with-scribble?utm_source=by-Ben-Greenman&amp;utm_medium=RSS</link>
+   <link>http://prl.ccs.neu.edu/blog/2017/05/23/building-a-website-with-scribble/?utm_source=by-Ben-Greenman&amp;utm_medium=RSS</link>
    <guid isPermaLink="false">urn:http-prl-ccs-neu-edu:-blog-2017-05-23-building-a-website-with-scribble</guid>
    <pubDate>Tue, 23 May 2017 01:53:13 UT</pubDate>
    <author>PRL</author>
@@ -1889,7 +1889,7 @@ Welcome to Racket v6.10.0.3.
  &lt;li&gt;&lt;a href="http://prl.ccs.neu.edu/blog/2016/05/18/gradual-typing-across-the-spectrum/"&gt;Notes from a Gradual Typing Across the Spectrum PI meeting&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;</description></item>
   <item>
    <title>What is Soft Typing?</title>
-   <link>http://prl.ccs.neu.edu/blog/2017/04/28/what-is-soft-typing?utm_source=by-Ben-Greenman&amp;utm_medium=RSS</link>
+   <link>http://prl.ccs.neu.edu/blog/2017/04/28/what-is-soft-typing/?utm_source=by-Ben-Greenman&amp;utm_medium=RSS</link>
    <guid isPermaLink="false">urn:http-prl-ccs-neu-edu:-blog-2017-04-28-what-is-soft-typing</guid>
    <pubDate>Fri, 28 Apr 2017 12:25:17 UT</pubDate>
    <author>PRL</author>
@@ -1995,7 +1995,7 @@ Welcome to Racket v6.10.0.3.
  &lt;li&gt;&lt;a href="https://github.com/nuprl/hopl-s2017/tree/master/soft-typing"&gt;Source of Truth&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;</description></item>
   <item>
    <title>Top Five Results of the Past 50 Years of Programming Languages Research</title>
-   <link>http://prl.ccs.neu.edu/blog/2017/04/04/top-five-results-of-the-past-50-years-of-programming-languages-research?utm_source=by-Ben-Greenman&amp;utm_medium=RSS</link>
+   <link>http://prl.ccs.neu.edu/blog/2017/04/04/top-five-results-of-the-past-50-years-of-programming-languages-research/?utm_source=by-Ben-Greenman&amp;utm_medium=RSS</link>
    <guid isPermaLink="false">urn:http-prl-ccs-neu-edu:-blog-2017-04-04-top-five-results-of-the-past-50-years-of-programming-languages-research</guid>
    <pubDate>Tue, 04 Apr 2017 10:21:36 UT</pubDate>
    <author>PRL</author>
@@ -2060,7 +2060,7 @@ Welcome to Racket v6.10.0.3.
  &lt;li&gt;&lt;a href="https://williamjbowman.com/blog/2017/03/24/what-even-is-compiler-correctness/"&gt;What even is compiler correctness?&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;</description></item>
   <item>
    <title>PLT Redex: mf-apply</title>
-   <link>http://prl.ccs.neu.edu/blog/2017/03/03/plt-redex-mf-apply?utm_source=by-Ben-Greenman&amp;utm_medium=RSS</link>
+   <link>http://prl.ccs.neu.edu/blog/2017/03/03/plt-redex-mf-apply/?utm_source=by-Ben-Greenman&amp;utm_medium=RSS</link>
    <guid isPermaLink="false">urn:http-prl-ccs-neu-edu:-blog-2017-03-03-plt-redex-mf-apply</guid>
    <pubDate>Fri, 03 Mar 2017 08:54:20 UT</pubDate>
    <author>PRL</author>
@@ -2413,7 +2413,7 @@ Welcome to Racket v6.10.0.3.
  &lt;li&gt;&lt;a href="http://summer-school.racket-lang.org/2017/"&gt;http://summer-school.racket-lang.org/2017/&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;</description></item>
   <item>
    <title>Datalog for Static Analysis</title>
-   <link>http://prl.ccs.neu.edu/blog/2017/02/21/datalog-for-static-analysis?utm_source=by-Ben-Greenman&amp;utm_medium=RSS</link>
+   <link>http://prl.ccs.neu.edu/blog/2017/02/21/datalog-for-static-analysis/?utm_source=by-Ben-Greenman&amp;utm_medium=RSS</link>
    <guid isPermaLink="false">urn:http-prl-ccs-neu-edu:-blog-2017-02-21-datalog-for-static-analysis</guid>
    <pubDate>Tue, 21 Feb 2017 12:58:27 UT</pubDate>
    <author>PRL</author>
@@ -2455,7 +2455,7 @@ Welcome to Racket v6.10.0.3.
 &lt;p&gt;For an excellent description of how Datalog can benefit static analysis, see the introduction to &lt;a href="http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.648.1834&amp;amp;rep=rep1&amp;amp;type=pdf"&gt;Rep&amp;rsquo;s paper&lt;/a&gt;.&lt;/p&gt;</description></item>
   <item>
    <title>Introducing HOPL 2017</title>
-   <link>http://prl.ccs.neu.edu/blog/2017/02/15/introducing-hopl-2017?utm_source=by-Ben-Greenman&amp;utm_medium=RSS</link>
+   <link>http://prl.ccs.neu.edu/blog/2017/02/15/introducing-hopl-2017/?utm_source=by-Ben-Greenman&amp;utm_medium=RSS</link>
    <guid isPermaLink="false">urn:http-prl-ccs-neu-edu:-blog-2017-02-15-introducing-hopl-2017</guid>
    <pubDate>Wed, 15 Feb 2017 01:21:37 UT</pubDate>
    <author>PRL</author>
@@ -2507,7 +2507,7 @@ Welcome to Racket v6.10.0.3.
  &lt;li&gt;&lt;a href="http://www.ccs.neu.edu/home/matthias/369-s04/index.html"&gt;Spring 2004&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;</description></item>
   <item>
    <title>Meaningful Distinctions</title>
-   <link>http://prl.ccs.neu.edu/blog/2016/10/31/meaningful-distinctions?utm_source=by-Ben-Greenman&amp;utm_medium=RSS</link>
+   <link>http://prl.ccs.neu.edu/blog/2016/10/31/meaningful-distinctions/?utm_source=by-Ben-Greenman&amp;utm_medium=RSS</link>
    <guid isPermaLink="false">urn:http-prl-ccs-neu-edu:-blog-2016-10-31-meaningful-distinctions</guid>
    <pubDate>Mon, 31 Oct 2016 17:20:33 UT</pubDate>
    <author>PRL</author>
@@ -2571,7 +2571,7 @@ Welcome to Racket v6.10.0.3.
 &lt;p&gt;Now go find their context!&lt;/p&gt;</description></item>
   <item>
    <title>CompCert Overview</title>
-   <link>http://prl.ccs.neu.edu/blog/2016/10/11/compcert-overview?utm_source=by-Ben-Greenman&amp;utm_medium=RSS</link>
+   <link>http://prl.ccs.neu.edu/blog/2016/10/11/compcert-overview/?utm_source=by-Ben-Greenman&amp;utm_medium=RSS</link>
    <guid isPermaLink="false">urn:http-prl-ccs-neu-edu:-blog-2016-10-11-compcert-overview</guid>
    <pubDate>Tue, 11 Oct 2016 17:41:16 UT</pubDate>
    <author>PRL</author>
@@ -2607,7 +2607,7 @@ Welcome to Racket v6.10.0.3.
 &lt;p&gt;The document ends with a short description of two other research projects that have grown into &amp;ldquo;industry software&amp;rdquo; and a link to Xaver Leroy&amp;rsquo;s &lt;a href="https://www.cs.uoregon.edu/research/summerschool/summer12/curriculum.html"&gt;OPLSS lectures on certified compilers&lt;/a&gt;. Enjoy!&lt;/p&gt;</description></item>
   <item>
    <title>NEPLS on October 7th at Northeastern University</title>
-   <link>http://prl.ccs.neu.edu/blog/2016/09/15/nepls-on-october-7th-at-northeastern-university?utm_source=by-Ben-Greenman&amp;utm_medium=RSS</link>
+   <link>http://prl.ccs.neu.edu/blog/2016/09/15/nepls-on-october-7th-at-northeastern-university/?utm_source=by-Ben-Greenman&amp;utm_medium=RSS</link>
    <guid isPermaLink="false">urn:http-prl-ccs-neu-edu:-blog-2016-09-15-nepls-on-october-7th-at-northeastern-university</guid>
    <pubDate>Thu, 15 Sep 2016 21:18:45 UT</pubDate>
    <author>PRL</author>
@@ -2644,7 +2644,7 @@ Welcome to Racket v6.10.0.3.
 &lt;p&gt;&lt;a href="https://lists.cs.brown.edu/sympa/subscribe/nepls"&gt;https://lists.cs.brown.edu/sympa/subscribe/nepls&lt;/a&gt;&lt;/p&gt;</description></item>
   <item>
    <title>A few cores too many</title>
-   <link>http://prl.ccs.neu.edu/blog/2016/08/03/a-few-cores-too-many?utm_source=by-Ben-Greenman&amp;utm_medium=RSS</link>
+   <link>http://prl.ccs.neu.edu/blog/2016/08/03/a-few-cores-too-many/?utm_source=by-Ben-Greenman&amp;utm_medium=RSS</link>
    <guid isPermaLink="false">urn:http-prl-ccs-neu-edu:-blog-2016-08-03-a-few-cores-too-many</guid>
    <pubDate>Wed, 03 Aug 2016 14:09:02 UT</pubDate>
    <author>PRL</author>
@@ -2697,7 +2697,7 @@ Welcome to Racket v6.10.0.3.
 &lt;p&gt;P.S. the results from &lt;a href="http://www.ccs.neu.edu/racket/pubs/#popl16-tfgnvf"&gt;POPL 2016&lt;/a&gt; are just fine,  as they were not taken on the new machine running more than 2 cores.  If you have time to confirm, that data is in our  &lt;a href="http://www.ccs.neu.edu/home/asumu/artifacts/popl-2016/"&gt;artifact&lt;/a&gt;  and in the &lt;a href="https://github.com/nuprl/gradual-typing-performance/tree/master/paper/popl-2016/data"&gt;gradual-typing-performance&lt;/a&gt; repo.&lt;/p&gt;</description></item>
   <item>
    <title>Tutorial: Zero to Sixty in Racket</title>
-   <link>http://prl.ccs.neu.edu/blog/2016/08/02/tutorial-zero-to-sixty-in-racket?utm_source=by-Ben-Greenman&amp;utm_medium=RSS</link>
+   <link>http://prl.ccs.neu.edu/blog/2016/08/02/tutorial-zero-to-sixty-in-racket/?utm_source=by-Ben-Greenman&amp;utm_medium=RSS</link>
    <guid isPermaLink="false">urn:http-prl-ccs-neu-edu:-blog-2016-08-02-tutorial-zero-to-sixty-in-racket</guid>
    <pubDate>Tue, 02 Aug 2016 01:29:11 UT</pubDate>
    <author>PRL</author>
@@ -3782,7 +3782,7 @@ Going forward we could add &lt;a href="http://docs.racket-lang.org/scribble/inde
    &lt;p&gt;&lt;a href="http://www.terohasu.net/hasu-flatt--els16--preprint.pdf"&gt;Source-to-Source Compilation via Submodules (pdf)&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;</description></item>
   <item>
    <title>Welcome to the PRL blog</title>
-   <link>http://prl.ccs.neu.edu/blog/2016/04/29/welcome-to-the-prl-blog?utm_source=by-Ben-Greenman&amp;utm_medium=RSS</link>
+   <link>http://prl.ccs.neu.edu/blog/2016/04/29/welcome-to-the-prl-blog/?utm_source=by-Ben-Greenman&amp;utm_medium=RSS</link>
    <guid isPermaLink="false">urn:http-prl-ccs-neu-edu:-blog-2016-04-29-welcome-to-the-prl-blog</guid>
    <pubDate>Fri, 29 Apr 2016 14:50:29 UT</pubDate>
    <author>PRL</author>

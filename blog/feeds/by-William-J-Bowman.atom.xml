@@ -7,7 +7,7 @@
  <updated>2018-01-19T17:05:00Z</updated>
  <entry>
   <title type="text">[Untyped Programs Don't Exist (cross-post)](https://williamjbowman.com/blog/2018/01/19/untyped-programs-don-t-exist/)</title>
-  <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2018/01/19/-untyped-programs-don-t-exist-cross-post-https-williamjbowman-com-blog-2018-01-19-untyped-programs-don-t-exist?utm_source=by-William-J-Bowman&amp;utm_medium=Atom" />
+  <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2018/01/19/-untyped-programs-don-t-exist-cross-post-https-williamjbowman-com-blog-2018-01-19-untyped-programs-don-t-exist/?utm_source=by-William-J-Bowman&amp;utm_medium=Atom" />
   <id>urn:http-prl-ccs-neu-edu:-blog-2018-01-19-untyped-programs-don-t-exist-cross-post-https-williamjbowman-com-blog-2018-01-19-untyped-programs-don-t-exist</id>
   <published>2018-01-19T17:05:00Z</published>
   <updated>2018-01-19T17:05:00Z</updated>
@@ -16,7 +16,7 @@
   <content type="html"></content></entry>
  <entry>
   <title type="text">[Why am I going to ICFP 2017? (cross-post)](https://williamjbowman.com/blog/2017/08/29/why-am-i-going-to-icfp-2017/)</title>
-  <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2017/08/29/-why-am-i-going-to-icfp-2017-cross-post-https-williamjbowman-com-blog-2017-08-29-why-am-i-going-to-icfp-2017?utm_source=by-William-J-Bowman&amp;utm_medium=Atom" />
+  <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2017/08/29/-why-am-i-going-to-icfp-2017-cross-post-https-williamjbowman-com-blog-2017-08-29-why-am-i-going-to-icfp-2017/?utm_source=by-William-J-Bowman&amp;utm_medium=Atom" />
   <id>urn:http-prl-ccs-neu-edu:-blog-2017-08-29-why-am-i-going-to-icfp-2017-cross-post-https-williamjbowman-com-blog-2017-08-29-why-am-i-going-to-icfp-2017</id>
   <published>2017-08-29T13:33:21Z</published>
   <updated>2017-08-29T13:33:21Z</updated>
@@ -25,7 +25,7 @@
   <content type="html"></content></entry>
  <entry>
   <title type="text">Type-Directed Compilation, Parts I and II</title>
-  <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2017/04/17/type-directed-compilation-parts-i-and-ii?utm_source=by-William-J-Bowman&amp;utm_medium=Atom" />
+  <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2017/04/17/type-directed-compilation-parts-i-and-ii/?utm_source=by-William-J-Bowman&amp;utm_medium=Atom" />
   <id>urn:http-prl-ccs-neu-edu:-blog-2017-04-17-type-directed-compilation-parts-i-and-ii</id>
   <published>2017-04-17T12:00:17Z</published>
   <updated>2017-04-17T12:00:17Z</updated>
@@ -57,7 +57,7 @@
  &lt;li&gt;&lt;a href="https://github.com/nuprl/hopl-s2017/blob/master/dependent-type-preserving-compilation"&gt;https://github.com/nuprl/hopl-s2017/blob/master/dependent-type-preserving-compilation&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;</content></entry>
  <entry>
   <title type="text">[What even is compiler correctness? (cross-post)](https://williamjbowman.com/blog/2017/03/24/what-even-is-compiler-correctness/)</title>
-  <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2017/03/24/-what-even-is-compiler-correctness-cross-post-https-williamjbowman-com-blog-2017-03-24-what-even-is-compiler-correctness?utm_source=by-William-J-Bowman&amp;utm_medium=Atom" />
+  <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2017/03/24/-what-even-is-compiler-correctness-cross-post-https-williamjbowman-com-blog-2017-03-24-what-even-is-compiler-correctness/?utm_source=by-William-J-Bowman&amp;utm_medium=Atom" />
   <id>urn:http-prl-ccs-neu-edu:-blog-2017-03-24-what-even-is-compiler-correctness-cross-post-https-williamjbowman-com-blog-2017-03-24-what-even-is-compiler-correctness</id>
   <published>2017-03-24T23:11:17Z</published>
   <updated>2017-03-24T23:11:17Z</updated>
@@ -66,7 +66,7 @@
   <content type="html"></content></entry>
  <entry>
   <title type="text">[Toward Type-Preserving Compilation of Coq, at POPL17 SRC (cross-post)](https://williamjbowman.com/blog/2017/01/03/toward-type-preserving-compilation-of-coq-at-popl17-src/)</title>
-  <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2017/01/03/-toward-type-preserving-compilation-of-coq-at-popl17-src-cross-post-https-williamjbowman-com-blog-2017-01-03-toward-type-preserving-compilation-of-coq-at-popl17-src?utm_source=by-William-J-Bowman&amp;utm_medium=Atom" />
+  <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2017/01/03/-toward-type-preserving-compilation-of-coq-at-popl17-src-cross-post-https-williamjbowman-com-blog-2017-01-03-toward-type-preserving-compilation-of-coq-at-popl17-src/?utm_source=by-William-J-Bowman&amp;utm_medium=Atom" />
   <id>urn:http-prl-ccs-neu-edu:-blog-2017-01-03-toward-type-preserving-compilation-of-coq-at-popl17-src-cross-post-https-williamjbowman-com-blog-2017-01-03-toward-type-preserving-compilation-of-coq-at-popl17-src</id>
   <published>2017-01-03T15:15:57Z</published>
   <updated>2017-01-03T15:15:57Z</updated>

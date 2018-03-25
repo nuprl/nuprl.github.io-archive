@@ -9,21 +9,21 @@
   <ttl>1800</ttl>
   <item>
    <title>[Untyped Programs Don't Exist (cross-post)](https://williamjbowman.com/blog/2018/01/19/untyped-programs-don-t-exist/)</title>
-   <link>http://prl.ccs.neu.edu/blog/2018/01/19/-untyped-programs-don-t-exist-cross-post-https-williamjbowman-com-blog-2018-01-19-untyped-programs-don-t-exist?utm_source=all&amp;utm_medium=RSS</link>
+   <link>http://prl.ccs.neu.edu/blog/2018/01/19/-untyped-programs-don-t-exist-cross-post-https-williamjbowman-com-blog-2018-01-19-untyped-programs-don-t-exist/?utm_source=all&amp;utm_medium=RSS</link>
    <guid isPermaLink="false">urn:http-prl-ccs-neu-edu:-blog-2018-01-19-untyped-programs-don-t-exist-cross-post-https-williamjbowman-com-blog-2018-01-19-untyped-programs-don-t-exist</guid>
    <pubDate>Fri, 19 Jan 2018 17:05:00 UT</pubDate>
    <author>PRL</author>
    <description></description></item>
   <item>
    <title>[How to prove a compiler correct (cross-post)](https://dbp.io/essays/2018-01-16-how-to-prove-a-compiler-correct.html)</title>
-   <link>http://prl.ccs.neu.edu/blog/2018/01/17/-how-to-prove-a-compiler-correct-cross-post-https-dbp-io-essays-2018-01-16-how-to-prove-a-compiler-correct-html?utm_source=all&amp;utm_medium=RSS</link>
+   <link>http://prl.ccs.neu.edu/blog/2018/01/17/-how-to-prove-a-compiler-correct-cross-post-https-dbp-io-essays-2018-01-16-how-to-prove-a-compiler-correct-html/?utm_source=all&amp;utm_medium=RSS</link>
    <guid isPermaLink="false">urn:http-prl-ccs-neu-edu:-blog-2018-01-17-how-to-prove-a-compiler-correct-cross-post-https-dbp-io-essays-2018-01-16-how-to-prove-a-compiler-correct-html</guid>
    <pubDate>Wed, 17 Jan 2018 20:58:48 UT</pubDate>
    <author>PRL</author>
    <description></description></item>
   <item>
    <title>Monotonicity Types: Towards A Type System for Eventual Consistency</title>
-   <link>http://prl.ccs.neu.edu/blog/2017/10/22/monotonicity-types-towards-a-type-system-for-eventual-consistency?utm_source=all&amp;utm_medium=RSS</link>
+   <link>http://prl.ccs.neu.edu/blog/2017/10/22/monotonicity-types-towards-a-type-system-for-eventual-consistency/?utm_source=all&amp;utm_medium=RSS</link>
    <guid isPermaLink="false">urn:http-prl-ccs-neu-edu:-blog-2017-10-22-monotonicity-types-towards-a-type-system-for-eventual-consistency</guid>
    <pubDate>Sun, 22 Oct 2017 11:59:06 UT</pubDate>
    <author>PRL</author>
@@ -269,7 +269,7 @@ sfun sumCounters(x : GCounter, y : GCounter)
 &lt;p&gt;&lt;span class="ref5"&gt;N. Vazou, E. L. Seidel, R. Jhala, D. Vytiniotis, and S. Peyton-Jones. &lt;em&gt;Refinement types for Haskell&lt;/em&gt;. SIGPLAN Not. 49, 9 (August 2014), 269&amp;ndash;282.&lt;/span&gt;&lt;/p&gt;</description></item>
   <item>
    <title>Final Algebra Semantics is Observational Equivalence</title>
-   <link>http://prl.ccs.neu.edu/blog/2017/09/27/final-algebra-semantics-is-observational-equivalence?utm_source=all&amp;utm_medium=RSS</link>
+   <link>http://prl.ccs.neu.edu/blog/2017/09/27/final-algebra-semantics-is-observational-equivalence/?utm_source=all&amp;utm_medium=RSS</link>
    <guid isPermaLink="false">urn:http-prl-ccs-neu-edu:-blog-2017-09-27-final-algebra-semantics-is-observational-equivalence</guid>
    <pubDate>Wed, 27 Sep 2017 15:44:57 UT</pubDate>
    <author>PRL</author>
@@ -635,7 +635,7 @@ In(T)(s_1)\times\ldots,In(T)(s_n)&lt;/script&gt;. Then the terms are just interp
 &lt;p&gt;Another question is how to implement this when we have a proper &lt;em&gt;type theory&lt;/em&gt; and not just some boring sorts. In particular, if we have function types, then we won&amp;rsquo;t be able to get functions from functions in our term model to functions in our denotations due to contravariance. Perhaps logical relations are the solution?&lt;/p&gt;</description></item>
   <item>
    <title>PLT Redex FAQ</title>
-   <link>http://prl.ccs.neu.edu/blog/2017/09/25/plt-redex-faq?utm_source=all&amp;utm_medium=RSS</link>
+   <link>http://prl.ccs.neu.edu/blog/2017/09/25/plt-redex-faq/?utm_source=all&amp;utm_medium=RSS</link>
    <guid isPermaLink="false">urn:http-prl-ccs-neu-edu:-blog-2017-09-25-plt-redex-faq</guid>
    <pubDate>Mon, 25 Sep 2017 23:39:16 UT</pubDate>
    <author>PRL</author>
@@ -700,7 +700,7 @@ Welcome to Racket v6.10.0.3.
  &lt;li&gt;&lt;em&gt;languages&lt;/em&gt;, to define a grammar for terms&lt;/li&gt;
  &lt;li&gt;&lt;em&gt;judgments&lt;/em&gt;, to describe properties of terms or relations between terms&lt;/li&gt;
  &lt;li&gt;&lt;em&gt;metafunctions&lt;/em&gt;, to transform terms&lt;/li&gt;
- &lt;li&gt;&lt;em&gt;reduction relations&lt;/em&gt;, to defining a term rewriting system&lt;/li&gt;&lt;/ul&gt;
+ &lt;li&gt;&lt;em&gt;reduction relations&lt;/em&gt;, to define a term rewriting system&lt;/li&gt;&lt;/ul&gt;
 
 &lt;p&gt;The goal of these tools is to encode a &amp;ldquo;real thing&amp;rdquo; (maybe, a programming language)  using Redex terms.&lt;/p&gt;
 
@@ -810,7 +810,7 @@ Welcome to Racket v6.10.0.3.
 &lt;ul&gt;
  &lt;li&gt;Disjunctions of patterns, e.g., &amp;ldquo;number or boolean&amp;rdquo;.  (Use a language non-terminal.)&lt;/li&gt;
  &lt;li&gt;Negations of patterns. (Compose &lt;strong&gt;not&lt;/strong&gt; with &lt;strong&gt;redex-match?&lt;/strong&gt;.)&lt;/li&gt;
- &lt;li&gt;Non-regular patterns. For example, one non-regular pattern is &amp;ldquo;all lists  that contain some number of integers followed by the same number of strings&amp;rdquo;.&lt;/li&gt;&lt;/ul&gt;
+ &lt;li&gt;Some non-regular patterns. (Named  dots &lt;a href="http://docs.racket-lang.org/redex/The_Redex_Reference.html#%28tech._pattern%29"&gt;&lt;code&gt;..._N&lt;/code&gt;&lt;/a&gt;  or &lt;a href="http://docs.racket-lang.org/redex/The_Redex_Reference.html#%28form._%28%28lib._redex%2Freduction-semantics..rkt%29._define-language%29%29"&gt;&lt;code&gt;define-language&lt;/code&gt;&lt;/a&gt;  with a side condition may be able to help.)&lt;/li&gt;&lt;/ul&gt;
 
 &lt;h3 id="q-what-is-a-judgment"&gt;Q. What is a judgment?&lt;/h3&gt;
 
@@ -1121,14 +1121,14 @@ Welcome to Racket v6.10.0.3.
  &lt;li&gt;Source code for this post: &lt;a href="https://github.com/nuprl/website/blob/master/blog/_src/posts/2017-09-25-redex-faq.md"&gt;https://github.com/nuprl/website/blob/master/blog/_src/posts/2017-09-25-redex-faq.md&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;</description></item>
   <item>
    <title>[Why am I going to ICFP 2017? (cross-post)](https://williamjbowman.com/blog/2017/08/29/why-am-i-going-to-icfp-2017/)</title>
-   <link>http://prl.ccs.neu.edu/blog/2017/08/29/-why-am-i-going-to-icfp-2017-cross-post-https-williamjbowman-com-blog-2017-08-29-why-am-i-going-to-icfp-2017?utm_source=all&amp;utm_medium=RSS</link>
+   <link>http://prl.ccs.neu.edu/blog/2017/08/29/-why-am-i-going-to-icfp-2017-cross-post-https-williamjbowman-com-blog-2017-08-29-why-am-i-going-to-icfp-2017/?utm_source=all&amp;utm_medium=RSS</link>
    <guid isPermaLink="false">urn:http-prl-ccs-neu-edu:-blog-2017-08-29-why-am-i-going-to-icfp-2017-cross-post-https-williamjbowman-com-blog-2017-08-29-why-am-i-going-to-icfp-2017</guid>
    <pubDate>Tue, 29 Aug 2017 13:33:21 UT</pubDate>
    <author>PRL</author>
    <description></description></item>
   <item>
    <title>Closure Conversion as CoYoneda</title>
-   <link>http://prl.ccs.neu.edu/blog/2017/08/28/closure-conversion-as-coyoneda?utm_source=all&amp;utm_medium=RSS</link>
+   <link>http://prl.ccs.neu.edu/blog/2017/08/28/closure-conversion-as-coyoneda/?utm_source=all&amp;utm_medium=RSS</link>
    <guid isPermaLink="false">urn:http-prl-ccs-neu-edu:-blog-2017-08-28-closure-conversion-as-coyoneda</guid>
    <pubDate>Mon, 28 Aug 2017 10:30:00 UT</pubDate>
    <author>PRL</author>
@@ -1362,7 +1362,7 @@ A&lt;/script&gt; and
   &lt;p&gt;&lt;a href="http://prl.ccs.neu.edu/blog/2016/11/16/understanding-constructive-galois-connections/"&gt;Understanding Constructive Galois  Connections&lt;/a&gt;.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;</description></item>
   <item>
    <title>Gradual Typing Across the Spectrum, part II</title>
-   <link>http://prl.ccs.neu.edu/blog/2017/08/22/gradual-typing-across-the-spectrum-part-ii?utm_source=all&amp;utm_medium=RSS</link>
+   <link>http://prl.ccs.neu.edu/blog/2017/08/22/gradual-typing-across-the-spectrum-part-ii/?utm_source=all&amp;utm_medium=RSS</link>
    <guid isPermaLink="false">urn:http-prl-ccs-neu-edu:-blog-2017-08-22-gradual-typing-across-the-spectrum-part-ii</guid>
    <pubDate>Tue, 22 Aug 2017 15:54:06 UT</pubDate>
    <author>PRL</author>
@@ -1430,7 +1430,7 @@ A&lt;/script&gt; and
  &lt;p&gt;If you want to know about the future, you need to ask the young people who will create it. Young people don&amp;rsquo;t know what can&amp;rsquo;t be done, and so they go ahead and do it. &amp;mdash; &lt;a href="https://www.youtube.com/watch?v=sM1bNR4DmhU"&gt;Ivan Sutherland&lt;/a&gt;&lt;/p&gt;&lt;/blockquote&gt;</description></item>
   <item>
    <title>Reviews and author responses: we should stop asking for 500-word responses</title>
-   <link>http://prl.ccs.neu.edu/blog/2017/08/13/reviews-and-author-responses-we-should-stop-asking-for-500-word-responses?utm_source=all&amp;utm_medium=RSS</link>
+   <link>http://prl.ccs.neu.edu/blog/2017/08/13/reviews-and-author-responses-we-should-stop-asking-for-500-word-responses/?utm_source=all&amp;utm_medium=RSS</link>
    <guid isPermaLink="false">urn:http-prl-ccs-neu-edu:-blog-2017-08-13-reviews-and-author-responses-we-should-stop-asking-for-500-word-responses</guid>
    <pubDate>Sun, 13 Aug 2017 14:29:41 UT</pubDate>
    <author>PRL</author>
@@ -1479,7 +1479,7 @@ A&lt;/script&gt; and
  &lt;p&gt;Please remember, in writing your author response, that reviewers may stop reading the response at any point. We suggest having a reasonably-sized main section where you make your most important high-level comments, and clearly marked sections where you answer individual reviewer&amp;rsquo;s questions. It is not useful nor productive to answer every point of each review, you should focus on the comments that you believe the reviewers are most interested in.&lt;/p&gt;&lt;/blockquote&gt;</description></item>
   <item>
    <title>Trees, 1973</title>
-   <link>http://prl.ccs.neu.edu/blog/2017/07/19/trees-1973?utm_source=all&amp;utm_medium=RSS</link>
+   <link>http://prl.ccs.neu.edu/blog/2017/07/19/trees-1973/?utm_source=all&amp;utm_medium=RSS</link>
    <guid isPermaLink="false">urn:http-prl-ccs-neu-edu:-blog-2017-07-19-trees-1973</guid>
    <pubDate>Wed, 19 Jul 2017 21:48:56 UT</pubDate>
    <author>PRL</author>
@@ -1497,7 +1497,7 @@ A&lt;/script&gt; and
 &lt;p&gt;The poem is online in &lt;a href="http://mercury.lcs.mit.edu/~jnc/humour/lisp.tree"&gt;at least one other place&lt;/a&gt;, but the copy linked above (from &lt;a href="https://archive.org/details/byte-magazine"&gt;BYTE magazine&lt;/a&gt;) comes with a footnote on &lt;em&gt;How this poem came to be printed&lt;/em&gt;.&lt;/p&gt;</description></item>
   <item>
    <title>Continuations</title>
-   <link>http://prl.ccs.neu.edu/blog/2017/07/17/continuations?utm_source=all&amp;utm_medium=RSS</link>
+   <link>http://prl.ccs.neu.edu/blog/2017/07/17/continuations/?utm_source=all&amp;utm_medium=RSS</link>
    <guid isPermaLink="false">urn:http-prl-ccs-neu-edu:-blog-2017-07-17-continuations</guid>
    <pubDate>Mon, 17 Jul 2017 12:52:07 UT</pubDate>
    <author>PRL</author>
@@ -1513,7 +1513,7 @@ A&lt;/script&gt; and
 &lt;p&gt;I first encountered this essay on continuations in a green folder in the PRL. It turns out, the author spent a semester at Indiana University working on the  &lt;a href="http://wiki.c2.com/?SameFringeProblem"&gt;same fringe problem&lt;/a&gt; for a graduate-level programming languages course. According to &lt;a href="https://www.cs.indiana.edu/~dfried/"&gt;the instructor&lt;/a&gt;:  &amp;ldquo;What he said was true. He could not stop thinking about the problem the entire semester.&amp;rdquo; This essay was a kind of final exam.&lt;/p&gt;</description></item>
   <item>
    <title>Quotes and Stories from "Turing 50"</title>
-   <link>http://prl.ccs.neu.edu/blog/2017/06/24/quotes-and-stories-from-turing-50?utm_source=all&amp;utm_medium=RSS</link>
+   <link>http://prl.ccs.neu.edu/blog/2017/06/24/quotes-and-stories-from-turing-50/?utm_source=all&amp;utm_medium=RSS</link>
    <guid isPermaLink="false">urn:http-prl-ccs-neu-edu:-blog-2017-06-24-quotes-and-stories-from-turing-50</guid>
    <pubDate>Sat, 24 Jun 2017 20:00:52 UT</pubDate>
    <author>PRL</author>
@@ -2393,7 +2393,7 @@ A&lt;/script&gt; and
 &lt;!-- served on panels falling asleep during other panels--&gt;</description></item>
   <item>
    <title>Spring 2017 PL Junior Retrospective</title>
-   <link>http://prl.ccs.neu.edu/blog/2017/06/16/spring-2017-pl-junior-retrospective?utm_source=all&amp;utm_medium=RSS</link>
+   <link>http://prl.ccs.neu.edu/blog/2017/06/16/spring-2017-pl-junior-retrospective/?utm_source=all&amp;utm_medium=RSS</link>
    <guid isPermaLink="false">urn:http-prl-ccs-neu-edu:-blog-2017-06-16-spring-2017-pl-junior-retrospective</guid>
    <pubDate>Fri, 16 Jun 2017 11:38:25 UT</pubDate>
    <author>PRL</author>
@@ -2460,14 +2460,14 @@ A&lt;/script&gt; and
 &lt;p&gt;Writing this retrospective has also proven to be a beneficial exercise. Especially with our sequences of connected topics, looking back has allowed us to put the earlier papers into perspective and better assess both their relevance and presentation.&lt;/p&gt;</description></item>
   <item>
    <title>[Bridging the System Configuration Gap (Cross-Post)](https://aaronweiss.us/posts/2017-06-05-bridging-the-system-configuration-gap.html)</title>
-   <link>http://prl.ccs.neu.edu/blog/2017/06/09/-bridging-the-system-configuration-gap-cross-post-https-aaronweiss-us-posts-2017-06-05-bridging-the-system-configuration-gap-html?utm_source=all&amp;utm_medium=RSS</link>
+   <link>http://prl.ccs.neu.edu/blog/2017/06/09/-bridging-the-system-configuration-gap-cross-post-https-aaronweiss-us-posts-2017-06-05-bridging-the-system-configuration-gap-html/?utm_source=all&amp;utm_medium=RSS</link>
    <guid isPermaLink="false">urn:http-prl-ccs-neu-edu:-blog-2017-06-09-bridging-the-system-configuration-gap-cross-post-https-aaronweiss-us-posts-2017-06-05-bridging-the-system-configuration-gap-html</guid>
    <pubDate>Fri, 09 Jun 2017 13:36:56 UT</pubDate>
    <author>PRL</author>
    <description></description></item>
   <item>
    <title>Report: PLISS 2017</title>
-   <link>http://prl.ccs.neu.edu/blog/2017/06/05/report-pliss-2017?utm_source=all&amp;utm_medium=RSS</link>
+   <link>http://prl.ccs.neu.edu/blog/2017/06/05/report-pliss-2017/?utm_source=all&amp;utm_medium=RSS</link>
    <guid isPermaLink="false">urn:http-prl-ccs-neu-edu:-blog-2017-06-05-report-pliss-2017</guid>
    <pubDate>Mon, 05 Jun 2017 15:47:59 UT</pubDate>
    <author>PRL</author>
@@ -2528,7 +2528,7 @@ A&lt;/script&gt; and
 &lt;p&gt;If and when there is a second PLISS, I highly encourage students to apply! You will learn a lot from the lectures, from talking to the speakers, and meeting other students. And if it&amp;rsquo;s in Bertinoro again, you can enjoy the weather and nice view!&lt;/p&gt;</description></item>
   <item>
    <title>Syntactic parametricity strikes again</title>
-   <link>http://prl.ccs.neu.edu/blog/2017/06/05/syntactic-parametricity-strikes-again?utm_source=all&amp;utm_medium=RSS</link>
+   <link>http://prl.ccs.neu.edu/blog/2017/06/05/syntactic-parametricity-strikes-again/?utm_source=all&amp;utm_medium=RSS</link>
    <guid isPermaLink="false">urn:http-prl-ccs-neu-edu:-blog-2017-06-05-syntactic-parametricity-strikes-again</guid>
    <pubDate>Mon, 05 Jun 2017 14:27:44 UT</pubDate>
    <author>PRL</author>
@@ -2855,7 +2855,7 @@ A&lt;/script&gt; and
   &lt;p&gt;&lt;a href="http://prl.ccs.neu.edu/blog/2016/11/16/understanding-constructive-galois-connections/"&gt;Understanding Constructive Galois  Connections&lt;/a&gt;.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;</description></item>
   <item>
    <title>Racket 6.9 and Windows 10 Creators Update</title>
-   <link>http://prl.ccs.neu.edu/blog/2017/05/26/racket-6-9-and-windows-10-creators-update?utm_source=all&amp;utm_medium=RSS</link>
+   <link>http://prl.ccs.neu.edu/blog/2017/05/26/racket-6-9-and-windows-10-creators-update/?utm_source=all&amp;utm_medium=RSS</link>
    <guid isPermaLink="false">urn:http-prl-ccs-neu-edu:-blog-2017-05-26-racket-6-9-and-windows-10-creators-update</guid>
    <pubDate>Fri, 26 May 2017 17:00:28 UT</pubDate>
    <author>PRL</author>
@@ -2883,7 +2883,7 @@ A&lt;/script&gt; and
   &lt;p&gt;After import finishes, you should now see your new VM in the list on the left of the VirtualBox manager. Select it and hit &lt;code&gt;Start&lt;/code&gt;. Once started up, you will see DrRacket and Firefox on the VM&amp;rsquo;s desktop.&lt;/p&gt;&lt;/li&gt;&lt;/ol&gt;</description></item>
   <item>
    <title>Programming Language Conference in Russia</title>
-   <link>http://prl.ccs.neu.edu/blog/2017/05/24/programming-language-conference-in-russia?utm_source=all&amp;utm_medium=RSS</link>
+   <link>http://prl.ccs.neu.edu/blog/2017/05/24/programming-language-conference-in-russia/?utm_source=all&amp;utm_medium=RSS</link>
    <guid isPermaLink="false">urn:http-prl-ccs-neu-edu:-blog-2017-05-24-programming-language-conference-in-russia</guid>
    <pubDate>Wed, 24 May 2017 12:25:17 UT</pubDate>
    <author>PRL</author>
@@ -2928,7 +2928,7 @@ A&lt;/script&gt; and
 &lt;p&gt;I hope that we will find sources, time, and, most important, high quality submissions for PLC&amp;ndash;2018.&lt;/p&gt;</description></item>
   <item>
    <title>Building a Website with Scribble</title>
-   <link>http://prl.ccs.neu.edu/blog/2017/05/23/building-a-website-with-scribble?utm_source=all&amp;utm_medium=RSS</link>
+   <link>http://prl.ccs.neu.edu/blog/2017/05/23/building-a-website-with-scribble/?utm_source=all&amp;utm_medium=RSS</link>
    <guid isPermaLink="false">urn:http-prl-ccs-neu-edu:-blog-2017-05-23-building-a-website-with-scribble</guid>
    <pubDate>Tue, 23 May 2017 01:53:13 UT</pubDate>
    <author>PRL</author>
@@ -3340,7 +3340,7 @@ A&lt;/script&gt; and
  &lt;li&gt;&lt;a href="http://prl.ccs.neu.edu/blog/2016/05/18/gradual-typing-across-the-spectrum/"&gt;Notes from a Gradual Typing Across the Spectrum PI meeting&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;</description></item>
   <item>
    <title>Artifacts for Semantics</title>
-   <link>http://prl.ccs.neu.edu/blog/2017/05/15/artifacts-for-semantics?utm_source=all&amp;utm_medium=RSS</link>
+   <link>http://prl.ccs.neu.edu/blog/2017/05/15/artifacts-for-semantics/?utm_source=all&amp;utm_medium=RSS</link>
    <guid isPermaLink="false">urn:http-prl-ccs-neu-edu:-blog-2017-05-15-artifacts-for-semantics</guid>
    <pubDate>Mon, 15 May 2017 10:08:31 UT</pubDate>
    <author>PRL</author>
