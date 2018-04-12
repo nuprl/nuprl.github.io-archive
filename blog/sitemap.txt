@@ -36,6 +36,7 @@ http://prl.ccs.neu.edu/blog/2017/06/24/quotes-and-stories-from-turing-50/
 http://prl.ccs.neu.edu/blog/2017/02/15/introducing-hopl-2017/
 http://prl.ccs.neu.edu/blog/2016/06/27/tutorial-using-racket-s-ffi/
 http://prl.ccs.neu.edu/blog/2017/05/26/racket-6-9-and-windows-10-creators-update/
+http://prl.ccs.neu.edu/blog/2018/04/12/-making-an-ide-plugin-for-drracket-cross-post-https-lang-video-blog-2018-03-21-making-an-ide-plugin-for-drracket/
 http://prl.ccs.neu.edu/blog/2017/02/15/conversational-context-and-concurrency/
 http://prl.ccs.neu.edu/blog/2016/06/29/tutorial-racket-ffi-part-2/
 http://prl.ccs.neu.edu/blog/2016/11/30/-getting-started-in-programming-languages-cross-post-http-jschuster-org-blog-2016-11-29-getting-started-in-programming-languages/

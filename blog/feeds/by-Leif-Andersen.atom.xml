@@ -4,7 +4,16 @@
  <link rel="self" href="http://prl.ccs.neu.edu/blog/feeds/by-Leif-Andersen.atom.xml" />
  <link href="http://prl.ccs.neu.edu/blog/tags/by-Leif-Andersen.html" />
  <id>urn:http-prl-ccs-neu-edu:-blog-tags-by-Leif-Andersen-html</id>
- <updated>2017-05-26T17:00:28Z</updated>
+ <updated>2018-04-12T12:12:53Z</updated>
+ <entry>
+  <title type="text">[Making an IDE Plugin for DrRacket (cross-post)](https://lang.video/blog/2018/03/21/making-an-ide-plugin-for-drracket/)</title>
+  <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2018/04/12/-making-an-ide-plugin-for-drracket-cross-post-https-lang-video-blog-2018-03-21-making-an-ide-plugin-for-drracket/?utm_source=by-Leif-Andersen&amp;utm_medium=Atom" />
+  <id>urn:http-prl-ccs-neu-edu:-blog-2018-04-12-making-an-ide-plugin-for-drracket-cross-post-https-lang-video-blog-2018-03-21-making-an-ide-plugin-for-drracket</id>
+  <published>2018-04-12T12:12:53Z</published>
+  <updated>2018-04-12T12:12:53Z</updated>
+  <author>
+   <name>PRL</name></author>
+  <content type="html"></content></entry>
  <entry>
   <title type="text">Racket 6.9 and Windows 10 Creators Update</title>
   <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2017/05/26/racket-6-9-and-windows-10-creators-update/?utm_source=by-Leif-Andersen&amp;utm_medium=Atom" />
