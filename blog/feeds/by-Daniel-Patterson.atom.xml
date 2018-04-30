@@ -4,7 +4,16 @@
  <link rel="self" href="http://prl.ccs.neu.edu/blog/feeds/by-Daniel-Patterson.atom.xml" />
  <link href="http://prl.ccs.neu.edu/blog/tags/by-Daniel-Patterson.html" />
  <id>urn:http-prl-ccs-neu-edu:-blog-tags-by-Daniel-Patterson-html</id>
- <updated>2018-01-17T20:58:48Z</updated>
+ <updated>2018-04-23T10:07:48Z</updated>
+ <entry>
+  <title type="text">[How to prove a compiler fully abstract (cross-post)](https://dbp.io/essays/2018-04-19-how-to-prove-a-compiler-fully-abstract.html)</title>
+  <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2018/04/23/-how-to-prove-a-compiler-fully-abstract-cross-post-https-dbp-io-essays-2018-04-19-how-to-prove-a-compiler-fully-abstract-html/?utm_source=by-Daniel-Patterson&amp;utm_medium=Atom" />
+  <id>urn:http-prl-ccs-neu-edu:-blog-2018-04-23-how-to-prove-a-compiler-fully-abstract-cross-post-https-dbp-io-essays-2018-04-19-how-to-prove-a-compiler-fully-abstract-html</id>
+  <published>2018-04-23T10:07:48Z</published>
+  <updated>2018-04-23T10:07:48Z</updated>
+  <author>
+   <name>PRL</name></author>
+  <content type="html"></content></entry>
  <entry>
   <title type="text">[How to prove a compiler correct (cross-post)](https://dbp.io/essays/2018-01-16-how-to-prove-a-compiler-correct.html)</title>
   <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2018/01/17/-how-to-prove-a-compiler-correct-cross-post-https-dbp-io-essays-2018-01-16-how-to-prove-a-compiler-correct-html/?utm_source=by-Daniel-Patterson&amp;utm_medium=Atom" />

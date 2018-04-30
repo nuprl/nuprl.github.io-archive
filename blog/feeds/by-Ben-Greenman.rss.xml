@@ -4,9 +4,39 @@
   <title>PRL Blog: Posts tagged 'by Ben Greenman'</title>
   <description>PRL Blog: Posts tagged 'by Ben Greenman'</description>
   <link>http://prl.ccs.neu.edu/blog/tags/by-Ben-Greenman.html</link>
-  <lastBuildDate>Mon, 25 Sep 2017 23:39:16 UT</lastBuildDate>
-  <pubDate>Mon, 25 Sep 2017 23:39:16 UT</pubDate>
+  <lastBuildDate>Fri, 27 Apr 2018 21:35:22 UT</lastBuildDate>
+  <pubDate>Fri, 27 Apr 2018 21:35:22 UT</pubDate>
   <ttl>1800</ttl>
+  <item>
+   <title>The Racket School 2018: Create your own language</title>
+   <link>http://prl.ccs.neu.edu/blog/2018/04/27/the-racket-school-2018-create-your-own-language/?utm_source=by-Ben-Greenman&amp;utm_medium=RSS</link>
+   <guid isPermaLink="false">urn:http-prl-ccs-neu-edu:-blog-2018-04-27-the-racket-school-2018-create-your-own-language</guid>
+   <pubDate>Fri, 27 Apr 2018 21:35:22 UT</pubDate>
+   <author>PRL</author>
+   <description>
+&lt;p&gt;The Racket School 2018: Create your own language • 9–13 July • Salt Lake City&lt;/p&gt;
+&lt;!-- more--&gt;
+
+&lt;p&gt;The Racket team has spent over thirty years developing and refining a coherent intellectual tradition for studying and building programming languages. This year’s school will introduce participants to Racket’s framework for language-oriented programming, which the summer school faculty recently spelled out in a a cover article in the &lt;a href="https://tinyurl.com/RacketCACM"&gt;Communications of the ACM&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Concretely, the 2018 Racket Summer School will cover the following topics:&lt;/p&gt;
+
+&lt;ul&gt;
+ &lt;li&gt;the spectrum of programming languages;&lt;/li&gt;
+ &lt;li&gt;modules and syntax, or languages as libraries;&lt;/li&gt;
+ &lt;li&gt;DrRacket’s support for language-oriented programming;&lt;/li&gt;
+ &lt;li&gt;a domain-specific language for adding types to languages;&lt;/li&gt;
+ &lt;li&gt;tools and techniques for implementing notational conveniences; and&lt;/li&gt;
+ &lt;li&gt;research challenges in language-oriented programming.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;If these topics intrigue you, attend the Racket Summer School:&lt;/p&gt;
+
+&lt;ul&gt;
+ &lt;li&gt;&lt;a href="http://summer-school.racket-lang.org/2018/"&gt;http://summer-school.racket-lang.org/2018/&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;This is not your run-of-the-mill summer school. We will do our best to make it exciting, entertaining, and useful to a broad spectrum of attendees, both academic and industrial.&lt;/p&gt;
+
+&lt;p&gt;P.S. We will send you your first problem set in June, a month before the summer school to whet your appetite.&lt;/p&gt;</description></item>
   <item>
    <title>PLT Redex FAQ</title>
    <link>http://prl.ccs.neu.edu/blog/2017/09/25/plt-redex-faq/?utm_source=by-Ben-Greenman&amp;utm_medium=RSS</link>

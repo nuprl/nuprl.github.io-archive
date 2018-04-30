@@ -4,9 +4,16 @@
   <title>PRL Blog: Posts tagged 'by Daniel Patterson'</title>
   <description>PRL Blog: Posts tagged 'by Daniel Patterson'</description>
   <link>http://prl.ccs.neu.edu/blog/tags/by-Daniel-Patterson.html</link>
-  <lastBuildDate>Wed, 17 Jan 2018 20:58:48 UT</lastBuildDate>
-  <pubDate>Wed, 17 Jan 2018 20:58:48 UT</pubDate>
+  <lastBuildDate>Mon, 23 Apr 2018 10:07:48 UT</lastBuildDate>
+  <pubDate>Mon, 23 Apr 2018 10:07:48 UT</pubDate>
   <ttl>1800</ttl>
+  <item>
+   <title>[How to prove a compiler fully abstract (cross-post)](https://dbp.io/essays/2018-04-19-how-to-prove-a-compiler-fully-abstract.html)</title>
+   <link>http://prl.ccs.neu.edu/blog/2018/04/23/-how-to-prove-a-compiler-fully-abstract-cross-post-https-dbp-io-essays-2018-04-19-how-to-prove-a-compiler-fully-abstract-html/?utm_source=by-Daniel-Patterson&amp;utm_medium=RSS</link>
+   <guid isPermaLink="false">urn:http-prl-ccs-neu-edu:-blog-2018-04-23-how-to-prove-a-compiler-fully-abstract-cross-post-https-dbp-io-essays-2018-04-19-how-to-prove-a-compiler-fully-abstract-html</guid>
+   <pubDate>Mon, 23 Apr 2018 10:07:48 UT</pubDate>
+   <author>PRL</author>
+   <description></description></item>
   <item>
    <title>[How to prove a compiler correct (cross-post)](https://dbp.io/essays/2018-01-16-how-to-prove-a-compiler-correct.html)</title>
    <link>http://prl.ccs.neu.edu/blog/2018/01/17/-how-to-prove-a-compiler-correct-cross-post-https-dbp-io-essays-2018-01-16-how-to-prove-a-compiler-correct-html/?utm_source=by-Daniel-Patterson&amp;utm_medium=RSS</link>
