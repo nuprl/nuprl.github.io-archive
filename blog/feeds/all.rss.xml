@@ -4,9 +4,122 @@
   <title>PRL Blog: PRL Blog</title>
   <description>PRL Blog: PRL Blog</description>
   <link>http://prl.ccs.neu.edu/blog/index.html</link>
-  <lastBuildDate>Fri, 27 Apr 2018 21:35:22 UT</lastBuildDate>
-  <pubDate>Fri, 27 Apr 2018 21:35:22 UT</pubDate>
+  <lastBuildDate>Tue, 08 May 2018 15:37:37 UT</lastBuildDate>
+  <pubDate>Tue, 08 May 2018 15:37:37 UT</pubDate>
   <ttl>1800</ttl>
+  <item>
+   <title>Sampling Gradual Typing Performance</title>
+   <link>http://prl.ccs.neu.edu/blog/2018/05/08/sampling-gradual-typing-performance/?utm_source=all&amp;utm_medium=RSS</link>
+   <guid isPermaLink="false">urn:http-prl-ccs-neu-edu:-blog-2018-05-08-sampling-gradual-typing-performance</guid>
+   <pubDate>Tue, 08 May 2018 15:37:37 UT</pubDate>
+   <author>PRL</author>
+   <description>
+&lt;p&gt;This post explains the sampling method introduced in the paper &lt;a href="http://www.ccs.neu.edu/home/types/publications/publications.html#gm-pepm-2018"&gt;&lt;em&gt;On the Cost of Type-Tag Soundness&lt;/em&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;!-- more--&gt;
+
+&lt;h2 id="quick-reference-how-to-apply-the-method"&gt;Quick Reference: How to apply the method&lt;/h2&gt;
+
+&lt;ol&gt;
+ &lt;li&gt;Find an untyped program, measure its running time.&lt;/li&gt;
+ &lt;li&gt;Define a &lt;em&gt;granularity&lt;/em&gt; for type annotations (by-function, by-module, by-program, &amp;hellip;.).&lt;/li&gt;
+ &lt;li&gt;Define a sample size &lt;strong&gt;s&lt;/strong&gt; and number of samples &lt;strong&gt;r&lt;/strong&gt;.&lt;/li&gt;
+ &lt;li&gt;Randomly select &lt;strong&gt;s&lt;/strong&gt; &lt;em&gt;configurations&lt;/em&gt; uniformly at random, measure their running time.&lt;/li&gt;
+ &lt;li&gt;Repeat the previous step &lt;strong&gt;r&lt;/strong&gt; times.&lt;/li&gt;
+ &lt;li&gt;Pick a positive real number &lt;strong&gt;D&lt;/strong&gt;.&lt;/li&gt;
+ &lt;li&gt;Count the proportion of configurations in each sample with running time less-than-or-equal-to &lt;strong&gt;D&lt;/strong&gt;&lt;/li&gt;
+ &lt;li&gt;Build a 95% confidence interval for the &lt;strong&gt;r&lt;/strong&gt; proportions computed in the previous step&lt;/li&gt;
+ &lt;li&gt;Conclusion: there is a good chance that your interval contains the true proportion of configurations with running time less-than-or-equal-to &lt;strong&gt;D&lt;/strong&gt;&lt;/li&gt;&lt;/ol&gt;
+
+&lt;h2 id="background-what-to-measure"&gt;Background: what to measure&lt;/h2&gt;
+
+&lt;p&gt;A migratory typing system adds static typing to a dynamically-typed (or, untyped) language. The recipe for &amp;ldquo;adding static typing&amp;rdquo; has a few steps:&lt;/p&gt;
+
+&lt;ul&gt;
+ &lt;li&gt;add a syntax for type annotations&lt;/li&gt;
+ &lt;li&gt;add a static type checker&lt;/li&gt;
+ &lt;li&gt;add a semantics for statically-typed parts of the program&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;If the semantics for statically-typed parts of the program is &lt;strong&gt;not&lt;/strong&gt; the same  as the semantics for dynamically-typed parts, then it is important to measure  performance.&lt;/p&gt;
+
+&lt;p&gt;The key question is: how does adding type annotations affect the  running time of a working program? We do not know how to answer this question directly.&lt;/p&gt;
+
+&lt;p&gt;An easier question, that we can answer, is: for a few programs each with  one full set of type annotations, how does adding or removing the chosen type  annotations affect the running time of these programs?&lt;/p&gt;
+
+&lt;p&gt;The next two sections give two methods for answering this question.&lt;/p&gt;
+
+&lt;h2 id="exhaustive-method"&gt;Exhaustive Method&lt;/h2&gt;
+
+&lt;p&gt;One way to answer our easier question is to remove type annotations one  &amp;ldquo;unit&amp;rdquo; at a time and measure the running time of all these partially-typed  programs. We call the &amp;ldquo;unit&amp;rdquo; the &lt;em&gt;granularity&lt;/em&gt; of the performance evaluation. For example, some choices for granularity are to remove types one module  at a time, to remove types one function at a time, or to remove types  one variable at a time. We call the &amp;ldquo;partially-typed programs&amp;rdquo; the &lt;em&gt;configurations&lt;/em&gt; of the original  dynamically-typed program. Note that the number of configurations depends on the choice of granularity  &amp;mdash; I can&amp;rsquo;t just use the word &lt;em&gt;configurations&lt;/em&gt; without telling you the  granularity I have in mind.&lt;/p&gt;
+
+&lt;p&gt;After measuring the running time of all configurations, we can summarize the  results. One way to summarize is to pick a number &lt;strong&gt;D&lt;/strong&gt; and count the number of configurations  that run at most &lt;strong&gt;D&lt;/strong&gt; times slower than the original dynamically-typed program. If this number is large, then the takeaway is:  if &lt;em&gt;you&lt;/em&gt; are willing to accept at most a &lt;strong&gt;D&lt;/strong&gt;x slowdown, and you add your  own type annotations to your own program, then there&amp;rsquo;s some hope that your  configuration runs at most &lt;strong&gt;D&lt;/strong&gt; times slower than your original program.&lt;/p&gt;
+
+&lt;blockquote&gt;
+ &lt;p&gt;Credit for the exhaustive method: &lt;a href="https://www2.ccs.neu.edu/racket/pubs/popl16-tfgnvf.pdf"&gt;&lt;em&gt;Is Sound Gradual Typing Dead?&lt;/em&gt;&lt;/a&gt; and &lt;a href="https://www2.ccs.neu.edu/racket/pubs/ecoop2015-takikawa-et-al.pdf"&gt;&lt;em&gt;Toward Practical Gradual Typing&lt;/em&gt;&lt;/a&gt;&lt;/p&gt;&lt;/blockquote&gt;
+
+&lt;h2 id="simple-random-approximation-method"&gt;Simple Random Approximation Method&lt;/h2&gt;
+
+&lt;p&gt;The method above does not scale to large programs or fine granularities  because it asks for an exponential number of measurements. E.g., if there are 20 units to add or remove types from, then there are 1 million  configurations to measure. Exponentials are bad.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="http://www.ccs.neu.edu/home/types/publications/publications.html#gm-pepm-2018"&gt;&lt;em&gt;On the Cost of Type-Tag Soundness&lt;/em&gt;&lt;/a&gt;,  suggests a method based on simple random sampling that answers a similar question. Instead of measuring the true proportion of configurations that run at most  &lt;strong&gt;D&lt;/strong&gt; times slower than the original dynamically-typed program, we:&lt;/p&gt;
+
+&lt;ul&gt;
+ &lt;li&gt;pick a sample size &lt;strong&gt;s&lt;/strong&gt; (in the paper, we used &lt;strong&gt;s = 10M&lt;/strong&gt; where &lt;strong&gt;M&lt;/strong&gt; is the number of units),&lt;/li&gt;
+ &lt;li&gt;pick a number of samples &lt;strong&gt;r&lt;/strong&gt; (in the paper, we used &lt;strong&gt;r = 10&lt;/strong&gt;),&lt;/li&gt;
+ &lt;li&gt;and build a 95% confidence interval for the true proportion of configurations  that run at most &lt;strong&gt;D&lt;/strong&gt; times slower than the original program (from the  &lt;strong&gt;r&lt;/strong&gt; proportions of configurations that run at most &lt;strong&gt;D&lt;/strong&gt; times slower than the  original program in each of the &lt;strong&gt;r&lt;/strong&gt; samples).&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;The method is outlined above, described in the paper, and validated in that paper&amp;rsquo;s appendix. Please let us know if you have more questions.&lt;/p&gt;
+
+&lt;blockquote&gt;
+ &lt;p&gt;Maybe you&amp;rsquo;re wondering, &amp;ldquo;gee why do they keep writing out &amp;lsquo;configurations that  run at most &amp;hellip;.&amp;rsquo; instead of something shorter?&amp;rdquo;. Well, the short version is &lt;em&gt;&lt;strong&gt;D&lt;/strong&gt;-deliverable&lt;/em&gt; and it was introduced in the &lt;a href="https://www2.ccs.neu.edu/racket/pubs/popl16-tfgnvf.pdf"&gt;&lt;em&gt;Is Sound Gradual Typing Dead?&lt;/em&gt;&lt;/a&gt; paper. Unfortunately, (1) that paper instantiated &lt;strong&gt;D&lt;/strong&gt; to &lt;strong&gt;3&lt;/strong&gt;-deliverable in order to  explain a few graphs and (2) at least two published papers (&lt;a href="https://dl.acm.org/citation.cfm?id=3009849"&gt;paper 1&lt;/a&gt;, &lt;a href="https://dl.acm.org/citation.cfm?id=3133878"&gt;paper 2&lt;/a&gt;)  now cite us as saying &lt;strong&gt;3&lt;/strong&gt;x overhead is the cutoff between a good migratory  typing system and a bad one.&lt;/p&gt;
+ &lt;p&gt;&amp;hellip;&lt;/p&gt;
+ &lt;p&gt;If we can&amp;rsquo;t trust scientists to understand, then we &lt;em&gt;definitely&lt;/em&gt; can&amp;rsquo;t trust  you folks on the internet.&lt;/p&gt;&lt;/blockquote&gt;
+
+&lt;h2 id="faq"&gt;FAQ&lt;/h2&gt;
+
+&lt;h3 id="q-what-is-the-sampling-method-useful-for"&gt;Q. What is the sampling method useful for?&lt;/h3&gt;
+
+&lt;ul&gt;
+ &lt;li&gt;Making a confidence interval for the true proportion of configurations that  run at most &lt;strong&gt;D&lt;/strong&gt; times slower than some baseline, for your favorite value of &lt;strong&gt;D&lt;/strong&gt;.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;h3 id="q-what-is-the-sampling-method-not-useful-for"&gt;Q. What is the sampling method &lt;strong&gt;not&lt;/strong&gt; useful for?&lt;/h3&gt;
+
+&lt;ul&gt;
+ &lt;li&gt;Finding the slowest configuration.&lt;/li&gt;
+ &lt;li&gt;Finding the average running time of all configurations.&lt;/li&gt;
+ &lt;li&gt;Evaluations where &amp;ldquo;removing types&amp;rdquo; might involve changing &lt;strong&gt;List[Int]&lt;/strong&gt; to &lt;strong&gt;List[Dyn]&lt;/strong&gt;, etc.&lt;/li&gt;
+ &lt;li&gt;&amp;hellip;. many more &amp;hellip;.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;h3 id="q-how-does-migratory-typing-relate-to-gradual-typing"&gt;Q. How does migratory typing relate to gradual typing?&lt;/h3&gt;
+
+&lt;p&gt;Gradual typing is not just about adding a type system to an existing programming  language. See &lt;a href="http://drops.dagstuhl.de/opus/volltexte/2015/5031/"&gt;&lt;em&gt;Refined Criteria for Gradual Typing&lt;/em&gt;&lt;/a&gt;  and &lt;a href="http://drops.dagstuhl.de/opus/volltexte/2017/7120/"&gt;&lt;em&gt;Migratory Typing: 10 Years Later&lt;/em&gt;&lt;/a&gt;  for details.&lt;/p&gt;
+
+&lt;h3 id="q-do-you-have-code-i-can-use-to-plot-sampling-data"&gt;Q. Do you have code I can use to plot sampling data?&lt;/h3&gt;
+
+&lt;p&gt;Yes, start here:&lt;/p&gt;
+
+&lt;ul&gt;
+ &lt;li&gt;&lt;a href="http://docs.racket-lang.org/gtp-plot/index.html#%28def._%28%28lib._gtp-plot%2Fplot..rkt%29._samples-plot%29%29"&gt;http://docs.racket-lang.org/gtp-plot/index.html#%28def._%28%28lib._gtp-plot%2Fplot..rkt%29._samples-plot%29%29&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;Please ask questions and open issues if you have trouble. The source is here:&lt;/p&gt;
+
+&lt;ul&gt;
+ &lt;li&gt;&lt;a href="https://github.com/bennn/gtp-plot"&gt;https://github.com/bennn/gtp-plot&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;
+
+&lt;h3 id="q-where-is-code-for-the-sampling-paper"&gt;Q. Where is code for the sampling paper?&lt;/h3&gt;
+
+&lt;p&gt;Start here:&lt;/p&gt;
+
+&lt;ul&gt;
+ &lt;li&gt;&lt;a href="https://pkgd.racket-lang.org/pkgn/package/gm-pepm-2018"&gt;https://pkgd.racket-lang.org/pkgn/package/gm-pepm-2018&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;Source is here:&lt;/p&gt;
+
+&lt;ul&gt;
+ &lt;li&gt;&lt;a href="https://github.com/nuprl/retic_performance"&gt;https://github.com/nuprl/retic_performance&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;
+
+&lt;h2 id="closing-thoughts"&gt;Closing Thoughts&lt;/h2&gt;
+
+&lt;p&gt;Statistics is easy to do wrong. Please let us know if you think our method is doing bad statistics.&lt;/p&gt;</description></item>
   <item>
    <title>The Racket School 2018: Create your own language</title>
    <link>http://prl.ccs.neu.edu/blog/2018/04/27/the-racket-school-2018-create-your-own-language/?utm_source=all&amp;utm_medium=RSS</link>
@@ -2896,32 +3009,4 @@ A&lt;/script&gt; and
  &lt;li&gt;
   &lt;p&gt;&lt;a href="https://williamjbowman.com/blog/2017/01/03/toward-type-preserving-compilation-of-coq-at-popl17-src/"&gt;Toward Type-Preserving Compilation of Coq, at POPL17 SRC&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
  &lt;li&gt;
-  &lt;p&gt;&lt;a href="http://prl.ccs.neu.edu/blog/2016/11/16/understanding-constructive-galois-connections/"&gt;Understanding Constructive Galois  Connections&lt;/a&gt;.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;</description></item>
-  <item>
-   <title>Racket 6.9 and Windows 10 Creators Update</title>
-   <link>http://prl.ccs.neu.edu/blog/2017/05/26/racket-6-9-and-windows-10-creators-update/?utm_source=all&amp;utm_medium=RSS</link>
-   <guid isPermaLink="false">urn:http-prl-ccs-neu-edu:-blog-2017-05-26-racket-6-9-and-windows-10-creators-update</guid>
-   <pubDate>Fri, 26 May 2017 17:00:28 UT</pubDate>
-   <author>PRL</author>
-   <description>
-&lt;p&gt;&lt;a href="http://racket-lang.org/"&gt;Racket&lt;/a&gt; 6.9 was released in April and it has been smooth sailing for many people. However, some people using the &lt;a href="https://blogs.windows.com/windowsexperience/2017/04/11/whats-new-in-the-windows-10-creators-update/"&gt;Windows 10 Creators Update&lt;/a&gt; have been experiencing &lt;a href="https://github.com/racket/racket/issues/1671"&gt;crashes&lt;/a&gt;, not just for Racket, but for the whole operating system. This is due to a bug in Windows. We have contacted Microsoft; they have classified the bug as (1) a stack overflow and (2) not a security hazard, and intend to add a fix in a future version of Windows.&lt;/p&gt;
-
-&lt;p&gt;The next version of Racket will include a patch to help avoid triggering the bug. Until then, one work-around is to run Racket in a virtual machine (VM). This blog post is a step-by-step guide on how to install a VM for Racket.&lt;/p&gt;
-
-&lt;p&gt;A VirtualBox image with Racket preinstalled can be downloaded here:&lt;/p&gt;
-
-&lt;ul&gt;
- &lt;li&gt;&lt;a href="https://github.com/nuprl/website/releases/download/racket69vm/Racket_6_9.ova"&gt;https://github.com/nuprl/website/releases/download/racket69vm/Racket_6_9.ova&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;
-
-&lt;p&gt;The username and password for this machine are both &lt;code&gt;racket&lt;/code&gt;.&lt;/p&gt;
-&lt;!-- more--&gt;
-
-&lt;ol&gt;
- &lt;li&gt;
-  &lt;p&gt;The first thing you need to install is virtualization software. In principle it doesn&amp;rsquo;t matter what you install, but for this tutorial, we will use &lt;a href="https://www.virtualbox.org/"&gt;VirtualBox&lt;/a&gt;. Go to their &lt;a href="https://www.virtualbox.org/wiki/Downloads"&gt;downloads&lt;/a&gt; page and download and install the version for your platform (most likely Windows).&lt;/p&gt;&lt;/li&gt;
- &lt;li&gt;
-  &lt;p&gt;Once installed, you need to download a virtual image and install Racket on it. We have prepared an image that comes with Racket pre-installed, which &lt;a href="https://github.com/nuprl/website/releases/download/racket69vm/Racket_6_9.ova"&gt;you can download here&lt;/a&gt;. The rest of this tutorial will assume you are using this image.&lt;/p&gt;&lt;/li&gt;
- &lt;li&gt;
-  &lt;p&gt;Start up VirtualBox and import the virtual machine. You can do this by clicking on &lt;code&gt;File -&amp;gt; Import Appliance&lt;/code&gt;. In the dialog, select the image you downloaded and hit &lt;code&gt;Continue&lt;/code&gt;. The next window lets you change the specs for your virtual machine. Feel free to make any changes you want, but the defaults work fine for this image. Once you are satisfied click &lt;code&gt;Import&lt;/code&gt;.&lt;/p&gt;&lt;/li&gt;
- &lt;li&gt;
-  &lt;p&gt;After import finishes, you should now see your new VM in the list on the left of the VirtualBox manager. Select it and hit &lt;code&gt;Start&lt;/code&gt;. Once started up, you will see DrRacket and Firefox on the VM&amp;rsquo;s desktop.&lt;/p&gt;&lt;/li&gt;&lt;/ol&gt;</description></item></channel></rss>
+  &lt;p&gt;&lt;a href="http://prl.ccs.neu.edu/blog/2016/11/16/understanding-constructive-galois-connections/"&gt;Understanding Constructive Galois  Connections&lt;/a&gt;.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;</description></item></channel></rss>
