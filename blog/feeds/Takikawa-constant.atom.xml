@@ -87,8 +87,16 @@
  &lt;li&gt;Finding the slowest configuration.&lt;/li&gt;
  &lt;li&gt;Finding the average running time of all configurations.&lt;/li&gt;
  &lt;li&gt;Evaluations where &amp;ldquo;removing types&amp;rdquo; might involve changing &lt;strong&gt;List[Int]&lt;/strong&gt; to &lt;strong&gt;List[Dyn]&lt;/strong&gt;, etc.&lt;/li&gt;
- &lt;li&gt;Situations where its wrong to assume that a programmer will start from untyed and pick a configuration uniformly at random&lt;/li&gt;
+ &lt;li&gt;Situations where its wrong to assume that a programmer will start from untyped and pick a configuration uniformly at random&lt;/li&gt;
  &lt;li&gt;&amp;hellip;. many more &amp;hellip;.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;h3 id="q-why-is-it-okay-to-choose-d-after-collecting-the-samples"&gt;Q. Why is it okay to choose &lt;strong&gt;D&lt;/strong&gt; after collecting the samples?&lt;/h3&gt;
+
+&lt;p&gt;The &amp;ldquo;quick reference&amp;rdquo; at the top of this post suggests choosing a value for &lt;strong&gt;D&lt;/strong&gt;  (the cutoff between good and bad performance) after sampling configurations  and measuring their running time. This may sound strange, because (1) the value of &lt;strong&gt;D&lt;/strong&gt; affects our bottom-line  judgment about the proportion of configurations with good performance, and (2)  shouldn&amp;rsquo;t and value that affects the bottom line be fixed before taking samples? (To avoid accidental &lt;a href="https://en.wikipedia.org/wiki/Data_dredging"&gt;data dredging&lt;/a&gt;.)&lt;/p&gt;
+
+&lt;p&gt;The reason it is ok to pick &lt;strong&gt;D&lt;/strong&gt; after taking the sample is that the  running times in the sample are independent of the choice of &lt;strong&gt;D&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;For example, if one person chose &lt;strong&gt;D=3&lt;/strong&gt; and a second person chose &lt;strong&gt;D=9&lt;/strong&gt;,  both would follow the same protocol independent of &lt;strong&gt;D&lt;/strong&gt; to take samples.&lt;/p&gt;
 
 &lt;h3 id="q-how-does-migratory-typing-relate-to-gradual-typing"&gt;Q. How does migratory typing relate to gradual typing?&lt;/h3&gt;
 

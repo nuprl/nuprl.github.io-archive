@@ -157,8 +157,16 @@
  <li>Finding the slowest configuration.</li>
  <li>Finding the average running time of all configurations.</li>
  <li>Evaluations where &ldquo;removing types&rdquo; might involve changing <strong>List[Int]</strong> to <strong>List[Dyn]</strong>, etc.</li>
- <li>Situations where its wrong to assume that a programmer will start from untyed and pick a configuration uniformly at random</li>
+ <li>Situations where its wrong to assume that a programmer will start from untyped and pick a configuration uniformly at random</li>
  <li>&hellip;. many more &hellip;.</li></ul>
+
+<h3 id="q-why-is-it-okay-to-choose-d-after-collecting-the-samples">Q. Why is it okay to choose <strong>D</strong> after collecting the samples?</h3>
+
+<p>The &ldquo;quick reference&rdquo; at the top of this post suggests choosing a value for <strong>D</strong>  (the cutoff between good and bad performance) after sampling configurations  and measuring their running time. This may sound strange, because (1) the value of <strong>D</strong> affects our bottom-line  judgment about the proportion of configurations with good performance, and (2)  shouldn&rsquo;t and value that affects the bottom line be fixed before taking samples? (To avoid accidental <a href="https://en.wikipedia.org/wiki/Data_dredging">data dredging</a>.)</p>
+
+<p>The reason it is ok to pick <strong>D</strong> after taking the sample is that the  running times in the sample are independent of the choice of <strong>D</strong>.</p>
+
+<p>For example, if one person chose <strong>D=3</strong> and a second person chose <strong>D=9</strong>,  both would follow the same protocol independent of <strong>D</strong> to take samples.</p>
 
 <h3 id="q-how-does-migratory-typing-relate-to-gradual-typing">Q. How does migratory typing relate to gradual typing?</h3>
 
