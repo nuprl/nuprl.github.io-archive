@@ -412,6 +412,15 @@
                   #:img "hyeyoung_shin.jpg"]{
             I am working on safe interaction between strict and lazy languages, using linking types.
           }
+
+          @person[#:name "Artem Pelenitsyn"
+                  #:title "Advisor: Jan Vitek"
+                  #:e-mail "a.pelenitsyn@gmail.com"
+                  #:history @list["Joined 2018"]
+                  #:website "http://mmcs.sfedu.ru/~ulysses"
+                  #:img "artem_pelenitsyn.jpg"]{
+            I am interested in typed functional programming and corresponding languages, mostly Haskell, type and effect systems, mathematics of program construction. Lately, I was working on a principled approach to the Julia programming language.
+          }
         }
 
         @div[class: "pn-separator-img"]{
