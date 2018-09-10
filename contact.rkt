@@ -18,11 +18,11 @@
 
               @h4{PL Seminar} @a[href: "mailto:goel.aviral@gmail.com"]{Aviral Goel}
 
-              @h4{PL Seminar, Junior} ???
+              @h4{PL Seminar, Junior} @a[href: "mailto:shin.hy@husky.neu.edu"]{Hyeyoung Shin}
 
               @h4{Happy Hour} ???
 
-              @h4{Coffee Czar} @a[href: "mailto:aturcotte@uwaterloo.ca"]{Alexi Turcotte}
+              @h4{Coffee Czar} @a[href: "mailto:alexi@ccs.neu.edu"]{Alexi Turcotte}
 
               @h4{Twitter Tsar} @a[href: "mailto:mhyee@ccs.neu.edu"]{Ming-Ho Yee}
 
