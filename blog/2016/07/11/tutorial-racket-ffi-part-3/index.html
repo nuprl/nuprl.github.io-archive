@@ -116,7 +116,7 @@ incantation in a command-line:</p>
  <table cellpadding="0" cellspacing="0" class="RktBlk">
   <tbody>
    <tr>
-    <td><span class="stt">&gt; </span><span class="RktPn">(</span><span class="RktSym"><a class="RktStxLink" data-pltdoc="x" href="http://docs.racket-lang.org/reference/require.html#%28form._%28%28lib._racket%2Fprivate%2Fbase..rkt%29._require%29%29">require</a></span><span class="hspace">&nbsp;</span><span class="RktSym">pkg</span><span class="RktPn">)</span></td></tr>
+    <td><span class="stt">&gt; </span><span class="RktPn">(</span><span class="RktSym"><a class="RktStxLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/reference/require.html#%28form._%28%28lib._racket%2Fprivate%2Fbase..rkt%29._require%29%29">require</a></span><span class="hspace">&nbsp;</span><span class="RktSym">pkg</span><span class="RktPn">)</span></td></tr>
    <tr>
     <td>
      <table cellpadding="0" cellspacing="0">
@@ -125,6 +125,121 @@ incantation in a command-line:</p>
         <td></td></tr></tbody></table></td></tr>
    <tr>
     <td><span class="stt">&gt; </span><span class="RktPn">(</span><span class="RktSym">pkg-install-command</span><span class="hspace">&nbsp;</span><span class="RktPn">#:skip-installed</span><span class="hspace">&nbsp;</span><span class="RktVal">#t</span><span class="hspace">&nbsp;</span><span class="RktVal">"ffi-definer-convention"</span><span class="RktPn">)</span></td></tr>
+   <tr>
+    <td>
+     <table cellpadding="0" cellspacing="0">
+      <tbody>
+       <tr>
+        <td>
+         <p><span class="RktOut">Resolving "ffi-definer-convention" via https://download.racket-lang.org/releases/6.6/catalog/</span></p></td></tr>
+       <tr>
+        <td>
+         <p><span class="RktOut">Resolving "ffi-definer-convention" via https://pkgs.racket-lang.org</span></p></td></tr>
+       <tr>
+        <td>
+         <p><span class="RktOut">Downloading repository git://github.com/takikawa/racket-ffi-definer-convention</span></p></td></tr>
+       <tr>
+        <td>
+         <p><span class="RktOut">raco setup: version: 6.6</span></p></td></tr>
+       <tr>
+        <td>
+         <p><span class="RktOut">raco setup: platform: x86_64-linux [3m]</span></p></td></tr>
+       <tr>
+        <td>
+         <p><span class="RktOut">raco setup: installation name: 6.6</span></p></td></tr>
+       <tr>
+        <td>
+         <p><span class="RktOut">raco setup: variants: 3m</span></p></td></tr>
+       <tr>
+        <td>
+         <p><span class="RktOut">raco setup: main collects: /home/travis/racket/collects</span></p></td></tr>
+       <tr>
+        <td>
+         <p><span class="RktOut">raco setup: collects paths: </span></p></td></tr>
+       <tr>
+        <td>
+         <p><span class="RktOut">raco setup: </span><span class="hspace">&nbsp;&nbsp;</span><span class="RktOut">/home/travis/racket/collects</span></p></td></tr>
+       <tr>
+        <td>
+         <p><span class="RktOut">raco setup: main pkgs: /home/travis/racket/share/pkgs</span></p></td></tr>
+       <tr>
+        <td>
+         <p><span class="RktOut">raco setup: pkgs paths: </span></p></td></tr>
+       <tr>
+        <td>
+         <p><span class="RktOut">raco setup: </span><span class="hspace">&nbsp;&nbsp;</span><span class="RktOut">/home/travis/racket/share/pkgs</span></p></td></tr>
+       <tr>
+        <td>
+         <p><span class="RktOut">raco setup: </span><span class="hspace">&nbsp;&nbsp;</span><span class="RktOut">/home/travis/.racket/6.6/pkgs</span></p></td></tr>
+       <tr>
+        <td>
+         <p><span class="RktOut">raco setup: links files: </span></p></td></tr>
+       <tr>
+        <td>
+         <p><span class="RktOut">raco setup: </span><span class="hspace">&nbsp;&nbsp;</span><span class="RktOut">/home/travis/racket/share/links.rktd</span></p></td></tr>
+       <tr>
+        <td>
+         <p><span class="RktOut">raco setup: </span><span class="hspace">&nbsp;&nbsp;</span><span class="RktOut">/home/travis/.racket/6.6/links.rktd</span></p></td></tr>
+       <tr>
+        <td>
+         <p><span class="RktOut">raco setup: main docs: /home/travis/racket/doc</span></p></td></tr>
+       <tr>
+        <td>
+         <p><span class="RktOut">raco setup: --- updating info-domain tables ---</span></p></td></tr>
+       <tr>
+        <td>
+         <p><span class="RktOut">raco setup: updating: /home/travis/.racket/6.6/share/info-cache.rktd</span></p></td></tr>
+       <tr>
+        <td>
+         <p><span class="RktOut">raco setup: --- pre-installing collections ---</span></p></td></tr>
+       <tr>
+        <td>
+         <p><span class="RktOut">raco setup: --- installing foreign libraries ---</span></p></td></tr>
+       <tr>
+        <td>
+         <p><span class="RktOut">raco setup: --- installing shared files ---</span></p></td></tr>
+       <tr>
+        <td>
+         <p><span class="RktOut">raco setup: --- compiling collections ---</span></p></td></tr>
+       <tr>
+        <td>
+         <p><span class="RktOut">raco setup: --- parallel build using 8 jobs ---</span></p></td></tr>
+       <tr>
+        <td>
+         <p><span class="RktOut">raco setup: 7 making: &lt;pkgs&gt;/ffi-definer-convention</span></p></td></tr>
+       <tr>
+        <td>
+         <p><span class="RktOut">raco setup: --- creating launchers ---</span></p></td></tr>
+       <tr>
+        <td>
+         <p><span class="RktOut">raco setup: --- installing man pages ---</span></p></td></tr>
+       <tr>
+        <td>
+         <p><span class="RktOut">raco setup: --- building documentation ---</span></p></td></tr>
+       <tr>
+        <td>
+         <p><span class="RktOut">raco setup: 3 running: &lt;pkgs&gt;/ffi-definer-convention/ffi-definer-convention.scrbl</span></p></td></tr>
+       <tr>
+        <td>
+         <p><span class="RktOut">raco setup: 4 rendering: &lt;pkgs&gt;/ffi-definer-convention/ffi-definer-convention.scrbl</span></p></td></tr>
+       <tr>
+        <td>
+         <p><span class="RktOut">raco setup: 3 rendering: &lt;pkgs&gt;/racket-index/scribblings/main/user/local-redirect.scrbl</span></p></td></tr>
+       <tr>
+        <td>
+         <p><span class="RktOut">raco setup: 2 rendering: &lt;pkgs&gt;/racket-index/scribblings/main/user/release.scrbl</span></p></td></tr>
+       <tr>
+        <td>
+         <p><span class="RktOut">raco setup: 1 rendering: &lt;pkgs&gt;/racket-index/scribblings/main/user/search.scrbl</span></p></td></tr>
+       <tr>
+        <td>
+         <p><span class="RktOut">raco setup: 0 rendering: &lt;pkgs&gt;/racket-index/scribblings/main/user/start.scrbl</span></p></td></tr>
+       <tr>
+        <td>
+         <p><span class="RktOut">raco setup: --- installing collections ---</span></p></td></tr>
+       <tr>
+        <td>
+         <p><span class="RktOut">raco setup: --- post-installing collections ---</span></p></td></tr></tbody></table></td></tr>
    <tr>
     <td>
      <table cellpadding="0" cellspacing="0">
@@ -139,9 +254,9 @@ docs for the package are available
 <p><span style="font-weight: bold">Note:</span> if you&rsquo;ve never installed a package before, you may want to glance
 at the
 <a href="http://docs.racket-lang.org/pkg/getting-started.html">package system docs</a>.
-A tl;dr of packages is that they bundle Racket <a class="techoutside" data-pltdoc="x" href="http://docs.racket-lang.org/reference/collects.html#%28tech._collection%29"><span class="techinside">collections</span></a>, which are
+A tl;dr of packages is that they bundle Racket <a class="techoutside Sq" data-pltdoc="x" href="https://docs.racket-lang.org/reference/collects.html#%28tech._collection%29"><span class="techinside">collections</span></a>, which are
 sets of modules that you can refer to in a location-independent fashion such as
-<span class="RktWrap"><a class="RktModLink" data-pltdoc="x" href="http://docs.racket-lang.org/pict/index.html"><span class="RktSym">pict</span></a></span> or <span class="RktWrap"><a class="RktModLink" data-pltdoc="x" href="http://docs.racket-lang.org/reference/pairs.html#%28mod-path._racket%2Flist%29"><span class="RktSym">racket/list</span></a></span>.</p>
+<span class="RktWrap"><a class="RktModLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/pict/index.html"><span class="RktSym">pict</span></a></span> or <span class="RktWrap"><a class="RktModLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/reference/pairs.html#%28mod-path._racket%2Flist%29"><span class="RktSym">racket/list</span></a></span>.</p>
 
 <p>Anyhow, here&rsquo;s the prologue code:</p>
 
@@ -149,15 +264,15 @@ sets of modules that you can refer to in a location-independent fashion such as
  <table cellpadding="0" cellspacing="0" class="RktBlk">
   <tbody>
    <tr>
-    <td><a class="RktModLink" data-pltdoc="x" href="http://docs.racket-lang.org/guide/Module_Syntax.html#%28part._hash-lang%29"><span class="RktMod">#lang</span></a><span class="hspace">&nbsp;</span><a class="RktModLink" data-pltdoc="x" href="http://docs.racket-lang.org/reference/index.html"><span class="RktSym">racket</span></a></td></tr>
+    <td><a class="RktModLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/guide/Module_Syntax.html#%28part._hash-lang%29"><span class="RktMod">#lang</span></a><span class="hspace">&nbsp;</span><a class="RktModLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/reference/index.html"><span class="RktSym">racket</span></a></td></tr>
    <tr>
-    <td><span class="RktPn">(</span><span class="RktSym"><a class="RktStxLink" data-pltdoc="x" href="http://docs.racket-lang.org/reference/require.html#%28form._%28%28lib._racket%2Fprivate%2Fbase..rkt%29._require%29%29">require</a></span><span class="hspace">&nbsp;</span><span class="RktSym">racket/draw</span></td></tr>
+    <td><span class="RktPn">(</span><span class="RktSym"><a class="RktStxLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/reference/require.html#%28form._%28%28lib._racket%2Fprivate%2Fbase..rkt%29._require%29%29">require</a></span><span class="hspace">&nbsp;</span><span class="RktSym">racket/draw</span></td></tr>
    <tr>
     <td><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktSym">ffi/unsafe</span></td></tr>
    <tr>
     <td><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktCmt">;</span><span class="RktCmt">&nbsp;</span><span class="RktCmt">avoid conflict with below</span></td></tr>
    <tr>
-    <td><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><a class="RktStxLink" data-pltdoc="x" href="http://docs.racket-lang.org/reference/require.html#%28form._%28%28lib._racket%2Fprivate%2Fbase..rkt%29._except-in%29%29">except-in</a></span><span class="hspace">&nbsp;</span><span class="RktSym">ffi/unsafe/define</span></td></tr>
+    <td><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><a class="RktStxLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/reference/require.html#%28form._%28%28lib._racket%2Fprivate%2Fbase..rkt%29._except-in%29%29">except-in</a></span><span class="hspace">&nbsp;</span><span class="RktSym">ffi/unsafe/define</span></td></tr>
    <tr>
     <td><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktSym">define-ffi-definer</span><span class="RktPn">)</span></td></tr>
    <tr>
@@ -171,17 +286,17 @@ sets of modules that you can refer to in a location-independent fashion such as
    <tr>
     <td><span class="RktCmt">;</span><span class="RktCmt">&nbsp;</span><span class="RktCmt">C types</span></td></tr>
    <tr>
-    <td><span class="RktPn">(</span><span class="RktSym"><a class="RktStxLink" data-pltdoc="x" href="http://docs.racket-lang.org/foreign/foreign_tagged-pointers.html#%28form._%28%28lib._ffi%2Funsafe..rkt%29._define-cpointer-type%29%29">define-cpointer-type</a></span><span class="hspace">&nbsp;</span><span class="RktSym">_cairo_t</span><span class="RktPn">)</span></td></tr>
+    <td><span class="RktPn">(</span><span class="RktSym"><a class="RktStxLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/foreign/foreign_tagged-pointers.html#%28form._%28%28lib._ffi%2Funsafe..rkt%29._define-cpointer-type%29%29">define-cpointer-type</a></span><span class="hspace">&nbsp;</span><span class="RktSym">_cairo_t</span><span class="RktPn">)</span></td></tr>
    <tr>
-    <td><span class="RktPn">(</span><span class="RktSym"><a class="RktStxLink" data-pltdoc="x" href="http://docs.racket-lang.org/foreign/foreign_tagged-pointers.html#%28form._%28%28lib._ffi%2Funsafe..rkt%29._define-cpointer-type%29%29">define-cpointer-type</a></span><span class="hspace">&nbsp;</span><span class="RktSym">_cairo_surface_t</span><span class="RktPn">)</span></td></tr>
+    <td><span class="RktPn">(</span><span class="RktSym"><a class="RktStxLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/foreign/foreign_tagged-pointers.html#%28form._%28%28lib._ffi%2Funsafe..rkt%29._define-cpointer-type%29%29">define-cpointer-type</a></span><span class="hspace">&nbsp;</span><span class="RktSym">_cairo_surface_t</span><span class="RktPn">)</span></td></tr>
    <tr>
-    <td><span class="RktPn">(</span><span class="RktSym"><a class="RktStxLink" data-pltdoc="x" href="http://docs.racket-lang.org/reference/define.html#%28form._%28%28lib._racket%2Fprivate%2Fbase..rkt%29._define%29%29">define</a></span><span class="hspace">&nbsp;</span><span class="RktSym">_cairo_line_cap_t</span></td></tr>
+    <td><span class="RktPn">(</span><span class="RktSym"><a class="RktStxLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/reference/define.html#%28form._%28%28lib._racket%2Fprivate%2Fbase..rkt%29._define%29%29">define</a></span><span class="hspace">&nbsp;</span><span class="RktSym">_cairo_line_cap_t</span></td></tr>
    <tr>
-    <td><span class="hspace">&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><a class="RktValLink" data-pltdoc="x" href="http://docs.racket-lang.org/foreign/Enumerations_and_Masks.html#%28def._%28%28lib._ffi%2Funsafe..rkt%29.__enum%29%29">_enum</a></span><span class="hspace">&nbsp;</span><span class="RktVal">'</span><span class="RktVal">(</span><span class="RktVal">butt</span><span class="hspace">&nbsp;</span><span class="RktVal">round</span><span class="hspace">&nbsp;</span><span class="RktVal">square</span><span class="RktVal">)</span><span class="RktPn">)</span><span class="RktPn">)</span></td></tr>
+    <td><span class="hspace">&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><a class="RktValLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/foreign/Enumerations_and_Masks.html#%28def._%28%28lib._ffi%2Funsafe..rkt%29.__enum%29%29">_enum</a></span><span class="hspace">&nbsp;</span><span class="RktVal">'</span><span class="RktVal">(</span><span class="RktVal">butt</span><span class="hspace">&nbsp;</span><span class="RktVal">round</span><span class="hspace">&nbsp;</span><span class="RktVal">square</span><span class="RktVal">)</span><span class="RktPn">)</span><span class="RktPn">)</span></td></tr>
    <tr>
     <td><span class="hspace">&nbsp;</span></td></tr>
    <tr>
-    <td><span class="RktPn">(</span><span class="RktSym"><a class="RktStxLink" data-pltdoc="x" href="http://docs.racket-lang.org/reference/define.html#%28form._%28%28lib._racket%2Fprivate%2Fbase..rkt%29._define%29%29">define</a></span><span class="hspace">&nbsp;</span><span class="RktSym">cairo-lib</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><a class="RktValLink" data-pltdoc="x" href="http://docs.racket-lang.org/foreign/Loading_Foreign_Libraries.html#%28def._%28%28lib._ffi%2Funsafe..rkt%29._ffi-lib%29%29">ffi-lib</a></span><span class="hspace">&nbsp;</span><span class="RktVal">#f</span><span class="RktPn">)</span><span class="RktPn">)</span></td></tr>
+    <td><span class="RktPn">(</span><span class="RktSym"><a class="RktStxLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/reference/define.html#%28form._%28%28lib._racket%2Fprivate%2Fbase..rkt%29._define%29%29">define</a></span><span class="hspace">&nbsp;</span><span class="RktSym">cairo-lib</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><a class="RktValLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/foreign/Loading_Foreign_Libraries.html#%28def._%28%28lib._ffi%2Funsafe..rkt%29._ffi-lib%29%29">ffi-lib</a></span><span class="hspace">&nbsp;</span><span class="RktVal">#f</span><span class="RktPn">)</span><span class="RktPn">)</span></td></tr>
    <tr>
     <td><span class="RktPn">(</span><span class="RktSym">define-ffi-definer</span><span class="hspace">&nbsp;</span><span class="RktSym">define-cairo</span><span class="hspace">&nbsp;</span><span class="RktSym">cairo-lib</span></td></tr>
    <tr>
@@ -199,27 +314,27 @@ sets of modules that you can refer to in a location-independent fashion such as
    <tr>
     <td><span class="RktPn">(</span><span class="RktSym">define-cairo</span><span class="hspace">&nbsp;</span><span class="RktSym">cairo-create</span></td></tr>
    <tr>
-    <td><span class="hspace">&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><a class="RktStxLink" data-pltdoc="x" href="http://docs.racket-lang.org/foreign/foreign_procedures.html#%28form._%28%28lib._ffi%2Funsafe..rkt%29.__fun%29%29">_fun</a></span><span class="hspace">&nbsp;</span><span class="RktSym">_cairo_surface_t</span><span class="hspace">&nbsp;</span><span class="RktSym"><a class="RktStxLink" data-pltdoc="x" href="http://docs.racket-lang.org/foreign/foreign_procedures.html#%28form._%28%28lib._ffi%2Funsafe..rkt%29._-~3e%29%29"><span class="nobreak">-&gt;</span></a></span><span class="hspace">&nbsp;</span><span class="RktSym">_cairo_t</span><span class="RktPn">)</span><span class="RktPn">)</span></td></tr>
+    <td><span class="hspace">&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><a class="RktStxLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/foreign/foreign_procedures.html#%28form._%28%28lib._ffi%2Funsafe..rkt%29.__fun%29%29">_fun</a></span><span class="hspace">&nbsp;</span><span class="RktSym">_cairo_surface_t</span><span class="hspace">&nbsp;</span><span class="RktSym"><a class="RktStxLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/foreign/foreign_procedures.html#%28form._%28%28lib._ffi%2Funsafe..rkt%29._-~3e%29%29"><span class="nobreak">-&gt;</span></a></span><span class="hspace">&nbsp;</span><span class="RktSym">_cairo_t</span><span class="RktPn">)</span><span class="RktPn">)</span></td></tr>
    <tr>
     <td><span class="RktPn">(</span><span class="RktSym">define-cairo</span><span class="hspace">&nbsp;</span><span class="RktSym">cairo-move-to</span></td></tr>
    <tr>
-    <td><span class="hspace">&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><a class="RktStxLink" data-pltdoc="x" href="http://docs.racket-lang.org/foreign/foreign_procedures.html#%28form._%28%28lib._ffi%2Funsafe..rkt%29.__fun%29%29">_fun</a></span><span class="hspace">&nbsp;</span><span class="RktSym">_cairo_t</span><span class="hspace">&nbsp;</span><span class="RktSym"><a class="RktValLink" data-pltdoc="x" href="http://docs.racket-lang.org/foreign/Numeric_Types.html#%28def._%28%28quote._~23~25foreign%29.__double%29%29">_double</a></span><span class="hspace">&nbsp;</span><span class="RktSym"><a class="RktValLink" data-pltdoc="x" href="http://docs.racket-lang.org/foreign/Numeric_Types.html#%28def._%28%28quote._~23~25foreign%29.__double%29%29">_double</a></span><span class="hspace">&nbsp;</span><span class="RktSym"><a class="RktStxLink" data-pltdoc="x" href="http://docs.racket-lang.org/foreign/foreign_procedures.html#%28form._%28%28lib._ffi%2Funsafe..rkt%29._-~3e%29%29"><span class="nobreak">-&gt;</span></a></span><span class="hspace">&nbsp;</span><span class="RktSym"><a class="RktValLink" data-pltdoc="x" href="http://docs.racket-lang.org/foreign/Other_Atomic_Types.html#%28def._%28%28quote._~23~25foreign%29.__void%29%29">_void</a></span><span class="RktPn">)</span><span class="RktPn">)</span></td></tr>
+    <td><span class="hspace">&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><a class="RktStxLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/foreign/foreign_procedures.html#%28form._%28%28lib._ffi%2Funsafe..rkt%29.__fun%29%29">_fun</a></span><span class="hspace">&nbsp;</span><span class="RktSym">_cairo_t</span><span class="hspace">&nbsp;</span><span class="RktSym"><a class="RktValLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/foreign/Numeric_Types.html#%28def._%28%28quote._~23~25foreign%29.__double%29%29">_double</a></span><span class="hspace">&nbsp;</span><span class="RktSym"><a class="RktValLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/foreign/Numeric_Types.html#%28def._%28%28quote._~23~25foreign%29.__double%29%29">_double</a></span><span class="hspace">&nbsp;</span><span class="RktSym"><a class="RktStxLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/foreign/foreign_procedures.html#%28form._%28%28lib._ffi%2Funsafe..rkt%29._-~3e%29%29"><span class="nobreak">-&gt;</span></a></span><span class="hspace">&nbsp;</span><span class="RktSym"><a class="RktValLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/foreign/Other_Atomic_Types.html#%28def._%28%28quote._~23~25foreign%29.__void%29%29">_void</a></span><span class="RktPn">)</span><span class="RktPn">)</span></td></tr>
    <tr>
     <td><span class="RktPn">(</span><span class="RktSym">define-cairo</span><span class="hspace">&nbsp;</span><span class="RktSym">cairo-line-to</span></td></tr>
    <tr>
-    <td><span class="hspace">&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><a class="RktStxLink" data-pltdoc="x" href="http://docs.racket-lang.org/foreign/foreign_procedures.html#%28form._%28%28lib._ffi%2Funsafe..rkt%29.__fun%29%29">_fun</a></span><span class="hspace">&nbsp;</span><span class="RktSym">_cairo_t</span><span class="hspace">&nbsp;</span><span class="RktSym"><a class="RktValLink" data-pltdoc="x" href="http://docs.racket-lang.org/foreign/Numeric_Types.html#%28def._%28%28quote._~23~25foreign%29.__double%29%29">_double</a></span><span class="hspace">&nbsp;</span><span class="RktSym"><a class="RktValLink" data-pltdoc="x" href="http://docs.racket-lang.org/foreign/Numeric_Types.html#%28def._%28%28quote._~23~25foreign%29.__double%29%29">_double</a></span><span class="hspace">&nbsp;</span><span class="RktSym"><a class="RktStxLink" data-pltdoc="x" href="http://docs.racket-lang.org/foreign/foreign_procedures.html#%28form._%28%28lib._ffi%2Funsafe..rkt%29._-~3e%29%29"><span class="nobreak">-&gt;</span></a></span><span class="hspace">&nbsp;</span><span class="RktSym"><a class="RktValLink" data-pltdoc="x" href="http://docs.racket-lang.org/foreign/Other_Atomic_Types.html#%28def._%28%28quote._~23~25foreign%29.__void%29%29">_void</a></span><span class="RktPn">)</span><span class="RktPn">)</span></td></tr>
+    <td><span class="hspace">&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><a class="RktStxLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/foreign/foreign_procedures.html#%28form._%28%28lib._ffi%2Funsafe..rkt%29.__fun%29%29">_fun</a></span><span class="hspace">&nbsp;</span><span class="RktSym">_cairo_t</span><span class="hspace">&nbsp;</span><span class="RktSym"><a class="RktValLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/foreign/Numeric_Types.html#%28def._%28%28quote._~23~25foreign%29.__double%29%29">_double</a></span><span class="hspace">&nbsp;</span><span class="RktSym"><a class="RktValLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/foreign/Numeric_Types.html#%28def._%28%28quote._~23~25foreign%29.__double%29%29">_double</a></span><span class="hspace">&nbsp;</span><span class="RktSym"><a class="RktStxLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/foreign/foreign_procedures.html#%28form._%28%28lib._ffi%2Funsafe..rkt%29._-~3e%29%29"><span class="nobreak">-&gt;</span></a></span><span class="hspace">&nbsp;</span><span class="RktSym"><a class="RktValLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/foreign/Other_Atomic_Types.html#%28def._%28%28quote._~23~25foreign%29.__void%29%29">_void</a></span><span class="RktPn">)</span><span class="RktPn">)</span></td></tr>
    <tr>
     <td><span class="RktPn">(</span><span class="RktSym">define-cairo</span><span class="hspace">&nbsp;</span><span class="RktSym">cairo-set-line-width</span></td></tr>
    <tr>
-    <td><span class="hspace">&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><a class="RktStxLink" data-pltdoc="x" href="http://docs.racket-lang.org/foreign/foreign_procedures.html#%28form._%28%28lib._ffi%2Funsafe..rkt%29.__fun%29%29">_fun</a></span><span class="hspace">&nbsp;</span><span class="RktSym">_cairo_t</span><span class="hspace">&nbsp;</span><span class="RktSym"><a class="RktValLink" data-pltdoc="x" href="http://docs.racket-lang.org/foreign/Numeric_Types.html#%28def._%28%28quote._~23~25foreign%29.__double%29%29">_double</a></span><span class="hspace">&nbsp;</span><span class="RktSym"><a class="RktStxLink" data-pltdoc="x" href="http://docs.racket-lang.org/foreign/foreign_procedures.html#%28form._%28%28lib._ffi%2Funsafe..rkt%29._-~3e%29%29"><span class="nobreak">-&gt;</span></a></span><span class="hspace">&nbsp;</span><span class="RktSym"><a class="RktValLink" data-pltdoc="x" href="http://docs.racket-lang.org/foreign/Other_Atomic_Types.html#%28def._%28%28quote._~23~25foreign%29.__void%29%29">_void</a></span><span class="RktPn">)</span><span class="RktPn">)</span></td></tr>
+    <td><span class="hspace">&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><a class="RktStxLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/foreign/foreign_procedures.html#%28form._%28%28lib._ffi%2Funsafe..rkt%29.__fun%29%29">_fun</a></span><span class="hspace">&nbsp;</span><span class="RktSym">_cairo_t</span><span class="hspace">&nbsp;</span><span class="RktSym"><a class="RktValLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/foreign/Numeric_Types.html#%28def._%28%28quote._~23~25foreign%29.__double%29%29">_double</a></span><span class="hspace">&nbsp;</span><span class="RktSym"><a class="RktStxLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/foreign/foreign_procedures.html#%28form._%28%28lib._ffi%2Funsafe..rkt%29._-~3e%29%29"><span class="nobreak">-&gt;</span></a></span><span class="hspace">&nbsp;</span><span class="RktSym"><a class="RktValLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/foreign/Other_Atomic_Types.html#%28def._%28%28quote._~23~25foreign%29.__void%29%29">_void</a></span><span class="RktPn">)</span><span class="RktPn">)</span></td></tr>
    <tr>
     <td><span class="RktPn">(</span><span class="RktSym">define-cairo</span><span class="hspace">&nbsp;</span><span class="RktSym">cairo-stroke</span></td></tr>
    <tr>
-    <td><span class="hspace">&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><a class="RktStxLink" data-pltdoc="x" href="http://docs.racket-lang.org/foreign/foreign_procedures.html#%28form._%28%28lib._ffi%2Funsafe..rkt%29.__fun%29%29">_fun</a></span><span class="hspace">&nbsp;</span><span class="RktSym">_cairo_t</span><span class="hspace">&nbsp;</span><span class="RktSym"><a class="RktStxLink" data-pltdoc="x" href="http://docs.racket-lang.org/foreign/foreign_procedures.html#%28form._%28%28lib._ffi%2Funsafe..rkt%29._-~3e%29%29"><span class="nobreak">-&gt;</span></a></span><span class="hspace">&nbsp;</span><span class="RktSym"><a class="RktValLink" data-pltdoc="x" href="http://docs.racket-lang.org/foreign/Other_Atomic_Types.html#%28def._%28%28quote._~23~25foreign%29.__void%29%29">_void</a></span><span class="RktPn">)</span><span class="RktPn">)</span></td></tr>
+    <td><span class="hspace">&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><a class="RktStxLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/foreign/foreign_procedures.html#%28form._%28%28lib._ffi%2Funsafe..rkt%29.__fun%29%29">_fun</a></span><span class="hspace">&nbsp;</span><span class="RktSym">_cairo_t</span><span class="hspace">&nbsp;</span><span class="RktSym"><a class="RktStxLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/foreign/foreign_procedures.html#%28form._%28%28lib._ffi%2Funsafe..rkt%29._-~3e%29%29"><span class="nobreak">-&gt;</span></a></span><span class="hspace">&nbsp;</span><span class="RktSym"><a class="RktValLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/foreign/Other_Atomic_Types.html#%28def._%28%28quote._~23~25foreign%29.__void%29%29">_void</a></span><span class="RktPn">)</span><span class="RktPn">)</span></td></tr>
    <tr>
     <td><span class="RktPn">(</span><span class="RktSym">define-cairo</span><span class="hspace">&nbsp;</span><span class="RktSym">cairo-set-line-cap</span></td></tr>
    <tr>
-    <td><span class="hspace">&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><a class="RktStxLink" data-pltdoc="x" href="http://docs.racket-lang.org/foreign/foreign_procedures.html#%28form._%28%28lib._ffi%2Funsafe..rkt%29.__fun%29%29">_fun</a></span><span class="hspace">&nbsp;</span><span class="RktSym">_cairo_t</span><span class="hspace">&nbsp;</span><span class="RktSym">_cairo_line_cap_t</span><span class="hspace">&nbsp;</span><span class="RktSym"><a class="RktStxLink" data-pltdoc="x" href="http://docs.racket-lang.org/foreign/foreign_procedures.html#%28form._%28%28lib._ffi%2Funsafe..rkt%29._-~3e%29%29"><span class="nobreak">-&gt;</span></a></span><span class="hspace">&nbsp;</span><span class="RktSym"><a class="RktValLink" data-pltdoc="x" href="http://docs.racket-lang.org/foreign/Other_Atomic_Types.html#%28def._%28%28quote._~23~25foreign%29.__void%29%29">_void</a></span><span class="RktPn">)</span><span class="RktPn">)</span></td></tr>
+    <td><span class="hspace">&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><a class="RktStxLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/foreign/foreign_procedures.html#%28form._%28%28lib._ffi%2Funsafe..rkt%29.__fun%29%29">_fun</a></span><span class="hspace">&nbsp;</span><span class="RktSym">_cairo_t</span><span class="hspace">&nbsp;</span><span class="RktSym">_cairo_line_cap_t</span><span class="hspace">&nbsp;</span><span class="RktSym"><a class="RktStxLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/foreign/foreign_procedures.html#%28form._%28%28lib._ffi%2Funsafe..rkt%29._-~3e%29%29"><span class="nobreak">-&gt;</span></a></span><span class="hspace">&nbsp;</span><span class="RktSym"><a class="RktValLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/foreign/Other_Atomic_Types.html#%28def._%28%28quote._~23~25foreign%29.__void%29%29">_void</a></span><span class="RktPn">)</span><span class="RktPn">)</span></td></tr>
    <tr>
     <td><span class="hspace">&nbsp;</span></td></tr>
    <tr>
@@ -227,11 +342,11 @@ sets of modules that you can refer to in a location-independent fashion such as
    <tr>
     <td><span class="RktCmt">;</span><span class="RktCmt">&nbsp;</span><span class="RktCmt">do some drawing and give us the pict</span></td></tr>
    <tr>
-    <td><span class="RktPn">(</span><span class="RktSym"><a class="RktStxLink" data-pltdoc="x" href="http://docs.racket-lang.org/reference/define.html#%28form._%28%28lib._racket%2Fprivate%2Fbase..rkt%29._define%29%29">define</a></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">do-cairo</span><span class="hspace">&nbsp;</span><span class="RktSym">f</span><span class="RktPn">)</span></td></tr>
+    <td><span class="RktPn">(</span><span class="RktSym"><a class="RktStxLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/reference/define.html#%28form._%28%28lib._racket%2Fprivate%2Fbase..rkt%29._define%29%29">define</a></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">do-cairo</span><span class="hspace">&nbsp;</span><span class="RktSym">f</span><span class="RktPn">)</span></td></tr>
    <tr>
-    <td><span class="hspace">&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><a class="RktStxLink" data-pltdoc="x" href="http://docs.racket-lang.org/reference/define.html#%28form._%28%28lib._racket%2Fprivate%2Fbase..rkt%29._define%29%29">define</a></span><span class="hspace">&nbsp;</span><span class="RktSym">bt</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">make-bitmap</span><span class="hspace">&nbsp;</span><span class="RktVal">256</span><span class="hspace">&nbsp;</span><span class="RktVal">256</span><span class="RktPn">)</span><span class="RktPn">)</span></td></tr>
+    <td><span class="hspace">&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><a class="RktStxLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/reference/define.html#%28form._%28%28lib._racket%2Fprivate%2Fbase..rkt%29._define%29%29">define</a></span><span class="hspace">&nbsp;</span><span class="RktSym">bt</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">make-bitmap</span><span class="hspace">&nbsp;</span><span class="RktVal">256</span><span class="hspace">&nbsp;</span><span class="RktVal">256</span><span class="RktPn">)</span><span class="RktPn">)</span></td></tr>
    <tr>
-    <td><span class="hspace">&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><a class="RktStxLink" data-pltdoc="x" href="http://docs.racket-lang.org/reference/define.html#%28form._%28%28lib._racket%2Fprivate%2Fbase..rkt%29._define%29%29">define</a></span><span class="hspace">&nbsp;</span><span class="RktSym">bt-surface</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">send</span><span class="hspace">&nbsp;</span><span class="RktSym">bt</span><span class="hspace">&nbsp;</span><span class="RktSym">get-handle</span><span class="RktPn">)</span><span class="RktPn">)</span></td></tr>
+    <td><span class="hspace">&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><a class="RktStxLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/reference/define.html#%28form._%28%28lib._racket%2Fprivate%2Fbase..rkt%29._define%29%29">define</a></span><span class="hspace">&nbsp;</span><span class="RktSym">bt-surface</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">send</span><span class="hspace">&nbsp;</span><span class="RktSym">bt</span><span class="hspace">&nbsp;</span><span class="RktSym">get-handle</span><span class="RktPn">)</span><span class="RktPn">)</span></td></tr>
    <tr>
     <td><span class="hspace">&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym">f</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">cairo-create</span><span class="hspace">&nbsp;</span><span class="RktSym">bt-surface</span><span class="RktPn">)</span><span class="RktPn">)</span></td></tr>
    <tr>
@@ -276,7 +391,7 @@ let&rsquo;s specify that a <span class="stt">cairo_status_t</span> is an integer
  <table cellpadding="0" cellspacing="0" class="RktBlk">
   <tbody>
    <tr>
-    <td><span class="stt">&gt; </span><span class="RktPn">(</span><span class="RktSym"><a class="RktStxLink" data-pltdoc="x" href="http://docs.racket-lang.org/reference/define.html#%28form._%28%28lib._racket%2Fprivate%2Fbase..rkt%29._define%29%29">define</a></span><span class="hspace">&nbsp;</span><span class="RktSym">_cairo_status_t</span><span class="hspace">&nbsp;</span><span class="RktSym"><a class="RktValLink" data-pltdoc="x" href="http://docs.racket-lang.org/foreign/Numeric_Types.html#%28def._%28%28lib._ffi%2Funsafe..rkt%29.__int%29%29">_int</a></span><span class="RktPn">)</span></td></tr>
+    <td><span class="stt">&gt; </span><span class="RktPn">(</span><span class="RktSym"><a class="RktStxLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/reference/define.html#%28form._%28%28lib._racket%2Fprivate%2Fbase..rkt%29._define%29%29">define</a></span><span class="hspace">&nbsp;</span><span class="RktSym">_cairo_status_t</span><span class="hspace">&nbsp;</span><span class="RktSym"><a class="RktValLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/foreign/Numeric_Types.html#%28def._%28%28lib._ffi%2Funsafe..rkt%29.__int%29%29">_int</a></span><span class="RktPn">)</span></td></tr>
    <tr>
     <td>
      <table cellpadding="0" cellspacing="0">
@@ -314,7 +429,7 @@ which is specified with a C union:</p>
     <td><span class="RktMeta"></span><span class="RktPn">}</span><span class="RktMeta">;</span><span class="RktMeta"></span></td></tr></tbody></table></div>
 
 <p>Helpfully, the FFI library comes with support for unions with the
-<span class="RktWrap"><span class="RktSym"><a class="RktValLink" data-pltdoc="x" href="http://docs.racket-lang.org/foreign/C_Union_Types.html#%28def._%28%28lib._ffi%2Funsafe..rkt%29.__union%29%29">_union</a></span></span> type constructor. The constructor takes arbitrarily
+<span class="RktWrap"><span class="RktSym"><a class="RktValLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/foreign/C_Union_Types.html#%28def._%28%28lib._ffi%2Funsafe..rkt%29.__union%29%29">_union</a></span></span> type constructor. The constructor takes arbitrarily
 many arguments, one for each sub-case in the union. It&rsquo;s pretty
 straightforward to specify this type too:</p>
 
@@ -328,9 +443,9 @@ straightforward to specify this type too:</p>
      <table cellpadding="0" cellspacing="0" class="RktBlk">
       <tbody>
        <tr>
-        <td><span class="stt">&gt; </span><span class="RktPn">(</span><span class="RktSym"><a class="RktStxLink" data-pltdoc="x" href="http://docs.racket-lang.org/reference/define.html#%28form._%28%28lib._racket%2Fprivate%2Fbase..rkt%29._define%29%29">define</a></span><span class="hspace">&nbsp;</span><span class="RktSym">_cairo_path_data_type_t</span></td></tr>
+        <td><span class="stt">&gt; </span><span class="RktPn">(</span><span class="RktSym"><a class="RktStxLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/reference/define.html#%28form._%28%28lib._racket%2Fprivate%2Fbase..rkt%29._define%29%29">define</a></span><span class="hspace">&nbsp;</span><span class="RktSym">_cairo_path_data_type_t</span></td></tr>
        <tr>
-        <td><span class="hspace">&nbsp;&nbsp;</span><span class="hspace">&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><a class="RktValLink" data-pltdoc="x" href="http://docs.racket-lang.org/foreign/Enumerations_and_Masks.html#%28def._%28%28lib._ffi%2Funsafe..rkt%29.__enum%29%29">_enum</a></span><span class="hspace">&nbsp;</span><span class="RktVal">'</span><span class="RktVal">(</span><span class="RktVal">move-to</span><span class="hspace">&nbsp;</span><span class="RktVal">line-to</span><span class="hspace">&nbsp;</span><span class="RktVal">curve-to</span><span class="hspace">&nbsp;</span><span class="RktVal">close-path</span><span class="RktVal">)</span><span class="RktPn">)</span><span class="RktPn">)</span></td></tr></tbody></table></td></tr>
+        <td><span class="hspace">&nbsp;&nbsp;</span><span class="hspace">&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><a class="RktValLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/foreign/Enumerations_and_Masks.html#%28def._%28%28lib._ffi%2Funsafe..rkt%29.__enum%29%29">_enum</a></span><span class="hspace">&nbsp;</span><span class="RktVal">'</span><span class="RktVal">(</span><span class="RktVal">move-to</span><span class="hspace">&nbsp;</span><span class="RktVal">line-to</span><span class="hspace">&nbsp;</span><span class="RktVal">curve-to</span><span class="hspace">&nbsp;</span><span class="RktVal">close-path</span><span class="RktVal">)</span><span class="RktPn">)</span><span class="RktPn">)</span></td></tr></tbody></table></td></tr>
    <tr>
     <td>
      <table cellpadding="0" cellspacing="0">
@@ -342,17 +457,17 @@ straightforward to specify this type too:</p>
      <table cellpadding="0" cellspacing="0" class="RktBlk">
       <tbody>
        <tr>
-        <td><span class="stt">&gt; </span><span class="RktPn">(</span><span class="RktSym"><a class="RktStxLink" data-pltdoc="x" href="http://docs.racket-lang.org/reference/define.html#%28form._%28%28lib._racket%2Fprivate%2Fbase..rkt%29._define%29%29">define</a></span><span class="hspace">&nbsp;</span><span class="RktSym">_cairo_path_data_t</span></td></tr>
+        <td><span class="stt">&gt; </span><span class="RktPn">(</span><span class="RktSym"><a class="RktStxLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/reference/define.html#%28form._%28%28lib._racket%2Fprivate%2Fbase..rkt%29._define%29%29">define</a></span><span class="hspace">&nbsp;</span><span class="RktSym">_cairo_path_data_t</span></td></tr>
        <tr>
-        <td><span class="hspace">&nbsp;&nbsp;</span><span class="hspace">&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><a class="RktValLink" data-pltdoc="x" href="http://docs.racket-lang.org/foreign/C_Union_Types.html#%28def._%28%28lib._ffi%2Funsafe..rkt%29.__union%29%29">_union</a></span><span class="hspace">&nbsp;</span><span class="RktCmt">;</span><span class="RktCmt">&nbsp;</span><span class="RktCmt">the header case</span></td></tr>
+        <td><span class="hspace">&nbsp;&nbsp;</span><span class="hspace">&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><a class="RktValLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/foreign/C_Union_Types.html#%28def._%28%28lib._ffi%2Funsafe..rkt%29.__union%29%29">_union</a></span><span class="hspace">&nbsp;</span><span class="RktCmt">;</span><span class="RktCmt">&nbsp;</span><span class="RktCmt">the header case</span></td></tr>
        <tr>
-        <td><span class="hspace">&nbsp;&nbsp;</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><a class="RktValLink" data-pltdoc="x" href="http://docs.racket-lang.org/foreign/C_Struct_Types.html#%28def._%28%28lib._ffi%2Funsafe..rkt%29.__list-struct%29%29">_list-struct</a></span><span class="hspace">&nbsp;</span><span class="RktSym">_cairo_path_data_type_t</span></td></tr>
+        <td><span class="hspace">&nbsp;&nbsp;</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><a class="RktValLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/foreign/C_Struct_Types.html#%28def._%28%28lib._ffi%2Funsafe..rkt%29.__list-struct%29%29">_list-struct</a></span><span class="hspace">&nbsp;</span><span class="RktSym">_cairo_path_data_type_t</span></td></tr>
        <tr>
-        <td><span class="hspace">&nbsp;&nbsp;</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktSym"><a class="RktValLink" data-pltdoc="x" href="http://docs.racket-lang.org/foreign/Numeric_Types.html#%28def._%28%28lib._ffi%2Funsafe..rkt%29.__int%29%29">_int</a></span><span class="RktPn">)</span></td></tr>
+        <td><span class="hspace">&nbsp;&nbsp;</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktSym"><a class="RktValLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/foreign/Numeric_Types.html#%28def._%28%28lib._ffi%2Funsafe..rkt%29.__int%29%29">_int</a></span><span class="RktPn">)</span></td></tr>
        <tr>
         <td><span class="hspace">&nbsp;&nbsp;</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktCmt">;</span><span class="RktCmt">&nbsp;</span><span class="RktCmt">the point case</span></td></tr>
        <tr>
-        <td><span class="hspace">&nbsp;&nbsp;</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><a class="RktValLink" data-pltdoc="x" href="http://docs.racket-lang.org/foreign/C_Struct_Types.html#%28def._%28%28lib._ffi%2Funsafe..rkt%29.__list-struct%29%29">_list-struct</a></span><span class="hspace">&nbsp;</span><span class="RktSym"><a class="RktValLink" data-pltdoc="x" href="http://docs.racket-lang.org/foreign/Numeric_Types.html#%28def._%28%28quote._~23~25foreign%29.__double%29%29">_double</a></span><span class="hspace">&nbsp;</span><span class="RktSym"><a class="RktValLink" data-pltdoc="x" href="http://docs.racket-lang.org/foreign/Numeric_Types.html#%28def._%28%28quote._~23~25foreign%29.__double%29%29">_double</a></span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span></td></tr></tbody></table></td></tr>
+        <td><span class="hspace">&nbsp;&nbsp;</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><a class="RktValLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/foreign/C_Struct_Types.html#%28def._%28%28lib._ffi%2Funsafe..rkt%29.__list-struct%29%29">_list-struct</a></span><span class="hspace">&nbsp;</span><span class="RktSym"><a class="RktValLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/foreign/Numeric_Types.html#%28def._%28%28quote._~23~25foreign%29.__double%29%29">_double</a></span><span class="hspace">&nbsp;</span><span class="RktSym"><a class="RktValLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/foreign/Numeric_Types.html#%28def._%28%28quote._~23~25foreign%29.__double%29%29">_double</a></span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span></td></tr></tbody></table></td></tr>
    <tr>
     <td>
      <table cellpadding="0" cellspacing="0">
@@ -361,9 +476,9 @@ straightforward to specify this type too:</p>
         <td></td></tr></tbody></table></td></tr></tbody></table></div>
 
 <p>There&rsquo;s a new type constructor here so let me explain that first.
-The <span class="RktWrap"><span class="RktSym"><a class="RktValLink" data-pltdoc="x" href="http://docs.racket-lang.org/foreign/C_Struct_Types.html#%28def._%28%28lib._ffi%2Funsafe..rkt%29.__list-struct%29%29">_list-struct</a></span></span> constructor translates between a C struct
+The <span class="RktWrap"><span class="RktSym"><a class="RktValLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/foreign/C_Struct_Types.html#%28def._%28%28lib._ffi%2Funsafe..rkt%29.__list-struct%29%29">_list-struct</a></span></span> constructor translates between a C struct
 and a fixed-length list of C objects on the Racket side. Unlike
-<span class="RktWrap"><span class="RktSym"><a class="RktStxLink" data-pltdoc="x" href="http://docs.racket-lang.org/foreign/C_Struct_Types.html#%28form._%28%28lib._ffi%2Funsafe..rkt%29._define-cstruct%29%29">define-cstruct</a></span></span>, this constructor doesn&rsquo;t define any selectors
+<span class="RktWrap"><span class="RktSym"><a class="RktStxLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/foreign/C_Struct_Types.html#%28form._%28%28lib._ffi%2Funsafe..rkt%29._define-cstruct%29%29">define-cstruct</a></span></span>, this constructor doesn&rsquo;t define any selectors
 or anything like that. Instead, you can manipulate the struct as an
 ordinary list.</p>
 
@@ -382,13 +497,13 @@ on the Racket-side. Let me illustrate this with some code:</p>
      <table cellpadding="0" cellspacing="0" class="RktBlk">
       <tbody>
        <tr>
-        <td><span class="stt">&gt; </span><span class="RktPn">(</span><span class="RktSym"><a class="RktStxLink" data-pltdoc="x" href="http://docs.racket-lang.org/reference/define.html#%28form._%28%28lib._racket%2Fprivate%2Fbase..rkt%29._define%29%29">define</a></span><span class="hspace">&nbsp;</span><span class="RktSym">a-union-val</span></td></tr>
+        <td><span class="stt">&gt; </span><span class="RktPn">(</span><span class="RktSym"><a class="RktStxLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/reference/define.html#%28form._%28%28lib._racket%2Fprivate%2Fbase..rkt%29._define%29%29">define</a></span><span class="hspace">&nbsp;</span><span class="RktSym">a-union-val</span></td></tr>
        <tr>
-        <td><span class="hspace">&nbsp;&nbsp;</span><span class="hspace">&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><a class="RktValLink" data-pltdoc="x" href="http://docs.racket-lang.org/foreign/Miscellaneous_Support.html#%28def._%28%28lib._ffi%2Funsafe..rkt%29._cast%29%29">cast</a></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><a class="RktValLink" data-pltdoc="x" href="http://docs.racket-lang.org/reference/pairs.html#%28def._%28%28quote._~23~25kernel%29._list%29%29">list</a></span><span class="hspace">&nbsp;</span><span class="RktVal">1.3</span><span class="hspace">&nbsp;</span><span class="RktVal">5.8</span><span class="RktPn">)</span></td></tr>
+        <td><span class="hspace">&nbsp;&nbsp;</span><span class="hspace">&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><a class="RktValLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/foreign/Miscellaneous_Support.html#%28def._%28%28lib._ffi%2Funsafe..rkt%29._cast%29%29">cast</a></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><a class="RktValLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/reference/pairs.html#%28def._%28%28quote._~23~25kernel%29._list%29%29">list</a></span><span class="hspace">&nbsp;</span><span class="RktVal">1.3</span><span class="hspace">&nbsp;</span><span class="RktVal">5.8</span><span class="RktPn">)</span></td></tr>
        <tr>
         <td><span class="hspace">&nbsp;&nbsp;</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktCmt">;</span><span class="RktCmt">&nbsp;</span><span class="RktCmt">source type</span></td></tr>
        <tr>
-        <td><span class="hspace">&nbsp;&nbsp;</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><a class="RktValLink" data-pltdoc="x" href="http://docs.racket-lang.org/foreign/C_Struct_Types.html#%28def._%28%28lib._ffi%2Funsafe..rkt%29.__list-struct%29%29">_list-struct</a></span><span class="hspace">&nbsp;</span><span class="RktSym"><a class="RktValLink" data-pltdoc="x" href="http://docs.racket-lang.org/foreign/Numeric_Types.html#%28def._%28%28quote._~23~25foreign%29.__double%29%29">_double</a></span><span class="hspace">&nbsp;</span><span class="RktSym"><a class="RktValLink" data-pltdoc="x" href="http://docs.racket-lang.org/foreign/Numeric_Types.html#%28def._%28%28quote._~23~25foreign%29.__double%29%29">_double</a></span><span class="RktPn">)</span></td></tr>
+        <td><span class="hspace">&nbsp;&nbsp;</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><a class="RktValLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/foreign/C_Struct_Types.html#%28def._%28%28lib._ffi%2Funsafe..rkt%29.__list-struct%29%29">_list-struct</a></span><span class="hspace">&nbsp;</span><span class="RktSym"><a class="RktValLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/foreign/Numeric_Types.html#%28def._%28%28quote._~23~25foreign%29.__double%29%29">_double</a></span><span class="hspace">&nbsp;</span><span class="RktSym"><a class="RktValLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/foreign/Numeric_Types.html#%28def._%28%28quote._~23~25foreign%29.__double%29%29">_double</a></span><span class="RktPn">)</span></td></tr>
        <tr>
         <td><span class="hspace">&nbsp;&nbsp;</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktCmt">;</span><span class="RktCmt">&nbsp;</span><span class="RktCmt">target type</span></td></tr>
        <tr>
@@ -406,13 +521,13 @@ on the Racket-side. Let me illustrate this with some code:</p>
      <p><span class="RktRes">#&lt;union&gt;</span></p></td></tr></tbody></table></div>
 
 <p>This snippet first construct a union object (via the <span class="RktWrap"><span class="RktSym">_cairo_path_data_t</span></span>
-type) using a <span class="RktWrap"><span class="RktSym"><a class="RktValLink" data-pltdoc="x" href="http://docs.racket-lang.org/foreign/Miscellaneous_Support.html#%28def._%28%28lib._ffi%2Funsafe..rkt%29._cast%29%29">cast</a></span></span>. A cast is an operation that lets you coerce
+type) using a <span class="RktWrap"><span class="RktSym"><a class="RktValLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/foreign/Miscellaneous_Support.html#%28def._%28%28lib._ffi%2Funsafe..rkt%29._cast%29%29">cast</a></span></span>. A cast is an operation that lets you coerce
 from one C type to another. We use it in this example since it&rsquo;s an easy way
 to generate a union object.</p>
 
 <p>The second line shows that a union prints as an opaque object. You can&rsquo;t do
 anything with a union in Racket unless you project it to one of the sub-cases with
-the <span class="RktWrap"><span class="RktSym"><a class="RktValLink" data-pltdoc="x" href="http://docs.racket-lang.org/foreign/C_Union_Types.html#%28def._%28%28lib._ffi%2Funsafe..rkt%29._union-ref%29%29">union-ref</a></span></span> function.
+the <span class="RktWrap"><span class="RktSym"><a class="RktValLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/foreign/C_Union_Types.html#%28def._%28%28lib._ffi%2Funsafe..rkt%29._union-ref%29%29">union-ref</a></span></span> function.
 This projection is <span style="font-style: italic">unsafe</span>, in the sense that if you don&rsquo;t know which of
 the sub-cases in the union is the correct one, you will get potentially non-sensical
 data out of the union.</p>
@@ -428,14 +543,14 @@ union both correctly and incorrectly:</p>
    <tr>
     <td><span class="RktCmt">;</span><span class="RktCmt">&nbsp;</span><span class="RktCmt">cases are zero-indexed and ordered as written</span></td></tr>
    <tr>
-    <td><span class="stt">&gt; </span><span class="RktPn">(</span><span class="RktSym"><a class="RktValLink" data-pltdoc="x" href="http://docs.racket-lang.org/foreign/C_Union_Types.html#%28def._%28%28lib._ffi%2Funsafe..rkt%29._union-ref%29%29">union-ref</a></span><span class="hspace">&nbsp;</span><span class="RktSym">a-union-val</span><span class="hspace">&nbsp;</span><span class="RktVal">1</span><span class="RktPn">)</span></td></tr>
+    <td><span class="stt">&gt; </span><span class="RktPn">(</span><span class="RktSym"><a class="RktValLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/foreign/C_Union_Types.html#%28def._%28%28lib._ffi%2Funsafe..rkt%29._union-ref%29%29">union-ref</a></span><span class="hspace">&nbsp;</span><span class="RktSym">a-union-val</span><span class="hspace">&nbsp;</span><span class="RktVal">1</span><span class="RktPn">)</span></td></tr>
    <tr>
     <td>
      <p><span class="RktRes">'(1.3 5.8)</span></p></td></tr>
    <tr>
     <td><span class="RktCmt">;</span><span class="RktCmt">&nbsp;</span><span class="RktCmt">incorrect, error</span></td></tr>
    <tr>
-    <td><span class="stt">&gt; </span><span class="RktPn">(</span><span class="RktSym"><a class="RktValLink" data-pltdoc="x" href="http://docs.racket-lang.org/foreign/C_Union_Types.html#%28def._%28%28lib._ffi%2Funsafe..rkt%29._union-ref%29%29">union-ref</a></span><span class="hspace">&nbsp;</span><span class="RktSym">a-union-val</span><span class="hspace">&nbsp;</span><span class="RktVal">0</span><span class="RktPn">)</span></td></tr>
+    <td><span class="stt">&gt; </span><span class="RktPn">(</span><span class="RktSym"><a class="RktValLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/foreign/C_Union_Types.html#%28def._%28%28lib._ffi%2Funsafe..rkt%29._union-ref%29%29">union-ref</a></span><span class="hspace">&nbsp;</span><span class="RktSym">a-union-val</span><span class="hspace">&nbsp;</span><span class="RktVal">0</span><span class="RktPn">)</span></td></tr>
    <tr>
     <td>
      <p><span class="RktErr">enum:int-&gt;_cairo_path_data_type_t: expected a known</span></p></td></tr>
@@ -477,13 +592,13 @@ type:</p>
      <table cellpadding="0" cellspacing="0" class="RktBlk">
       <tbody>
        <tr>
-        <td><span class="stt">&gt; </span><span class="RktPn">(</span><span class="RktSym"><a class="RktStxLink" data-pltdoc="x" href="http://docs.racket-lang.org/reference/define.html#%28form._%28%28lib._racket%2Fprivate%2Fbase..rkt%29._define%29%29">define</a></span><span class="hspace">&nbsp;</span><span class="RktSym">_simple_cairo_path_t</span></td></tr>
+        <td><span class="stt">&gt; </span><span class="RktPn">(</span><span class="RktSym"><a class="RktStxLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/reference/define.html#%28form._%28%28lib._racket%2Fprivate%2Fbase..rkt%29._define%29%29">define</a></span><span class="hspace">&nbsp;</span><span class="RktSym">_simple_cairo_path_t</span></td></tr>
        <tr>
-        <td><span class="hspace">&nbsp;&nbsp;</span><span class="hspace">&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><a class="RktValLink" data-pltdoc="x" href="http://docs.racket-lang.org/foreign/C_Struct_Types.html#%28def._%28%28lib._ffi%2Funsafe..rkt%29.__list-struct%29%29">_list-struct</a></span><span class="hspace">&nbsp;</span><span class="RktSym">_cairo_status_t</span></td></tr>
+        <td><span class="hspace">&nbsp;&nbsp;</span><span class="hspace">&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><a class="RktValLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/foreign/C_Struct_Types.html#%28def._%28%28lib._ffi%2Funsafe..rkt%29.__list-struct%29%29">_list-struct</a></span><span class="hspace">&nbsp;</span><span class="RktSym">_cairo_status_t</span></td></tr>
        <tr>
-        <td><span class="hspace">&nbsp;&nbsp;</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktSym"><a class="RktValLink" data-pltdoc="x" href="http://docs.racket-lang.org/foreign/Pointer_Types.html#%28def._%28%28quote._~23~25foreign%29.__pointer%29%29">_pointer</a></span></td></tr>
+        <td><span class="hspace">&nbsp;&nbsp;</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktSym"><a class="RktValLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/foreign/Pointer_Types.html#%28def._%28%28quote._~23~25foreign%29.__pointer%29%29">_pointer</a></span></td></tr>
        <tr>
-        <td><span class="hspace">&nbsp;&nbsp;</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktSym"><a class="RktValLink" data-pltdoc="x" href="http://docs.racket-lang.org/foreign/Numeric_Types.html#%28def._%28%28lib._ffi%2Funsafe..rkt%29.__int%29%29">_int</a></span><span class="RktPn">)</span><span class="RktPn">)</span></td></tr></tbody></table></td></tr>
+        <td><span class="hspace">&nbsp;&nbsp;</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktSym"><a class="RktValLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/foreign/Numeric_Types.html#%28def._%28%28lib._ffi%2Funsafe..rkt%29.__int%29%29">_int</a></span><span class="RktPn">)</span><span class="RktPn">)</span></td></tr></tbody></table></td></tr>
    <tr>
     <td>
      <table cellpadding="0" cellspacing="0">
@@ -491,13 +606,13 @@ type:</p>
        <tr>
         <td></td></tr></tbody></table></td></tr></tbody></table></div>
 
-<p>In this type, we have specified the array as a bare <span class="RktWrap"><span class="RktSym"><a class="RktValLink" data-pltdoc="x" href="http://docs.racket-lang.org/foreign/Pointer_Types.html#%28def._%28%28quote._~23~25foreign%29.__pointer%29%29">_pointer</a></span></span>.
+<p>In this type, we have specified the array as a bare <span class="RktWrap"><span class="RktSym"><a class="RktValLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/foreign/Pointer_Types.html#%28def._%28%28quote._~23~25foreign%29.__pointer%29%29">_pointer</a></span></span>.
 For some added safety, we could also use something like
-<span class="RktWrap"><span class="RktPn">(</span><span class="RktSym"><a class="RktValLink" data-pltdoc="x" href="http://docs.racket-lang.org/foreign/foreign_tagged-pointers.html#%28def._%28%28lib._ffi%2Funsafe..rkt%29.__cpointer%29%29">_cpointer</a></span><span class="stt"> </span><span class="RktVal">'</span><span class="RktVal">cairo_status_t</span><span class="RktPn">)</span></span>, which sets up a tagged pointer
+<span class="RktWrap"><span class="RktPn">(</span><span class="RktSym"><a class="RktValLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/foreign/foreign_tagged-pointers.html#%28def._%28%28lib._ffi%2Funsafe..rkt%29.__cpointer%29%29">_cpointer</a></span><span class="stt"> </span><span class="RktVal">'</span><span class="RktVal">cairo_status_t</span><span class="RktPn">)</span></span>, which sets up a tagged pointer
 type like we saw in the first blog post with
-<span class="RktWrap"><span class="RktSym"><a class="RktStxLink" data-pltdoc="x" href="http://docs.racket-lang.org/foreign/foreign_tagged-pointers.html#%28form._%28%28lib._ffi%2Funsafe..rkt%29._define-cpointer-type%29%29">define-cpointer-type</a></span></span>.</p>
+<span class="RktWrap"><span class="RktSym"><a class="RktStxLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/foreign/foreign_tagged-pointers.html#%28form._%28%28lib._ffi%2Funsafe..rkt%29._define-cpointer-type%29%29">define-cpointer-type</a></span></span>.</p>
 
-<p>We&rsquo;ve seen the <span class="RktWrap"><span class="RktSym"><a class="RktValLink" data-pltdoc="x" href="http://docs.racket-lang.org/foreign/Pointer_Types.html#%28def._%28%28quote._~23~25foreign%29.__pointer%29%29">_pointer</a></span></span> type before, but haven&rsquo;t actually done
+<p>We&rsquo;ve seen the <span class="RktWrap"><span class="RktSym"><a class="RktValLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/foreign/Pointer_Types.html#%28def._%28%28quote._~23~25foreign%29.__pointer%29%29">_pointer</a></span></span> type before, but haven&rsquo;t actually done
 anything with values of those types except pass them around as arguments.
 It turns out it is possible to do a bit more with pointers.</p>
 
@@ -514,7 +629,7 @@ It turns out it is possible to do a bit more with pointers.</p>
        <tr>
         <td><span class="stt">&gt; </span><span class="RktPn">(</span><span class="RktSym">define-cairo</span><span class="hspace">&nbsp;</span><span class="RktSym">cairo-copy-path</span></td></tr>
        <tr>
-        <td><span class="hspace">&nbsp;&nbsp;</span><span class="hspace">&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><a class="RktStxLink" data-pltdoc="x" href="http://docs.racket-lang.org/foreign/foreign_procedures.html#%28form._%28%28lib._ffi%2Funsafe..rkt%29.__fun%29%29">_fun</a></span><span class="hspace">&nbsp;</span><span class="RktSym">_cairo_t</span><span class="hspace">&nbsp;</span><span class="RktSym"><a class="RktStxLink" data-pltdoc="x" href="http://docs.racket-lang.org/foreign/foreign_procedures.html#%28form._%28%28lib._ffi%2Funsafe..rkt%29._-~3e%29%29"><span class="nobreak">-&gt;</span></a></span><span class="hspace">&nbsp;</span><span class="RktSym"><a class="RktValLink" data-pltdoc="x" href="http://docs.racket-lang.org/foreign/Pointer_Types.html#%28def._%28%28quote._~23~25foreign%29.__pointer%29%29">_pointer</a></span><span class="RktPn">)</span><span class="RktPn">)</span></td></tr></tbody></table></td></tr>
+        <td><span class="hspace">&nbsp;&nbsp;</span><span class="hspace">&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><a class="RktStxLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/foreign/foreign_procedures.html#%28form._%28%28lib._ffi%2Funsafe..rkt%29.__fun%29%29">_fun</a></span><span class="hspace">&nbsp;</span><span class="RktSym">_cairo_t</span><span class="hspace">&nbsp;</span><span class="RktSym"><a class="RktStxLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/foreign/foreign_procedures.html#%28form._%28%28lib._ffi%2Funsafe..rkt%29._-~3e%29%29"><span class="nobreak">-&gt;</span></a></span><span class="hspace">&nbsp;</span><span class="RktSym"><a class="RktValLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/foreign/Pointer_Types.html#%28def._%28%28quote._~23~25foreign%29.__pointer%29%29">_pointer</a></span><span class="RktPn">)</span><span class="RktPn">)</span></td></tr></tbody></table></td></tr>
    <tr>
     <td>
      <table cellpadding="0" cellspacing="0">
@@ -522,7 +637,7 @@ It turns out it is possible to do a bit more with pointers.</p>
        <tr>
         <td></td></tr></tbody></table></td></tr>
    <tr>
-    <td><span class="stt">&gt; </span><span class="RktPn">(</span><span class="RktSym"><a class="RktStxLink" data-pltdoc="x" href="http://docs.racket-lang.org/reference/define.html#%28form._%28%28lib._racket%2Fprivate%2Fbase..rkt%29._define%29%29">define</a></span><span class="hspace">&nbsp;</span><span class="RktSym">a-path</span><span class="hspace">&nbsp;</span><span class="RktVal">#f</span><span class="RktPn">)</span></td></tr>
+    <td><span class="stt">&gt; </span><span class="RktPn">(</span><span class="RktSym"><a class="RktStxLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/reference/define.html#%28form._%28%28lib._racket%2Fprivate%2Fbase..rkt%29._define%29%29">define</a></span><span class="hspace">&nbsp;</span><span class="RktSym">a-path</span><span class="hspace">&nbsp;</span><span class="RktVal">#f</span><span class="RktPn">)</span></td></tr>
    <tr>
     <td>
      <table cellpadding="0" cellspacing="0">
@@ -534,7 +649,7 @@ It turns out it is possible to do a bit more with pointers.</p>
      <table cellpadding="0" cellspacing="0" class="RktBlk">
       <tbody>
        <tr>
-        <td><span class="stt">&gt; </span><span class="RktPn">(</span><span class="RktSym">do-cairo</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><a class="RktStxLink" data-pltdoc="x" href="http://docs.racket-lang.org/reference/lambda.html#%28form._%28%28lib._racket%2Fprivate%2Fbase..rkt%29._~ce~bb%29%29">&#955;</a></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">ctx</span><span class="RktPn">)</span></td></tr>
+        <td><span class="stt">&gt; </span><span class="RktPn">(</span><span class="RktSym">do-cairo</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><a class="RktStxLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/reference/lambda.html#%28form._%28%28lib._racket%2Fprivate%2Fbase..rkt%29._~ce~bb%29%29">&#955;</a></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">ctx</span><span class="RktPn">)</span></td></tr>
        <tr>
         <td><span class="hspace">&nbsp;&nbsp;</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktCmt">;</span><span class="RktCmt">&nbsp;</span><span class="RktCmt">Do stuff to make the current</span></td></tr>
        <tr>
@@ -550,7 +665,7 @@ It turns out it is possible to do a bit more with pointers.</p>
        <tr>
         <td><span class="hspace">&nbsp;&nbsp;</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktCmt">;</span><span class="RktCmt">&nbsp;</span><span class="RktCmt">Get the current path</span></td></tr>
        <tr>
-        <td><span class="hspace">&nbsp;&nbsp;</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><a class="RktStxLink" data-pltdoc="x" href="http://docs.racket-lang.org/reference/set_.html#%28form._%28%28quote._~23~25kernel%29._set%21%29%29">set!</a></span><span class="hspace">&nbsp;</span><span class="RktSym">a-path</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">cairo-copy-path</span><span class="hspace">&nbsp;</span><span class="RktSym">ctx</span><span class="RktPn">)</span><span class="RktPn">)</span></td></tr>
+        <td><span class="hspace">&nbsp;&nbsp;</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><a class="RktStxLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/reference/set_.html#%28form._%28%28quote._~23~25kernel%29._set%21%29%29">set!</a></span><span class="hspace">&nbsp;</span><span class="RktSym">a-path</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">cairo-copy-path</span><span class="hspace">&nbsp;</span><span class="RktSym">ctx</span><span class="RktPn">)</span><span class="RktPn">)</span></td></tr>
        <tr>
         <td><span class="hspace">&nbsp;&nbsp;</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktCmt">;</span><span class="RktCmt">&nbsp;</span><span class="RktCmt">Stroke clears the path</span></td></tr>
        <tr>
@@ -569,10 +684,10 @@ It turns out it is possible to do a bit more with pointers.</p>
 <p>Note that <span class="RktWrap"><span class="RktSym">cairo-copy-path</span></span> gives us a pointer to a path struct
 rather than a path struct directly. Because of that, we need to know
 how to manipulate pointers.
-The most useful function for pointers is <span class="RktWrap"><span class="RktSym"><a class="RktValLink" data-pltdoc="x" href="http://docs.racket-lang.org/foreign/foreign_pointer-funcs.html#%28def._%28%28quote._~23~25foreign%29._ptr-ref%29%29">ptr-ref</a></span></span>, which
+The most useful function for pointers is <span class="RktWrap"><span class="RktSym"><a class="RktValLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/foreign/foreign_pointer-funcs.html#%28def._%28%28quote._~23~25foreign%29._ptr-ref%29%29">ptr-ref</a></span></span>, which
 lets you dereference a pointer and access it at some concrete C type.</p>
 
-<p><span style="font-weight: bold">Note:</span> the <span class="RktWrap"><span class="RktSym"><a class="RktValLink" data-pltdoc="x" href="http://docs.racket-lang.org/foreign/foreign_pointer-funcs.html#%28def._%28%28quote._~23~25foreign%29._ptr-ref%29%29">ptr-ref</a></span></span> function also takes an optional
+<p><span style="font-weight: bold">Note:</span> the <span class="RktWrap"><span class="RktSym"><a class="RktValLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/foreign/foreign_pointer-funcs.html#%28def._%28%28quote._~23~25foreign%29._ptr-ref%29%29">ptr-ref</a></span></span> function also takes an optional
 offset argument which we will be used in an example later.</p>
 
 <p>For example, we can use <span class="RktWrap"><span class="RktSym">a-path</span></span> as a <span class="RktWrap"><span class="RktSym">_simple_cairo_path_t</span></span>:</p>
@@ -585,9 +700,9 @@ offset argument which we will be used in an example later.</p>
      <table cellpadding="0" cellspacing="0" class="RktBlk">
       <tbody>
        <tr>
-        <td><span class="stt">&gt; </span><span class="RktPn">(</span><span class="RktSym"><a class="RktStxLink" data-pltdoc="x" href="http://docs.racket-lang.org/reference/define.html#%28form._%28%28lib._racket%2Fprivate%2Fbase..rkt%29._define%29%29">define</a></span><span class="hspace">&nbsp;</span><span class="RktSym">simple-path</span></td></tr>
+        <td><span class="stt">&gt; </span><span class="RktPn">(</span><span class="RktSym"><a class="RktStxLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/reference/define.html#%28form._%28%28lib._racket%2Fprivate%2Fbase..rkt%29._define%29%29">define</a></span><span class="hspace">&nbsp;</span><span class="RktSym">simple-path</span></td></tr>
        <tr>
-        <td><span class="hspace">&nbsp;&nbsp;</span><span class="hspace">&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><a class="RktValLink" data-pltdoc="x" href="http://docs.racket-lang.org/foreign/foreign_pointer-funcs.html#%28def._%28%28quote._~23~25foreign%29._ptr-ref%29%29">ptr-ref</a></span><span class="hspace">&nbsp;</span><span class="RktSym">a-path</span><span class="hspace">&nbsp;</span><span class="RktSym">_simple_cairo_path_t</span><span class="RktPn">)</span><span class="RktPn">)</span></td></tr></tbody></table></td></tr>
+        <td><span class="hspace">&nbsp;&nbsp;</span><span class="hspace">&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><a class="RktValLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/foreign/foreign_pointer-funcs.html#%28def._%28%28quote._~23~25foreign%29._ptr-ref%29%29">ptr-ref</a></span><span class="hspace">&nbsp;</span><span class="RktSym">a-path</span><span class="hspace">&nbsp;</span><span class="RktSym">_simple_cairo_path_t</span><span class="RktPn">)</span><span class="RktPn">)</span></td></tr></tbody></table></td></tr>
    <tr>
     <td>
      <table cellpadding="0" cellspacing="0">
@@ -603,7 +718,7 @@ offset argument which we will be used in an example later.</p>
 <p>And now we have a Racket representation of the struct that the pointer
 points to. Now notice that the data array field of the struct is also
 a pointer as we specified earlier. To convert this to a more useful form,
-we can use <span class="RktWrap"><span class="RktSym"><a class="RktValLink" data-pltdoc="x" href="http://docs.racket-lang.org/foreign/foreign_pointer-funcs.html#%28def._%28%28quote._~23~25foreign%29._ptr-ref%29%29">ptr-ref</a></span></span> again with an array type:</p>
+we can use <span class="RktWrap"><span class="RktSym"><a class="RktValLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/foreign/foreign_pointer-funcs.html#%28def._%28%28quote._~23~25foreign%29._ptr-ref%29%29">ptr-ref</a></span></span> again with an array type:</p>
 
 <div class="SCodeFlow">
  <table cellpadding="0" cellspacing="0" class="RktBlk">
@@ -613,13 +728,13 @@ we can use <span class="RktWrap"><span class="RktSym"><a class="RktValLink" data
      <table cellpadding="0" cellspacing="0" class="RktBlk">
       <tbody>
        <tr>
-        <td><span class="stt">&gt; </span><span class="RktPn">(</span><span class="RktSym"><a class="RktStxLink" data-pltdoc="x" href="http://docs.racket-lang.org/reference/define.html#%28form._%28%28lib._racket%2Fprivate%2Fbase..rkt%29._define%29%29">define</a></span><span class="hspace">&nbsp;</span><span class="RktSym">array</span></td></tr>
+        <td><span class="stt">&gt; </span><span class="RktPn">(</span><span class="RktSym"><a class="RktStxLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/reference/define.html#%28form._%28%28lib._racket%2Fprivate%2Fbase..rkt%29._define%29%29">define</a></span><span class="hspace">&nbsp;</span><span class="RktSym">array</span></td></tr>
        <tr>
-        <td><span class="hspace">&nbsp;&nbsp;</span><span class="hspace">&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><a class="RktValLink" data-pltdoc="x" href="http://docs.racket-lang.org/foreign/foreign_pointer-funcs.html#%28def._%28%28quote._~23~25foreign%29._ptr-ref%29%29">ptr-ref</a></span><span class="hspace">&nbsp;</span><span class="RktCmt">;</span><span class="RktCmt">&nbsp;</span><span class="RktCmt">the pointer</span></td></tr>
+        <td><span class="hspace">&nbsp;&nbsp;</span><span class="hspace">&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><a class="RktValLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/foreign/foreign_pointer-funcs.html#%28def._%28%28quote._~23~25foreign%29._ptr-ref%29%29">ptr-ref</a></span><span class="hspace">&nbsp;</span><span class="RktCmt">;</span><span class="RktCmt">&nbsp;</span><span class="RktCmt">the pointer</span></td></tr>
        <tr>
         <td><span class="hspace">&nbsp;&nbsp;</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym">second</span><span class="hspace">&nbsp;</span><span class="RktSym">simple-path</span><span class="RktPn">)</span></td></tr>
        <tr>
-        <td><span class="hspace">&nbsp;&nbsp;</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><a class="RktValLink" data-pltdoc="x" href="http://docs.racket-lang.org/foreign/C_Array_Types.html#%28def._%28%28lib._ffi%2Funsafe..rkt%29.__array%2Flist%29%29">_array/list</a></span><span class="hspace">&nbsp;</span><span class="RktSym">_cairo_path_data_t</span></td></tr>
+        <td><span class="hspace">&nbsp;&nbsp;</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><a class="RktValLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/foreign/C_Array_Types.html#%28def._%28%28lib._ffi%2Funsafe..rkt%29.__array%2Flist%29%29">_array/list</a></span><span class="hspace">&nbsp;</span><span class="RktSym">_cairo_path_data_t</span></td></tr>
        <tr>
         <td><span class="hspace">&nbsp;&nbsp;</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktCmt">;</span><span class="RktCmt">&nbsp;</span><span class="RktCmt">length field</span></td></tr>
        <tr>
@@ -644,22 +759,22 @@ array and reference the correct variant appropriately:</p>
  <table cellpadding="0" cellspacing="0" class="RktBlk">
   <tbody>
    <tr>
-    <td><span class="stt">&gt; </span><span class="RktPn">(</span><span class="RktSym"><a class="RktValLink" data-pltdoc="x" href="http://docs.racket-lang.org/foreign/C_Union_Types.html#%28def._%28%28lib._ffi%2Funsafe..rkt%29._union-ref%29%29">union-ref</a></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">first</span><span class="hspace">&nbsp;</span><span class="RktSym">array</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktVal">0</span><span class="RktPn">)</span></td></tr>
+    <td><span class="stt">&gt; </span><span class="RktPn">(</span><span class="RktSym"><a class="RktValLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/foreign/C_Union_Types.html#%28def._%28%28lib._ffi%2Funsafe..rkt%29._union-ref%29%29">union-ref</a></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">first</span><span class="hspace">&nbsp;</span><span class="RktSym">array</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktVal">0</span><span class="RktPn">)</span></td></tr>
    <tr>
     <td>
      <p><span class="RktRes">'(move-to 2)</span></p></td></tr>
    <tr>
-    <td><span class="stt">&gt; </span><span class="RktPn">(</span><span class="RktSym"><a class="RktValLink" data-pltdoc="x" href="http://docs.racket-lang.org/foreign/C_Union_Types.html#%28def._%28%28lib._ffi%2Funsafe..rkt%29._union-ref%29%29">union-ref</a></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">second</span><span class="hspace">&nbsp;</span><span class="RktSym">array</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktVal">1</span><span class="RktPn">)</span></td></tr>
+    <td><span class="stt">&gt; </span><span class="RktPn">(</span><span class="RktSym"><a class="RktValLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/foreign/C_Union_Types.html#%28def._%28%28lib._ffi%2Funsafe..rkt%29._union-ref%29%29">union-ref</a></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">second</span><span class="hspace">&nbsp;</span><span class="RktSym">array</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktVal">1</span><span class="RktPn">)</span></td></tr>
    <tr>
     <td>
      <p><span class="RktRes">'(50.0 50.0)</span></p></td></tr>
    <tr>
     <td><span class="RktCmt">;</span><span class="RktCmt">&nbsp;</span><span class="RktCmt">nonsense data here, wrong union case</span></td></tr>
    <tr>
-    <td><span class="stt">&gt; </span><span class="RktPn">(</span><span class="RktSym"><a class="RktValLink" data-pltdoc="x" href="http://docs.racket-lang.org/foreign/C_Union_Types.html#%28def._%28%28lib._ffi%2Funsafe..rkt%29._union-ref%29%29">union-ref</a></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">third</span><span class="hspace">&nbsp;</span><span class="RktSym">array</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktVal">1</span><span class="RktPn">)</span></td></tr>
+    <td><span class="stt">&gt; </span><span class="RktPn">(</span><span class="RktSym"><a class="RktValLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/foreign/C_Union_Types.html#%28def._%28%28lib._ffi%2Funsafe..rkt%29._union-ref%29%29">union-ref</a></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">third</span><span class="hspace">&nbsp;</span><span class="RktSym">array</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktVal">1</span><span class="RktPn">)</span></td></tr>
    <tr>
     <td>
-     <p><span class="RktRes">'(4.2439915824246e-314 +nan.0)</span></p></td></tr></tbody></table></div>
+     <p><span class="RktRes">'(4.2439915824246e-314 0.0)</span></p></td></tr></tbody></table></div>
 
 <p>One thing we could do is write a helper function that converts this array
 into a more useful format. It would look at each header, and then consume
@@ -699,11 +814,11 @@ of Cairo paths:</p>
      <table cellpadding="0" cellspacing="0" class="RktBlk">
       <tbody>
        <tr>
-        <td><span class="stt">&gt; </span><span class="RktPn">(</span><span class="RktSym"><a class="RktStxLink" data-pltdoc="x" href="http://docs.racket-lang.org/reference/define-struct.html#%28form._%28%28lib._racket%2Fprivate%2Fbase..rkt%29._struct%29%29">struct</a></span><span class="hspace">&nbsp;</span><span class="RktSym">cairo-path</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">ptr</span><span class="RktPn">)</span></td></tr>
+        <td><span class="stt">&gt; </span><span class="RktPn">(</span><span class="RktSym"><a class="RktStxLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/reference/define-struct.html#%28form._%28%28lib._racket%2Fprivate%2Fbase..rkt%29._struct%29%29">struct</a></span><span class="hspace">&nbsp;</span><span class="RktSym">cairo-path</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">ptr</span><span class="RktPn">)</span></td></tr>
        <tr>
-        <td><span class="hspace">&nbsp;&nbsp;</span><span class="hspace">&nbsp;&nbsp;</span><span class="RktPn">#:property</span><span class="hspace">&nbsp;</span><span class="RktSym"><a class="RktValLink" data-pltdoc="x" href="http://docs.racket-lang.org/reference/sequences.html#%28def._%28%28lib._racket%2Fprivate%2Fbase..rkt%29._prop~3asequence%29%29">prop:sequence</a></span></td></tr>
+        <td><span class="hspace">&nbsp;&nbsp;</span><span class="hspace">&nbsp;&nbsp;</span><span class="RktPn">#:property</span><span class="hspace">&nbsp;</span><span class="RktSym"><a class="RktValLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/reference/sequences.html#%28def._%28%28lib._racket%2Fprivate%2Fbase..rkt%29._prop~3asequence%29%29">prop:sequence</a></span></td></tr>
        <tr>
-        <td><span class="hspace">&nbsp;&nbsp;</span><span class="hspace">&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><a class="RktStxLink" data-pltdoc="x" href="http://docs.racket-lang.org/reference/lambda.html#%28form._%28%28lib._racket%2Fprivate%2Fbase..rkt%29._~ce~bb%29%29">&#955;</a></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">p</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">in-cairo-path</span><span class="hspace">&nbsp;</span><span class="RktSym">p</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span></td></tr></tbody></table></td></tr>
+        <td><span class="hspace">&nbsp;&nbsp;</span><span class="hspace">&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><a class="RktStxLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/reference/lambda.html#%28form._%28%28lib._racket%2Fprivate%2Fbase..rkt%29._~ce~bb%29%29">&#955;</a></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">p</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">in-cairo-path</span><span class="hspace">&nbsp;</span><span class="RktSym">p</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span></td></tr></tbody></table></td></tr>
    <tr>
     <td>
      <table cellpadding="0" cellspacing="0">
@@ -715,9 +830,9 @@ of Cairo paths:</p>
 suggests, will store a pointer value. We&rsquo;ll see what to do with this
 pointer later.</p>
 
-<p>This definition uses a <a class="techoutside" data-pltdoc="x" href="http://docs.racket-lang.org/reference/structprops.html#%28tech._structure._type._property%29"><span class="techinside">structure type property</span></a> to make instances of
+<p>This definition uses a <a class="techoutside Sq" data-pltdoc="x" href="https://docs.racket-lang.org/reference/structprops.html#%28tech._structure._type._property%29"><span class="techinside">structure type property</span></a> to make instances of
 <span class="RktWrap"><span class="RktSym">cairo-path</span></span> automatically work as sequences. This means that you
-can iterate over them with a <span class="RktWrap"><span class="RktSym"><a class="RktStxLink" data-pltdoc="x" href="http://docs.racket-lang.org/reference/for.html#%28form._%28%28lib._racket%2Fprivate%2Fbase..rkt%29._for%29%29">for</a></span></span> loop or apply <span class="RktWrap"><span class="RktSym">sequence-ref</span></span>
+can iterate over them with a <span class="RktWrap"><span class="RktSym"><a class="RktStxLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/reference/for.html#%28form._%28%28lib._racket%2Fprivate%2Fbase..rkt%29._for%29%29">for</a></span></span> loop or apply <span class="RktWrap"><span class="RktSym">sequence-ref</span></span>
 on them. The property takes a function that takes an instance of the struct
 type itself (here <span class="RktWrap"><span class="RktSym">p</span></span>) and that returns a sequence.</p>
 
@@ -733,23 +848,23 @@ the C type given this struct type:</p>
      <table cellpadding="0" cellspacing="0" class="RktBlk">
       <tbody>
        <tr>
-        <td><span class="stt">&gt; </span><span class="RktPn">(</span><span class="RktSym"><a class="RktStxLink" data-pltdoc="x" href="http://docs.racket-lang.org/reference/define.html#%28form._%28%28lib._racket%2Fprivate%2Fbase..rkt%29._define%29%29">define</a></span><span class="hspace">&nbsp;</span><span class="RktSym">_cairo_path_t</span></td></tr>
+        <td><span class="stt">&gt; </span><span class="RktPn">(</span><span class="RktSym"><a class="RktStxLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/reference/define.html#%28form._%28%28lib._racket%2Fprivate%2Fbase..rkt%29._define%29%29">define</a></span><span class="hspace">&nbsp;</span><span class="RktSym">_cairo_path_t</span></td></tr>
        <tr>
-        <td><span class="hspace">&nbsp;&nbsp;</span><span class="hspace">&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><a class="RktStxLink" data-pltdoc="x" href="http://docs.racket-lang.org/reference/let.html#%28form._%28%28lib._racket%2Fprivate%2Fletstx-scheme..rkt%29._let%29%29">let</a></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktPn">)</span></td></tr>
+        <td><span class="hspace">&nbsp;&nbsp;</span><span class="hspace">&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><a class="RktStxLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/reference/let.html#%28form._%28%28lib._racket%2Fprivate%2Fletstx-scheme..rkt%29._let%29%29">let</a></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktPn">)</span></td></tr>
        <tr>
         <td><span class="hspace">&nbsp;&nbsp;</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktCmt">;</span><span class="RktCmt">&nbsp;</span><span class="RktCmt">Extract pointer out of representation</span></td></tr>
        <tr>
-        <td><span class="hspace">&nbsp;&nbsp;</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><a class="RktStxLink" data-pltdoc="x" href="http://docs.racket-lang.org/reference/define.html#%28form._%28%28lib._racket%2Fprivate%2Fbase..rkt%29._define%29%29">define</a></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">racket-&gt;c</span><span class="hspace">&nbsp;</span><span class="RktSym">rkt</span><span class="RktPn">)</span></td></tr>
+        <td><span class="hspace">&nbsp;&nbsp;</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><a class="RktStxLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/reference/define.html#%28form._%28%28lib._racket%2Fprivate%2Fbase..rkt%29._define%29%29">define</a></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">racket-&gt;c</span><span class="hspace">&nbsp;</span><span class="RktSym">rkt</span><span class="RktPn">)</span></td></tr>
        <tr>
         <td><span class="hspace">&nbsp;&nbsp;</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym">cairo-path-ptr</span><span class="hspace">&nbsp;</span><span class="RktSym">rkt</span><span class="RktPn">)</span><span class="RktPn">)</span></td></tr>
        <tr>
         <td><span class="hspace">&nbsp;&nbsp;</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktCmt">;</span><span class="RktCmt">&nbsp;</span><span class="RktCmt">Just apply the Racket constructor</span></td></tr>
        <tr>
-        <td><span class="hspace">&nbsp;&nbsp;</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><a class="RktStxLink" data-pltdoc="x" href="http://docs.racket-lang.org/reference/define.html#%28form._%28%28lib._racket%2Fprivate%2Fbase..rkt%29._define%29%29">define</a></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">c-&gt;racket</span><span class="hspace">&nbsp;</span><span class="RktSym">cobj</span><span class="RktPn">)</span></td></tr>
+        <td><span class="hspace">&nbsp;&nbsp;</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><a class="RktStxLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/reference/define.html#%28form._%28%28lib._racket%2Fprivate%2Fbase..rkt%29._define%29%29">define</a></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">c-&gt;racket</span><span class="hspace">&nbsp;</span><span class="RktSym">cobj</span><span class="RktPn">)</span></td></tr>
        <tr>
         <td><span class="hspace">&nbsp;&nbsp;</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym">cairo-path</span><span class="hspace">&nbsp;</span><span class="RktSym">cobj</span><span class="RktPn">)</span><span class="RktPn">)</span></td></tr>
        <tr>
-        <td><span class="hspace">&nbsp;&nbsp;</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><a class="RktValLink" data-pltdoc="x" href="http://docs.racket-lang.org/foreign/ctype.html#%28def._%28%28quote._~23~25foreign%29._make-ctype%29%29">make-ctype</a></span><span class="hspace">&nbsp;</span><span class="RktSym"><a class="RktValLink" data-pltdoc="x" href="http://docs.racket-lang.org/foreign/Pointer_Types.html#%28def._%28%28quote._~23~25foreign%29.__pointer%29%29">_pointer</a></span></td></tr>
+        <td><span class="hspace">&nbsp;&nbsp;</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><a class="RktValLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/foreign/ctype.html#%28def._%28%28quote._~23~25foreign%29._make-ctype%29%29">make-ctype</a></span><span class="hspace">&nbsp;</span><span class="RktSym"><a class="RktValLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/foreign/Pointer_Types.html#%28def._%28%28quote._~23~25foreign%29.__pointer%29%29">_pointer</a></span></td></tr>
        <tr>
         <td><span class="hspace">&nbsp;&nbsp;</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktSym">racket-&gt;c</span></td></tr>
        <tr>
@@ -761,7 +876,7 @@ the C type given this struct type:</p>
        <tr>
         <td></td></tr></tbody></table></td></tr></tbody></table></div>
 
-<p>The base type for this <span class="RktWrap"><span class="RktSym">_cairo_path_t</span></span> is a <span class="RktWrap"><span class="RktSym"><a class="RktValLink" data-pltdoc="x" href="http://docs.racket-lang.org/foreign/Pointer_Types.html#%28def._%28%28quote._~23~25foreign%29.__pointer%29%29">_pointer</a></span></span> type. Since
+<p>The base type for this <span class="RktWrap"><span class="RktSym">_cairo_path_t</span></span> is a <span class="RktWrap"><span class="RktSym"><a class="RktValLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/foreign/Pointer_Types.html#%28def._%28%28quote._~23~25foreign%29.__pointer%29%29">_pointer</a></span></span> type. Since
 the Cairo API returns pointers to new path values, it&rsquo;s hard to avoid using some
 kind of pointer type as the base type here.</p>
 
@@ -785,27 +900,27 @@ the other direction, we just stuff the pointer into a struct.</p>
      <table cellpadding="0" cellspacing="0" class="RktBlk">
       <tbody>
        <tr>
-        <td><span class="stt">&gt; </span><span class="RktPn">(</span><span class="RktSym"><a class="RktStxLink" data-pltdoc="x" href="http://docs.racket-lang.org/reference/define.html#%28form._%28%28lib._racket%2Fprivate%2Fbase..rkt%29._define%29%29">define</a></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">in-cairo-path</span><span class="hspace">&nbsp;</span><span class="RktSym">path</span><span class="RktPn">)</span></td></tr>
+        <td><span class="stt">&gt; </span><span class="RktPn">(</span><span class="RktSym"><a class="RktStxLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/reference/define.html#%28form._%28%28lib._racket%2Fprivate%2Fbase..rkt%29._define%29%29">define</a></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">in-cairo-path</span><span class="hspace">&nbsp;</span><span class="RktSym">path</span><span class="RktPn">)</span></td></tr>
        <tr>
-        <td><span class="hspace">&nbsp;&nbsp;</span><span class="hspace">&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><a class="RktStxLink" data-pltdoc="x" href="http://docs.racket-lang.org/reference/define.html#%28form._%28%28lib._racket%2Fprivate%2Fbase..rkt%29._define%29%29">define</a></span><span class="hspace">&nbsp;</span><span class="RktSym">pp</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">cairo-path-ptr</span><span class="hspace">&nbsp;</span><span class="RktSym">path</span><span class="RktPn">)</span><span class="RktPn">)</span></td></tr>
+        <td><span class="hspace">&nbsp;&nbsp;</span><span class="hspace">&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><a class="RktStxLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/reference/define.html#%28form._%28%28lib._racket%2Fprivate%2Fbase..rkt%29._define%29%29">define</a></span><span class="hspace">&nbsp;</span><span class="RktSym">pp</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">cairo-path-ptr</span><span class="hspace">&nbsp;</span><span class="RktSym">path</span><span class="RktPn">)</span><span class="RktPn">)</span></td></tr>
        <tr>
         <td><span class="hspace">&nbsp;&nbsp;</span><span class="hspace">&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym">match-define</span></td></tr>
        <tr>
-        <td><span class="hspace">&nbsp;&nbsp;</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><a class="RktValLink" data-pltdoc="x" href="http://docs.racket-lang.org/reference/pairs.html#%28def._%28%28quote._~23~25kernel%29._list%29%29">list</a></span><span class="hspace">&nbsp;</span><span class="RktSym"><a class="RktStxLink" data-pltdoc="x" href="http://docs.racket-lang.org/reference/stx-patterns.html#%28form._%28%28lib._racket%2Fprivate%2Fstxcase-scheme..rkt%29.__%29%29">_</a></span><span class="hspace">&nbsp;</span><span class="RktSym"><a class="RktValLink" data-pltdoc="x" href="http://docs.racket-lang.org/foreign/C_Array_Types.html#%28def._%28%28lib._ffi%2Funsafe..rkt%29._array-ptr%29%29">array-ptr</a></span><span class="hspace">&nbsp;</span><span class="RktSym">len</span><span class="RktPn">)</span></td></tr>
+        <td><span class="hspace">&nbsp;&nbsp;</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><a class="RktValLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/reference/pairs.html#%28def._%28%28quote._~23~25kernel%29._list%29%29">list</a></span><span class="hspace">&nbsp;</span><span class="RktSym"><a class="RktStxLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/reference/stx-patterns.html#%28form._%28%28lib._racket%2Fprivate%2Fstxcase-scheme..rkt%29.__%29%29">_</a></span><span class="hspace">&nbsp;</span><span class="RktSym"><a class="RktValLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/foreign/C_Array_Types.html#%28def._%28%28lib._ffi%2Funsafe..rkt%29._array-ptr%29%29">array-ptr</a></span><span class="hspace">&nbsp;</span><span class="RktSym">len</span><span class="RktPn">)</span></td></tr>
        <tr>
-        <td><span class="hspace">&nbsp;&nbsp;</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><a class="RktValLink" data-pltdoc="x" href="http://docs.racket-lang.org/foreign/foreign_pointer-funcs.html#%28def._%28%28quote._~23~25foreign%29._ptr-ref%29%29">ptr-ref</a></span><span class="hspace">&nbsp;</span><span class="RktSym">pp</span><span class="hspace">&nbsp;</span><span class="RktSym">_simple_cairo_path_t</span><span class="RktPn">)</span><span class="RktPn">)</span></td></tr>
+        <td><span class="hspace">&nbsp;&nbsp;</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><a class="RktValLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/foreign/foreign_pointer-funcs.html#%28def._%28%28quote._~23~25foreign%29._ptr-ref%29%29">ptr-ref</a></span><span class="hspace">&nbsp;</span><span class="RktSym">pp</span><span class="hspace">&nbsp;</span><span class="RktSym">_simple_cairo_path_t</span><span class="RktPn">)</span><span class="RktPn">)</span></td></tr>
        <tr>
-        <td><span class="hspace">&nbsp;&nbsp;</span><span class="hspace">&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><a class="RktValLink" data-pltdoc="x" href="http://docs.racket-lang.org/reference/sequences.html#%28def._%28%28lib._racket%2Fprivate%2Fbase..rkt%29._make-do-sequence%29%29">make-do-sequence</a></span></td></tr>
+        <td><span class="hspace">&nbsp;&nbsp;</span><span class="hspace">&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><a class="RktValLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/reference/sequences.html#%28def._%28%28lib._racket%2Fprivate%2Fbase..rkt%29._make-do-sequence%29%29">make-do-sequence</a></span></td></tr>
        <tr>
-        <td><span class="hspace">&nbsp;&nbsp;</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><a class="RktStxLink" data-pltdoc="x" href="http://docs.racket-lang.org/reference/lambda.html#%28form._%28%28lib._racket%2Fprivate%2Fbase..rkt%29._~ce~bb%29%29">&#955;</a></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktPn">)</span></td></tr>
+        <td><span class="hspace">&nbsp;&nbsp;</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><a class="RktStxLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/reference/lambda.html#%28form._%28%28lib._racket%2Fprivate%2Fbase..rkt%29._~ce~bb%29%29">&#955;</a></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktPn">)</span></td></tr>
        <tr>
-        <td><span class="hspace">&nbsp;&nbsp;</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><a class="RktValLink" data-pltdoc="x" href="http://docs.racket-lang.org/reference/values.html#%28def._%28%28quote._~23~25kernel%29._values%29%29">values</a></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">pos-&gt;element</span><span class="hspace">&nbsp;</span><span class="RktSym"><a class="RktValLink" data-pltdoc="x" href="http://docs.racket-lang.org/foreign/C_Array_Types.html#%28def._%28%28lib._ffi%2Funsafe..rkt%29._array-ptr%29%29">array-ptr</a></span><span class="RktPn">)</span></td></tr>
+        <td><span class="hspace">&nbsp;&nbsp;</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><a class="RktValLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/reference/values.html#%28def._%28%28quote._~23~25kernel%29._values%29%29">values</a></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">pos-&gt;element</span><span class="hspace">&nbsp;</span><span class="RktSym"><a class="RktValLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/foreign/C_Array_Types.html#%28def._%28%28lib._ffi%2Funsafe..rkt%29._array-ptr%29%29">array-ptr</a></span><span class="RktPn">)</span></td></tr>
        <tr>
-        <td><span class="hspace">&nbsp;&nbsp;</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym">next-pos</span><span class="hspace">&nbsp;</span><span class="RktSym"><a class="RktValLink" data-pltdoc="x" href="http://docs.racket-lang.org/foreign/C_Array_Types.html#%28def._%28%28lib._ffi%2Funsafe..rkt%29._array-ptr%29%29">array-ptr</a></span><span class="RktPn">)</span></td></tr>
+        <td><span class="hspace">&nbsp;&nbsp;</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym">next-pos</span><span class="hspace">&nbsp;</span><span class="RktSym"><a class="RktValLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/foreign/C_Array_Types.html#%28def._%28%28lib._ffi%2Funsafe..rkt%29._array-ptr%29%29">array-ptr</a></span><span class="RktPn">)</span></td></tr>
        <tr>
         <td><span class="hspace">&nbsp;&nbsp;</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktVal">0</span></td></tr>
        <tr>
-        <td><span class="hspace">&nbsp;&nbsp;</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><a class="RktStxLink" data-pltdoc="x" href="http://docs.racket-lang.org/reference/lambda.html#%28form._%28%28lib._racket%2Fprivate%2Fbase..rkt%29._~ce~bb%29%29">&#955;</a></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">pos</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><a class="RktValLink" data-pltdoc="x" href="http://docs.racket-lang.org/reference/generic-numbers.html#%28def._%28%28quote._~23~25kernel%29._~3c%29%29">&lt;</a></span><span class="hspace">&nbsp;</span><span class="RktSym">pos</span><span class="hspace">&nbsp;</span><span class="RktSym">len</span><span class="RktPn">)</span><span class="RktPn">)</span></td></tr>
+        <td><span class="hspace">&nbsp;&nbsp;</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><a class="RktStxLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/reference/lambda.html#%28form._%28%28lib._racket%2Fprivate%2Fbase..rkt%29._~ce~bb%29%29">&#955;</a></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">pos</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><a class="RktValLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/reference/generic-numbers.html#%28def._%28%28quote._~23~25kernel%29._~3c%29%29">&lt;</a></span><span class="hspace">&nbsp;</span><span class="RktSym">pos</span><span class="hspace">&nbsp;</span><span class="RktSym">len</span><span class="RktPn">)</span><span class="RktPn">)</span></td></tr>
        <tr>
         <td><span class="hspace">&nbsp;&nbsp;</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktVal">#f</span><span class="hspace">&nbsp;</span><span class="RktVal">#f</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span></td></tr></tbody></table></td></tr>
    <tr>
@@ -816,7 +931,7 @@ the other direction, we just stuff the pointer into a struct.</p>
         <td></td></tr></tbody></table></td></tr></tbody></table></div>
 
 <p>The first thing the function does is extract the pointer out of the
-representation, and then immediately calls <span class="RktWrap"><span class="RktSym"><a class="RktValLink" data-pltdoc="x" href="http://docs.racket-lang.org/foreign/foreign_pointer-funcs.html#%28def._%28%28quote._~23~25foreign%29._ptr-ref%29%29">ptr-ref</a></span></span> on it. This
+representation, and then immediately calls <span class="RktWrap"><span class="RktSym"><a class="RktValLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/foreign/foreign_pointer-funcs.html#%28def._%28%28quote._~23~25foreign%29._ptr-ref%29%29">ptr-ref</a></span></span> on it. This
 lets us manipulate the C path struct using the simple representation we
 defined in the first part of the blog post.</p>
 
@@ -831,12 +946,12 @@ in the
 <p>After extracting the array pointer and the array length from the
 path value, we pass them onto some helper functions that define the
 sequence. The usual way to define a new kind of sequence is to use the
-<span class="RktWrap"><span class="RktSym"><a class="RktValLink" data-pltdoc="x" href="http://docs.racket-lang.org/reference/sequences.html#%28def._%28%28lib._racket%2Fprivate%2Fbase..rkt%29._make-do-sequence%29%29">make-do-sequence</a></span></span> function. Essentially, <span class="RktWrap"><span class="RktSym"><a class="RktValLink" data-pltdoc="x" href="http://docs.racket-lang.org/reference/sequences.html#%28def._%28%28lib._racket%2Fprivate%2Fbase..rkt%29._make-do-sequence%29%29">make-do-sequence</a></span></span>
+<span class="RktWrap"><span class="RktSym"><a class="RktValLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/reference/sequences.html#%28def._%28%28lib._racket%2Fprivate%2Fbase..rkt%29._make-do-sequence%29%29">make-do-sequence</a></span></span> function. Essentially, <span class="RktWrap"><span class="RktSym"><a class="RktValLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/reference/sequences.html#%28def._%28%28lib._racket%2Fprivate%2Fbase..rkt%29._make-do-sequence%29%29">make-do-sequence</a></span></span>
 takes a bunch of arguments that specify how to get the an element of
 a sequence, how to advance a sequence, how to start, and how to end
 the sequence.</p>
 
-<p><span style="font-weight: bold">Note:</span> technically <span class="RktWrap"><span class="RktSym"><a class="RktValLink" data-pltdoc="x" href="http://docs.racket-lang.org/reference/sequences.html#%28def._%28%28lib._racket%2Fprivate%2Fbase..rkt%29._make-do-sequence%29%29">make-do-sequence</a></span></span> actually takes a thunk which
+<p><span style="font-weight: bold">Note:</span> technically <span class="RktWrap"><span class="RktSym"><a class="RktValLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/reference/sequences.html#%28def._%28%28lib._racket%2Fprivate%2Fbase..rkt%29._make-do-sequence%29%29">make-do-sequence</a></span></span> actually takes a thunk which
 produces a number of values. These values are effectively like arguments
 though. The reason why it&rsquo;s a thunk is that you may wish to
 run some initialization code that runs when the sequence is started
@@ -858,29 +973,29 @@ and its helpers:</p>
      <table cellpadding="0" cellspacing="0" class="RktBlk">
       <tbody>
        <tr>
-        <td><span class="stt">&gt; </span><span class="RktPn">(</span><span class="RktSym"><a class="RktStxLink" data-pltdoc="x" href="http://docs.racket-lang.org/reference/define.html#%28form._%28%28lib._racket%2Fprivate%2Fbase..rkt%29._define%29%29">define</a></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktPn">(</span><span class="RktSym">pos-&gt;element</span><span class="hspace">&nbsp;</span><span class="RktSym">ptr</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktSym">pos</span><span class="RktPn">)</span></td></tr>
+        <td><span class="stt">&gt; </span><span class="RktPn">(</span><span class="RktSym"><a class="RktStxLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/reference/define.html#%28form._%28%28lib._racket%2Fprivate%2Fbase..rkt%29._define%29%29">define</a></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktPn">(</span><span class="RktSym">pos-&gt;element</span><span class="hspace">&nbsp;</span><span class="RktSym">ptr</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktSym">pos</span><span class="RktPn">)</span></td></tr>
        <tr>
         <td><span class="hspace">&nbsp;&nbsp;</span><span class="hspace">&nbsp;&nbsp;</span><span class="RktCmt">;</span><span class="RktCmt">&nbsp;</span><span class="RktCmt">Extract the data path header</span></td></tr>
        <tr>
-        <td><span class="hspace">&nbsp;&nbsp;</span><span class="hspace">&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><a class="RktStxLink" data-pltdoc="x" href="http://docs.racket-lang.org/reference/define.html#%28form._%28%28lib._racket%2Fprivate%2Fbase..rkt%29._define%29%29">define</a></span><span class="hspace">&nbsp;</span><span class="RktSym">header</span></td></tr>
+        <td><span class="hspace">&nbsp;&nbsp;</span><span class="hspace">&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><a class="RktStxLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/reference/define.html#%28form._%28%28lib._racket%2Fprivate%2Fbase..rkt%29._define%29%29">define</a></span><span class="hspace">&nbsp;</span><span class="RktSym">header</span></td></tr>
        <tr>
-        <td><span class="hspace">&nbsp;&nbsp;</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><a class="RktValLink" data-pltdoc="x" href="http://docs.racket-lang.org/foreign/C_Union_Types.html#%28def._%28%28lib._ffi%2Funsafe..rkt%29._union-ref%29%29">union-ref</a></span></td></tr>
+        <td><span class="hspace">&nbsp;&nbsp;</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><a class="RktValLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/foreign/C_Union_Types.html#%28def._%28%28lib._ffi%2Funsafe..rkt%29._union-ref%29%29">union-ref</a></span></td></tr>
        <tr>
-        <td><span class="hspace">&nbsp;&nbsp;</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><a class="RktValLink" data-pltdoc="x" href="http://docs.racket-lang.org/foreign/foreign_pointer-funcs.html#%28def._%28%28quote._~23~25foreign%29._ptr-ref%29%29">ptr-ref</a></span><span class="hspace">&nbsp;</span><span class="RktSym">ptr</span><span class="hspace">&nbsp;</span><span class="RktSym">_cairo_path_data_t</span><span class="hspace">&nbsp;</span><span class="RktSym">pos</span><span class="RktPn">)</span></td></tr>
+        <td><span class="hspace">&nbsp;&nbsp;</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><a class="RktValLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/foreign/foreign_pointer-funcs.html#%28def._%28%28quote._~23~25foreign%29._ptr-ref%29%29">ptr-ref</a></span><span class="hspace">&nbsp;</span><span class="RktSym">ptr</span><span class="hspace">&nbsp;</span><span class="RktSym">_cairo_path_data_t</span><span class="hspace">&nbsp;</span><span class="RktSym">pos</span><span class="RktPn">)</span></td></tr>
        <tr>
         <td><span class="hspace">&nbsp;&nbsp;</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktVal">0</span><span class="RktPn">)</span><span class="RktPn">)</span></td></tr>
        <tr>
-        <td><span class="hspace">&nbsp;&nbsp;</span><span class="hspace">&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><a class="RktStxLink" data-pltdoc="x" href="http://docs.racket-lang.org/reference/define.html#%28form._%28%28lib._racket%2Fprivate%2Fbase..rkt%29._define%29%29">define</a></span><span class="hspace">&nbsp;</span><span class="RktSym">type</span><span class="hspace">&nbsp;&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym">first</span><span class="hspace">&nbsp;</span><span class="RktSym">header</span><span class="RktPn">)</span><span class="RktPn">)</span></td></tr>
+        <td><span class="hspace">&nbsp;&nbsp;</span><span class="hspace">&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><a class="RktStxLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/reference/define.html#%28form._%28%28lib._racket%2Fprivate%2Fbase..rkt%29._define%29%29">define</a></span><span class="hspace">&nbsp;</span><span class="RktSym">type</span><span class="hspace">&nbsp;&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym">first</span><span class="hspace">&nbsp;</span><span class="RktSym">header</span><span class="RktPn">)</span><span class="RktPn">)</span></td></tr>
        <tr>
         <td><span class="hspace">&nbsp;&nbsp;</span><span class="hspace">&nbsp;&nbsp;</span><span class="RktCmt">;</span><span class="RktCmt">&nbsp;</span><span class="RktCmt">Length includes header, so subtract 1</span></td></tr>
        <tr>
-        <td><span class="hspace">&nbsp;&nbsp;</span><span class="hspace">&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><a class="RktStxLink" data-pltdoc="x" href="http://docs.racket-lang.org/reference/define.html#%28form._%28%28lib._racket%2Fprivate%2Fbase..rkt%29._define%29%29">define</a></span><span class="hspace">&nbsp;</span><span class="RktSym">len</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><a class="RktValLink" data-pltdoc="x" href="http://docs.racket-lang.org/reference/generic-numbers.html#%28def._%28%28quote._~23~25kernel%29._sub1%29%29">sub1</a></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">second</span><span class="hspace">&nbsp;</span><span class="RktSym">header</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span></td></tr>
+        <td><span class="hspace">&nbsp;&nbsp;</span><span class="hspace">&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><a class="RktStxLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/reference/define.html#%28form._%28%28lib._racket%2Fprivate%2Fbase..rkt%29._define%29%29">define</a></span><span class="hspace">&nbsp;</span><span class="RktSym">len</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><a class="RktValLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/reference/generic-numbers.html#%28def._%28%28quote._~23~25kernel%29._sub1%29%29">sub1</a></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">second</span><span class="hspace">&nbsp;</span><span class="RktSym">header</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span></td></tr>
        <tr>
-        <td><span class="hspace">&nbsp;&nbsp;</span><span class="hspace">&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><a class="RktStxLink" data-pltdoc="x" href="http://docs.racket-lang.org/reference/define.html#%28form._%28%28lib._racket%2Fprivate%2Fbase..rkt%29._define%29%29">define</a></span><span class="hspace">&nbsp;</span><span class="RktSym">pos*</span><span class="hspace">&nbsp;&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><a class="RktValLink" data-pltdoc="x" href="http://docs.racket-lang.org/reference/generic-numbers.html#%28def._%28%28quote._~23~25kernel%29._add1%29%29">add1</a></span><span class="hspace">&nbsp;</span><span class="RktSym">pos</span><span class="RktPn">)</span><span class="RktPn">)</span></td></tr>
+        <td><span class="hspace">&nbsp;&nbsp;</span><span class="hspace">&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><a class="RktStxLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/reference/define.html#%28form._%28%28lib._racket%2Fprivate%2Fbase..rkt%29._define%29%29">define</a></span><span class="hspace">&nbsp;</span><span class="RktSym">pos*</span><span class="hspace">&nbsp;&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><a class="RktValLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/reference/generic-numbers.html#%28def._%28%28quote._~23~25kernel%29._add1%29%29">add1</a></span><span class="hspace">&nbsp;</span><span class="RktSym">pos</span><span class="RktPn">)</span><span class="RktPn">)</span></td></tr>
        <tr>
-        <td><span class="hspace">&nbsp;&nbsp;</span><span class="hspace">&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><a class="RktStxLink" data-pltdoc="x" href="http://docs.racket-lang.org/reference/define.html#%28form._%28%28lib._racket%2Fprivate%2Fbase..rkt%29._define%29%29">define</a></span><span class="hspace">&nbsp;</span><span class="RktSym">points</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">get-points</span><span class="hspace">&nbsp;</span><span class="RktSym">ptr</span><span class="hspace">&nbsp;</span><span class="RktSym">pos*</span><span class="hspace">&nbsp;</span><span class="RktSym">len</span><span class="RktPn">)</span><span class="RktPn">)</span></td></tr>
+        <td><span class="hspace">&nbsp;&nbsp;</span><span class="hspace">&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><a class="RktStxLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/reference/define.html#%28form._%28%28lib._racket%2Fprivate%2Fbase..rkt%29._define%29%29">define</a></span><span class="hspace">&nbsp;</span><span class="RktSym">points</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">get-points</span><span class="hspace">&nbsp;</span><span class="RktSym">ptr</span><span class="hspace">&nbsp;</span><span class="RktSym">pos*</span><span class="hspace">&nbsp;</span><span class="RktSym">len</span><span class="RktPn">)</span><span class="RktPn">)</span></td></tr>
        <tr>
-        <td><span class="hspace">&nbsp;&nbsp;</span><span class="hspace">&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><a class="RktValLink" data-pltdoc="x" href="http://docs.racket-lang.org/reference/pairs.html#%28def._%28%28quote._~23~25kernel%29._cons%29%29">cons</a></span><span class="hspace">&nbsp;</span><span class="RktSym">type</span><span class="hspace">&nbsp;</span><span class="RktSym">points</span><span class="RktPn">)</span><span class="RktPn">)</span></td></tr></tbody></table></td></tr>
+        <td><span class="hspace">&nbsp;&nbsp;</span><span class="hspace">&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><a class="RktValLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/reference/pairs.html#%28def._%28%28quote._~23~25kernel%29._cons%29%29">cons</a></span><span class="hspace">&nbsp;</span><span class="RktSym">type</span><span class="hspace">&nbsp;</span><span class="RktSym">points</span><span class="RktPn">)</span><span class="RktPn">)</span></td></tr></tbody></table></td></tr>
    <tr>
     <td>
      <table cellpadding="0" cellspacing="0">
@@ -894,17 +1009,17 @@ and its helpers:</p>
      <table cellpadding="0" cellspacing="0" class="RktBlk">
       <tbody>
        <tr>
-        <td><span class="stt">&gt; </span><span class="RktPn">(</span><span class="RktSym"><a class="RktStxLink" data-pltdoc="x" href="http://docs.racket-lang.org/reference/define.html#%28form._%28%28lib._racket%2Fprivate%2Fbase..rkt%29._define%29%29">define</a></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">get-points</span><span class="hspace">&nbsp;</span><span class="RktSym">ptr</span><span class="hspace">&nbsp;</span><span class="RktSym">pos</span><span class="hspace">&nbsp;</span><span class="RktSym">num-points</span><span class="RktPn">)</span></td></tr>
+        <td><span class="stt">&gt; </span><span class="RktPn">(</span><span class="RktSym"><a class="RktStxLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/reference/define.html#%28form._%28%28lib._racket%2Fprivate%2Fbase..rkt%29._define%29%29">define</a></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">get-points</span><span class="hspace">&nbsp;</span><span class="RktSym">ptr</span><span class="hspace">&nbsp;</span><span class="RktSym">pos</span><span class="hspace">&nbsp;</span><span class="RktSym">num-points</span><span class="RktPn">)</span></td></tr>
        <tr>
-        <td><span class="hspace">&nbsp;&nbsp;</span><span class="hspace">&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><a class="RktStxLink" data-pltdoc="x" href="http://docs.racket-lang.org/reference/for.html#%28form._%28%28lib._racket%2Fprivate%2Fbase..rkt%29._for%2Flist%29%29">for/list</a></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktPn">[</span><span class="RktSym">i</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><a class="RktValLink" data-pltdoc="x" href="http://docs.racket-lang.org/reference/sequences.html#%28def._%28%28lib._racket%2Fprivate%2Fbase..rkt%29._in-range%29%29">in-range</a></span><span class="hspace">&nbsp;</span><span class="RktSym">num-points</span><span class="RktPn">)</span><span class="RktPn">]</span><span class="RktPn">)</span></td></tr>
+        <td><span class="hspace">&nbsp;&nbsp;</span><span class="hspace">&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><a class="RktStxLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/reference/for.html#%28form._%28%28lib._racket%2Fprivate%2Fbase..rkt%29._for%2Flist%29%29">for/list</a></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktPn">[</span><span class="RktSym">i</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><a class="RktValLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/reference/sequences.html#%28def._%28%28lib._racket%2Fprivate%2Fbase..rkt%29._in-range%29%29">in-range</a></span><span class="hspace">&nbsp;</span><span class="RktSym">num-points</span><span class="RktPn">)</span><span class="RktPn">]</span><span class="RktPn">)</span></td></tr>
        <tr>
-        <td><span class="hspace">&nbsp;&nbsp;</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><a class="RktValLink" data-pltdoc="x" href="http://docs.racket-lang.org/foreign/C_Union_Types.html#%28def._%28%28lib._ffi%2Funsafe..rkt%29._union-ref%29%29">union-ref</a></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><a class="RktValLink" data-pltdoc="x" href="http://docs.racket-lang.org/foreign/foreign_pointer-funcs.html#%28def._%28%28quote._~23~25foreign%29._ptr-ref%29%29">ptr-ref</a></span><span class="hspace">&nbsp;</span><span class="RktSym">ptr</span></td></tr>
+        <td><span class="hspace">&nbsp;&nbsp;</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><a class="RktValLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/foreign/C_Union_Types.html#%28def._%28%28lib._ffi%2Funsafe..rkt%29._union-ref%29%29">union-ref</a></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><a class="RktValLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/foreign/foreign_pointer-funcs.html#%28def._%28%28quote._~23~25foreign%29._ptr-ref%29%29">ptr-ref</a></span><span class="hspace">&nbsp;</span><span class="RktSym">ptr</span></td></tr>
        <tr>
         <td><span class="hspace">&nbsp;&nbsp;</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktSym">_cairo_path_data_t</span></td></tr>
        <tr>
         <td><span class="hspace">&nbsp;&nbsp;</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktCmt">;</span><span class="RktCmt">&nbsp;</span><span class="RktCmt">offset argument</span></td></tr>
        <tr>
-        <td><span class="hspace">&nbsp;&nbsp;</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><a class="RktValLink" data-pltdoc="x" href="http://docs.racket-lang.org/reference/generic-numbers.html#%28def._%28%28quote._~23~25kernel%29._%2B%29%29">+</a></span><span class="hspace">&nbsp;</span><span class="RktSym">pos</span><span class="hspace">&nbsp;</span><span class="RktSym">i</span><span class="RktPn">)</span><span class="RktPn">)</span></td></tr>
+        <td><span class="hspace">&nbsp;&nbsp;</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><a class="RktValLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/reference/generic-numbers.html#%28def._%28%28quote._~23~25kernel%29._%2B%29%29">+</a></span><span class="hspace">&nbsp;</span><span class="RktSym">pos</span><span class="hspace">&nbsp;</span><span class="RktSym">i</span><span class="RktPn">)</span><span class="RktPn">)</span></td></tr>
        <tr>
         <td><span class="hspace">&nbsp;&nbsp;</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktVal">1</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span></td></tr></tbody></table></td></tr>
    <tr>
@@ -931,19 +1046,19 @@ on the length given by header elements:</p>
      <table cellpadding="0" cellspacing="0" class="RktBlk">
       <tbody>
        <tr>
-        <td><span class="stt">&gt; </span><span class="RktPn">(</span><span class="RktSym"><a class="RktStxLink" data-pltdoc="x" href="http://docs.racket-lang.org/reference/define.html#%28form._%28%28lib._racket%2Fprivate%2Fbase..rkt%29._define%29%29">define</a></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktPn">(</span><span class="RktSym">next-pos</span><span class="hspace">&nbsp;</span><span class="RktSym">ptr</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktSym">pos</span><span class="RktPn">)</span></td></tr>
+        <td><span class="stt">&gt; </span><span class="RktPn">(</span><span class="RktSym"><a class="RktStxLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/reference/define.html#%28form._%28%28lib._racket%2Fprivate%2Fbase..rkt%29._define%29%29">define</a></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktPn">(</span><span class="RktSym">next-pos</span><span class="hspace">&nbsp;</span><span class="RktSym">ptr</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktSym">pos</span><span class="RktPn">)</span></td></tr>
        <tr>
-        <td><span class="hspace">&nbsp;&nbsp;</span><span class="hspace">&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><a class="RktStxLink" data-pltdoc="x" href="http://docs.racket-lang.org/reference/define.html#%28form._%28%28lib._racket%2Fprivate%2Fbase..rkt%29._define%29%29">define</a></span><span class="hspace">&nbsp;</span><span class="RktSym">header</span></td></tr>
+        <td><span class="hspace">&nbsp;&nbsp;</span><span class="hspace">&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><a class="RktStxLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/reference/define.html#%28form._%28%28lib._racket%2Fprivate%2Fbase..rkt%29._define%29%29">define</a></span><span class="hspace">&nbsp;</span><span class="RktSym">header</span></td></tr>
        <tr>
-        <td><span class="hspace">&nbsp;&nbsp;</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><a class="RktValLink" data-pltdoc="x" href="http://docs.racket-lang.org/foreign/C_Union_Types.html#%28def._%28%28lib._ffi%2Funsafe..rkt%29._union-ref%29%29">union-ref</a></span></td></tr>
+        <td><span class="hspace">&nbsp;&nbsp;</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><a class="RktValLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/foreign/C_Union_Types.html#%28def._%28%28lib._ffi%2Funsafe..rkt%29._union-ref%29%29">union-ref</a></span></td></tr>
        <tr>
-        <td><span class="hspace">&nbsp;&nbsp;</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><a class="RktValLink" data-pltdoc="x" href="http://docs.racket-lang.org/foreign/foreign_pointer-funcs.html#%28def._%28%28quote._~23~25foreign%29._ptr-ref%29%29">ptr-ref</a></span><span class="hspace">&nbsp;</span><span class="RktSym">ptr</span><span class="hspace">&nbsp;</span><span class="RktSym">_cairo_path_data_t</span><span class="hspace">&nbsp;</span><span class="RktSym">pos</span><span class="RktPn">)</span></td></tr>
+        <td><span class="hspace">&nbsp;&nbsp;</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><a class="RktValLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/foreign/foreign_pointer-funcs.html#%28def._%28%28quote._~23~25foreign%29._ptr-ref%29%29">ptr-ref</a></span><span class="hspace">&nbsp;</span><span class="RktSym">ptr</span><span class="hspace">&nbsp;</span><span class="RktSym">_cairo_path_data_t</span><span class="hspace">&nbsp;</span><span class="RktSym">pos</span><span class="RktPn">)</span></td></tr>
        <tr>
         <td><span class="hspace">&nbsp;&nbsp;</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktVal">0</span><span class="RktPn">)</span><span class="RktPn">)</span></td></tr>
        <tr>
-        <td><span class="hspace">&nbsp;&nbsp;</span><span class="hspace">&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><a class="RktStxLink" data-pltdoc="x" href="http://docs.racket-lang.org/reference/define.html#%28form._%28%28lib._racket%2Fprivate%2Fbase..rkt%29._define%29%29">define</a></span><span class="hspace">&nbsp;</span><span class="RktSym">len</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">second</span><span class="hspace">&nbsp;</span><span class="RktSym">header</span><span class="RktPn">)</span><span class="RktPn">)</span></td></tr>
+        <td><span class="hspace">&nbsp;&nbsp;</span><span class="hspace">&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><a class="RktStxLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/reference/define.html#%28form._%28%28lib._racket%2Fprivate%2Fbase..rkt%29._define%29%29">define</a></span><span class="hspace">&nbsp;</span><span class="RktSym">len</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">second</span><span class="hspace">&nbsp;</span><span class="RktSym">header</span><span class="RktPn">)</span><span class="RktPn">)</span></td></tr>
        <tr>
-        <td><span class="hspace">&nbsp;&nbsp;</span><span class="hspace">&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><a class="RktValLink" data-pltdoc="x" href="http://docs.racket-lang.org/reference/generic-numbers.html#%28def._%28%28quote._~23~25kernel%29._%2B%29%29">+</a></span><span class="hspace">&nbsp;</span><span class="RktSym">len</span><span class="hspace">&nbsp;</span><span class="RktSym">pos</span><span class="RktPn">)</span><span class="RktPn">)</span></td></tr></tbody></table></td></tr>
+        <td><span class="hspace">&nbsp;&nbsp;</span><span class="hspace">&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><a class="RktValLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/reference/generic-numbers.html#%28def._%28%28quote._~23~25kernel%29._%2B%29%29">+</a></span><span class="hspace">&nbsp;</span><span class="RktSym">len</span><span class="hspace">&nbsp;</span><span class="RktSym">pos</span><span class="RktPn">)</span><span class="RktPn">)</span></td></tr></tbody></table></td></tr>
    <tr>
     <td>
      <table cellpadding="0" cellspacing="0">
@@ -953,7 +1068,7 @@ on the length given by header elements:</p>
 
 <p>Note that determining the end of the sequence is very easy. It&rsquo;s just
 a matter of comparing the current position to the total length given in the
-path struct, encoded in the expression <span class="RktWrap"><span class="RktPn">(</span><span class="RktSym"><a class="RktStxLink" data-pltdoc="x" href="http://docs.racket-lang.org/reference/lambda.html#%28form._%28%28lib._racket%2Fprivate%2Fbase..rkt%29._~ce~bb%29%29">&#955;</a></span><span class="stt"> </span><span class="RktPn">(</span><span class="RktSym">pos</span><span class="RktPn">)</span><span class="stt"> </span><span class="RktPn">(</span><span class="RktSym"><a class="RktValLink" data-pltdoc="x" href="http://docs.racket-lang.org/reference/generic-numbers.html#%28def._%28%28quote._~23~25kernel%29._~3c%29%29">&lt;</a></span><span class="stt"> </span><span class="RktSym">pos</span><span class="stt"> </span><span class="RktSym">len</span><span class="RktPn">)</span><span class="RktPn">)</span></span>.</p>
+path struct, encoded in the expression <span class="RktWrap"><span class="RktPn">(</span><span class="RktSym"><a class="RktStxLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/reference/lambda.html#%28form._%28%28lib._racket%2Fprivate%2Fbase..rkt%29._~ce~bb%29%29">&#955;</a></span><span class="stt"> </span><span class="RktPn">(</span><span class="RktSym">pos</span><span class="RktPn">)</span><span class="stt"> </span><span class="RktPn">(</span><span class="RktSym"><a class="RktValLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/reference/generic-numbers.html#%28def._%28%28quote._~23~25kernel%29._~3c%29%29">&lt;</a></span><span class="stt"> </span><span class="RktSym">pos</span><span class="stt"> </span><span class="RktSym">len</span><span class="RktPn">)</span><span class="RktPn">)</span></span>.</p>
 
 <p>Now we can try using a path as a sequence:</p>
 
@@ -967,7 +1082,7 @@ path struct, encoded in the expression <span class="RktWrap"><span class="RktPn"
        <tr>
         <td><span class="stt">&gt; </span><span class="RktPn">(</span><span class="RktSym">define-cairo</span><span class="hspace">&nbsp;</span><span class="RktSym">cairo-copy-path</span></td></tr>
        <tr>
-        <td><span class="hspace">&nbsp;&nbsp;</span><span class="hspace">&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><a class="RktStxLink" data-pltdoc="x" href="http://docs.racket-lang.org/foreign/foreign_procedures.html#%28form._%28%28lib._ffi%2Funsafe..rkt%29.__fun%29%29">_fun</a></span><span class="hspace">&nbsp;</span><span class="RktSym">_cairo_t</span><span class="hspace">&nbsp;</span><span class="RktSym"><a class="RktStxLink" data-pltdoc="x" href="http://docs.racket-lang.org/foreign/foreign_procedures.html#%28form._%28%28lib._ffi%2Funsafe..rkt%29._-~3e%29%29"><span class="nobreak">-&gt;</span></a></span><span class="hspace">&nbsp;</span><span class="RktSym">_cairo_path_t</span><span class="RktPn">)</span><span class="RktPn">)</span></td></tr></tbody></table></td></tr>
+        <td><span class="hspace">&nbsp;&nbsp;</span><span class="hspace">&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><a class="RktStxLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/foreign/foreign_procedures.html#%28form._%28%28lib._ffi%2Funsafe..rkt%29.__fun%29%29">_fun</a></span><span class="hspace">&nbsp;</span><span class="RktSym">_cairo_t</span><span class="hspace">&nbsp;</span><span class="RktSym"><a class="RktStxLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/foreign/foreign_procedures.html#%28form._%28%28lib._ffi%2Funsafe..rkt%29._-~3e%29%29"><span class="nobreak">-&gt;</span></a></span><span class="hspace">&nbsp;</span><span class="RktSym">_cairo_path_t</span><span class="RktPn">)</span><span class="RktPn">)</span></td></tr></tbody></table></td></tr>
    <tr>
     <td>
      <table cellpadding="0" cellspacing="0">
@@ -979,7 +1094,7 @@ path struct, encoded in the expression <span class="RktWrap"><span class="RktPn"
      <table cellpadding="0" cellspacing="0" class="RktBlk">
       <tbody>
        <tr>
-        <td><span class="stt">&gt; </span><span class="RktPn">(</span><span class="RktSym">do-cairo</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><a class="RktStxLink" data-pltdoc="x" href="http://docs.racket-lang.org/reference/lambda.html#%28form._%28%28lib._racket%2Fprivate%2Fbase..rkt%29._~ce~bb%29%29">&#955;</a></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">ctx</span><span class="RktPn">)</span></td></tr>
+        <td><span class="stt">&gt; </span><span class="RktPn">(</span><span class="RktSym">do-cairo</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><a class="RktStxLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/reference/lambda.html#%28form._%28%28lib._racket%2Fprivate%2Fbase..rkt%29._~ce~bb%29%29">&#955;</a></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">ctx</span><span class="RktPn">)</span></td></tr>
        <tr>
         <td><span class="hspace">&nbsp;&nbsp;</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym">cairo-move-to</span><span class="hspace">&nbsp;</span><span class="RktSym">ctx</span><span class="hspace">&nbsp;</span><span class="RktVal">50.0</span><span class="hspace">&nbsp;</span><span class="RktVal">50.0</span><span class="RktPn">)</span></td></tr>
        <tr>
@@ -989,13 +1104,13 @@ path struct, encoded in the expression <span class="RktWrap"><span class="RktPn"
        <tr>
         <td><span class="hspace">&nbsp;&nbsp;</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym">cairo-line-to</span><span class="hspace">&nbsp;</span><span class="RktSym">ctx</span><span class="hspace">&nbsp;</span><span class="RktVal">115.0</span><span class="hspace">&nbsp;</span><span class="RktVal">115.0</span><span class="RktPn">)</span></td></tr>
        <tr>
-        <td><span class="hspace">&nbsp;&nbsp;</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><a class="RktStxLink" data-pltdoc="x" href="http://docs.racket-lang.org/reference/define.html#%28form._%28%28lib._racket%2Fprivate%2Fbase..rkt%29._define%29%29">define</a></span><span class="hspace">&nbsp;</span><span class="RktSym">path</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">cairo-copy-path</span><span class="hspace">&nbsp;</span><span class="RktSym">ctx</span><span class="RktPn">)</span><span class="RktPn">)</span></td></tr>
+        <td><span class="hspace">&nbsp;&nbsp;</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><a class="RktStxLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/reference/define.html#%28form._%28%28lib._racket%2Fprivate%2Fbase..rkt%29._define%29%29">define</a></span><span class="hspace">&nbsp;</span><span class="RktSym">path</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">cairo-copy-path</span><span class="hspace">&nbsp;</span><span class="RktSym">ctx</span><span class="RktPn">)</span><span class="RktPn">)</span></td></tr>
        <tr>
         <td><span class="hspace">&nbsp;&nbsp;</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktCmt">;</span><span class="RktCmt">&nbsp;</span><span class="RktCmt">Using path as a sequence</span></td></tr>
        <tr>
-        <td><span class="hspace">&nbsp;&nbsp;</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><a class="RktStxLink" data-pltdoc="x" href="http://docs.racket-lang.org/reference/for.html#%28form._%28%28lib._racket%2Fprivate%2Fbase..rkt%29._for%29%29">for</a></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktPn">[</span><span class="RktSym">elem</span><span class="hspace">&nbsp;</span><span class="RktSym">path</span><span class="RktPn">]</span><span class="RktPn">)</span></td></tr>
+        <td><span class="hspace">&nbsp;&nbsp;</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><a class="RktStxLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/reference/for.html#%28form._%28%28lib._racket%2Fprivate%2Fbase..rkt%29._for%29%29">for</a></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktPn">[</span><span class="RktSym">elem</span><span class="hspace">&nbsp;</span><span class="RktSym">path</span><span class="RktPn">]</span><span class="RktPn">)</span></td></tr>
        <tr>
-        <td><span class="hspace">&nbsp;&nbsp;</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><a class="RktValLink" data-pltdoc="x" href="http://docs.racket-lang.org/reference/Writing.html#%28def._%28%28lib._racket%2Fprivate%2Fmisc..rkt%29._displayln%29%29">displayln</a></span><span class="hspace">&nbsp;</span><span class="RktSym">elem</span><span class="RktPn">)</span><span class="RktPn">)</span></td></tr>
+        <td><span class="hspace">&nbsp;&nbsp;</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><a class="RktValLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/reference/Writing.html#%28def._%28%28lib._racket%2Fprivate%2Fmisc..rkt%29._displayln%29%29">displayln</a></span><span class="hspace">&nbsp;</span><span class="RktSym">elem</span><span class="RktPn">)</span><span class="RktPn">)</span></td></tr>
        <tr>
         <td><span class="hspace">&nbsp;&nbsp;</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym">cairo-stroke</span><span class="hspace">&nbsp;</span><span class="RktSym">ctx</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span></td></tr></tbody></table></td></tr>
    <tr>
@@ -1020,7 +1135,7 @@ path struct, encoded in the expression <span class="RktWrap"><span class="RktPn"
 
 <p>Notice how the sequence prints out as an intuitive list of commands
 instead of a bunch of opaque union values as we saw before when using
-the <span class="RktWrap"><span class="RktSym"><a class="RktValLink" data-pltdoc="x" href="http://docs.racket-lang.org/foreign/C_Array_Types.html#%28def._%28%28lib._ffi%2Funsafe..rkt%29.__array%2Flist%29%29">_array/list</a></span></span> type.</p>
+the <span class="RktWrap"><span class="RktSym"><a class="RktValLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/foreign/C_Array_Types.html#%28def._%28%28lib._ffi%2Funsafe..rkt%29.__array%2Flist%29%29">_array/list</a></span></span> type.</p>
 
 <p>That concludes part 3 of the FFI tutorial. Hopefully you&rsquo;re now equipped
 to deal with union types and custom C types. If not, see the
