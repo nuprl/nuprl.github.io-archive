@@ -4,9 +4,73 @@
   <title>PRL Blog: Posts tagged 'gradual typing'</title>
   <description>PRL Blog: Posts tagged 'gradual typing'</description>
   <link>http://prl.ccs.neu.edu/blog/tags/gradual-typing.html</link>
-  <lastBuildDate>Tue, 08 May 2018 15:37:37 UT</lastBuildDate>
-  <pubDate>Tue, 08 May 2018 15:37:37 UT</pubDate>
+  <lastBuildDate>Sat, 06 Oct 2018 11:23:35 UT</lastBuildDate>
+  <pubDate>Sat, 06 Oct 2018 11:23:35 UT</pubDate>
   <ttl>1800</ttl>
+  <item>
+   <title>A Spectrum of Type Soundness and Performance</title>
+   <link>http://prl.ccs.neu.edu/blog/2018/10/06/a-spectrum-of-type-soundness-and-performance/?utm_source=gradual-typing&amp;utm_medium=RSS</link>
+   <guid isPermaLink="false">urn:http-prl-ccs-neu-edu:-blog-2018-10-06-a-spectrum-of-type-soundness-and-performance</guid>
+   <pubDate>Sat, 06 Oct 2018 11:23:35 UT</pubDate>
+   <author>PRL</author>
+   <description>
+&lt;p&gt;The literature on mixed-typed languages presents (at least) three fundamentally different ways of thinking about the integrity of programs that combine  statically typed and dynamically typed code. Recently, we have been sorting them out.&lt;/p&gt;
+&lt;!-- more--&gt;
+
+&lt;blockquote&gt;
+ &lt;p&gt;Note: this post is an extended abstract for the paper &lt;em&gt;A Spectrum of Type  Soundness and Performance&lt;/em&gt; by Ben Greenman and Matthias Felleisen.  For the full paper, slides, code, and a video presentation, visit  &lt;a href="http://www.ccs.neu.edu/home/types/publications/publications.html#gf-icfp-2018"&gt;http://www.ccs.neu.edu/home/types/publications/publications.html#gf-icfp-2018&lt;/a&gt;&lt;/p&gt;&lt;/blockquote&gt;
+
+&lt;p&gt;A dynamically-typed language runs any program that &amp;ldquo;looks good&amp;rdquo; (i.e.,  passes some basic syntactic criteria. In Python a program cannot mix  indentation levels. In Racket a program cannot refer to unbound variables). A statically-typed language runs any program that both &amp;ldquo;looks good&amp;rdquo; and  is well-typed according to a type checker.&lt;/p&gt;
+
+&lt;p&gt;A &lt;em&gt;mixed-typed&lt;/em&gt; language allows some combination of static and dynamic typing. There are many languages that fall in the mixed-typed category; figure 1 lists  a few, roughly arranged left-to-right by the year they first provided a way to  mix.&lt;/p&gt;
+
+&lt;div class="figure"&gt;&lt;img src="/img/mixed-typed-systems-by-year.png" alt="Figure 1: Some mixed-typed languages" /&gt;
+ &lt;p class="caption"&gt;Figure 1: Some mixed-typed languages&lt;/p&gt;&lt;/div&gt;
+
+&lt;p&gt;These languages all try to combine static and dynamic typing in a useful way,  but they take VERY different approaches. For example:&lt;/p&gt;
+
+&lt;ul&gt;
+ &lt;li&gt;&lt;strong&gt;MACLISP&lt;/strong&gt; defines a syntax for type annotations but does not say how a compiler  should interpret the types; see section 14.2 of the &lt;a href="http://www.softwarepreservation.org/projects/LISP/MIT/Moon-MACLISP_Reference_Manual-Apr_08_1974.pdf"&gt;Moonual&lt;/a&gt;.  For example, a compiler may use types to generate specialized code that assumes  the type annotations are correct (and has undefined behavior otherwise).&lt;/li&gt;
+ &lt;li&gt;&lt;strong&gt;Strongtalk&lt;/strong&gt; includes a static type checker and DOES NOT use types to change the  behavior of a program.  For rationale, see the &lt;a href="http://bracha.org/pluggableTypesPosition.pdf"&gt;Pluggable Type Systems&lt;/a&gt; position paper.&lt;/li&gt;
+ &lt;li&gt;&lt;strong&gt;Typed Racket&lt;/strong&gt; lets a program combine statically-typed modules and dynamically-typed  modules. The compiler inserts run-time checks at the boundaries between such  modules to detect any mismatches between the static types and incoming dynamically-typed  values.&lt;/li&gt;
+ &lt;li&gt;&lt;strong&gt;Thorn&lt;/strong&gt; requires that every value in a program has a type, but allows  dynamically-typed contexts to manipulate values. In other words, every Thorn  value is an instance of a statically-declared class and classes may contain  dynamically-typed methods.&lt;/li&gt;
+ &lt;li&gt;&lt;strong&gt;Reticulated&lt;/strong&gt; lets a program combine static and dynamic &lt;em&gt;expressions&lt;/em&gt; and  guarantees that the combination has a well-defined semantics (Vitousek, Swords, and Siek &lt;a href="https://dl.acm.org/citation.cfm?id=3009849"&gt;POPL 2017&lt;/a&gt;).&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;That makes five different systems. There are 15 other systems in the figure, and many more in the world. How can we make sense of this space? We claim: by understanding each system&amp;rsquo;s protocol for checking  dynamically-typed values at a &lt;em&gt;type boundary&lt;/em&gt; (between static and dynamic code).&lt;/p&gt;
+
+&lt;h3 id="main-contribution"&gt;Main Contribution&lt;/h3&gt;
+
+&lt;p&gt;In the paper &lt;a href="http://drops.dagstuhl.de/opus/volltexte/2015/5031/"&gt;&lt;em&gt;A Spectrum of Type Soundness and Performance&lt;/em&gt;&lt;/a&gt;,  we define a tiny mixed-typed language and show three ways to define the  behavior of programs &amp;mdash; based on three protocols for checking  dynamically-typed values that cross a boundary into statically-typed code.&lt;/p&gt;
+
+&lt;p&gt;The three behaviors are inspired by existing languages. A &lt;strong&gt;higher order&lt;/strong&gt; behavior ensures that dynamically-typed  values match the static type at a boundary &amp;mdash; by checking the value when possible,  and by monitoring the value&amp;rsquo;s future interactions when necessary. A &lt;strong&gt;first order&lt;/strong&gt; behavior performs a yes-or-no check on dynamically-typed values  and never monitors their future behavior. An &lt;strong&gt;erasure&lt;/strong&gt; behavior does no checking whatsoever.&lt;/p&gt;
+
+&lt;blockquote&gt;
+ &lt;p&gt;Example (monitors): if typed code expects a function from numbers to numbers and receives an untyped function &lt;code&gt;f&lt;/code&gt;, then one way to enforce the type boundary is to wrap &lt;code&gt;f&lt;/code&gt; in a proxy to assert that every future call to &lt;code&gt;f&lt;/code&gt; returns a number. In this case, the proxy monitors the behavior of &lt;code&gt;f&lt;/code&gt;.&lt;/p&gt;&lt;/blockquote&gt;
+
+&lt;p&gt;Concretely, the paper defines three formal semantics with the same names. The &lt;strong&gt;higher-order&lt;/strong&gt; semantics enforces full types at the boundaries (Section 2.3). The &lt;strong&gt;first-order&lt;/strong&gt; semantics enforces type constructors at the boundaries, and  furthermore enforces type constructors on every &amp;ldquo;selector&amp;rdquo; operation in typed  code, e.g., function application, data structure access (Section 2.5). The &lt;strong&gt;erasure&lt;/strong&gt; semantics simply ignores the types (Section 2.4).&lt;/p&gt;
+
+&lt;p&gt;Each semantics satisfies a &lt;em&gt;different&lt;/em&gt; notion of soundness for mixed-typed  programs, and each notion is slightly weaker than soundness for fully-typed  programs. The paper states these theorems (Section 2) and the  &lt;a href="https://repository.library.northeastern.edu/files/neu:cj82rk279"&gt;online supplement&lt;/a&gt;  gives full proofs.&lt;/p&gt;
+
+&lt;p&gt;The paper has more to say about the meta-theory. See section 2 and section 4.&lt;/p&gt;
+
+&lt;blockquote&gt;
+ &lt;p&gt;To the best of our knowledge, this paper is the first to explicitly acknowledge that different approaches to a mixed-typed language lead to different notions of soundness. Other papers state type soundness theorems for &lt;a href="https://dl.acm.org/citation.cfm?id=2676971"&gt;subset of the language&lt;/a&gt; (in the spirit of &lt;a href="http://soundiness.org/"&gt;soundiness&lt;/a&gt;) or use the name &amp;ldquo;type soundness&amp;rdquo; to describe &lt;a href="https://dl.acm.org/citation.cfm?id=2676971"&gt;a different property&lt;/a&gt;.&lt;/p&gt;&lt;/blockquote&gt;
+
+&lt;p&gt;Next, we used the three semantics as a guide to arrive at three compilers for  Typed Racket. The higher-order compiler is the standard Typed Racket. The first-order compiler is something we built, based on the semantics. The erasure compiler simply ignores the type annotations &amp;mdash; similar to Typed Racket&amp;rsquo;s  &lt;a href="http://docs.racket-lang.org/ts-reference/Typed_Racket_Syntax_Without_Type_Checking.html"&gt;no-check&lt;/a&gt; language.&lt;/p&gt;
+
+&lt;p&gt;Using this set-up, we measured the performance of mixed-typed programs via  each compiler using the method suggested by Takikawa et. al (&lt;a href="https://www2.ccs.neu.edu/racket/pubs/popl16-tfgnvf.pdf"&gt;POPL 2016&lt;/a&gt;). The programs we measured are the non-object-oriented ones from our &lt;a href="http://docs.racket-lang.org/gtp-benchmarks/index.html"&gt;benchmark suite&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;To some extent, the performance results confirm conjectures from the literature. The full results, however, include many surprises &amp;mdash; see section 3 of the paper,  section B of the &lt;a href="https://repository.library.northeastern.edu/files/neu:cj82rk279"&gt;supplement&lt;/a&gt;,  and/or the &lt;a href="http://www.ccs.neu.edu/home/types/publications/apples-to-apples/gf-icfp-2018-slides.pdf"&gt;slides&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3 id="implications"&gt;Implications&lt;/h3&gt;
+
+&lt;ol&gt;
+ &lt;li&gt;The model in the paper is one way to understand the different approaches  to mixed-typed languages. See section 5 of the paper,  section D of the &lt;a href="https://repository.library.northeastern.edu/files/neu:cj82rk279"&gt;supplement&lt;/a&gt;,  or &lt;a href="http://www.ccs.neu.edu/home/types/publications/apples-to-apples/gf-icfp-2018-slides.pdf"&gt;slide 114&lt;/a&gt;.&lt;/li&gt;
+ &lt;li&gt;Programmers using mixed-typed languages need to know what guarantees their  types provide.  (It is &lt;a href="https://twitter.com/jbandi/status/965005464638541825"&gt;not safe to assume that TypeScript types give the same guarantees as OCaml types&lt;/a&gt;!)  Section 4 of the paper contains many examples of how the different guarantees  may affect practice.&lt;/li&gt;
+ &lt;li&gt;The relative performance of different approaches is more nuanced than the  literature suggests. Our paper gives a first systematic comparison based on  implementations that have clear areas for improvement. The question is:  can we find improvements that lead to asymptotic differences, or is it a  battle for constant factors?&lt;/li&gt;&lt;/ol&gt;
+
+&lt;blockquote&gt;
+ &lt;p&gt;Note: in this post, a &lt;em&gt;mixed-typed language&lt;/em&gt; is one that allows any combination of static and dynamic typing. A &lt;em&gt;gradually-typed language&lt;/em&gt; is one that allows a certain kind of mixing that satisfies properties defined by Siek, Vitousek, Cimini, and Boyland (&lt;a href="http://drops.dagstuhl.de/opus/volltexte/2015/5031/"&gt;SNAPL 2015&lt;/a&gt;).&lt;/p&gt;&lt;/blockquote&gt;</description></item>
   <item>
    <title>Sampling Gradual Typing Performance</title>
    <link>http://prl.ccs.neu.edu/blog/2018/05/08/sampling-gradual-typing-performance/?utm_source=gradual-typing&amp;utm_medium=RSS</link>
