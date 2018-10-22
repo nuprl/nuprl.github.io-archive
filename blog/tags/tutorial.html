@@ -79,6 +79,24 @@
 
               <article>
   <header>
+    <h2><a href='/blog/2018/10/22/defining-local-bindings-in-turnstile-languages/'>Defining Local Bindings in Turnstile Languages</a></h2>
+    <p class='date-and-tags'>
+<time datetime="2018-10-22" pubdate="true">2018-10-22</time> :: <span class="tags"><a href="/blog/tags/turnstile.html">turnstile</a>, <a href="/blog/tags/tutorial.html">tutorial</a>, <a href="/blog/tags/language.html">language</a>, <a href="/blog/tags/dsl.html">dsl</a>, <a href="/blog/tags/by-Sam-Caldwell.html">by Sam Caldwell</a></span></p>
+  </header>
+
+<p>In <a href="http://racket-lang.org/">Racket</a>, programmers can create powerful abstractions by bundling together a family of values, functions, and syntax extensions in the form of a new language. These languages, however, are typically untyped. <a href="http://docs.racket-lang.org/turnstile/The_Turnstile_Guide.html">Turnstile</a> is a new Racket {library,language} for creating typed languages by integrating type checking with Racket&rsquo;s existing tools for describing languages. The technique is described by fellow PRL&rsquo;ers in the paper <a href="http://www.ccs.neu.edu/home/stchang/pubs/ckg-popl2017.pdf"><em>Type Systems as Macros</em></a>.</p>
+
+<p>Racket encourages language developers to take full advantage of <a href="https://scholarship.rice.edu/handle/1911/17993">linguistic reuse</a> by defining new language forms in terms of existing constructs. Unsurprisingly, language extensions often retain some of the Racket-y flavor from the underlying constructs. Implementors save time and energy while users of the language benefit from the familiarity they already have with the Racket ecosystem.</p>
+
+<p>Unfortunately, Turnstile does not lend itself to expressing one of Racket&rsquo;s most ubiquitous idioms: naming local bindings with <code>define</code>. Early experience reports from Turnstile, including my own, suggest that language implementors very much desire to include <code>define</code>-like binding forms in their languages.</p>
+
+<p>This blog post provides a brief overview of what Turnstile is and how it works, an introduction to defining typed language forms, and how to equip these languages with a <code>define</code> binding form.</p>
+  <footer>
+    <a href='/blog/2018/10/22/defining-local-bindings-in-turnstile-languages/'>&hellip; more &hellip;</a>
+  </footer>
+</article>
+<article>
+  <header>
     <h2><a href='/blog/2017/09/25/plt-redex-faq/'>PLT Redex FAQ</a></h2>
     <p class='date-and-tags'>
 <time datetime="2017-09-25" pubdate="true">2017-09-25</time> :: <span class="tags"><a href="/blog/tags/tutorial.html">tutorial</a>, <a href="/blog/tags/PLT-Redex.html">PLT Redex</a>, <a href="/blog/tags/by-Ben-Greenman.html">by Ben Greenman</a>, <a href="/blog/tags/by-Sam-Caldwell.html">by Sam Caldwell</a></span></p>

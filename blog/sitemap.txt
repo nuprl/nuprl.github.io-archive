@@ -13,6 +13,7 @@ http://prl.ccs.neu.edu/blog/2016/06/13/does-anyone-still-care-about-printed-proc
 http://prl.ccs.neu.edu/blog/2018/04/23/-how-to-prove-a-compiler-fully-abstract-cross-post-https-dbp-io-essays-2018-04-19-how-to-prove-a-compiler-fully-abstract-html/
 http://prl.ccs.neu.edu/blog/2017/10/22/monotonicity-types-towards-a-type-system-for-eventual-consistency/
 http://prl.ccs.neu.edu/blog/2017/05/01/categorical-semantics-for-dynamically-typed-programming-languages/
+http://prl.ccs.neu.edu/blog/2018/10/22/defining-local-bindings-in-turnstile-languages/
 http://prl.ccs.neu.edu/blog/2018/01/19/-untyped-programs-don-t-exist-cross-post-https-williamjbowman-com-blog-2018-01-19-untyped-programs-don-t-exist/
 http://prl.ccs.neu.edu/blog/2016/05/18/gradual-typing-across-the-spectrum/
 http://prl.ccs.neu.edu/blog/2017/03/03/plt-redex-mf-apply/
