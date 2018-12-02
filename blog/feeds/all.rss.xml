@@ -4,9 +4,60 @@
   <title>PRL Blog: PRL Blog</title>
   <description>PRL Blog: PRL Blog</description>
   <link>http://prl.ccs.neu.edu/blog/index.html</link>
-  <lastBuildDate>Mon, 22 Oct 2018 15:05:17 UT</lastBuildDate>
-  <pubDate>Mon, 22 Oct 2018 15:05:17 UT</pubDate>
+  <lastBuildDate>Fri, 30 Nov 2018 14:55:30 UT</lastBuildDate>
+  <pubDate>Fri, 30 Nov 2018 14:55:30 UT</pubDate>
   <ttl>1800</ttl>
+  <item>
+   <title>Turnstile Mailing List</title>
+   <link>http://prl.ccs.neu.edu/blog/2018/11/30/turnstile-mailing-list/?utm_source=all&amp;utm_medium=RSS</link>
+   <guid isPermaLink="false">urn:http-prl-ccs-neu-edu:-blog-2018-11-30-turnstile-mailing-list</guid>
+   <pubDate>Fri, 30 Nov 2018 14:55:30 UT</pubDate>
+   <author>PRL</author>
+   <description>
+&lt;p&gt;&lt;a href="https://docs.racket-lang.org/turnstile/The_Turnstile_Guide.html"&gt;Turnstile&lt;/a&gt; now has a mailing list: &lt;a href="https://groups.google.com/forum/#!forum/turnstile-users"&gt;https://groups.google.com/forum/#!forum/turnstile-users&lt;/a&gt;&lt;/p&gt;
+&lt;!-- more--&gt;
+
+&lt;p&gt;There is also a &lt;code&gt;#turnstile&lt;/code&gt; channel on &lt;a href="https://racket.slack.com"&gt;the Racket Slack&lt;/a&gt;.&lt;/p&gt;</description></item>
+  <item>
+   <title>Disappearing Code</title>
+   <link>http://prl.ccs.neu.edu/blog/2018/11/24/disappearing-code/?utm_source=all&amp;utm_medium=RSS</link>
+   <guid isPermaLink="false">urn:http-prl-ccs-neu-edu:-blog-2018-11-24-disappearing-code</guid>
+   <pubDate>Sat, 24 Nov 2018 09:52:58 UT</pubDate>
+   <author>PRL</author>
+   <description>
+&lt;p&gt;Two experiences at &lt;a href="https://2018.splashcon.org/home"&gt;SPLASH 2018&lt;/a&gt; reminded me that software gets thrown away and replaced.&lt;/p&gt;
+&lt;!-- more--&gt;
+
+&lt;h3 id="story-1"&gt;Story 1&lt;/h3&gt;
+
+&lt;p&gt;The first reminder came near the end of a &lt;a href="https://conf.researchr.org/event/sle-2018/papers-a-new-approach-for-software-correctness-and-reliability"&gt;talk&lt;/a&gt; by  &lt;a href="https://people.csail.mit.edu/rinard/"&gt;Martin Rinard&lt;/a&gt;. Once upon a time, Martin was working as a consultant and a firm asked him to  review a software package. (The firm wanted a second opinion about how the software computed its results.) The firm sent a zipfile; Martin found six versions of the code inside; the  firm said &amp;ldquo;well, please check all six versions&amp;rdquo;; and it turned out:&lt;/p&gt;
+
+&lt;ul&gt;
+ &lt;li&gt;&lt;strong&gt;Version 1&lt;/strong&gt; : the source code was written in a domain-specific language  (DSL) that generated code for the application&lt;/li&gt;
+ &lt;li&gt;&lt;strong&gt;Version 2&lt;/strong&gt; : the DSL source was the same as version 1, but the generated  code was slightly modified&lt;/li&gt;
+ &lt;li&gt;&amp;hellip;&lt;/li&gt;
+ &lt;li&gt;&lt;strong&gt;Version 6&lt;/strong&gt; : the generated code was the source code and the DSL was gone&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;The moral of Martin&amp;rsquo;s story was:   (1) the creators of a software system are often different from the maintainers,  and (2) researchers need to build tools to help these maintainers.&lt;/p&gt;
+
+&lt;h3 id="story-2"&gt;Story 2&lt;/h3&gt;
+
+&lt;p&gt;The second reminder came from a teaching assistant who said the  &lt;a href="https://www.cs.cornell.edu/courses/cs3110/2018fa/"&gt;functional programming course&lt;/a&gt;  at their institution was currently using a Python script  to test students&amp;rsquo; code. Once upon a time, I was a teaching assistant for the  &lt;a href="https://www.cs.cornell.edu/courses/cs3110/2014sp/"&gt;same course&lt;/a&gt; at the same  institution. We had trouble testing students&amp;rsquo; code via the Python script  left by the pre&amp;ndash;2013 course staff, so I wrote a  &lt;a href="https://gitlab.com/bengreenman/ocaml_tools/"&gt;command-line tool&lt;/a&gt; to handle the tests and other  compile/run/grade tasks. To keep history from repeating itself, I used the same language the course  teaches (OCaml) and wrote some documentation &amp;mdash; but it seems like that was  not enough. At any rate, writing the tool was a good exercise.&lt;/p&gt;
+
+&lt;blockquote&gt;
+ &lt;p&gt;&lt;em&gt;In the end, everybody must understand for himself.&lt;/em&gt; &amp;mdash; &lt;a href="https://dl.acm.org/citation.cfm?id=3731"&gt;Per Martin-Löf&lt;/a&gt;&lt;/p&gt;&lt;/blockquote&gt;
+
+&lt;h3 id="reflection"&gt;Reflection&lt;/h3&gt;
+
+&lt;p&gt;In each story, the maintainers of a software system threw away some old  code to make their job easier in the short term. How can we stop this &amp;ldquo;re-inventing the wheel&amp;rdquo; from happening?&lt;/p&gt;
+
+&lt;p&gt;Martin Rinard&amp;rsquo;s solution is to let maintenance programmers keep their current  habits, but provide tools to make the short-term, pragmatic solutions into a  more robust systems. Search for "&lt;a href="https://people.csail.mit.edu/rinard/paper/osdi04.pdf"&gt;failure-oblivious computing&lt;/a&gt;"  to learn more (this was the topic of his &lt;a href="https://conf.researchr.org/event/sle-2018/papers-a-new-approach-for-software-correctness-and-reliability"&gt;talk&lt;/a&gt;).&lt;/p&gt;
+
+&lt;p&gt;In Story 1, the maintainers were able to avoid the DSL by modifying an  inherited blob of DSL-generated code. If the DSL did not generate code, history might have taken a different course;  it might be best to start with a language that offers tools for linguistic  re-use, and to build a DSL from these tools &amp;mdash; so there is no generated code. The Racket programming language is exploring this path. For a recent example, see the &lt;a href="https://www2.ccs.neu.edu/racket/pubs/icfp17-acf.pdf"&gt;video-lang paper&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;The Story 2 test harness, however, was not generating code. Its maintainers discarded a &amp;ldquo;big&amp;rdquo; program written in a typed  functional language in favor of a script. Perhaps we need a language that allows mixing statically-typed and  dynamically-typed code (shouts out to  &lt;a href="https://www2.ccs.neu.edu/racket/pubs/icfp18-gf.pdf"&gt;my own research&lt;/a&gt;).&lt;/p&gt;
+
+&lt;p&gt;The best solution is probably to start with a team and keep the culture alive. Always pair program!&lt;/p&gt;</description></item>
   <item>
    <title>Defining Local Bindings in Turnstile Languages</title>
    <link>http://prl.ccs.neu.edu/blog/2018/10/22/defining-local-bindings-in-turnstile-languages/?utm_source=all&amp;utm_medium=RSS</link>
@@ -3344,78 +3395,4 @@ A&lt;/script&gt; and
 &lt;!-- I noticed that some of the young people who served on panels and also gave--&gt;
 &lt;!-- long-and-not-very-insightful answers to questions were later on their laptops--&gt;
 &lt;!-- as other panels discussed things. I noticed some of the older people who--&gt;
-&lt;!-- served on panels falling asleep during other panels--&gt;</description></item>
-  <item>
-   <title>Spring 2017 PL Junior Retrospective</title>
-   <link>http://prl.ccs.neu.edu/blog/2017/06/16/spring-2017-pl-junior-retrospective/?utm_source=all&amp;utm_medium=RSS</link>
-   <guid isPermaLink="false">urn:http-prl-ccs-neu-edu:-blog-2017-06-16-spring-2017-pl-junior-retrospective</guid>
-   <pubDate>Fri, 16 Jun 2017 11:38:25 UT</pubDate>
-   <author>PRL</author>
-   <description>
-&lt;p&gt;The &lt;a href="http://prl.ccs.neu.edu/seminars.html"&gt;PL Junior Seminar&lt;/a&gt; is for beginning PhD and interested undergrad and masters students to understand the foundations of programming languages research. It serves to fill in background knowledge and get up to speed with different areas of PL research.&lt;/p&gt;
-
-&lt;p&gt;For the spring 2017 instance of PL Junior we chose program synthesis, the sequent calculus, and logic programming as topics we wanted to learn more about. We also did two group paper readings for Luca Cardelli&amp;rsquo;s &lt;a href="http://www.lucacardelli.name/Papers/TypefulProg.pdf"&gt;Typeful Programming&lt;/a&gt; and Alan Kay&amp;rsquo;s &lt;a href="http://worrydream.com/EarlyHistoryOfSmalltalk/"&gt;Early History of Smalltalk&lt;/a&gt;. At the same time, we changed up the format from the previous semester.&lt;/p&gt;
-&lt;!-- more--&gt;
-
-&lt;h2 id="format"&gt;Format&lt;/h2&gt;
-
-&lt;p&gt;As discussed in &lt;a href="http://prl.ccs.neu.edu/blog/2017/01/02/fall-2016-pl-junior-retrospective/"&gt;last fall&amp;rsquo;s retrospective&lt;/a&gt;, we wanted to move from group reading and discussion towards weekly presentations. Reading a paper to prepare a presentation is quite a different experience compared to the effort that goes in when it is just for a group discussion (in our experience). With any luck, the presentation will convey some of this deeper knowledge to the rest of the group, with the result being a deep understanding on the part of the presenter and an informed, if somewhat shallower, understanding in the rest of the group. Ideally, the end result should compare favorably to simply reading the paper individually.&lt;/p&gt;
-
-&lt;p&gt;One idea from last semester that we decided to keep is to spend a length of time (possibly an entire semester) on a topic rather than having a new topic each week. Staying on the same theme helps with retention as well as allowing for deeper investigation.&lt;/p&gt;
-
-&lt;p&gt;In that spirit, we chose three themes for the semester: program synthesis, the sequent calculus, and logic programming. Mostly by chance, these topics have interesting connections to each other, and we even had several PL Grown-Up Seminars this semester on program synthesis!&lt;/p&gt;
-
-&lt;h2 id="synthesis"&gt;Synthesis&lt;/h2&gt;
-
-&lt;p&gt;The first paper on program synthesis that we looked at was &lt;a href="https://www.sri.com/sites/default/files/uploads/publications/pdf/725.pdf"&gt;A Deductive Approach to Program Synthesis&lt;/a&gt; by Manna and Waldinger. We chose this paper because it&amp;rsquo;s old and has a lot of citations so it&amp;rsquo;s probably Important. It was interesting and provided an OK introduction to proof search but the method presented seems far removed from modern synthesis techniques.&lt;/p&gt;
-
-&lt;p&gt;The next paper was &lt;a href="https://arxiv.org/abs/1507.02988"&gt;Programmatic and Direct Manipulation, Together&lt;/a&gt; by Chugh, Hempel,  Spradlin, and Alders, which presents the &lt;a href="https://ravichugh.github.io/sketch-n-sketch/index.html"&gt;Sketch-n-Sketch&lt;/a&gt; system. Sketch-n-Sketch is a cool system. It demonstrates that a narrow application of synthesis - trying to fill in the constant values in a program (sketching) - can be used for great effect. We were left wondering, however, if it was too narrow an application of synthesis to give much of an indication of what the entire field is like.&lt;/p&gt;
-
-&lt;p&gt;We concluded our program synthesis segment with &lt;a href="http://www.cis.upenn.edu/~stevez/papers/OZ15.pdf"&gt;Type-and-Example-Directed Program Synthesis&lt;/a&gt; by Osera and Zdancewic, another relatively recent paper. This seems like a relevant paper because we are under the impression that using examples to do synthesis is a big thing right now. Using types to constrain the search is another interesting perspective on techniques for synthesis.&lt;/p&gt;
-
-&lt;p&gt;While each of theses papers had merits, none was so comprehensive as to be a necessary inclusion in any future look at program synthesis for pl junior&lt;/p&gt;
-
-&lt;h2 id="sequent-calculus"&gt;Sequent Calculus&lt;/h2&gt;
-
-&lt;p&gt;We followed up the program synthesis unit with a week on the sequent calculus. The seminar presentation was based on a paper by &lt;a href="https://hal.inria.fr/inria-00381525/document"&gt;Herbelin&lt;/a&gt;. &lt;a href="http://www.ccs.neu.edu/home/gasche/phd_thesis/scherer-thesis.pdf"&gt;Gabriel’s thesis&lt;/a&gt; (chapter 4) includes maybe a more suitable modern introduction to the sequent calculus.&lt;/p&gt;
-
-&lt;p&gt;It might have been better to do sequent calculus first because there is a modern branch of proof search based on the sequent calculus. Presenting this first would have allowed us to look into proof search for program synthesis.&lt;/p&gt;
-
-&lt;p&gt;An additional problem is that it was insufficiently motivated. Either skipping the topic or spending more time on it would be preferable, since one week was just enough to describe the sequent calculus but not enough to apply it. For this topic to be worthwhile, it would best be used as the basis for subsequent readings that directly reference it.&lt;/p&gt;
-
-&lt;h2 id="logic-programming"&gt;Logic Programming&lt;/h2&gt;
-
-&lt;p&gt;The topic was presented over two weeks. The first session presented/demoed Prolog as a language, and we got a sense of what logic programming could do. But it was a whirlwind tour, and we were left wondering about specific details (how proof search runs, what &lt;code&gt;cut&lt;/code&gt; does).&lt;/p&gt;
-
-&lt;p&gt;The second session presented the paper &lt;a href="http://www.doc.ic.ac.uk/~rak/papers/kowalski-van_emden.pdf"&gt;The Semantics of Predicate Logic as a Programming Language&lt;/a&gt;. It was interesting and insightful but left wondering how it relates to the implementation of real logic programming languages.&lt;/p&gt;
-
-&lt;p&gt;In hindsight this was about as far as we could have gotten in just two weeks. However, complications such as the cut rule seem prevalent enough in practice that more time would be required to build up a useful understanding of logic programming&lt;/p&gt;
-
-&lt;h2 id="bonus-rounds"&gt;Bonus Rounds&lt;/h2&gt;
-
-&lt;p&gt;We also used a few weeks to read and discuss specific papers as a group.&lt;/p&gt;
-
-&lt;p&gt;The first paper we read was Cardelli&amp;rsquo;s &lt;a href="http://www.lucacardelli.name/Papers/TypefulProg.pdf"&gt;Typeful Programming&lt;/a&gt;. We picked typeful programming because Matthias has mentioned on occasion how important he thinks it is.&lt;/p&gt;
-
-&lt;p&gt;It was an interesting read; more of an essay than a paper. It really stood out as different from the other academic publications that we have looked at. It’s a walk through of a language design motivating each design decision in practical terms, as in things that actually help the programmer.&lt;/p&gt;
-
-&lt;p&gt;Cardelli places great importance on polymorphism (subtyping in addition to parametric), as well as features for programming in the large such as modules and interfaces. Several features are interesting in their omission, like type inference and macros.&lt;/p&gt;
-
-&lt;p&gt;After reading it it’s not clear why Matthias thinks it’s so important. From the perspective of modern researchers, many of the features in Cardelli&amp;rsquo;s language seem rather mundane. However, it&amp;rsquo;s likely that at the time he published it, these ideas were significantly newer and much less widespread.&lt;/p&gt;
-
-&lt;p&gt;The other paper we read as a group was Alan Kay&amp;rsquo;s &lt;a href="http://worrydream.com/EarlyHistoryOfSmalltalk/"&gt;The Early History of Smalltalk&lt;/a&gt;. It seems like the Smalltalk project investigated a plethora of interesting ideas about designing programming languages and environments. This article seems to confirm that but does not delve into many particulars.&lt;/p&gt;
-
-&lt;h2 id="final-thoughts"&gt;Final Thoughts&lt;/h2&gt;
-
-&lt;p&gt;Overall this semester of pl junior went well enough that we think it makes a reasonable template for future semesters. The topics were interesting and relevant, and we mostly picked appropriate material for presentations. One downside is that we didn’t quite ‘fill out’ the semester with presentations due to scheduling and not wanting to make some people present twice. Here’s a lesson: recruit more people to the phd program (or get more undergrads) so you don’t have this problem!&lt;/p&gt;
-
-&lt;p&gt;Having papers in a theme helped a lot over previous paper-presentation iterations of pl junior. It helped each week being able to build on what we learned last week, as opposed to having a whirlwind of unrelated topics.&lt;/p&gt;
-
-&lt;p&gt;Writing this retrospective has also proven to be a beneficial exercise. Especially with our sequences of connected topics, looking back has allowed us to put the earlier papers into perspective and better assess both their relevance and presentation.&lt;/p&gt;</description></item>
-  <item>
-   <title>[Bridging the System Configuration Gap (Cross-Post)](https://aaronweiss.us/posts/2017-06-05-bridging-the-system-configuration-gap.html)</title>
-   <link>http://prl.ccs.neu.edu/blog/2017/06/09/-bridging-the-system-configuration-gap-cross-post-https-aaronweiss-us-posts-2017-06-05-bridging-the-system-configuration-gap-html/?utm_source=all&amp;utm_medium=RSS</link>
-   <guid isPermaLink="false">urn:http-prl-ccs-neu-edu:-blog-2017-06-09-bridging-the-system-configuration-gap-cross-post-https-aaronweiss-us-posts-2017-06-05-bridging-the-system-configuration-gap-html</guid>
-   <pubDate>Fri, 09 Jun 2017 13:36:56 UT</pubDate>
-   <author>PRL</author>
-   <description></description></item></channel></rss>
+&lt;!-- served on panels falling asleep during other panels--&gt;</description></item></channel></rss>

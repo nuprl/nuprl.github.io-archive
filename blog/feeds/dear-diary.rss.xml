@@ -4,9 +4,49 @@
   <title>PRL Blog: Posts tagged 'dear diary'</title>
   <description>PRL Blog: Posts tagged 'dear diary'</description>
   <link>http://prl.ccs.neu.edu/blog/tags/dear-diary.html</link>
-  <lastBuildDate>Sat, 24 Jun 2017 20:00:52 UT</lastBuildDate>
-  <pubDate>Sat, 24 Jun 2017 20:00:52 UT</pubDate>
+  <lastBuildDate>Sat, 24 Nov 2018 09:52:58 UT</lastBuildDate>
+  <pubDate>Sat, 24 Nov 2018 09:52:58 UT</pubDate>
   <ttl>1800</ttl>
+  <item>
+   <title>Disappearing Code</title>
+   <link>http://prl.ccs.neu.edu/blog/2018/11/24/disappearing-code/?utm_source=dear-diary&amp;utm_medium=RSS</link>
+   <guid isPermaLink="false">urn:http-prl-ccs-neu-edu:-blog-2018-11-24-disappearing-code</guid>
+   <pubDate>Sat, 24 Nov 2018 09:52:58 UT</pubDate>
+   <author>PRL</author>
+   <description>
+&lt;p&gt;Two experiences at &lt;a href="https://2018.splashcon.org/home"&gt;SPLASH 2018&lt;/a&gt; reminded me that software gets thrown away and replaced.&lt;/p&gt;
+&lt;!-- more--&gt;
+
+&lt;h3 id="story-1"&gt;Story 1&lt;/h3&gt;
+
+&lt;p&gt;The first reminder came near the end of a &lt;a href="https://conf.researchr.org/event/sle-2018/papers-a-new-approach-for-software-correctness-and-reliability"&gt;talk&lt;/a&gt; by  &lt;a href="https://people.csail.mit.edu/rinard/"&gt;Martin Rinard&lt;/a&gt;. Once upon a time, Martin was working as a consultant and a firm asked him to  review a software package. (The firm wanted a second opinion about how the software computed its results.) The firm sent a zipfile; Martin found six versions of the code inside; the  firm said &amp;ldquo;well, please check all six versions&amp;rdquo;; and it turned out:&lt;/p&gt;
+
+&lt;ul&gt;
+ &lt;li&gt;&lt;strong&gt;Version 1&lt;/strong&gt; : the source code was written in a domain-specific language  (DSL) that generated code for the application&lt;/li&gt;
+ &lt;li&gt;&lt;strong&gt;Version 2&lt;/strong&gt; : the DSL source was the same as version 1, but the generated  code was slightly modified&lt;/li&gt;
+ &lt;li&gt;&amp;hellip;&lt;/li&gt;
+ &lt;li&gt;&lt;strong&gt;Version 6&lt;/strong&gt; : the generated code was the source code and the DSL was gone&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;The moral of Martin&amp;rsquo;s story was:   (1) the creators of a software system are often different from the maintainers,  and (2) researchers need to build tools to help these maintainers.&lt;/p&gt;
+
+&lt;h3 id="story-2"&gt;Story 2&lt;/h3&gt;
+
+&lt;p&gt;The second reminder came from a teaching assistant who said the  &lt;a href="https://www.cs.cornell.edu/courses/cs3110/2018fa/"&gt;functional programming course&lt;/a&gt;  at their institution was currently using a Python script  to test students&amp;rsquo; code. Once upon a time, I was a teaching assistant for the  &lt;a href="https://www.cs.cornell.edu/courses/cs3110/2014sp/"&gt;same course&lt;/a&gt; at the same  institution. We had trouble testing students&amp;rsquo; code via the Python script  left by the pre&amp;ndash;2013 course staff, so I wrote a  &lt;a href="https://gitlab.com/bengreenman/ocaml_tools/"&gt;command-line tool&lt;/a&gt; to handle the tests and other  compile/run/grade tasks. To keep history from repeating itself, I used the same language the course  teaches (OCaml) and wrote some documentation &amp;mdash; but it seems like that was  not enough. At any rate, writing the tool was a good exercise.&lt;/p&gt;
+
+&lt;blockquote&gt;
+ &lt;p&gt;&lt;em&gt;In the end, everybody must understand for himself.&lt;/em&gt; &amp;mdash; &lt;a href="https://dl.acm.org/citation.cfm?id=3731"&gt;Per Martin-Löf&lt;/a&gt;&lt;/p&gt;&lt;/blockquote&gt;
+
+&lt;h3 id="reflection"&gt;Reflection&lt;/h3&gt;
+
+&lt;p&gt;In each story, the maintainers of a software system threw away some old  code to make their job easier in the short term. How can we stop this &amp;ldquo;re-inventing the wheel&amp;rdquo; from happening?&lt;/p&gt;
+
+&lt;p&gt;Martin Rinard&amp;rsquo;s solution is to let maintenance programmers keep their current  habits, but provide tools to make the short-term, pragmatic solutions into a  more robust systems. Search for "&lt;a href="https://people.csail.mit.edu/rinard/paper/osdi04.pdf"&gt;failure-oblivious computing&lt;/a&gt;"  to learn more (this was the topic of his &lt;a href="https://conf.researchr.org/event/sle-2018/papers-a-new-approach-for-software-correctness-and-reliability"&gt;talk&lt;/a&gt;).&lt;/p&gt;
+
+&lt;p&gt;In Story 1, the maintainers were able to avoid the DSL by modifying an  inherited blob of DSL-generated code. If the DSL did not generate code, history might have taken a different course;  it might be best to start with a language that offers tools for linguistic  re-use, and to build a DSL from these tools &amp;mdash; so there is no generated code. The Racket programming language is exploring this path. For a recent example, see the &lt;a href="https://www2.ccs.neu.edu/racket/pubs/icfp17-acf.pdf"&gt;video-lang paper&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;The Story 2 test harness, however, was not generating code. Its maintainers discarded a &amp;ldquo;big&amp;rdquo; program written in a typed  functional language in favor of a script. Perhaps we need a language that allows mixing statically-typed and  dynamically-typed code (shouts out to  &lt;a href="https://www2.ccs.neu.edu/racket/pubs/icfp18-gf.pdf"&gt;my own research&lt;/a&gt;).&lt;/p&gt;
+
+&lt;p&gt;The best solution is probably to start with a team and keep the culture alive. Always pair program!&lt;/p&gt;</description></item>
   <item>
    <title>Quotes and Stories from "Turing 50"</title>
    <link>http://prl.ccs.neu.edu/blog/2017/06/24/quotes-and-stories-from-turing-50/?utm_source=dear-diary&amp;utm_medium=RSS</link>

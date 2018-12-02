@@ -6,7 +6,7 @@
     <title>PRL Blog (page 7)</title>
     <meta name="description" content="PRL Blog (page 7)">
     <meta name="author"      content="PRL">
-    <meta name="keywords"    content="tutorials, closure conversion, HOPL, language, garbage collection, instrumentation, lang-extension, ocaml, event, by Li-Yao Xia, gradual typing, PLT Redex, by Milo Davis, coq, by Aaron Weiss, about, language implementation, semantics, compilers, CRDTs, calculus, math, ICFP, ghc, lost time, Emacs, by Kevin Clancy, pliss, final encoding, by Matt Kolosick, lectures, turnstile, FFI, by Ben Chung, galois connection, windows, PI meeting, by William J. Bowman, dsl, System Administration, by Zeina Migeed, NEPLS, by Gabriel Scherer, beta, Takikawa constant, array language, by Ming-Ho Yee, by Dustin Jamner, dawn of the digital era, conference, by Ben Greenman, dear diary, 1st blog post, lambda, by Daniel Patterson, dynamic typing, compiler correctness, tutorial, PL Junior, observational equivalence, by Artem Pelenitsyn, icfp, books, by Asumu Takikawa, Gradual Typing, category theory, history, adjunction, by Tony Garnock-Jones, by Leif Andersen, types, by Julia Belyakova, by Jonathan Schuster, by Rob Kleffner, statistics, eventual consistency, bugs, monotonicity, coYoneda, haskell, by Jan Vitek, racket, migratory typing, Scribble, package, by Max New, performance, proceedings, all, by Justin Slepak, reduction, latency, Yoneda, Racket, constructions, benchmarking, by Sam Caldwell">
+    <meta name="keywords"    content="tutorials, closure conversion, HOPL, language, garbage collection, instrumentation, lang-extension, ocaml, event, by Li-Yao Xia, gradual typing, PLT Redex, by Milo Davis, announcement, coq, by Aaron Weiss, about, language implementation, semantics, compilers, CRDTs, calculus, math, ICFP, ghc, lost time, turnstile, Emacs, by Kevin Clancy, pliss, final encoding, by Matt Kolosick, lectures, dsl, FFI, by Ben Chung, galois connection, windows, PI meeting, by William J. Bowman, by Stephen Chang, System Administration, by Zeina Migeed, NEPLS, by Gabriel Scherer, beta, Takikawa constant, array language, by Ming-Ho Yee, by Dustin Jamner, dawn of the digital era, conference, by Ben Greenman, dear diary, 1st blog post, lambda, by Daniel Patterson, dynamic typing, compiler correctness, tutorial, PL Junior, observational equivalence, by Artem Pelenitsyn, icfp, books, by Asumu Takikawa, Gradual Typing, category theory, history, adjunction, by Tony Garnock-Jones, by Leif Andersen, types, by Julia Belyakova, by Jonathan Schuster, by Rob Kleffner, statistics, eventual consistency, bugs, monotonicity, coYoneda, haskell, by Jan Vitek, racket, migratory typing, Scribble, package, by Max New, performance, proceedings, all, by Justin Slepak, reduction, latency, Yoneda, Racket, constructions, benchmarking, by Sam Caldwell">
     <meta name="viewport"    content="width=device-width, initial-scale=1.0">
     <link rel="icon"      href="/img/favicon.ico">
     <link rel="canonical" href="http://prl.ccs.neu.edu/blog/index-7.html">
@@ -78,6 +78,46 @@
 
 
               <article>
+  <header>
+    <h2><a href='/blog/2016/07/11/tutorial-racket-ffi-part-3/'>Tutorial: Racket FFI, part 3</a></h2>
+    <p class='date-and-tags'>
+<time datetime="2016-07-11" pubdate="true">2016-07-11</time> :: <span class="tags"><a href="/blog/tags/Racket.html">Racket</a>, <a href="/blog/tags/FFI.html">FFI</a>, <a href="/blog/tags/tutorial.html">tutorial</a>, <a href="/blog/tags/by-Asumu-Takikawa.html">by Asumu Takikawa</a></span></p>
+  </header>
+
+<p>This is part 3 of my tutorial for using the Racket FFI. You can find part 1
+<a href="http://prl.ccs.neu.edu/blog/2016/06/27/tutorial-using-racket-s-ffi/">here</a>
+and part 2
+<a href="http://prl.ccs.neu.edu/blog/2016/06/29/tutorial-racket-ffi-part-2/">here</a>.</p>
+
+<p>In this post, we will experiment with some low-level operations with pointers,
+union types, and custom C types. The main takeaway will be the custom C types,
+which let you define abstractions that hide the details of the C representation
+when manipulating data in Racket.</p>
+  <footer>
+    <a href='/blog/2016/07/11/tutorial-racket-ffi-part-3/'>&hellip; more &hellip;</a>
+  </footer>
+</article>
+<article>
+  <header>
+    <h2><a href='/blog/2016/06/29/tutorial-racket-ffi-part-2/'>Tutorial: Racket FFI, Part 2</a></h2>
+    <p class='date-and-tags'>
+<time datetime="2016-06-29" pubdate="true">2016-06-29</time> :: <span class="tags"><a href="/blog/tags/Racket.html">Racket</a>, <a href="/blog/tags/FFI.html">FFI</a>, <a href="/blog/tags/tutorial.html">tutorial</a>, <a href="/blog/tags/by-Asumu-Takikawa.html">by Asumu Takikawa</a></span></p>
+  </header>
+
+<p>This is part 2 of my tutorial on using the Racket FFI. If you haven&rsquo;t read
+part 1 yet, you can find it
+<a href="http://prl.ccs.neu.edu/blog/2016/06/27/tutorial-using-racket-s-ffi/">here</a>.
+<span style="font-weight: bold">Update:</span> part 3 is also now available
+<a href="http://prl.ccs.neu.edu/blog/2016/07/11/tutorial-racket-ffi-part-3/">here</a>.</p>
+
+<p>Part 2 will continue with more Cairo examples. In this installment, I plan to
+go over some more advanced FFI hacking such as handling computed argument
+values, custom return arguments, and using C structs.</p>
+  <footer>
+    <a href='/blog/2016/06/29/tutorial-racket-ffi-part-2/'>&hellip; more &hellip;</a>
+  </footer>
+</article>
+<article>
   <header>
     <h2><a href='/blog/2016/06/27/tutorial-using-racket-s-ffi/'>Tutorial: Using Racket&rsquo;s FFI</a></h2>
     <p class='date-and-tags'>

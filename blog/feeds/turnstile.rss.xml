@@ -4,9 +4,20 @@
   <title>PRL Blog: Posts tagged 'turnstile'</title>
   <description>PRL Blog: Posts tagged 'turnstile'</description>
   <link>http://prl.ccs.neu.edu/blog/tags/turnstile.html</link>
-  <lastBuildDate>Mon, 22 Oct 2018 15:05:17 UT</lastBuildDate>
-  <pubDate>Mon, 22 Oct 2018 15:05:17 UT</pubDate>
+  <lastBuildDate>Fri, 30 Nov 2018 14:55:30 UT</lastBuildDate>
+  <pubDate>Fri, 30 Nov 2018 14:55:30 UT</pubDate>
   <ttl>1800</ttl>
+  <item>
+   <title>Turnstile Mailing List</title>
+   <link>http://prl.ccs.neu.edu/blog/2018/11/30/turnstile-mailing-list/?utm_source=turnstile&amp;utm_medium=RSS</link>
+   <guid isPermaLink="false">urn:http-prl-ccs-neu-edu:-blog-2018-11-30-turnstile-mailing-list</guid>
+   <pubDate>Fri, 30 Nov 2018 14:55:30 UT</pubDate>
+   <author>PRL</author>
+   <description>
+&lt;p&gt;&lt;a href="https://docs.racket-lang.org/turnstile/The_Turnstile_Guide.html"&gt;Turnstile&lt;/a&gt; now has a mailing list: &lt;a href="https://groups.google.com/forum/#!forum/turnstile-users"&gt;https://groups.google.com/forum/#!forum/turnstile-users&lt;/a&gt;&lt;/p&gt;
+&lt;!-- more--&gt;
+
+&lt;p&gt;There is also a &lt;code&gt;#turnstile&lt;/code&gt; channel on &lt;a href="https://racket.slack.com"&gt;the Racket Slack&lt;/a&gt;.&lt;/p&gt;</description></item>
   <item>
    <title>Defining Local Bindings in Turnstile Languages</title>
    <link>http://prl.ccs.neu.edu/blog/2018/10/22/defining-local-bindings-in-turnstile-languages/?utm_source=turnstile&amp;utm_medium=RSS</link>

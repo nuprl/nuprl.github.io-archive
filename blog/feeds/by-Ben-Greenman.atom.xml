@@ -4,7 +4,49 @@
  <link rel="self" href="http://prl.ccs.neu.edu/blog/feeds/by-Ben-Greenman.atom.xml" />
  <link href="http://prl.ccs.neu.edu/blog/tags/by-Ben-Greenman.html" />
  <id>urn:http-prl-ccs-neu-edu:-blog-tags-by-Ben-Greenman-html</id>
- <updated>2018-10-06T11:23:35Z</updated>
+ <updated>2018-11-24T09:52:58Z</updated>
+ <entry>
+  <title type="text">Disappearing Code</title>
+  <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2018/11/24/disappearing-code/?utm_source=by-Ben-Greenman&amp;utm_medium=Atom" />
+  <id>urn:http-prl-ccs-neu-edu:-blog-2018-11-24-disappearing-code</id>
+  <published>2018-11-24T09:52:58Z</published>
+  <updated>2018-11-24T09:52:58Z</updated>
+  <author>
+   <name>PRL</name></author>
+  <content type="html">
+&lt;p&gt;Two experiences at &lt;a href="https://2018.splashcon.org/home"&gt;SPLASH 2018&lt;/a&gt; reminded me that software gets thrown away and replaced.&lt;/p&gt;
+&lt;!-- more--&gt;
+
+&lt;h3 id="story-1"&gt;Story 1&lt;/h3&gt;
+
+&lt;p&gt;The first reminder came near the end of a &lt;a href="https://conf.researchr.org/event/sle-2018/papers-a-new-approach-for-software-correctness-and-reliability"&gt;talk&lt;/a&gt; by  &lt;a href="https://people.csail.mit.edu/rinard/"&gt;Martin Rinard&lt;/a&gt;. Once upon a time, Martin was working as a consultant and a firm asked him to  review a software package. (The firm wanted a second opinion about how the software computed its results.) The firm sent a zipfile; Martin found six versions of the code inside; the  firm said &amp;ldquo;well, please check all six versions&amp;rdquo;; and it turned out:&lt;/p&gt;
+
+&lt;ul&gt;
+ &lt;li&gt;&lt;strong&gt;Version 1&lt;/strong&gt; : the source code was written in a domain-specific language  (DSL) that generated code for the application&lt;/li&gt;
+ &lt;li&gt;&lt;strong&gt;Version 2&lt;/strong&gt; : the DSL source was the same as version 1, but the generated  code was slightly modified&lt;/li&gt;
+ &lt;li&gt;&amp;hellip;&lt;/li&gt;
+ &lt;li&gt;&lt;strong&gt;Version 6&lt;/strong&gt; : the generated code was the source code and the DSL was gone&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;The moral of Martin&amp;rsquo;s story was:   (1) the creators of a software system are often different from the maintainers,  and (2) researchers need to build tools to help these maintainers.&lt;/p&gt;
+
+&lt;h3 id="story-2"&gt;Story 2&lt;/h3&gt;
+
+&lt;p&gt;The second reminder came from a teaching assistant who said the  &lt;a href="https://www.cs.cornell.edu/courses/cs3110/2018fa/"&gt;functional programming course&lt;/a&gt;  at their institution was currently using a Python script  to test students&amp;rsquo; code. Once upon a time, I was a teaching assistant for the  &lt;a href="https://www.cs.cornell.edu/courses/cs3110/2014sp/"&gt;same course&lt;/a&gt; at the same  institution. We had trouble testing students&amp;rsquo; code via the Python script  left by the pre&amp;ndash;2013 course staff, so I wrote a  &lt;a href="https://gitlab.com/bengreenman/ocaml_tools/"&gt;command-line tool&lt;/a&gt; to handle the tests and other  compile/run/grade tasks. To keep history from repeating itself, I used the same language the course  teaches (OCaml) and wrote some documentation &amp;mdash; but it seems like that was  not enough. At any rate, writing the tool was a good exercise.&lt;/p&gt;
+
+&lt;blockquote&gt;
+ &lt;p&gt;&lt;em&gt;In the end, everybody must understand for himself.&lt;/em&gt; &amp;mdash; &lt;a href="https://dl.acm.org/citation.cfm?id=3731"&gt;Per Martin-Löf&lt;/a&gt;&lt;/p&gt;&lt;/blockquote&gt;
+
+&lt;h3 id="reflection"&gt;Reflection&lt;/h3&gt;
+
+&lt;p&gt;In each story, the maintainers of a software system threw away some old  code to make their job easier in the short term. How can we stop this &amp;ldquo;re-inventing the wheel&amp;rdquo; from happening?&lt;/p&gt;
+
+&lt;p&gt;Martin Rinard&amp;rsquo;s solution is to let maintenance programmers keep their current  habits, but provide tools to make the short-term, pragmatic solutions into a  more robust systems. Search for "&lt;a href="https://people.csail.mit.edu/rinard/paper/osdi04.pdf"&gt;failure-oblivious computing&lt;/a&gt;"  to learn more (this was the topic of his &lt;a href="https://conf.researchr.org/event/sle-2018/papers-a-new-approach-for-software-correctness-and-reliability"&gt;talk&lt;/a&gt;).&lt;/p&gt;
+
+&lt;p&gt;In Story 1, the maintainers were able to avoid the DSL by modifying an  inherited blob of DSL-generated code. If the DSL did not generate code, history might have taken a different course;  it might be best to start with a language that offers tools for linguistic  re-use, and to build a DSL from these tools &amp;mdash; so there is no generated code. The Racket programming language is exploring this path. For a recent example, see the &lt;a href="https://www2.ccs.neu.edu/racket/pubs/icfp17-acf.pdf"&gt;video-lang paper&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;The Story 2 test harness, however, was not generating code. Its maintainers discarded a &amp;ldquo;big&amp;rdquo; program written in a typed  functional language in favor of a script. Perhaps we need a language that allows mixing statically-typed and  dynamically-typed code (shouts out to  &lt;a href="https://www2.ccs.neu.edu/racket/pubs/icfp18-gf.pdf"&gt;my own research&lt;/a&gt;).&lt;/p&gt;
+
+&lt;p&gt;The best solution is probably to start with a team and keep the culture alive. Always pair program!&lt;/p&gt;</content></entry>
  <entry>
   <title type="text">A Spectrum of Type Soundness and Performance</title>
   <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2018/10/06/a-spectrum-of-type-soundness-and-performance/?utm_source=by-Ben-Greenman&amp;utm_medium=Atom" />
@@ -4031,36 +4073,4 @@ Going forward we could add &lt;a href="http://docs.racket-lang.org/scribble/inde
   &lt;li&gt;
    &lt;p&gt;&lt;a href="http://www.ccs.neu.edu/home/matthias/manifesto/"&gt;The Racket Manifesto (html)&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
   &lt;li&gt;
-   &lt;p&gt;&lt;a href="http://www.terohasu.net/hasu-flatt--els16--preprint.pdf"&gt;Source-to-Source Compilation via Submodules (pdf)&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;</content></entry>
- <entry>
-  <title type="text">Welcome to the PRL blog</title>
-  <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2016/04/29/welcome-to-the-prl-blog/?utm_source=by-Ben-Greenman&amp;utm_medium=Atom" />
-  <id>urn:http-prl-ccs-neu-edu:-blog-2016-04-29-welcome-to-the-prl-blog</id>
-  <published>2016-04-29T14:50:29Z</published>
-  <updated>2016-04-29T14:50:29Z</updated>
-  <author>
-   <name>PRL</name></author>
-  <content type="html">
-&lt;p&gt;Greetings, ground rules, hopes, dreams, and notes for contributors. Welcome aboard.&lt;/p&gt;
-&lt;!-- more--&gt;
-
-&lt;p&gt;Earlier this year, the Programming Research Lab (PRL) was blessed with a new  postdoc: &lt;a href="http://gallium.inria.fr/~scherer/"&gt;Gabriel Scherer&lt;/a&gt; from INRIA  Paris-Rocquencourt, France. Ever since Gabriel arrived things have been changing here in Boston. We now have homemade bread on the first Tuesday of every month,  &lt;a href="https://en.wikipedia.org/wiki/Orange_flower_water"&gt;orange water&lt;/a&gt; crepes  after holidays, and someone new to go out for bubble tea with in between. All that and an enthusiastic colleague and researcher.&lt;/p&gt;
-
-&lt;p&gt;In his spare time between lobbying the CS department for an espresso machine and  building multi-language compilers, Gabriel is also a champion of open access. Hence this blog, a window into the life and times of PRL students made  possible by Gabriel&amp;rsquo;s tactical prodding and careful delegation of responsibilities. Anything you might read about in a rejected conference paper or hear over  coffee is fair game here: the goal is to give the wide world a glimpse of  our lab and people.&lt;/p&gt;
-
-&lt;h2 id="for-contributors"&gt;For Contributors&lt;/h2&gt;
-
-&lt;p&gt;These pages are generated using Greg Hendershott&amp;rsquo;s &lt;a href="https://github.com/greghendershott/frog"&gt;frog&lt;/a&gt;  static website generator. To create a new post:&lt;/p&gt;
-
-&lt;ol&gt;
- &lt;li&gt;Clone or fork the &lt;a href="https://github.com/nuprl/nuprl.github.io"&gt;nuprl.github.io&lt;/a&gt; repository&lt;/li&gt;
- &lt;li&gt;Check out a new git branch for your post&lt;/li&gt;
- &lt;li&gt;Run &lt;code&gt;cd blog; raco frog -n "TITLE"&lt;/code&gt; to build a template for a new post&lt;/li&gt;
- &lt;li&gt;Add content to the new markdown file (under &lt;code&gt;_src/posts&lt;/code&gt;)&lt;/li&gt;
- &lt;li&gt;Rebuild the blog with &lt;code&gt;raco frog -b&lt;/code&gt;&lt;/li&gt;
- &lt;li&gt;Run &lt;code&gt;cd ..; raco frog -p&lt;/code&gt; to start a web server and view your changes at &lt;a href="http://localhost:3000/"&gt;http://localhost:3000/&lt;/a&gt;&lt;/li&gt;
- &lt;li&gt;Send a pull request to the &lt;a href="https://github.com/nuprl/nuprl.github.io"&gt;nuprl.github.io&lt;/a&gt; repo&lt;/li&gt;&lt;/ol&gt;
-
-&lt;p&gt;An open pull request is the best place to ask questions about the formatting or content of a post. We promise that within a few days of opening a PR someone with push access will reply with feedback or merge the request.&lt;/p&gt;
-
-&lt;p&gt;Contributions are open to anyone: current labmates, alumni, friends from the  Racket mailing list, and even recovering C programmers. One should have a strong connection to Northeastern or our research, but  even that is not strictly necessary. Visitors are always welcome to the PRL.&lt;/p&gt;</content></entry></feed>
+   &lt;p&gt;&lt;a href="http://www.terohasu.net/hasu-flatt--els16--preprint.pdf"&gt;Source-to-Source Compilation via Submodules (pdf)&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;</content></entry></feed>
