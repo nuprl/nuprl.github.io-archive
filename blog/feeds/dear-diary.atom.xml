@@ -46,7 +46,22 @@
 
 &lt;p&gt;The Story 2 test harness, however, was not generating code. Its maintainers discarded a &amp;ldquo;big&amp;rdquo; program written in a typed  functional language in favor of a script. Perhaps we need a language that allows mixing statically-typed and  dynamically-typed code (shouts out to  &lt;a href="https://www2.ccs.neu.edu/racket/pubs/icfp18-gf.pdf"&gt;my own research&lt;/a&gt;).&lt;/p&gt;
 
-&lt;p&gt;The best solution is probably to start with a team and keep the culture alive. Always pair program!&lt;/p&gt;</content></entry>
+&lt;p&gt;The best solution is probably to start with a team and keep the culture alive. Always pair program!&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h4 id="addendum-comment-from-mitch-wand"&gt;Addendum: comment from Mitch Wand&lt;/h4&gt;
+
+&lt;blockquote&gt;
+ &lt;p&gt;The best solution is probably to start with a team and keep the culture alive. Always pair program!&lt;/p&gt;&lt;/blockquote&gt;
+
+&lt;p&gt;Ermm, this works better for sourdough bread than for people.&lt;/p&gt;
+
+&lt;p&gt;Even in the not-so-real world of checking student solutions, there&amp;rsquo;s often no way of guaranteeing that one half of a pair will be around for the second round. They may be on co-op. Or the course will not be offered the next semster/year/etc. Or the course will change at the next offering (from OCaml to Python or from Racket to Java) so that large chunks of the infrastructure will have to be discarded or rewritten.&lt;/p&gt;
+
+&lt;p&gt;The &amp;ldquo;real&amp;rdquo; solution is to write literate code (as we preached incessantly in PDP), so that the next reader will have at least some clue as about what you wrote. This just may be sufficient incentive to modify rather than rebuild from scratch.&lt;/p&gt;
+
+&lt;p&gt;Ever the optimist, &amp;mdash;Mitch&lt;/p&gt;</content></entry>
  <entry>
   <title type="text">Quotes and Stories from "Turing 50"</title>
   <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2017/06/24/quotes-and-stories-from-turing-50/?utm_source=dear-diary&amp;utm_medium=Atom" />
