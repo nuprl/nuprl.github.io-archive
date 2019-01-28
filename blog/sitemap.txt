@@ -26,6 +26,7 @@ http://prl.ccs.neu.edu/blog/2017/04/20/refinement-types/
 http://prl.ccs.neu.edu/blog/2016/05/03/nepls-on-may-31st-at-umass-amherst/
 http://prl.ccs.neu.edu/blog/2016/10/31/meaningful-distinctions/
 http://prl.ccs.neu.edu/blog/2018/11/30/turnstile-mailing-list/
+http://prl.ccs.neu.edu/blog/2019/01/28/on-stack-replacement/
 http://prl.ccs.neu.edu/blog/2016/10/19/history-of-actors/
 http://prl.ccs.neu.edu/blog/2016/11/02/beta-reduction-part-1/
 http://prl.ccs.neu.edu/blog/2017/03/10/type-inference-in-stack-based-programming-languages/

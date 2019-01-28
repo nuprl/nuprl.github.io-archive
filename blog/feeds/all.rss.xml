@@ -4,9 +4,31 @@
   <title>PRL Blog: PRL Blog</title>
   <description>PRL Blog: PRL Blog</description>
   <link>http://prl.ccs.neu.edu/blog/index.html</link>
-  <lastBuildDate>Tue, 11 Dec 2018 19:50:33 UT</lastBuildDate>
-  <pubDate>Tue, 11 Dec 2018 19:50:33 UT</pubDate>
+  <lastBuildDate>Mon, 28 Jan 2019 10:29:57 UT</lastBuildDate>
+  <pubDate>Mon, 28 Jan 2019 10:29:57 UT</pubDate>
   <ttl>1800</ttl>
+  <item>
+   <title>On-Stack Replacement</title>
+   <link>http://prl.ccs.neu.edu/blog/2019/01/28/on-stack-replacement/?utm_source=all&amp;utm_medium=RSS</link>
+   <guid isPermaLink="false">urn:http-prl-ccs-neu-edu:-blog-2019-01-28-on-stack-replacement</guid>
+   <pubDate>Mon, 28 Jan 2019 10:29:57 UT</pubDate>
+   <author>PRL</author>
+   <description>
+&lt;p&gt;Last semester, I took &lt;a href="https://course.ccs.neu.edu/cs7600/"&gt;a course&lt;/a&gt; where the final project was to write a survey paper on &amp;ldquo;a topic in the intersection between computer systems and your area.&amp;rdquo; So I wrote about on-stack replacement.&lt;/p&gt;
+&lt;!-- more--&gt;
+
+&lt;p&gt;&lt;strong&gt;Abstract&lt;/strong&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+ &lt;p&gt;On-stack replacement (OSR) is a programming language implementation technique that allows a running program to switch to a different version of code. For example, a program could start executing optimized code, and then transfer to and start executing unoptimized code. This was the original use case for OSR, to facilitate debugging of optimized code.&lt;/p&gt;
+ &lt;p&gt;After its original use was established, OSR shifted to a different use case: optimizing programs. OSR allows the run-time system to detect if a program is executing an inefficient loop, recompile and optimize the method that contains the loop, and then transfer control to the newly compiled method. Another strategy is to optimize code based on some assumptions, then, if the assumptions are invalidated at run-time, transfer control back to the original, unoptimized code.&lt;/p&gt;
+ &lt;p&gt;In this survey paper, we study how OSR was first introduced as a means for debugging, how it came to be used for program optimizations, its implementation as a reusable library, and other directions of research.&lt;/p&gt;&lt;/blockquote&gt;
+
+&lt;p&gt;If you&amp;rsquo;re interested, you can find a copy &lt;a href="/img/cs7600-mhyee-survey-paper-osr.pdf"&gt;here&lt;/a&gt; or on &lt;a href="https://www.overleaf.com/read/smcmsnksxfdk"&gt;Overleaf&lt;/a&gt;.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;em&gt;If you liked this post, you may also be interested in &lt;a href="http://prl.ccs.neu.edu/blog/2017/03/15/tracing-jits-for-dynamic-languages/"&gt;tracing JITs for dynamic languages&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;</description></item>
   <item>
    <title>The Behavior of Gradual Types: A User Study</title>
    <link>http://prl.ccs.neu.edu/blog/2018/12/11/the-behavior-of-gradual-types-a-user-study/?utm_source=all&amp;utm_medium=RSS</link>
@@ -2793,22 +2815,4 @@ A&lt;/script&gt; and
 &lt;p&gt;If you are a PC chair, you should remove the suggestion of respecting a 500 words limit for your conference. Here would be a suggested alternative wording:&lt;/p&gt;
 
 &lt;blockquote&gt;
- &lt;p&gt;Please remember, in writing your author response, that reviewers may stop reading the response at any point. We suggest having a reasonably-sized main section where you make your most important high-level comments, and clearly marked sections where you answer individual reviewer&amp;rsquo;s questions. It is not useful nor productive to answer every point of each review, you should focus on the comments that you believe the reviewers are most interested in.&lt;/p&gt;&lt;/blockquote&gt;</description></item>
-  <item>
-   <title>Trees, 1973</title>
-   <link>http://prl.ccs.neu.edu/blog/2017/07/19/trees-1973/?utm_source=all&amp;utm_medium=RSS</link>
-   <guid isPermaLink="false">urn:http-prl-ccs-neu-edu:-blog-2017-07-19-trees-1973</guid>
-   <pubDate>Wed, 19 Jul 2017 21:48:56 UT</pubDate>
-   <author>PRL</author>
-   <description>
-&lt;p&gt;From the PRL archives:&lt;/p&gt;
-
-&lt;blockquote&gt;
- &lt;p&gt;I think that I shall never see a matrix lovely as a tree. &amp;mdash; &lt;a href="/img/gls-trees-poem-1979.pdf"&gt;&lt;em&gt;Trees&lt;/em&gt;&lt;/a&gt;, by Guy L. Steele Jr., MIT, 1973&lt;/p&gt;&lt;/blockquote&gt;
-&lt;!-- more--&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;You might recognize the opening line from Joyce Kilmer&amp;rsquo;s 1914 poem &lt;a href="https://en.wikipedia.org/wiki/Trees_(poem)"&gt;&lt;em&gt;Trees&lt;/em&gt;&lt;/a&gt;, or from Radia Perlman&amp;rsquo;s &lt;a href="/img/p-sigcomm-1985.pdf"&gt;&lt;em&gt;Algorhyme&lt;/em&gt;&lt;/a&gt; (published 1985).&lt;/p&gt;
-
-&lt;p&gt;The poem is online in &lt;a href="http://mercury.lcs.mit.edu/~jnc/humour/lisp.tree"&gt;at least one other place&lt;/a&gt;, but the copy linked above (from &lt;a href="https://archive.org/details/byte-magazine"&gt;BYTE magazine&lt;/a&gt;) comes with a footnote on &lt;em&gt;How this poem came to be printed&lt;/em&gt;.&lt;/p&gt;</description></item></channel></rss>
+ &lt;p&gt;Please remember, in writing your author response, that reviewers may stop reading the response at any point. We suggest having a reasonably-sized main section where you make your most important high-level comments, and clearly marked sections where you answer individual reviewer&amp;rsquo;s questions. It is not useful nor productive to answer every point of each review, you should focus on the comments that you believe the reviewers are most interested in.&lt;/p&gt;&lt;/blockquote&gt;</description></item></channel></rss>

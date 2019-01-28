@@ -286,7 +286,11 @@
 
 &lt;ul&gt;
  &lt;li&gt;&lt;a href="https://github.com/nuprl/hopl-s2017/blob/master/tracing-jit/notes.pdf"&gt;Full notes&lt;/a&gt;&lt;/li&gt;
- &lt;li&gt;&lt;a href="https://github.com/nuprl/hopl-s2017/blob/master/tracing-jit/annotated.txt"&gt;Annotated bibliography&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;</description></item>
+ &lt;li&gt;&lt;a href="https://github.com/nuprl/hopl-s2017/blob/master/tracing-jit/annotated.txt"&gt;Annotated bibliography&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;em&gt;If you liked this post, you may also be interested in &lt;a href="http://prl.ccs.neu.edu/blog/2019/01/28/on-stack-replacement/"&gt;on-stack replacement&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;</description></item>
   <item>
    <title>Type Inference in Stack-Based Programming Languages</title>
    <link>http://prl.ccs.neu.edu/blog/2017/03/10/type-inference-in-stack-based-programming-languages/?utm_source=HOPL&amp;utm_medium=RSS</link>
