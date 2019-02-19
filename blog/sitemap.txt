@@ -3,6 +3,7 @@ http://prl.ccs.neu.edu/blog/2016/06/07/icfp-2016-looking-for-student-volunteers/
 http://prl.ccs.neu.edu/blog/2018/05/08/sampling-gradual-typing-performance/
 http://prl.ccs.neu.edu/blog/2017/04/04/top-five-results-of-the-past-50-years-of-programming-languages-research/
 http://prl.ccs.neu.edu/blog/2017/06/05/report-pliss-2017/
+http://prl.ccs.neu.edu/blog/2019/02/17/writing-a-paper-with-scribble/
 http://prl.ccs.neu.edu/blog/2017/01/02/fall-2016-pl-junior-retrospective/
 http://prl.ccs.neu.edu/blog/2018/12/02/java-and-migratory-typing/
 http://prl.ccs.neu.edu/blog/2018/10/06/a-spectrum-of-type-soundness-and-performance/
