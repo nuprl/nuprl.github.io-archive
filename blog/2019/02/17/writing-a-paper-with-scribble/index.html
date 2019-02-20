@@ -148,7 +148,7 @@
 <p>These files are available in a slightly different format at this link:</p>
 
 <ul>
- <li><a href="https://gitlab.com/bennn/scribble-acmart-example">https://gitlab.com/bennn/scribble-acmart-example</a></li></ul>
+ <li><a href="https://gitlab.com/bengreenman/scribble-acmart-example">https://gitlab.com/bengreenman/scribble-acmart-example</a></li></ul>
 
 <h4 id="referencesrkt"><code>references.rkt</code></h4>
 
@@ -287,6 +287,23 @@ l.549 \oops
 
 <pre><code>% Raw LaTeX allowed here
 $\lambda x.\, x$</code></pre>
+
+<h3 id="q-what-about-in-line-latex">Q. What about in-line LaTeX?</h3>
+
+<p>An <a href="https://docs.racket-lang.org/scribble/core.html#%28def._%28%28lib._scribble%2Fcore..rkt%29._element%29%29">element</a>  with the <a href="https://docs.racket-lang.org/scribble/core.html#%28idx._%28gentag._60._%28lib._scribblings%2Fscribble%2Fscribble..scrbl%29%29%29"><code>'exact-chars</code></a>  <a href="https://docs.racket-lang.org/scribble/core.html#%28tech._style._property%29">style property</a>  renders directly to LaTeX.</p>
+
+<pre><code>@(define (exact . stuff)
+   @; the style name "relax" puts a `\relax` no-op in front of the stuff
+   (make-element (make-style "relax" '(exact-chars)) stuff))
+
+@exact|{$\lambda x.\, x$}|
+@; ==&gt; \relax{$\lambda x.\, x$}
+
+@(define ($ . math-stuff)
+   (apply exact (list "$" math-stuff "$")))
+
+@${\lambda x.\, x}
+@; ==&gt; \relax{$\lambda x.\, x$}</code></pre>
 
 <h2 id="creating-a-httpdocsracket-langorgguidemodulesyntaxhtml28parthash-lang29lang-for-a-paper">Creating a <a href="http://docs.racket-lang.org/guide/Module_Syntax.html#%28part._hash-lang%29">#lang</a> for a paper</h2>
 

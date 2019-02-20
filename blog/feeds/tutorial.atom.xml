@@ -78,7 +78,7 @@
 &lt;p&gt;These files are available in a slightly different format at this link:&lt;/p&gt;
 
 &lt;ul&gt;
- &lt;li&gt;&lt;a href="https://gitlab.com/bennn/scribble-acmart-example"&gt;https://gitlab.com/bennn/scribble-acmart-example&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;
+ &lt;li&gt;&lt;a href="https://gitlab.com/bengreenman/scribble-acmart-example"&gt;https://gitlab.com/bengreenman/scribble-acmart-example&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;
 
 &lt;h4 id="referencesrkt"&gt;&lt;code&gt;references.rkt&lt;/code&gt;&lt;/h4&gt;
 
@@ -217,6 +217,23 @@ l.549 \oops
 
 &lt;pre&gt;&lt;code&gt;% Raw LaTeX allowed here
 $\lambda x.\, x$&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id="q-what-about-in-line-latex"&gt;Q. What about in-line LaTeX?&lt;/h3&gt;
+
+&lt;p&gt;An &lt;a href="https://docs.racket-lang.org/scribble/core.html#%28def._%28%28lib._scribble%2Fcore..rkt%29._element%29%29"&gt;element&lt;/a&gt;  with the &lt;a href="https://docs.racket-lang.org/scribble/core.html#%28idx._%28gentag._60._%28lib._scribblings%2Fscribble%2Fscribble..scrbl%29%29%29"&gt;&lt;code&gt;'exact-chars&lt;/code&gt;&lt;/a&gt;  &lt;a href="https://docs.racket-lang.org/scribble/core.html#%28tech._style._property%29"&gt;style property&lt;/a&gt;  renders directly to LaTeX.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;@(define (exact . stuff)
+   @; the style name "relax" puts a `\relax` no-op in front of the stuff
+   (make-element (make-style "relax" '(exact-chars)) stuff))
+
+@exact|{$\lambda x.\, x$}|
+@; ==&amp;gt; \relax{$\lambda x.\, x$}
+
+@(define ($ . math-stuff)
+   (apply exact (list "$" math-stuff "$")))
+
+@${\lambda x.\, x}
+@; ==&amp;gt; \relax{$\lambda x.\, x$}&lt;/code&gt;&lt;/pre&gt;
 
 &lt;h2 id="creating-a-httpdocsracket-langorgguidemodulesyntaxhtml28parthash-lang29lang-for-a-paper"&gt;Creating a &lt;a href="http://docs.racket-lang.org/guide/Module_Syntax.html#%28part._hash-lang%29"&gt;#lang&lt;/a&gt; for a paper&lt;/h2&gt;
 
@@ -3669,7 +3686,7 @@ array and reference the correct variant appropriately:&lt;/p&gt;
     &lt;td&gt;&lt;span class="stt"&gt;&amp;gt; &lt;/span&gt;&lt;span class="RktPn"&gt;(&lt;/span&gt;&lt;span class="RktSym"&gt;&lt;a class="RktValLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/foreign/C_Union_Types.html#%28def._%28%28lib._ffi%2Funsafe..rkt%29._union-ref%29%29"&gt;union-ref&lt;/a&gt;&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktPn"&gt;(&lt;/span&gt;&lt;span class="RktSym"&gt;third&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;array&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktVal"&gt;1&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
    &lt;tr&gt;
     &lt;td&gt;
-     &lt;p&gt;&lt;span class="RktRes"&gt;'(4.2439915824246e-314 1.4821969375237e-323)&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;
+     &lt;p&gt;&lt;span class="RktRes"&gt;'(4.2439915824246e-314 0.0)&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;
 
 &lt;p&gt;One thing we could do is write a helper function that converts this array
 into a more useful format. It would look at each header, and then consume
