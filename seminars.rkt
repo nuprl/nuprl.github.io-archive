@@ -93,6 +93,28 @@
      @list{@p{James Bornholt is a Ph.D. candidate in the Paul G. Allen School of Computer Science & Engineering at the University of Washington, advised by Emina Torlak, Dan Grossman, and Luis Ceze. His research interests are in programming languages and formal methods, with a focus on automated program verification and synthesis. His work has received an ACM SIGPLAN Research Highlight, two IEEE Micro Top Picks selections, an OSDI best paper award, and a Facebook Ph.D. fellowship.}})
 
     (seminar
+     "francois-from-c-to-java-ee-to-node-js"
+     "From C to Java EE to Node.js: A Journey in Industrial Program Analysis"
+     "François Gauthier"
+     "https://labs.oracle.com/pls/apex/f?p=labs:bio:0:2080"
+     "Oracle Labs Australia"
+     (datetime 2019 3 19 10 00)
+     "TBD"
+     @list{@p{I will divide my presentation in two short talks. In the first part of my presentation, I will describe how static analysis of C/C++, our lab's initial expertise, widely differs from static analysis of Java EE, and describe some of the challenges we encountered in the Wafer project. In the second part of my talk, I will describe how we scale dynamic security analysis for Node.js with taint inference, and how the Affogato project compares to state-of-the-art.}}
+     @list{@p{François Gauthier graduated in 2014 from Polytechnique Montreal with a PhD in Software Engineering. The same year, he joined the program analysis team at Oracle Labs Australia, under the direction of Dr. Cristina Cifuentes, to start and lead the Wafer project for static vulnerability detection in Java EE. In June 2017, he transitioned to, and is now leading the Affogato project for dynamic security analysis of Node.js. Apart from application security, François is also exploring program analysis and machine learning approaches to detect document-based malware as well as fuzzing techniques to automatically generate test inputs.}})
+
+    (seminar
+     "pichardie-verification-of-constant-time-implementations-in-a-verified-compiler-toolchain"
+     "Verification of constant-time implementations in a verified compiler toolchain"
+     "David Pichardie"
+     "https://people.irisa.fr/David.Pichardie/"
+     "ENS Rennes"
+     (datetime 2019 3 6 10 00)
+     "WVH 366"
+     @list{@p{Constant-time programming is an established discipline to secure programs against timing attackers. Several real-world secure C libraries such as NaCl, mbedTLS, or Open Quantum Safe, follow this discipline. We propose two advanced compile-time verification techniques to enforce this discipline. The first one operates at assembly level with help from alias informations that are computed at source level and transmitted by the compiler. The second one operates at source level, using advanced abstract interpretation techniques. For this last approach, we also study how to ensure that the compiler will not break the property during compilation. These techniques have been implemented in the CompCert compiler toolchain and tested on several crypto libraries. These works have been presented at CCS’14, CSF’17 and ESORICS’17.}}
+     @list{@p{I am professor of Computer Science and head of the Department of Computer Science at ENS Rennes. My research activities take place in the Celtique team (joint team between University of Rennes, ENS Rennesand Inria Rennes, under the IRISA joint lab). I received a Ph.D. in Computer Science from the University of Rennes, France, in 2005, and a Habilitation à diriger les recherches in Computer Science from the ENS Cachan, France, in 2012. I joined ENS Cachan in September 2013 as full professor (in 2014, the brittany extension of ENS Cachan has becomed ENS Rennes). Between 2007 and 2013, I was a full research at INRIA Rennes research center. Earlier, I was holding a postdoc position at INRIA Sophia-Antipolis under the supervision of Gilles Barthe. In the 2011-13 academic years, I took a sabbatical and visited Jan Vitek's group at Purdue University, Indiana, USA, during the first year, and then Greg Morrisett's group at Harvard University, Cambridge, USA, during the second year. My research interests include formal methods, programming languages, program verification, software, and system security. I am a long time happy user of the Coq proof assistant and the theory of Abstract interpretation. More recently I have been conducting several researches about the verified C compiler CompCert. My research is currently funded by an ERC Consolidator Grant "VESTA: VErified STatic Analysis platform" (2018-2023).}})
+
+    (seminar
      "thakur-compare-less-defer-more"
      "Compare Less, Defer More: Scaling Value-Contexts Based Whole-Program Heap Analyses"
      "Manas Thakur"
