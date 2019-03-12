@@ -34,6 +34,7 @@ http://prl.ccs.neu.edu/blog/2017/03/10/type-inference-in-stack-based-programming
 http://prl.ccs.neu.edu/blog/2016/04/29/welcome-to-the-prl-blog/
 http://prl.ccs.neu.edu/blog/2016/11/16/understanding-constructive-galois-connections/
 http://prl.ccs.neu.edu/blog/2017/03/24/-what-even-is-compiler-correctness-cross-post-https-williamjbowman-com-blog-2017-03-24-what-even-is-compiler-correctness/
+http://prl.ccs.neu.edu/blog/2019/03/09/pliss-learn-about-pl-implementation-in-a-castle/
 http://prl.ccs.neu.edu/blog/2016/07/11/tutorial-racket-ffi-part-3/
 http://prl.ccs.neu.edu/blog/2017/07/17/continuations/
 http://prl.ccs.neu.edu/blog/2018/12/11/the-behavior-of-gradual-types-a-user-study/
