@@ -47,14 +47,20 @@
 @(define PPS "Workshop on Probabilistic Programming Semantics (PPS)")
 @(define PEPM "Workshop on Partial Evaluation and Program Manipulation (PEPM)")
 @(define ISSTA "International Symposium on Software Testing and Analysis (ISSTA)")
-@(define FCSD "Formal Structures for Computation and Deduction (FCSD)")
+@(define FSCD "Formal Structures for Computation and Deduction (FCSD)")
 @(define ARRAY "Workshop on Libraries, Languages, and Compilers for Array Programming (ARRAY)")
 @(define ESECFSE "European Software Engineering Conference and Symposium on the Foundations of Software Engineering (ESEC/FSE)")
+@(define CSUR "ACM Computing Surveys (CSUR)")
 
 @(define publications
    (list
+    (publication "Formal Approaches to Secure Compilation: A Survey of Fully Abstract Compilation and Related Work"
+                 "Marco Patrignani, Amal Ahmed, and Dave Clarke"
+                 CSUR
+                 2019
+                 "https://dl.acm.org/citation.cfm?id=3280984")
     (publication "Gradual Type Theory"
-                 "Max New, Dan Licata, and Amal Ahmed"
+                 "Max S. New, Daniel R. Licata, and Amal Ahmed"
                  POPL
                  2019
                  "http://www.ccs.neu.edu/home/amal/papers/gtt.pdf")
@@ -120,7 +126,7 @@
                  "https://williamjbowman.com/resources/wjb-paper-cccc.pdf")
     (publication "Call-by-name Gradual Type Theory"
                  "Max New and Daniel Licata"
-                 FCSD
+                 FSCD
                  2018
                  #f)
     (publication "Tests from Traces: Automated Unit Test Generation for R"
