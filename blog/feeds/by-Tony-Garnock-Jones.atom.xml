@@ -4,7 +4,16 @@
  <link rel="self" href="http://prl.ccs.neu.edu/blog/feeds/by-Tony-Garnock-Jones.atom.xml" />
  <link href="http://prl.ccs.neu.edu/blog/tags/by-Tony-Garnock-Jones.html" />
  <id>urn:http-prl-ccs-neu-edu:-blog-tags-by-Tony-Garnock-Jones-html</id>
- <updated>2017-02-15T01:21:55Z</updated>
+ <updated>2019-05-11T00:03:16Z</updated>
+ <entry>
+  <title type="text">[Conversational Concurrency (cross-post)](https://eighty-twenty.org/2018/01/24/conversational-concurrency)</title>
+  <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2019/05/11/-conversational-concurrency-cross-post-https-eighty-twenty-org-2018-01-24-conversational-concurrency/?utm_source=by-Tony-Garnock-Jones&amp;utm_medium=Atom" />
+  <id>urn:http-prl-ccs-neu-edu:-blog-2019-05-11-conversational-concurrency-cross-post-https-eighty-twenty-org-2018-01-24-conversational-concurrency</id>
+  <published>2019-05-11T00:03:16Z</published>
+  <updated>2019-05-11T00:03:16Z</updated>
+  <author>
+   <name>PRL</name></author>
+  <content type="html"></content></entry>
  <entry>
   <title type="text">Conversational Context and Concurrency</title>
   <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2017/02/15/conversational-context-and-concurrency/?utm_source=by-Tony-Garnock-Jones&amp;utm_medium=Atom" />

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?> 
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+ <title type="text">PRL Blog: Posts tagged 'dissertation'</title>
+ <link rel="self" href="http://prl.ccs.neu.edu/blog/feeds/dissertation.atom.xml" />
+ <link href="http://prl.ccs.neu.edu/blog/tags/dissertation.html" />
+ <id>urn:http-prl-ccs-neu-edu:-blog-tags-dissertation-html</id>
+ <updated>2019-05-11T00:03:16Z</updated>
+ <entry>
+  <title type="text">[Conversational Concurrency (cross-post)](https://eighty-twenty.org/2018/01/24/conversational-concurrency)</title>
+  <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2019/05/11/-conversational-concurrency-cross-post-https-eighty-twenty-org-2018-01-24-conversational-concurrency/?utm_source=dissertation&amp;utm_medium=Atom" />
+  <id>urn:http-prl-ccs-neu-edu:-blog-2019-05-11-conversational-concurrency-cross-post-https-eighty-twenty-org-2018-01-24-conversational-concurrency</id>
+  <published>2019-05-11T00:03:16Z</published>
+  <updated>2019-05-11T00:03:16Z</updated>
+  <author>
+   <name>PRL</name></author>
+  <content type="html"></content></entry></feed>
