@@ -142,19 +142,19 @@ count('n, remove('m,s)) = count('n,s)</code></pre>
 13</pre></div></td>
     <td class="code">
      <div class="source">
-      <pre>data MultiSet = Empty 
-  | Singleton Integer
-  | Union MultiSet MultiSet
-  | Remove Integer MultiSet
-  deriving (Eq)
+      <pre><span class="kr">data</span> <span class="kt">MultiSet</span> <span class="ow">=</span> <span class="kt">Empty</span> 
+  <span class="o">|</span> <span class="kt">Singleton</span> <span class="kt">Integer</span>
+  <span class="o">|</span> <span class="kt">Union</span> <span class="kt">MultiSet</span> <span class="kt">MultiSet</span>
+  <span class="o">|</span> <span class="kt">Remove</span> <span class="kt">Integer</span> <span class="kt">MultiSet</span>
+  <span class="kr">deriving</span> <span class="p">(</span><span class="kt">Eq</span><span class="p">)</span>
 
-count :: Integer -&gt; MultiSet -&gt; Integer
-count n Empty = 0
-count n (Singleton m) | n == m = 1
-count n (Singleton m) | n /= m = 0
-count n (Union s t) = (count n s) + (count n t)
-count n (Remove m s) | n == m = 0
-count n (Remove m s) | n /= m = count n s
+<span class="nf">count</span> <span class="ow">::</span> <span class="kt">Integer</span> <span class="ow">-&gt;</span> <span class="kt">MultiSet</span> <span class="ow">-&gt;</span> <span class="kt">Integer</span>
+<span class="nf">count</span> <span class="n">n</span> <span class="kt">Empty</span> <span class="ow">=</span> <span class="mi">0</span>
+<span class="nf">count</span> <span class="n">n</span> <span class="p">(</span><span class="kt">Singleton</span> <span class="n">m</span><span class="p">)</span> <span class="o">|</span> <span class="n">n</span> <span class="o">==</span> <span class="n">m</span> <span class="ow">=</span> <span class="mi">1</span>
+<span class="nf">count</span> <span class="n">n</span> <span class="p">(</span><span class="kt">Singleton</span> <span class="n">m</span><span class="p">)</span> <span class="o">|</span> <span class="n">n</span> <span class="o">/=</span> <span class="n">m</span> <span class="ow">=</span> <span class="mi">0</span>
+<span class="nf">count</span> <span class="n">n</span> <span class="p">(</span><span class="kt">Union</span> <span class="n">s</span> <span class="n">t</span><span class="p">)</span> <span class="ow">=</span> <span class="p">(</span><span class="n">count</span> <span class="n">n</span> <span class="n">s</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">count</span> <span class="n">n</span> <span class="n">t</span><span class="p">)</span>
+<span class="nf">count</span> <span class="n">n</span> <span class="p">(</span><span class="kt">Remove</span> <span class="n">m</span> <span class="n">s</span><span class="p">)</span> <span class="o">|</span> <span class="n">n</span> <span class="o">==</span> <span class="n">m</span> <span class="ow">=</span> <span class="mi">0</span>
+<span class="nf">count</span> <span class="n">n</span> <span class="p">(</span><span class="kt">Remove</span> <span class="n">m</span> <span class="n">s</span><span class="p">)</span> <span class="o">|</span> <span class="n">n</span> <span class="o">/=</span> <span class="n">m</span> <span class="ow">=</span> <span class="n">count</span> <span class="n">n</span> <span class="n">s</span>
 </pre></div>
 </td></tr></tbody></table>
 </div>
@@ -171,8 +171,8 @@ count n (Remove m s) | n /= m = count n s
 2</pre></div></td>
     <td class="code">
      <div class="source">
-      <pre>&gt; (Singleton 1 `Union` Singleton 2) == (Singleton 2 `Union` Singleton 1) 
-False
+      <pre><span class="o">&gt;</span> <span class="p">(</span><span class="kt">Singleton</span> <span class="mi">1</span> <span class="p">`</span><span class="kt">Union</span><span class="p">`</span> <span class="kt">Singleton</span> <span class="mi">2</span><span class="p">)</span> <span class="o">==</span> <span class="p">(</span><span class="kt">Singleton</span> <span class="mi">2</span> <span class="p">`</span><span class="kt">Union</span><span class="p">`</span> <span class="kt">Singleton</span> <span class="mi">1</span><span class="p">)</span> 
+<span class="kt">False</span>
 </pre></div>
 </td></tr></tbody></table>
 </div>
@@ -211,30 +211,30 @@ False
 24</pre></div></td>
     <td class="code">
      <div class="source">
-      <pre>data MultiSet&#39; = MultiSet&#39; { _count :: Integer -&gt; Integer }
+      <pre><span class="kr">data</span> <span class="kt">MultiSet&#39;</span> <span class="ow">=</span> <span class="kt">MultiSet&#39;</span> <span class="p">{</span> <span class="n">_count</span> <span class="ow">::</span> <span class="kt">Integer</span> <span class="ow">-&gt;</span> <span class="kt">Integer</span> <span class="p">}</span>
 
-count&#39; :: Integer -&gt; MultiSet&#39; -&gt; Integer
-count&#39; n m = _count m n
+<span class="nf">count&#39;</span> <span class="ow">::</span> <span class="kt">Integer</span> <span class="ow">-&gt;</span> <span class="kt">MultiSet&#39;</span> <span class="ow">-&gt;</span> <span class="kt">Integer</span>
+<span class="nf">count&#39;</span> <span class="n">n</span> <span class="n">m</span> <span class="ow">=</span> <span class="n">_count</span> <span class="n">m</span> <span class="n">n</span>
 
-empty :: MultiSet&#39;
-empty = MultiSet&#39; { _count = \n -&gt; 0 }
+<span class="nf">empty</span> <span class="ow">::</span> <span class="kt">MultiSet&#39;</span>
+<span class="nf">empty</span> <span class="ow">=</span> <span class="kt">MultiSet&#39;</span> <span class="p">{</span> <span class="n">_count</span> <span class="ow">=</span> <span class="nf">\</span><span class="n">n</span> <span class="ow">-&gt;</span> <span class="mi">0</span> <span class="p">}</span>
 
-singleton :: Integer -&gt; MultiSet&#39;
-singleton n = MultiSet&#39; { _count = \m -&gt; if n == m
-                                         then 1
-                                         else 0 }
+<span class="nf">singleton</span> <span class="ow">::</span> <span class="kt">Integer</span> <span class="ow">-&gt;</span> <span class="kt">MultiSet&#39;</span>
+<span class="nf">singleton</span> <span class="n">n</span> <span class="ow">=</span> <span class="kt">MultiSet&#39;</span> <span class="p">{</span> <span class="n">_count</span> <span class="ow">=</span> <span class="nf">\</span><span class="n">m</span> <span class="ow">-&gt;</span> <span class="kr">if</span> <span class="n">n</span> <span class="o">==</span> <span class="n">m</span>
+                                         <span class="kr">then</span> <span class="mi">1</span>
+                                         <span class="kr">else</span> <span class="mi">0</span> <span class="p">}</span>
 
-union :: MultiSet&#39; -&gt; MultiSet&#39; -&gt; MultiSet&#39;
-union s t = MultiSet&#39; { _count = \n -&gt; (count&#39; n s) + (count&#39; n t) }
+<span class="nf">union</span> <span class="ow">::</span> <span class="kt">MultiSet&#39;</span> <span class="ow">-&gt;</span> <span class="kt">MultiSet&#39;</span> <span class="ow">-&gt;</span> <span class="kt">MultiSet&#39;</span>
+<span class="nf">union</span> <span class="n">s</span> <span class="n">t</span> <span class="ow">=</span> <span class="kt">MultiSet&#39;</span> <span class="p">{</span> <span class="n">_count</span> <span class="ow">=</span> <span class="nf">\</span><span class="n">n</span> <span class="ow">-&gt;</span> <span class="p">(</span><span class="n">count&#39;</span> <span class="n">n</span> <span class="n">s</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">count&#39;</span> <span class="n">n</span> <span class="n">t</span><span class="p">)</span> <span class="p">}</span>
 
-remove :: Integer -&gt; MultiSet&#39; -&gt; MultiSet&#39;
-remove n s = MultiSet&#39; { _count = \m -&gt; if n == m
-                                        then 0
-                                        else count&#39; n s }
+<span class="nf">remove</span> <span class="ow">::</span> <span class="kt">Integer</span> <span class="ow">-&gt;</span> <span class="kt">MultiSet&#39;</span> <span class="ow">-&gt;</span> <span class="kt">MultiSet&#39;</span>
+<span class="nf">remove</span> <span class="n">n</span> <span class="n">s</span> <span class="ow">=</span> <span class="kt">MultiSet&#39;</span> <span class="p">{</span> <span class="n">_count</span> <span class="ow">=</span> <span class="nf">\</span><span class="n">m</span> <span class="ow">-&gt;</span> <span class="kr">if</span> <span class="n">n</span> <span class="o">==</span> <span class="n">m</span>
+                                        <span class="kr">then</span> <span class="mi">0</span>
+                                        <span class="kr">else</span> <span class="n">count&#39;</span> <span class="n">n</span> <span class="n">s</span> <span class="p">}</span>
 
-test&#39; = and [ count&#39; n s == count&#39; n t | n &lt;- [0..1000]]
-s = singleton 1 `union` singleton 2
-t = singleton 2 `union` singleton 1
+<span class="nf">test&#39;</span> <span class="ow">=</span> <span class="n">and</span> <span class="p">[</span> <span class="n">count&#39;</span> <span class="n">n</span> <span class="n">s</span> <span class="o">==</span> <span class="n">count&#39;</span> <span class="n">n</span> <span class="n">t</span> <span class="o">|</span> <span class="n">n</span> <span class="ow">&lt;-</span> <span class="p">[</span><span class="mi">0</span><span class="o">..</span><span class="mi">1000</span><span class="p">]]</span>
+<span class="nf">s</span> <span class="ow">=</span> <span class="n">singleton</span> <span class="mi">1</span> <span class="p">`</span><span class="n">union</span><span class="p">`</span> <span class="n">singleton</span> <span class="mi">2</span>
+<span class="nf">t</span> <span class="ow">=</span> <span class="n">singleton</span> <span class="mi">2</span> <span class="p">`</span><span class="n">union</span><span class="p">`</span> <span class="n">singleton</span> <span class="mi">1</span>
 </pre></div>
 </td></tr></tbody></table>
 </div>
@@ -252,9 +252,9 @@ t = singleton 2 `union` singleton 1
 3</pre></div></td>
     <td class="code">
      <div class="source">
-      <pre>union s t = MultiSet&#39; { _count = \n -&gt; (count&#39; n s) + (count&#39; n t) }
-          = MultiSet&#39; { _count = \n -&gt; (count&#39; n t) + (count&#39; n s) }
-		  = union t s
+      <pre><span class="nf">union</span> <span class="n">s</span> <span class="n">t</span> <span class="ow">=</span> <span class="kt">MultiSet&#39;</span> <span class="p">{</span> <span class="n">_count</span> <span class="ow">=</span> <span class="nf">\</span><span class="n">n</span> <span class="ow">-&gt;</span> <span class="p">(</span><span class="n">count&#39;</span> <span class="n">n</span> <span class="n">s</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">count&#39;</span> <span class="n">n</span> <span class="n">t</span><span class="p">)</span> <span class="p">}</span>
+          <span class="ow">=</span> <span class="kt">MultiSet&#39;</span> <span class="p">{</span> <span class="n">_count</span> <span class="ow">=</span> <span class="nf">\</span><span class="n">n</span> <span class="ow">-&gt;</span> <span class="p">(</span><span class="n">count&#39;</span> <span class="n">n</span> <span class="n">t</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">count&#39;</span> <span class="n">n</span> <span class="n">s</span><span class="p">)</span> <span class="p">}</span>
+		  <span class="ow">=</span> <span class="n">union</span> <span class="n">t</span> <span class="n">s</span>
 </pre></div>
 </td></tr></tbody></table>
 </div>
@@ -273,10 +273,10 @@ t = singleton 2 `union` singleton 1
 4</pre></div></td>
     <td class="code">
      <div class="source">
-      <pre>&gt; let s = singleton 1 `union` singleton 2
-&gt; let t = singleton 2 `union` singleton 1
-&gt; and [ count&#39; n s == count&#39; n t | n &lt;- [0..1000]]
-True
+      <pre><span class="o">&gt;</span> <span class="kr">let</span> <span class="n">s</span> <span class="ow">=</span> <span class="n">singleton</span> <span class="mi">1</span> <span class="p">`</span><span class="n">union</span><span class="p">`</span> <span class="n">singleton</span> <span class="mi">2</span>
+<span class="o">&gt;</span> <span class="kr">let</span> <span class="n">t</span> <span class="ow">=</span> <span class="n">singleton</span> <span class="mi">2</span> <span class="p">`</span><span class="n">union</span><span class="p">`</span> <span class="n">singleton</span> <span class="mi">1</span>
+<span class="o">&gt;</span> <span class="n">and</span> <span class="p">[</span> <span class="n">count&#39;</span> <span class="n">n</span> <span class="n">s</span> <span class="o">==</span> <span class="n">count&#39;</span> <span class="n">n</span> <span class="n">t</span> <span class="o">|</span> <span class="n">n</span> <span class="ow">&lt;-</span> <span class="p">[</span><span class="mi">0</span><span class="o">..</span><span class="mi">1000</span><span class="p">]]</span>
+<span class="kt">True</span>
 </pre></div>
 </td></tr></tbody></table>
 </div>

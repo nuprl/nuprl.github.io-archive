@@ -171,74 +171,74 @@
 70</pre></div></td>
     <td class="code">
      <div class="source">
-      <pre><span class="kn">#lang racket</span>
-<span class="p">(</span><span class="k"><a href="http://docs.racket-lang.org/reference/require.html#(form._((lib._racket/private/base..rkt)._require))" style="color: inherit">require</a> </span><span class="nv">redex</span><span class="p">)</span>
+      <pre><span class="kn">#lang </span><span class="nn">racket</span>
+<span class="p">(</span><span class="k"><a href="http://docs.racket-lang.org/reference/require.html#(form._((lib._racket/private/base..rkt)._require))" style="color: inherit">require</a></span> <span class="n">redex</span><span class="p">)</span>
 
 <span class="c1">;; -----------------------------------------------------------------------------</span>
 <span class="c1">;; 1. You define a language</span>
-<span class="p">(</span><span class="nf">define-language</span> <span class="nv">STLC</span>
-  <span class="p">[</span><span class="nf">V</span> <span class="nv">::=</span> <span class="nv">integer</span> <span class="nv">boolean</span> <span class="nv">C</span><span class="p">]</span>
-  <span class="p">[</span><span class="nf">C</span> <span class="nv">::=</span> <span class="p">(</span><span class="nf">closure</span> <span class="err">Λ</span> <span class="err">ρ</span><span class="p">)]</span>
-  <span class="p">[</span><span class="err">Λ</span> <span class="nv">::=</span> <span class="p">(</span><span class="err"><a href="http://docs.racket-lang.org/reference/lambda.html#(form._((lib._racket/private/base..rkt)._~ce~bb))" style="color: inherit">λ</a></span> <span class="p">(</span><span class="nf">x</span> <span class="nv"><a href="http://docs.racket-lang.org/ts-reference/special-forms.html#(form._((lib._typed-racket/base-env/prims..rkt)._~3a))" style="color: inherit">:</a></span> <span class="err">τ</span><span class="p">)</span> <span class="nv">M</span><span class="p">)]</span>
-  <span class="p">[</span><span class="nf">M</span> <span class="nv">::=</span> <span class="p">(</span><span class="nf">M</span> <span class="nv">M</span><span class="p">)</span> <span class="nv">V</span> <span class="err">Λ</span> <span class="nv">x</span><span class="p">]</span>
-  <span class="p">[</span><span class="err">τ</span> <span class="nv">::=</span> <span class="nv">Int</span> <span class="nv">Bool</span> <span class="p">(</span><span class="err">τ</span> <span class="err"><a href="http://docs.racket-lang.org/ts-reference/type-ref.html#(form._((lib._typed-racket/base-env/base-types-extra..rkt)._~e2~86~92))" style="color: inherit">→</a></span> <span class="err">τ</span><span class="p">)]</span>
-  <span class="p">[</span><span class="err">ρ</span> <span class="nv">::=</span> <span class="p">((</span><span class="nf">x</span> <span class="nv">V</span><span class="p">)</span> <span class="o"><a href="http://docs.racket-lang.org/reference/stx-patterns.html#(form._((lib._racket/private/stxcase-scheme..rkt)._......))" style="color: inherit">...</a></span><span class="p">)]</span>
-  <span class="p">[</span><span class="err">Γ</span> <span class="nv">::=</span> <span class="p">((</span><span class="nf">x</span> <span class="err">τ</span><span class="p">)</span> <span class="o"><a href="http://docs.racket-lang.org/reference/stx-patterns.html#(form._((lib._racket/private/stxcase-scheme..rkt)._......))" style="color: inherit">...</a></span><span class="p">)]</span>
-  <span class="p">[</span><span class="nf">x</span> <span class="nv">::=</span> <span class="nv">variable-not-otherwise-mentioned</span><span class="p">]</span>
-  <span class="kd">#:binding-forms</span> <span class="p">(</span><span class="err"><a href="http://docs.racket-lang.org/reference/lambda.html#(form._((lib._racket/private/base..rkt)._~ce~bb))" style="color: inherit">λ</a></span> <span class="p">(</span><span class="nf">x</span> <span class="nv"><a href="http://docs.racket-lang.org/ts-reference/special-forms.html#(form._((lib._typed-racket/base-env/prims..rkt)._~3a))" style="color: inherit">:</a></span> <span class="err">τ</span><span class="p">)</span> <span class="nv">M</span> <span class="kd">#:refers-to</span> <span class="nv">x</span><span class="p">))</span>
+<span class="p">(</span><span class="n">define-language</span> <span class="n">STLC</span>
+  <span class="p">[</span><span class="n">V</span> <span class="n">::=</span> <span class="n">integer</span> <span class="n">boolean</span> <span class="n">C</span><span class="p">]</span>
+  <span class="p">[</span><span class="n">C</span> <span class="n">::=</span> <span class="p">(</span><span class="n">closure</span> <span class="n">Λ</span> <span class="n">ρ</span><span class="p">)]</span>
+  <span class="p">[</span><span class="n">Λ</span> <span class="n">::=</span> <span class="p">(</span><span class="k"><a href="http://docs.racket-lang.org/reference/lambda.html#(form._((lib._racket/private/base..rkt)._~ce~bb))" style="color: inherit">λ</a></span> <span class="p">(</span><span class="n">x</span> <span class="n"><a href="http://docs.racket-lang.org/ts-reference/special-forms.html#(form._((lib._typed-racket/base-env/prims..rkt)._~3a))" style="color: inherit">:</a></span> <span class="n">τ</span><span class="p">)</span> <span class="n">M</span><span class="p">)]</span>
+  <span class="p">[</span><span class="n">M</span> <span class="n">::=</span> <span class="p">(</span><span class="n">M</span> <span class="n">M</span><span class="p">)</span> <span class="n">V</span> <span class="n">Λ</span> <span class="n">x</span><span class="p">]</span>
+  <span class="p">[</span><span class="n">τ</span> <span class="n">::=</span> <span class="n">Int</span> <span class="n">Bool</span> <span class="p">(</span><span class="n">τ</span> <span class="n"><a href="http://docs.racket-lang.org/ts-reference/type-ref.html#(form._((lib._typed-racket/base-env/base-types-extra..rkt)._~e2~86~92))" style="color: inherit">→</a></span> <span class="n">τ</span><span class="p">)]</span>
+  <span class="p">[</span><span class="n">ρ</span> <span class="n">::=</span> <span class="p">((</span><span class="n">x</span> <span class="n">V</span><span class="p">)</span> <span class="k"><a href="http://docs.racket-lang.org/reference/stx-patterns.html#(form._((lib._racket/private/stxcase-scheme..rkt)._......))" style="color: inherit">...</a></span><span class="p">)]</span>
+  <span class="p">[</span><span class="n">Γ</span> <span class="n">::=</span> <span class="p">((</span><span class="n">x</span> <span class="n">τ</span><span class="p">)</span> <span class="k"><a href="http://docs.racket-lang.org/reference/stx-patterns.html#(form._((lib._racket/private/stxcase-scheme..rkt)._......))" style="color: inherit">...</a></span><span class="p">)]</span>
+  <span class="p">[</span><span class="n">x</span> <span class="n">::=</span> <span class="n">variable-not-otherwise-mentioned</span><span class="p">]</span>
+  <span class="kd">#:binding-forms</span> <span class="p">(</span><span class="k"><a href="http://docs.racket-lang.org/reference/lambda.html#(form._((lib._racket/private/base..rkt)._~ce~bb))" style="color: inherit">λ</a></span> <span class="p">(</span><span class="n">x</span> <span class="n"><a href="http://docs.racket-lang.org/ts-reference/special-forms.html#(form._((lib._typed-racket/base-env/prims..rkt)._~3a))" style="color: inherit">:</a></span> <span class="n">τ</span><span class="p">)</span> <span class="n">M</span> <span class="kd">#:refers-to</span> <span class="n">x</span><span class="p">))</span>
 
 
 <span class="c1">;; -----------------------------------------------------------------------------</span>
 <span class="c1">;; 2. You define a few metafunctions</span>
-<span class="p">(</span><span class="nf">define-metafunction</span> <span class="nv">STLC</span>
-  <span class="nv">closure-&gt;lam</span> <span class="nv"><a href="http://docs.racket-lang.org/ts-reference/special-forms.html#(form._((lib._typed-racket/base-env/prims..rkt)._~3a))" style="color: inherit">:</a></span> <span class="nv">C</span> <span class="nv"><a href="http://docs.racket-lang.org/reference/function-contracts.html#(form._((lib._racket/contract/base..rkt)._-~3e))" style="color: inherit">-&gt;</a></span> <span class="err">Λ</span>
-  <span class="p">[(</span><span class="nf">closure-&gt;lam</span> <span class="p">(</span><span class="nf">closure</span> <span class="err">Λ</span> <span class="err">ρ</span><span class="p">))</span>
-   <span class="err">Λ</span><span class="p">])</span>
+<span class="p">(</span><span class="n">define-metafunction</span> <span class="n">STLC</span>
+  <span class="n">closure-&gt;lam</span> <span class="n"><a href="http://docs.racket-lang.org/ts-reference/special-forms.html#(form._((lib._typed-racket/base-env/prims..rkt)._~3a))" style="color: inherit">:</a></span> <span class="n">C</span> <span class="k"><a href="http://docs.racket-lang.org/reference/function-contracts.html#(form._((lib._racket/contract/base..rkt)._-~3e))" style="color: inherit">-&gt;</a></span> <span class="n">Λ</span>
+  <span class="p">[(</span><span class="n">closure-&gt;lam</span> <span class="p">(</span><span class="n">closure</span> <span class="n">Λ</span> <span class="n">ρ</span><span class="p">))</span>
+   <span class="n">Λ</span><span class="p">])</span>
 
-<span class="p">(</span><span class="nf">define-metafunction</span> <span class="nv">STLC</span>
-  <span class="nv">closure-&gt;env</span> <span class="nv"><a href="http://docs.racket-lang.org/ts-reference/special-forms.html#(form._((lib._typed-racket/base-env/prims..rkt)._~3a))" style="color: inherit">:</a></span> <span class="nv">C</span> <span class="nv"><a href="http://docs.racket-lang.org/reference/function-contracts.html#(form._((lib._racket/contract/base..rkt)._-~3e))" style="color: inherit">-&gt;</a></span> <span class="err">ρ</span>
-  <span class="p">[(</span><span class="nf">closure-&gt;env</span> <span class="p">(</span><span class="nf">closure</span> <span class="err">Λ</span> <span class="err">ρ</span><span class="p">))</span>
-   <span class="err">ρ</span><span class="p">])</span>
+<span class="p">(</span><span class="n">define-metafunction</span> <span class="n">STLC</span>
+  <span class="n">closure-&gt;env</span> <span class="n"><a href="http://docs.racket-lang.org/ts-reference/special-forms.html#(form._((lib._typed-racket/base-env/prims..rkt)._~3a))" style="color: inherit">:</a></span> <span class="n">C</span> <span class="k"><a href="http://docs.racket-lang.org/reference/function-contracts.html#(form._((lib._racket/contract/base..rkt)._-~3e))" style="color: inherit">-&gt;</a></span> <span class="n">ρ</span>
+  <span class="p">[(</span><span class="n">closure-&gt;env</span> <span class="p">(</span><span class="n">closure</span> <span class="n">Λ</span> <span class="n">ρ</span><span class="p">))</span>
+   <span class="n">ρ</span><span class="p">])</span>
 
 
 <span class="c1">;; -----------------------------------------------------------------------------</span>
 <span class="c1">;; 3. You try defining a judgment form . . .</span>
-<span class="p">(</span><span class="nf">define-judgment-form</span> <span class="nv">STLC</span>
-  <span class="kd">#:mode</span> <span class="p">(</span><span class="nf">free-variables</span> <span class="nv">I</span> <span class="nv">O</span><span class="p">)</span>
-  <span class="kd">#:contract</span> <span class="p">(</span><span class="nf">free-variables</span> <span class="nv">M</span> <span class="p">(</span><span class="nf">x</span> <span class="o"><a href="http://docs.racket-lang.org/reference/stx-patterns.html#(form._((lib._racket/private/stxcase-scheme..rkt)._......))" style="color: inherit">...</a></span><span class="p">))</span>
+<span class="p">(</span><span class="n">define-judgment-form</span> <span class="n">STLC</span>
+  <span class="kd">#:mode</span> <span class="p">(</span><span class="n">free-variables</span> <span class="n">I</span> <span class="n">O</span><span class="p">)</span>
+  <span class="kd">#:contract</span> <span class="p">(</span><span class="n">free-variables</span> <span class="n">M</span> <span class="p">(</span><span class="n">x</span> <span class="k"><a href="http://docs.racket-lang.org/reference/stx-patterns.html#(form._((lib._racket/private/stxcase-scheme..rkt)._......))" style="color: inherit">...</a></span><span class="p">))</span>
   <span class="p">[</span>
-   <span class="nv">---</span> <span class="nv">FVS-Var</span>
-   <span class="p">(</span><span class="nf">free-variables</span> <span class="nv">x</span> <span class="p">(</span><span class="nf">x</span><span class="p">))]</span>
+   <span class="n">---</span> <span class="n">FVS-Var</span>
+   <span class="p">(</span><span class="n">free-variables</span> <span class="n">x</span> <span class="p">(</span><span class="n">x</span><span class="p">))]</span>
   <span class="p">[</span>
-   <span class="p">(</span><span class="nf">free-variables</span> <span class="nv">M_0</span> <span class="p">(</span><span class="nf">x_0</span> <span class="o"><a href="http://docs.racket-lang.org/reference/stx-patterns.html#(form._((lib._racket/private/stxcase-scheme..rkt)._......))" style="color: inherit">...</a></span><span class="p">))</span>
-   <span class="p">(</span><span class="nf">free-variables</span> <span class="nv">M_1</span> <span class="p">(</span><span class="nf">x_1</span> <span class="o"><a href="http://docs.racket-lang.org/reference/stx-patterns.html#(form._((lib._racket/private/stxcase-scheme..rkt)._......))" style="color: inherit">...</a></span><span class="p">))</span>
-   <span class="nv">---</span> <span class="nv">FVS-App</span>
-   <span class="p">(</span><span class="nf">free-variables</span> <span class="p">(</span><span class="nf">M_0</span> <span class="nv">M_1</span><span class="p">)</span> <span class="p">(</span><span class="nf">x_0</span> <span class="o"><a href="http://docs.racket-lang.org/reference/stx-patterns.html#(form._((lib._racket/private/stxcase-scheme..rkt)._......))" style="color: inherit">...</a></span> <span class="nv">x_1</span> <span class="o"><a href="http://docs.racket-lang.org/reference/stx-patterns.html#(form._((lib._racket/private/stxcase-scheme..rkt)._......))" style="color: inherit">...</a></span><span class="p">))]</span>
+   <span class="p">(</span><span class="n">free-variables</span> <span class="n">M_0</span> <span class="p">(</span><span class="n">x_0</span> <span class="k"><a href="http://docs.racket-lang.org/reference/stx-patterns.html#(form._((lib._racket/private/stxcase-scheme..rkt)._......))" style="color: inherit">...</a></span><span class="p">))</span>
+   <span class="p">(</span><span class="n">free-variables</span> <span class="n">M_1</span> <span class="p">(</span><span class="n">x_1</span> <span class="k"><a href="http://docs.racket-lang.org/reference/stx-patterns.html#(form._((lib._racket/private/stxcase-scheme..rkt)._......))" style="color: inherit">...</a></span><span class="p">))</span>
+   <span class="n">---</span> <span class="n">FVS-App</span>
+   <span class="p">(</span><span class="n">free-variables</span> <span class="p">(</span><span class="n">M_0</span> <span class="n">M_1</span><span class="p">)</span> <span class="p">(</span><span class="n">x_0</span> <span class="k"><a href="http://docs.racket-lang.org/reference/stx-patterns.html#(form._((lib._racket/private/stxcase-scheme..rkt)._......))" style="color: inherit">...</a></span> <span class="n">x_1</span> <span class="k"><a href="http://docs.racket-lang.org/reference/stx-patterns.html#(form._((lib._racket/private/stxcase-scheme..rkt)._......))" style="color: inherit">...</a></span><span class="p">))]</span>
   <span class="p">[</span>
-   <span class="p">(</span><span class="nf">where</span> <span class="p">(</span><span class="err"><a href="http://docs.racket-lang.org/reference/lambda.html#(form._((lib._racket/private/base..rkt)._~ce~bb))" style="color: inherit">λ</a></span> <span class="p">(</span><span class="nf">x_0</span> <span class="err">τ</span><span class="p">)</span> <span class="nv">M</span><span class="p">)</span> <span class="err">Λ</span><span class="p">)</span>
-   <span class="p">(</span><span class="nf">free-variables</span> <span class="nv">M</span> <span class="p">(</span><span class="nf">x_1</span> <span class="o"><a href="http://docs.racket-lang.org/reference/stx-patterns.html#(form._((lib._racket/private/stxcase-scheme..rkt)._......))" style="color: inherit">...</a></span><span class="p">))</span>
-   <span class="p">(</span><span class="nf">where</span> <span class="p">(</span><span class="nf">x_2</span> <span class="o"><a href="http://docs.racket-lang.org/reference/stx-patterns.html#(form._((lib._racket/private/stxcase-scheme..rkt)._......))" style="color: inherit">...</a></span><span class="p">)</span> <span class="o">,</span><span class="p">(</span><span class="nf"><a href="http://docs.racket-lang.org/reference/sets.html#(def._((lib._racket/set..rkt)._set-remove))" style="color: inherit">set-remove</a></span> <span class="p">(</span><span class="nf">term</span> <span class="p">(</span><span class="nf">x_1</span> <span class="o"><a href="http://docs.racket-lang.org/reference/stx-patterns.html#(form._((lib._racket/private/stxcase-scheme..rkt)._......))" style="color: inherit">...</a></span><span class="p">))</span> <span class="p">(</span><span class="nf">term</span> <span class="nv">x_0</span><span class="p">)))</span>
-   <span class="nv">---</span> <span class="nv">FVS-</span><span class="err">Λ</span>
-   <span class="p">(</span><span class="nf">free-variables</span> <span class="err">Λ</span> <span class="p">(</span><span class="nf">x_2</span> <span class="o"><a href="http://docs.racket-lang.org/reference/stx-patterns.html#(form._((lib._racket/private/stxcase-scheme..rkt)._......))" style="color: inherit">...</a></span><span class="p">))]</span>
+   <span class="p">(</span><span class="n">where</span> <span class="p">(</span><span class="k"><a href="http://docs.racket-lang.org/reference/lambda.html#(form._((lib._racket/private/base..rkt)._~ce~bb))" style="color: inherit">λ</a></span> <span class="p">(</span><span class="n">x_0</span> <span class="n">τ</span><span class="p">)</span> <span class="n">M</span><span class="p">)</span> <span class="n">Λ</span><span class="p">)</span>
+   <span class="p">(</span><span class="n">free-variables</span> <span class="n">M</span> <span class="p">(</span><span class="n">x_1</span> <span class="k"><a href="http://docs.racket-lang.org/reference/stx-patterns.html#(form._((lib._racket/private/stxcase-scheme..rkt)._......))" style="color: inherit">...</a></span><span class="p">))</span>
+   <span class="p">(</span><span class="n">where</span> <span class="p">(</span><span class="n">x_2</span> <span class="k"><a href="http://docs.racket-lang.org/reference/stx-patterns.html#(form._((lib._racket/private/stxcase-scheme..rkt)._......))" style="color: inherit">...</a></span><span class="p">)</span> <span class="o">,</span><span class="p">(</span><span class="nb"><a href="http://docs.racket-lang.org/reference/sets.html#(def._((lib._racket/set..rkt)._set-remove))" style="color: inherit">set-remove</a></span> <span class="p">(</span><span class="n">term</span> <span class="p">(</span><span class="n">x_1</span> <span class="k"><a href="http://docs.racket-lang.org/reference/stx-patterns.html#(form._((lib._racket/private/stxcase-scheme..rkt)._......))" style="color: inherit">...</a></span><span class="p">))</span> <span class="p">(</span><span class="n">term</span> <span class="n">x_0</span><span class="p">)))</span>
+   <span class="n">---</span> <span class="n">FVS-Λ</span>
+   <span class="p">(</span><span class="n">free-variables</span> <span class="n">Λ</span> <span class="p">(</span><span class="n">x_2</span> <span class="k"><a href="http://docs.racket-lang.org/reference/stx-patterns.html#(form._((lib._racket/private/stxcase-scheme..rkt)._......))" style="color: inherit">...</a></span><span class="p">))]</span>
   <span class="p">[</span>
-   <span class="nv">---</span> <span class="nv">FVS-Integer</span>
-   <span class="p">(</span><span class="nf">free-variables</span> <span class="nv">integer_0</span> <span class="p">())]</span>
+   <span class="n">---</span> <span class="n">FVS-Integer</span>
+   <span class="p">(</span><span class="n">free-variables</span> <span class="n">integer_0</span> <span class="p">())]</span>
   <span class="p">[</span>
-   <span class="nv">---</span> <span class="nv">FVS-Boolean</span>
-   <span class="p">(</span><span class="nf">free-variables</span> <span class="nv">boolean_0</span> <span class="p">())]</span>
+   <span class="n">---</span> <span class="n">FVS-Boolean</span>
+   <span class="p">(</span><span class="n">free-variables</span> <span class="n">boolean_0</span> <span class="p">())]</span>
   <span class="p">[</span>
-   <span class="p">(</span><span class="nf">where</span> <span class="err">Λ</span> <span class="p">(</span><span class="nf">closure-&gt;lam</span> <span class="nv">C</span><span class="p">))</span>
-   <span class="p">(</span><span class="nf">free-variables</span> <span class="err">Λ</span> <span class="p">(</span><span class="nf">x_0</span> <span class="o"><a href="http://docs.racket-lang.org/reference/stx-patterns.html#(form._((lib._racket/private/stxcase-scheme..rkt)._......))" style="color: inherit">...</a></span><span class="p">))</span>
-   <span class="p">(</span><span class="nf">where</span> <span class="p">((</span><span class="nf">x_1</span> <span class="err">τ</span><span class="nv">_1</span><span class="p">)</span> <span class="o"><a href="http://docs.racket-lang.org/reference/stx-patterns.html#(form._((lib._racket/private/stxcase-scheme..rkt)._......))" style="color: inherit">...</a></span><span class="p">)</span> <span class="p">(</span><span class="nf">closure-env</span> <span class="nv">C</span><span class="p">))</span>
-   <span class="p">(</span><span class="nf">where</span> <span class="p">(</span><span class="nf">x_2</span> <span class="o"><a href="http://docs.racket-lang.org/reference/stx-patterns.html#(form._((lib._racket/private/stxcase-scheme..rkt)._......))" style="color: inherit">...</a></span><span class="p">)</span> <span class="o">,</span><span class="p">(</span><span class="nf"><a href="http://docs.racket-lang.org/reference/sets.html#(def._((lib._racket/set..rkt)._set-subtract))" style="color: inherit">set-subtract</a></span> <span class="p">(</span><span class="nf">term</span> <span class="p">(</span><span class="nf">x_0</span> <span class="o"><a href="http://docs.racket-lang.org/reference/stx-patterns.html#(form._((lib._racket/private/stxcase-scheme..rkt)._......))" style="color: inherit">...</a></span><span class="p">))</span> <span class="p">(</span><span class="nf">term</span> <span class="p">(</span><span class="nf">x_1</span> <span class="o"><a href="http://docs.racket-lang.org/reference/stx-patterns.html#(form._((lib._racket/private/stxcase-scheme..rkt)._......))" style="color: inherit">...</a></span><span class="p">))))</span>
-   <span class="nv">---</span> <span class="nv">FVS-Closure</span>
-   <span class="p">(</span><span class="nf">free-variables</span> <span class="nv">C</span> <span class="p">(</span><span class="nf">x_2</span> <span class="o"><a href="http://docs.racket-lang.org/reference/stx-patterns.html#(form._((lib._racket/private/stxcase-scheme..rkt)._......))" style="color: inherit">...</a></span><span class="p">))])</span>
+   <span class="p">(</span><span class="n">where</span> <span class="n">Λ</span> <span class="p">(</span><span class="n">closure-&gt;lam</span> <span class="n">C</span><span class="p">))</span>
+   <span class="p">(</span><span class="n">free-variables</span> <span class="n">Λ</span> <span class="p">(</span><span class="n">x_0</span> <span class="k"><a href="http://docs.racket-lang.org/reference/stx-patterns.html#(form._((lib._racket/private/stxcase-scheme..rkt)._......))" style="color: inherit">...</a></span><span class="p">))</span>
+   <span class="p">(</span><span class="n">where</span> <span class="p">((</span><span class="n">x_1</span> <span class="n">τ_1</span><span class="p">)</span> <span class="k"><a href="http://docs.racket-lang.org/reference/stx-patterns.html#(form._((lib._racket/private/stxcase-scheme..rkt)._......))" style="color: inherit">...</a></span><span class="p">)</span> <span class="p">(</span><span class="n">closure-env</span> <span class="n">C</span><span class="p">))</span>
+   <span class="p">(</span><span class="n">where</span> <span class="p">(</span><span class="n">x_2</span> <span class="k"><a href="http://docs.racket-lang.org/reference/stx-patterns.html#(form._((lib._racket/private/stxcase-scheme..rkt)._......))" style="color: inherit">...</a></span><span class="p">)</span> <span class="o">,</span><span class="p">(</span><span class="nb"><a href="http://docs.racket-lang.org/reference/sets.html#(def._((lib._racket/set..rkt)._set-subtract))" style="color: inherit">set-subtract</a></span> <span class="p">(</span><span class="n">term</span> <span class="p">(</span><span class="n">x_0</span> <span class="k"><a href="http://docs.racket-lang.org/reference/stx-patterns.html#(form._((lib._racket/private/stxcase-scheme..rkt)._......))" style="color: inherit">...</a></span><span class="p">))</span> <span class="p">(</span><span class="n">term</span> <span class="p">(</span><span class="n">x_1</span> <span class="k"><a href="http://docs.racket-lang.org/reference/stx-patterns.html#(form._((lib._racket/private/stxcase-scheme..rkt)._......))" style="color: inherit">...</a></span><span class="p">))))</span>
+   <span class="n">---</span> <span class="n">FVS-Closure</span>
+   <span class="p">(</span><span class="n">free-variables</span> <span class="n">C</span> <span class="p">(</span><span class="n">x_2</span> <span class="k"><a href="http://docs.racket-lang.org/reference/stx-patterns.html#(form._((lib._racket/private/stxcase-scheme..rkt)._......))" style="color: inherit">...</a></span><span class="p">))])</span>
 
 
 <span class="c1">;; -----------------------------------------------------------------------------</span>
 <span class="c1">;; 4. You test the judgment, and it mysteriously fails</span>
-<span class="p">(</span><span class="nf">judgment-holds</span>
-  <span class="p">(</span><span class="nf">free-variables</span> <span class="p">(</span><span class="nf">closure</span> <span class="p">(</span><span class="err"><a href="http://docs.racket-lang.org/reference/lambda.html#(form._((lib._racket/private/base..rkt)._~ce~bb))" style="color: inherit">λ</a></span> <span class="p">(</span><span class="nf">x</span> <span class="nv"><a href="http://docs.racket-lang.org/ts-reference/special-forms.html#(form._((lib._typed-racket/base-env/prims..rkt)._~3a))" style="color: inherit">:</a></span> <span class="nv">Int</span><span class="p">)</span> <span class="nv">x</span><span class="p">)</span> <span class="p">())</span>
+<span class="p">(</span><span class="n">judgment-holds</span>
+  <span class="p">(</span><span class="n">free-variables</span> <span class="p">(</span><span class="n">closure</span> <span class="p">(</span><span class="k"><a href="http://docs.racket-lang.org/reference/lambda.html#(form._((lib._racket/private/base..rkt)._~ce~bb))" style="color: inherit">λ</a></span> <span class="p">(</span><span class="n">x</span> <span class="n"><a href="http://docs.racket-lang.org/ts-reference/special-forms.html#(form._((lib._typed-racket/base-env/prims..rkt)._~3a))" style="color: inherit">:</a></span> <span class="n">Int</span><span class="p">)</span> <span class="n">x</span><span class="p">)</span> <span class="p">())</span>
                   <span class="p">()))</span>
 <span class="c1">;; ==&gt; #f</span>
 </pre></div>
@@ -260,9 +260,9 @@
 3</pre></div></td>
     <td class="code">
      <div class="source">
-      <pre>   <span class="o">....</span>
-   <span class="p">(</span><span class="nf">where</span> <span class="p">((</span><span class="nf">x_1</span> <span class="err">τ</span><span class="nv">_1</span><span class="p">)</span> <span class="o"><a href="http://docs.racket-lang.org/reference/stx-patterns.html#(form._((lib._racket/private/stxcase-scheme..rkt)._......))" style="color: inherit">...</a></span><span class="p">)</span> <span class="p">(</span><span class="nf">closure-env</span> <span class="nv">C</span><span class="p">))</span>
-   <span class="o">....</span>
+      <pre>   <span class="n">....</span>
+   <span class="p">(</span><span class="n">where</span> <span class="p">((</span><span class="n">x_1</span> <span class="n">τ_1</span><span class="p">)</span> <span class="k"><a href="http://docs.racket-lang.org/reference/stx-patterns.html#(form._((lib._racket/private/stxcase-scheme..rkt)._......))" style="color: inherit">...</a></span><span class="p">)</span> <span class="p">(</span><span class="n">closure-env</span> <span class="n">C</span><span class="p">))</span>
+   <span class="n">....</span>
 </pre></div>
 </td></tr></tbody></table>
 </div>
@@ -286,9 +286,9 @@
 3</pre></div></td>
     <td class="code">
      <div class="source">
-      <pre>   <span class="o">....</span>
-   <span class="p">(</span><span class="nf">where</span> <span class="p">((</span><span class="nf">x_1</span> <span class="err">τ</span><span class="nv">_1</span><span class="p">)</span> <span class="o"><a href="http://docs.racket-lang.org/reference/stx-patterns.html#(form._((lib._racket/private/stxcase-scheme..rkt)._......))" style="color: inherit">...</a></span><span class="p">)</span> <span class="p">(</span><span class="nf">mf-apply</span> <span class="nv">closure-env</span> <span class="nv">C</span><span class="p">))</span>
-   <span class="o">....</span>
+      <pre>   <span class="n">....</span>
+   <span class="p">(</span><span class="n">where</span> <span class="p">((</span><span class="n">x_1</span> <span class="n">τ_1</span><span class="p">)</span> <span class="k"><a href="http://docs.racket-lang.org/reference/stx-patterns.html#(form._((lib._racket/private/stxcase-scheme..rkt)._......))" style="color: inherit">...</a></span><span class="p">)</span> <span class="p">(</span><span class="n">mf-apply</span> <span class="n">closure-env</span> <span class="n">C</span><span class="p">))</span>
+   <span class="n">....</span>
 </pre></div>
 </td></tr></tbody></table>
 </div>
@@ -319,9 +319,9 @@
 3</pre></div></td>
     <td class="code">
      <div class="source">
-      <pre>   <span class="o">....</span>
-   <span class="p">(</span><span class="nf">where</span> <span class="p">((</span><span class="nf">x_1</span> <span class="err">τ</span><span class="nv">_1</span><span class="p">)</span> <span class="o"><a href="http://docs.racket-lang.org/reference/stx-patterns.html#(form._((lib._racket/private/stxcase-scheme..rkt)._......))" style="color: inherit">...</a></span><span class="p">)</span> <span class="p">(</span><span class="nf">mf-applu</span> <span class="nv">closure-env</span> <span class="nv">C</span><span class="p">))</span>
-   <span class="o">....</span>
+      <pre>   <span class="n">....</span>
+   <span class="p">(</span><span class="n">where</span> <span class="p">((</span><span class="n">x_1</span> <span class="n">τ_1</span><span class="p">)</span> <span class="k"><a href="http://docs.racket-lang.org/reference/stx-patterns.html#(form._((lib._racket/private/stxcase-scheme..rkt)._......))" style="color: inherit">...</a></span><span class="p">)</span> <span class="p">(</span><span class="n">mf-applu</span> <span class="n">closure-env</span> <span class="n">C</span><span class="p">))</span>
+   <span class="n">....</span>
 </pre></div>
 </td></tr></tbody></table>
 </div>
@@ -346,10 +346,10 @@
 4</pre></div></td>
     <td class="code">
      <div class="source">
-      <pre><span class="kn">#lang racket</span>
-<span class="p">(</span><span class="k"><a href="http://docs.racket-lang.org/reference/require.html#(form._((lib._racket/private/base..rkt)._require))" style="color: inherit">require</a> </span><span class="nv">redex</span>
-         <span class="p">(</span><span class="nf"><a href="http://docs.racket-lang.org/reference/require.html#(form._((lib._racket/private/base..rkt)._rename-in))" style="color: inherit">rename-in</a></span> <span class="nv">redex</span>
-           <span class="p">[</span><span class="nf">mf-apply</span> <span class="nv">MF</span><span class="p">]))</span>
+      <pre><span class="kn">#lang </span><span class="nn">racket</span>
+<span class="p">(</span><span class="k"><a href="http://docs.racket-lang.org/reference/require.html#(form._((lib._racket/private/base..rkt)._require))" style="color: inherit">require</a></span> <span class="n">redex</span>
+         <span class="p">(</span><span class="k"><a href="http://docs.racket-lang.org/reference/require.html#(form._((lib._racket/private/base..rkt)._rename-in))" style="color: inherit">rename-in</a></span> <span class="n">redex</span>
+           <span class="p">[</span><span class="n">mf-apply</span> <span class="n">MF</span><span class="p">]))</span>
 </pre></div>
 </td></tr></tbody></table>
 </div>
@@ -374,10 +374,10 @@
 4</pre></div></td>
     <td class="code">
      <div class="source">
-      <pre><span class="kn">#lang mf-apply</span> <span class="nv">racket</span>
-<span class="p">(</span><span class="k"><a href="http://docs.racket-lang.org/reference/require.html#(form._((lib._racket/private/base..rkt)._require))" style="color: inherit">require</a> </span><span class="nv">redex</span><span class="p">)</span>
+      <pre><span class="kn">#lang </span><span class="nn">mf-apply</span> <span class="n">racket</span>
+<span class="p">(</span><span class="k"><a href="http://docs.racket-lang.org/reference/require.html#(form._((lib._racket/private/base..rkt)._require))" style="color: inherit">require</a></span> <span class="n">redex</span><span class="p">)</span>
 
-<span class="p">(</span><span class="nf">term</span> <span class="o">#</span><span class="p">{</span><span class="nf">f</span> <span class="nv">x</span> <span class="o"><a href="http://docs.racket-lang.org/reference/stx-patterns.html#(form._((lib._racket/private/stxcase-scheme..rkt)._......))" style="color: inherit">...</a></span><span class="p">})</span>
+<span class="p">(</span><span class="n">term</span> <span class="o">#</span><span class="p">{</span><span class="ss">f</span> <span class="ss">x</span> <span class="ss"><a href="http://docs.racket-lang.org/reference/stx-patterns.html#(form._((lib._racket/private/stxcase-scheme..rkt)._......))" style="color: inherit">...</a></span><span class="p">})</span>
 </pre></div>
 </td></tr></tbody></table>
 </div>
@@ -396,10 +396,10 @@
 4</pre></div></td>
     <td class="code">
      <div class="source">
-      <pre><span class="kn">#lang mf-apply</span> <span class="nv">racket</span>
-<span class="p">(</span><span class="k"><a href="http://docs.racket-lang.org/reference/require.html#(form._((lib._racket/private/base..rkt)._require))" style="color: inherit">require</a> </span><span class="nv">redex</span><span class="p">)</span>
+      <pre><span class="kn">#lang </span><span class="nn">mf-apply</span> <span class="n">racket</span>
+<span class="p">(</span><span class="k"><a href="http://docs.racket-lang.org/reference/require.html#(form._((lib._racket/private/base..rkt)._require))" style="color: inherit">require</a></span> <span class="n">redex</span><span class="p">)</span>
 
-<span class="p">(</span><span class="nf">term</span> <span class="p">(</span><span class="nf">mf-apply</span> <span class="nv">f</span> <span class="nv">x</span> <span class="o"><a href="http://docs.racket-lang.org/reference/stx-patterns.html#(form._((lib._racket/private/stxcase-scheme..rkt)._......))" style="color: inherit">...</a></span><span class="p">))</span>
+<span class="p">(</span><span class="n">term</span> <span class="p">(</span><span class="n">mf-apply</span> <span class="n">f</span> <span class="n">x</span> <span class="k"><a href="http://docs.racket-lang.org/reference/stx-patterns.html#(form._((lib._racket/private/stxcase-scheme..rkt)._......))" style="color: inherit">...</a></span><span class="p">))</span>
 </pre></div>
 </td></tr></tbody></table>
 </div>

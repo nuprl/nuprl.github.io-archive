@@ -103,8 +103,8 @@
 2</pre></div></td>
     <td class="code">
      <div class="source">
-      <pre><span class="c">#!/bin/bash</span>
-emacsclient -a <span class="s2">""</span> -c <span class="s2">"$@"</span>
+      <pre><span class="ch">#!/bin/bash</span>
+emacsclient -a <span class="s2">""</span> -c <span class="s2">"</span><span class="nv">$@</span><span class="s2">"</span>
 </pre></div>
 </td></tr></tbody></table>
 </div>
@@ -133,8 +133,8 @@ emacsclient -a <span class="s2">""</span> -c <span class="s2">"$@"</span>
 2</pre></div></td>
     <td class="code">
      <div class="source">
-      <pre><span class="nv">$ </span><span class="nb">time </span>emacs --eval <span class="s2">"(save-buffers-kill-terminal)"</span>
-<span class="nv">$ </span><span class="nb">time </span>emacsclient -a <span class="s1">&#39;&#39;</span> -c -e <span class="s2">"(save-buffers-kill-terminal)"</span>
+      <pre>$ <span class="nb">time</span> emacs --eval <span class="s2">"(save-buffers-kill-terminal)"</span>
+$ <span class="nb">time</span> emacsclient -a <span class="s1">&#39;&#39;</span> -c -e <span class="s2">"(save-buffers-kill-terminal)"</span>
 </pre></div>
 </td></tr></tbody></table>
 </div>
