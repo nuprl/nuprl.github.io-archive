@@ -258,7 +258,7 @@ public static void test() {
 
 <h3 id="run-time-guarantees">Run-time guarantees</h3>
 
-<p>In order to support pre-generics and post-generics code on the same  <a href="https://docs.oracle.com/javase/specs/jvms/se11/html/index.html">virtual machine</a>,  the Java compiler <a href="https://docs.oracle.com/javase/specs/jls/se11/html/jls-4.html#jls-4.6">erases</a>  generic type parameters after type-checking.</p>
+<p>In order to support pre-generics and post-generics code on the same  <a href="https://docs.oracle.com/javase/specs/jvms/se11/html/index.html">virtual machine</a>,  the Java compiler <a href="https://docs.oracle.com/javase/specs/jls/se11/html/jls-4.html#jls-4.6">erases</a>  generic type parameters after type-checking. Everywhere that the compiled code depends on an erased type, such as the  <code>String</code> in <code>GBox&lt;String&gt;</code> above, Java adds a cast to prove to the Java Virtual Machine (JVM)  that the erased bytecode is type-safe. (A smarter JVM type system might be able to prove that some casts are  unnecessary via <a href="https://www2.ccs.neu.edu/racket/pubs/icfp10-thf.pdf">occurrence typing</a>.)</p>
 
 <blockquote>
  <p>"The decision not to make all generic types [not erased] is one of the most crucial, and controversial design decisions involving the type system of the Java programming language.</p>
@@ -288,18 +288,18 @@ public static void test() {
 <blockquote>
  <p>TypeScript is not the only erasure language, nor is it the first. The oldest (I think) is <a href="http://www.softwarepreservation.org/projects/LISP/maclisp_family/">MACLISP</a>. For an erasure manifesto, see <a href="http://bracha.org/pluggableTypesPosition.pdf">Pluggable Type Systems</a>.</p></blockquote>
 
-<p>The Reticulated team faced a similar choice, and chose to enforce the top-level  shape of values in typed code (<a href="http://homes.sice.indiana.edu/mvitouse/papers/popl17.pdf">POPL 2017</a>). It will be interesting to see if this guarantee helps developers maintain programs,  or if it is too shallow to be much use. The <a href="https://www.pyret.org/index.html">Pyret</a> language has been successful with  a similar, shallow approach.</p>
+<p>The Reticulated team faced an analogous choice, and chose to enforce the top-level  shape of values in typed code (<a href="http://homes.sice.indiana.edu/mvitouse/papers/popl17.pdf">POPL 2017</a>). It will be interesting to see if this guarantee helps developers maintain programs,  or if it is too shallow to be much use. The <a href="https://www.pyret.org/index.html">Pyret</a> language has been successful with  comparable shallow checks.</p>
 
 <blockquote>
  <p>Note: the POPL 2017 paper advertises an &ldquo;open-world soundness&rdquo;, but I do not see how this idea is different from the older idea of soundness in a multi-language system (<a href="https://www.eecs.northwestern.edu/~robby/pubs/papers/toplas09-mf.pdf">TOPLAS 2009</a>, <a href="https://www2.ccs.neu.edu/racket/pubs/dls06-tf.pdf">DLS 2006</a>).</p></blockquote>
 
-<p>The Java team faced a <em>different</em> choice because the Java Virtual Machine is  a typed programming language. The casts around type-erased generics provide a minimal level of safety  &mdash; without casts, use of a generic object might corrupt the state of a VM instance. Nevertheless, the implementation of generic-type erasure + cast insertion  is very similar to Reticulated&rsquo;s implementation of stronger guarantees for Python.</p>
+<p>Similarly, the Java team chose to erase generic types in Java 1.5.0 and use shallow casts in the JVM. The casts around type-erased generics provide a minimal level of safety &mdash;  enough to prevent the use of a generic object from corrupting the state of a  VM instance.</p>
 
-<p>Alternatively, Java could enforce generic types at run-time. Over the years there have been a few proposals to do so (<a href="http://gafter.blogspot.com/2006/11/reified-generics-for-java.html">example 1</a>,  <a href="https://wiki.openjdk.java.net/display/valhalla/Main">example 2</a>). The C# language has a similar type system and does enforce  generics at run-time (sources:  <a href="https://mattwarren.org/2018/03/02/How-generics-were-added-to-.NET/">blog post</a>,  <a href="https://www.microsoft.com/en-us/research/publication/design-and-implementation-of-generics-for-the-net-common-language-runtime/">PLDI 2001 paper</a>,  <a href="https://dl.acm.org/citation.cfm?doid=378795.378797">backup link to paper</a>)</p>
+<p>Alternatively, Java could enforce full generic types at run-time. Over the years there have been a few proposals to do so (<a href="http://gafter.blogspot.com/2006/11/reified-generics-for-java.html">example 1</a>,  <a href="https://wiki.openjdk.java.net/display/valhalla/Main">example 2</a>). The C# language has a similar type system and enforces  generics at run-time (sources:  <a href="https://mattwarren.org/2018/03/02/How-generics-were-added-to-.NET/">blog post</a>,  <a href="https://www.microsoft.com/en-us/research/publication/design-and-implementation-of-generics-for-the-net-common-language-runtime/">PLDI 2001 paper</a>,  <a href="https://dl.acm.org/citation.cfm?doid=378795.378797">backup link to paper</a>)</p>
 
 <h2 id="acknowledgments">Acknowledgments</h2>
 
-<p>Thank you to <a href="https://github.com/rmculpepper">Ryan Culpepper</a> and <a href="http://users.eecs.northwestern.edu/~jesse/">Jesse Tov</a> for noticing the similarity between  Java&rsquo;s generic-type erasure and transient migratory typing.</p>
+<p>Thank you to <a href="https://github.com/rmculpepper">Ryan Culpepper</a> and <a href="http://users.eecs.northwestern.edu/~jesse/">Jesse Tov</a> for noticing the similarity between  Java&rsquo;s generic-type erasure and transient migratory typing. Jesse helped improve an early version of this post.</p>
   <br/><br/>
   <footer>
     <script type="text/javascript">
