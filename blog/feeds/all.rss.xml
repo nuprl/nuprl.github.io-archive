@@ -4,9 +4,164 @@
   <title>PRL Blog: PRL Blog</title>
   <description>PRL Blog: PRL Blog</description>
   <link>http://prl.ccs.neu.edu/blog/index.html</link>
-  <lastBuildDate>Sat, 11 May 2019 00:03:16 UT</lastBuildDate>
-  <pubDate>Sat, 11 May 2019 00:03:16 UT</pubDate>
+  <lastBuildDate>Thu, 05 Sep 2019 10:00:00 UT</lastBuildDate>
+  <pubDate>Thu, 05 Sep 2019 10:00:00 UT</pubDate>
   <ttl>1800</ttl>
+  <item>
+   <title>Lexical and Dynamic Scope</title>
+   <link>http://prl.ccs.neu.edu/blog/2019/09/05/lexical-and-dynamic-scope/?utm_source=all&amp;utm_medium=RSS</link>
+   <guid isPermaLink="false">urn:http-prl-ccs-neu-edu:-blog-2019-09-05-lexical-and-dynamic-scope</guid>
+   <pubDate>Thu, 05 Sep 2019 10:00:00 UT</pubDate>
+   <author>PRL</author>
+   <description>
+&lt;p&gt;This all started with a simple question about the R programming language: &lt;em&gt;is R lexically or dynamically scoped?&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;To answer that question, we need to understand what &lt;em&gt;scope&lt;/em&gt; is, along with &lt;em&gt;lexical scope&lt;/em&gt; and &lt;em&gt;dynamic scope&lt;/em&gt;.&lt;/p&gt;
+&lt;!-- more--&gt;
+
+&lt;p&gt;In this blog post, I&amp;rsquo;d like to explain the differences between lexical scope and dynamic scope, and also explore some of the history behind those ideas. In a subsequent post, I&amp;rsquo;ll discuss scoping in R and why it can be confusing.&lt;/p&gt;
+
+&lt;h2 id="what-is-scope"&gt;What is scope?&lt;/h2&gt;
+
+&lt;p&gt;&lt;em&gt;Scope&lt;/em&gt; refers to the places in a program where a variable is visible and can be referenced.&lt;/p&gt;
+
+&lt;p&gt;An interesting situation is when a function has free variables. Consider the example below:&lt;/p&gt;
+
+&lt;div class="brush: r"&gt;
+ &lt;table class="sourcetable"&gt;
+  &lt;tbody&gt;
+   &lt;tr&gt;
+    &lt;td class="linenos"&gt;
+     &lt;div class="linenodiv"&gt;
+      &lt;pre&gt;1
+2
+3
+4
+5
+6
+7&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;
+    &lt;td class="code"&gt;
+     &lt;div class="source"&gt;
+      &lt;pre&gt;x &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; &lt;span class="m"&gt;1&lt;/span&gt;
+f &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; &lt;span class="kr"&gt;function&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;a&lt;span class="p"&gt;)&lt;/span&gt; x &lt;span class="o"&gt;+&lt;/span&gt; a
+g &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; &lt;span class="kr"&gt;function&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+  x &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; &lt;span class="m"&gt;2&lt;/span&gt;
+  f&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="m"&gt;0&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+g&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="c1"&gt;# what does this return?&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+&lt;/div&gt;
+
+&lt;p&gt;On line 1, we create a mapping for &lt;code&gt;x&lt;/code&gt; with value &lt;code&gt;1&lt;/code&gt;. On line 2, we define a function &lt;code&gt;f&lt;/code&gt; whose body uses the parameter &lt;code&gt;a&lt;/code&gt;, but also the free variable &lt;code&gt;x&lt;/code&gt;. On line 3, we define a function &lt;code&gt;g&lt;/code&gt;, whose body creates a new mapping for &lt;code&gt;x&lt;/code&gt; with value &lt;code&gt;2&lt;/code&gt;, and then calls &lt;code&gt;f(0)&lt;/code&gt;. (Note that line 4 does not update the mapping created on line 1.) Finally, on line 7, we call &lt;code&gt;g()&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;What value does &lt;code&gt;g&lt;/code&gt; return when it is called? What mapping does the free variable &lt;code&gt;x&lt;/code&gt; on line 2 refer to? Does it refer to the mapping on line 1 that was visible when &lt;code&gt;f&lt;/code&gt; was defined? Or does it refer to the mapping on line 4 that was created just before &lt;code&gt;f&lt;/code&gt; was called?&lt;/p&gt;
+
+&lt;h3 id="lexical-scoping"&gt;Lexical scoping&lt;/h3&gt;
+
+&lt;p&gt;Under &lt;em&gt;lexical scoping&lt;/em&gt; (also known as &lt;em&gt;static scoping&lt;/em&gt;), the scope of a variable is determined by the lexical (&lt;em&gt;i.e.&lt;/em&gt;, textual) structure of a program.&lt;/p&gt;
+
+&lt;p&gt;In the example above, the definition of &lt;code&gt;x&lt;/code&gt; on line 1 creates a scope that starts after its definition and extends &lt;em&gt;into&lt;/em&gt; the bodies of &lt;code&gt;f&lt;/code&gt; and &lt;code&gt;g&lt;/code&gt;. However, the second definition of &lt;code&gt;x&lt;/code&gt; on line 4 creates a new scope that (1) shadows the previous definition of &lt;code&gt;x&lt;/code&gt;, and (2) does not extend into the call &lt;code&gt;f(0)&lt;/code&gt; on line 5. Looking at this from another direction, the use of &lt;code&gt;x&lt;/code&gt; on line 2 is within the scope created by the definition on line 1, and thus refers to that definition.&lt;/p&gt;
+
+&lt;p&gt;Therefore, under lexical scoping, the example program returns &lt;code&gt;1&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Most programming languages we use today are lexically scoped. Intuitively, a human (or compiler) can determine the scope of a variable by just examining the source code of a program. In other words, a compiler can determine which &lt;em&gt;definition&lt;/em&gt; each variable refers to&amp;mdash;but it may not be able to determine the &lt;em&gt;values&lt;/em&gt; of each variable.&lt;/p&gt;
+
+&lt;h3 id="dynamic-scoping"&gt;Dynamic scoping&lt;/h3&gt;
+
+&lt;p&gt;Under &lt;em&gt;dynamic scoping&lt;/em&gt;, a variable is bound to the most recent value assigned to that variable, &lt;em&gt;i.e.&lt;/em&gt;, the most recent assignment &lt;em&gt;during the program&amp;rsquo;s execution&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;In the example above, the free variable &lt;code&gt;x&lt;/code&gt; in the body of &lt;code&gt;f&lt;/code&gt; is evaluated when &lt;code&gt;f(0)&lt;/code&gt; is called on line 5. At that point (during program execution), the most recent assignment was on line 4.&lt;/p&gt;
+
+&lt;p&gt;Therefore, under dynamic scoping, the example program returns &lt;code&gt;2&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Dynamically scoped programming languages include bash, LaTeX, and the original version of Lisp. Emacs Lisp is dynamically scoped, but allows the programmer to select lexical scoping. Conversely, Perl and Common Lisp are lexically scoped by default, but allow the programmer to select dynamic scoping.&lt;/p&gt;
+
+&lt;h2 id="now-for-a-digression"&gt;Now for a digression&lt;/h2&gt;
+
+&lt;p&gt;These are the definitions I learned from my classes and textbooks, and should be similar to other definitions and explanations you might find online.&lt;/p&gt;
+
+&lt;p&gt;However, it took me many drafts and attempts before arriving at the current version. I had difficulty writing an explanation that I was satisfied with&amp;mdash;a definition that was not circular, did not appeal to some intuition or familiarity, and did not conflate terms. Even some of the resources I consulted had these issues.&lt;sup&gt;&lt;a href="#2019-09-05-lexical-and-dynamic-scope-footnote-1-definition" name="2019-09-05-lexical-and-dynamic-scope-footnote-1-return"&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+
+&lt;p&gt;I am much happier with my current version, but it still bothers me slightly. If lexical scope and dynamic scope are related concepts, then why are the definitions so different? Why does the definition for &lt;em&gt;dynamic scope&lt;/em&gt; not mention scope at all? If &lt;em&gt;scope&lt;/em&gt; is about &amp;ldquo;where a variable is visible,&amp;rdquo; and that definition is with respect to a &lt;em&gt;variable definition&lt;/em&gt;, then why do so many explanations and examples define lexical and dynamic scope in terms of &lt;em&gt;variable use&lt;/em&gt;?&lt;/p&gt;
+
+&lt;h2 id="scope-and-extent"&gt;Scope and Extent&lt;/h2&gt;
+
+&lt;p&gt;I found some answers in Guy Steele&amp;rsquo;s &lt;em&gt;Common Lisp the Language, 2nd Edition&lt;/em&gt;,&lt;sup&gt;&lt;a href="#2019-09-05-lexical-and-dynamic-scope-footnote-2-definition" name="2019-09-05-lexical-and-dynamic-scope-footnote-2-return"&gt;2&lt;/a&gt;&lt;/sup&gt; which Matthias Felleisen recommended to me.&lt;/p&gt;
+
+&lt;p&gt;In chapter 3, Steele introduces the concepts of &lt;em&gt;scope&lt;/em&gt; and &lt;em&gt;extent&lt;/em&gt;:&lt;/p&gt;
+
+&lt;blockquote&gt;
+ &lt;p&gt;&lt;em&gt;Scope&lt;/em&gt; refers to the spatial or textual region of the program within which references may occur. &lt;em&gt;Extent&lt;/em&gt; refers to the interval of time during which references may occur.&lt;/p&gt;&lt;/blockquote&gt;
+
+&lt;p&gt;In addition, there are four interesting cases of scope and extent, with respect to Common Lisp:&lt;/p&gt;
+
+&lt;ul&gt;
+ &lt;li&gt;
+  &lt;p&gt;&lt;em&gt;Lexical scope&lt;/em&gt;: a reference can only occur within certain textual regions  of the program, which are determined by the establishing construct, &lt;em&gt;e.g.&lt;/em&gt;,  the body of a variable definition.&lt;/p&gt;&lt;/li&gt;
+ &lt;li&gt;
+  &lt;p&gt;&lt;em&gt;Indefinite scope&lt;/em&gt;: a reference can occur anywhere in the program.&lt;/p&gt;&lt;/li&gt;
+ &lt;li&gt;
+  &lt;p&gt;&lt;em&gt;Dynamic extent&lt;/em&gt;: a reference can occur during the time between an entity&amp;rsquo;s  creation and its explicit destruction, &lt;em&gt;e.g.&lt;/em&gt;, when a local variable is  created upon entering a function and destroyed when returning from that  function.&lt;/p&gt;&lt;/li&gt;
+ &lt;li&gt;
+  &lt;p&gt;&lt;em&gt;Indefinite extent&lt;/em&gt;: an entity may exist as long as it is possible to be  referenced. (Note that this is the idea behind garbage collection: an  entity can be destroyed once references to it are impossible.)&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;Steele points out that &lt;em&gt;dynamic scope&lt;/em&gt; is a misnomer, even though it is both a traditional and useful concept. It can be defined as &lt;em&gt;indefinite scope and dynamic extent&lt;/em&gt;. In other words, references to a variable may occur anywhere in a program, as long as that variable has been initialized and has not yet been explicitly destroyed. Furthermore, a later initialization hides an earlier one.&lt;/p&gt;
+
+&lt;h3 id="discussion"&gt;Discussion&lt;/h3&gt;
+
+&lt;p&gt;I found this approach very informative, because it explicitly distinguishes between space (scope) and time (extent), which further implies a separation between compile time and run time. This explains my unease with the definition of &amp;ldquo;dynamic scope&amp;rdquo;&amp;mdash;it is nominally about textual regions in a program, but also requires consideration of run-time behaviour. Dynamic scope is a misnomer!&lt;/p&gt;
+
+&lt;p&gt;The above definitions are specifically for Common Lisp, but I believe we can learn from them and adapt them for other programming languages.&lt;/p&gt;
+
+&lt;h2 id="a-brief-and-incomplete-history-of-lexical-scope"&gt;A brief and incomplete history of lexical scope&lt;/h2&gt;
+
+&lt;p&gt;During my research of different definitions of lexical scope, I began to wonder if there was an &amp;ldquo;original&amp;rdquo; definition of lexical scope. I did not find one, but I was able to trace some of the connections between Lisp, Scheme, and ALGOL 60. This history is certainly incomplete, but I hope it is somewhat useful and interesting.&lt;/p&gt;
+
+&lt;ul&gt;
+ &lt;li&gt;
+  &lt;p&gt;&lt;strong&gt;1960&lt;/strong&gt;. John McCarthy publishes the original paper on Lisp.&lt;sup&gt;&lt;a href="#2019-09-05-lexical-and-dynamic-scope-footnote-3-definition" name="2019-09-05-lexical-and-dynamic-scope-footnote-3-return"&gt;3&lt;/a&gt;&lt;/sup&gt; In  &lt;em&gt;History of Lisp&lt;/em&gt;,&lt;sup&gt;&lt;a href="#2019-09-05-lexical-and-dynamic-scope-footnote-4-definition" name="2019-09-05-lexical-and-dynamic-scope-footnote-4-return"&gt;4&lt;/a&gt;&lt;/sup&gt; McCarthy writes that he borrowed the λ-notation from  Alonzo Church&amp;rsquo;s lambda calculus, but none of the other ideas. He also  recounts an incident where a programmer desired lexical scoping, but Lisp  used dynamic scoping. McCarthy considered this to be a bug, which Steve  Russell later fixed by developing the &amp;ldquo;FUNARG device.&amp;rdquo;&lt;/p&gt;&lt;/li&gt;
+ &lt;li&gt;
+  &lt;p&gt;&lt;strong&gt;1963&lt;/strong&gt;. After a few years of work, the &lt;em&gt;Revised Report on Algorithm  Language ALGOL 60&lt;/em&gt; is published.&lt;sup&gt;&lt;a href="#2019-09-05-lexical-and-dynamic-scope-footnote-5-definition" name="2019-09-05-lexical-and-dynamic-scope-footnote-5-return"&gt;5&lt;/a&gt;&lt;/sup&gt; While &amp;ldquo;lexical scope&amp;rdquo; is not explicitly  mentioned, it is recognizable in the specification.&lt;/p&gt;&lt;/li&gt;
+ &lt;li&gt;
+  &lt;p&gt;&lt;strong&gt;1964&lt;/strong&gt;. Peter Landin shows how expressions in programming languages can  be modelled in Church&amp;rsquo;s λ-notation.&lt;sup&gt;&lt;a href="#2019-09-05-lexical-and-dynamic-scope-footnote-6-definition" name="2019-09-05-lexical-and-dynamic-scope-footnote-6-return"&gt;6&lt;/a&gt;&lt;/sup&gt; He also introduces the concept of a  &lt;em&gt;closure&lt;/em&gt;, which pairs a lambda expression with the environment it was  evaluated in.&lt;/p&gt;&lt;/li&gt;
+ &lt;li&gt;
+  &lt;p&gt;&lt;strong&gt;1970&lt;/strong&gt;. Joel Moses describes the problem of free variables in  functions.&lt;sup&gt;&lt;a href="#2019-09-05-lexical-and-dynamic-scope-footnote-7-definition" name="2019-09-05-lexical-and-dynamic-scope-footnote-7-return"&gt;7&lt;/a&gt;&lt;/sup&gt; He considers both the &amp;ldquo;downward&amp;rdquo; case (where a function is  passed to another function) and the &amp;ldquo;upward&amp;rdquo; case (where a function returns  a function), and remarks on the correspondence between Lisp&amp;rsquo;s FUNARG device  and Landin&amp;rsquo;s closures.&lt;/p&gt;&lt;/li&gt;
+ &lt;li&gt;
+  &lt;p&gt;&lt;strong&gt;1975&lt;/strong&gt;. Gerald Sussman and Guy Steele publish the first Scheme paper.&lt;sup&gt;&lt;a href="#2019-09-05-lexical-and-dynamic-scope-footnote-8-definition" name="2019-09-05-lexical-and-dynamic-scope-footnote-8-return"&gt;8&lt;/a&gt;&lt;/sup&gt;  They describe their goal of a Lisp-like language that is based on the  lambda calculus. As a consequence, they implement lexical scoping with  closures, to preserve the substitution semantics of the lambda calculus.  They compare this scoping discipline to ALGOL&amp;rsquo;s.&lt;/p&gt;&lt;/li&gt;
+ &lt;li&gt;
+  &lt;p&gt;&lt;strong&gt;1978&lt;/strong&gt;. Steele and Sussman describe various programming language design  choices, by developing an interpreter for each programming language  variation.&lt;sup&gt;&lt;a href="#2019-09-05-lexical-and-dynamic-scope-footnote-9-definition" name="2019-09-05-lexical-and-dynamic-scope-footnote-9-return"&gt;9&lt;/a&gt;&lt;/sup&gt; In particular, they provide a detailed discussion on  lexical and dynamic scoping.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;
+
+&lt;h2 id="next-stop-r"&gt;Next stop, R&lt;/h2&gt;
+
+&lt;p&gt;Now that we have examined the definitions of lexical and dynamic scope, and also explored some history, we are ready to return to the original question. &lt;em&gt;Is R lexically or dynamically scoped?&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;In the next blog post, we&amp;rsquo;ll answer that question, and also see how R can be very confusing.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;I would like to thank Sam Caldwell, Ben Greenman, and Artem Pelenitsyn for their comments and feedback on this blog post.&lt;/em&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;div class="footnotes"&gt;
+ &lt;ol&gt;
+  &lt;li id="2019-09-05-lexical-and-dynamic-scope-footnote-1-definition" class="footnote-definition"&gt;
+   &lt;p&gt;For example, at one point I defined lexical/dynamic scoping in terms of a  &amp;ldquo;lexical environment&amp;rdquo; and a &amp;ldquo;dynamic environment.&amp;rdquo; But (1) that&amp;rsquo;s a circular  definition, (2) it assumes the reader has some intuition of how a &amp;ldquo;lexical  environment&amp;rdquo; is different from a &amp;ldquo;dynamic environment,&amp;rdquo; and (3) it conflates  two different kinds of &amp;ldquo;environment.&amp;rdquo;&amp;nbsp;&lt;a href="#2019-09-05-lexical-and-dynamic-scope-footnote-1-return"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+  &lt;li id="2019-09-05-lexical-and-dynamic-scope-footnote-2-definition" class="footnote-definition"&gt;
+   &lt;p&gt;G. Steele. &amp;ldquo;Scope and Extent,&amp;rdquo; in &lt;em&gt;Common Lisp the Language&lt;/em&gt;, 2nd ed.  1990. [&lt;a href="https://www.cs.cmu.edu/Groups/AI/html/cltl/clm/node43.html#SECTION00700000000000000000"&gt;Available online&lt;/a&gt;]&amp;nbsp;&lt;a href="#2019-09-05-lexical-and-dynamic-scope-footnote-2-return"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+  &lt;li id="2019-09-05-lexical-and-dynamic-scope-footnote-3-definition" class="footnote-definition"&gt;
+   &lt;p&gt;J. McCarthy. &amp;ldquo;Recursive Functions of Symbolic Expressions and Their  Computation by Machine, Part I,&amp;rdquo; &lt;em&gt;Communications of the ACM&lt;/em&gt;, vol. 3, no. 4,  April 1960. [&lt;a href="https://doi.org/10.1145/367177.367199"&gt;DOI&lt;/a&gt;][&lt;a href="http://jmc.stanford.edu/articles/recursive/recursive.pdf"&gt;Available  online&lt;/a&gt;]&amp;nbsp;&lt;a href="#2019-09-05-lexical-and-dynamic-scope-footnote-3-return"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+  &lt;li id="2019-09-05-lexical-and-dynamic-scope-footnote-4-definition" class="footnote-definition"&gt;
+   &lt;p&gt;J. McCarthy. &amp;ldquo;History of LISP,&amp;rdquo; in &lt;em&gt;History of Programming Languages&lt;/em&gt;,  1978. [&lt;a href="https://doi.org/10.1145/800025.1198360"&gt;DOI&lt;/a&gt;][&lt;a href="http://jmc.stanford.edu/articles/lisp/lisp.pdf"&gt;Available  online&lt;/a&gt;]&amp;nbsp;&lt;a href="#2019-09-05-lexical-and-dynamic-scope-footnote-4-return"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+  &lt;li id="2019-09-05-lexical-and-dynamic-scope-footnote-5-definition" class="footnote-definition"&gt;
+   &lt;p&gt;P. Naur (ed.). &amp;ldquo;Revised Report on Algorithmic Language ALGOL 60,&amp;rdquo;  &lt;em&gt;Communications of the ACM&lt;/em&gt;, vol. 6, no. 1, January 1963.  [&lt;a href="http://dx.doi.org/10.1145/366193.366201"&gt;DOI&lt;/a&gt;][&lt;a href="https://www.masswerk.at/algol60/report.htm"&gt;Available  online&lt;/a&gt;]&amp;nbsp;&lt;a href="#2019-09-05-lexical-and-dynamic-scope-footnote-5-return"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+  &lt;li id="2019-09-05-lexical-and-dynamic-scope-footnote-6-definition" class="footnote-definition"&gt;
+   &lt;p&gt;P. Landin. &amp;ldquo;The mechanical evaluation of expressions,&amp;rdquo; &lt;em&gt;The Computer  Journal&lt;/em&gt;, vol. 6, no. 4, January 1964.  [&lt;a href="https://doi.org/10.1093/comjnl/6.4.308"&gt;DOI&lt;/a&gt;][&lt;a href="https://www.cs.cmu.edu/~crary/819-f09/Landin64.pdf"&gt;Available  online&lt;/a&gt;]&amp;nbsp;&lt;a href="#2019-09-05-lexical-and-dynamic-scope-footnote-6-return"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+  &lt;li id="2019-09-05-lexical-and-dynamic-scope-footnote-7-definition" class="footnote-definition"&gt;
+   &lt;p&gt;J. Moses. &amp;ldquo;The Function of FUNCTION in LISP or Why the FUNARG Problem  Should be Called the Environment Problem,&amp;rdquo; &lt;em&gt;SIGSAM Bulletin 15&lt;/em&gt;, July 1970.  [&lt;a href="https://doi.org/10.1145/1093410.1093411"&gt;DOI&lt;/a&gt;][&lt;a href="https://dspace.mit.edu/handle/1721.1/5854"&gt;Available  online&lt;/a&gt;]&amp;nbsp;&lt;a href="#2019-09-05-lexical-and-dynamic-scope-footnote-7-return"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+  &lt;li id="2019-09-05-lexical-and-dynamic-scope-footnote-8-definition" class="footnote-definition"&gt;
+   &lt;p&gt;G. Sussman and G. Steele. &amp;ldquo;SCHEME: An Interpreter for Extended Lambda  Calculus.&amp;rdquo; 1975. [&lt;a href="https://dspace.mit.edu/handle/1721.1/5794"&gt;Available  online&lt;/a&gt;]&amp;nbsp;&lt;a href="#2019-09-05-lexical-and-dynamic-scope-footnote-8-return"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+  &lt;li id="2019-09-05-lexical-and-dynamic-scope-footnote-9-definition" class="footnote-definition"&gt;
+   &lt;p&gt;G. Steele and G. Sussman. &amp;ldquo;The Art of the Interpreter or, The Modularity  Complex (Parts Zero, One, and Two).&amp;rdquo; 1978. [&lt;a href="https://dspace.mit.edu/handle/1721.1/6094"&gt;Available  online&lt;/a&gt;]&amp;nbsp;&lt;a href="#2019-09-05-lexical-and-dynamic-scope-footnote-9-return"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;&lt;/ol&gt;&lt;/div&gt;</description></item>
   <item>
    <title>[Conversational Concurrency (cross-post)](https://eighty-twenty.org/2018/01/24/conversational-concurrency)</title>
    <link>http://prl.ccs.neu.edu/blog/2019/05/11/-conversational-concurrency-cross-post-https-eighty-twenty-org-2018-01-24-conversational-concurrency/?utm_source=all&amp;utm_medium=RSS</link>
@@ -2524,490 +2679,4 @@ In(T)(s_1)\times\ldots,In(T)(s_n)&lt;/script&gt;. Then the terms are just interp
 
 &lt;p&gt;Of course we haven&amp;rsquo;t precisely gotten back to where we started: we were talking about denotational semantics in terms of sets and functions, but what we really want are implementations in our favorite programming languages. Fortunately, we didn&amp;rsquo;t use very many properties of sets in our definition, so it&amp;rsquo;s pretty easy to swap out the category of Sets for some category built out of the terms of our programming language. We can also swap out sets for some much cooler category of denotations like domains or metric spaces or time-varying values.&lt;/p&gt;
 
-&lt;p&gt;Another question is how to implement this when we have a proper &lt;em&gt;type theory&lt;/em&gt; and not just some boring sorts. In particular, if we have function types, then we won&amp;rsquo;t be able to get functions from functions in our term model to functions in our denotations due to contravariance. Perhaps logical relations are the solution?&lt;/p&gt;</description></item>
-  <item>
-   <title>PLT Redex FAQ</title>
-   <link>http://prl.ccs.neu.edu/blog/2017/09/25/plt-redex-faq/?utm_source=all&amp;utm_medium=RSS</link>
-   <guid isPermaLink="false">urn:http-prl-ccs-neu-edu:-blog-2017-09-25-plt-redex-faq</guid>
-   <pubDate>Mon, 25 Sep 2017 23:39:16 UT</pubDate>
-   <author>PRL</author>
-   <description>
-&lt;p&gt;A short guide to Redex concepts, conventions, and common mistakes.&lt;/p&gt;
-&lt;!-- more--&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;&lt;em&gt;To contribute to this FAQ, submit issues and pull requests to:  &lt;a href="https://github.com/nuprl/website/"&gt;https://github.com/nuprl/website/&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
-
-&lt;h3 id="q-what-is-redex-useful-for"&gt;Q. What is Redex useful for?&lt;/h3&gt;
-
-&lt;ol&gt;
- &lt;li&gt;declaring &lt;a href="https://en.wikipedia.org/wiki/Regular_tree_grammar"&gt;regular tree grammars&lt;/a&gt;&lt;/li&gt;
- &lt;li&gt;defining &lt;em&gt;pattern&lt;/em&gt;-based judgments and relations on &lt;em&gt;terms&lt;/em&gt;&lt;/li&gt;
- &lt;li&gt;testing properties of the above&lt;/li&gt;&lt;/ol&gt;
-
-&lt;p&gt;More generally, Redex is helpful for experimenting with a programming language  design, and helping you decide what you might want to prove about a language.&lt;/p&gt;
-
-&lt;h3 id="q-what-is-redex-not-useful-for"&gt;Q. What is Redex &lt;strong&gt;not&lt;/strong&gt; useful for?&lt;/h3&gt;
-
-&lt;p&gt;Proving theorems about a grammar, judgment, or relation.&lt;/p&gt;
-
-&lt;h3 id="q-what-is-a-term"&gt;Q. What is a &lt;em&gt;term&lt;/em&gt;?&lt;/h3&gt;
-
-&lt;p&gt;Informally, a term is:&lt;/p&gt;
-
-&lt;ul&gt;
- &lt;li&gt;a Redex &amp;ldquo;atom&amp;rdquo;, or&lt;/li&gt;
- &lt;li&gt;an object that represents a sequence of characters.&lt;/li&gt;&lt;/ul&gt;
-
-&lt;p&gt;More formally, a term is the result of evaluating &lt;strong&gt;(term X)&lt;/strong&gt;, where &lt;strong&gt;X&lt;/strong&gt; is  any syntactically-correct Racket expression.&lt;/p&gt;
-
-&lt;p&gt;Examples:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ racket
-Welcome to Racket v6.10.0.3.
-&amp;gt; (require redex/reduction-semantics)
-&amp;gt; (term 42)
-42
-&amp;gt; (term (+ 2 2))
-'(+ 2 2)
-&amp;gt; (term ("hello" world (#false)))
-'("hello" world (#f))&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Some terms may look strange. That&amp;rsquo;s OK, because a term by itself has no meaning.&lt;/p&gt;
-
-&lt;p&gt;Terms can refer to previously-defined values using the &lt;strong&gt;unquote&lt;/strong&gt; escape.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;&amp;gt; (define x (term 42))
-&amp;gt; (term (+ 2 x))
-'(+ 2 x)
-&amp;gt; (term (+ ,x (unquote x)))
-'(+ 42 42)&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id="q-what-is-a-redex-model"&gt;Q. What is a &lt;em&gt;Redex model&lt;/em&gt;?&lt;/h3&gt;
-
-&lt;p&gt;A Redex model is collection of tools for working with terms. The tools may include:&lt;/p&gt;
-
-&lt;ul&gt;
- &lt;li&gt;&lt;em&gt;languages&lt;/em&gt;, to define a grammar for terms&lt;/li&gt;
- &lt;li&gt;&lt;em&gt;judgments&lt;/em&gt;, to describe properties of terms or relations between terms&lt;/li&gt;
- &lt;li&gt;&lt;em&gt;metafunctions&lt;/em&gt;, to transform terms&lt;/li&gt;
- &lt;li&gt;&lt;em&gt;reduction relations&lt;/em&gt;, to define a term rewriting system&lt;/li&gt;&lt;/ul&gt;
-
-&lt;p&gt;The goal of these tools is to encode a &amp;ldquo;real thing&amp;rdquo; (maybe, a programming language)  using Redex terms.&lt;/p&gt;
-
-&lt;h3 id="q-what-is-a-language"&gt;Q. What is a language?&lt;/h3&gt;
-
-&lt;p&gt;A Redex &lt;em&gt;language&lt;/em&gt; is a named set of non-terminals, &lt;em&gt;patterns&lt;/em&gt;, and &lt;em&gt;binding forms&lt;/em&gt;. For example, a Redex model of the natural numbers might start with this language:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;(define-language nat
-  [N ::= Zero
-         (Plus1 N)])&lt;/code&gt;&lt;/pre&gt;
-
-&lt;ul&gt;
- &lt;li&gt;the name of the language is &lt;strong&gt;nat&lt;/strong&gt;&lt;/li&gt;
- &lt;li&gt;the non-terminal &lt;strong&gt;N&lt;/strong&gt; is associated with two patterns: &lt;strong&gt;Zero&lt;/strong&gt; and &lt;strong&gt;(Plus1 N)&lt;/strong&gt;&lt;/li&gt;
- &lt;li&gt;there are no &lt;em&gt;binding forms&lt;/em&gt;&lt;/li&gt;&lt;/ul&gt;
-
-&lt;p&gt;Each pattern describes a syntactic category of terms. Each non-terminal gives a name to the union of the patterns that follow it.&lt;/p&gt;
-
-&lt;p&gt;The non-terminal &lt;strong&gt;N&lt;/strong&gt; describes all terms that are either:&lt;/p&gt;
-
-&lt;ol&gt;
- &lt;li&gt;the symbol &lt;strong&gt;Zero&lt;/strong&gt;&lt;/li&gt;
- &lt;li&gt;lists of the form &lt;strong&gt;(Plus1 N)&lt;/strong&gt;, where &lt;strong&gt;N&lt;/strong&gt; is either &lt;strong&gt;Zero&lt;/strong&gt; or another &amp;ldquo;Plus1&amp;rdquo;&lt;/li&gt;&lt;/ol&gt;
-
-&lt;p&gt;For example,&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;(term Zero)
-(term (Plus1 Zero))
-(term (Plus1 (Plus1 Zero)))
-(term (Plus1 (Plus1 (Plus1 Zero))))
-;; .... and so on&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;If a language has binding forms, then some terms can introduce names. See the question on &lt;em&gt;binding forms&lt;/em&gt; (below) for an example.&lt;/p&gt;
-
-&lt;h3 id="q-what-is-a-pattern"&gt;Q. What is a pattern?&lt;/h3&gt;
-
-&lt;p&gt;A pattern is a sequence of characters and variables. If you have: (1) a language, and (2) a pattern that contains &lt;em&gt;named non-terminals&lt;/em&gt; from the language,  then you can ask whether a Redex term matches the pattern.&lt;/p&gt;
-
-&lt;p&gt;A &lt;em&gt;named non-terminal&lt;/em&gt; for a language &lt;strong&gt;L&lt;/strong&gt; is an identifier made of:  (1) a non-terminal from &lt;strong&gt;L&lt;/strong&gt;, (2) an underscore (&lt;strong&gt;_&lt;/strong&gt;), and (3) any other identifier. See the FAQ entry below.&lt;/p&gt;
-
-&lt;p&gt;For example, &lt;strong&gt;(redex-match? L p t)&lt;/strong&gt; returns &lt;strong&gt;#true&lt;/strong&gt; if the term &lt;strong&gt;t&lt;/strong&gt; matches  the pattern &lt;strong&gt;p&lt;/strong&gt; relative to the language &lt;strong&gt;L&lt;/strong&gt;.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;(define-language nat
-  [N ::= Zero (Plus1 N)])
-
-(redex-match? nat N_some-name (term Zero))
-;; #true
-(redex-match? nat (Plus1 N_a) (term Zero))
-;; #false
-(redex-match? nat (Plus1 N_0) (term (Plus1 (Plus1 Zero))))
-;; #true&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;If &lt;strong&gt;(redex-match? L p t)&lt;/strong&gt; is &lt;strong&gt;#true&lt;/strong&gt;, then &lt;strong&gt;(redex-match L p t)&lt;/strong&gt; shows how  named non-terminals in the pattern bind to subterms of &lt;strong&gt;t&lt;/strong&gt;.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;(redex-match nat N_0 (term Zero))
-;; (list (match (list (bind 'N_0 'Zero))))
-(redex-match nat (Plus1 N_0) (term Zero))
-;; #f
-(redex-match nat (Plus1 N_0) (term (Plus1 (Plus1 Zero))))
-;; (list (match (list (bind 'N_0 '(Plus1 Zero)))))&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id="q-what-is-a-named-non-terminal"&gt;Q. What is a named non-terminal?&lt;/h3&gt;
-
-&lt;p&gt;A named non-terminal in a language &lt;strong&gt;L&lt;/strong&gt; is an identifier of the form &lt;strong&gt;X_Y&lt;/strong&gt;, where:&lt;/p&gt;
-
-&lt;ul&gt;
- &lt;li&gt;&lt;strong&gt;X&lt;/strong&gt; is a non-terminal from &lt;strong&gt;L&lt;/strong&gt;&lt;/li&gt;
- &lt;li&gt;&lt;strong&gt;Y&lt;/strong&gt; is any identifier&lt;/li&gt;&lt;/ul&gt;
-
-&lt;p&gt;The name helps when one pattern contains multiple occurrences of the same non-terminal. If you want the two occurrences to bind the same term, then use the same name.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;(define-language trees
-  [binary-tree ::= Leaf
-                   (Node binary-tree binary-tree)])
-
-(redex-match trees
-  (Node binary-tree_left binary-tree_right)
-  (term (Node Leaf (Node Leaf Leaf))))
-;; (list
-;;  (match
-;;   (list (bind 'binary-tree_left 'Leaf)
-;;         (bind 'binary-tree_right '(Node Leaf Leaf)))))&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id="q-what-else-can-patterns-express"&gt;Q. What else can patterns express?&lt;/h3&gt;
-
-&lt;p&gt;Redex patterns may contain special identifiers to guide pattern-matching. For instance:&lt;/p&gt;
-
-&lt;ul&gt;
- &lt;li&gt;The &lt;strong&gt;_&lt;/strong&gt; pattern matches any term (and does not bind).&lt;/li&gt;
- &lt;li&gt;A pattern &lt;strong&gt;(p &amp;hellip;)&lt;/strong&gt; matches any sequence whose elements match the pattern &lt;strong&gt;p&lt;/strong&gt;.  If the pattern &lt;strong&gt;p&lt;/strong&gt; is a named non-terminal, then the non-terminal binds  a sequence of subterms.&lt;/li&gt;&lt;/ul&gt;
-
-&lt;p&gt;Examples:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;(redex-match? nat (Plus1 _) (term (Plus1 9)))
-;; #true
-(redex-match? nat (N_0 ...) (term ()))
-;; #true
-(redex-match? nat (N_0 ...) (term (Zero)))
-;; #true
-(redex-match nat (N_0 ...) (term (Zero Zero Zero)))
-;; (list (match (list (bind 'N_0 '(Zero Zero Zero)))))&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;See &lt;a href="http://docs.racket-lang.org/redex/The_Redex_Reference.html#%28tech._pattern%29"&gt;the Redex reference&lt;/a&gt; for the full pattern language,  including the &lt;em&gt;named and unique non-terminals&lt;/em&gt; of the form &lt;strong&gt;X_!_Y&lt;/strong&gt;.&lt;/p&gt;
-
-&lt;h3 id="q-what-can-patterns-not-express"&gt;Q. What can patterns &lt;strong&gt;not&lt;/strong&gt; express?&lt;/h3&gt;
-
-&lt;ul&gt;
- &lt;li&gt;Disjunctions of patterns, e.g., &amp;ldquo;number or boolean&amp;rdquo;.  (Use a language non-terminal.)&lt;/li&gt;
- &lt;li&gt;Negations of patterns. (Compose &lt;strong&gt;not&lt;/strong&gt; with &lt;strong&gt;redex-match?&lt;/strong&gt;.)&lt;/li&gt;
- &lt;li&gt;Some non-regular patterns. (Named  dots &lt;a href="http://docs.racket-lang.org/redex/The_Redex_Reference.html#%28tech._pattern%29"&gt;&lt;code&gt;..._N&lt;/code&gt;&lt;/a&gt;  or &lt;a href="http://docs.racket-lang.org/redex/The_Redex_Reference.html#%28form._%28%28lib._redex%2Freduction-semantics..rkt%29._define-language%29%29"&gt;&lt;code&gt;define-language&lt;/code&gt;&lt;/a&gt;  with a side condition may be able to help.)&lt;/li&gt;&lt;/ul&gt;
-
-&lt;h3 id="q-what-is-a-judgment"&gt;Q. What is a judgment?&lt;/h3&gt;
-
-&lt;p&gt;A Redex &lt;em&gt;judgment&lt;/em&gt; form defines a relation on terms. The relation is defined by a set of inference rules.&lt;/p&gt;
-
-&lt;p&gt;Programming languages papers use inference rules all the time. Redex can express many of the judgments in papers; for example:&lt;/p&gt;
-
-&lt;ul&gt;
- &lt;li&gt;well-formedness conditions (i.e., whether a term contains free variables)&lt;/li&gt;
- &lt;li&gt;type checking rules&lt;/li&gt;
- &lt;li&gt;type inference rules&lt;/li&gt;
- &lt;li&gt;evaluation relations&lt;/li&gt;&lt;/ul&gt;
-
-&lt;p&gt;Every judgment needs (1) a language (2) a mode (3) a contract (4) a set of inference rules. For example, the following judgment defines an equality relation on natural numbers.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;(define-language nat
-  [N ::= Zero (Plus1 N)])
-
-(define-judgment-form nat
-  #:mode (N= I I)
-  #:contract (N= N N)
-  [
-   --- Zero=
-   (N= Zero Zero)]
-  [
-   (where (Plus1 N_0--) N_0)
-   (where (Plus1 N_1--) N_1)
-   (N= N_0-- N_1--)
-   --- Plus1=
-   (N= N_0 N_1)])&lt;/code&gt;&lt;/pre&gt;
-
-&lt;ol&gt;
- &lt;li&gt;the language is &lt;strong&gt;nat&lt;/strong&gt;; Redex uses the language to interpret patterns&lt;/li&gt;
- &lt;li&gt;the mode is &lt;strong&gt;(N= I I)&lt;/strong&gt;; this means &lt;strong&gt;N=&lt;/strong&gt; is the name of a judgment that  expects two input terms (or, &lt;strong&gt;N=&lt;/strong&gt; is a binary relation on terms)&lt;/li&gt;
- &lt;li&gt;the contract is &lt;strong&gt;(N= N N)&lt;/strong&gt;; in other words, &lt;strong&gt;N=&lt;/strong&gt; expects two terms that  match the &lt;strong&gt;N&lt;/strong&gt; non-terminal from the &lt;strong&gt;nat&lt;/strong&gt; language&lt;/li&gt;
- &lt;li&gt;there are two inference rules, named &lt;strong&gt;Zero=&lt;/strong&gt; and &lt;strong&gt;Plus1=&lt;/strong&gt;&lt;/li&gt;
- &lt;li&gt;the &lt;strong&gt;Zero=&lt;/strong&gt; rule states that &lt;strong&gt;(N= Zero Zero)&lt;/strong&gt; always holds&lt;/li&gt;
- &lt;li&gt;the &lt;strong&gt;Plus1=&lt;/strong&gt; rule states that &lt;strong&gt;(N= N_0 N_1)&lt;/strong&gt; holds if &lt;strong&gt;N_0&lt;/strong&gt; and &lt;strong&gt;N_1&lt;/strong&gt;  are both &lt;strong&gt;Plus1&lt;/strong&gt; terms whose contents are related by &lt;strong&gt;N=&lt;/strong&gt;&lt;/li&gt;&lt;/ol&gt;
-
-&lt;p&gt;The &lt;strong&gt;where&lt;/strong&gt; clauses are &lt;em&gt;guards&lt;/em&gt;. When Redex tries to apply a rule with premises of the form  &lt;strong&gt;(where pattern term)&lt;/strong&gt;, it checks that each pattern matches the corresponding term. If not, Redex stops applying the rule. See &lt;a href="http://docs.racket-lang.org/redex/The_Redex_Reference.html#%28form._%28%28lib._redex%2Freduction-semantics..rkt%29._define-judgment-form%29%29"&gt;the Redex reference&lt;/a&gt; for more.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;(judgment-holds (N= Zero Zero))
-;; #true
-(judgment-holds (N= (Plus1 (Plus1 Zero)) (Plus1 (Plus1 Zero))))
-;; #false
-(judgment-holds (N= (Plus1 Zero) (Plus1 (Plus1 Zero))))
-;; #true&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Note: the inference rules form a &lt;em&gt;set&lt;/em&gt;, not a &lt;em&gt;sequence&lt;/em&gt;. So when you ask Redex whether &lt;strong&gt;(judgment-holds (N= Zero Zero))&lt;/strong&gt;, it applies  all rules that match &lt;strong&gt;(N= Zero Zero)&lt;/strong&gt;. For &lt;strong&gt;N=&lt;/strong&gt; this is just one rule, but in general it could be many rules.&lt;/p&gt;
-
-&lt;h3 id="q-what-is-a-judgment-form-mode"&gt;Q. What is a judgment form &lt;strong&gt;#:mode&lt;/strong&gt;?&lt;/h3&gt;
-
-&lt;p&gt;A &lt;strong&gt;#:mode&lt;/strong&gt; declaration expects a list of the form &lt;strong&gt;(id pos-use &amp;hellip;)&lt;/strong&gt;,  where &lt;strong&gt;id&lt;/strong&gt; is an identifier and each &lt;strong&gt;pos-use&lt;/strong&gt; is either  &lt;strong&gt;I&lt;/strong&gt; or &lt;strong&gt;O&lt;/strong&gt;. These declarations say four things:&lt;/p&gt;
-
-&lt;ol&gt;
- &lt;li&gt;&lt;strong&gt;id&lt;/strong&gt; is the name of a new judgment form&lt;/li&gt;
- &lt;li&gt;&lt;strong&gt;id&lt;/strong&gt; expects &lt;strong&gt;N&lt;/strong&gt; arguments, where &lt;strong&gt;N&lt;/strong&gt; is the number of &lt;strong&gt;pos-use&lt;/strong&gt; symbols&lt;/li&gt;
- &lt;li&gt;&lt;strong&gt;id&lt;/strong&gt; expects an &lt;em&gt;input&lt;/em&gt; at each position where the mode contains an &lt;strong&gt;I&lt;/strong&gt;&lt;/li&gt;
- &lt;li&gt;&lt;strong&gt;id&lt;/strong&gt; produces an &lt;em&gt;output&lt;/em&gt; at each position where the mode contains an &lt;strong&gt;O&lt;/strong&gt;&lt;/li&gt;&lt;/ol&gt;
-
-&lt;p&gt;For example, a type inference judgment may take an expression as input and output a type. Here&amp;rsquo;s a fast and easy type inference judgment for arithmetic expressions. Given any term &lt;strong&gt;e_0&lt;/strong&gt;, the judgment outputs the type &lt;strong&gt;Int&lt;/strong&gt;.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;(define-language Arith
-  (e ::= integer (e + e))
-  (τ ::= Int))
-
-(define-judgment-form Arith
-  #:mode (infer-type I O)
-  #:contract (infer-type e τ)
-  [
-   --- T-Int
-   (infer-type e_0 Int)])&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id="q-what-can-judgments-not-express"&gt;Q. What can judgments &lt;strong&gt;not&lt;/strong&gt; express?&lt;/h3&gt;
-
-&lt;p&gt;Redex does not support inference rules that require guessing.&lt;/p&gt;
-
-&lt;p&gt;One example of this is a transitivity rule: "&lt;strong&gt;τ_0&lt;/strong&gt; is related to &lt;strong&gt;τ_2&lt;/strong&gt;  if there exists a &lt;strong&gt;τ_1&lt;/strong&gt; such that &lt;strong&gt;τ_0&lt;/strong&gt; is related to &lt;strong&gt;τ_1&lt;/strong&gt; and &lt;strong&gt;τ_1&lt;/strong&gt; is  related to &lt;strong&gt;τ_2&lt;/strong&gt;". The following example tries to define a transitive subtyping (&lt;strong&gt;&amp;lt;:&lt;/strong&gt;) relation,  but Redex rejects the &lt;strong&gt;S-Trans&lt;/strong&gt; rule.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;(define-language SomeTypes
-  (τ ::= (→ τ τ) Integer))
-
-(define-judgment-form SomeTypes
-  #:mode (&amp;lt;: I I)
-  #:contract (&amp;lt;: τ τ)
-  [
-   (&amp;lt;: τ_0 τ_1)
-   (&amp;lt;: τ_1 τ_2)
-   --- S-Trans
-   (&amp;lt;: τ_0 τ_2)]
-  [
-   --- S-Refl
-   (&amp;lt;: τ_0 τ_0)]
-  [
-   (&amp;lt;: τ_dom-1 τ_dom-0)
-   (&amp;lt;: τ_cod-0 τ_cod-1)
-   --- S-Arrow
-   (&amp;lt;: (→ τ_dom-0 τ_cod-0) (→ τ_dom-1 τ_cod-1))])&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;The error is that in the rule &lt;strong&gt;S-Trans&lt;/strong&gt;,  the named non-terminal &lt;strong&gt;τ_1&lt;/strong&gt; appears in an input position but is not bound to a term.&lt;/p&gt;
-
-&lt;h3 id="q-what-is-a-metafunction"&gt;Q. What is a metafunction?&lt;/h3&gt;
-
-&lt;p&gt;A metafunction is a term-level function on terms.&lt;/p&gt;
-
-&lt;p&gt;Every metafunction needs: (1) a language (2) a name (3) a contract (4) a sequence of guarded input/output cases.&lt;/p&gt;
-
-&lt;p&gt;Here is a metafunction that returns &lt;strong&gt;#true&lt;/strong&gt; when given two equal natural numbers. The definition is similar to the &lt;strong&gt;N=&lt;/strong&gt; judgment form.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;(define-metafunction nat
-  N=? : N N -&amp;gt; boolean
-  [(N=? Zero Zero)
-   #true]
-  [(N=? N_0 N_1)
-   (N=? N_0-- N_1--)
-   (where (Plus1 N_0--) N_0)
-   (where (Plus1 N_1--) N_1)]
-  [(N=? N_0 N_1)
-   #false])&lt;/code&gt;&lt;/pre&gt;
-
-&lt;ul&gt;
- &lt;li&gt;the metafunction is named &lt;strong&gt;N=?&lt;/strong&gt;&lt;/li&gt;
- &lt;li&gt;its contract is &lt;strong&gt;N N -&amp;gt; boolean&lt;/strong&gt;, this means &lt;strong&gt;N=?&lt;/strong&gt; expects 2 terms that  match the &lt;strong&gt;N&lt;/strong&gt; pattern and returns a term that matches the pattern &lt;strong&gt;boolean&lt;/strong&gt;&lt;/li&gt;
- &lt;li&gt;there are three cases; the second case is guarded by two &lt;strong&gt;where&lt;/strong&gt; clauses&lt;/li&gt;&lt;/ul&gt;
-
-&lt;p&gt;Any occurrence of &lt;strong&gt;(N=? &amp;hellip;.)&lt;/strong&gt; in any term is evaluated.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;(term (N=? (Plus1 (Plus1 Zero)) (Plus1 (Plus1 Zero))))
-;; #true
-(term ((N=? Zero Zero) Zero))
-;; '(#true Zero)
-(term (N=? (Plus1 Zero) (Plus1 (Plus1 Zero))))
-;; #false&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Any occurrence of &lt;strong&gt;N=?&lt;/strong&gt; outside a &lt;strong&gt;term&lt;/strong&gt; is an error.&lt;/p&gt;
-
-&lt;p&gt;Metafunction &lt;strong&gt;where&lt;/strong&gt;-clauses are analogous to judgment form &lt;strong&gt;where&lt;/strong&gt;-clauses. See &lt;a href="http://docs.racket-lang.org/redex/The_Redex_Reference.html#%28tech._metafunction%29"&gt;the Redex reference&lt;/a&gt; for more.&lt;/p&gt;
-
-&lt;p&gt;Note: the cases in a metafunction form a &lt;em&gt;sequence&lt;/em&gt;, not a &lt;em&gt;set&lt;/em&gt;. To evaluate a metafunction application, Redex tries each case in order  and returns the result of the first case that (1) matches the call-site (2)  for which all guards succeed.&lt;/p&gt;
-
-&lt;h3 id="q-should-i-use-a-metafunction-or-a-judgment-form"&gt;Q. Should I use a metafunction or a judgment form?&lt;/h3&gt;
-
-&lt;p&gt;Use a judgment form.&lt;/p&gt;
-
-&lt;p&gt;Metafunctions are handy, but judgments are easier to read and debug and maintain.&lt;/p&gt;
-
-&lt;h3 id="q-what-is-a-reduction-relation"&gt;Q. What is a reduction relation?&lt;/h3&gt;
-
-&lt;p&gt;A reduction relation is a set of term-rewriting rules.&lt;/p&gt;
-
-&lt;p&gt;Every reduction relation needs: (1) a language (2) a domain (3) a set of rewrite rules.&lt;/p&gt;
-
-&lt;ul&gt;
- &lt;li&gt;The language tells Redex how to interpret patterns.&lt;/li&gt;
- &lt;li&gt;The domain is a pattern.  Input to the reduction relation must match the pattern,  and output from the reduction relation must match the pattern.&lt;/li&gt;
- &lt;li&gt;The rewrite rules have the form &lt;strong&gt;(&amp;mdash;&amp;gt; term term guard &amp;hellip;)&lt;/strong&gt;.  The term on the left is the input, the term on the right is the output.&lt;/li&gt;&lt;/ul&gt;
-
-&lt;p&gt;See &lt;a href="http://docs.racket-lang.org/redex/The_Redex_Reference.html#%28form._%28%28lib._redex%2Freduction-semantics..rkt%29._reduction-relation%29%29"&gt;the Redex reference&lt;/a&gt; for a full description of the guards.&lt;/p&gt;
-
-&lt;p&gt;The preferred way to define a reduction relation is to define a language that includes three non-terminals:&lt;/p&gt;
-
-&lt;ol&gt;
- &lt;li&gt;a non-terminal for the domain of the reduction relation&lt;/li&gt;
- &lt;li&gt;a non-terminal for a &lt;em&gt;subset&lt;/em&gt; of the domain that cannot reduce further&lt;/li&gt;
- &lt;li&gt;a non-terminal for evaluation contexts&lt;/li&gt;&lt;/ol&gt;
-
-&lt;p&gt;An evaluation context is a term that contains a &lt;strong&gt;hole&lt;/strong&gt;. A reduction relation can match a term against an evaluation context to find  a sub-term to rewrite &amp;mdash; in particular, the sub-term that matches the &lt;strong&gt;hole&lt;/strong&gt;.&lt;/p&gt;
-
-&lt;p&gt;In the following example, &lt;strong&gt;bexp&lt;/strong&gt; is the domain of a reduction relation. A &lt;strong&gt;bexp&lt;/strong&gt; term represents a boolean expression, which can be &lt;strong&gt;#true&lt;/strong&gt; or  &lt;strong&gt;#false&lt;/strong&gt; or a conjunction of expressions or a disjunction of expressions. The boolean expressions &lt;strong&gt;#true&lt;/strong&gt; and &lt;strong&gt;#false&lt;/strong&gt; are also values (&lt;strong&gt;val&lt;/strong&gt;);  these cannot reduce further. The non-terminal &lt;strong&gt;E&lt;/strong&gt; is for evaluation contexts.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;(define-language Bool
-  (bexp ::= #true #false (bexp ∧ bexp) (bexp ∨ bexp))
-  (val ::= #true #false)
-  (E ::= hole (E ∧ bexp) (val ∧ E) (E ∨ bexp) (val ∨ E)))
-
-(define step
-  (reduction-relation Bool
-    #:domain bexp
-    [--&amp;gt; (in-hole E (val_lhs ∧ val_rhs))
-         (in-hole E val_new)
-         ∧-step
-         (where val_new ,(and (term val_lhs) (term val_rhs)))]
-    [--&amp;gt; (in-hole E (val_lhs ∨ val_rhs))
-         (in-hole E val_new)
-         ∨-step
-         (where val_new ,(or (term val_lhs) (term val_rhs)))]))&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;The function &lt;strong&gt;apply-reduction-relation&lt;/strong&gt; applies a reduction relation to a  term and returns a list of ways that the term can step.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;(apply-reduction-relation step (term #true))
-;; '()
-(apply-reduction-relation step (term (#true ∧ #true)))
-;; '(#true)
-(apply-reduction-relation step (term (#true ∧ #false)))
-;; '(#false)
-(apply-reduction-relation step (term ((#true ∨ #false) ∧ #true)))
-;; '((#true ∧ #true))&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Three things about the reduction relation &lt;strong&gt;step&lt;/strong&gt;:&lt;/p&gt;
-
-&lt;ol&gt;
- &lt;li&gt;Using &lt;strong&gt;in-hole&lt;/strong&gt; on the first argument of &lt;strong&gt;&amp;mdash;&amp;gt;&lt;/strong&gt; searches a term  for a subterm that Redex can apply a reduction rule to.&lt;/li&gt;
- &lt;li&gt;Using &lt;strong&gt;in-hole&lt;/strong&gt; on the second argument of &lt;strong&gt;&amp;mdash;&amp;gt;&lt;/strong&gt; puts a new value  back into the &lt;strong&gt;hole&lt;/strong&gt; in the evaluation context.&lt;/li&gt;
- &lt;li&gt;The unquote operator (&lt;strong&gt;,&lt;/strong&gt;) escapes to &amp;ldquo;Racket mode&amp;rdquo; (see below) to evaluate  a conjunction or disjunction.&lt;/li&gt;&lt;/ol&gt;
-
-&lt;p&gt;A judgment or metafunction is a formal alternative to &amp;ldquo;escaping to Racket&amp;rdquo;,  but escaping can be convenient.&lt;/p&gt;
-
-&lt;p&gt;Note: the cases in a reduction relation form a &lt;em&gt;set&lt;/em&gt;, not a &lt;em&gt;sequence&lt;/em&gt;. If more than one case matches, Redex applies them all.&lt;/p&gt;
-
-&lt;h3 id="q-what-is-racket-mode-what-is-redex-mode"&gt;Q. What is &amp;ldquo;Racket mode&amp;rdquo;? What is &amp;ldquo;Redex mode&amp;rdquo;?&lt;/h3&gt;
-
-&lt;p&gt;Code in a Redex model is sometimes evaluated in &amp;ldquo;Racket mode&amp;rdquo; and  sometimes evaluated in &amp;ldquo;Redex mode&amp;rdquo;. Racket mode evaluates Racket syntax to Racket values. Redex mode evaluates Racket syntax (possibly containing metafunction names) to terms.&lt;/p&gt;
-
-&lt;p&gt;Key points:&lt;/p&gt;
-
-&lt;ol&gt;
- &lt;li&gt;A Redex program starts in Racket mode.&lt;/li&gt;
- &lt;li&gt;The &lt;strong&gt;X&lt;/strong&gt; in &lt;strong&gt;(term X)&lt;/strong&gt; is evaluated in Redex mode &amp;hellip;&lt;/li&gt;
- &lt;li&gt;&amp;hellip; unless &lt;strong&gt;X&lt;/strong&gt; contains unquoted sub-expressions. Unquoting escapes to Racket mode &amp;hellip;&lt;/li&gt;
- &lt;li&gt;&amp;hellip; and &lt;strong&gt;term&lt;/strong&gt;s inside an unquoted sub-expression are evaluated in Redex mode.&lt;/li&gt;&lt;/ol&gt;
-
-&lt;p&gt;In other words, &lt;strong&gt;term&lt;/strong&gt; enters Redex mode and &lt;strong&gt;unquote&lt;/strong&gt; (&lt;strong&gt;,&lt;/strong&gt;) escapes back to Racket.&lt;/p&gt;
-
-&lt;p&gt;Redex implicitly switches to Redex mode in a few other places, for example:&lt;/p&gt;
-
-&lt;ul&gt;
- &lt;li&gt;the right-side of a &lt;strong&gt;where&lt;/strong&gt; clause is in Redex mode&lt;/li&gt;
- &lt;li&gt;the result of a metafunction is in Redex mode&lt;/li&gt;&lt;/ul&gt;
-
-&lt;p&gt;When in doubt, try using an &lt;strong&gt;unquote&lt;/strong&gt;. Redex will raise an exception if it finds an unquote in Racket mode.&lt;/p&gt;
-
-&lt;h3 id="q-are-side-conditions-evaluated-in-racket-mode-or-redex-mode"&gt;Q. Are &lt;strong&gt;side-condition&lt;/strong&gt;s evaluated in &amp;ldquo;Racket mode&amp;rdquo; or &amp;ldquo;Redex mode&amp;rdquo;?&lt;/h3&gt;
-
-&lt;p&gt;A &lt;strong&gt;(side-condition e)&lt;/strong&gt; sometimes evaluates &lt;strong&gt;e&lt;/strong&gt; as a Racket expression  and sometimes evaluates &lt;strong&gt;e&lt;/strong&gt; as a Redex expression.&lt;/p&gt;
-
-&lt;ul&gt;
- &lt;li&gt;reduction relations and metafunctions expect a &lt;strong&gt;Racket&lt;/strong&gt; expression&lt;/li&gt;
- &lt;li&gt;judgments expect a &lt;strong&gt;Redex&lt;/strong&gt; expression&lt;/li&gt;&lt;/ul&gt;
-
-&lt;h3 id="q-what-is-a-binding-form"&gt;Q. What is a binding form?&lt;/h3&gt;
-
-&lt;p&gt;In the lambda calculus, &lt;strong&gt;λ&lt;/strong&gt;-terms bind variables. A term &lt;strong&gt;(λ x M)&lt;/strong&gt; means that any free occurrence of &lt;strong&gt;x&lt;/strong&gt; in the sub-term &lt;strong&gt;M&lt;/strong&gt;  refers to the &lt;strong&gt;x&lt;/strong&gt; from the &lt;strong&gt;λ&lt;/strong&gt;-term.&lt;/p&gt;
-
-&lt;p&gt;Redex can express this idea with a binding form.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;(define-language Λ
-  [e ::= (e e) x (λ x e)]
-  [x ::= variable-not-otherwise-mentioned]
-  #:binding-forms
-  (λ x_0 e_0 #:refers-to x_0))&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Note: all the non-terminals in a language must be defined before the &lt;strong&gt;#:binding-forms&lt;/strong&gt; keyword. If a non-terminal definition appears after the &lt;strong&gt;#:binding-forms&lt;/strong&gt; keyword, then Redex will interpret the &amp;ldquo;definition&amp;rdquo; as a binding form.&lt;/p&gt;
-
-&lt;p&gt;Binding forms work together with Redex&amp;rsquo;s functions for substitution and  alphabetic equivalence.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;(alpha-equivalent? Λ
-  (term (λ x x))
-  (term (λ y y))))
-;; #true
-
-(define-metafunction Λ
-  test-substitute : e -&amp;gt; e
-  [(test-substitute (λ x_0 e_0))
-   (substitute e_0 x_0 y)])
-(term (test-substitute (λ z (z z))))
-;; '(y y)&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id="q-what-is--what-is-"&gt;Q. What is &lt;strong&gt;&amp;hellip;&lt;/strong&gt;? What is &lt;strong&gt;&amp;hellip;.&lt;/strong&gt;?&lt;/h3&gt;
-
-&lt;p&gt;Three dots (&lt;strong&gt;&amp;hellip;&lt;/strong&gt;) is for building patterns. If &lt;strong&gt;p&lt;/strong&gt; is a pattern then &lt;strong&gt;(p &amp;hellip;)&lt;/strong&gt; matches any list whose elements all  match &lt;strong&gt;p&lt;/strong&gt;.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;(define-language L)
-(redex-match? L (number ... boolean ...) (term (1 2 #true #true)))
-;; #true&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Four dots (&lt;strong&gt;&amp;hellip;.&lt;/strong&gt;) may be used in &lt;a href="http://docs.racket-lang.org/redex/The_Redex_Reference.html#%28form._%28%28lib._redex%2Freduction-semantics..rkt%29._define-extended-language%29%29"&gt;&lt;strong&gt;define-extended-language&lt;/strong&gt;&lt;/a&gt;  to extend a previosly-defined non-terminal.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;(define-language C
-  (keyword ::= auto break case))
-(define-extended-language C++
-  C
-  (keyword ::= .... class))
-
-(redex-match? C keyword (term auto))
-;; #true
-(redex-match? C keyword (term class))
-;; #false
-(redex-match? C++ keyword (term auto))
-;; #true
-(redex-match? C++ keyword (term class))
-;; #true&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id="q-where-to-learn-more-about-redex"&gt;Q. Where to learn more about Redex?&lt;/h3&gt;
-
-&lt;p&gt;&amp;ldquo;Critical path&amp;rdquo; resources:&lt;/p&gt;
-
-&lt;ul&gt;
- &lt;li&gt;Redex documentation: &lt;a href="http://docs.racket-lang.org/redex/index.html"&gt;http://docs.racket-lang.org/redex/index.html&lt;/a&gt;&lt;/li&gt;
- &lt;li&gt;A longer tutorial: &lt;a href="https://dvanhorn.github.io/redex-aam-tutorial/"&gt;https://dvanhorn.github.io/redex-aam-tutorial/&lt;/a&gt;&lt;/li&gt;
- &lt;li&gt;Source code for this post: &lt;a href="https://github.com/nuprl/website/blob/master/blog/static/redex-faq.rkt"&gt;https://github.com/nuprl/website/blob/master/blog/static/redex-faq.rkt&lt;/a&gt;&lt;/li&gt;
- &lt;li&gt;Redex source code (see &lt;code&gt;redex-lib/&lt;/code&gt;): &lt;a href="https://github.com/racket/redex"&gt;https://github.com/racket/redex&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;
-
-&lt;p&gt;&amp;ldquo;Procrastination&amp;rdquo; resources:&lt;/p&gt;
-
-&lt;ul&gt;
- &lt;li&gt;Tree Automata: &lt;a href="http://tata.gforge.inria.fr/"&gt;http://tata.gforge.inria.fr/&lt;/a&gt;&lt;/li&gt;
- &lt;li&gt;&lt;em&gt;Should your Specification Language be Typed?&lt;/em&gt;: &lt;a href="http://lamport.azurewebsites.net/pubs/lamport-types.pdf"&gt;http://lamport.azurewebsites.net/pubs/lamport-types.pdf&lt;/a&gt;&lt;/li&gt;
- &lt;li&gt;Source code for this post: &lt;a href="https://github.com/nuprl/website/blob/master/blog/_src/posts/2017-09-25-redex-faq.md"&gt;https://github.com/nuprl/website/blob/master/blog/_src/posts/2017-09-25-redex-faq.md&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;</description></item></channel></rss>
+&lt;p&gt;Another question is how to implement this when we have a proper &lt;em&gt;type theory&lt;/em&gt; and not just some boring sorts. In particular, if we have function types, then we won&amp;rsquo;t be able to get functions from functions in our term model to functions in our denotations due to contravariance. Perhaps logical relations are the solution?&lt;/p&gt;</description></item></channel></rss>

@@ -6,7 +6,7 @@
     <title>PRL Blog</title>
     <meta name="description" content="PRL Blog">
     <meta name="author"      content="PRL">
-    <meta name="keywords"    content="tutorials, closure conversion, HOPL, language, garbage collection, by Aaron Weiss, lang-extension, ocaml, event, by Li-Yao Xia, gradual typing, PLT Redex, by Milo Davis, announcement, coq, about, language implementation, semantics, compilers, CRDTs, higher-order contracts, math, by Alexi Turcotte, ghc, lost time, turnstile, Emacs, by Kevin Clancy, pliss, extended abstract, final encoding, by Matt Kolosick, lectures, dsl, FFI, by Ben Chung, galois connection, windows, PI meeting, by William J. Bowman, by Stephen Chang, System Administration, by Zeina Migeed, NEPLS, by Gabriel Scherer, beta, Takikawa constant, array language, by Ming-Ho Yee, java, by Dustin Jamner, dawn of the digital era, conference, by Ben Greenman, dear diary, 1st blog post, ICFP, lambda, by Daniel Patterson, instrumentation, dynamic typing, compiler correctness, tutorial, PL Junior, observational equivalence, by Artem Pelenitsyn, icfp, books, by Asumu Takikawa, Gradual Typing, category theory, history, adjunction, haskell, by Tony Garnock-Jones, types, by Julia Belyakova, by Jonathan Schuster, latency, by Rob Kleffner, statistics, eventual consistency, bugs, monotonicity, coYoneda, calculus, by Jan Vitek, racket, migratory typing, dissertation, Scribble, package, by Max New, performance, proceedings, all, by Justin Slepak, reduction, by Leif Andersen, Yoneda, Racket, constructions, benchmarking, by Sam Caldwell, castle">
+    <meta name="keywords"    content="tutorials, closure conversion, HOPL, language, garbage collection, by Aaron Weiss, lang-extension, ocaml, event, by Li-Yao Xia, definitions, gradual typing, PLT Redex, by Milo Davis, announcement, coq, about, language implementation, semantics, compilers, CRDTs, higher-order contracts, math, by Alexi Turcotte, ghc, lost time, turnstile, Emacs, by Kevin Clancy, pliss, extended abstract, final encoding, by Matt Kolosick, lectures, dsl, FFI, by Ben Chung, galois connection, windows, PI meeting, by William J. Bowman, by Stephen Chang, System Administration, by Zeina Migeed, NEPLS, by Gabriel Scherer, beta, Takikawa constant, array language, by Ming-Ho Yee, java, by Dustin Jamner, dawn of the digital era, conference, by Ben Greenman, dear diary, 1st blog post, ICFP, lambda, by Daniel Patterson, instrumentation, dynamic typing, compiler correctness, tutorial, PL Junior, observational equivalence, by Artem Pelenitsyn, icfp, books, by Asumu Takikawa, Gradual Typing, scope, category theory, history, adjunction, haskell, by Tony Garnock-Jones, types, by Julia Belyakova, by Jonathan Schuster, latency, by Rob Kleffner, statistics, eventual consistency, bugs, monotonicity, coYoneda, calculus, by Jan Vitek, racket, migratory typing, dissertation, Scribble, package, by Max New, performance, proceedings, all, by Justin Slepak, reduction, by Leif Andersen, Yoneda, Racket, constructions, benchmarking, by Sam Caldwell, castle">
     <meta name="viewport"    content="width=device-width, initial-scale=1.0">
     <link rel="icon"      href="/img/favicon.ico">
     <link rel="canonical" href="http://prl.ccs.neu.edu/blog/index.html">
@@ -78,6 +78,20 @@
 
 
               <article>
+  <header>
+    <h2><a href='/blog/2019/09/05/lexical-and-dynamic-scope/'>Lexical and Dynamic Scope</a></h2>
+    <p class='date-and-tags'>
+<time datetime="2019-09-05" pubdate="true">2019-09-05</time> :: <span class="tags"><a href="/blog/tags/scope.html">scope</a>, <a href="/blog/tags/definitions.html">definitions</a>, <a href="/blog/tags/history.html">history</a>, <a href="/blog/tags/by-Ming-Ho-Yee.html">by Ming-Ho Yee</a></span></p>
+  </header>
+
+<p>This all started with a simple question about the R programming language: <em>is R lexically or dynamically scoped?</em></p>
+
+<p>To answer that question, we need to understand what <em>scope</em> is, along with <em>lexical scope</em> and <em>dynamic scope</em>.</p>
+  <footer>
+    <a href='/blog/2019/09/05/lexical-and-dynamic-scope/'>&hellip; more &hellip;</a>
+  </footer>
+</article>
+<article>
   <header>
     <h2><a href='/blog/2019/05/11/-conversational-concurrency-cross-post-https-eighty-twenty-org-2018-01-24-conversational-concurrency/'><a href="https://eighty-twenty.org/2018/01/24/conversational-concurrency">Conversational Concurrency (cross-post)</a></a></h2>
     <p class='date-and-tags'>
@@ -181,24 +195,6 @@
 <p>Two experiences at <a href="https://2018.splashcon.org/home">SPLASH 2018</a> reminded me that software gets thrown away and replaced.</p>
   <footer>
     <a href='/blog/2018/11/24/disappearing-code/'>&hellip; more &hellip;</a>
-  </footer>
-</article>
-<article>
-  <header>
-    <h2><a href='/blog/2018/10/22/defining-local-bindings-in-turnstile-languages/'>Defining Local Bindings in Turnstile Languages</a></h2>
-    <p class='date-and-tags'>
-<time datetime="2018-10-22" pubdate="true">2018-10-22</time> :: <span class="tags"><a href="/blog/tags/turnstile.html">turnstile</a>, <a href="/blog/tags/tutorial.html">tutorial</a>, <a href="/blog/tags/language.html">language</a>, <a href="/blog/tags/dsl.html">dsl</a>, <a href="/blog/tags/by-Sam-Caldwell.html">by Sam Caldwell</a></span></p>
-  </header>
-
-<p>In <a href="http://racket-lang.org/">Racket</a>, programmers can create powerful abstractions by bundling together a family of values, functions, and syntax extensions in the form of a new language. These languages, however, are typically untyped. <a href="http://docs.racket-lang.org/turnstile/The_Turnstile_Guide.html">Turnstile</a> is a new Racket {library,language} for creating typed languages by integrating type checking with Racket&rsquo;s existing tools for describing languages. The technique is described by fellow PRL&rsquo;ers in the paper <a href="http://www.ccs.neu.edu/home/stchang/pubs/ckg-popl2017.pdf"><em>Type Systems as Macros</em></a>.</p>
-
-<p>Racket encourages language developers to take full advantage of <a href="https://scholarship.rice.edu/handle/1911/17993">linguistic reuse</a> by defining new language forms in terms of existing constructs. Unsurprisingly, language extensions often retain some of the Racket-y flavor from the underlying constructs. Implementors save time and energy while users of the language benefit from the familiarity they already have with the Racket ecosystem.</p>
-
-<p>Unfortunately, Turnstile does not lend itself to expressing one of Racket&rsquo;s most ubiquitous idioms: naming local bindings with <code>define</code>. Early experience reports from Turnstile, including my own, suggest that language implementors very much desire to include <code>define</code>-like binding forms in their languages.</p>
-
-<p>This blog post provides a brief overview of what Turnstile is and how it works, an introduction to defining typed language forms, and how to equip these languages with a <code>define</code> binding form.</p>
-  <footer>
-    <a href='/blog/2018/10/22/defining-local-bindings-in-turnstile-languages/'>&hellip; more &hellip;</a>
   </footer>
 </article>
 <footer>
