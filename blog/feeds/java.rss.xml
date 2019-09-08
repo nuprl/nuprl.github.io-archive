@@ -54,8 +54,7 @@
 &lt;p&gt;In an ordinary program, the run-time guarantees of TypeScript are simply  the run-time guarantees of JavaScript:&lt;/p&gt;
 
 &lt;ul&gt;
- &lt;li&gt;if a TypeScript expression &lt;code&gt;e&lt;/code&gt; has the static type &lt;code&gt;T&lt;/code&gt; and evaluates to  a value &lt;code&gt;v&lt;/code&gt;,&lt;/li&gt;
- &lt;li&gt;then the only guarantee is that &lt;code&gt;v&lt;/code&gt; is a valid JavaScript value  (e.g., &lt;code&gt;T&lt;/code&gt; could be &lt;code&gt;number&lt;/code&gt; and &lt;code&gt;v&lt;/code&gt; could be an incompatible object).&lt;/li&gt;&lt;/ul&gt;
+ &lt;li&gt;if a TypeScript expression &lt;code&gt;e&lt;/code&gt; has the static type &lt;code&gt;T&lt;/code&gt; and evaluates to  a value &lt;code&gt;v&lt;/code&gt;,  then the only guarantee is that &lt;code&gt;v&lt;/code&gt; is a valid JavaScript value  (e.g., &lt;code&gt;T&lt;/code&gt; could be &lt;code&gt;number&lt;/code&gt; and &lt;code&gt;v&lt;/code&gt; could be an incompatible object).&lt;/li&gt;&lt;/ul&gt;
 
 &lt;h2 id="transient-migratory-typing"&gt;Transient migratory typing&lt;/h2&gt;
 
@@ -105,8 +104,7 @@ def average(nums):
 &lt;p&gt;Consequently, Reticulated has a slightly stronger run-time guarantee than Python:&lt;/p&gt;
 
 &lt;ul&gt;
- &lt;li&gt;if &lt;code&gt;e&lt;/code&gt; is an expression with static type &lt;code&gt;T&lt;/code&gt; that evaluates to a value &lt;code&gt;v&lt;/code&gt;,&lt;/li&gt;
- &lt;li&gt;then &lt;code&gt;v&lt;/code&gt; is guaranteed to have a top-level shape that matches the &lt;code&gt;C(T)&lt;/code&gt;  constructor.&lt;/li&gt;&lt;/ul&gt;
+ &lt;li&gt;if &lt;code&gt;e&lt;/code&gt; is an expression with static type &lt;code&gt;T&lt;/code&gt; that evaluates to a value &lt;code&gt;v&lt;/code&gt;,  then &lt;code&gt;v&lt;/code&gt; is guaranteed to have a top-level shape that matches the &lt;code&gt;C(T)&lt;/code&gt;  constructor.&lt;/li&gt;&lt;/ul&gt;
 
 &lt;h2 id="java-migratory-typing"&gt;Java migratory typing&lt;/h2&gt;
 
@@ -186,13 +184,87 @@ public static void test() {
 &lt;blockquote&gt;
  &lt;p&gt;&amp;ldquo;Calling legacy code from generic code is inherently dangerous; once you mix generic code with non-generic legacy code, all the safety guarantees that the generic type system usually provides are void.&amp;rdquo; &lt;a href="https://www.oracle.com/technetwork/java/javase/generics-tutorial-159168.pdf"&gt;Generics in the Java Programming Language, Section 6.1&lt;/a&gt;&lt;/p&gt;&lt;/blockquote&gt;
 
-&lt;h3 id="run-time-guarantees"&gt;Run-time guarantees&lt;/h3&gt;
+&lt;h3 id="java-type-erasure"&gt;Java Type Erasure&lt;/h3&gt;
 
 &lt;p&gt;In order to support pre-generics and post-generics code on the same  &lt;a href="https://docs.oracle.com/javase/specs/jvms/se11/html/index.html"&gt;virtual machine&lt;/a&gt;,  the Java compiler &lt;a href="https://docs.oracle.com/javase/specs/jls/se11/html/jls-4.html#jls-4.6"&gt;erases&lt;/a&gt;  generic type parameters after type-checking. Everywhere that the compiled code depends on an erased type, such as the  &lt;code&gt;String&lt;/code&gt; in &lt;code&gt;GBox&amp;lt;String&amp;gt;&lt;/code&gt; above, Java adds a cast to prove to the Java Virtual Machine (JVM)  that the erased bytecode is type-safe. (A smarter JVM type system might be able to prove that some casts are  unnecessary via &lt;a href="https://www2.ccs.neu.edu/racket/pubs/icfp10-thf.pdf"&gt;occurrence typing&lt;/a&gt;.)&lt;/p&gt;
+
+&lt;p&gt;After erasure, the &lt;code&gt;GBox&amp;lt;ValType&amp;gt;&lt;/code&gt; class declaration loses its parameter:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;// Erase `ValType`, replace with `Object`
+class GBox {
+  private Object val;
+
+  public GBox(Object val) { this.set(val); }
+
+  public void set(Object val) { this.val = val; }
+
+  public Object get() { return this.val; }
+}&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;and the client code gains a cast:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;GBox sBox = new GBox(new String("A"));
+
+((String) sBox.get()).charAt(0);&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;So far, so good. But it&amp;rsquo;s worth noting that erasure can cause problems with Java arrays. An array needs to know the run-time type of its elements, so the following &amp;ldquo;natural&amp;rdquo; definition of an &lt;code&gt;ArrayList&lt;/code&gt; is not permitted:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;class ArrayList&amp;lt;T&amp;gt; {
+  private T[] data;
+  private int size;
+
+  public ArrayList(int capacity) {
+    data = new T[capacity];
+    size = 0;
+  }
+
+  public T get(int ix) {
+    // TODO bounds check
+    return data[ix]
+  }
+
+  // ....
+}&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The trouble is that &lt;code&gt;T&lt;/code&gt; does not say anything about the data that a new array needs to handle:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;ArrayList.java:6: error: generic array creation
+    data = new T[capacity];&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The only work-arounds require an array of objects and unchecked casts. One solution is to unsafely cast the array to the generic type:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;  // possibly dangerous, if `data` is aliased to an `Object[]`
+  public ArrayList(int capacity) {
+    data = (T[]) new Object[capacity];
+    size = 0;
+  }&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The other is to unsafely cast array elements in the &lt;code&gt;get&lt;/code&gt; method, and elsewhere:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;class ArrayList&amp;lt;T&amp;gt; {
+  private Object[] data;
+  private int size;
+
+  public ArrayList(int capacity) {
+    data = new Object[capacity];
+    size = 0;
+  }
+
+  public T get(int ix) {
+    boundsCheck(ix);
+    return (T) data[ix];
+  }
+
+  // ....
+}&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Both may potentially lead to heap pollution.&lt;/p&gt;
 
 &lt;blockquote&gt;
  &lt;p&gt;"The decision not to make all generic types [not erased] is one of the most crucial, and controversial design decisions involving the type system of the Java programming language.&lt;/p&gt;
  &lt;p&gt;"Ultimately, the most important motivation for this decision is compatibility with existing code." &lt;a href="https://docs.oracle.com/javase/specs/jls/se11/html/jls-4.html#jls-4.7"&gt;Java Language Specification, section 4.7&lt;/a&gt;&lt;/p&gt;&lt;/blockquote&gt;
+
+&lt;h3 id="run-time-guarantees"&gt;Run-time guarantees&lt;/h3&gt;
 
 &lt;p&gt;By contrast to Reticulated&amp;rsquo;s &lt;code&gt;C(T)&lt;/code&gt; transformation, the following &lt;code&gt;G(T)&lt;/code&gt;  transformation describes generic-type erasure,  where &lt;code&gt;T&amp;lt;T1&amp;gt;&lt;/code&gt; describes a type &lt;code&gt;T&lt;/code&gt; with parameter &lt;code&gt;T1&lt;/code&gt;  and &lt;code&gt;A[T1, T2]&lt;/code&gt; describes a type variable &lt;code&gt;A&lt;/code&gt; with lower bound &lt;code&gt;T1&lt;/code&gt; and upper bound &lt;code&gt;T2&lt;/code&gt;:&lt;/p&gt;
 
@@ -200,11 +272,10 @@ public static void test() {
   G(A[T1, T2]) = G(T1)
   G(T)         = T      otherwise&lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;If generic-type erasure results in a type mismatch (e.g., in &lt;code&gt;sBox.get().charAt(0)&lt;/code&gt; above),  the compiler inserts a cast. The inserted casts led to the runtime error in the previous example, and  provide the following run-time guarantee:&lt;/p&gt;
+&lt;p&gt;If generic-type erasure results in a type mismatch (e.g., in &lt;code&gt;sBox.get().charAt(0)&lt;/code&gt; above),  the compiler inserts a cast. The inserted casts led to the run-time error in the previous example, and  provide the following run-time guarantee:&lt;/p&gt;
 
 &lt;ul&gt;
- &lt;li&gt;if &lt;code&gt;e&lt;/code&gt; is an expression with static type &lt;code&gt;T&lt;/code&gt; that evaluates to a value &lt;code&gt;v&lt;/code&gt;,&lt;/li&gt;
- &lt;li&gt;then &lt;code&gt;v&lt;/code&gt; is guaranteed to match the (bytecode) type &lt;code&gt;G(T)&lt;/code&gt;&lt;/li&gt;&lt;/ul&gt;
+ &lt;li&gt;if &lt;code&gt;e&lt;/code&gt; is an expression with static type &lt;code&gt;T&lt;/code&gt; that evaluates to a value &lt;code&gt;v&lt;/code&gt;,  then &lt;code&gt;v&lt;/code&gt; is guaranteed to match the (bytecode) type &lt;code&gt;G(T)&lt;/code&gt;&lt;/li&gt;&lt;/ul&gt;
 
 &lt;h2 id="discussion"&gt;Discussion&lt;/h2&gt;
 
@@ -229,4 +300,4 @@ public static void test() {
 
 &lt;h2 id="acknowledgments"&gt;Acknowledgments&lt;/h2&gt;
 
-&lt;p&gt;Thank you to &lt;a href="https://github.com/rmculpepper"&gt;Ryan Culpepper&lt;/a&gt; and &lt;a href="http://users.eecs.northwestern.edu/~jesse/"&gt;Jesse Tov&lt;/a&gt; for noticing the similarity between  Java&amp;rsquo;s generic-type erasure and transient migratory typing. Jesse helped improve an early version of this post.&lt;/p&gt;</description></item></channel></rss>
+&lt;p&gt;Thank you to &lt;a href="https://github.com/rmculpepper"&gt;Ryan Culpepper&lt;/a&gt; and &lt;a href="http://users.eecs.northwestern.edu/~jesse/"&gt;Jesse Tov&lt;/a&gt; for noticing the similarity between  Java&amp;rsquo;s generic-type erasure and transient migratory typing. Jesse commented on an early version of this post, supplied new Java example code, and explained the trouble with generics and arrays.&lt;/p&gt;</description></item></channel></rss>
