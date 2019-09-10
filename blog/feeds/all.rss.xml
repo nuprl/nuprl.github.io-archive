@@ -4,9 +4,845 @@
   <title>PRL Blog: PRL Blog</title>
   <description>PRL Blog: PRL Blog</description>
   <link>http://prl.ccs.neu.edu/blog/index.html</link>
-  <lastBuildDate>Thu, 05 Sep 2019 10:00:00 UT</lastBuildDate>
-  <pubDate>Thu, 05 Sep 2019 10:00:00 UT</pubDate>
+  <lastBuildDate>Tue, 10 Sep 2019 11:00:00 UT</lastBuildDate>
+  <pubDate>Tue, 10 Sep 2019 11:00:00 UT</pubDate>
   <ttl>1800</ttl>
+  <item>
+   <title>Four Kinds of Scoping in R</title>
+   <link>http://prl.ccs.neu.edu/blog/2019/09/10/four-kinds-of-scoping-in-r/?utm_source=all&amp;utm_medium=RSS</link>
+   <guid isPermaLink="false">urn:http-prl-ccs-neu-edu:-blog-2019-09-10-four-kinds-of-scoping-in-r</guid>
+   <pubDate>Tue, 10 Sep 2019 11:00:00 UT</pubDate>
+   <author>PRL</author>
+   <description>
+&lt;p&gt;In the &lt;a href="/blog/2019/09/05/lexical-and-dynamic-scope/"&gt;first&lt;/a&gt; and &lt;a href="/blog/2019/09/10/scoping-in-r/"&gt;second&lt;/a&gt; parts of this blog series, I defined lexical and dynamic scope, and demonstrated interesting cases of scoping in R.&lt;/p&gt;
+
+&lt;p&gt;In this third and final part of my blog series, I&amp;rsquo;d like to discuss a paper by the creators of R, where they motivate the need for lexical scoping in a statistical programming language.&lt;/p&gt;
+
+&lt;p&gt;This is a &amp;ldquo;bonus&amp;rdquo; blog post, because I&amp;rsquo;m going to dive into some of the hairier R features to show how four different kinds of scoping can be simulated in R.&lt;/p&gt;
+&lt;!-- more--&gt;
+
+&lt;h2 id="lexical-scope-and-statistical-computation"&gt;Lexical scope and statistical computation&lt;/h2&gt;
+
+&lt;p&gt;In &lt;em&gt;Lexical Scope and Statistical Computation&lt;/em&gt;,&lt;sup&gt;&lt;a href="#2019-09-10-four-kinds-of-scoping-in-r-footnote-1-definition" name="2019-09-10-four-kinds-of-scoping-in-r-footnote-1-return"&gt;1&lt;/a&gt;&lt;/sup&gt; Robert Gentleman and Ross Ihaka, the creators of R, discuss why they designed R with lexical scoping. The paper is written for a statistics audience, and they provide motivating examples for having lexical scoping in R.&lt;/p&gt;
+
+&lt;p&gt;For the purpose of their discussion, they define four (slightly different) kinds of scoping rules:&lt;/p&gt;
+
+&lt;ul&gt;
+ &lt;li&gt;&lt;em&gt;trivial&lt;/em&gt;: no free variables allowed&lt;/li&gt;
+ &lt;li&gt;&lt;em&gt;static&lt;/em&gt;: a free variable takes its value from a set of global variables&lt;/li&gt;
+ &lt;li&gt;&lt;em&gt;lexical&lt;/em&gt;: a free variable takes the value of the binding that was in  effect when the function was defined&lt;/li&gt;
+ &lt;li&gt;&lt;em&gt;dynamic&lt;/em&gt;: a free variable takes the value of the most recent assignment to  that variable&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;Note that under this set of definitions, &lt;em&gt;static scoping&lt;/em&gt; is a separate scoping rule and not another name for &lt;em&gt;lexical scoping&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;It is possible to simulate each of strategies in R. For fun, we can even construct &amp;ldquo;factories&amp;rdquo; that take a function, and then modify it to use the desired scoping rule! (Jan Ječmen originally provided these examples to me, and I adapted them for this blog post after some feedback from Artem Pelenitsyn.)&lt;/p&gt;
+
+&lt;h3 id="template"&gt;Template&lt;/h3&gt;
+
+&lt;p&gt;Our examples will follow the template given below:&lt;/p&gt;
+
+&lt;div class="brush: r"&gt;
+ &lt;table class="sourcetable"&gt;
+  &lt;tbody&gt;
+   &lt;tr&gt;
+    &lt;td class="linenos"&gt;
+     &lt;div class="linenodiv"&gt;
+      &lt;pre&gt; 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;
+    &lt;td class="code"&gt;
+     &lt;div class="source"&gt;
+      &lt;pre&gt;factory &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; &lt;span class="kr"&gt;function&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;fun&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+  &lt;span class="o"&gt;&amp;lt;???&amp;gt;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+
+x &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; &lt;span class="m"&gt;0&lt;/span&gt;
+h &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; &lt;span class="kr"&gt;function&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+  x &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; &lt;span class="m"&gt;1&lt;/span&gt;
+  factory&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kr"&gt;function&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;a&lt;span class="p"&gt;)&lt;/span&gt; x&lt;span class="o"&gt;+&lt;/span&gt;a&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+g &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; h&lt;span class="p"&gt;()&lt;/span&gt;
+f &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; &lt;span class="kr"&gt;function&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+  x &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; &lt;span class="m"&gt;2&lt;/span&gt;
+  g&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="m"&gt;0&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+f&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="c1"&gt;# error, 0, 1, or 2&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+&lt;/div&gt;
+
+&lt;p&gt;We want to define a &lt;code&gt;factory&lt;/code&gt; that takes a function literal and returns a closure that implements the desired scoping rule.&lt;/p&gt;
+
+&lt;p&gt;Our example consists of three definitions of &lt;code&gt;x&lt;/code&gt;. On line 5, we assign &lt;code&gt;0&lt;/code&gt; to &lt;code&gt;x&lt;/code&gt; at the top level. On line 7, we assign &lt;code&gt;1&lt;/code&gt; to &lt;code&gt;x&lt;/code&gt; inside function &lt;code&gt;h&lt;/code&gt;, where we also create the closure. On line 12, we assign &lt;code&gt;2&lt;/code&gt; to &lt;code&gt;x&lt;/code&gt; inside the function &lt;code&gt;f&lt;/code&gt; and right before we call &lt;code&gt;g&lt;/code&gt;, which is the closure.&lt;/p&gt;
+
+&lt;p&gt;Finally, we call &lt;code&gt;f&lt;/code&gt; and observe the result:&lt;/p&gt;
+
+&lt;ul&gt;
+ &lt;li&gt;Under trivial scoping, no free variables are allowed, so &lt;code&gt;f()&lt;/code&gt; should result  in an error.&lt;/li&gt;
+ &lt;li&gt;Under static scoping, free variables may only refer to global variables, so  &lt;code&gt;f()&lt;/code&gt; should return &lt;code&gt;0&lt;/code&gt;.&lt;/li&gt;
+ &lt;li&gt;Under lexical scoping, free variables refer to the variables in scope when  the function was defined, so &lt;code&gt;f()&lt;/code&gt; should return &lt;code&gt;1&lt;/code&gt;.&lt;/li&gt;
+ &lt;li&gt;Under dynamic scoping, free variables take the value from the most recent  assignment, so &lt;code&gt;f()&lt;/code&gt; should return &lt;code&gt;2&lt;/code&gt;.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;We will implement the body of &lt;code&gt;factory&lt;/code&gt; in only 3&amp;ndash;5 lines of code. The rest of the code snippet, from lines 7 to the end, will remain the same, other than the call to &lt;code&gt;factory&lt;/code&gt; on line 10.&lt;/p&gt;
+
+&lt;h3 id="trivial-scoping"&gt;Trivial scoping&lt;/h3&gt;
+
+&lt;div class="brush: r"&gt;
+ &lt;table class="sourcetable"&gt;
+  &lt;tbody&gt;
+   &lt;tr&gt;
+    &lt;td class="linenos"&gt;
+     &lt;div class="linenodiv"&gt;
+      &lt;pre&gt; 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;
+    &lt;td class="code"&gt;
+     &lt;div class="source"&gt;
+      &lt;pre&gt;makeTrivial &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; &lt;span class="kr"&gt;function&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;fun&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+  res &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; &lt;span class="kp"&gt;eval&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kp"&gt;substitute&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;fun&lt;span class="p"&gt;))&lt;/span&gt;
+  &lt;span class="kp"&gt;environment&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;res&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; &lt;span class="kp"&gt;baseenv&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+  res
+&lt;span class="p"&gt;}&lt;/span&gt;
+
+x &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; &lt;span class="m"&gt;0&lt;/span&gt;
+h &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; &lt;span class="kr"&gt;function&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+  x &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; &lt;span class="m"&gt;1&lt;/span&gt;
+  makeTrivial&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kr"&gt;function&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;a&lt;span class="p"&gt;)&lt;/span&gt; x&lt;span class="o"&gt;+&lt;/span&gt;a&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+g &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; h&lt;span class="p"&gt;()&lt;/span&gt;
+f &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; &lt;span class="kr"&gt;function&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+  x &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; &lt;span class="m"&gt;2&lt;/span&gt;
+  g&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="m"&gt;0&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+f&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="c1"&gt;# Error in f(0) : object &amp;#39;x&amp;#39; not found&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;code&gt;substitute&lt;/code&gt; returns the unevaluated parse tree for &lt;code&gt;fun&lt;/code&gt;. In other words, it obtains the literal argument that was passed for &lt;code&gt;fun&lt;/code&gt;. This works because of call-by-need semantics in R: function arguments are packaged up into &lt;em&gt;promises&lt;/em&gt;. As a result, the syntax tree of arguments is available for metaprogramming. A recent paper by Goel and Vitek&lt;sup&gt;&lt;a href="#2019-09-10-four-kinds-of-scoping-in-r-footnote-2-definition" name="2019-09-10-four-kinds-of-scoping-in-r-footnote-2-return"&gt;2&lt;/a&gt;&lt;/sup&gt; discusses laziness in R in more detail.&lt;/p&gt;
+
+&lt;p&gt;In this example, on line 8, we call &lt;code&gt;factory&lt;/code&gt; with &lt;code&gt;function(a) x+a&lt;/code&gt; as the argument for the formal parameter &lt;code&gt;fun&lt;/code&gt;. Then, we evaluate that parse tree with &lt;code&gt;eval&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;At this point, &lt;code&gt;res&lt;/code&gt; is the closure with expression &lt;code&gt;function(a) x+a&lt;/code&gt; and a reference to the environment of &lt;code&gt;makeTrivial&lt;/code&gt;. On line 3, we change that reference to &lt;code&gt;baseenv()&lt;/code&gt;, which is the environment containing library definitions. Since this environment is above the (user) top-level environment, global variables are not available.&lt;/p&gt;
+
+&lt;p&gt;Therefore, variable lookup in the function literal will only search the base environment, so &lt;code&gt;f()&lt;/code&gt; results in an error.&lt;/p&gt;
+
+&lt;h3 id="static-scoping"&gt;Static scoping&lt;/h3&gt;
+
+&lt;div class="brush: r"&gt;
+ &lt;table class="sourcetable"&gt;
+  &lt;tbody&gt;
+   &lt;tr&gt;
+    &lt;td class="linenos"&gt;
+     &lt;div class="linenodiv"&gt;
+      &lt;pre&gt; 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;
+    &lt;td class="code"&gt;
+     &lt;div class="source"&gt;
+      &lt;pre&gt;makeStatic &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; &lt;span class="kr"&gt;function&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;fun&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+  res &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; &lt;span class="kp"&gt;eval&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kp"&gt;substitute&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;fun&lt;span class="p"&gt;))&lt;/span&gt;
+  &lt;span class="kp"&gt;environment&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;res&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; &lt;span class="kp"&gt;globalenv&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+  res
+&lt;span class="p"&gt;}&lt;/span&gt;
+
+x &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; &lt;span class="m"&gt;0&lt;/span&gt;
+h &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; &lt;span class="kr"&gt;function&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+  x &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; &lt;span class="m"&gt;1&lt;/span&gt;
+  makeStatic&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kr"&gt;function&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;a&lt;span class="p"&gt;)&lt;/span&gt; x&lt;span class="o"&gt;+&lt;/span&gt;a&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+g &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; h&lt;span class="p"&gt;()&lt;/span&gt;
+f &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; &lt;span class="kr"&gt;function&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+  x &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; &lt;span class="m"&gt;2&lt;/span&gt;
+  g&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="m"&gt;0&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+f&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="c1"&gt;# 0&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+&lt;/div&gt;
+
+&lt;p&gt;For this example, on line 3, we update the environment of &lt;code&gt;res&lt;/code&gt; to refer to &lt;code&gt;globalenv()&lt;/code&gt;, which is the top-level environment where globals are defined.&lt;/p&gt;
+
+&lt;p&gt;Therefore, variable lookup searches the top-level environment, so &lt;code&gt;f()&lt;/code&gt; returns &lt;code&gt;0&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h3 id="lexical-scoping"&gt;Lexical scoping&lt;/h3&gt;
+
+&lt;div class="brush: r"&gt;
+ &lt;table class="sourcetable"&gt;
+  &lt;tbody&gt;
+   &lt;tr&gt;
+    &lt;td class="linenos"&gt;
+     &lt;div class="linenodiv"&gt;
+      &lt;pre&gt; 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;
+    &lt;td class="code"&gt;
+     &lt;div class="source"&gt;
+      &lt;pre&gt;makeLexical &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; &lt;span class="kr"&gt;function&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;fun&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+  res &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; &lt;span class="kp"&gt;eval&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kp"&gt;substitute&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;fun&lt;span class="p"&gt;))&lt;/span&gt;
+  &lt;span class="kp"&gt;environment&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;res&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; &lt;span class="kp"&gt;parent.frame&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+  res
+&lt;span class="p"&gt;}&lt;/span&gt;
+
+x &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; &lt;span class="m"&gt;0&lt;/span&gt;
+h &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; &lt;span class="kr"&gt;function&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+  x &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; &lt;span class="m"&gt;1&lt;/span&gt;
+  makeLexical&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kr"&gt;function&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;a&lt;span class="p"&gt;)&lt;/span&gt; x&lt;span class="o"&gt;+&lt;/span&gt;a&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+g &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; h&lt;span class="p"&gt;()&lt;/span&gt;
+f &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; &lt;span class="kr"&gt;function&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+  x &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; &lt;span class="m"&gt;2&lt;/span&gt;
+  g&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="m"&gt;0&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+f&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="c1"&gt;# 1&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Although lexical scoping is the default for R, our factory template requires some metaprogramming to work properly. We need to set the environment of &lt;code&gt;res&lt;/code&gt; to &lt;code&gt;parent.frame()&lt;/code&gt;, which is the environment of the function (&lt;code&gt;h&lt;/code&gt;) that called the current function (&lt;code&gt;makeLexical&lt;/code&gt;). This allows us to simulate lexical scoping, as if the function literal was evaluated inside &lt;code&gt;h&lt;/code&gt;, rather than &lt;code&gt;makeLexical&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Therefore, variable lookup searches the environment of &lt;code&gt;h&lt;/code&gt;, so &lt;code&gt;f()&lt;/code&gt; returns &lt;code&gt;1&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h3 id="dynamic-scoping"&gt;Dynamic scoping&lt;/h3&gt;
+
+&lt;div class="brush: r"&gt;
+ &lt;table class="sourcetable"&gt;
+  &lt;tbody&gt;
+   &lt;tr&gt;
+    &lt;td class="linenos"&gt;
+     &lt;div class="linenodiv"&gt;
+      &lt;pre&gt; 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;
+    &lt;td class="code"&gt;
+     &lt;div class="source"&gt;
+      &lt;pre&gt;makeDynamic &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; &lt;span class="kr"&gt;function&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;fun&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+  &lt;span class="kr"&gt;function&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kc"&gt;...&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    res &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; &lt;span class="kp"&gt;eval&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kp"&gt;substitute&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;fun&lt;span class="p"&gt;))&lt;/span&gt;
+    &lt;span class="kp"&gt;environment&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;res&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; &lt;span class="kp"&gt;parent.frame&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+    res&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kc"&gt;...&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+  &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+
+x &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; &lt;span class="m"&gt;0&lt;/span&gt;
+h &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; &lt;span class="kr"&gt;function&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+  x &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; &lt;span class="m"&gt;1&lt;/span&gt;
+  makeDynamic&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kr"&gt;function&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;a&lt;span class="p"&gt;)&lt;/span&gt; x&lt;span class="o"&gt;+&lt;/span&gt;a&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+g &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; h&lt;span class="p"&gt;()&lt;/span&gt;
+f &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; &lt;span class="kr"&gt;function&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+  x &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; &lt;span class="m"&gt;2&lt;/span&gt;
+  g&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="m"&gt;0&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+f&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="c1"&gt;# 2&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+&lt;/div&gt;
+
+&lt;p&gt;For this example, we need another level of indirection. &lt;code&gt;makeDynamic&lt;/code&gt; returns an anonymous function literal. The anonymous function takes &lt;code&gt;...&lt;/code&gt;, which represents an arbitrary list of arguments, and then on line 5 we call &lt;code&gt;res&lt;/code&gt; with those exact arguments. Note that we set the environment of &lt;code&gt;res&lt;/code&gt; to be the environment of the &lt;em&gt;caller&lt;/em&gt; of the anonymous function. Because of the multiple levels of indirection, the caller is &lt;code&gt;f&lt;/code&gt;, on line 17.&lt;/p&gt;
+
+&lt;p&gt;On line 12, &lt;code&gt;makeDynamic&lt;/code&gt; returns a closure for the anonymous function. &lt;code&gt;h&lt;/code&gt; returns that closure when it is called, and assigns it to &lt;code&gt;g&lt;/code&gt;. When &lt;code&gt;g&lt;/code&gt; is called on line 17, the function literal &lt;code&gt;function(a) x+a&lt;/code&gt; is finally evaluated, and its environment is set to the environment of &lt;code&gt;f&lt;/code&gt;, the caller of &lt;code&gt;g&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Therefore, variable lookup searches the environment of &lt;code&gt;f&lt;/code&gt;, so &lt;code&gt;f()&lt;/code&gt; returns &lt;code&gt;2&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h2 id="conclusion"&gt;Conclusion&lt;/h2&gt;
+
+&lt;p&gt;Hopefully this blog post has shown another way of looking at scoping definitions. As discussed in the &lt;a href="/blog/2019/09/10/scoping-in-r/"&gt;previous post&lt;/a&gt;, it&amp;rsquo;s very easy to get confused because different definitions are used by different people. Here, Gentleman and Ihaka very clearly state what definitions they are using.&lt;/p&gt;
+
+&lt;p&gt;And finally, while I am far from an expert on metaprogramming in R, I hope this post has given a taste of what is possible.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;I would like to thank Jan Ječmen for coming up with and showing me the original versions of these code examples, and Artem Pelenitsyn for his feedback to improve and not discard these examples from an earlier blog draft.&lt;/em&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id="references"&gt;References&lt;/h2&gt;
+
+&lt;div class="footnotes"&gt;
+ &lt;ol&gt;
+  &lt;li id="2019-09-10-four-kinds-of-scoping-in-r-footnote-1-definition" class="footnote-definition"&gt;
+   &lt;p&gt;R. Gentleman and R. Ihaka. "Lexical Scope and Statistical Computing,  &lt;em&gt;Journal of Computational and Graphical Statistics&lt;/em&gt;, vol. 9, no. 3, 2000.  [&lt;a href="https://doi.org/10.1080/10618600.2000.10474895"&gt;DOI&lt;/a&gt;][&lt;a href="https://www.stat.auckland.ac.nz/~ihaka/downloads/lexical.pdf"&gt;Available  online&lt;/a&gt;]&amp;nbsp;&lt;a href="#2019-09-10-four-kinds-of-scoping-in-r-footnote-1-return"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+  &lt;li id="2019-09-10-four-kinds-of-scoping-in-r-footnote-2-definition" class="footnote-definition"&gt;
+   &lt;p&gt;A. Goel and J. Vitek. &amp;ldquo;On the Design, Implementation and Use of Laziness  in R,&amp;rdquo; in &lt;em&gt;Proceedings of the ACM in Programming Languages (PACMPL)&lt;/em&gt;, vol. 3,  no. OOPSLA, 2019. To appear. [&lt;a href="http://janvitek.org/pubs/oopsla19a.pdf"&gt;Available  online&lt;/a&gt;]&amp;nbsp;&lt;a href="#2019-09-10-four-kinds-of-scoping-in-r-footnote-2-return"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;&lt;/ol&gt;&lt;/div&gt;</description></item>
+  <item>
+   <title>Scoping in R</title>
+   <link>http://prl.ccs.neu.edu/blog/2019/09/10/scoping-in-r/?utm_source=all&amp;utm_medium=RSS</link>
+   <guid isPermaLink="false">urn:http-prl-ccs-neu-edu:-blog-2019-09-10-scoping-in-r</guid>
+   <pubDate>Tue, 10 Sep 2019 10:00:00 UT</pubDate>
+   <author>PRL</author>
+   <description>
+&lt;p&gt;In the &lt;a href="/blog/2019/09/05/lexical-and-dynamic-scope/"&gt;previous post&lt;/a&gt; of this three-part blog series, we discussed lexical and dynamic scope. Now, in this second part, we can return to the original question: &lt;em&gt;is R lexically or dynamically scoped?&lt;/em&gt;&lt;/p&gt;
+&lt;!-- more--&gt;
+
+&lt;p&gt;Recall the example program from before:&lt;/p&gt;
+
+&lt;div class="brush: r"&gt;
+ &lt;table class="sourcetable"&gt;
+  &lt;tbody&gt;
+   &lt;tr&gt;
+    &lt;td class="linenos"&gt;
+     &lt;div class="linenodiv"&gt;
+      &lt;pre&gt;1
+2
+3
+4
+5
+6
+7&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;
+    &lt;td class="code"&gt;
+     &lt;div class="source"&gt;
+      &lt;pre&gt;x &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; &lt;span class="m"&gt;1&lt;/span&gt;
+f &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; &lt;span class="kr"&gt;function&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; x
+g &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; &lt;span class="kr"&gt;function&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+  x &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; &lt;span class="m"&gt;2&lt;/span&gt;
+  f&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+g&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="c1"&gt;# what does this return?&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Let&amp;rsquo;s examine what happens when we run this example. First, we create a mapping for &lt;code&gt;x&lt;/code&gt; in the top-level environment. On line 2, we define a function &lt;code&gt;f&lt;/code&gt;, which returns the value of some &lt;code&gt;x&lt;/code&gt;. On line 3, we define a function &lt;code&gt;g&lt;/code&gt;, which creates a new mapping for &lt;code&gt;x&lt;/code&gt;, and then calls &lt;code&gt;f&lt;/code&gt;. Note that the assignment on line 4 does &lt;em&gt;not&lt;/em&gt; update the definition on line 1.&lt;/p&gt;
+
+&lt;p&gt;When &lt;code&gt;f&lt;/code&gt; is called, it needs to look up the value of &lt;code&gt;x&lt;/code&gt;. In other words, does the reference of &lt;code&gt;x&lt;/code&gt; on line 2 refer to the assignment on line 1 or the assignment on line 4? If &lt;code&gt;f&lt;/code&gt; returns &lt;code&gt;1&lt;/code&gt;, then the behaviour matches lexical scoping. If it returns &lt;code&gt;2&lt;/code&gt;, then the behaviour matches dynamic scoping.&lt;/p&gt;
+
+&lt;p&gt;When we run this example, the result is &lt;code&gt;1&lt;/code&gt;. This implies that R is lexically scoped.&lt;/p&gt;
+
+&lt;p&gt;But there&amp;rsquo;s more to this story. In the rest of this blog post, I&amp;rsquo;ll examine some interesting scoping examples in R, and discuss how the scoping definitions relate to R.&lt;/p&gt;
+
+&lt;p&gt;The &lt;a href="/blog/2019/09/10/four-kinds-of-scoping-in-r/"&gt;next and final part&lt;/a&gt; of this blog series, published simultaneously with this one, is an appendix where I implement four different scoping disciplines in R.&lt;/p&gt;
+
+&lt;h2 id="r-is-lexically-scoped-but"&gt;R is lexically scoped, but&amp;hellip;&lt;/h2&gt;
+
+&lt;p&gt;In &lt;em&gt;Evaluating the Design of the R Language&lt;/em&gt;,&lt;sup&gt;&lt;a href="#2019-09-10-scoping-in-r-footnote-1-definition" name="2019-09-10-scoping-in-r-footnote-1-return"&gt;1&lt;/a&gt;&lt;/sup&gt; Morandat, Hill, Osvald, and Vitek write:&lt;/p&gt;
+
+&lt;blockquote&gt;
+ &lt;p&gt;As is often the case, R is lexically scoped up to the point it is not. R is above all a dynamic language with full reflective access to the running program’s data and representation.&lt;/p&gt;&lt;/blockquote&gt;
+
+&lt;p&gt;In other words, R provides many different &amp;ldquo;escape hatches&amp;rdquo;&amp;mdash;ways to bypass lexical scoping. Additionally, even without escape hatches, some of R&amp;rsquo;s functionality can be surprising.&lt;/p&gt;
+
+&lt;h3 id="functions-environments-and-variables-in-r"&gt;Functions, environments, and variables in R&lt;/h3&gt;
+
+&lt;p&gt;Before we look at some examples, I think it&amp;rsquo;s useful to briefly discuss some of the core concepts in R that relate to scoping.&lt;/p&gt;
+
+&lt;ul&gt;
+ &lt;li&gt;
+  &lt;p&gt;&lt;strong&gt;Functions.&lt;/strong&gt; R has first-class functions, and functions evaluate to  closures. In other words, a function value includes both the body of the  function as well as the environment that the function was evaluated in. In  R, the programmer can modify the environment of a closure. Note that R is  function scoped; there is no block scoping.&lt;/p&gt;&lt;/li&gt;
+ &lt;li&gt;
+  &lt;p&gt;&lt;strong&gt;Environments.&lt;/strong&gt; An environment in R is a mapping from variables to  values. Each function has its own local environment. Furthermore, each  environment has a reference to the &amp;ldquo;enclosing&amp;rdquo; environment that it was  evaluated in. R environments are first-class, meaning the programmer can  add, modify, or removing variable mappings, and also change the reference to  the enclosing environment.&lt;/p&gt;&lt;/li&gt;
+ &lt;li&gt;
+  &lt;p&gt;&lt;strong&gt;Variable lookup.&lt;/strong&gt; When R looks up a variable, it will search in the  current environment for a mapping. If no mapping is found, then it will  search in the enclosing environment. This process continues until a mapping  is found, or the topmost, empty environment is reached, in which case an  error is raised.&lt;/p&gt;&lt;/li&gt;
+ &lt;li&gt;
+  &lt;p&gt;&lt;strong&gt;Variable assignment.&lt;/strong&gt; &lt;code&gt;&amp;lt;-&lt;/code&gt; is the variable assignment operator in R. The  expression &lt;code&gt;x &amp;lt;- 1&lt;/code&gt; assigns the value &lt;code&gt;1&lt;/code&gt; to the variable &lt;code&gt;x&lt;/code&gt; in the  current environment. If a mapping for &lt;code&gt;x&lt;/code&gt; already exists in the  environment, then the assignment will update and overwrite the existing  value. Otherwise, a new mapping is created in the environment. Note that  variable assignment can only update the current environment, and never  creates a scope.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;From this description, we can see that R implements lexical scoping (or at least, something that behaves a lot like lexical scoping): each function value is associated with the environment it was evaluated in, and variable lookup proceeds along the chain of enclosing environments. In fact, the creators of R have confirmed that lexical scoping was their intent.&lt;sup&gt;&lt;a href="#2019-09-10-scoping-in-r-footnote-2-definition" name="2019-09-10-scoping-in-r-footnote-2-return"&gt;2&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+
+&lt;p&gt;On the other hand, variable lookup depends on the run-time state of the program&amp;mdash;names cannot be resolved statically. Furthermore, since R provides operations for environment manipulation, a programmer can easily circumvent lexical scoping.&lt;/p&gt;
+
+&lt;p&gt;The following examples will make this clear.&lt;/p&gt;
+
+&lt;h3 id="examples"&gt;Examples&lt;/h3&gt;
+
+&lt;h4 id="adding-variable-mappings-at-run-time"&gt;Adding variable mappings at run time&lt;/h4&gt;
+
+&lt;div class="brush: r"&gt;
+ &lt;table class="sourcetable"&gt;
+  &lt;tbody&gt;
+   &lt;tr&gt;
+    &lt;td class="linenos"&gt;
+     &lt;div class="linenodiv"&gt;
+      &lt;pre&gt;1
+2
+3
+4
+5
+6
+7&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;
+    &lt;td class="code"&gt;
+     &lt;div class="source"&gt;
+      &lt;pre&gt;x &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; &lt;span class="m"&gt;1&lt;/span&gt;
+f &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; &lt;span class="kr"&gt;function&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+  g &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; &lt;span class="kr"&gt;function&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; x
+  x &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; &lt;span class="m"&gt;2&lt;/span&gt;
+  g&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+f&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="c1"&gt;# 2&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+&lt;/div&gt;
+
+&lt;p&gt;When &lt;code&gt;f&lt;/code&gt; is called, it creates a function &lt;code&gt;g&lt;/code&gt; that returns &lt;code&gt;x&lt;/code&gt;, assigns &lt;code&gt;2&lt;/code&gt; to &lt;code&gt;x&lt;/code&gt;, and then calls &lt;code&gt;g&lt;/code&gt;. When &lt;code&gt;g&lt;/code&gt; is called, it looks up &lt;code&gt;x&lt;/code&gt;. Since no mapping is found in &lt;code&gt;g&lt;/code&gt;&amp;rsquo;s environment, it searches in the enclosing environment (&lt;code&gt;f&lt;/code&gt;&amp;rsquo;s), and finds that &lt;code&gt;x&lt;/code&gt; has value &lt;code&gt;2&lt;/code&gt;. Therefore, &lt;code&gt;g&lt;/code&gt; returns &lt;code&gt;2&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Note that the &lt;code&gt;x&lt;/code&gt; on line 3 is resolved only when function &lt;code&gt;g&lt;/code&gt; is called, not when it is defined. However, when &lt;code&gt;g&lt;/code&gt; is defined, its environment has a reference to &lt;code&gt;f&lt;/code&gt;&amp;rsquo;s environment. Therefore, as long as &lt;code&gt;x&lt;/code&gt; is defined &lt;em&gt;before&lt;/em&gt; &lt;code&gt;g&lt;/code&gt; is called, the lookup will always succeed.&lt;/p&gt;
+
+&lt;p&gt;Here&amp;rsquo;s a second example:&lt;/p&gt;
+
+&lt;div class="brush: r"&gt;
+ &lt;table class="sourcetable"&gt;
+  &lt;tbody&gt;
+   &lt;tr&gt;
+    &lt;td class="linenos"&gt;
+     &lt;div class="linenodiv"&gt;
+      &lt;pre&gt;1
+2
+3
+4
+5
+6
+7
+8&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;
+    &lt;td class="code"&gt;
+     &lt;div class="source"&gt;
+      &lt;pre&gt;x &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; &lt;span class="m"&gt;1&lt;/span&gt;
+f &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; &lt;span class="kr"&gt;function&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;b&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+  &lt;span class="kr"&gt;if&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;b&lt;span class="p"&gt;)&lt;/span&gt;
+    x &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; &lt;span class="m"&gt;2&lt;/span&gt;
+  x
+&lt;span class="p"&gt;}&lt;/span&gt;
+f&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kc"&gt;TRUE&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;  &lt;span class="c1"&gt;# 2&lt;/span&gt;
+f&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kc"&gt;FALSE&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="c1"&gt;# 1&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;code&gt;f&lt;/code&gt; is a function that branches on its argument, &lt;code&gt;b&lt;/code&gt;. If &lt;code&gt;b&lt;/code&gt; evaluates to true, then the expression &lt;code&gt;x &amp;lt;- 2&lt;/code&gt; is evaluated, and a mapping for &lt;code&gt;x&lt;/code&gt; is created in &lt;code&gt;f&lt;/code&gt;&amp;rsquo;s environment. Otherwise, no mapping is created.&lt;/p&gt;
+
+&lt;p&gt;When we look up the value of &lt;code&gt;x&lt;/code&gt; on line 5, R will first search the function&amp;rsquo;s environment. If &lt;code&gt;b&lt;/code&gt; evaluated to true, then R will find a value for &lt;code&gt;x&lt;/code&gt;, which is &lt;code&gt;2&lt;/code&gt;. Otherwise, R will search in the enclosing environment of &lt;code&gt;f&lt;/code&gt;, and find that &lt;code&gt;x&lt;/code&gt; is &lt;code&gt;1&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Both of these examples vaguely resemble dynamic scoping, in that &lt;code&gt;x&lt;/code&gt; takes the value of the most recent assignment. However, this is not how R is implemented, and it is not consistent with how R behaves in other examples.&lt;/p&gt;
+
+&lt;h4 id="function-lookup"&gt;Function lookup&lt;/h4&gt;
+
+&lt;div class="brush: r"&gt;
+ &lt;table class="sourcetable"&gt;
+  &lt;tbody&gt;
+   &lt;tr&gt;
+    &lt;td class="linenos"&gt;
+     &lt;div class="linenodiv"&gt;
+      &lt;pre&gt;1
+2
+3
+4
+5&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;
+    &lt;td class="code"&gt;
+     &lt;div class="source"&gt;
+      &lt;pre&gt;f &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; &lt;span class="kr"&gt;function&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;x&lt;span class="p"&gt;)&lt;/span&gt; x
+g &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; &lt;span class="kr"&gt;function&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;f&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+  f&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="m"&gt;0&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="c1"&gt;# not an error&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+g&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="m"&gt;42&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="c1"&gt;# 0&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+&lt;/div&gt;
+
+&lt;p&gt;R has slightly different lookup rules, if the variable is in function call position. Specifically, R will search the environment chain and skip non-function values.&lt;/p&gt;
+
+&lt;p&gt;In this example, we call &lt;code&gt;g&lt;/code&gt; with the argument &lt;code&gt;42&lt;/code&gt;, which is not a function. Then, in the body of &lt;code&gt;g&lt;/code&gt;, we call &lt;code&gt;f(0)&lt;/code&gt; on line 3, which requires looking up &lt;code&gt;f&lt;/code&gt;. Although there is an &lt;code&gt;f&lt;/code&gt; in the environment of &lt;code&gt;g&lt;/code&gt;, its value is &lt;code&gt;42&lt;/code&gt;, which is not a function. R will then search the enclosing environment, where it finds the function defined on line 1. Therefore, the lookup on line 3 resolves to the function on line 1, so &lt;code&gt;f(0)&lt;/code&gt; returns &lt;code&gt;0&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;This behaviour exists because &lt;code&gt;c&lt;/code&gt; is the built-in function that constructs vectors (in other words, one of the most commonly used functions in R), but it is also a commonly used argument name.&lt;/p&gt;
+
+&lt;h4 id="super-assignment"&gt;Super assignment&lt;/h4&gt;
+
+&lt;div class="brush: r"&gt;
+ &lt;table class="sourcetable"&gt;
+  &lt;tbody&gt;
+   &lt;tr&gt;
+    &lt;td class="linenos"&gt;
+     &lt;div class="linenodiv"&gt;
+      &lt;pre&gt;1
+2
+3
+4
+5
+6
+7
+8&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;
+    &lt;td class="code"&gt;
+     &lt;div class="source"&gt;
+      &lt;pre&gt;x &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; &lt;span class="m"&gt;0&lt;/span&gt;
+f &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; &lt;span class="kr"&gt;function&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+  x &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; &lt;span class="m"&gt;1&lt;/span&gt;
+  x &lt;span class="o"&gt;&amp;lt;&amp;lt;-&lt;/span&gt; &lt;span class="m"&gt;2&lt;/span&gt;
+  x
+&lt;span class="p"&gt;}&lt;/span&gt;
+f&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="c1"&gt;# 1&lt;/span&gt;
+x   &lt;span class="c1"&gt;# 2&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;code&gt;&amp;lt;&amp;lt;-&lt;/code&gt; is the &amp;ldquo;super assignment&amp;rdquo; operator. It skips the current environment and then searches the chain of enclosing environments until it finds a variable to update. If no variable is found, then a new mapping is created at the top environment.&lt;/p&gt;
+
+&lt;p&gt;In the above program, we define &lt;code&gt;x&lt;/code&gt; to be &lt;code&gt;0&lt;/code&gt; at the top level, and then define the function &lt;code&gt;f&lt;/code&gt;. When we call &lt;code&gt;f&lt;/code&gt; on line 7, it assigns &lt;code&gt;1&lt;/code&gt; to &lt;code&gt;x&lt;/code&gt; on line 3, which creates a mapping in the local environment. On line 4, the super assignment skips the mapping in the local environment and instead updates the mapping created on line 1. Next, &lt;code&gt;f&lt;/code&gt; returns &lt;code&gt;x&lt;/code&gt;, which is looked up from the local environment and has value &lt;code&gt;1&lt;/code&gt;. Finally, line 8 looks up &lt;code&gt;x&lt;/code&gt; from the top level environment, which has value &lt;code&gt;2&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h4 id="evaluating-arbitrary-code"&gt;Evaluating arbitrary code&lt;/h4&gt;
+
+&lt;div class="brush: r"&gt;
+ &lt;table class="sourcetable"&gt;
+  &lt;tbody&gt;
+   &lt;tr&gt;
+    &lt;td class="linenos"&gt;
+     &lt;div class="linenodiv"&gt;
+      &lt;pre&gt; 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;
+    &lt;td class="code"&gt;
+     &lt;div class="source"&gt;
+      &lt;pre&gt;x &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; &lt;span class="m"&gt;1&lt;/span&gt;
+f &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; &lt;span class="kr"&gt;function&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kp"&gt;t&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+  &lt;span class="kp"&gt;eval&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kp"&gt;parse&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;text &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kp"&gt;t&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+  x
+&lt;span class="p"&gt;}&lt;/span&gt;
+g &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; &lt;span class="kr"&gt;function&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+  x &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; &lt;span class="m"&gt;2&lt;/span&gt;
+  f&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;"x &amp;lt;- 0"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+g&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="c1"&gt;# 0&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+&lt;/div&gt;
+
+&lt;p&gt;R has a mechanism for converting an arbitrary string to code and then executing it. On line 3, we parse and evaluate the argument &lt;code&gt;t&lt;/code&gt;, which happens to be the string &lt;code&gt;"x &amp;lt;- 0"&lt;/code&gt;. Then, when line 4 executes, the lookup of &lt;code&gt;x&lt;/code&gt; returns &lt;code&gt;0&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h4 id="simulating-dynamic-scope"&gt;Simulating dynamic scope&lt;/h4&gt;
+
+&lt;div class="brush: r"&gt;
+ &lt;table class="sourcetable"&gt;
+  &lt;tbody&gt;
+   &lt;tr&gt;
+    &lt;td class="linenos"&gt;
+     &lt;div class="linenodiv"&gt;
+      &lt;pre&gt;1
+2
+3
+4
+5
+6
+7
+8
+9&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;
+    &lt;td class="code"&gt;
+     &lt;div class="source"&gt;
+      &lt;pre&gt;x &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; &lt;span class="m"&gt;1&lt;/span&gt;
+f &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; &lt;span class="kr"&gt;function&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+  &lt;span class="kp"&gt;get&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;"x"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; envir &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kp"&gt;parent.frame&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+g &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; &lt;span class="kr"&gt;function&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+  x &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; &lt;span class="m"&gt;2&lt;/span&gt;
+  f&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+g&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="c1"&gt;# 2&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+&lt;/div&gt;
+
+&lt;p&gt;On line 3, we perform an explicit variable lookup for &lt;code&gt;x&lt;/code&gt;, but we do so in the environment &lt;code&gt;parent.frame()&lt;/code&gt;, which refers to the calling function&amp;rsquo;s environment, in this case, &lt;code&gt;g&lt;/code&gt;&amp;rsquo;s environment.. Therefore, the lookup returns &lt;code&gt;2&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Note that R has a similarly named function, &lt;code&gt;parent.env(e)&lt;/code&gt; which returns the &lt;em&gt;enclosing environment&lt;/em&gt; of the given environment &lt;code&gt;e&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h4 id="constructing-an-arbitrary-environment"&gt;Constructing an arbitrary environment&lt;/h4&gt;
+
+&lt;div class="brush: r"&gt;
+ &lt;table class="sourcetable"&gt;
+  &lt;tbody&gt;
+   &lt;tr&gt;
+    &lt;td class="linenos"&gt;
+     &lt;div class="linenodiv"&gt;
+      &lt;pre&gt; 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;
+    &lt;td class="code"&gt;
+     &lt;div class="source"&gt;
+      &lt;pre&gt;x &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; &lt;span class="m"&gt;1&lt;/span&gt;
+f &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; &lt;span class="kr"&gt;function&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+  e &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; &lt;span class="kp"&gt;new.env&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+  e&lt;span class="o"&gt;$&lt;/span&gt;x &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; &lt;span class="m"&gt;3&lt;/span&gt;
+  &lt;span class="kp"&gt;get&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;"x"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; envir &lt;span class="o"&gt;=&lt;/span&gt; e&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+g &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; &lt;span class="kr"&gt;function&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+  x &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; &lt;span class="m"&gt;2&lt;/span&gt;
+  f&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+g&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="c1"&gt;# 3&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+&lt;/div&gt;
+
+&lt;p&gt;When &lt;code&gt;f&lt;/code&gt; is called, it constructs a new environment, &lt;code&gt;e&lt;/code&gt;, which is initially empty. (By default, its enclosing environment is the current environment, which is &lt;code&gt;f&lt;/code&gt;&amp;rsquo;s.) Next, on line 4, it directly adds a mapping to that environment, assigning &lt;code&gt;3&lt;/code&gt; to &lt;code&gt;x&lt;/code&gt;. Then, on line 5, the lookup is explicitly done in environment &lt;code&gt;e&lt;/code&gt;, so &lt;code&gt;f&lt;/code&gt; returns &lt;code&gt;3&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h4 id="deleting-mappings"&gt;Deleting mappings&lt;/h4&gt;
+
+&lt;div class="brush: r"&gt;
+ &lt;table class="sourcetable"&gt;
+  &lt;tbody&gt;
+   &lt;tr&gt;
+    &lt;td class="linenos"&gt;
+     &lt;div class="linenodiv"&gt;
+      &lt;pre&gt; 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;
+    &lt;td class="code"&gt;
+     &lt;div class="source"&gt;
+      &lt;pre&gt;x &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; &lt;span class="m"&gt;1&lt;/span&gt;
+f &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; &lt;span class="kr"&gt;function&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+  &lt;span class="kp"&gt;rm&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;"x"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; envir &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kp"&gt;parent.env&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kp"&gt;environment&lt;/span&gt;&lt;span class="p"&gt;()))&lt;/span&gt;
+  x
+&lt;span class="p"&gt;}&lt;/span&gt;
+g &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; &lt;span class="kr"&gt;function&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+  x &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; &lt;span class="m"&gt;2&lt;/span&gt;
+  f&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+g&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="c1"&gt;# Error in f() : object &amp;#39;x&amp;#39; not found&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Not only is it possible to dynamically add and modify mappings in R, but it is also possible to &lt;em&gt;delete&lt;/em&gt; mappings. This is what line 3 does: it explicitly removes the mapping for &lt;code&gt;x&lt;/code&gt; from the enclosing environment of the current environment. In other words, the definition on line 1 is deleted. Therefore, when &lt;code&gt;f&lt;/code&gt; is called, the lookup of &lt;code&gt;x&lt;/code&gt; fails and an error is raised.&lt;/p&gt;
+
+&lt;h4 id="infinite-loop-during-variable-lookup"&gt;Infinite loop during variable lookup&lt;/h4&gt;
+
+&lt;div class="brush: r"&gt;
+ &lt;table class="sourcetable"&gt;
+  &lt;tbody&gt;
+   &lt;tr&gt;
+    &lt;td class="linenos"&gt;
+     &lt;div class="linenodiv"&gt;
+      &lt;pre&gt;1
+2
+3
+4
+5
+6
+7&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;
+    &lt;td class="code"&gt;
+     &lt;div class="source"&gt;
+      &lt;pre&gt;enva &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; &lt;span class="kp"&gt;new.env&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+envb &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; &lt;span class="kp"&gt;new.env&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="kp"&gt;parent.env&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;enva&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; envb
+&lt;span class="kp"&gt;parent.env&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;envb&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; enva
+f &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; &lt;span class="kr"&gt;function&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; x
+&lt;span class="kp"&gt;environment&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;f&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; enva
+f&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+&lt;/div&gt;
+
+&lt;p&gt;In this final example, manipulation of environments allows us to create a function where variable lookup results in an infinite loop.&lt;/p&gt;
+
+&lt;p&gt;On lines 1 and 2, we create new, empty environments. Both have the same enclosing environment, which is the top-level environment. However, on lines 3 and 4, we modify their enclosing environments to create a cycle: &lt;code&gt;enva&lt;/code&gt;&amp;rsquo;s enclosing environment is &lt;code&gt;envb&lt;/code&gt;, and &lt;code&gt;envb&lt;/code&gt;&amp;rsquo;s enclosing environment is &lt;code&gt;enva&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;On line 5, we define a function with a free variable, &lt;code&gt;x&lt;/code&gt;, but on line 6, we set &lt;code&gt;f&lt;/code&gt;&amp;rsquo;s environment to be &lt;code&gt;enva&lt;/code&gt;. Finally, we call &lt;code&gt;f&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;When the body of &lt;code&gt;f&lt;/code&gt; is evaluated, it needs to look up &lt;code&gt;x&lt;/code&gt;. Lookup starts in &lt;code&gt;f&lt;/code&gt;&amp;rsquo;s environment, which we set to be &lt;code&gt;enva&lt;/code&gt;. Since no mapping for &lt;code&gt;x&lt;/code&gt; is found, lookup continues in &lt;code&gt;enva&lt;/code&gt;&amp;rsquo;s enclosing environment, which is &lt;code&gt;envb&lt;/code&gt;. However, &lt;code&gt;envb&lt;/code&gt; is also empty, so lookup continues in its enclosing environment, which is &lt;code&gt;enva&lt;/code&gt;, and now lookup results in an infinite loop.&lt;/p&gt;
+
+&lt;h3 id="an-intuition-for-scoping-in-r"&gt;An intuition for scoping in R&lt;/h3&gt;
+
+&lt;p&gt;Some of the above examples appear to demonstrate dynamic scoping. Recall two of our examples:&lt;/p&gt;
+
+&lt;div class="brush: r"&gt;
+ &lt;table class="sourcetable"&gt;
+  &lt;tbody&gt;
+   &lt;tr&gt;
+    &lt;td class="linenos"&gt;
+     &lt;div class="linenodiv"&gt;
+      &lt;pre&gt; 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;
+    &lt;td class="code"&gt;
+     &lt;div class="source"&gt;
+      &lt;pre&gt;&lt;span class="c1"&gt;# example 1&lt;/span&gt;
+x &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; &lt;span class="m"&gt;1&lt;/span&gt;
+f &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; &lt;span class="kr"&gt;function&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+  g &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; &lt;span class="kr"&gt;function&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; x
+  x &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; &lt;span class="m"&gt;2&lt;/span&gt;
+  g&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+f&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="c1"&gt;# 2&lt;/span&gt;
+
+&lt;span class="c1"&gt;# example 2&lt;/span&gt;
+x &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; &lt;span class="m"&gt;1&lt;/span&gt;
+f &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; &lt;span class="kr"&gt;function&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;b&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+  &lt;span class="kr"&gt;if&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;b&lt;span class="p"&gt;)&lt;/span&gt;
+    x &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; &lt;span class="m"&gt;2&lt;/span&gt;
+  x
+&lt;span class="p"&gt;}&lt;/span&gt;
+f&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kc"&gt;TRUE&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;  &lt;span class="c1"&gt;# 2&lt;/span&gt;
+f&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kc"&gt;FALSE&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="c1"&gt;# 1&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+&lt;/div&gt;
+
+&lt;p&gt;It seems that &lt;code&gt;x&lt;/code&gt; takes on the value of the last assignment, but we know this is not the case, from the first example. This is also not how R is implemented. What&amp;rsquo;s missing from our intuition?&lt;/p&gt;
+
+&lt;p&gt;The key insight is that R is &lt;em&gt;function scoped&lt;/em&gt;. In R, each function has an associated environment, and that environment implements a scope. In general, only a function definition can create a scope. Therefore, the assignment operator &lt;code&gt;&amp;lt;-&lt;/code&gt; &lt;em&gt;does not create a new scope&lt;/em&gt;, and it is more useful to think of it as a mutation &lt;em&gt;on the current environment&lt;/em&gt;. (In contrast, in most languages, a variable binding or definition creates a new scope, and an assignment mutates that variable.)&lt;/p&gt;
+
+&lt;p&gt;In a sense, it might be more accurate to say that R &lt;em&gt;environments&lt;/em&gt; are lexically scoped, variables are scoped to functions (but a reference can occur syntactically before a definition), and variable assignment is an update to the environment.&lt;/p&gt;
+
+&lt;h2 id="discussion"&gt;Discussion&lt;/h2&gt;
+
+&lt;p&gt;All of this might make you a little uncomfortable, and uncertain about R&amp;rsquo;s scoping rules.&lt;/p&gt;
+
+&lt;p&gt;On one hand, R passes the first example program as a lexically scoped language, the implementation of closures and variable lookup imply &amp;ldquo;lexical-like&amp;rdquo; behaviour, and the creators have confirmed that lexical scoping was the intent.&lt;/p&gt;
+
+&lt;p&gt;On the other hand, variable lookup depends on the run-time state of the program, and variable bindings cannot be resolved statically. Some of the examples even resemble dynamic scoping, where a free variable takes the value of the most recent assignment&amp;mdash;but this is not consistent with R&amp;rsquo;s behaviour in other examples. Furthermore, the dynamic nature of R and its reflection and metaprogramming capabilities allow programmers to completely circumvent lexical scoping.&lt;/p&gt;
+
+&lt;p&gt;This ambiguity shows up in a paper,&lt;sup&gt;&lt;a href="#2019-09-10-scoping-in-r-footnote-3-definition" name="2019-09-10-scoping-in-r-footnote-3-return"&gt;3&lt;/a&gt;&lt;/sup&gt; where the authors write:&lt;/p&gt;
+
+&lt;blockquote&gt;
+ &lt;p&gt;Furthermore, because variable scoping in R is dynamic and can be modified at the language level [&amp;hellip;] it cannot be trivially guaranteed that &lt;code&gt;x&lt;/code&gt; is going to point to the same data structure throughout the entire execution of the loop.&lt;/p&gt;&lt;/blockquote&gt;
+
+&lt;p&gt;It is true that a variable &lt;code&gt;x&lt;/code&gt; may not point to the same data structure during the execution of a loop. It is true that scoping in R can be modified at the language level.&lt;/p&gt;
+
+&lt;p&gt;It is true that variable &lt;em&gt;lookup&lt;/em&gt; is dynamic, as it is performed at run time and depends on the run-time program state. If that is your definition of &lt;em&gt;dynamic scope&lt;/em&gt;, then it would be fair to say that R is dynamically scoped.&lt;/p&gt;
+
+&lt;p&gt;But if your definition of &lt;em&gt;dynamic scope&lt;/em&gt; is &amp;ldquo;a variable is bound to the most recent assignment during the program&amp;rsquo;s execution,&amp;rdquo; then it is not correct to say R is dynamically scoped.&lt;/p&gt;
+
+&lt;p&gt;I think we have this ambiguity because &lt;em&gt;scope&lt;/em&gt; (the places in a program where a variable can be referenced) and &lt;em&gt;variable lookup&lt;/em&gt; or &lt;em&gt;name resolution&lt;/em&gt; (determining which binding or definition a name refers to) are often considered together. For most lexically scoped languages, name resolution can be done at compile time. For most dynamically scoped languages, name resolution must be done at run time. R is lexically scoped, but must perform name resolution at run time.&lt;/p&gt;
+
+&lt;p&gt;Personally, I prefer the definition of &lt;em&gt;scope&lt;/em&gt; that treats name resolution as an orthogonal issue. I think it is more useful to keep the two issues separate. In addition, I think it is confusing and unhelpful to say that R is &lt;em&gt;both&lt;/em&gt; lexically and dynamically scoped, or that R is &lt;em&gt;neither&lt;/em&gt; lexically and dynamically scoped.&lt;/p&gt;
+
+&lt;p&gt;I think it is more helpful to treat R as a lexically scoped language (with certain exceptions and surprises) than as a dynamically scoped language&amp;mdash;when I read and write R code, I find it more convenient to think about nested function definitions and free variables in terms of lexical scoping rules. And I think that it is more accurate, based on the design and implementation, to classify R as a lexically scoped language.&lt;/p&gt;
+
+&lt;p&gt;Regardless, it is very easy to miscommunicate, so I think it&amp;rsquo;s important to be very clear and make sure you and your audience know what definitions of scoping you&amp;rsquo;re using!&lt;/p&gt;
+
+&lt;h2 id="conclusion"&gt;Conclusion&lt;/h2&gt;
+
+&lt;p&gt;This entire adventure started when we were working on a paper,&lt;sup&gt;&lt;a href="#2019-09-10-scoping-in-r-footnote-4-definition" name="2019-09-10-scoping-in-r-footnote-4-return"&gt;4&lt;/a&gt;&lt;/sup&gt; and asked each other, is R lexically or dynamically scoped? Eventually, it became apparent that we had different definitions of lexical and dynamic scope, so of course we were unable to agree on an answer!&lt;/p&gt;
+
+&lt;p&gt;This got me interested in exploring definitions of scope, the history of lexical scope, and how R fits with traditional definitions of lexical scope. The result was this mini blog series.&lt;/p&gt;
+
+&lt;p&gt;To summarize, I would say that &lt;em&gt;scope&lt;/em&gt; refers to the places in a program where a variable is visible and can be referenced. Under &lt;em&gt;lexical scoping&lt;/em&gt;, the scope of a variable is determined by the lexical (&lt;em&gt;i.e.&lt;/em&gt;, textual) structure of a program. Under &lt;em&gt;dynamic scoping&lt;/em&gt;, a variable is bound to the most recent value assigned to that variable, &lt;em&gt;i.e.&lt;/em&gt;, the most recent assignment during the program&amp;rsquo;s execution.&lt;/p&gt;
+
+&lt;p&gt;I would say that R &lt;em&gt;aims&lt;/em&gt; to be lexically scoped&amp;mdash;it was part of the design and implementation, but certain features make the situation more complicated. In particular, variables are function scoped, definitions do not introduce new scopes, and variable lookup is performed at run time. Furthermore, the dynamic nature of R and its metaprogramming capabilities allow programmers to completely circumvent lexical scoping.&lt;/p&gt;
+
+&lt;p&gt;Finally, there are some definitions of lexical and dynamic scope that also consider variable lookup. Under these definitions, R might be considered a dynamically scoped language, since variable lookup happens at run time. Therefore, it is important to be precise about your definitions!&lt;/p&gt;
+
+&lt;p&gt;If you want more content about R and scoping, the &lt;a href="/blog/2019/09/10/four-kinds-of-scoping-in-r/"&gt;third and final part&lt;/a&gt; of this blog series is already published. In it, I walk through four different examples of using metaprogramming to simulate different scoping disciplines in R.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;I would like to thank Sam Caldwell, Guido Chari, Oli Flückiger, Aviral Goel, Ben Greenman, Jakob Hain, Jan Ječmen, Hugo Musso Gualandi, Artem Pelenitsyn, and Jan Vitek for their comments, feedback, and discussions that have greatly improved and shaped this blog post.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;If you liked this post, you may also be interested in the following Twitter threads about R: &lt;a href="https://twitter.com/mhyee/status/1063983175163158531"&gt;one&lt;/a&gt;, &lt;a href="https://twitter.com/mhyee/status/1067818720532316166"&gt;two&lt;/a&gt; and &lt;a href="https://twitter.com/mhyee/status/1074744049951739905"&gt;three&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id="references"&gt;References&lt;/h2&gt;
+
+&lt;div class="footnotes"&gt;
+ &lt;ol&gt;
+  &lt;li id="2019-09-10-scoping-in-r-footnote-1-definition" class="footnote-definition"&gt;
+   &lt;p&gt;F. Morandat, B. Hill, L. Osvald, J. Vitek. &amp;ldquo;Evaluating the Design of the  R Language,&amp;rdquo; in &lt;em&gt;Proceedings of the European Conference on Object-Oriented  Programming (ECOOP)&lt;/em&gt;, 2012.  [&lt;a href="https://doi.org/10.1007/978-3-642-31057-7_6"&gt;DOI&lt;/a&gt;][&lt;a href="http://janvitek.org/pubs/ecoop12.pdf"&gt;Available  online&lt;/a&gt;]&amp;nbsp;&lt;a href="#2019-09-10-scoping-in-r-footnote-1-return"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+  &lt;li id="2019-09-10-scoping-in-r-footnote-2-definition" class="footnote-definition"&gt;
+   &lt;p&gt;R. Gentleman and R. Ihaka. &amp;ldquo;Lexical Scope and Statistical Computing&amp;rdquo;,  &lt;em&gt;Journal of Computational and Graphical Statistics&lt;/em&gt;, vol. 9, no. 3, 2000.  [&lt;a href="https://doi.org/10.1080/10618600.2000.10474895"&gt;DOI&lt;/a&gt;][&lt;a href="https://www.stat.auckland.ac.nz/~ihaka/downloads/lexical.pdf"&gt;Available  online&lt;/a&gt;]&amp;nbsp;&lt;a href="#2019-09-10-scoping-in-r-footnote-2-return"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+  &lt;li id="2019-09-10-scoping-in-r-footnote-3-definition" class="footnote-definition"&gt;
+   &lt;p&gt;L. Stadler, A. Welc, C. Humer, and M. Jordan. &amp;ldquo;Optimizing R Language  Execution via Aggressive Speculation,&amp;rdquo; in &lt;em&gt;Proceedings of the Symposium on  Dynamic Languages (DLS)&lt;/em&gt;, 2016.  [&lt;a href="https://doi.org/10.1145/2989225.2989236"&gt;DOI&lt;/a&gt;]&amp;nbsp;&lt;a href="#2019-09-10-scoping-in-r-footnote-3-return"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+  &lt;li id="2019-09-10-scoping-in-r-footnote-4-definition" class="footnote-definition"&gt;
+   &lt;p&gt;O. Flückiger, G. Chari, J. Ječmen, M.-H. Yee, J. Hain, and J. Vitek. &amp;ldquo;R  Melts Brains: An IR for First-Class Environments and Lazy Effectful Arguments,&amp;rdquo;  in &lt;em&gt;Proceedings of the Symposium on Dynamic Languages (DLS)&lt;/em&gt;, 2019. To appear.  [&lt;a href="http://janvitek.org/pubs/dls19.pdf"&gt;Available online&lt;/a&gt;]&amp;nbsp;&lt;a href="#2019-09-10-scoping-in-r-footnote-4-return"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;&lt;/ol&gt;&lt;/div&gt;</description></item>
   <item>
    <title>Lexical and Dynamic Scope</title>
    <link>http://prl.ccs.neu.edu/blog/2019/09/05/lexical-and-dynamic-scope/?utm_source=all&amp;utm_medium=RSS</link>
@@ -19,7 +855,7 @@
 &lt;p&gt;To answer that question, we need to understand what &lt;em&gt;scope&lt;/em&gt; is, along with &lt;em&gt;lexical scope&lt;/em&gt; and &lt;em&gt;dynamic scope&lt;/em&gt;.&lt;/p&gt;
 &lt;!-- more--&gt;
 
-&lt;p&gt;In this blog post, I&amp;rsquo;d like to explain the differences between lexical scope and dynamic scope, and also explore some of the history behind those ideas. In a subsequent post, I&amp;rsquo;ll discuss scoping in R and why it can be confusing.&lt;/p&gt;
+&lt;p&gt;In this blog post, I&amp;rsquo;d like to explain the differences between lexical scope and dynamic scope, and also explore some of the history behind those ideas. In a &lt;a href="/blog/2019/09/10/scoping-in-r/"&gt;subsequent post&lt;/a&gt;, I&amp;rsquo;ll discuss scoping in R and why it can be confusing.&lt;/p&gt;
 
 &lt;h2 id="what-is-scope"&gt;What is scope?&lt;/h2&gt;
 
@@ -136,7 +972,7 @@ g&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="c1"&gt;# what does this r
 
 &lt;p&gt;Now that we have examined the definitions of lexical and dynamic scope, and also explored some history, we are ready to return to the original question. &lt;em&gt;Is R lexically or dynamically scoped?&lt;/em&gt;&lt;/p&gt;
 
-&lt;p&gt;In the next blog post, we&amp;rsquo;ll answer that question, and also see how R can be very confusing.&lt;/p&gt;
+&lt;p&gt;In the &lt;a href="/blog/2019/09/10/scoping-in-r/"&gt;next blog post&lt;/a&gt;, we&amp;rsquo;ll answer that question, and also see how R can be very confusing.&lt;/p&gt;
 
 &lt;p&gt;&lt;em&gt;I would like to thank Sam Caldwell, Ben Greenman, and Artem Pelenitsyn for their comments and feedback on this blog post.&lt;/em&gt;&lt;/p&gt;
 
@@ -2138,616 +2974,4 @@ FROM HERE&lt;/code&gt;&lt;/pre&gt;
    <guid isPermaLink="false">urn:http-prl-ccs-neu-edu:-blog-2018-01-17-how-to-prove-a-compiler-correct-cross-post-https-dbp-io-essays-2018-01-16-how-to-prove-a-compiler-correct-html</guid>
    <pubDate>Wed, 17 Jan 2018 20:58:48 UT</pubDate>
    <author>PRL</author>
-   <description></description></item>
-  <item>
-   <title>Monotonicity Types: Towards A Type System for Eventual Consistency</title>
-   <link>http://prl.ccs.neu.edu/blog/2017/10/22/monotonicity-types-towards-a-type-system-for-eventual-consistency/?utm_source=all&amp;utm_medium=RSS</link>
-   <guid isPermaLink="false">urn:http-prl-ccs-neu-edu:-blog-2017-10-22-monotonicity-types-towards-a-type-system-for-eventual-consistency</guid>
-   <pubDate>Sun, 22 Oct 2017 11:59:06 UT</pubDate>
-   <author>PRL</author>
-   <description>
-&lt;p&gt;A few weeks back, we published a draft of an article entitled &lt;a href="https://infoscience.epfl.ch/record/231867"&gt;&lt;em&gt;Monotonicity Types&lt;/em&gt;&lt;/a&gt;. In it, we describe a type system which we hope can aid the design of distributed systems by tracking monotonicity with types.&lt;/p&gt;
-&lt;!-- more--&gt;
-
-&lt;p&gt;But first, what, precisely, do we mean by &lt;em&gt;monotonicity&lt;/em&gt;? Here&amp;rsquo;s a short definition:&lt;/p&gt;
-
-&lt;p&gt;A partially ordered set is a set 
- &lt;script type="math/tex"&gt;P&lt;/script&gt; endowed with a relation 
- &lt;script type="math/tex"&gt;\leq&lt;/script&gt; such that for all 
- &lt;script type="math/tex"&gt;p, q, r \in P&lt;/script&gt; we have:&lt;/p&gt;
-
-&lt;ol&gt;
- &lt;li&gt;
-  &lt;script type="math/tex"&gt;p \leq p&lt;/script&gt; (reflexivity)&lt;/li&gt;
- &lt;li&gt;
-  &lt;script type="math/tex"&gt;p \leq  q&lt;/script&gt; and 
-  &lt;script type="math/tex"&gt;q \leq r&lt;/script&gt; implies 
-  &lt;script type="math/tex"&gt;p \leq r&lt;/script&gt; (transitivity)&lt;/li&gt;
- &lt;li&gt;
-  &lt;script type="math/tex"&gt;p \leq q&lt;/script&gt; and 
-  &lt;script type="math/tex"&gt;q \leq p&lt;/script&gt; implies 
-  &lt;script type="math/tex"&gt;p = q&lt;/script&gt; (anti-symmetry)&lt;/li&gt;&lt;/ol&gt;
-
-&lt;p&gt;If 
- &lt;script type="math/tex"&gt;P&lt;/script&gt; and 
- &lt;script type="math/tex"&gt;Q&lt;/script&gt; are partially ordered sets, we say that a function 
- &lt;script type="math/tex"&gt;f : P \to Q&lt;/script&gt; between them is &lt;em&gt;monotone&lt;/em&gt; if for all 
- &lt;script type="math/tex"&gt;p_1, p_2 \in P&lt;/script&gt; with 
- &lt;script type="math/tex"&gt;p_1 \leq p_2&lt;/script&gt;, we have 
- &lt;script type="math/tex"&gt;f(p_1) \leq f(p_2)&lt;/script&gt;.&lt;/p&gt;
-
-&lt;p&gt;So, said another way, increasing the input to a monotone function causes an increase to its output.&lt;/p&gt;
-
-&lt;p&gt;Particularly in the context of concurrent and distributed programming, monotonicity has arisen time and time again as an important property. Designers of languages for coordination-free distributed programming such as Lasp [&lt;a href="#ref1"&gt;Meiklejohn et al. (2015)&lt;/a&gt;] and BloomL [&lt;a href="#ref1"&gt;Conway et al. (2012)&lt;/a&gt;], as well as designers of data types and abstractions for eventual consistency or determinism such as CRDTs [&lt;a href="#ref3"&gt;Shapiro et al. (2011)&lt;/a&gt;] and LVars [&lt;a href="#ref4"&gt;Kuper et al. (2013)&lt;/a&gt;] have noticed that monotonic evolution of program state over time is a necessary property in their designs. Lasp and BloomL in particular require the use of monotone functions as primitives of program composition.&lt;/p&gt;
-
-&lt;p&gt;Thus if a user would like to make use of such a language for concurrent and distributed programming, they&amp;rsquo;re required to write monotonic program functions, which can actually be quite tricky, in order to get the consistency or determinism guarantees that the given language/abstraction was designed to provide.&lt;/p&gt;
-
-&lt;p&gt;To get a better idea of how monotonicity might be important in the context of data replicated over a distributed system, let&amp;rsquo;s look at an example. Suppose we need a function to determine whether a replicated counter&amp;rsquo;s current value is odd or even, and further suppose that this counter can only be incremented. To accomplish this, we might apply the following function to the counter&amp;rsquo;s value:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;fun IsOdd(x : Nat) = x % 2 == 1&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;However, the counter replica from which the argument x is obtained may not currently have an up-to-date count of the total number of increments performed in the entire system. We can&amp;rsquo;t rule out the possibility that exactly one remote increment has been performed, in which case IsOdd produces the wrong answer. With this in mind, the value returned by IsOdd does not seem to tell us anything useful. In contrast, consider an application of the following function to the same replicated counter.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;fun MoreThanTen(x : Nat) = x &amp;gt; 10&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;The boolean values 
- &lt;script type="math/tex"&gt;true&lt;/script&gt; and 
- &lt;script type="math/tex"&gt;false&lt;/script&gt; form one of the simplest partially ordered sets of all. We consider 
- &lt;script type="math/tex"&gt;false \leq false&lt;/script&gt;, 
- &lt;script type="math/tex"&gt;false \leq true&lt;/script&gt;, and 
- &lt;script type="math/tex"&gt; true \leq true&lt;/script&gt;. Under this ordering, the MoreThanTen function is monotone: an increase in x can cause the value of 
- &lt;script type="math/tex"&gt;x &gt; 10&lt;/script&gt; to flip from false to true, but not vice versa. When we observe that the local counter replica P&amp;rsquo;s value is greater than 10, we don&amp;rsquo;t know that the same observation would be drawn from remote replicas. Nonetheless, we assume that all replicas in the system will eventually become aware of all increments that P is currently aware of, at which point their values will be greater than P&amp;rsquo;s current value. This is where MoreThanTen&amp;rsquo;s monotonicity becomes useful. At the point when all replicas have received P&amp;rsquo;s current information, every replica in the system will agree that MoreThanTen applied to the counter&amp;rsquo;s value returns true.&lt;/p&gt;
-
-&lt;p&gt;We believe that a type system for proving functions monotone could push the development of coordination-free distributed and concurrent applications outside of the realm of distributed systems experts, by enabling customization and extension of such systems by non-experts.&lt;/p&gt;
-
-&lt;p&gt;Towards this aim, we have been designing a typed lambda calculus in which types track monotonicity. Our approach allows the programmer to write a special kind of function definition, called an &lt;em&gt;sfun&lt;/em&gt;, the body of which is type checked using a richer type system, one which reasons about function composition rather than application. Such a function can be proven monotone by utilizing, among other principles, the fact that the composition of two monotone functions is itself monotone. Monotonicity is a relational property; that is, its a property involving multiple applications of the same function. Such properties are blind spot for traditional type systems, so our design requires some unusual and interesting features.&lt;/p&gt;
-
-&lt;p&gt;Reasoning about pointwise orderings on function spaces seems a bit heavy-weight and hasn’t been necessary for any of my use cases. An sfun is therefore first order; that is, both its return type and all of its argument types must be data types rather than function types. We would like to be able to prove that a multi-argument function is monotone &lt;em&gt;separately&lt;/em&gt; in each of its arguments; that is, for 
- &lt;script type="math/tex"&gt;i \in 1..n&lt;/script&gt;, if 
- &lt;script type="math/tex"&gt;p_i \leq p_i'&lt;/script&gt; then 
- &lt;script type="math/tex"&gt;f(p_1, \ldots, p_i, \ldots, p_n) \leq f(p_1, \ldots p_i', \ldots p_n)&lt;/script&gt;.&lt;/p&gt;
-
-&lt;p&gt;The monotonicity of an sfun is typically derived from the monotonicity of the primitives used to implement it, which are also sfuns. Here are some example sfun primitives, addition and subtraction on integers:&lt;/p&gt;
-
-&lt;p&gt;1.) plus : 
- &lt;script type="math/tex"&gt; (x : Int, y : Int) \Rightarrow Int[\uparrow x, \uparrow y]&lt;/script&gt;&lt;/p&gt;
-
-&lt;p&gt;2.) minus : 
- &lt;script type="math/tex"&gt; (x : Int, y : Int) \Rightarrow Int[\uparrow x, \downarrow y]&lt;/script&gt;&lt;/p&gt;
-
-&lt;p&gt;An &lt;em&gt;sfun type&lt;/em&gt;, written with 
- &lt;script type="math/tex"&gt;\Rightarrow&lt;/script&gt; rather than 
- &lt;script type="math/tex"&gt;\rightarrow&lt;/script&gt;, names its formal arguments and also &lt;em&gt;qualifies&lt;/em&gt; each one. A qualifier is an argument-specific constraint on the behavior of the function. In the above types, the qualifier 
- &lt;script type="math/tex"&gt;\uparrow&lt;/script&gt; is associated with arguments that are separately monotone and 
- &lt;script type="math/tex"&gt;\downarrow&lt;/script&gt; is associated with arguments that are separately antitone. The second argument of a binary function 
- &lt;script type="math/tex"&gt;f&lt;/script&gt; is separately antitone if 
- &lt;script type="math/tex"&gt;p_2 \leq p_2'&lt;/script&gt; implies 
- &lt;script type="math/tex"&gt;f(p_1, p_2) \geq f(p_1, p_2')&lt;/script&gt;.&lt;/p&gt;
-
-&lt;p&gt;Terms outside of sfun abstractions are typed using a &lt;em&gt;global&lt;/em&gt; typing relation, which, aside from an sfun abstraction typing rule, is not different from the typing relations we are familiar with. A global typing judgment has the following form.&lt;/p&gt;
-
-&lt;p&gt;
- &lt;script type="math/tex"&gt; \Gamma \vdash t : T&lt;/script&gt;&lt;/p&gt;
-
-&lt;p&gt;A typing judgment of the lifted type system, used to type check the body of an sfun, has the following form:&lt;/p&gt;
-
-&lt;p&gt;
- &lt;script type="math/tex"&gt; \Gamma;\Omega;\Phi \vdash t : T&lt;/script&gt;&lt;/p&gt;
-
-&lt;p&gt;Here the &lt;em&gt;global type environment&lt;/em&gt; 
- &lt;script type="math/tex"&gt; \Gamma&lt;/script&gt; contains all of the variables bound outside of the sfun, the &lt;em&gt;ambient type environment&lt;/em&gt; 
- &lt;script type="math/tex"&gt; \Omega&lt;/script&gt; contains the list of the sfun’s formal arguments, and the &lt;em&gt;lifted type environment&lt;/em&gt; 
- &lt;script type="math/tex"&gt; \Phi&lt;/script&gt; contains those variables in 
- &lt;script type="math/tex"&gt; t&lt;/script&gt;’s context which are bound inside the sfun. Before getting into the significance of lifted typing judgments, let&amp;rsquo;s look at a specific application of the global typing rule for sfun abstractions, which uses a single lifted premise.&lt;/p&gt;
-
-&lt;p&gt;$$\frac{\Gamma;x:Int;x:Int[=~x] \vdash plus(x,x) : Int[\uparrow~x]}  {\Gamma \vdash \tilde{\lambda} x : Int. plus(x,x) : ( x : Int ) \Rightarrow Int[\uparrow~x]}$$&lt;/p&gt;
-
-&lt;p&gt;Here we type a single-argument sfun abstraction 
- &lt;script type="math/tex"&gt;\tilde{\lambda} x:Int. plus(x,x)&lt;/script&gt;. As you might have guessed, 
- &lt;script type="math/tex"&gt;\tilde{\lambda}&lt;/script&gt; is used rather that 
- &lt;script type="math/tex"&gt;\lambda&lt;/script&gt; to distinguish this as an sfun abstraction rather than a standard one. Examine the ambient and lifted type environments used in the premise. Perhaps surprisingly, the abstraction&amp;rsquo;s bound variable 
- &lt;script type="math/tex"&gt;x&lt;/script&gt; is entered into both environments. When variables occur in types, they are considered references to formal arguments rather than actual arguments; that is, an occurrence of 
- &lt;script type="math/tex"&gt;x&lt;/script&gt; in a type (for example 
- &lt;script type="math/tex"&gt;Int[\uparrow x]&lt;/script&gt;) does not refer to some integer, but instead a &amp;ldquo;slot&amp;rdquo; named 
- &lt;script type="math/tex"&gt;x&lt;/script&gt; which expects to receive some integer from an external source. Inside the scope of the sfun abstraction, we would like the ability to refer to the abstraction&amp;rsquo;s formal argument 
- &lt;script type="math/tex"&gt;x&lt;/script&gt;, and therefore we add 
- &lt;script type="math/tex"&gt;x : Int&lt;/script&gt; to the ambient environment. We would also like to include occurrences of 
- &lt;script type="math/tex"&gt;x&lt;/script&gt; as terms in the body of the abstraction; for these, we add the entry 
- &lt;script type="math/tex"&gt;x : Int[=~x]&lt;/script&gt; into the lifted type environment, to be used as a placeholder for the actual argument supplied to the formal argument 
- &lt;script type="math/tex"&gt;x&lt;/script&gt;. Because references to formal arguments occur only in types, and references to actual arguments occur only in terms, we can add entries with the same name to both the ambient and lifted environments without creating any ambiguity. In particular, this means that the occurrence of 
- &lt;script type="math/tex"&gt;x&lt;/script&gt; in Int[
- &lt;script type="math/tex"&gt;\uparrow x&lt;/script&gt;] refers to the entry for 
- &lt;script type="math/tex"&gt;x&lt;/script&gt; in the ambient type environment rather than the one in the lifted type environment.&lt;/p&gt;
-
-&lt;p&gt;The premise of the above rule application includes the strange looking types 
- &lt;script type="math/tex"&gt;Int[=~x]&lt;/script&gt; and 
- &lt;script type="math/tex"&gt;Int[\uparrow~x]&lt;/script&gt;. Normally, we would expect occurrences of x, which serve as placeholders for the actual argument of the the function, to have type 
- &lt;script type="math/tex"&gt;Int&lt;/script&gt;, and we would expect our abstraction&amp;rsquo;s body 
- &lt;script type="math/tex"&gt;plus(x,x)&lt;/script&gt; to have type 
- &lt;script type="math/tex"&gt;Int&lt;/script&gt; as well. This traditional approach to typing a function abstraction characterizes the operational behavior of a single function &lt;em&gt;after&lt;/em&gt; it has been applied. Unfortunately, this isn&amp;rsquo;t adequate for reasoning about properties such as monotonicity, which involve multiple calls to the same function. My approach instead takes the perspective of inside of a function, &lt;em&gt;before&lt;/em&gt; it has been applied. Lifted typing then characterizes the structure of a function as the composition of its constituent parts. In the above example, an occurrence of the variable 
- &lt;script type="math/tex"&gt;x&lt;/script&gt; in the term 
- &lt;script type="math/tex"&gt;plus(x,x)&lt;/script&gt; has type 
- &lt;script type="math/tex"&gt;Int[=~x]&lt;/script&gt;, meaning that it is a function which takes the value provided to 
- &lt;script type="math/tex"&gt;x&lt;/script&gt; (the enclosing sfun&amp;rsquo;s formal argument) as an input, and produces that value unchanged as a result. We ultimately care about the input/output relation of this function, and so the concrete values which inhabit this type are set-of-pairs function representations, called &lt;em&gt;ambient maps&lt;/em&gt;. The type 
- &lt;script type="math/tex"&gt;Int[=~x]&lt;/script&gt; happens to be a singleton type, containing the set of pairs 
- &lt;script type="math/tex"&gt;\{ (0,0), (1,1), (-1,-1), (2,2), (-2-2), \ldots \}&lt;/script&gt;.&lt;/p&gt;
-
-&lt;p&gt;The sfun application 
- &lt;script type="math/tex"&gt;plus(x,x)&lt;/script&gt; is viewed as a function composition, where the outputs of the functions represented by the two occurrences of 
- &lt;script type="math/tex"&gt;x&lt;/script&gt; are forwarded into the left and right arguments of the sfun 
- &lt;script type="math/tex"&gt;plus&lt;/script&gt;. The domain of this composite function matches the domain 
- &lt;script type="math/tex"&gt;x:Int&lt;/script&gt; of the enclosing sfun, which it inherits from the two occurrences of 
- &lt;script type="math/tex"&gt;x&lt;/script&gt;. Since 
- &lt;script type="math/tex"&gt;plus&lt;/script&gt; returns an 
- &lt;script type="math/tex"&gt;Int&lt;/script&gt;, so does the composite function 
- &lt;script type="math/tex"&gt;plus(x,x)&lt;/script&gt;. The premise of the above typing rule application tells us that 
- &lt;script type="math/tex"&gt;plus(x,x)&lt;/script&gt; has type 
- &lt;script type="math/tex"&gt;Int[\uparrow~x]&lt;/script&gt;, but this premise must be derived. We previously hinted that such a derivation may utilize the fact that the composition of two monotone functions is itself monotone, and indeed that is one aspect of the premise&amp;rsquo;s derivation, but a full treatment is outside the scope of this post.&lt;/p&gt;
-
-&lt;p&gt;Since lifted typing is all about function composition, one might wonder how we treat occurrences of 
- &lt;script type="math/tex"&gt; \Gamma&lt;/script&gt;&amp;rsquo;s variables within the body of an sfun. Such a variable might have the type 
- &lt;script type="math/tex"&gt; Int&lt;/script&gt;, representing a data value rather than a function. In fact, a piece of data can be viewed as a degenerate, constant-valued function, which produces the same result regardless of which actual arguments any particular sfun is applied to. Subtyping rules enable the flexible use of terminal variables within the body of an sfun, permitting a variable of type 
- &lt;script type="math/tex"&gt; Int&lt;/script&gt;, for example, to occur in a context where terms of type 
- &lt;script type="math/tex"&gt; Int[ \uparrow x ]&lt;/script&gt; are expected. A constant function 
- &lt;script type="math/tex"&gt;f&lt;/script&gt;, after all, is monotone: 
- &lt;script type="math/tex"&gt; v_1 \leq v_2&lt;/script&gt; implies 
- &lt;script type="math/tex"&gt; f(v_1) = c \leq c = f(v_2)&lt;/script&gt;.&lt;/p&gt;
-
-&lt;p&gt;We&amp;rsquo;re not building lifted typing derivations just for fun. Typically, a type system comes with a soundness theorem stating that whenever a typing judgment of the form 
- &lt;script type="math/tex"&gt; \Gamma \vdash t : T&lt;/script&gt; is derivable, the execution of the term 
- &lt;script type="math/tex"&gt;t&lt;/script&gt; (a program) under some well-defined model of computation (typically defined along with the type system) satisfies some desirable property. In our system, a terminal typing derivation 
- &lt;script type="math/tex"&gt; \Gamma \vdash t : T&lt;/script&gt; implies that when the free variables of t are substituted with appropriately-typed values, the execution of the term 
- &lt;script type="math/tex"&gt; t&lt;/script&gt; is guaranteed to terminate, producing a value of type 
- &lt;script type="math/tex"&gt;T&lt;/script&gt; as its result. This is not a terribly unusual soundness guarantee. However, to provide semantics for lifted typing judgments, we introduced a new reduction relation (or &amp;ldquo;computation model&amp;rdquo;) which can be viewed in one of two ways:&lt;/p&gt;
-
-&lt;ol&gt;
- &lt;li&gt;The simultaneous reduction of an sfun, under terminal reduction, when applied to all sets of arguments in its domain.&lt;/li&gt;
- &lt;li&gt;The composition of an sfun&amp;rsquo;s components, before the sfun is ever applied.&lt;/li&gt;&lt;/ol&gt;
-
-&lt;p&gt;Point 1 is essentially the motivation for having lifted typing and lifted reduction in the first place. We want to know how the sfun behaves under terminal reduction, across multiple applications&amp;mdash;specifically two applications in the case of monotonicity. If the lifted reduction of an sfun&amp;rsquo;s body faithfully simulates the terminal reduction of all possible applications simultaneously, then the body of a well-typed sfun should normalize to an ambient map that is extensionally equivalent to the sfun&amp;rsquo;s applicative behavior under terminal reduction. Therefore, if our soundness theorem guarantees that the derivability of 
- &lt;script type="math/tex"&gt; \cdot;x:Int;x:Int[=~x] \vdash plus(x,x) : Int[\uparrow~x]&lt;/script&gt; implies that 
- &lt;script type="math/tex"&gt; plus(\{ (0,0), (1,1), \ldots \},\{ (0,0), (1,1), \ldots \} )&lt;/script&gt; normalizes under lifted reduction to a monotone ambient map, we then know that the sfun 
- &lt;script type="math/tex"&gt; \tilde{\lambda} x : Int. plus(x,x)&lt;/script&gt; behaves monotonically under terminal reduction. It&amp;rsquo;s important to note that our model never requires us to actually perform lifted reduction; lifted reduction matters because not because we actual want to perform it, but instead because lifted typing derivations guarantee the existence of certain lifted reduction sequences which have implications for terminal reduction.&lt;/p&gt;
-
-&lt;p&gt;Point 2 inspires our lifted type system. If an sfun is composed of monotone functions, we can use facts about preservation of monotonicity across function composition to prove the sfun itself monotone. The difference between terminal reduction and lifted reduction is demonstrated by the two mathematical expressions 
- &lt;script type="math/tex"&gt; f(g(v))&lt;/script&gt; and 
- &lt;script type="math/tex"&gt; (f \circ g) (v)&lt;/script&gt;.  The expression 
- &lt;script type="math/tex"&gt; f(g(v))&lt;/script&gt; presents function composition as viewed by a standard type systems: to apply the composition of 
- &lt;script type="math/tex"&gt;f&lt;/script&gt; and 
- &lt;script type="math/tex"&gt;g&lt;/script&gt; to a value 
- &lt;script type="math/tex"&gt;v&lt;/script&gt;, we first apply 
- &lt;script type="math/tex"&gt;g&lt;/script&gt; to 
- &lt;script type="math/tex"&gt;v&lt;/script&gt;, and then apply 
- &lt;script type="math/tex"&gt;f&lt;/script&gt; to the result. This isn&amp;rsquo;t wrong, but if 
- &lt;script type="math/tex"&gt; f&lt;/script&gt; and 
- &lt;script type="math/tex"&gt; g&lt;/script&gt; are both monotone, the monotonicity of the composite function as a whole becomes self-evident if we first perform the &amp;ldquo;lifted reduction step&amp;rdquo; 
- &lt;script type="math/tex"&gt; f(g(v)) \to (f \circ g) (v)&lt;/script&gt;.&lt;/p&gt;
-
-&lt;p&gt;We&amp;rsquo;ll leave you with an aspirational example, which demonstrates the need for a type system, rather than a more monolithic form of analysis, for proving functions monotone. Recall our replicated counter example from the introduction. It isn&amp;rsquo;t sufficient to store this counter as an integer. The problem is that replicas cannot synchronize properly without knowing which how many increments were performed at each replica. Suppose that replicas X and Y each start with a count of zero. The following actions are then performed:&lt;/p&gt;
-
-&lt;ol&gt;
- &lt;li&gt;X increments, resulting in a count of 1&lt;/li&gt;
- &lt;li&gt;X sends a synchronization message to Y, containing X&amp;rsquo;s count 1&lt;/li&gt;
- &lt;li&gt;X receives a synchronization message from Y containing a count of 1&lt;/li&gt;&lt;/ol&gt;
-
-&lt;p&gt;At stage 3, X does not know if the received message was sent from Y before or after Y received the synchronization message from stage 2. Replica X therefore does not know whether to set its count to 1 or 2. To avoid this problem, a replicated counter is commonly represented as a map, which maps each replica identifier (a natural number) to the number of increments that replica has performed (also a natural number). It is assumed that any replica id not contained in the map&amp;rsquo;s finite representation maps to 0. Such counters are called GCounters, and described in detail by [&lt;a href="#ref3"&gt;Shapiro et al. (2011)&lt;/a&gt;].&lt;/p&gt;
-
-&lt;p&gt;GCounters are partially ordered componentwise. We write 
- &lt;script type="math/tex"&gt; v[a]&lt;/script&gt; for the natural number to which the GCounter 
- &lt;script type="math/tex"&gt;v&lt;/script&gt; maps the replica identifier 
- &lt;script type="math/tex"&gt;a&lt;/script&gt;, and we write 
- &lt;script type="math/tex"&gt; \leq&lt;/script&gt; for the standard ordering on natural numbers. The partial order 
- &lt;script type="math/tex"&gt; \leq'&lt;/script&gt; on GCounters is then defined such that 
- &lt;script type="math/tex"&gt; v \leq' w&lt;/script&gt; whenever for all replica identifiers 
- &lt;script type="math/tex"&gt;a&lt;/script&gt; we have 
- &lt;script type="math/tex"&gt; v[a] \leq w[a]&lt;/script&gt;.&lt;/p&gt;
-
-&lt;p&gt;[&lt;a href="#ref1"&gt;Meiklejohn et al. (2015)&lt;/a&gt;] motivates combinators for replicated data types such as the GCounter, but requires that such combinators are monotone separately in each argument. Below is psuedocode for a monotone GCounter addition combinator, annotated with monotonicity types. NatMap is used as the type of maps from natural numbers to natural numbers. Several primitives are defined for working with NatMap. getAt retrieves the kth element of a NatMap m. joinAt returns a new NatMap which is equal to the argument m, except that it maps k to the maximum of m[k] and n. span returns the greatest key mapping to a non-zero value. emptyMap is a NatMap which maps every natural number to 0. + and &amp;gt; are standard arithmetic operators for working with natural numbers.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;getAt :: (m : NatMap, k : Nat) ⇒ Nat[↑ m, ? k]
-joinAt :: (m : NatMap, k : Nat, n : Nat) ⇒ NatMap[↑ m, ? k, ↑ n]
-span :: (m:NatMap) ⇒ Nat[↑ m]
-max :: (a : Nat, b : Nat) ⇒ Nat[↑ a, ↑ b]
-emptyMap :: NatMap
-+ :: (x:Nat, y:Nat) ⇒ Nat[↑ x, ↑ y]
-&amp;gt; :: (x:Nat, y:Nat) ⇒ Bool[↑ x, ↓ y]
-
-type GCounter = { map : NatMap }
-
-sfun sumCounters(x : GCounter, y : GCounter) 
- : GCounter[↑ x, ↑ y] =
- let xMap : NatMap[↑ x, ↑ y] = x.map
- let yMap : NatMap[↑ x, ↑ y] = y.map
- let maxSpan : Nat[↑ x, ↑ y] = max (span xMap) (span yMap)
- fun sumCell(k : Nat, acc : NatMap[↑ x, ↑ y]) 
-  : NatMap[↑ x, ↑ y] =
-  let cond : Bool[↑ x, ↓ y] = k &amp;gt; maxSpan
-   if cond then
-    acc
-   else
-    let acc' = joinAt acc k ((getAt xMap k) + (getAt yMap k))
-    sumCell (k+1) acc'
- let initMap : IntArray[↑ x, ↑ y] = emptyMap
- GCounter { map = sumCell 0 initMap }&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;While our system can handle much of this example, it can&amp;rsquo;t handle everything yet, for several reasons. First, it involves an if condition which depends on the arguments of the enclosing sfun. To handle this, we would need to incorporate the notion of domain restriction into lifted reduction. Second, it involves recursion. This is problematic for us, because our system utilizes the fact that all well-typed programs terminate. We could partially address this by adding terminating fixpoint combinators, which allow recursion given some well-founded termination metric, as in [&lt;a href="#ref5"&gt;Vazou et al. (2014)&lt;/a&gt;]. However, that would not be adequate for this particular function. Since it could require arbitrarily many levels of recursion depending on which values are supplied as arguments, lifted reduction, which simulates an application to all arguments simultaneously, would diverge.&lt;/p&gt;
-
-&lt;p&gt;So there&amp;rsquo;s still much to do! If you&amp;rsquo;re interested in more details behind the type system, have a look at Kevin&amp;rsquo;s blog article, &lt;a href="https://kevinclancy.github.io/2017/11/09/monotonicity-through-types.html"&gt;Monotonicity Through Types&lt;/a&gt;, or have a look at the full &lt;a href="https://infoscience.epfl.ch/record/231867"&gt;Monotonicity Types&lt;/a&gt; preprint for more.&lt;/p&gt;
-
-&lt;h3 id="references"&gt;References&lt;/h3&gt;
-
-&lt;p&gt;&lt;span id="ref1"&gt;C. Meiklejohn and P. Van Roy. &lt;em&gt;Lasp: A language for distributed, coordination-free programming.&lt;/em&gt; In Proceedings of the 17th International Symposium on Principles and Practice of Declarative Programming, PPDP ’15, pages 184–195, New York, NY, USA, 2015. ACM.&lt;/span&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;span id="ref2"&gt;N. Conway, W. R. Marczak, P. Alvaro, J. M. Hellerstein, and D. Maier. &lt;em&gt;Logic and lattices for distributed programming&lt;/em&gt;. In Proceedings of the Third ACM Symposium on Cloud Computing, SoCC ’12, pages 1:1–1:14, New York, NY, USA, 2012. ACM.&lt;/span&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;span id="ref3"&gt;M. Shapiro, N. Preguiça, C. Baquero, and M. Zawirski. &lt;em&gt;Conflict-Free replicated data types&lt;/em&gt;. In Stabilization, Safety, and Security of Distributed Systems, Lecture Notes in Computer Science, pages 386–400. Springer, Berlin, Heidelberg, Oct. 2011.&lt;/span&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;span class="ref4"&gt;L. Kuper and R. R. Newton. &lt;em&gt;LVars: Lattice-based data structures for deterministic parallelism&lt;/em&gt;. In Proceedings of the 2nd ACM SIGPLAN Workshop on Functional High-performance Computing, FHPC ’13, pages 71–84, New York, NY, USA, 2013. ACM.&lt;/span&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;span class="ref5"&gt;N. Vazou, E. L. Seidel, R. Jhala, D. Vytiniotis, and S. Peyton-Jones. &lt;em&gt;Refinement types for Haskell&lt;/em&gt;. SIGPLAN Not. 49, 9 (August 2014), 269&amp;ndash;282.&lt;/span&gt;&lt;/p&gt;</description></item>
-  <item>
-   <title>Final Algebra Semantics is Observational Equivalence</title>
-   <link>http://prl.ccs.neu.edu/blog/2017/09/27/final-algebra-semantics-is-observational-equivalence/?utm_source=all&amp;utm_medium=RSS</link>
-   <guid isPermaLink="false">urn:http-prl-ccs-neu-edu:-blog-2017-09-27-final-algebra-semantics-is-observational-equivalence</guid>
-   <pubDate>Wed, 27 Sep 2017 15:44:57 UT</pubDate>
-   <author>PRL</author>
-   <description>
-&lt;p&gt;Recently, &amp;ldquo;final encodings&amp;rdquo; and &amp;ldquo;finally tagless style&amp;rdquo; have become popular techniques for defining embedded languages in functional languages. In a recent discussion in the Northeastern PRL lab, &lt;a href="https://github.com/michaelballantyne"&gt;Michael Ballantyne&lt;/a&gt;, &lt;a href="http://ccs.neu.edu/home/ryanc"&gt;Ryan Culpepper&lt;/a&gt; and I asked &amp;ldquo;in what category are these actually final objects&amp;rdquo;? As it turns out our very own &lt;a href="http://www.ccs.neu.edu/home/wand/"&gt;Mitch Wand&lt;/a&gt; wrote one of the first papers to make exactly this idea precise, so I read it &lt;a href="https://www.cs.indiana.edu/ftp/techreports/TR65.pdf"&gt;available here&lt;/a&gt; and was pleasantly surprised to see that the definition of a final algebra there is essentially equivalent to the definition of observational equivalence.&lt;/p&gt;
-
-&lt;p&gt;In this post, I&amp;rsquo;ll go over some of the results of that paper and explain the connection to observational equivalence. In the process we&amp;rsquo;ll learn a bit about categorical logic, and I&amp;rsquo;ll reformulate some of the category theory in that paper to be a bit more modern in presentation, cleaning some things up in the process.&lt;/p&gt;
-&lt;!-- more--&gt;
-
-&lt;h1 id="intuition-implementing-a-signature"&gt;Intuition: Implementing a Signature&lt;/h1&gt;
-
-&lt;p&gt;As a running example, say we wanted to implement a datatype of finite maps whose keys and values are both integers, i.e., finite multisets of integers.&lt;/p&gt;
-
-&lt;p&gt;We could specify such a datatype by specifying a little language of numbers and finite multisets. We&amp;rsquo;ll have two &amp;ldquo;sorts&amp;rdquo; &lt;code&gt;num&lt;/code&gt; and &lt;code&gt;multiset&lt;/code&gt;, a constant for every integer, and an addition function&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;'n : () -&amp;gt; num;
-add : (num, num) -&amp;gt; num&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;subject to the silly-looking equation:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;add('n,'m) = '(n + m)&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;and some operations on multisets&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;empty : () -&amp;gt; multiset;
-singleton : (num) -&amp;gt; multiset;
-union : (multiset, multiset) -&amp;gt; multiset;
-remove : (num, multiset) -&amp;gt; multiset;
-count : (num, multiset) -&amp;gt; num&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;subject to the computational equations:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;count('n, empty) = '0
-count('n, singleton('n)) = '1
-count('n, singleton('m)) = '0
-count('n, union(s,t)) = add(count('n,s), count('n, t))
-count('n, remove('n,s)) = '0
-count('n, remove('m,s)) = count('n,s)&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;These are &amp;ldquo;all&amp;rdquo; of the equations we need to actually run our programs and get a number out, but not all the equations we intuitively &lt;em&gt;want&lt;/em&gt; for reasoning about our programs. For instance, clearly &lt;code&gt;union&lt;/code&gt; should be commutative, and &lt;code&gt;remove&lt;/code&gt; should be idempotent, but it&amp;rsquo;s impossible to prove that with just the equations specified. In fact, we can make a model of this theory that refutes them by constructing the &amp;ldquo;initial algebra&amp;rdquo;. In Haskell, we could say&lt;/p&gt;
-
-&lt;div class="brush: Haskell"&gt;
- &lt;table class="sourcetable"&gt;
-  &lt;tbody&gt;
-   &lt;tr&gt;
-    &lt;td class="linenos"&gt;
-     &lt;div class="linenodiv"&gt;
-      &lt;pre&gt; 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;
-    &lt;td class="code"&gt;
-     &lt;div class="source"&gt;
-      &lt;pre&gt;&lt;span class="kr"&gt;data&lt;/span&gt; &lt;span class="kt"&gt;MultiSet&lt;/span&gt; &lt;span class="ow"&gt;=&lt;/span&gt; &lt;span class="kt"&gt;Empty&lt;/span&gt; 
-  &lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="kt"&gt;Singleton&lt;/span&gt; &lt;span class="kt"&gt;Integer&lt;/span&gt;
-  &lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="kt"&gt;Union&lt;/span&gt; &lt;span class="kt"&gt;MultiSet&lt;/span&gt; &lt;span class="kt"&gt;MultiSet&lt;/span&gt;
-  &lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="kt"&gt;Remove&lt;/span&gt; &lt;span class="kt"&gt;Integer&lt;/span&gt; &lt;span class="kt"&gt;MultiSet&lt;/span&gt;
-  &lt;span class="kr"&gt;deriving&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kt"&gt;Eq&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-
-&lt;span class="nf"&gt;count&lt;/span&gt; &lt;span class="ow"&gt;::&lt;/span&gt; &lt;span class="kt"&gt;Integer&lt;/span&gt; &lt;span class="ow"&gt;-&amp;gt;&lt;/span&gt; &lt;span class="kt"&gt;MultiSet&lt;/span&gt; &lt;span class="ow"&gt;-&amp;gt;&lt;/span&gt; &lt;span class="kt"&gt;Integer&lt;/span&gt;
-&lt;span class="nf"&gt;count&lt;/span&gt; &lt;span class="n"&gt;n&lt;/span&gt; &lt;span class="kt"&gt;Empty&lt;/span&gt; &lt;span class="ow"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;
-&lt;span class="nf"&gt;count&lt;/span&gt; &lt;span class="n"&gt;n&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kt"&gt;Singleton&lt;/span&gt; &lt;span class="n"&gt;m&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="n"&gt;n&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="n"&gt;m&lt;/span&gt; &lt;span class="ow"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;
-&lt;span class="nf"&gt;count&lt;/span&gt; &lt;span class="n"&gt;n&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kt"&gt;Singleton&lt;/span&gt; &lt;span class="n"&gt;m&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="n"&gt;n&lt;/span&gt; &lt;span class="o"&gt;/=&lt;/span&gt; &lt;span class="n"&gt;m&lt;/span&gt; &lt;span class="ow"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;
-&lt;span class="nf"&gt;count&lt;/span&gt; &lt;span class="n"&gt;n&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kt"&gt;Union&lt;/span&gt; &lt;span class="n"&gt;s&lt;/span&gt; &lt;span class="n"&gt;t&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="ow"&gt;=&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;count&lt;/span&gt; &lt;span class="n"&gt;n&lt;/span&gt; &lt;span class="n"&gt;s&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;count&lt;/span&gt; &lt;span class="n"&gt;n&lt;/span&gt; &lt;span class="n"&gt;t&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="nf"&gt;count&lt;/span&gt; &lt;span class="n"&gt;n&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kt"&gt;Remove&lt;/span&gt; &lt;span class="n"&gt;m&lt;/span&gt; &lt;span class="n"&gt;s&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="n"&gt;n&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="n"&gt;m&lt;/span&gt; &lt;span class="ow"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;
-&lt;span class="nf"&gt;count&lt;/span&gt; &lt;span class="n"&gt;n&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kt"&gt;Remove&lt;/span&gt; &lt;span class="n"&gt;m&lt;/span&gt; &lt;span class="n"&gt;s&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="n"&gt;n&lt;/span&gt; &lt;span class="o"&gt;/=&lt;/span&gt; &lt;span class="n"&gt;m&lt;/span&gt; &lt;span class="ow"&gt;=&lt;/span&gt; &lt;span class="n"&gt;count&lt;/span&gt; &lt;span class="n"&gt;n&lt;/span&gt; &lt;span class="n"&gt;s&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
-&lt;/div&gt;
-
-&lt;p&gt;Then it is completely obvious that all of our equations hold, but then &lt;code&gt;Union&lt;/code&gt; is &lt;em&gt;not&lt;/em&gt; commutative, as ghci will tell us:&lt;/p&gt;
-
-&lt;div class="brush: Haskell"&gt;
- &lt;table class="sourcetable"&gt;
-  &lt;tbody&gt;
-   &lt;tr&gt;
-    &lt;td class="linenos"&gt;
-     &lt;div class="linenodiv"&gt;
-      &lt;pre&gt;1
-2&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;
-    &lt;td class="code"&gt;
-     &lt;div class="source"&gt;
-      &lt;pre&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kt"&gt;Singleton&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="p"&gt;`&lt;/span&gt;&lt;span class="kt"&gt;Union&lt;/span&gt;&lt;span class="p"&gt;`&lt;/span&gt; &lt;span class="kt"&gt;Singleton&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kt"&gt;Singleton&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt; &lt;span class="p"&gt;`&lt;/span&gt;&lt;span class="kt"&gt;Union&lt;/span&gt;&lt;span class="p"&gt;`&lt;/span&gt; &lt;span class="kt"&gt;Singleton&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; 
-&lt;span class="kt"&gt;False&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
-&lt;/div&gt;
-
-&lt;p&gt;However, there is another encoding that will give us that &lt;code&gt;union&lt;/code&gt; is commutative and &lt;code&gt;remove n&lt;/code&gt; is idempotent and actually every equation we could possibly want! It&amp;rsquo;s called the &amp;ldquo;final encoding&amp;rdquo; or &amp;ldquo;final algebra&amp;rdquo;. In Haskell, this looks like:&lt;/p&gt;
-
-&lt;div class="brush: Haskell"&gt;
- &lt;table class="sourcetable"&gt;
-  &lt;tbody&gt;
-   &lt;tr&gt;
-    &lt;td class="linenos"&gt;
-     &lt;div class="linenodiv"&gt;
-      &lt;pre&gt; 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;
-    &lt;td class="code"&gt;
-     &lt;div class="source"&gt;
-      &lt;pre&gt;&lt;span class="kr"&gt;data&lt;/span&gt; &lt;span class="kt"&gt;MultiSet&amp;#39;&lt;/span&gt; &lt;span class="ow"&gt;=&lt;/span&gt; &lt;span class="kt"&gt;MultiSet&amp;#39;&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="n"&gt;_count&lt;/span&gt; &lt;span class="ow"&gt;::&lt;/span&gt; &lt;span class="kt"&gt;Integer&lt;/span&gt; &lt;span class="ow"&gt;-&amp;gt;&lt;/span&gt; &lt;span class="kt"&gt;Integer&lt;/span&gt; &lt;span class="p"&gt;}&lt;/span&gt;
-
-&lt;span class="nf"&gt;count&amp;#39;&lt;/span&gt; &lt;span class="ow"&gt;::&lt;/span&gt; &lt;span class="kt"&gt;Integer&lt;/span&gt; &lt;span class="ow"&gt;-&amp;gt;&lt;/span&gt; &lt;span class="kt"&gt;MultiSet&amp;#39;&lt;/span&gt; &lt;span class="ow"&gt;-&amp;gt;&lt;/span&gt; &lt;span class="kt"&gt;Integer&lt;/span&gt;
-&lt;span class="nf"&gt;count&amp;#39;&lt;/span&gt; &lt;span class="n"&gt;n&lt;/span&gt; &lt;span class="n"&gt;m&lt;/span&gt; &lt;span class="ow"&gt;=&lt;/span&gt; &lt;span class="n"&gt;_count&lt;/span&gt; &lt;span class="n"&gt;m&lt;/span&gt; &lt;span class="n"&gt;n&lt;/span&gt;
-
-&lt;span class="nf"&gt;empty&lt;/span&gt; &lt;span class="ow"&gt;::&lt;/span&gt; &lt;span class="kt"&gt;MultiSet&amp;#39;&lt;/span&gt;
-&lt;span class="nf"&gt;empty&lt;/span&gt; &lt;span class="ow"&gt;=&lt;/span&gt; &lt;span class="kt"&gt;MultiSet&amp;#39;&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="n"&gt;_count&lt;/span&gt; &lt;span class="ow"&gt;=&lt;/span&gt; &lt;span class="nf"&gt;\&lt;/span&gt;&lt;span class="n"&gt;n&lt;/span&gt; &lt;span class="ow"&gt;-&amp;gt;&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt; &lt;span class="p"&gt;}&lt;/span&gt;
-
-&lt;span class="nf"&gt;singleton&lt;/span&gt; &lt;span class="ow"&gt;::&lt;/span&gt; &lt;span class="kt"&gt;Integer&lt;/span&gt; &lt;span class="ow"&gt;-&amp;gt;&lt;/span&gt; &lt;span class="kt"&gt;MultiSet&amp;#39;&lt;/span&gt;
-&lt;span class="nf"&gt;singleton&lt;/span&gt; &lt;span class="n"&gt;n&lt;/span&gt; &lt;span class="ow"&gt;=&lt;/span&gt; &lt;span class="kt"&gt;MultiSet&amp;#39;&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="n"&gt;_count&lt;/span&gt; &lt;span class="ow"&gt;=&lt;/span&gt; &lt;span class="nf"&gt;\&lt;/span&gt;&lt;span class="n"&gt;m&lt;/span&gt; &lt;span class="ow"&gt;-&amp;gt;&lt;/span&gt; &lt;span class="kr"&gt;if&lt;/span&gt; &lt;span class="n"&gt;n&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="n"&gt;m&lt;/span&gt;
-                                         &lt;span class="kr"&gt;then&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;
-                                         &lt;span class="kr"&gt;else&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt; &lt;span class="p"&gt;}&lt;/span&gt;
-
-&lt;span class="nf"&gt;union&lt;/span&gt; &lt;span class="ow"&gt;::&lt;/span&gt; &lt;span class="kt"&gt;MultiSet&amp;#39;&lt;/span&gt; &lt;span class="ow"&gt;-&amp;gt;&lt;/span&gt; &lt;span class="kt"&gt;MultiSet&amp;#39;&lt;/span&gt; &lt;span class="ow"&gt;-&amp;gt;&lt;/span&gt; &lt;span class="kt"&gt;MultiSet&amp;#39;&lt;/span&gt;
-&lt;span class="nf"&gt;union&lt;/span&gt; &lt;span class="n"&gt;s&lt;/span&gt; &lt;span class="n"&gt;t&lt;/span&gt; &lt;span class="ow"&gt;=&lt;/span&gt; &lt;span class="kt"&gt;MultiSet&amp;#39;&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="n"&gt;_count&lt;/span&gt; &lt;span class="ow"&gt;=&lt;/span&gt; &lt;span class="nf"&gt;\&lt;/span&gt;&lt;span class="n"&gt;n&lt;/span&gt; &lt;span class="ow"&gt;-&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;count&amp;#39;&lt;/span&gt; &lt;span class="n"&gt;n&lt;/span&gt; &lt;span class="n"&gt;s&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;count&amp;#39;&lt;/span&gt; &lt;span class="n"&gt;n&lt;/span&gt; &lt;span class="n"&gt;t&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;}&lt;/span&gt;
-
-&lt;span class="nf"&gt;remove&lt;/span&gt; &lt;span class="ow"&gt;::&lt;/span&gt; &lt;span class="kt"&gt;Integer&lt;/span&gt; &lt;span class="ow"&gt;-&amp;gt;&lt;/span&gt; &lt;span class="kt"&gt;MultiSet&amp;#39;&lt;/span&gt; &lt;span class="ow"&gt;-&amp;gt;&lt;/span&gt; &lt;span class="kt"&gt;MultiSet&amp;#39;&lt;/span&gt;
-&lt;span class="nf"&gt;remove&lt;/span&gt; &lt;span class="n"&gt;n&lt;/span&gt; &lt;span class="n"&gt;s&lt;/span&gt; &lt;span class="ow"&gt;=&lt;/span&gt; &lt;span class="kt"&gt;MultiSet&amp;#39;&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="n"&gt;_count&lt;/span&gt; &lt;span class="ow"&gt;=&lt;/span&gt; &lt;span class="nf"&gt;\&lt;/span&gt;&lt;span class="n"&gt;m&lt;/span&gt; &lt;span class="ow"&gt;-&amp;gt;&lt;/span&gt; &lt;span class="kr"&gt;if&lt;/span&gt; &lt;span class="n"&gt;n&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="n"&gt;m&lt;/span&gt;
-                                        &lt;span class="kr"&gt;then&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;
-                                        &lt;span class="kr"&gt;else&lt;/span&gt; &lt;span class="n"&gt;count&amp;#39;&lt;/span&gt; &lt;span class="n"&gt;n&lt;/span&gt; &lt;span class="n"&gt;s&lt;/span&gt; &lt;span class="p"&gt;}&lt;/span&gt;
-
-&lt;span class="nf"&gt;test&amp;#39;&lt;/span&gt; &lt;span class="ow"&gt;=&lt;/span&gt; &lt;span class="n"&gt;and&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt; &lt;span class="n"&gt;count&amp;#39;&lt;/span&gt; &lt;span class="n"&gt;n&lt;/span&gt; &lt;span class="n"&gt;s&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="n"&gt;count&amp;#39;&lt;/span&gt; &lt;span class="n"&gt;n&lt;/span&gt; &lt;span class="n"&gt;t&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="n"&gt;n&lt;/span&gt; &lt;span class="ow"&gt;&amp;lt;-&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="o"&gt;..&lt;/span&gt;&lt;span class="mi"&gt;1000&lt;/span&gt;&lt;span class="p"&gt;]]&lt;/span&gt;
-&lt;span class="nf"&gt;s&lt;/span&gt; &lt;span class="ow"&gt;=&lt;/span&gt; &lt;span class="n"&gt;singleton&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="p"&gt;`&lt;/span&gt;&lt;span class="n"&gt;union&lt;/span&gt;&lt;span class="p"&gt;`&lt;/span&gt; &lt;span class="n"&gt;singleton&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;
-&lt;span class="nf"&gt;t&lt;/span&gt; &lt;span class="ow"&gt;=&lt;/span&gt; &lt;span class="n"&gt;singleton&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt; &lt;span class="p"&gt;`&lt;/span&gt;&lt;span class="n"&gt;union&lt;/span&gt;&lt;span class="p"&gt;`&lt;/span&gt; &lt;span class="n"&gt;singleton&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
-&lt;/div&gt;
-
-&lt;p&gt;Now we can verify that &lt;code&gt;union&lt;/code&gt; is commutative because&lt;/p&gt;
-
-&lt;div class="brush: Haskell"&gt;
- &lt;table class="sourcetable"&gt;
-  &lt;tbody&gt;
-   &lt;tr&gt;
-    &lt;td class="linenos"&gt;
-     &lt;div class="linenodiv"&gt;
-      &lt;pre&gt;1
-2
-3&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;
-    &lt;td class="code"&gt;
-     &lt;div class="source"&gt;
-      &lt;pre&gt;&lt;span class="nf"&gt;union&lt;/span&gt; &lt;span class="n"&gt;s&lt;/span&gt; &lt;span class="n"&gt;t&lt;/span&gt; &lt;span class="ow"&gt;=&lt;/span&gt; &lt;span class="kt"&gt;MultiSet&amp;#39;&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="n"&gt;_count&lt;/span&gt; &lt;span class="ow"&gt;=&lt;/span&gt; &lt;span class="nf"&gt;\&lt;/span&gt;&lt;span class="n"&gt;n&lt;/span&gt; &lt;span class="ow"&gt;-&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;count&amp;#39;&lt;/span&gt; &lt;span class="n"&gt;n&lt;/span&gt; &lt;span class="n"&gt;s&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;count&amp;#39;&lt;/span&gt; &lt;span class="n"&gt;n&lt;/span&gt; &lt;span class="n"&gt;t&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;}&lt;/span&gt;
-          &lt;span class="ow"&gt;=&lt;/span&gt; &lt;span class="kt"&gt;MultiSet&amp;#39;&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="n"&gt;_count&lt;/span&gt; &lt;span class="ow"&gt;=&lt;/span&gt; &lt;span class="nf"&gt;\&lt;/span&gt;&lt;span class="n"&gt;n&lt;/span&gt; &lt;span class="ow"&gt;-&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;count&amp;#39;&lt;/span&gt; &lt;span class="n"&gt;n&lt;/span&gt; &lt;span class="n"&gt;t&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;count&amp;#39;&lt;/span&gt; &lt;span class="n"&gt;n&lt;/span&gt; &lt;span class="n"&gt;s&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;}&lt;/span&gt;
-		  &lt;span class="ow"&gt;=&lt;/span&gt; &lt;span class="n"&gt;union&lt;/span&gt; &lt;span class="n"&gt;t&lt;/span&gt; &lt;span class="n"&gt;s&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
-&lt;/div&gt;
-
-&lt;p&gt;since &lt;code&gt;+&lt;/code&gt; is commutative. Equality isn&amp;rsquo;t decidable anymore so I can&amp;rsquo;t give you a simple piece of code to witness this, but we can test our example before and we won&amp;rsquo;t be able to distinguish them, no surprise:&lt;/p&gt;
-
-&lt;div class="brush: Haskell"&gt;
- &lt;table class="sourcetable"&gt;
-  &lt;tbody&gt;
-   &lt;tr&gt;
-    &lt;td class="linenos"&gt;
-     &lt;div class="linenodiv"&gt;
-      &lt;pre&gt;1
-2
-3
-4&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;
-    &lt;td class="code"&gt;
-     &lt;div class="source"&gt;
-      &lt;pre&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="kr"&gt;let&lt;/span&gt; &lt;span class="n"&gt;s&lt;/span&gt; &lt;span class="ow"&gt;=&lt;/span&gt; &lt;span class="n"&gt;singleton&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="p"&gt;`&lt;/span&gt;&lt;span class="n"&gt;union&lt;/span&gt;&lt;span class="p"&gt;`&lt;/span&gt; &lt;span class="n"&gt;singleton&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;
-&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="kr"&gt;let&lt;/span&gt; &lt;span class="n"&gt;t&lt;/span&gt; &lt;span class="ow"&gt;=&lt;/span&gt; &lt;span class="n"&gt;singleton&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt; &lt;span class="p"&gt;`&lt;/span&gt;&lt;span class="n"&gt;union&lt;/span&gt;&lt;span class="p"&gt;`&lt;/span&gt; &lt;span class="n"&gt;singleton&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;
-&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;and&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt; &lt;span class="n"&gt;count&amp;#39;&lt;/span&gt; &lt;span class="n"&gt;n&lt;/span&gt; &lt;span class="n"&gt;s&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="n"&gt;count&amp;#39;&lt;/span&gt; &lt;span class="n"&gt;n&lt;/span&gt; &lt;span class="n"&gt;t&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="n"&gt;n&lt;/span&gt; &lt;span class="ow"&gt;&amp;lt;-&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="o"&gt;..&lt;/span&gt;&lt;span class="mi"&gt;1000&lt;/span&gt;&lt;span class="p"&gt;]]&lt;/span&gt;
-&lt;span class="kt"&gt;True&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
-&lt;/div&gt;
-
-&lt;p&gt;How do we know this is the &amp;ldquo;best&amp;rdquo; or at least &amp;ldquo;most canonical&amp;rdquo; implementation of our datatype? The intuition is that we really don&amp;rsquo;t care at all &lt;em&gt;how&lt;/em&gt; our multisets are implemented as long as they behave the right way with respect to &lt;code&gt;count&lt;/code&gt; since &lt;code&gt;count&lt;/code&gt; returns an &lt;code&gt;Integer&lt;/code&gt;, a type we do understand. Our encoding accomplishes this by representing a multiset &lt;code&gt;s&lt;/code&gt; by the partially applied function &lt;code&gt;\n -&amp;gt; count n s&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;The formal name for this idea is &lt;em&gt;observational equivalence&lt;/em&gt;. We say that two closed terms &lt;code&gt;s,t&lt;/code&gt; of sort &lt;code&gt;multiset&lt;/code&gt; are &lt;em&gt;observationally equivalent&lt;/em&gt; if for any term &lt;code&gt;C&lt;/code&gt; of type &lt;code&gt;num&lt;/code&gt; that has &lt;code&gt;s&lt;/code&gt; as a subterm, we can swap &lt;code&gt;t&lt;/code&gt; in for &lt;code&gt;s&lt;/code&gt; and prove that the two terms are equal. For instance &lt;code&gt;C&lt;/code&gt; might be &lt;code&gt;count(3, union(s, singleton(3)))&lt;/code&gt; or &lt;code&gt;add(4,remove(5,s))&lt;/code&gt;. Then we&amp;rsquo;ve reduced the possibly complicated equality for &lt;code&gt;multiset&lt;/code&gt; to the simple equality of &lt;code&gt;num&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;Proving that the final encoding above satisfies all observational equivalences is beyond the scope of this blog post (see &lt;a href="https://hal.inria.fr/inria-00076514/document"&gt;here&lt;/a&gt;), but let&amp;rsquo;s see what all this talk about &amp;ldquo;algebras&amp;rdquo;, initial or final is all about.&lt;/p&gt;
-
-&lt;h1 id="formalization-attempt-1-algebras-of-a-theory"&gt;Formalization Attempt 1: Algebras of a Theory&lt;/h1&gt;
-
-&lt;p&gt;First, our little language of numbers and multisets is called a &lt;em&gt;theory&lt;/em&gt;. The specific category gadget that we&amp;rsquo;ll use to describe it is a &lt;em&gt;multi-sorted Lawvere theory&lt;/em&gt;, or just &lt;em&gt;Lawvere theory&lt;/em&gt; for short.&lt;/p&gt;
-
-&lt;p&gt;A &lt;em&gt;Lawvere theory&lt;/em&gt; is a category with finite products all of whose objects are finite products of a collection of &lt;em&gt;sorts&lt;/em&gt; 
- &lt;script type="math/tex"&gt;S&lt;/script&gt;. We can construct this category from our little language above by making the objects be &lt;em&gt;contexts&lt;/em&gt; 
- &lt;script type="math/tex"&gt;x:num,y:multiset,...&lt;/script&gt; and morphisms 
- &lt;script type="math/tex"&gt;\Gamma \to
-x_1:s_1,...,x_n:s_n&lt;/script&gt; to be 
- &lt;script type="math/tex"&gt;n&lt;/script&gt;-tuples of terms 
- &lt;script type="math/tex"&gt;\Gamma \vdash t_1 : s_1,...,
-\Gamma \vdash t_n :  s_n&lt;/script&gt; &lt;em&gt;modulo&lt;/em&gt; the equations we&amp;rsquo;ve specified. We&amp;rsquo;ll use the letter 
- &lt;script type="math/tex"&gt;T&lt;/script&gt; to mean a Lawvere theory.&lt;/p&gt;
-
-&lt;p&gt;Then a &lt;em&gt;
-  &lt;script type="math/tex"&gt;T&lt;/script&gt;-algebra&lt;/em&gt; is a denotational semantics of our theory 
- &lt;script type="math/tex"&gt;T&lt;/script&gt;, i.e., a product preserving functor 
- &lt;script type="math/tex"&gt;A : T \to Set&lt;/script&gt;. This means for every sort we get a set 
- &lt;script type="math/tex"&gt;A(s)&lt;/script&gt; and for every term 
- &lt;script type="math/tex"&gt;x_1:s_1,...,x_n:s_n
-\vdash t : s&lt;/script&gt; a function 
- &lt;script type="math/tex"&gt;A(t) : A(s_1)\times\cdots \times A(s_n) \to
-A(s)&lt;/script&gt;.&lt;/p&gt;
-
-&lt;p&gt;Finally a &lt;em&gt;morphism of 
-  &lt;script type="math/tex"&gt;T&lt;/script&gt;-algebras&lt;/em&gt; from 
- &lt;script type="math/tex"&gt;A&lt;/script&gt; to 
- &lt;script type="math/tex"&gt;B&lt;/script&gt; is a way to translate one algebra into another. Briefly, it is a natural transformation from 
- &lt;script type="math/tex"&gt;A&lt;/script&gt; to 
- &lt;script type="math/tex"&gt;B&lt;/script&gt;, but concretely this means for every sort 
- &lt;script type="math/tex"&gt;s&lt;/script&gt; we get a function 
- &lt;script type="math/tex"&gt;\alpha_s : A(s) \to B(s)&lt;/script&gt; that translates 
- &lt;script type="math/tex"&gt;A&lt;/script&gt;s interpretation of 
- &lt;script type="math/tex"&gt;s&lt;/script&gt; as a set into 
- &lt;script type="math/tex"&gt;B&lt;/script&gt;s. The key property that we want is that the operations according to 
- &lt;script type="math/tex"&gt;A&lt;/script&gt; and 
- &lt;script type="math/tex"&gt;B&lt;/script&gt; do the same thing as determined by 
- &lt;script type="math/tex"&gt;\alpha&lt;/script&gt;. Specifically, for any term 
- &lt;script type="math/tex"&gt;x_1:s_1,...,x_n:s_n \vdash t :
-s&lt;/script&gt;, and inputs 
- &lt;script type="math/tex"&gt;x_1 \in A(s_1),...,x_n \in A(s_n)&lt;/script&gt; we should get the same result if we evaluate 
- &lt;script type="math/tex"&gt;A(t)(x_1,\ldots,x_n)&lt;/script&gt; and then apply 
- &lt;script type="math/tex"&gt;\alpha_s&lt;/script&gt; as if we first translate 
- &lt;script type="math/tex"&gt;x_1,\ldots,x_n&lt;/script&gt; to 
- &lt;script type="math/tex"&gt;B(s_1),\ldots,B(s_n)&lt;/script&gt; and then apply 
- &lt;script type="math/tex"&gt;B(t)&lt;/script&gt;. If you unwind the definitions, this is exactly what naturality says.&lt;/p&gt;
-
-&lt;p&gt;Then we have a category we&amp;rsquo;ll call 
- &lt;script type="math/tex"&gt;T-Alg&lt;/script&gt; of 
- &lt;script type="math/tex"&gt;T&lt;/script&gt;-algebras and we can ask if there are initial or final algebra. It turns out that both of them &lt;em&gt;always&lt;/em&gt; exist.&lt;/p&gt;
-
-&lt;p&gt;The initial algebra is most famous here, we define for each sort 
- &lt;script type="math/tex"&gt;In(T)(s) = \cdot \vdash s&lt;/script&gt;, the closed terms of that sort modulo the equivalence of the theory, and 
- &lt;script type="math/tex"&gt;In(T)(s_1,\ldots,s_n) =
-In(T)(s_1)\times\ldots,In(T)(s_n)&lt;/script&gt;. Then the terms are just interpreted as the functions you get by plugging closed inputs into them. Then if we look at what what a morphism of 
- &lt;script type="math/tex"&gt;T&lt;/script&gt;-algebras from 
- &lt;script type="math/tex"&gt;In(T) \to A&lt;/script&gt; is, we see that we don&amp;rsquo;t have any choice, the only one is the one that maps 
- &lt;script type="math/tex"&gt;\cdot \vdash t : s&lt;/script&gt; to 
- &lt;script type="math/tex"&gt;A(t)&lt;/script&gt; and this makes all the right diagrams to commute. This is pretty similar to our definition of &amp;ldquo;initial algebra&amp;rdquo; before, except that this time we defined &lt;code&gt;count&lt;/code&gt; as a function, not just a case of an ADT, but that was just an easy way to satisfy the computational equations for &lt;code&gt;count&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;However, an egregious flaw presents itself when we look at what the &lt;em&gt;final&lt;/em&gt; algebra is. It&amp;rsquo;s completely trivial! We can define 
- &lt;script type="math/tex"&gt;Fin(T)&lt;/script&gt; to take every sort to a one element set 
- &lt;script type="math/tex"&gt;Fin(T)(s) = \{*\}&lt;/script&gt; and every term to the trivial function 
- &lt;script type="math/tex"&gt;\{*\}^n \to \{*\}&lt;/script&gt;. What the hell? This interprets numbers and multisets as trivial one-element sets. To rule this one out, we need to add some conditions to our algebras.&lt;/p&gt;
-
-&lt;h1 id="formalization-algebras-of-a-theory-extension"&gt;Formalization: Algebras of a Theory Extension&lt;/h1&gt;
-
-&lt;p&gt;To rule out these boring algebras, and get a nice final algebra, we have to recognize that the sorts &lt;code&gt;num&lt;/code&gt; and &lt;code&gt;multiset&lt;/code&gt; in our theory are not really on equal footing. While we are not sure how multisets should be defined, we know &lt;em&gt;exactly&lt;/em&gt; what numbers are!&lt;/p&gt;
-
-&lt;p&gt;To formalize this we&amp;rsquo;ll call the full theory 
- &lt;script type="math/tex"&gt;T_1&lt;/script&gt; and the theory with just numbers 
- &lt;script type="math/tex"&gt;T_0&lt;/script&gt;. Then there should be a map from 
- &lt;script type="math/tex"&gt;T_0&lt;/script&gt; to 
- &lt;script type="math/tex"&gt;T_1&lt;/script&gt; that is the inclusion of theories. We&amp;rsquo;ll formalize this as a &lt;em&gt;morphism of theories&lt;/em&gt;. A morphism of theories is a &lt;em&gt;strict&lt;/em&gt; product-preserving functor from one theory to another. The strictness ensures that we don&amp;rsquo;t mix up our sorts and our contexts, a morphim of theories has to map sorts to sorts, whereas a non-strict functor could map a sort to a context with two sorts it&amp;rsquo;s equivalent to. What this really amounts to is a translation of one theory into another. It maps sorts to sorts and terms to terms of the appropriate sorts in a compositional way. However, we don&amp;rsquo;t want to consider &lt;em&gt;all&lt;/em&gt; such morphisms, only the ones that are &amp;ldquo;conservative extensions&amp;rdquo;, which means&lt;/p&gt;
-
-&lt;ol&gt;
- &lt;li&gt;there are no new closed terms at old types&lt;/li&gt;
- &lt;li&gt;closed terms that were different before remain different.&lt;/li&gt;&lt;/ol&gt;
-
-&lt;p&gt;In our example (1) ensures that we don&amp;rsquo;t add any new exotic numbers like &lt;code&gt;undefined&lt;/code&gt; or &lt;code&gt;∞&lt;/code&gt;, and (2) ensures that we keep 
- &lt;script type="math/tex"&gt;0&lt;/script&gt; different from 
- &lt;script type="math/tex"&gt;1&lt;/script&gt;, like the final algebra did before by having all numbers have the same interpreation 
- &lt;script type="math/tex"&gt;*&lt;/script&gt;.&lt;/p&gt;
-
-&lt;p&gt;We can formalize this in the following way. Note that any morphism of Lawvere theories 
- &lt;script type="math/tex"&gt;m : T \to S&lt;/script&gt; induces a &lt;em&gt;functor&lt;/em&gt; on the category of algebras 
- &lt;script type="math/tex"&gt;m^* : S-Alg \to T-Alg&lt;/script&gt; by just composing functors. An 
- &lt;script type="math/tex"&gt;S&lt;/script&gt;-algebra is a functor from 
- &lt;script type="math/tex"&gt;S&lt;/script&gt; to sets, and 
- &lt;script type="math/tex"&gt;m&lt;/script&gt; is a functor from 
- &lt;script type="math/tex"&gt;T&lt;/script&gt; to 
- &lt;script type="math/tex"&gt;S&lt;/script&gt; so we can compose to get 
- &lt;script type="math/tex"&gt;m^*(A)(t) = A(m(t))&lt;/script&gt;.&lt;/p&gt;
-
-&lt;p&gt;Now, we can express the idea of a conservative extension by saying that the canonical arrow from 
- &lt;script type="math/tex"&gt;In(T)&lt;/script&gt; to 
- &lt;script type="math/tex"&gt;m^*(In(S))&lt;/script&gt; is an isomorphism. Recalling the definition of initial algebras, this says exactly that the closed terms in 
- &lt;script type="math/tex"&gt;T&lt;/script&gt; up to 
- &lt;script type="math/tex"&gt;T&lt;/script&gt;-equivalence are isomorphic to the closed terms of the type provided by 
- &lt;script type="math/tex"&gt;m&lt;/script&gt; in 
- &lt;script type="math/tex"&gt;S&lt;/script&gt; up to 
- &lt;script type="math/tex"&gt;S&lt;/script&gt;-equivalence. This is an equivalent formulation to the definition in Mitch&amp;rsquo;s paper, but there it is separated into two properties fullness and faithfulness, and doesn&amp;rsquo;t use the initial algebras and 
- &lt;script type="math/tex"&gt;m^*&lt;/script&gt; explicitly.&lt;/p&gt;
-
-&lt;p&gt;Now we can verify that the inclusion 
- &lt;script type="math/tex"&gt;i : T_0 \to T_1&lt;/script&gt; of the number theory into the number-multiset theory is an extension in this sense.&lt;/p&gt;
-
-&lt;p&gt;Finally we can define our notion of 
- &lt;script type="math/tex"&gt;i&lt;/script&gt;-algebra, which will be our correct notion of algebra. An 
- &lt;script type="math/tex"&gt;i&lt;/script&gt;-algebra is a 
- &lt;script type="math/tex"&gt;T_1&lt;/script&gt; algebra 
- &lt;script type="math/tex"&gt;A&lt;/script&gt; such that&lt;/p&gt;
-
-&lt;ol&gt;
- &lt;li&gt;The canonical algebra map 
-  &lt;script type="math/tex"&gt;! : In(T_0) \to m^*A&lt;/script&gt; is an isomorphism.&lt;/li&gt;
- &lt;li&gt;The canonical algebra map 
-  &lt;script type="math/tex"&gt;! : In(T_1) \to A&lt;/script&gt; is surjective i.e.,  for each sort 
-  &lt;script type="math/tex"&gt;s, !_s&lt;/script&gt; is surjective.&lt;/li&gt;&lt;/ol&gt;
-
-&lt;p&gt;The first condition says again that we have a conservative extension of 
- &lt;script type="math/tex"&gt;T_0&lt;/script&gt;, but the second is more interesting. It says that every denotation given by 
- &lt;script type="math/tex"&gt;A&lt;/script&gt; is represented by some term in 
- &lt;script type="math/tex"&gt;T_1&lt;/script&gt;. In fact what it really ensures is that 
- &lt;script type="math/tex"&gt;A&lt;/script&gt; determines a &lt;em&gt;congruence relation&lt;/em&gt; on 
- &lt;script type="math/tex"&gt;T_1&lt;/script&gt; given by 
- &lt;script type="math/tex"&gt;t1 \equiv_A t2&lt;/script&gt; if 
- &lt;script type="math/tex"&gt;A(t1) = A(t2)&lt;/script&gt;. In light of this, the first condition could be called &lt;em&gt;adequacy&lt;/em&gt;.&lt;/p&gt;
-
-&lt;p&gt;Furthermore, the surjectivity condition ensures that any morphism of 
- &lt;script type="math/tex"&gt;i&lt;/script&gt; algebras, i.e., a map as 
- &lt;script type="math/tex"&gt;T_1&lt;/script&gt;-algebras is also surjective, so a morphism 
- &lt;script type="math/tex"&gt;A \to B&lt;/script&gt; is a witness to the fact that 
- &lt;script type="math/tex"&gt;B&lt;/script&gt; determines a &lt;em&gt;stronger&lt;/em&gt; congruence relation on 
- &lt;script type="math/tex"&gt;T_1&lt;/script&gt; than 
- &lt;script type="math/tex"&gt;A&lt;/script&gt; does: 
- &lt;script type="math/tex"&gt;t1 \equiv_B t2
-\implies t1 \equiv_A t2&lt;/script&gt;. Then asking for a final algebra is asking for exactly the:&lt;/p&gt;
-
-&lt;blockquote&gt;
- &lt;p&gt;Strongest adequate congruence relation&lt;/p&gt;&lt;/blockquote&gt;
-
-&lt;p&gt;which is exactly the definition of observational equivalence you will find in, say Pitt&amp;rsquo;s chapter of &lt;a href="https://www.cis.upenn.edu/~bcpierce/attapl/"&gt;Advanced TAPL&lt;/a&gt;. There is a difference in the meaning of &lt;em&gt;adequacy&lt;/em&gt;, though. Usually adequacy is defined in terms of an operational semantics, but here everything is based on an axiomatic notion of equality, but I think they play the same role in the two settings, so I think it&amp;rsquo;s reasonable to use the same word. On thing I like about this formulation is very nice though since it makes obvious that &lt;em&gt;adequacy&lt;/em&gt; is not a predetermined concept, we have to pick 
- &lt;script type="math/tex"&gt;T_0&lt;/script&gt; and 
- &lt;script type="math/tex"&gt;i&lt;/script&gt; in order to know what adequacy means.&lt;/p&gt;
-
-&lt;h1 id="conclusion-tying-it-back-to-final-encodings"&gt;Conclusion: Tying it back to Final Encodings&lt;/h1&gt;
-
-&lt;p&gt;So now we&amp;rsquo;ve seen that&lt;/p&gt;
-
-&lt;blockquote&gt;
- &lt;p&gt;Final algebras are equivalent to initial algebras modulo observational equivalence&lt;/p&gt;&lt;/blockquote&gt;
-
-&lt;p&gt;Of course we haven&amp;rsquo;t precisely gotten back to where we started: we were talking about denotational semantics in terms of sets and functions, but what we really want are implementations in our favorite programming languages. Fortunately, we didn&amp;rsquo;t use very many properties of sets in our definition, so it&amp;rsquo;s pretty easy to swap out the category of Sets for some category built out of the terms of our programming language. We can also swap out sets for some much cooler category of denotations like domains or metric spaces or time-varying values.&lt;/p&gt;
-
-&lt;p&gt;Another question is how to implement this when we have a proper &lt;em&gt;type theory&lt;/em&gt; and not just some boring sorts. In particular, if we have function types, then we won&amp;rsquo;t be able to get functions from functions in our term model to functions in our denotations due to contravariance. Perhaps logical relations are the solution?&lt;/p&gt;</description></item></channel></rss>
+   <description></description></item></channel></rss>

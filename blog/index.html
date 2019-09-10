@@ -6,7 +6,7 @@
     <title>PRL Blog</title>
     <meta name="description" content="PRL Blog">
     <meta name="author"      content="PRL">
-    <meta name="keywords"    content="tutorials, closure conversion, HOPL, language, garbage collection, by Aaron Weiss, lang-extension, ocaml, event, by Li-Yao Xia, definitions, gradual typing, PLT Redex, by Milo Davis, announcement, coq, about, language implementation, semantics, compilers, CRDTs, higher-order contracts, math, by Alexi Turcotte, ghc, lost time, turnstile, Emacs, by Kevin Clancy, pliss, extended abstract, final encoding, by Matt Kolosick, lectures, dsl, FFI, by Ben Chung, galois connection, windows, PI meeting, by William J. Bowman, by Stephen Chang, System Administration, by Zeina Migeed, NEPLS, by Gabriel Scherer, beta, Takikawa constant, array language, by Ming-Ho Yee, java, by Dustin Jamner, dawn of the digital era, conference, by Ben Greenman, dear diary, 1st blog post, ICFP, lambda, by Daniel Patterson, instrumentation, dynamic typing, compiler correctness, tutorial, PL Junior, observational equivalence, by Artem Pelenitsyn, icfp, books, by Asumu Takikawa, Gradual Typing, scope, category theory, history, adjunction, haskell, by Tony Garnock-Jones, types, by Julia Belyakova, by Jonathan Schuster, latency, by Rob Kleffner, statistics, eventual consistency, bugs, monotonicity, coYoneda, calculus, by Jan Vitek, racket, migratory typing, dissertation, Scribble, package, by Max New, performance, proceedings, all, by Justin Slepak, reduction, by Leif Andersen, Yoneda, Racket, constructions, benchmarking, by Sam Caldwell, castle">
+    <meta name="keywords"    content="tutorials, closure conversion, HOPL, language, garbage collection, by Aaron Weiss, lang-extension, ocaml, event, by Li-Yao Xia, definitions, gradual typing, PLT Redex, by Milo Davis, announcement, coq, about, language implementation, semantics, compilers, CRDTs, higher-order contracts, math, by Alexi Turcotte, ghc, lost time, turnstile, Emacs, by Kevin Clancy, pliss, extended abstract, final encoding, by Matt Kolosick, lectures, dsl, FFI, by Ben Chung, galois connection, windows, PI meeting, by William J. Bowman, by Stephen Chang, System Administration, by Zeina Migeed, NEPLS, by Gabriel Scherer, beta, Takikawa constant, array language, by Ming-Ho Yee, java, by Dustin Jamner, dawn of the digital era, conference, by Ben Greenman, dear diary, 1st blog post, ICFP, lambda, r, instrumentation, dynamic typing, compiler correctness, tutorial, PL Junior, observational equivalence, by Artem Pelenitsyn, icfp, books, by Asumu Takikawa, Gradual Typing, scope, category theory, by Daniel Patterson, history, adjunction, haskell, by Tony Garnock-Jones, types, by Julia Belyakova, by Jonathan Schuster, latency, by Rob Kleffner, statistics, eventual consistency, bugs, monotonicity, coYoneda, calculus, by Jan Vitek, racket, migratory typing, dissertation, Scribble, package, by Max New, performance, proceedings, all, by Justin Slepak, reduction, by Leif Andersen, Yoneda, Racket, constructions, benchmarking, by Sam Caldwell, castle">
     <meta name="viewport"    content="width=device-width, initial-scale=1.0">
     <link rel="icon"      href="/img/favicon.ico">
     <link rel="canonical" href="http://prl.ccs.neu.edu/blog/index.html">
@@ -78,6 +78,34 @@
 
 
               <article>
+  <header>
+    <h2><a href='/blog/2019/09/10/four-kinds-of-scoping-in-r/'>Four Kinds of Scoping in R</a></h2>
+    <p class='date-and-tags'>
+<time datetime="2019-09-10" pubdate="true">2019-09-10</time> :: <span class="tags"><a href="/blog/tags/scope.html">scope</a>, <a href="/blog/tags/r.html">r</a>, <a href="/blog/tags/by-Ming-Ho-Yee.html">by Ming-Ho Yee</a></span></p>
+  </header>
+
+<p>In the <a href="/blog/2019/09/05/lexical-and-dynamic-scope/">first</a> and <a href="/blog/2019/09/10/scoping-in-r/">second</a> parts of this blog series, I defined lexical and dynamic scope, and demonstrated interesting cases of scoping in R.</p>
+
+<p>In this third and final part of my blog series, I&rsquo;d like to discuss a paper by the creators of R, where they motivate the need for lexical scoping in a statistical programming language.</p>
+
+<p>This is a &ldquo;bonus&rdquo; blog post, because I&rsquo;m going to dive into some of the hairier R features to show how four different kinds of scoping can be simulated in R.</p>
+  <footer>
+    <a href='/blog/2019/09/10/four-kinds-of-scoping-in-r/'>&hellip; more &hellip;</a>
+  </footer>
+</article>
+<article>
+  <header>
+    <h2><a href='/blog/2019/09/10/scoping-in-r/'>Scoping in R</a></h2>
+    <p class='date-and-tags'>
+<time datetime="2019-09-10" pubdate="true">2019-09-10</time> :: <span class="tags"><a href="/blog/tags/scope.html">scope</a>, <a href="/blog/tags/r.html">r</a>, <a href="/blog/tags/by-Ming-Ho-Yee.html">by Ming-Ho Yee</a></span></p>
+  </header>
+
+<p>In the <a href="/blog/2019/09/05/lexical-and-dynamic-scope/">previous post</a> of this three-part blog series, we discussed lexical and dynamic scope. Now, in this second part, we can return to the original question: <em>is R lexically or dynamically scoped?</em></p>
+  <footer>
+    <a href='/blog/2019/09/10/scoping-in-r/'>&hellip; more &hellip;</a>
+  </footer>
+</article>
+<article>
   <header>
     <h2><a href='/blog/2019/09/05/lexical-and-dynamic-scope/'>Lexical and Dynamic Scope</a></h2>
     <p class='date-and-tags'>
@@ -171,30 +199,6 @@
 <p>The <em>transient</em> approach to migratory typing (circa <a href="http://homes.sice.indiana.edu/mvitouse/papers/dls14.pdf">2014</a>)  is similar to type erasure in Java (circa <a href="https://docs.oracle.com/javase/1.5.0/docs/relnotes/features.html">2004</a>)  in a few interesting ways.</p>
   <footer>
     <a href='/blog/2018/12/02/java-and-migratory-typing/'>&hellip; more &hellip;</a>
-  </footer>
-</article>
-<article>
-  <header>
-    <h2><a href='/blog/2018/11/30/turnstile-mailing-list/'>Turnstile Mailing List</a></h2>
-    <p class='date-and-tags'>
-<time datetime="2018-11-30" pubdate="true">2018-11-30</time> :: <span class="tags"><a href="/blog/tags/announcement.html">announcement</a>, <a href="/blog/tags/turnstile.html">turnstile</a>, <a href="/blog/tags/by-Stephen-Chang.html">by Stephen Chang</a></span></p>
-  </header>
-
-<p><a href="https://docs.racket-lang.org/turnstile/The_Turnstile_Guide.html">Turnstile</a> now has a mailing list: <a href="https://groups.google.com/forum/#!forum/turnstile-users">https://groups.google.com/forum/#!forum/turnstile-users</a></p>
-  <footer>
-    <a href='/blog/2018/11/30/turnstile-mailing-list/'>&hellip; more &hellip;</a>
-  </footer>
-</article>
-<article>
-  <header>
-    <h2><a href='/blog/2018/11/24/disappearing-code/'>Disappearing Code</a></h2>
-    <p class='date-and-tags'>
-<time datetime="2018-11-24" pubdate="true">2018-11-24</time> :: <span class="tags"><a href="/blog/tags/dear-diary.html">dear diary</a>, <a href="/blog/tags/by-Ben-Greenman.html">by Ben Greenman</a></span></p>
-  </header>
-
-<p>Two experiences at <a href="https://2018.splashcon.org/home">SPLASH 2018</a> reminded me that software gets thrown away and replaced.</p>
-  <footer>
-    <a href='/blog/2018/11/24/disappearing-code/'>&hellip; more &hellip;</a>
   </footer>
 </article>
 <footer>

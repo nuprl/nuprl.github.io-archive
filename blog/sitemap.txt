@@ -53,6 +53,7 @@ http://prl.ccs.neu.edu/blog/2017/05/26/racket-6-9-and-windows-10-creators-update
 http://prl.ccs.neu.edu/blog/2018/04/12/-making-an-ide-plugin-for-drracket-cross-post-https-lang-video-blog-2018-03-21-making-an-ide-plugin-for-drracket/
 http://prl.ccs.neu.edu/blog/2017/02/15/conversational-context-and-concurrency/
 http://prl.ccs.neu.edu/blog/2016/06/29/tutorial-racket-ffi-part-2/
+http://prl.ccs.neu.edu/blog/2019/09/10/scoping-in-r/
 http://prl.ccs.neu.edu/blog/2016/11/30/-getting-started-in-programming-languages-cross-post-http-jschuster-org-blog-2016-11-29-getting-started-in-programming-languages/
 http://prl.ccs.neu.edu/blog/2017/06/16/spring-2017-pl-junior-retrospective/
 http://prl.ccs.neu.edu/blog/2017/01/03/-toward-type-preserving-compilation-of-coq-at-popl17-src-cross-post-https-williamjbowman-com-blog-2017-01-03-toward-type-preserving-compilation-of-coq-at-popl17-src/
@@ -67,6 +68,7 @@ http://prl.ccs.neu.edu/blog/2017/08/29/-why-am-i-going-to-icfp-2017-cross-post-h
 http://prl.ccs.neu.edu/blog/2016/10/17/emacs-daemon-for-fast-editor-startup/
 http://prl.ccs.neu.edu/blog/2017/05/23/building-a-website-with-scribble/
 http://prl.ccs.neu.edu/blog/2017/07/19/trees-1973/
+http://prl.ccs.neu.edu/blog/2019/09/10/four-kinds-of-scoping-in-r/
 http://prl.ccs.neu.edu/blog/2017/06/09/-bridging-the-system-configuration-gap-cross-post-https-aaronweiss-us-posts-2017-06-05-bridging-the-system-configuration-gap-html/
 http://prl.ccs.neu.edu/blog/2016/09/15/nepls-on-october-7th-at-northeastern-university/
 http://prl.ccs.neu.edu/blog/2017/08/13/reviews-and-author-responses-we-should-stop-asking-for-500-word-responses/
