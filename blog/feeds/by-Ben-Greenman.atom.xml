@@ -1647,17 +1647,18 @@ Welcome to Racket v6.10.0.3.
 &lt;p&gt;&amp;ldquo;Critical path&amp;rdquo; resources:&lt;/p&gt;
 
 &lt;ul&gt;
+ &lt;li&gt;Code examples for this post: &lt;a href="https://github.com/nuprl/website/blob/master/blog/static/redex-faq.rkt"&gt;https://github.com/nuprl/website/blob/master/blog/static/redex-faq.rkt&lt;/a&gt;&lt;/li&gt;
  &lt;li&gt;Redex documentation: &lt;a href="http://docs.racket-lang.org/redex/index.html"&gt;http://docs.racket-lang.org/redex/index.html&lt;/a&gt;&lt;/li&gt;
- &lt;li&gt;A longer tutorial: &lt;a href="https://dvanhorn.github.io/redex-aam-tutorial/"&gt;https://dvanhorn.github.io/redex-aam-tutorial/&lt;/a&gt;&lt;/li&gt;
- &lt;li&gt;Source code for this post: &lt;a href="https://github.com/nuprl/website/blob/master/blog/static/redex-faq.rkt"&gt;https://github.com/nuprl/website/blob/master/blog/static/redex-faq.rkt&lt;/a&gt;&lt;/li&gt;
- &lt;li&gt;Redex source code (see &lt;code&gt;redex-lib/&lt;/code&gt;): &lt;a href="https://github.com/racket/redex"&gt;https://github.com/racket/redex&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;
+ &lt;li&gt;&lt;a href="https://dvanhorn.github.io/redex-aam-tutorial/"&gt;&lt;em&gt;An Introduction to Redex with Abstracting Abstract Machines&lt;/em&gt;&lt;/a&gt; by David Van Horn&lt;/li&gt;
+ &lt;li&gt;&lt;a href="https://www.leafac.com/playing-the-game-with-plt-redex/"&gt;&lt;em&gt;Playing the Game with PLT Redex&lt;/em&gt;&lt;/a&gt; by Leandro Facchinetti&lt;/li&gt;
+ &lt;li&gt;&lt;a href="https://williamjbowman.com/doc/experimenting-with-redex/index.html"&gt;&lt;em&gt;Experimenting with Languages in Redex&lt;/em&gt;&lt;/a&gt; by William J. Bowman&lt;/li&gt;&lt;/ul&gt;
 
 &lt;p&gt;&amp;ldquo;Procrastination&amp;rdquo; resources:&lt;/p&gt;
 
 &lt;ul&gt;
- &lt;li&gt;Tree Automata: &lt;a href="http://tata.gforge.inria.fr/"&gt;http://tata.gforge.inria.fr/&lt;/a&gt;&lt;/li&gt;
- &lt;li&gt;&lt;em&gt;Should your Specification Language be Typed?&lt;/em&gt;: &lt;a href="http://lamport.azurewebsites.net/pubs/lamport-types.pdf"&gt;http://lamport.azurewebsites.net/pubs/lamport-types.pdf&lt;/a&gt;&lt;/li&gt;
- &lt;li&gt;Source code for this post: &lt;a href="https://github.com/nuprl/website/blob/master/blog/_src/posts/2017-09-25-redex-faq.md"&gt;https://github.com/nuprl/website/blob/master/blog/_src/posts/2017-09-25-redex-faq.md&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;</content></entry>
+ &lt;li&gt;&lt;a href="http://tata.gforge.inria.fr/"&gt;&lt;em&gt;Tree Automata Techniques and Applications&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+ &lt;li&gt;&lt;a href="http://lamport.azurewebsites.net/pubs/lamport-types.pdf"&gt;&lt;em&gt;Should your Specification Language be Typed?&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+ &lt;li&gt;Redex source code (see &lt;code&gt;redex-lib/&lt;/code&gt;): &lt;a href="https://github.com/racket/redex"&gt;https://github.com/racket/redex&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;</content></entry>
  <entry>
   <title type="text">Gradual Typing Across the Spectrum, part II</title>
   <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2017/08/22/gradual-typing-across-the-spectrum-part-ii/?utm_source=by-Ben-Greenman&amp;utm_medium=Atom" />
