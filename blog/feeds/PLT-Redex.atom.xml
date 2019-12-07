@@ -229,9 +229,9 @@ Welcome to Racket v6.10.0.3.
 &lt;pre&gt;&lt;code&gt;(judgment-holds (N= Zero Zero))
 ;; #true
 (judgment-holds (N= (Plus1 (Plus1 Zero)) (Plus1 (Plus1 Zero))))
-;; #false
+;; #true
 (judgment-holds (N= (Plus1 Zero) (Plus1 (Plus1 Zero))))
-;; #true&lt;/code&gt;&lt;/pre&gt;
+;; #false&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;Note: the inference rules form a &lt;em&gt;set&lt;/em&gt;, not a &lt;em&gt;sequence&lt;/em&gt;. So when you ask Redex whether &lt;strong&gt;(judgment-holds (N= Zero Zero))&lt;/strong&gt;, it applies  all rules that match &lt;strong&gt;(N= Zero Zero)&lt;/strong&gt;. For &lt;strong&gt;N=&lt;/strong&gt; this is just one rule, but in general it could be many rules.&lt;/p&gt;
 
