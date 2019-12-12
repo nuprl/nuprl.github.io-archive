@@ -60,6 +60,7 @@ http://prl.ccs.neu.edu/blog/2017/01/03/-toward-type-preserving-compilation-of-co
 http://prl.ccs.neu.edu/blog/2016/11/17/src-submissions/
 http://prl.ccs.neu.edu/blog/2017/05/24/programming-language-conference-in-russia/
 http://prl.ccs.neu.edu/blog/2019/10/31/complete-monitors-for-gradual-types/
+http://prl.ccs.neu.edu/blog/2019/12/12/prl-offsite-2019-retrospective/
 http://prl.ccs.neu.edu/blog/2017/05/15/artifacts-for-semantics/
 http://prl.ccs.neu.edu/blog/2016/08/02/tutorial-zero-to-sixty-in-racket/
 http://prl.ccs.neu.edu/blog/2018/04/27/the-racket-school-2018-create-your-own-language/
