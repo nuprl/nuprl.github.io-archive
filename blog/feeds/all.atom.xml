@@ -1466,6 +1466,8 @@ f&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kc"&gt;FALSE&lt;/span&gt;&l
 
 &lt;p&gt;If you want more content about R and scoping, the &lt;a href="/blog/2019/09/10/four-kinds-of-scoping-in-r/"&gt;third and final part&lt;/a&gt; of this blog series is already published. In it, I walk through four different examples of using metaprogramming to simulate different scoping disciplines in R.&lt;/p&gt;
 
+&lt;p&gt;&lt;strong&gt;Edited 2020/02/21:&lt;/strong&gt; For another discussion on R environments and lookups, (and also packages and namespaces, which I did not cover in my post), &lt;a href="http://blog.obeautifulcode.com/R/How-R-Searches-And-Finds-Stuff/"&gt;this blog post&lt;/a&gt; has some nice examples and diagrams.&lt;/p&gt;
+
 &lt;p&gt;&lt;em&gt;I would like to thank Sam Caldwell, Guido Chari, Oli Flückiger, Aviral Goel, Ben Greenman, Jakob Hain, Jan Ječmen, Hugo Musso Gualandi, Artem Pelenitsyn, and Jan Vitek for their comments, feedback, and discussions that have greatly improved and shaped this blog post.&lt;/em&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;em&gt;If you liked this post, you may also be interested in the following Twitter threads about R: &lt;a href="https://twitter.com/mhyee/status/1063983175163158531"&gt;one&lt;/a&gt;, &lt;a href="https://twitter.com/mhyee/status/1067818720532316166"&gt;two&lt;/a&gt; and &lt;a href="https://twitter.com/mhyee/status/1074744049951739905"&gt;three&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;
