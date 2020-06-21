@@ -611,7 +611,7 @@ class GBox {
   // ....
 }&lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;Both may potentially lead to heap pollution.&lt;/p&gt;
+&lt;p&gt;Both may potentially lead to &lt;a href="http://www.angelikalanger.com/GenericsFAQ/FAQSections/TechnicalDetails.html#FAQ050"&gt;heap pollution&lt;/a&gt;.&lt;/p&gt;
 
 &lt;blockquote&gt;
  &lt;p&gt;"The decision not to make all generic types [not erased] is one of the most crucial, and controversial design decisions involving the type system of the Java programming language.&lt;/p&gt;
