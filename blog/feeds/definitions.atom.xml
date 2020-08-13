@@ -77,6 +77,8 @@ g&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="c1"&gt;# what does this r
 
 &lt;p&gt;Dynamically scoped programming languages include bash, LaTeX, and the original version of Lisp. Emacs Lisp is dynamically scoped, but allows the programmer to select lexical scoping. Conversely, Perl and Common Lisp are lexically scoped by default, but allow the programmer to select dynamic scoping.&lt;/p&gt;
 
+&lt;p&gt;(&lt;strong&gt;Edited 2020/08/13:&lt;/strong&gt; As of &lt;a href="https://www.gnu.org/savannah-checkouts/gnu/emacs/news/NEWS.27.1"&gt;Emacs 27.1&lt;/a&gt;, &amp;ldquo;lexical binding is now used by default when evaluating interactive Elisp.&amp;rdquo;)&lt;/p&gt;
+
 &lt;h2 id="now-for-a-digression"&gt;Now for a digression&lt;/h2&gt;
 
 &lt;p&gt;These are the definitions I learned from my classes and textbooks, and should be similar to other definitions and explanations you might find online.&lt;/p&gt;
