@@ -30,14 +30,14 @@
  &lt;li&gt;the language&amp;rsquo;s drawing and/or plotting libraries can replace &lt;a href="https://ctan.org/pkg/pgf?lang=en"&gt;TikZ&lt;/a&gt;;&lt;/li&gt;
  &lt;li&gt;and you can write unit tests to validate the claims made in the paper.&lt;/li&gt;&lt;/ul&gt;
 
-&lt;p&gt;Scribble, &lt;a href="http://docs.racket-lang.org/scribble/index.html"&gt;the Racket documentation tool&lt;/a&gt;,  comes with a to-LaTeX compiler and a &lt;a href="&amp;lt;http://docs.racket-lang.org/scribble/ACM_Paper_Format.html&amp;gt;"&gt;scribble/acmart&lt;/a&gt;  library tailored to the new &lt;a href="https://ctan.org/pkg/acmart?lang=en"&gt;ACM paper format&lt;/a&gt;. I have been a pretty happy user of these tools. In the interest of attracting more happy users, this post  presents a short &amp;ldquo;getting started&amp;rdquo; guide  and links to some larger examples.&lt;/p&gt;
+&lt;p&gt;Scribble, &lt;a href="http://docs.racket-lang.org/scribble/index.html"&gt;the Racket documentation tool&lt;/a&gt;,  comes with a to-LaTeX compiler and a &lt;a href="http://docs.racket-lang.org/scribble/ACM_Paper_Format.html"&gt;scribble/acmart&lt;/a&gt;  library tailored to the new &lt;a href="https://ctan.org/pkg/acmart?lang=en"&gt;ACM paper format&lt;/a&gt;. I have been a pretty happy user of these tools. In the interest of attracting more happy users, this post  presents a short &amp;ldquo;getting started&amp;rdquo; guide  and links to some larger examples.&lt;/p&gt;
 
 &lt;blockquote&gt;
  &lt;p&gt;For a Scribble tutorial, see the links in: &lt;a href="/blog/2017/05/23/building-a-website-with-scribble/index.html"&gt;Building a Website with Scribble&lt;/a&gt;&lt;/p&gt;&lt;/blockquote&gt;
 
-&lt;h2 id="getting-started-with-"&gt;Getting started with &lt;a href="&amp;lt;http://docs.racket-lang.org/scribble/ACM_Paper_Format.html&amp;gt;"&gt;scribble/acmart&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id="getting-started-with-"&gt;Getting started with &lt;a href="http://docs.racket-lang.org/scribble/ACM_Paper_Format.html"&gt;scribble/acmart&lt;/a&gt;&lt;/h2&gt;
 
-&lt;p&gt;The first line of a &lt;a href="&amp;lt;http://docs.racket-lang.org/scribble/ACM_Paper_Format.html&amp;gt;"&gt;scribble/acmart&lt;/a&gt; document sets the formatting options (similar to a LaTeX file using &lt;code&gt;acmart.cls&lt;/code&gt;). For example, the &lt;a href="https://conf.researchr.org/track/gpce-2018/gpce-2018#Call-for-Papers"&gt;GPCE 2018 call for papers&lt;/a&gt;  asks for anonymized &lt;code&gt;sigplan&lt;/code&gt;-format submissions with line numbers and 10 point font. The proper Scribble incantation is:&lt;/p&gt;
+&lt;p&gt;The first line of a &lt;a href="http://docs.racket-lang.org/scribble/ACM_Paper_Format.html"&gt;scribble/acmart&lt;/a&gt; document sets the formatting options (similar to a LaTeX file using &lt;code&gt;acmart.cls&lt;/code&gt;). For example, the &lt;a href="https://conf.researchr.org/track/gpce-2018/gpce-2018#Call-for-Papers"&gt;GPCE 2018 call for papers&lt;/a&gt;  asks for anonymized &lt;code&gt;sigplan&lt;/code&gt;-format submissions with line numbers and 10 point font. The proper Scribble incantation is:&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;#lang scribble/acmart @sigplan @anonymous @review @10pt&lt;/code&gt;&lt;/pre&gt;
 
@@ -191,7 +191,7 @@ l.549 \oops
 
 &lt;h3 id="q-how-to-make-a-figure"&gt;Q. How to make a figure?&lt;/h3&gt;
 
-&lt;p&gt;Use the &lt;a href="&amp;lt;http://docs.racket-lang.org/scriblib/figure.html#%28def._%28%28lib._scriblib%2Ffigure..rkt%29._figure%29%29&amp;gt;"&gt;scriblib/figure&lt;/a&gt;  library to add figures to a document.&lt;/p&gt;
+&lt;p&gt;Use the &lt;a href="http://docs.racket-lang.org/scriblib/figure.html#%28def._%28%28lib._scriblib%2Ffigure..rkt%29._figure%29%29"&gt;scriblib/figure&lt;/a&gt;  library to add figures to a document.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;@require[pict scriblib/figure]
 @figure[
@@ -296,7 +296,7 @@ $ raco test -c conference-2018-submission&lt;/code&gt;&lt;/pre&gt;
 
 &lt;h4 id="conference-2018-submissionmainrkt"&gt;&lt;code&gt;conference-2018-submission/main.rkt&lt;/code&gt;&lt;/h4&gt;
 
-&lt;p&gt;This file defines and exports the common environment for every file in our  Scribble document. In this example, the common environment is:  the &lt;a href="&amp;lt;http://docs.racket-lang.org/scribble/ACM_Paper_Format.html&amp;gt;"&gt;scribble/acmart&lt;/a&gt; language,  the file &amp;ldquo;references.rkt&amp;rdquo;,  and the &lt;a href="&amp;lt;http://docs.racket-lang.org/scriblib/figure.html#%28def._%28%28lib._scriblib%2Ffigure..rkt%29._figure%29%29&amp;gt;"&gt;scriblib/figure&lt;/a&gt; library.&lt;/p&gt;
+&lt;p&gt;This file defines and exports the common environment for every file in our  Scribble document. In this example, the common environment is:  the &lt;a href="http://docs.racket-lang.org/scribble/ACM_Paper_Format.html"&gt;scribble/acmart&lt;/a&gt; language,  the file &amp;ldquo;references.rkt&amp;rdquo;,  and the &lt;a href="http://docs.racket-lang.org/scriblib/figure.html#%28def._%28%28lib._scriblib%2Ffigure..rkt%29._figure%29%29"&gt;scriblib/figure&lt;/a&gt; library.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;#lang racket/base
 
@@ -3144,6 +3144,121 @@ incantation in a command-line:&lt;/p&gt;
      &lt;table cellpadding="0" cellspacing="0"&gt;
       &lt;tbody&gt;
        &lt;tr&gt;
+        &lt;td&gt;
+         &lt;p&gt;&lt;span class="RktOut"&gt;Resolving "ffi-definer-convention" via https://download.racket-lang.org/releases/6.6/catalog/&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;
+       &lt;tr&gt;
+        &lt;td&gt;
+         &lt;p&gt;&lt;span class="RktOut"&gt;Resolving "ffi-definer-convention" via https://pkgs.racket-lang.org&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;
+       &lt;tr&gt;
+        &lt;td&gt;
+         &lt;p&gt;&lt;span class="RktOut"&gt;Downloading repository git://github.com/takikawa/racket-ffi-definer-convention&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;
+       &lt;tr&gt;
+        &lt;td&gt;
+         &lt;p&gt;&lt;span class="RktOut"&gt;raco setup: version: 6.6&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;
+       &lt;tr&gt;
+        &lt;td&gt;
+         &lt;p&gt;&lt;span class="RktOut"&gt;raco setup: platform: x86_64-linux [3m]&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;
+       &lt;tr&gt;
+        &lt;td&gt;
+         &lt;p&gt;&lt;span class="RktOut"&gt;raco setup: installation name: 6.6&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;
+       &lt;tr&gt;
+        &lt;td&gt;
+         &lt;p&gt;&lt;span class="RktOut"&gt;raco setup: variants: 3m&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;
+       &lt;tr&gt;
+        &lt;td&gt;
+         &lt;p&gt;&lt;span class="RktOut"&gt;raco setup: main collects: /home/travis/racket/collects&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;
+       &lt;tr&gt;
+        &lt;td&gt;
+         &lt;p&gt;&lt;span class="RktOut"&gt;raco setup: collects paths: &lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;
+       &lt;tr&gt;
+        &lt;td&gt;
+         &lt;p&gt;&lt;span class="RktOut"&gt;raco setup: &lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class="RktOut"&gt;/home/travis/racket/collects&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;
+       &lt;tr&gt;
+        &lt;td&gt;
+         &lt;p&gt;&lt;span class="RktOut"&gt;raco setup: main pkgs: /home/travis/racket/share/pkgs&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;
+       &lt;tr&gt;
+        &lt;td&gt;
+         &lt;p&gt;&lt;span class="RktOut"&gt;raco setup: pkgs paths: &lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;
+       &lt;tr&gt;
+        &lt;td&gt;
+         &lt;p&gt;&lt;span class="RktOut"&gt;raco setup: &lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class="RktOut"&gt;/home/travis/racket/share/pkgs&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;
+       &lt;tr&gt;
+        &lt;td&gt;
+         &lt;p&gt;&lt;span class="RktOut"&gt;raco setup: &lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class="RktOut"&gt;/home/travis/.racket/6.6/pkgs&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;
+       &lt;tr&gt;
+        &lt;td&gt;
+         &lt;p&gt;&lt;span class="RktOut"&gt;raco setup: links files: &lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;
+       &lt;tr&gt;
+        &lt;td&gt;
+         &lt;p&gt;&lt;span class="RktOut"&gt;raco setup: &lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class="RktOut"&gt;/home/travis/racket/share/links.rktd&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;
+       &lt;tr&gt;
+        &lt;td&gt;
+         &lt;p&gt;&lt;span class="RktOut"&gt;raco setup: &lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span class="RktOut"&gt;/home/travis/.racket/6.6/links.rktd&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;
+       &lt;tr&gt;
+        &lt;td&gt;
+         &lt;p&gt;&lt;span class="RktOut"&gt;raco setup: main docs: /home/travis/racket/doc&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;
+       &lt;tr&gt;
+        &lt;td&gt;
+         &lt;p&gt;&lt;span class="RktOut"&gt;raco setup: --- updating info-domain tables ---&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;
+       &lt;tr&gt;
+        &lt;td&gt;
+         &lt;p&gt;&lt;span class="RktOut"&gt;raco setup: updating: /home/travis/.racket/6.6/share/info-cache.rktd&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;
+       &lt;tr&gt;
+        &lt;td&gt;
+         &lt;p&gt;&lt;span class="RktOut"&gt;raco setup: --- pre-installing collections ---&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;
+       &lt;tr&gt;
+        &lt;td&gt;
+         &lt;p&gt;&lt;span class="RktOut"&gt;raco setup: --- installing foreign libraries ---&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;
+       &lt;tr&gt;
+        &lt;td&gt;
+         &lt;p&gt;&lt;span class="RktOut"&gt;raco setup: --- installing shared files ---&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;
+       &lt;tr&gt;
+        &lt;td&gt;
+         &lt;p&gt;&lt;span class="RktOut"&gt;raco setup: --- compiling collections ---&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;
+       &lt;tr&gt;
+        &lt;td&gt;
+         &lt;p&gt;&lt;span class="RktOut"&gt;raco setup: --- parallel build using 2 jobs ---&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;
+       &lt;tr&gt;
+        &lt;td&gt;
+         &lt;p&gt;&lt;span class="RktOut"&gt;raco setup: 1 making: &amp;lt;pkgs&amp;gt;/ffi-definer-convention&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;
+       &lt;tr&gt;
+        &lt;td&gt;
+         &lt;p&gt;&lt;span class="RktOut"&gt;raco setup: --- creating launchers ---&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;
+       &lt;tr&gt;
+        &lt;td&gt;
+         &lt;p&gt;&lt;span class="RktOut"&gt;raco setup: --- installing man pages ---&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;
+       &lt;tr&gt;
+        &lt;td&gt;
+         &lt;p&gt;&lt;span class="RktOut"&gt;raco setup: --- building documentation ---&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;
+       &lt;tr&gt;
+        &lt;td&gt;
+         &lt;p&gt;&lt;span class="RktOut"&gt;raco setup: 0 running: &amp;lt;pkgs&amp;gt;/ffi-definer-convention/ffi-definer-convention.scrbl&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;
+       &lt;tr&gt;
+        &lt;td&gt;
+         &lt;p&gt;&lt;span class="RktOut"&gt;raco setup: 1 rendering: &amp;lt;pkgs&amp;gt;/ffi-definer-convention/ffi-definer-convention.scrbl&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;
+       &lt;tr&gt;
+        &lt;td&gt;
+         &lt;p&gt;&lt;span class="RktOut"&gt;raco setup: 0 rendering: &amp;lt;pkgs&amp;gt;/racket-index/scribblings/main/user/local-redirect.scrbl&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;
+       &lt;tr&gt;
+        &lt;td&gt;
+         &lt;p&gt;&lt;span class="RktOut"&gt;raco setup: 0 rendering: &amp;lt;pkgs&amp;gt;/racket-index/scribblings/main/user/release.scrbl&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;
+       &lt;tr&gt;
+        &lt;td&gt;
+         &lt;p&gt;&lt;span class="RktOut"&gt;raco setup: 0 rendering: &amp;lt;pkgs&amp;gt;/racket-index/scribblings/main/user/search.scrbl&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;
+       &lt;tr&gt;
+        &lt;td&gt;
+         &lt;p&gt;&lt;span class="RktOut"&gt;raco setup: 1 rendering: &amp;lt;pkgs&amp;gt;/racket-index/scribblings/main/user/start.scrbl&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;
+       &lt;tr&gt;
+        &lt;td&gt;
+         &lt;p&gt;&lt;span class="RktOut"&gt;raco setup: --- installing collections ---&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;
+       &lt;tr&gt;
+        &lt;td&gt;
+         &lt;p&gt;&lt;span class="RktOut"&gt;raco setup: --- post-installing collections ---&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;
+   &lt;tr&gt;
+    &lt;td&gt;
+     &lt;table cellpadding="0" cellspacing="0"&gt;
+      &lt;tbody&gt;
+       &lt;tr&gt;
         &lt;td&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;
 
 &lt;p&gt;This will install the package and compile its contents. If you&amp;rsquo;re curious, the
@@ -3673,7 +3788,7 @@ array and reference the correct variant appropriately:&lt;/p&gt;
     &lt;td&gt;&lt;span class="stt"&gt;&amp;gt; &lt;/span&gt;&lt;span class="RktPn"&gt;(&lt;/span&gt;&lt;span class="RktSym"&gt;&lt;a class="RktValLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/foreign/C_Union_Types.html#%28def._%28%28lib._ffi%2Funsafe..rkt%29._union-ref%29%29"&gt;union-ref&lt;/a&gt;&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktPn"&gt;(&lt;/span&gt;&lt;span class="RktSym"&gt;third&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktSym"&gt;array&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;span class="hspace"&gt;&amp;nbsp;&lt;/span&gt;&lt;span class="RktVal"&gt;1&lt;/span&gt;&lt;span class="RktPn"&gt;)&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
    &lt;tr&gt;
     &lt;td&gt;
-     &lt;p&gt;&lt;span class="RktRes"&gt;'(4.2439915824246e-314 0.0)&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;
+     &lt;p&gt;&lt;span class="RktRes"&gt;'(4.2439915824246e-314 3.7431559561231e-317)&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;
 
 &lt;p&gt;One thing we could do is write a helper function that converts this array
 into a more useful format. It would look at each header, and then consume

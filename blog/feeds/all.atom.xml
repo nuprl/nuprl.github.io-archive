@@ -1896,14 +1896,14 @@ g&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="c1"&gt;# what does this r
  &lt;li&gt;the language&amp;rsquo;s drawing and/or plotting libraries can replace &lt;a href="https://ctan.org/pkg/pgf?lang=en"&gt;TikZ&lt;/a&gt;;&lt;/li&gt;
  &lt;li&gt;and you can write unit tests to validate the claims made in the paper.&lt;/li&gt;&lt;/ul&gt;
 
-&lt;p&gt;Scribble, &lt;a href="http://docs.racket-lang.org/scribble/index.html"&gt;the Racket documentation tool&lt;/a&gt;,  comes with a to-LaTeX compiler and a &lt;a href="&amp;lt;http://docs.racket-lang.org/scribble/ACM_Paper_Format.html&amp;gt;"&gt;scribble/acmart&lt;/a&gt;  library tailored to the new &lt;a href="https://ctan.org/pkg/acmart?lang=en"&gt;ACM paper format&lt;/a&gt;. I have been a pretty happy user of these tools. In the interest of attracting more happy users, this post  presents a short &amp;ldquo;getting started&amp;rdquo; guide  and links to some larger examples.&lt;/p&gt;
+&lt;p&gt;Scribble, &lt;a href="http://docs.racket-lang.org/scribble/index.html"&gt;the Racket documentation tool&lt;/a&gt;,  comes with a to-LaTeX compiler and a &lt;a href="http://docs.racket-lang.org/scribble/ACM_Paper_Format.html"&gt;scribble/acmart&lt;/a&gt;  library tailored to the new &lt;a href="https://ctan.org/pkg/acmart?lang=en"&gt;ACM paper format&lt;/a&gt;. I have been a pretty happy user of these tools. In the interest of attracting more happy users, this post  presents a short &amp;ldquo;getting started&amp;rdquo; guide  and links to some larger examples.&lt;/p&gt;
 
 &lt;blockquote&gt;
  &lt;p&gt;For a Scribble tutorial, see the links in: &lt;a href="/blog/2017/05/23/building-a-website-with-scribble/index.html"&gt;Building a Website with Scribble&lt;/a&gt;&lt;/p&gt;&lt;/blockquote&gt;
 
-&lt;h2 id="getting-started-with-"&gt;Getting started with &lt;a href="&amp;lt;http://docs.racket-lang.org/scribble/ACM_Paper_Format.html&amp;gt;"&gt;scribble/acmart&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id="getting-started-with-"&gt;Getting started with &lt;a href="http://docs.racket-lang.org/scribble/ACM_Paper_Format.html"&gt;scribble/acmart&lt;/a&gt;&lt;/h2&gt;
 
-&lt;p&gt;The first line of a &lt;a href="&amp;lt;http://docs.racket-lang.org/scribble/ACM_Paper_Format.html&amp;gt;"&gt;scribble/acmart&lt;/a&gt; document sets the formatting options (similar to a LaTeX file using &lt;code&gt;acmart.cls&lt;/code&gt;). For example, the &lt;a href="https://conf.researchr.org/track/gpce-2018/gpce-2018#Call-for-Papers"&gt;GPCE 2018 call for papers&lt;/a&gt;  asks for anonymized &lt;code&gt;sigplan&lt;/code&gt;-format submissions with line numbers and 10 point font. The proper Scribble incantation is:&lt;/p&gt;
+&lt;p&gt;The first line of a &lt;a href="http://docs.racket-lang.org/scribble/ACM_Paper_Format.html"&gt;scribble/acmart&lt;/a&gt; document sets the formatting options (similar to a LaTeX file using &lt;code&gt;acmart.cls&lt;/code&gt;). For example, the &lt;a href="https://conf.researchr.org/track/gpce-2018/gpce-2018#Call-for-Papers"&gt;GPCE 2018 call for papers&lt;/a&gt;  asks for anonymized &lt;code&gt;sigplan&lt;/code&gt;-format submissions with line numbers and 10 point font. The proper Scribble incantation is:&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;#lang scribble/acmart @sigplan @anonymous @review @10pt&lt;/code&gt;&lt;/pre&gt;
 
@@ -2057,7 +2057,7 @@ l.549 \oops
 
 &lt;h3 id="q-how-to-make-a-figure"&gt;Q. How to make a figure?&lt;/h3&gt;
 
-&lt;p&gt;Use the &lt;a href="&amp;lt;http://docs.racket-lang.org/scriblib/figure.html#%28def._%28%28lib._scriblib%2Ffigure..rkt%29._figure%29%29&amp;gt;"&gt;scriblib/figure&lt;/a&gt;  library to add figures to a document.&lt;/p&gt;
+&lt;p&gt;Use the &lt;a href="http://docs.racket-lang.org/scriblib/figure.html#%28def._%28%28lib._scriblib%2Ffigure..rkt%29._figure%29%29"&gt;scriblib/figure&lt;/a&gt;  library to add figures to a document.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;@require[pict scriblib/figure]
 @figure[
@@ -2162,7 +2162,7 @@ $ raco test -c conference-2018-submission&lt;/code&gt;&lt;/pre&gt;
 
 &lt;h4 id="conference-2018-submissionmainrkt"&gt;&lt;code&gt;conference-2018-submission/main.rkt&lt;/code&gt;&lt;/h4&gt;
 
-&lt;p&gt;This file defines and exports the common environment for every file in our  Scribble document. In this example, the common environment is:  the &lt;a href="&amp;lt;http://docs.racket-lang.org/scribble/ACM_Paper_Format.html&amp;gt;"&gt;scribble/acmart&lt;/a&gt; language,  the file &amp;ldquo;references.rkt&amp;rdquo;,  and the &lt;a href="&amp;lt;http://docs.racket-lang.org/scriblib/figure.html#%28def._%28%28lib._scriblib%2Ffigure..rkt%29._figure%29%29&amp;gt;"&gt;scriblib/figure&lt;/a&gt; library.&lt;/p&gt;
+&lt;p&gt;This file defines and exports the common environment for every file in our  Scribble document. In this example, the common environment is:  the &lt;a href="http://docs.racket-lang.org/scribble/ACM_Paper_Format.html"&gt;scribble/acmart&lt;/a&gt; language,  the file &amp;ldquo;references.rkt&amp;rdquo;,  and the &lt;a href="http://docs.racket-lang.org/scriblib/figure.html#%28def._%28%28lib._scriblib%2Ffigure..rkt%29._figure%29%29"&gt;scriblib/figure&lt;/a&gt; library.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;#lang racket/base
 
