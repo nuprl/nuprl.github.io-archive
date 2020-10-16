@@ -4,9 +4,340 @@
   <title>PRL Blog: Posts tagged 'by Ben Greenman'</title>
   <description>PRL Blog: Posts tagged 'by Ben Greenman'</description>
   <link>http://prl.ccs.neu.edu/blog/tags/by-Ben-Greenman.html</link>
-  <lastBuildDate>Wed, 15 Jan 2020 12:16:35 UT</lastBuildDate>
-  <pubDate>Wed, 15 Jan 2020 12:16:35 UT</pubDate>
+  <lastBuildDate>Thu, 15 Oct 2020 13:32:12 UT</lastBuildDate>
+  <pubDate>Thu, 15 Oct 2020 13:32:12 UT</pubDate>
   <ttl>1800</ttl>
+  <item>
+   <title>Transient Answers Old Questions</title>
+   <link>http://prl.ccs.neu.edu/blog/2020/10/15/transient-answers-old-questions/?utm_source=by-Ben-Greenman&amp;utm_medium=RSS</link>
+   <guid isPermaLink="false">urn:http-prl-ccs-neu-edu:-blog-2020-10-15-transient-answers-old-questions</guid>
+   <pubDate>Thu, 15 Oct 2020 13:32:12 UT</pubDate>
+   <author>PRL</author>
+   <description>
+&lt;p&gt;Several old questions from the Typed Racket mailing list have new and simple answers under a &amp;ldquo;transient&amp;rdquo; Typed Racket.&lt;/p&gt;
+&lt;!-- more--&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;For the past few months, I&amp;rsquo;ve been adding a transient semantics to Typed Racket. The project is called Shallow Typed Racket. Details are in the &lt;a href="https://github.com/racket/typed-racket/pull/952"&gt;RFC&lt;/a&gt;  and &lt;a href="https://github.com/racket/typed-racket/pull/948"&gt;pull request&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;The short story is that the new Shallow Racket does less to enforce types  when typed code interacts with untyped code. Typed code is still type-sound, but that&amp;rsquo;s about it. By contrast, types are much stronger in classic Typed Racket.&lt;/p&gt;
+
+&lt;p&gt;Shallow Racket&amp;rsquo;s weaker types allow more programs to run. While testing whether the new freedom is useful, I reviewed a few years of  Typed Racket questions on the &lt;a href="https://groups.google.com/g/racket-users"&gt;Racket mailing list&lt;/a&gt;. There were a surprising number of questions that went like this:&lt;/p&gt;
+
+&lt;blockquote&gt;
+ &lt;p&gt;&lt;strong&gt;Q.&lt;/strong&gt; Hey, I ran a program expecting &lt;em&gt;X&lt;/em&gt; to happen, but &lt;em&gt;Y&lt;/em&gt; happened instead. Is this a bug?&lt;/p&gt;
+ &lt;p&gt;&lt;strong&gt;A.&lt;/strong&gt; No, Typed Racket has to do &lt;em&gt;Y&lt;/em&gt; because of its strong types.&lt;/p&gt;&lt;/blockquote&gt;
+
+&lt;p&gt;&amp;hellip; but changing to shallow types gives the &lt;em&gt;X&lt;/em&gt; behavior! Here are their stories.&lt;/p&gt;
+
+&lt;p&gt;Going forward, &lt;strong&gt;Deep&lt;/strong&gt; refers to normal Typed Racket and &lt;strong&gt;Shallow&lt;/strong&gt; refers to Shallow Typed Racket.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id="higher-order-value-as-any"&gt;Higher-Order Value as Any&lt;/h2&gt;
+
+&lt;p&gt;Original message : &lt;a href="https://groups.google.com/g/racket-users/c/cCQ6dRNybDg/m/CKXgX1PyBgAJ"&gt;groups.google.com/g/racket-users/c/cCQ6dRNybDg/m/CKXgX1PyBgAJ&lt;/a&gt;&lt;/p&gt;
+
+&lt;h4 id="on-20180416-mailoo-wrote"&gt;On 2018&amp;ndash;04&amp;ndash;16, &lt;em&gt;mailoo&lt;/em&gt; wrote:&lt;/h4&gt;
+
+&lt;blockquote&gt;
+ &lt;p&gt; I play a little with the &amp;ldquo;Any&amp;rdquo; type (due to &amp;lsquo;dynamic-require&amp;rsquo; which   return Any), and I&amp;rsquo;m not able to cast them back in a function.&lt;/p&gt;
+ &lt;p&gt; I (over) simplify my question with this little program :&lt;/p&gt;&lt;/blockquote&gt;
+
+&lt;pre&gt;&lt;code&gt;(: p Any) 
+(define (p i) (displayln i)) 
+
+; Here I want to get back my function 
+(define proc (cast p (-&amp;gt; Integer Void))) 
+(proc 2) &lt;/code&gt;&lt;/pre&gt;
+
+&lt;blockquote&gt;
+ &lt;p&gt; but I get this error when I try to execute the function :&lt;/p&gt;&lt;/blockquote&gt;
+
+&lt;pre&gt;&lt;code&gt;; contract violation 
+; Attempted to use a higher-order value passed as `Any` in untyped code: #&amp;lt;procedure:p&amp;gt; &lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id="whats-going-on"&gt;What&amp;rsquo;s going on?&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;Deep&lt;/strong&gt; raises an error because it must enforce the &lt;code&gt;Any&lt;/code&gt; type with a contract that  rejects all interactions. Things would go badly if an Any-typed function expected a String but got an  Integer.&lt;/p&gt;
+
+&lt;h3 id="hows-transient"&gt;How&amp;rsquo;s transient?&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;Shallow&lt;/strong&gt; prints 2 and returns void. No error. Same goes for dynamic-require.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id="parametric-contract-affects-untyped-code"&gt;Parametric Contract Affects Untyped Code&lt;/h2&gt;
+
+&lt;p&gt;Original message : &lt;a href="https://groups.google.com/g/racket-users/c/ZbYRQCy93dY/m/kF_Ek0VvAQAJ"&gt;groups.google.com/g/racket-users/c/ZbYRQCy93dY/m/kF_Ek0VvAQAJ&lt;/a&gt;&lt;/p&gt;
+
+&lt;h4 id="on-20191215-john-clements-wrote"&gt;On 2019&amp;ndash;12&amp;ndash;15, John Clements wrote:&lt;/h4&gt;
+
+&lt;blockquote&gt;
+ &lt;p&gt; It looks like my quick attempt at importing index-of into TR is running into a problem. Here’s the program I ran:&lt;/p&gt;&lt;/blockquote&gt;
+
+&lt;pre&gt;&lt;code&gt;  #lang typed/racket 
+
+  (require/typed racket/list 
+  [index-of (All (T) ((Listof T) T -&amp;gt; (U False Natural)))]) 
+
+  (index-of '(n s e w) 'n) ;; returns... #f? &lt;/code&gt;&lt;/pre&gt;
+
+&lt;blockquote&gt;
+ &lt;p&gt; In typed/racket/no-check this returns 0, and also in racket (mutatis mutandis).&lt;/p&gt;
+ &lt;p&gt; I thought this might be some kind of parametricity issue, but even when I instantiate index-of at Symbol which should pretty much clear the way for arbitrary equality checking, I still get False.&lt;/p&gt;&lt;/blockquote&gt;
+
+&lt;h3 id="whats-going-on"&gt;What&amp;rsquo;s going on?&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;Deep&lt;/strong&gt; enforces parametricity for &lt;code&gt;All&lt;/code&gt; types, and this throws off the equality  function that index-of uses internally.&lt;/p&gt;
+
+&lt;h3 id="hows-transient"&gt;How&amp;rsquo;s transient?&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;Shallow&lt;/strong&gt; returns 0.&lt;/p&gt;
+
+&lt;p&gt;ps John, thanks very much for working on &lt;a href="https://adventofcode.com"&gt;Advent of Code&lt;/a&gt; and mailing the list!&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id="unable-to-protect-opaque-value-as-any"&gt;Unable to Protect Opaque Value as Any&lt;/h2&gt;
+
+&lt;p&gt;Original message : &lt;a href="https://groups.google.com/g/racket-users/c/jtmVDFCGL28/m/jwl4hsjtBQAJ"&gt;groups.google.com/g/racket-users/c/jtmVDFCGL28/m/jwl4hsjtBQAJ&lt;/a&gt;&lt;/p&gt;
+
+&lt;h4 id="on-20191211-marc-kaufmann-wrote"&gt;On 2019&amp;ndash;12&amp;ndash;11, Marc Kaufmann wrote:&lt;/h4&gt;
+
+&lt;blockquote&gt;
+ &lt;p&gt;I have one file called &lt;code&gt;type-test.rkt&lt;/code&gt; with the following&lt;/p&gt;&lt;/blockquote&gt;
+
+&lt;pre&gt;&lt;code&gt;#lang typed/racket
+
+(require (only-in typed/web-server/http response/xexpr response))
+
+(provide f2)
+
+(: f2 (-&amp;gt; (U response Any)))
+(define (f2)
+  (define x '(body (h1 "Try it")))
+  (: resp response)
+  (define resp (response/xexpr x))
+  resp)&lt;/code&gt;&lt;/pre&gt;
+
+&lt;blockquote&gt;
+ &lt;p&gt;Then I have another &lt;em&gt;untyped&lt;/em&gt; file for a servlet:&lt;/p&gt;&lt;/blockquote&gt;
+
+&lt;pre&gt;&lt;code&gt;#lang racket
+
+(require "type-test.rkt"
+         web-server/servlet
+         web-server/servlet-env)
+
+(define (start req)
+  (f2))
+
+(serve/servlet start
+               #:servlet-regexp #rx""
+               #:launch-browser? #false
+               #:port 8080)&lt;/code&gt;&lt;/pre&gt;
+
+&lt;blockquote&gt;
+ &lt;p&gt;Notice that I am telling [f2] that &lt;code&gt;resp&lt;/code&gt; is of type &lt;code&gt;response&lt;/code&gt;. Yet, when I run the server with &lt;code&gt;start&lt;/code&gt; [&amp;hellip;.] I get the following result:&lt;/p&gt;
+ &lt;p&gt;(f2): Error, see below.&lt;/p&gt;
+ &lt;p&gt;The error is:&lt;/p&gt;&lt;/blockquote&gt;
+
+&lt;pre&gt;&lt;code&gt;f2: broke its own contract
+  any-wrap/c: Unable to protect opaque value passed as `Any`
+  value: #&amp;lt;response&amp;gt;
+  in: the range of
+      (-&amp;gt; Any)&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id="whats-going-on"&gt;What&amp;rsquo;s going on?&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;Deep&lt;/strong&gt; tries to enforce the &lt;code&gt;Any&lt;/code&gt; type with a contract that rejects all  interactions, but needs to know what interactions are possible in order  to make a reject-all contract. For many values, Deep can ask questions like procedure? and struct-info  to learn enough. But this program sends an opaque response struct across a boundary and  Deep does not have the right inspector to learn about the struct fields.&lt;/p&gt;
+
+&lt;h3 id="hows-transient"&gt;How&amp;rsquo;s transient?&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;Shallow&lt;/strong&gt; does nothing to enforce the Any type. This program runs, and in general Shallow never complains about opaque values.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id="type-inference-installs-a-precise-type"&gt;Type Inference Installs a Precise Type&lt;/h2&gt;
+
+&lt;p&gt;Original message : &lt;a href="https://groups.google.com/g/racket-users/c/2X5olKMV3C4/m/mJhsp9ZWBgAJ"&gt;groups.google.com/g/racket-users/c/2X5olKMV3C4/m/mJhsp9ZWBgAJ&lt;/a&gt;&lt;/p&gt;
+
+&lt;h4 id="on-20200214-john-clements-wrote"&gt;On 2020&amp;ndash;02&amp;ndash;14, John Clements wrote:&lt;/h4&gt;
+
+&lt;blockquote&gt;
+ &lt;p&gt;I think I may understand what’s going on here, but a student and I worked on this for quite a while today before I found the problem.&lt;/p&gt;
+ &lt;p&gt;Here’s a program:&lt;/p&gt;&lt;/blockquote&gt;
+
+&lt;pre&gt;&lt;code&gt;#lang typed/racket 
+
+(define-type Store (Mutable-HashTable Integer Value)) 
+(define-type Value (U Real Boolean String)) 
+
+(define top-store
+  (cast
+    (make-hash (list (cons -1 14) (cons 1 #t) (cons 2 #f)))
+    Store))
+
+(hash-set! top-store 5 1234)&lt;/code&gt;&lt;/pre&gt;
+
+&lt;blockquote&gt;
+ &lt;p&gt;It fails with this error:&lt;/p&gt;&lt;/blockquote&gt;
+
+&lt;pre&gt;&lt;code&gt;contract violation
+expected: (or/c (and/c byte? positive?) #t #f)
+given: 1234
+in: the values of
+the 3rd conjunct of
+(and/c hash?
+       hash-mutable?
+       (hash/c exact-integer?
+               (or/c (and/c byte? positive?) #t #f)
+               #:immutable #f))&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id="whats-going-on"&gt;What&amp;rsquo;s going on?&lt;/h3&gt;
+
+&lt;p&gt;First off, &lt;strong&gt;Deep&lt;/strong&gt; runs fine after swapping &lt;code&gt;cast&lt;/code&gt; for &lt;code&gt;ann&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Second, Typed Racket does try to generalize inferred types for mutable data. If the only value in the hash is the byte 14 then Deep also runs.&lt;/p&gt;
+
+&lt;p&gt;The problem is that Typed Racket does not generalize the inferred value type  (U Byte Boolean) and that cast is a run-time tool for enforcing types. Casts create contracts to protect mutable data. In this program, there are two contracts:  one based on the Store type to protect code that uses the hash,  and one based on the inferred type to protect the hash against bad writes. That second contract raises the error message.&lt;/p&gt;
+
+&lt;h3 id="hows-transient"&gt;How&amp;rsquo;s transient?&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;Shallow&lt;/strong&gt; runs successfully. The cast looks for a hash, does not make a contract, and ignores the inferred  type going forward.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id="same-arity-functions-in-a-case-lambda"&gt;Same-Arity Functions in a Case Lambda&lt;/h2&gt;
+
+&lt;p&gt;Original message : &lt;a href="https://groups.google.com/g/racket-users/c/BDrrgW0axGQ/m/P31NxeGHAAAJ"&gt;groups.google.com/g/racket-users/c/BDrrgW0axGQ/m/P31NxeGHAAAJ&lt;/a&gt;&lt;/p&gt;
+
+&lt;h4 id="on-20190705-ryan-kramer-wrote"&gt;On 2019&amp;ndash;07&amp;ndash;05, Ryan Kramer wrote:&lt;/h4&gt;
+
+&lt;blockquote&gt;
+ &lt;p&gt;In the code below, can &lt;code&gt;maybe-car&lt;/code&gt; have the given type [&amp;hellip;.]?&lt;/p&gt;&lt;/blockquote&gt;
+
+&lt;pre&gt;&lt;code&gt;#lang typed/racket
+
+(module untyped racket
+  (provide maybe-car)
+  (define (maybe-car x)
+    (cond
+      [(pair? x) (car x)]
+      [else x])))
+
+(require/typed
+ 'untyped
+ [maybe-car (All (a b) (case-&amp;gt;
+                        (-&amp;gt; (Pairof a b) a)
+                        (-&amp;gt; a a)))])&lt;/code&gt;&lt;/pre&gt;
+
+&lt;blockquote&gt;
+ &lt;p&gt;[Current error:]&lt;/p&gt;&lt;/blockquote&gt;
+
+&lt;pre&gt;&lt;code&gt;Type Checker:
+ Type (All (a b) (case-&amp;gt; (-&amp;gt; (Pairof a b) a) (-&amp;gt; a a)))
+  could not be converted to a contract:
+   function type has two cases of arity 1&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id="whats-going-on"&gt;What&amp;rsquo;s going on?&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;Deep&lt;/strong&gt; tries to enforce the type with a Racket &lt;code&gt;or/c&lt;/code&gt; contract, but cannot. The problem is that or/c only has partial support for unions. If or/c ends up with two possible higher-order options at runtime, it halts. In this case, we end up with two function contracts that have the same arity  and don&amp;rsquo;t know which to apply to an incoming function.&lt;/p&gt;
+
+&lt;p&gt;Note, the &amp;ldquo;Type Checker&amp;rdquo; error message is much better than what or/c would  give on its own.&lt;/p&gt;
+
+&lt;h3 id="hows-transient"&gt;How&amp;rsquo;s transient?&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;Shallow&lt;/strong&gt; simply checks that maybe-car accepts both arities inside the  case-&amp;gt; type. The code runs fine. Later, when the function gets applied in typed code, Shallow spot-checks the  results.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id="immutable-type-affects-untyped-code"&gt;Immutable Type Affects Untyped Code&lt;/h3&gt;
+
+&lt;p&gt;Original message : &lt;a href="https://groups.google.com/g/racket-users/c/UD20HadJ9Ec/m/Lmuw0U8mBwAJ"&gt;groups.google.com/g/racket-users/c/UD20HadJ9Ec/m/Lmuw0U8mBwAJ&lt;/a&gt;&lt;/p&gt;
+
+&lt;h4 id="on-20200217-bertrand-augereau-wrote"&gt;On 2020&amp;ndash;02&amp;ndash;17, Bertrand Augereau wrote:&lt;/h4&gt;
+
+&lt;blockquote&gt;
+ &lt;p&gt;Hello everybody, I&amp;rsquo;m trying to gradually type my script to make it a proper app (yes I&amp;rsquo;m a static-ish guy) and I have an issue (Racket 7.6 CS).&lt;/p&gt;&lt;/blockquote&gt;
+
+&lt;pre&gt;&lt;code&gt;; racket_mod.rkt:
+#lang racket
+
+(provide (struct-out s))
+(provide list-of-s)
+(provide set-list-of-s!)
+
+(struct s (a))
+(define list-of-s '())
+(define (set-list-of-s! los)
+  (set! list-of-s los))&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;; racket_mod_typed.rkt:
+#lang typed/racket
+
+(provide (struct-out s2))
+(provide list-of-s2)
+(provide set-list-of-s2!)
+
+(struct s2 ([a : Natural]))
+(define list-of-s2 '())
+(define (set-list-of-s2! [los : (Listof s2)])
+  (set! list-of-s2 los))&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;; racket_main.rkt:
+#lang racket
+
+(require "racket_mod.rkt")
+(require "racket_mod_typed.rkt")
+
+(define los (list (s 1) (s 2)))
+(set-list-of-s! los)
+(displayln list-of-s)
+
+(define los2 (list (s2 1) (s2 2)))
+(set-list-of-s2! los2)
+(displayln list-of-s2)&lt;/code&gt;&lt;/pre&gt;
+
+&lt;blockquote&gt;
+ &lt;p&gt;list-of-s2 is empty and list-of-s is not, the only difference seems to be the type annotations. Can someone help me ? :)&lt;/p&gt;&lt;/blockquote&gt;
+
+&lt;h3 id="whats-going-on"&gt;What&amp;rsquo;s going on?&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;Deep&lt;/strong&gt; enforces the type of &lt;code&gt;list-of-s2&lt;/code&gt; with a listof contract, which  ends up making a copy of the original (empty) list as it traverses and  validates it. The original value does change in typed code, but the main module only has  access to the empty copy.&lt;/p&gt;
+
+&lt;p&gt;Here&amp;rsquo;s a step-by-step breakdown:&lt;/p&gt;
+
+&lt;ol&gt;
+ &lt;li&gt;the typed module creates an empty list-of-s2&lt;/li&gt;
+ &lt;li&gt;the main module imports the list and receives a new copy&lt;/li&gt;
+ &lt;li&gt;the main module calls set-list-of-s2! and the typed module updates the original list-of-s2 variable&lt;/li&gt;
+ &lt;li&gt;the main module reads from its copy &amp;mdash; and it&amp;rsquo;s still empty&lt;/li&gt;&lt;/ol&gt;
+
+&lt;h3 id="hows-transient"&gt;How&amp;rsquo;s transient?&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;Shallow&lt;/strong&gt; lets the original list travel to untyped code. There are no contracts in the way.&lt;/p&gt;
+
+&lt;h2 id="discussion"&gt;Discussion&lt;/h2&gt;
+
+&lt;p&gt;Wow! It&amp;rsquo;s great to see that Shallow Racket works &amp;ldquo;as expected&amp;rdquo; on these examples. I hope the Shallow option makes types more accessible to more Racket programmers  in the future.&lt;/p&gt;
+
+&lt;p&gt;If you have a similar experience with a deep-types error, let me know.&lt;/p&gt;
+
+&lt;p&gt;Keep in mind, though, the freedoms of shallow types allow silent failures. A value can pass by a mis-matched type annotation without Shallow raising an  error &amp;mdash; and if that happens, the end result may be really, really confusing. Of course you can always switch back to Deep Typed Racket for debugging.&lt;/p&gt;
+
+&lt;p&gt;Shallow Typed Racket is coming soon. Follow the &lt;a href="https://github.com/racket/typed-racket/pull/948"&gt;pull request&lt;/a&gt;  or watch the Racket release notes for news.&lt;/p&gt;
+
+&lt;h3 id="links"&gt;Links&lt;/h3&gt;
+
+&lt;ul&gt;
+ &lt;li&gt;&lt;a href="http://prl.ccs.neu.edu/blog/2019/10/31/complete-monitors-for-gradual-types/"&gt;Larger example&lt;/a&gt;  where Shallow misses an error that Deep catches&lt;/li&gt;
+ &lt;li&gt;Michael M. Vitousek &lt;a href="http://hdl.handle.net/2022/23172"&gt;invented&lt;/a&gt;  the Transient semantics and implemented it in  &lt;a href="https://github.com/mvitousek/reticulated"&gt;Reticulated Python&lt;/a&gt;.&lt;/li&gt;
+ &lt;li&gt;My &lt;a href="https://ccs.neu.edu/home/types/publications/publications.html#g-thesis-2020"&gt;upcoming dissertation&lt;/a&gt;  has lots more to say about Shallow Typed Racket.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;em&gt;Thanks to Artem Pelenitsyn for reading and criticizing an early version of this post.&lt;/em&gt;&lt;/p&gt;</description></item>
   <item>
    <title>The Typed Racket Optimizer vs. Transient</title>
    <link>http://prl.ccs.neu.edu/blog/2020/01/15/the-typed-racket-optimizer-vs-transient/?utm_source=by-Ben-Greenman&amp;utm_medium=RSS</link>
@@ -3840,357 +4171,4 @@ Welcome to Racket v6.10.0.3.
 &lt;ul&gt;
  &lt;li&gt;&lt;a href="http://prl.ccs.neu.edu/blog/2016/05/18/gradual-typing-across-the-spectrum/"&gt;Gradual Typing Across the Spectrum&lt;/a&gt;&lt;/li&gt;
  &lt;li&gt;&lt;a href="http://jschuster.org/blog/2016/11/29/getting-started-in-programming-languages/"&gt;Getting Started in Programming Languages&lt;/a&gt;&lt;/li&gt;
- &lt;li&gt;&lt;a href="https://williamjbowman.com/blog/2017/03/24/what-even-is-compiler-correctness/"&gt;What even is compiler correctness?&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;</description></item>
-  <item>
-   <title>PLT Redex: mf-apply</title>
-   <link>http://prl.ccs.neu.edu/blog/2017/03/03/plt-redex-mf-apply/?utm_source=by-Ben-Greenman&amp;utm_medium=RSS</link>
-   <guid isPermaLink="false">urn:http-prl-ccs-neu-edu:-blog-2017-03-03-plt-redex-mf-apply</guid>
-   <pubDate>Fri, 03 Mar 2017 08:54:20 UT</pubDate>
-   <author>PRL</author>
-   <description>
-&lt;p&gt;The &lt;code&gt;mf-apply&lt;/code&gt; keyword is for checked metafunction application in PLT Redex. In other words, &lt;code&gt;(mf-apply f x)&lt;/code&gt; is just like &lt;code&gt;(f x)&lt;/code&gt;, but errors if &lt;code&gt;f&lt;/code&gt; is  not a previously-defined metafunction.&lt;/p&gt;
-
-&lt;p&gt;Also, consider applying to attend &lt;em&gt;The Racket School of Semantics and Languages&lt;/em&gt; in Salt Lake City this summer: &lt;a href="http://summer-school.racket-lang.org/2017/"&gt;http://summer-school.racket-lang.org/2017/&lt;/a&gt;&lt;/p&gt;
-&lt;!-- more--&gt;
-
-&lt;h2 id="metafunctions-vs-list-patterns"&gt;Metafunctions vs. List Patterns&lt;/h2&gt;
-
-&lt;p&gt;Have you used PLT Redex? Good! Maybe this has happened to you:&lt;/p&gt;
-
-&lt;div class="brush: racket"&gt;
- &lt;table class="sourcetable"&gt;
-  &lt;tbody&gt;
-   &lt;tr&gt;
-    &lt;td class="linenos"&gt;
-     &lt;div class="linenodiv"&gt;
-      &lt;pre&gt; 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41
-42
-43
-44
-45
-46
-47
-48
-49
-50
-51
-52
-53
-54
-55
-56
-57
-58
-59
-60
-61
-62
-63
-64
-65
-66
-67
-68
-69
-70&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;
-    &lt;td class="code"&gt;
-     &lt;div class="source"&gt;
-      &lt;pre&gt;&lt;span class="kn"&gt;#lang &lt;/span&gt;&lt;span class="nn"&gt;racket&lt;/span&gt;
-&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;&lt;a href="http://docs.racket-lang.org/reference/require.html#(form._((lib._racket/private/base..rkt)._require))" style="color: inherit"&gt;require&lt;/a&gt;&lt;/span&gt; &lt;span class="n"&gt;redex&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-
-&lt;span class="c1"&gt;;; -----------------------------------------------------------------------------&lt;/span&gt;
-&lt;span class="c1"&gt;;; 1. You define a language&lt;/span&gt;
-&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;define-language&lt;/span&gt; &lt;span class="n"&gt;STLC&lt;/span&gt;
-  &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;V&lt;/span&gt; &lt;span class="n"&gt;::=&lt;/span&gt; &lt;span class="n"&gt;integer&lt;/span&gt; &lt;span class="n"&gt;boolean&lt;/span&gt; &lt;span class="n"&gt;C&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
-  &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;C&lt;/span&gt; &lt;span class="n"&gt;::=&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;closure&lt;/span&gt; &lt;span class="n"&gt;Λ&lt;/span&gt; &lt;span class="n"&gt;ρ&lt;/span&gt;&lt;span class="p"&gt;)]&lt;/span&gt;
-  &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;Λ&lt;/span&gt; &lt;span class="n"&gt;::=&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;&lt;a href="http://docs.racket-lang.org/reference/lambda.html#(form._((lib._racket/private/base..rkt)._~ce~bb))" style="color: inherit"&gt;λ&lt;/a&gt;&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="n"&gt;&lt;a href="http://docs.racket-lang.org/ts-reference/special-forms.html#(form._((lib._typed-racket/base-env/prims..rkt)._~3a))" style="color: inherit"&gt;:&lt;/a&gt;&lt;/span&gt; &lt;span class="n"&gt;τ&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="n"&gt;M&lt;/span&gt;&lt;span class="p"&gt;)]&lt;/span&gt;
-  &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;M&lt;/span&gt; &lt;span class="n"&gt;::=&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;M&lt;/span&gt; &lt;span class="n"&gt;M&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="n"&gt;V&lt;/span&gt; &lt;span class="n"&gt;Λ&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
-  &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;τ&lt;/span&gt; &lt;span class="n"&gt;::=&lt;/span&gt; &lt;span class="n"&gt;Int&lt;/span&gt; &lt;span class="n"&gt;Bool&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;τ&lt;/span&gt; &lt;span class="n"&gt;&lt;a href="http://docs.racket-lang.org/ts-reference/type-ref.html#(form._((lib._typed-racket/base-env/base-types-extra..rkt)._~e2~86~92))" style="color: inherit"&gt;→&lt;/a&gt;&lt;/span&gt; &lt;span class="n"&gt;τ&lt;/span&gt;&lt;span class="p"&gt;)]&lt;/span&gt;
-  &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;ρ&lt;/span&gt; &lt;span class="n"&gt;::=&lt;/span&gt; &lt;span class="p"&gt;((&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="n"&gt;V&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="k"&gt;&lt;a href="http://docs.racket-lang.org/reference/stx-patterns.html#(form._((lib._racket/private/stxcase-scheme..rkt)._......))" style="color: inherit"&gt;...&lt;/a&gt;&lt;/span&gt;&lt;span class="p"&gt;)]&lt;/span&gt;
-  &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;Γ&lt;/span&gt; &lt;span class="n"&gt;::=&lt;/span&gt; &lt;span class="p"&gt;((&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="n"&gt;τ&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="k"&gt;&lt;a href="http://docs.racket-lang.org/reference/stx-patterns.html#(form._((lib._racket/private/stxcase-scheme..rkt)._......))" style="color: inherit"&gt;...&lt;/a&gt;&lt;/span&gt;&lt;span class="p"&gt;)]&lt;/span&gt;
-  &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="n"&gt;::=&lt;/span&gt; &lt;span class="n"&gt;variable-not-otherwise-mentioned&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
-  &lt;span class="kd"&gt;#:binding-forms&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;&lt;a href="http://docs.racket-lang.org/reference/lambda.html#(form._((lib._racket/private/base..rkt)._~ce~bb))" style="color: inherit"&gt;λ&lt;/a&gt;&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="n"&gt;&lt;a href="http://docs.racket-lang.org/ts-reference/special-forms.html#(form._((lib._typed-racket/base-env/prims..rkt)._~3a))" style="color: inherit"&gt;:&lt;/a&gt;&lt;/span&gt; &lt;span class="n"&gt;τ&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="n"&gt;M&lt;/span&gt; &lt;span class="kd"&gt;#:refers-to&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
-
-
-&lt;span class="c1"&gt;;; -----------------------------------------------------------------------------&lt;/span&gt;
-&lt;span class="c1"&gt;;; 2. You define a few metafunctions&lt;/span&gt;
-&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;define-metafunction&lt;/span&gt; &lt;span class="n"&gt;STLC&lt;/span&gt;
-  &lt;span class="n"&gt;closure-&amp;gt;lam&lt;/span&gt; &lt;span class="n"&gt;&lt;a href="http://docs.racket-lang.org/ts-reference/special-forms.html#(form._((lib._typed-racket/base-env/prims..rkt)._~3a))" style="color: inherit"&gt;:&lt;/a&gt;&lt;/span&gt; &lt;span class="n"&gt;C&lt;/span&gt; &lt;span class="k"&gt;&lt;a href="http://docs.racket-lang.org/reference/function-contracts.html#(form._((lib._racket/contract/base..rkt)._-~3e))" style="color: inherit"&gt;-&amp;gt;&lt;/a&gt;&lt;/span&gt; &lt;span class="n"&gt;Λ&lt;/span&gt;
-  &lt;span class="p"&gt;[(&lt;/span&gt;&lt;span class="n"&gt;closure-&amp;gt;lam&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;closure&lt;/span&gt; &lt;span class="n"&gt;Λ&lt;/span&gt; &lt;span class="n"&gt;ρ&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
-   &lt;span class="n"&gt;Λ&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
-
-&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;define-metafunction&lt;/span&gt; &lt;span class="n"&gt;STLC&lt;/span&gt;
-  &lt;span class="n"&gt;closure-&amp;gt;env&lt;/span&gt; &lt;span class="n"&gt;&lt;a href="http://docs.racket-lang.org/ts-reference/special-forms.html#(form._((lib._typed-racket/base-env/prims..rkt)._~3a))" style="color: inherit"&gt;:&lt;/a&gt;&lt;/span&gt; &lt;span class="n"&gt;C&lt;/span&gt; &lt;span class="k"&gt;&lt;a href="http://docs.racket-lang.org/reference/function-contracts.html#(form._((lib._racket/contract/base..rkt)._-~3e))" style="color: inherit"&gt;-&amp;gt;&lt;/a&gt;&lt;/span&gt; &lt;span class="n"&gt;ρ&lt;/span&gt;
-  &lt;span class="p"&gt;[(&lt;/span&gt;&lt;span class="n"&gt;closure-&amp;gt;env&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;closure&lt;/span&gt; &lt;span class="n"&gt;Λ&lt;/span&gt; &lt;span class="n"&gt;ρ&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
-   &lt;span class="n"&gt;ρ&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
-
-
-&lt;span class="c1"&gt;;; -----------------------------------------------------------------------------&lt;/span&gt;
-&lt;span class="c1"&gt;;; 3. You try defining a judgment form . . .&lt;/span&gt;
-&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;define-judgment-form&lt;/span&gt; &lt;span class="n"&gt;STLC&lt;/span&gt;
-  &lt;span class="kd"&gt;#:mode&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;free-variables&lt;/span&gt; &lt;span class="n"&gt;I&lt;/span&gt; &lt;span class="n"&gt;O&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-  &lt;span class="kd"&gt;#:contract&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;free-variables&lt;/span&gt; &lt;span class="n"&gt;M&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="k"&gt;&lt;a href="http://docs.racket-lang.org/reference/stx-patterns.html#(form._((lib._racket/private/stxcase-scheme..rkt)._......))" style="color: inherit"&gt;...&lt;/a&gt;&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
-  &lt;span class="p"&gt;[&lt;/span&gt;
-   &lt;span class="n"&gt;---&lt;/span&gt; &lt;span class="n"&gt;FVS-Var&lt;/span&gt;
-   &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;free-variables&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;))]&lt;/span&gt;
-  &lt;span class="p"&gt;[&lt;/span&gt;
-   &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;free-variables&lt;/span&gt; &lt;span class="n"&gt;M_0&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x_0&lt;/span&gt; &lt;span class="k"&gt;&lt;a href="http://docs.racket-lang.org/reference/stx-patterns.html#(form._((lib._racket/private/stxcase-scheme..rkt)._......))" style="color: inherit"&gt;...&lt;/a&gt;&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
-   &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;free-variables&lt;/span&gt; &lt;span class="n"&gt;M_1&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x_1&lt;/span&gt; &lt;span class="k"&gt;&lt;a href="http://docs.racket-lang.org/reference/stx-patterns.html#(form._((lib._racket/private/stxcase-scheme..rkt)._......))" style="color: inherit"&gt;...&lt;/a&gt;&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
-   &lt;span class="n"&gt;---&lt;/span&gt; &lt;span class="n"&gt;FVS-App&lt;/span&gt;
-   &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;free-variables&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;M_0&lt;/span&gt; &lt;span class="n"&gt;M_1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x_0&lt;/span&gt; &lt;span class="k"&gt;&lt;a href="http://docs.racket-lang.org/reference/stx-patterns.html#(form._((lib._racket/private/stxcase-scheme..rkt)._......))" style="color: inherit"&gt;...&lt;/a&gt;&lt;/span&gt; &lt;span class="n"&gt;x_1&lt;/span&gt; &lt;span class="k"&gt;&lt;a href="http://docs.racket-lang.org/reference/stx-patterns.html#(form._((lib._racket/private/stxcase-scheme..rkt)._......))" style="color: inherit"&gt;...&lt;/a&gt;&lt;/span&gt;&lt;span class="p"&gt;))]&lt;/span&gt;
-  &lt;span class="p"&gt;[&lt;/span&gt;
-   &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;where&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;&lt;a href="http://docs.racket-lang.org/reference/lambda.html#(form._((lib._racket/private/base..rkt)._~ce~bb))" style="color: inherit"&gt;λ&lt;/a&gt;&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x_0&lt;/span&gt; &lt;span class="n"&gt;τ&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="n"&gt;M&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="n"&gt;Λ&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-   &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;free-variables&lt;/span&gt; &lt;span class="n"&gt;M&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x_1&lt;/span&gt; &lt;span class="k"&gt;&lt;a href="http://docs.racket-lang.org/reference/stx-patterns.html#(form._((lib._racket/private/stxcase-scheme..rkt)._......))" style="color: inherit"&gt;...&lt;/a&gt;&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
-   &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;where&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x_2&lt;/span&gt; &lt;span class="k"&gt;&lt;a href="http://docs.racket-lang.org/reference/stx-patterns.html#(form._((lib._racket/private/stxcase-scheme..rkt)._......))" style="color: inherit"&gt;...&lt;/a&gt;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;,&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;&lt;a href="http://docs.racket-lang.org/reference/sets.html#(def._((lib._racket/set..rkt)._set-remove))" style="color: inherit"&gt;set-remove&lt;/a&gt;&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;term&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x_1&lt;/span&gt; &lt;span class="k"&gt;&lt;a href="http://docs.racket-lang.org/reference/stx-patterns.html#(form._((lib._racket/private/stxcase-scheme..rkt)._......))" style="color: inherit"&gt;...&lt;/a&gt;&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;term&lt;/span&gt; &lt;span class="n"&gt;x_0&lt;/span&gt;&lt;span class="p"&gt;)))&lt;/span&gt;
-   &lt;span class="n"&gt;---&lt;/span&gt; &lt;span class="n"&gt;FVS-Λ&lt;/span&gt;
-   &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;free-variables&lt;/span&gt; &lt;span class="n"&gt;Λ&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x_2&lt;/span&gt; &lt;span class="k"&gt;&lt;a href="http://docs.racket-lang.org/reference/stx-patterns.html#(form._((lib._racket/private/stxcase-scheme..rkt)._......))" style="color: inherit"&gt;...&lt;/a&gt;&lt;/span&gt;&lt;span class="p"&gt;))]&lt;/span&gt;
-  &lt;span class="p"&gt;[&lt;/span&gt;
-   &lt;span class="n"&gt;---&lt;/span&gt; &lt;span class="n"&gt;FVS-Integer&lt;/span&gt;
-   &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;free-variables&lt;/span&gt; &lt;span class="n"&gt;integer_0&lt;/span&gt; &lt;span class="p"&gt;())]&lt;/span&gt;
-  &lt;span class="p"&gt;[&lt;/span&gt;
-   &lt;span class="n"&gt;---&lt;/span&gt; &lt;span class="n"&gt;FVS-Boolean&lt;/span&gt;
-   &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;free-variables&lt;/span&gt; &lt;span class="n"&gt;boolean_0&lt;/span&gt; &lt;span class="p"&gt;())]&lt;/span&gt;
-  &lt;span class="p"&gt;[&lt;/span&gt;
-   &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;where&lt;/span&gt; &lt;span class="n"&gt;Λ&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;closure-&amp;gt;lam&lt;/span&gt; &lt;span class="n"&gt;C&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
-   &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;free-variables&lt;/span&gt; &lt;span class="n"&gt;Λ&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x_0&lt;/span&gt; &lt;span class="k"&gt;&lt;a href="http://docs.racket-lang.org/reference/stx-patterns.html#(form._((lib._racket/private/stxcase-scheme..rkt)._......))" style="color: inherit"&gt;...&lt;/a&gt;&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
-   &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;where&lt;/span&gt; &lt;span class="p"&gt;((&lt;/span&gt;&lt;span class="n"&gt;x_1&lt;/span&gt; &lt;span class="n"&gt;τ_1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="k"&gt;&lt;a href="http://docs.racket-lang.org/reference/stx-patterns.html#(form._((lib._racket/private/stxcase-scheme..rkt)._......))" style="color: inherit"&gt;...&lt;/a&gt;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;closure-env&lt;/span&gt; &lt;span class="n"&gt;C&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
-   &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;where&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x_2&lt;/span&gt; &lt;span class="k"&gt;&lt;a href="http://docs.racket-lang.org/reference/stx-patterns.html#(form._((lib._racket/private/stxcase-scheme..rkt)._......))" style="color: inherit"&gt;...&lt;/a&gt;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;,&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;&lt;a href="http://docs.racket-lang.org/reference/sets.html#(def._((lib._racket/set..rkt)._set-subtract))" style="color: inherit"&gt;set-subtract&lt;/a&gt;&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;term&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x_0&lt;/span&gt; &lt;span class="k"&gt;&lt;a href="http://docs.racket-lang.org/reference/stx-patterns.html#(form._((lib._racket/private/stxcase-scheme..rkt)._......))" style="color: inherit"&gt;...&lt;/a&gt;&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;term&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x_1&lt;/span&gt; &lt;span class="k"&gt;&lt;a href="http://docs.racket-lang.org/reference/stx-patterns.html#(form._((lib._racket/private/stxcase-scheme..rkt)._......))" style="color: inherit"&gt;...&lt;/a&gt;&lt;/span&gt;&lt;span class="p"&gt;))))&lt;/span&gt;
-   &lt;span class="n"&gt;---&lt;/span&gt; &lt;span class="n"&gt;FVS-Closure&lt;/span&gt;
-   &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;free-variables&lt;/span&gt; &lt;span class="n"&gt;C&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x_2&lt;/span&gt; &lt;span class="k"&gt;&lt;a href="http://docs.racket-lang.org/reference/stx-patterns.html#(form._((lib._racket/private/stxcase-scheme..rkt)._......))" style="color: inherit"&gt;...&lt;/a&gt;&lt;/span&gt;&lt;span class="p"&gt;))])&lt;/span&gt;
-
-
-&lt;span class="c1"&gt;;; -----------------------------------------------------------------------------&lt;/span&gt;
-&lt;span class="c1"&gt;;; 4. You test the judgment, and it mysteriously fails&lt;/span&gt;
-&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;judgment-holds&lt;/span&gt;
-  &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;free-variables&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;closure&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;&lt;a href="http://docs.racket-lang.org/reference/lambda.html#(form._((lib._racket/private/base..rkt)._~ce~bb))" style="color: inherit"&gt;λ&lt;/a&gt;&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="n"&gt;&lt;a href="http://docs.racket-lang.org/ts-reference/special-forms.html#(form._((lib._typed-racket/base-env/prims..rkt)._~3a))" style="color: inherit"&gt;:&lt;/a&gt;&lt;/span&gt; &lt;span class="n"&gt;Int&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;())&lt;/span&gt;
-                  &lt;span class="p"&gt;()))&lt;/span&gt;
-&lt;span class="c1"&gt;;; ==&amp;gt; #f&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
-&lt;/div&gt;
-
-&lt;p&gt;&lt;strong&gt;WHAT HAPPENED??!&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;The problem is this line in the &lt;code&gt;FVS-Closure&lt;/code&gt; rule:&lt;/p&gt;
-
-&lt;div class="brush: racket"&gt;
- &lt;table class="sourcetable"&gt;
-  &lt;tbody&gt;
-   &lt;tr&gt;
-    &lt;td class="linenos"&gt;
-     &lt;div class="linenodiv"&gt;
-      &lt;pre&gt;1
-2
-3&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;
-    &lt;td class="code"&gt;
-     &lt;div class="source"&gt;
-      &lt;pre&gt;   &lt;span class="n"&gt;....&lt;/span&gt;
-   &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;where&lt;/span&gt; &lt;span class="p"&gt;((&lt;/span&gt;&lt;span class="n"&gt;x_1&lt;/span&gt; &lt;span class="n"&gt;τ_1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="k"&gt;&lt;a href="http://docs.racket-lang.org/reference/stx-patterns.html#(form._((lib._racket/private/stxcase-scheme..rkt)._......))" style="color: inherit"&gt;...&lt;/a&gt;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;closure-env&lt;/span&gt; &lt;span class="n"&gt;C&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
-   &lt;span class="n"&gt;....&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
-&lt;/div&gt;
-
-&lt;p&gt;which checks that the list &lt;code&gt;(closure-env C)&lt;/code&gt; (whose first element is the  symbol &lt;code&gt;closure-env&lt;/code&gt; and second element is the symbol &lt;code&gt;C&lt;/code&gt;) matches the pattern  &lt;code&gt;((x_1 τ_1) ...)&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;Right.&lt;/p&gt;
-
-&lt;p&gt;Of course you meant to apply the metafunction &lt;code&gt;closure-&amp;gt;env&lt;/code&gt; but made a typo. And since the syntax for metafunction application is the same as the syntax  for building a list, Redex doesn&amp;rsquo;t report an error.&lt;/p&gt;
-
-&lt;p&gt;We can fix this code with the new &lt;a href="https://www.cs.utah.edu/plt/snapshots/current/doc/redex/The_Redex_Reference.html#%28form._%28%28lib._redex%2Freduction-semantics..rkt%29._mf-apply%29%29"&gt;&lt;code&gt;mf-apply&lt;/code&gt;&lt;/a&gt; keyword (available on &lt;a href="https://github.com/racket/racket"&gt;GitHub&lt;/a&gt; or in a &lt;a href="https://www.cs.utah.edu/plt/snapshots/"&gt;snapshot build&lt;/a&gt;):&lt;/p&gt;
-
-&lt;div class="brush: racket"&gt;
- &lt;table class="sourcetable"&gt;
-  &lt;tbody&gt;
-   &lt;tr&gt;
-    &lt;td class="linenos"&gt;
-     &lt;div class="linenodiv"&gt;
-      &lt;pre&gt;1
-2
-3&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;
-    &lt;td class="code"&gt;
-     &lt;div class="source"&gt;
-      &lt;pre&gt;   &lt;span class="n"&gt;....&lt;/span&gt;
-   &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;where&lt;/span&gt; &lt;span class="p"&gt;((&lt;/span&gt;&lt;span class="n"&gt;x_1&lt;/span&gt; &lt;span class="n"&gt;τ_1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="k"&gt;&lt;a href="http://docs.racket-lang.org/reference/stx-patterns.html#(form._((lib._racket/private/stxcase-scheme..rkt)._......))" style="color: inherit"&gt;...&lt;/a&gt;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;mf-apply&lt;/span&gt; &lt;span class="n"&gt;closure-env&lt;/span&gt; &lt;span class="n"&gt;C&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
-   &lt;span class="n"&gt;....&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
-&lt;/div&gt;
-
-&lt;p&gt;Running &lt;code&gt;raco make&lt;/code&gt; now gives a compile-time error.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;  term: expected a previously defined metafunction
-    at: closure-env
-    in: (mf-apply closure-env C)&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id="but-i-still-need-to-type-mf-apply-correctly"&gt;But I still need to type &lt;code&gt;mf-apply&lt;/code&gt; correctly!&lt;/h3&gt;
-
-&lt;p&gt;Leif Andersen says:&lt;/p&gt;
-
-&lt;blockquote&gt;
- &lt;p&gt;I should point out that this has the issue of you still need to type &lt;code&gt;mf-apply&lt;/code&gt; correctly. ;)&lt;/p&gt;&lt;/blockquote&gt;
-
-&lt;p&gt;That is, if you accidentally write:&lt;/p&gt;
-
-&lt;div class="brush: racket"&gt;
- &lt;table class="sourcetable"&gt;
-  &lt;tbody&gt;
-   &lt;tr&gt;
-    &lt;td class="linenos"&gt;
-     &lt;div class="linenodiv"&gt;
-      &lt;pre&gt;1
-2
-3&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;
-    &lt;td class="code"&gt;
-     &lt;div class="source"&gt;
-      &lt;pre&gt;   &lt;span class="n"&gt;....&lt;/span&gt;
-   &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;where&lt;/span&gt; &lt;span class="p"&gt;((&lt;/span&gt;&lt;span class="n"&gt;x_1&lt;/span&gt; &lt;span class="n"&gt;τ_1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="k"&gt;&lt;a href="http://docs.racket-lang.org/reference/stx-patterns.html#(form._((lib._racket/private/stxcase-scheme..rkt)._......))" style="color: inherit"&gt;...&lt;/a&gt;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;mf-applu&lt;/span&gt; &lt;span class="n"&gt;closure-env&lt;/span&gt; &lt;span class="n"&gt;C&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
-   &lt;span class="n"&gt;....&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
-&lt;/div&gt;
-
-&lt;p&gt;Then the code compiles, thinking you intend to match a list of three elements  against the pattern.&lt;/p&gt;
-
-&lt;p&gt;Never fear, there are at least two solutions.&lt;/p&gt;
-
-&lt;h4 id="solution-1-rename-mf-apply"&gt;Solution 1: rename &lt;code&gt;mf-apply&lt;/code&gt;&lt;/h4&gt;
-
-&lt;p&gt;A simple fix is to rename the &lt;code&gt;mf-apply&lt;/code&gt; keyword to something shorter (and harder to mis-type):&lt;/p&gt;
-
-&lt;div class="brush: racket"&gt;
- &lt;table class="sourcetable"&gt;
-  &lt;tbody&gt;
-   &lt;tr&gt;
-    &lt;td class="linenos"&gt;
-     &lt;div class="linenodiv"&gt;
-      &lt;pre&gt;1
-2
-3
-4&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;
-    &lt;td class="code"&gt;
-     &lt;div class="source"&gt;
-      &lt;pre&gt;&lt;span class="kn"&gt;#lang &lt;/span&gt;&lt;span class="nn"&gt;racket&lt;/span&gt;
-&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;&lt;a href="http://docs.racket-lang.org/reference/require.html#(form._((lib._racket/private/base..rkt)._require))" style="color: inherit"&gt;require&lt;/a&gt;&lt;/span&gt; &lt;span class="n"&gt;redex&lt;/span&gt;
-         &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;&lt;a href="http://docs.racket-lang.org/reference/require.html#(form._((lib._racket/private/base..rkt)._rename-in))" style="color: inherit"&gt;rename-in&lt;/a&gt;&lt;/span&gt; &lt;span class="n"&gt;redex&lt;/span&gt;
-           &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;mf-apply&lt;/span&gt; &lt;span class="n"&gt;MF&lt;/span&gt;&lt;span class="p"&gt;]))&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
-&lt;/div&gt;
-
-&lt;h4 id="solution-2-the-mf-apply-lang-extension"&gt;Solution 2: the &lt;code&gt;mf-apply&lt;/code&gt; lang extension&lt;/h4&gt;
-
-&lt;p&gt;A fancier solution is to install the &lt;code&gt;mf-apply&lt;/code&gt; meta-language.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;  $ raco pkg install mf-apply&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;This language updates the &lt;a href="http://docs.racket-lang.org/reference/readtables.html#%28tech._readtable%29"&gt;&lt;em&gt;readtable&lt;/em&gt;&lt;/a&gt;  to interpret S-expressions that begin with &lt;code&gt;#{&lt;/code&gt;:&lt;/p&gt;
-
-&lt;div class="brush: racket"&gt;
- &lt;table class="sourcetable"&gt;
-  &lt;tbody&gt;
-   &lt;tr&gt;
-    &lt;td class="linenos"&gt;
-     &lt;div class="linenodiv"&gt;
-      &lt;pre&gt;1
-2
-3
-4&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;
-    &lt;td class="code"&gt;
-     &lt;div class="source"&gt;
-      &lt;pre&gt;&lt;span class="kn"&gt;#lang &lt;/span&gt;&lt;span class="nn"&gt;mf-apply&lt;/span&gt; &lt;span class="n"&gt;racket&lt;/span&gt;
-&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;&lt;a href="http://docs.racket-lang.org/reference/require.html#(form._((lib._racket/private/base..rkt)._require))" style="color: inherit"&gt;require&lt;/a&gt;&lt;/span&gt; &lt;span class="n"&gt;redex&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-
-&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;term&lt;/span&gt; &lt;span class="o"&gt;#&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="ss"&gt;f&lt;/span&gt; &lt;span class="ss"&gt;x&lt;/span&gt; &lt;span class="ss"&gt;&lt;a href="http://docs.racket-lang.org/reference/stx-patterns.html#(form._((lib._racket/private/stxcase-scheme..rkt)._......))" style="color: inherit"&gt;...&lt;/a&gt;&lt;/span&gt;&lt;span class="p"&gt;})&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
-&lt;/div&gt;
-
-&lt;p&gt;as a metafunction application:&lt;/p&gt;
-
-&lt;div class="brush: racket"&gt;
- &lt;table class="sourcetable"&gt;
-  &lt;tbody&gt;
-   &lt;tr&gt;
-    &lt;td class="linenos"&gt;
-     &lt;div class="linenodiv"&gt;
-      &lt;pre&gt;1
-2
-3
-4&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;
-    &lt;td class="code"&gt;
-     &lt;div class="source"&gt;
-      &lt;pre&gt;&lt;span class="kn"&gt;#lang &lt;/span&gt;&lt;span class="nn"&gt;mf-apply&lt;/span&gt; &lt;span class="n"&gt;racket&lt;/span&gt;
-&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;&lt;a href="http://docs.racket-lang.org/reference/require.html#(form._((lib._racket/private/base..rkt)._require))" style="color: inherit"&gt;require&lt;/a&gt;&lt;/span&gt; &lt;span class="n"&gt;redex&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-
-&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;term&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;mf-apply&lt;/span&gt; &lt;span class="n"&gt;f&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="k"&gt;&lt;a href="http://docs.racket-lang.org/reference/stx-patterns.html#(form._((lib._racket/private/stxcase-scheme..rkt)._......))" style="color: inherit"&gt;...&lt;/a&gt;&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
-&lt;/div&gt;
-
-&lt;p&gt;You the programmer only needs to write the &lt;code&gt;#{....}&lt;/code&gt; syntax.&lt;/p&gt;
-
-&lt;p&gt;Source code is on GitHub:&lt;/p&gt;
-
-&lt;ul&gt;
- &lt;li&gt;&lt;a href="https://github.com/bennn/mf-apply"&gt;https://github.com/bennn/mf-apply&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;
-
-&lt;p&gt;(It&amp;rsquo;s the simplest lang-extension I know of)&lt;/p&gt;
-
-&lt;h2 id="what-is-plt-redex"&gt;What is PLT Redex?&lt;/h2&gt;
-
-&lt;p&gt;PLT Redex is a library for semantics engineering. One of my favorite Redex features is it implements capture-avoiding substitution  and α-equivalence for any language with a &lt;code&gt;#:binding-forms&lt;/code&gt; specification  (such as STLC, above).&lt;/p&gt;
-
-&lt;p&gt;You can read more:&lt;/p&gt;
-
-&lt;ul&gt;
- &lt;li&gt;in the &amp;ldquo;Amb&amp;rdquo; tutorial: &lt;a href="http://docs.racket-lang.org/redex/tutorial.html"&gt;http://docs.racket-lang.org/redex/tutorial.html&lt;/a&gt;&lt;/li&gt;
- &lt;li&gt;in the &amp;ldquo;Long Tutorial&amp;rdquo;: &lt;a href="http://docs.racket-lang.org/redex/redex2015.html"&gt;http://docs.racket-lang.org/redex/redex2015.html&lt;/a&gt;&lt;/li&gt;
- &lt;li&gt;in the Redex reference manual: &lt;a href="http://docs.racket-lang.org/redex/The_Redex_Reference.html"&gt;http://docs.racket-lang.org/redex/The_Redex_Reference.html&lt;/a&gt;&lt;/li&gt;
- &lt;li&gt;on the PLT Redex website: &lt;a href="https://redex.racket-lang.org/"&gt;https://redex.racket-lang.org/&lt;/a&gt;&lt;/li&gt;
- &lt;li&gt;on GitHub: &lt;a href="https://github.com/racket/redex"&gt;https://github.com/racket/redex&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;
-
-&lt;p&gt;And if you act now, you can become a &lt;em&gt;Redexan&lt;/em&gt; between July 10 and July 14  at the summer school in Salt Lake City, Utah:&lt;/p&gt;
-
-&lt;ul&gt;
- &lt;li&gt;&lt;a href="http://summer-school.racket-lang.org/2017/"&gt;http://summer-school.racket-lang.org/2017/&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;</description></item></channel></rss>
+ &lt;li&gt;&lt;a href="https://williamjbowman.com/blog/2017/03/24/what-even-is-compiler-correctness/"&gt;What even is compiler correctness?&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;</description></item></channel></rss>

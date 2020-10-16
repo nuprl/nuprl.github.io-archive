@@ -4,7 +4,340 @@
  <link rel="self" href="http://prl.ccs.neu.edu/blog/feeds/all.atom.xml" />
  <link href="http://prl.ccs.neu.edu/blog/index.html" />
  <id>urn:http-prl-ccs-neu-edu:-blog-index-html</id>
- <updated>2020-01-15T12:16:35Z</updated>
+ <updated>2020-10-15T13:32:12Z</updated>
+ <entry>
+  <title type="text">Transient Answers Old Questions</title>
+  <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2020/10/15/transient-answers-old-questions/?utm_source=all&amp;utm_medium=Atom" />
+  <id>urn:http-prl-ccs-neu-edu:-blog-2020-10-15-transient-answers-old-questions</id>
+  <published>2020-10-15T13:32:12Z</published>
+  <updated>2020-10-15T13:32:12Z</updated>
+  <author>
+   <name>PRL</name></author>
+  <content type="html">
+&lt;p&gt;Several old questions from the Typed Racket mailing list have new and simple answers under a &amp;ldquo;transient&amp;rdquo; Typed Racket.&lt;/p&gt;
+&lt;!-- more--&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;For the past few months, I&amp;rsquo;ve been adding a transient semantics to Typed Racket. The project is called Shallow Typed Racket. Details are in the &lt;a href="https://github.com/racket/typed-racket/pull/952"&gt;RFC&lt;/a&gt;  and &lt;a href="https://github.com/racket/typed-racket/pull/948"&gt;pull request&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;The short story is that the new Shallow Racket does less to enforce types  when typed code interacts with untyped code. Typed code is still type-sound, but that&amp;rsquo;s about it. By contrast, types are much stronger in classic Typed Racket.&lt;/p&gt;
+
+&lt;p&gt;Shallow Racket&amp;rsquo;s weaker types allow more programs to run. While testing whether the new freedom is useful, I reviewed a few years of  Typed Racket questions on the &lt;a href="https://groups.google.com/g/racket-users"&gt;Racket mailing list&lt;/a&gt;. There were a surprising number of questions that went like this:&lt;/p&gt;
+
+&lt;blockquote&gt;
+ &lt;p&gt;&lt;strong&gt;Q.&lt;/strong&gt; Hey, I ran a program expecting &lt;em&gt;X&lt;/em&gt; to happen, but &lt;em&gt;Y&lt;/em&gt; happened instead. Is this a bug?&lt;/p&gt;
+ &lt;p&gt;&lt;strong&gt;A.&lt;/strong&gt; No, Typed Racket has to do &lt;em&gt;Y&lt;/em&gt; because of its strong types.&lt;/p&gt;&lt;/blockquote&gt;
+
+&lt;p&gt;&amp;hellip; but changing to shallow types gives the &lt;em&gt;X&lt;/em&gt; behavior! Here are their stories.&lt;/p&gt;
+
+&lt;p&gt;Going forward, &lt;strong&gt;Deep&lt;/strong&gt; refers to normal Typed Racket and &lt;strong&gt;Shallow&lt;/strong&gt; refers to Shallow Typed Racket.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id="higher-order-value-as-any"&gt;Higher-Order Value as Any&lt;/h2&gt;
+
+&lt;p&gt;Original message : &lt;a href="https://groups.google.com/g/racket-users/c/cCQ6dRNybDg/m/CKXgX1PyBgAJ"&gt;groups.google.com/g/racket-users/c/cCQ6dRNybDg/m/CKXgX1PyBgAJ&lt;/a&gt;&lt;/p&gt;
+
+&lt;h4 id="on-20180416-mailoo-wrote"&gt;On 2018&amp;ndash;04&amp;ndash;16, &lt;em&gt;mailoo&lt;/em&gt; wrote:&lt;/h4&gt;
+
+&lt;blockquote&gt;
+ &lt;p&gt; I play a little with the &amp;ldquo;Any&amp;rdquo; type (due to &amp;lsquo;dynamic-require&amp;rsquo; which   return Any), and I&amp;rsquo;m not able to cast them back in a function.&lt;/p&gt;
+ &lt;p&gt; I (over) simplify my question with this little program :&lt;/p&gt;&lt;/blockquote&gt;
+
+&lt;pre&gt;&lt;code&gt;(: p Any) 
+(define (p i) (displayln i)) 
+
+; Here I want to get back my function 
+(define proc (cast p (-&amp;gt; Integer Void))) 
+(proc 2) &lt;/code&gt;&lt;/pre&gt;
+
+&lt;blockquote&gt;
+ &lt;p&gt; but I get this error when I try to execute the function :&lt;/p&gt;&lt;/blockquote&gt;
+
+&lt;pre&gt;&lt;code&gt;; contract violation 
+; Attempted to use a higher-order value passed as `Any` in untyped code: #&amp;lt;procedure:p&amp;gt; &lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id="whats-going-on"&gt;What&amp;rsquo;s going on?&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;Deep&lt;/strong&gt; raises an error because it must enforce the &lt;code&gt;Any&lt;/code&gt; type with a contract that  rejects all interactions. Things would go badly if an Any-typed function expected a String but got an  Integer.&lt;/p&gt;
+
+&lt;h3 id="hows-transient"&gt;How&amp;rsquo;s transient?&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;Shallow&lt;/strong&gt; prints 2 and returns void. No error. Same goes for dynamic-require.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id="parametric-contract-affects-untyped-code"&gt;Parametric Contract Affects Untyped Code&lt;/h2&gt;
+
+&lt;p&gt;Original message : &lt;a href="https://groups.google.com/g/racket-users/c/ZbYRQCy93dY/m/kF_Ek0VvAQAJ"&gt;groups.google.com/g/racket-users/c/ZbYRQCy93dY/m/kF_Ek0VvAQAJ&lt;/a&gt;&lt;/p&gt;
+
+&lt;h4 id="on-20191215-john-clements-wrote"&gt;On 2019&amp;ndash;12&amp;ndash;15, John Clements wrote:&lt;/h4&gt;
+
+&lt;blockquote&gt;
+ &lt;p&gt; It looks like my quick attempt at importing index-of into TR is running into a problem. Here’s the program I ran:&lt;/p&gt;&lt;/blockquote&gt;
+
+&lt;pre&gt;&lt;code&gt;  #lang typed/racket 
+
+  (require/typed racket/list 
+  [index-of (All (T) ((Listof T) T -&amp;gt; (U False Natural)))]) 
+
+  (index-of '(n s e w) 'n) ;; returns... #f? &lt;/code&gt;&lt;/pre&gt;
+
+&lt;blockquote&gt;
+ &lt;p&gt; In typed/racket/no-check this returns 0, and also in racket (mutatis mutandis).&lt;/p&gt;
+ &lt;p&gt; I thought this might be some kind of parametricity issue, but even when I instantiate index-of at Symbol which should pretty much clear the way for arbitrary equality checking, I still get False.&lt;/p&gt;&lt;/blockquote&gt;
+
+&lt;h3 id="whats-going-on"&gt;What&amp;rsquo;s going on?&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;Deep&lt;/strong&gt; enforces parametricity for &lt;code&gt;All&lt;/code&gt; types, and this throws off the equality  function that index-of uses internally.&lt;/p&gt;
+
+&lt;h3 id="hows-transient"&gt;How&amp;rsquo;s transient?&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;Shallow&lt;/strong&gt; returns 0.&lt;/p&gt;
+
+&lt;p&gt;ps John, thanks very much for working on &lt;a href="https://adventofcode.com"&gt;Advent of Code&lt;/a&gt; and mailing the list!&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id="unable-to-protect-opaque-value-as-any"&gt;Unable to Protect Opaque Value as Any&lt;/h2&gt;
+
+&lt;p&gt;Original message : &lt;a href="https://groups.google.com/g/racket-users/c/jtmVDFCGL28/m/jwl4hsjtBQAJ"&gt;groups.google.com/g/racket-users/c/jtmVDFCGL28/m/jwl4hsjtBQAJ&lt;/a&gt;&lt;/p&gt;
+
+&lt;h4 id="on-20191211-marc-kaufmann-wrote"&gt;On 2019&amp;ndash;12&amp;ndash;11, Marc Kaufmann wrote:&lt;/h4&gt;
+
+&lt;blockquote&gt;
+ &lt;p&gt;I have one file called &lt;code&gt;type-test.rkt&lt;/code&gt; with the following&lt;/p&gt;&lt;/blockquote&gt;
+
+&lt;pre&gt;&lt;code&gt;#lang typed/racket
+
+(require (only-in typed/web-server/http response/xexpr response))
+
+(provide f2)
+
+(: f2 (-&amp;gt; (U response Any)))
+(define (f2)
+  (define x '(body (h1 "Try it")))
+  (: resp response)
+  (define resp (response/xexpr x))
+  resp)&lt;/code&gt;&lt;/pre&gt;
+
+&lt;blockquote&gt;
+ &lt;p&gt;Then I have another &lt;em&gt;untyped&lt;/em&gt; file for a servlet:&lt;/p&gt;&lt;/blockquote&gt;
+
+&lt;pre&gt;&lt;code&gt;#lang racket
+
+(require "type-test.rkt"
+         web-server/servlet
+         web-server/servlet-env)
+
+(define (start req)
+  (f2))
+
+(serve/servlet start
+               #:servlet-regexp #rx""
+               #:launch-browser? #false
+               #:port 8080)&lt;/code&gt;&lt;/pre&gt;
+
+&lt;blockquote&gt;
+ &lt;p&gt;Notice that I am telling [f2] that &lt;code&gt;resp&lt;/code&gt; is of type &lt;code&gt;response&lt;/code&gt;. Yet, when I run the server with &lt;code&gt;start&lt;/code&gt; [&amp;hellip;.] I get the following result:&lt;/p&gt;
+ &lt;p&gt;(f2): Error, see below.&lt;/p&gt;
+ &lt;p&gt;The error is:&lt;/p&gt;&lt;/blockquote&gt;
+
+&lt;pre&gt;&lt;code&gt;f2: broke its own contract
+  any-wrap/c: Unable to protect opaque value passed as `Any`
+  value: #&amp;lt;response&amp;gt;
+  in: the range of
+      (-&amp;gt; Any)&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id="whats-going-on"&gt;What&amp;rsquo;s going on?&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;Deep&lt;/strong&gt; tries to enforce the &lt;code&gt;Any&lt;/code&gt; type with a contract that rejects all  interactions, but needs to know what interactions are possible in order  to make a reject-all contract. For many values, Deep can ask questions like procedure? and struct-info  to learn enough. But this program sends an opaque response struct across a boundary and  Deep does not have the right inspector to learn about the struct fields.&lt;/p&gt;
+
+&lt;h3 id="hows-transient"&gt;How&amp;rsquo;s transient?&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;Shallow&lt;/strong&gt; does nothing to enforce the Any type. This program runs, and in general Shallow never complains about opaque values.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id="type-inference-installs-a-precise-type"&gt;Type Inference Installs a Precise Type&lt;/h2&gt;
+
+&lt;p&gt;Original message : &lt;a href="https://groups.google.com/g/racket-users/c/2X5olKMV3C4/m/mJhsp9ZWBgAJ"&gt;groups.google.com/g/racket-users/c/2X5olKMV3C4/m/mJhsp9ZWBgAJ&lt;/a&gt;&lt;/p&gt;
+
+&lt;h4 id="on-20200214-john-clements-wrote"&gt;On 2020&amp;ndash;02&amp;ndash;14, John Clements wrote:&lt;/h4&gt;
+
+&lt;blockquote&gt;
+ &lt;p&gt;I think I may understand what’s going on here, but a student and I worked on this for quite a while today before I found the problem.&lt;/p&gt;
+ &lt;p&gt;Here’s a program:&lt;/p&gt;&lt;/blockquote&gt;
+
+&lt;pre&gt;&lt;code&gt;#lang typed/racket 
+
+(define-type Store (Mutable-HashTable Integer Value)) 
+(define-type Value (U Real Boolean String)) 
+
+(define top-store
+  (cast
+    (make-hash (list (cons -1 14) (cons 1 #t) (cons 2 #f)))
+    Store))
+
+(hash-set! top-store 5 1234)&lt;/code&gt;&lt;/pre&gt;
+
+&lt;blockquote&gt;
+ &lt;p&gt;It fails with this error:&lt;/p&gt;&lt;/blockquote&gt;
+
+&lt;pre&gt;&lt;code&gt;contract violation
+expected: (or/c (and/c byte? positive?) #t #f)
+given: 1234
+in: the values of
+the 3rd conjunct of
+(and/c hash?
+       hash-mutable?
+       (hash/c exact-integer?
+               (or/c (and/c byte? positive?) #t #f)
+               #:immutable #f))&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id="whats-going-on"&gt;What&amp;rsquo;s going on?&lt;/h3&gt;
+
+&lt;p&gt;First off, &lt;strong&gt;Deep&lt;/strong&gt; runs fine after swapping &lt;code&gt;cast&lt;/code&gt; for &lt;code&gt;ann&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Second, Typed Racket does try to generalize inferred types for mutable data. If the only value in the hash is the byte 14 then Deep also runs.&lt;/p&gt;
+
+&lt;p&gt;The problem is that Typed Racket does not generalize the inferred value type  (U Byte Boolean) and that cast is a run-time tool for enforcing types. Casts create contracts to protect mutable data. In this program, there are two contracts:  one based on the Store type to protect code that uses the hash,  and one based on the inferred type to protect the hash against bad writes. That second contract raises the error message.&lt;/p&gt;
+
+&lt;h3 id="hows-transient"&gt;How&amp;rsquo;s transient?&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;Shallow&lt;/strong&gt; runs successfully. The cast looks for a hash, does not make a contract, and ignores the inferred  type going forward.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id="same-arity-functions-in-a-case-lambda"&gt;Same-Arity Functions in a Case Lambda&lt;/h2&gt;
+
+&lt;p&gt;Original message : &lt;a href="https://groups.google.com/g/racket-users/c/BDrrgW0axGQ/m/P31NxeGHAAAJ"&gt;groups.google.com/g/racket-users/c/BDrrgW0axGQ/m/P31NxeGHAAAJ&lt;/a&gt;&lt;/p&gt;
+
+&lt;h4 id="on-20190705-ryan-kramer-wrote"&gt;On 2019&amp;ndash;07&amp;ndash;05, Ryan Kramer wrote:&lt;/h4&gt;
+
+&lt;blockquote&gt;
+ &lt;p&gt;In the code below, can &lt;code&gt;maybe-car&lt;/code&gt; have the given type [&amp;hellip;.]?&lt;/p&gt;&lt;/blockquote&gt;
+
+&lt;pre&gt;&lt;code&gt;#lang typed/racket
+
+(module untyped racket
+  (provide maybe-car)
+  (define (maybe-car x)
+    (cond
+      [(pair? x) (car x)]
+      [else x])))
+
+(require/typed
+ 'untyped
+ [maybe-car (All (a b) (case-&amp;gt;
+                        (-&amp;gt; (Pairof a b) a)
+                        (-&amp;gt; a a)))])&lt;/code&gt;&lt;/pre&gt;
+
+&lt;blockquote&gt;
+ &lt;p&gt;[Current error:]&lt;/p&gt;&lt;/blockquote&gt;
+
+&lt;pre&gt;&lt;code&gt;Type Checker:
+ Type (All (a b) (case-&amp;gt; (-&amp;gt; (Pairof a b) a) (-&amp;gt; a a)))
+  could not be converted to a contract:
+   function type has two cases of arity 1&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id="whats-going-on"&gt;What&amp;rsquo;s going on?&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;Deep&lt;/strong&gt; tries to enforce the type with a Racket &lt;code&gt;or/c&lt;/code&gt; contract, but cannot. The problem is that or/c only has partial support for unions. If or/c ends up with two possible higher-order options at runtime, it halts. In this case, we end up with two function contracts that have the same arity  and don&amp;rsquo;t know which to apply to an incoming function.&lt;/p&gt;
+
+&lt;p&gt;Note, the &amp;ldquo;Type Checker&amp;rdquo; error message is much better than what or/c would  give on its own.&lt;/p&gt;
+
+&lt;h3 id="hows-transient"&gt;How&amp;rsquo;s transient?&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;Shallow&lt;/strong&gt; simply checks that maybe-car accepts both arities inside the  case-&amp;gt; type. The code runs fine. Later, when the function gets applied in typed code, Shallow spot-checks the  results.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id="immutable-type-affects-untyped-code"&gt;Immutable Type Affects Untyped Code&lt;/h3&gt;
+
+&lt;p&gt;Original message : &lt;a href="https://groups.google.com/g/racket-users/c/UD20HadJ9Ec/m/Lmuw0U8mBwAJ"&gt;groups.google.com/g/racket-users/c/UD20HadJ9Ec/m/Lmuw0U8mBwAJ&lt;/a&gt;&lt;/p&gt;
+
+&lt;h4 id="on-20200217-bertrand-augereau-wrote"&gt;On 2020&amp;ndash;02&amp;ndash;17, Bertrand Augereau wrote:&lt;/h4&gt;
+
+&lt;blockquote&gt;
+ &lt;p&gt;Hello everybody, I&amp;rsquo;m trying to gradually type my script to make it a proper app (yes I&amp;rsquo;m a static-ish guy) and I have an issue (Racket 7.6 CS).&lt;/p&gt;&lt;/blockquote&gt;
+
+&lt;pre&gt;&lt;code&gt;; racket_mod.rkt:
+#lang racket
+
+(provide (struct-out s))
+(provide list-of-s)
+(provide set-list-of-s!)
+
+(struct s (a))
+(define list-of-s '())
+(define (set-list-of-s! los)
+  (set! list-of-s los))&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;; racket_mod_typed.rkt:
+#lang typed/racket
+
+(provide (struct-out s2))
+(provide list-of-s2)
+(provide set-list-of-s2!)
+
+(struct s2 ([a : Natural]))
+(define list-of-s2 '())
+(define (set-list-of-s2! [los : (Listof s2)])
+  (set! list-of-s2 los))&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;; racket_main.rkt:
+#lang racket
+
+(require "racket_mod.rkt")
+(require "racket_mod_typed.rkt")
+
+(define los (list (s 1) (s 2)))
+(set-list-of-s! los)
+(displayln list-of-s)
+
+(define los2 (list (s2 1) (s2 2)))
+(set-list-of-s2! los2)
+(displayln list-of-s2)&lt;/code&gt;&lt;/pre&gt;
+
+&lt;blockquote&gt;
+ &lt;p&gt;list-of-s2 is empty and list-of-s is not, the only difference seems to be the type annotations. Can someone help me ? :)&lt;/p&gt;&lt;/blockquote&gt;
+
+&lt;h3 id="whats-going-on"&gt;What&amp;rsquo;s going on?&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;Deep&lt;/strong&gt; enforces the type of &lt;code&gt;list-of-s2&lt;/code&gt; with a listof contract, which  ends up making a copy of the original (empty) list as it traverses and  validates it. The original value does change in typed code, but the main module only has  access to the empty copy.&lt;/p&gt;
+
+&lt;p&gt;Here&amp;rsquo;s a step-by-step breakdown:&lt;/p&gt;
+
+&lt;ol&gt;
+ &lt;li&gt;the typed module creates an empty list-of-s2&lt;/li&gt;
+ &lt;li&gt;the main module imports the list and receives a new copy&lt;/li&gt;
+ &lt;li&gt;the main module calls set-list-of-s2! and the typed module updates the original list-of-s2 variable&lt;/li&gt;
+ &lt;li&gt;the main module reads from its copy &amp;mdash; and it&amp;rsquo;s still empty&lt;/li&gt;&lt;/ol&gt;
+
+&lt;h3 id="hows-transient"&gt;How&amp;rsquo;s transient?&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;Shallow&lt;/strong&gt; lets the original list travel to untyped code. There are no contracts in the way.&lt;/p&gt;
+
+&lt;h2 id="discussion"&gt;Discussion&lt;/h2&gt;
+
+&lt;p&gt;Wow! It&amp;rsquo;s great to see that Shallow Racket works &amp;ldquo;as expected&amp;rdquo; on these examples. I hope the Shallow option makes types more accessible to more Racket programmers  in the future.&lt;/p&gt;
+
+&lt;p&gt;If you have a similar experience with a deep-types error, let me know.&lt;/p&gt;
+
+&lt;p&gt;Keep in mind, though, the freedoms of shallow types allow silent failures. A value can pass by a mis-matched type annotation without Shallow raising an  error &amp;mdash; and if that happens, the end result may be really, really confusing. Of course you can always switch back to Deep Typed Racket for debugging.&lt;/p&gt;
+
+&lt;p&gt;Shallow Typed Racket is coming soon. Follow the &lt;a href="https://github.com/racket/typed-racket/pull/948"&gt;pull request&lt;/a&gt;  or watch the Racket release notes for news.&lt;/p&gt;
+
+&lt;h3 id="links"&gt;Links&lt;/h3&gt;
+
+&lt;ul&gt;
+ &lt;li&gt;&lt;a href="http://prl.ccs.neu.edu/blog/2019/10/31/complete-monitors-for-gradual-types/"&gt;Larger example&lt;/a&gt;  where Shallow misses an error that Deep catches&lt;/li&gt;
+ &lt;li&gt;Michael M. Vitousek &lt;a href="http://hdl.handle.net/2022/23172"&gt;invented&lt;/a&gt;  the Transient semantics and implemented it in  &lt;a href="https://github.com/mvitousek/reticulated"&gt;Reticulated Python&lt;/a&gt;.&lt;/li&gt;
+ &lt;li&gt;My &lt;a href="https://ccs.neu.edu/home/types/publications/publications.html#g-thesis-2020"&gt;upcoming dissertation&lt;/a&gt;  has lots more to say about Shallow Typed Racket.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;em&gt;Thanks to Artem Pelenitsyn for reading and criticizing an early version of this post.&lt;/em&gt;&lt;/p&gt;</content></entry>
  <entry>
   <title type="text">The Typed Racket Optimizer vs. Transient</title>
   <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2020/01/15/the-typed-racket-optimizer-vs-transient/?utm_source=all&amp;utm_medium=Atom" />
@@ -3619,13 +3952,4 @@ FROM HERE&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;This is not your run-of-the-mill summer school. We will do our best to make it exciting, entertaining, and useful to a broad spectrum of attendees, both academic and industrial.&lt;/p&gt;
 
-&lt;p&gt;P.S. We will send you your first problem set in June, a month before the summer school to whet your appetite.&lt;/p&gt;</content></entry>
- <entry>
-  <title type="text">[How to prove a compiler fully abstract (cross-post)](https://dbp.io/essays/2018-04-19-how-to-prove-a-compiler-fully-abstract.html)</title>
-  <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2018/04/23/-how-to-prove-a-compiler-fully-abstract-cross-post-https-dbp-io-essays-2018-04-19-how-to-prove-a-compiler-fully-abstract-html/?utm_source=all&amp;utm_medium=Atom" />
-  <id>urn:http-prl-ccs-neu-edu:-blog-2018-04-23-how-to-prove-a-compiler-fully-abstract-cross-post-https-dbp-io-essays-2018-04-19-how-to-prove-a-compiler-fully-abstract-html</id>
-  <published>2018-04-23T10:07:48Z</published>
-  <updated>2018-04-23T10:07:48Z</updated>
-  <author>
-   <name>PRL</name></author>
-  <content type="html"></content></entry></feed>
+&lt;p&gt;P.S. We will send you your first problem set in June, a month before the summer school to whet your appetite.&lt;/p&gt;</content></entry></feed>
