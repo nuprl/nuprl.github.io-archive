@@ -47,19 +47,20 @@ are available for your convenience.</p></div></div>
  <br />
 
 <div class="row"><div class="col-md-12"><h3>Upcoming Seminars</h3>
-<div id="seminar-1" class="col-md-12 pn-seminar "><div id="balzer" class="pn-main-informations"><a onclick="return false;" class="pn-title">TBA</a>
+<div id="seminar-1" class="col-md-12 pn-seminar "><div id="balzer" class="pn-main-informations"><a onclick="return false;" class="pn-title">Manifest Deadlock-Freedom for Shared Session Types</a>
 <br />
 <span class="pn-name">Stephanie Balzer</span>
 <span class="pn-affiliation">Carnegie Mellon University</span>
 <a class="pn-url" target="_blank" href="http://www.cs.cmu.edu/~balzers/">http://www.cs.cmu.edu/~balzers/</a>
 <br />
 <span class="pn-datetime">13 November, 2020 12:00PM <a href="#balzer"><span class="glyphicon glyphicon-link"></span></a></span>
-<span class="pn-room">Video Conference (link TBA)</span>
+<span class="pn-room">Video Conference</span>
 <span class="pn-room"></span></div>
 <div class="pn-abstract-bio"><p class="pn-title-2">Abstract</p>
-<p>TBA</p>
+<p>Shared session types generalize the Curry-Howard correspondence between intuitionistic linear logic and the session-typed pi-calculus with adjoint modalities that mediate between linear and shared session types, giving rise to a programming model where shared channels must be used according to an acquire-release discipline.  The resulting language recovers the expressiveness of the untyped asynchronous pi-calculus and accommodates practical programming scenarios, such as shared servers, file systems etc.  The resulting language is implemented as a prototype in C0 (a safe subset for C used to teach freshmen at CMU) and <a href="https://github.com/maybevoid/ferrite">as a DSL in Rust</a>.</p>
+<p>The generalization, however, comes at the cost of deadlock-freedom, a property which holds for the purely linear fragment.  In this talk, I report on recent work that makes up for this deficiency and introduces a type system of linear and shared session types in which the adjoint modalities are complemented with possible worlds to rule out cyclic dependencies between acquires and synchronizations.  I distill the key abstractions to reason about cyclic dependencies and the key invariants enforced by the type system to guarantee deadlock-freedom.  Time permitted, I report on ongoing work that also uses possible world modalities for type-based verification of program properties of interest.</p>
 <p class="pn-title-2">Bio</p>
-<p>TBA</p></div></div><br />
+<p>Stephanie Balzer is a research faculty in the Principles of Programming group in the Computer Science Department at Carnegie Mellon University. Stephanie obtained her PhD from ETH Zurich under the supervision of Thomas R. Gross. In her PhD work, Stephanie developed the sequential relationship-based programming language Rumer and an invariant-based verification technique for Rumer. Stephanie’s current work focuses on the development of type systems and logics for verifying properties of concurrent programs.</p></div></div><br />
 
 
 <hr />
