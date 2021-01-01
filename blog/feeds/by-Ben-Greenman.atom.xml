@@ -30,6 +30,362 @@
  &lt;p&gt;My second contribution is a design-analysis method that allows language designers  to understand implications of the type system. The method addresses two central questions: whether typed code can cope with  untyped values, and whether untyped code can trust static types. Further distinctions arise by asking whether error outputs can  direct a programmer to potentially-faulty interactions.&lt;/p&gt;
  &lt;p&gt;I apply the methods to several designs and discover limitations that motivate  a synthesis of two ideas from the literature:  deep types and shallow types. Deep types offer strong guarantees but impose a high interaction cost. Shallow types offer weak guarantees and better worst-case costs. This dissertation proves that deep and shallow types can interoperate  and measures the benefits of a three-way mix.&lt;/p&gt;&lt;/blockquote&gt;</content></entry>
  <entry>
+  <title type="text">Transient for Optional and Keyword Functions</title>
+  <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2020/11/12/transient-for-optional-and-keyword-functions/?utm_source=by-Ben-Greenman&amp;utm_medium=Atom" />
+  <id>urn:http-prl-ccs-neu-edu:-blog-2020-11-12-transient-for-optional-and-keyword-functions</id>
+  <published>2020-11-12T10:15:16Z</published>
+  <updated>2020-11-12T10:15:16Z</updated>
+  <author>
+   <name>PRL</name></author>
+  <content type="html">
+&lt;p&gt;A short adventure into the depths of optional and/or keyword  functions in Racket.&lt;/p&gt;
+&lt;!-- more--&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;Transient, or rather &lt;em&gt;the Transient semantics for a mixed-typed language&lt;/em&gt;,  is one way to let statically-typed code safely interact with untyped code. You can read all about it in  &lt;a href="http://hdl.handle.net/2022/23172"&gt;Michael Vitousek&amp;rsquo;s 2019 dissertation&lt;/a&gt;  or &lt;a href="https://ccs.neu.edu/home/types/publications/publications.html#g-dissertation-2020"&gt;my 2020 dissertation&lt;/a&gt;,  and you can see how it compares to other mixed-typed semantics  &lt;a href="http://prl.ccs.neu.edu/blog/2018/10/06/a-spectrum-of-type-soundness-and-performance/"&gt;here&lt;/a&gt;. The idea is to give up on &lt;a href="http://prl.ccs.neu.edu/blog/2019/10/31/complete-monitors-for-gradual-types/"&gt;behavioral type guarantees&lt;/a&gt;  and focus on a (weak) form of type soundness. To enforce soundness, Transient rewrites every expression in typed code  with assertions called &lt;em&gt;shape checks&lt;/em&gt;; for example:&lt;/p&gt;
+
+&lt;ul&gt;
+ &lt;li&gt;if a typed module imports an untyped library, then every value that crosses  the module boundary gets a shape check;&lt;/li&gt;
+ &lt;li&gt;if typed code reads from an array, then every element that comes out of the  array must satisfy a shape check; and&lt;/li&gt;
+ &lt;li&gt;if a typed function escapes to untyped code, then the function must use  a shape check to validate every input that it receives.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;Our goal today is to understand the shape checks for functions. Suppose we know how to turn a type &lt;strong&gt;T&lt;/strong&gt; into a shape check, and we have a  function with type &lt;strong&gt;T&lt;/strong&gt; that needs to check its inputs. The question is how to actually do the check in Racket v7.9.&lt;/p&gt;
+
+&lt;p&gt;In your standard theory, rewriting is no problem. A (simplified, model) function takes exactly one argument and needs exactly one  shape check in the body; if &lt;strong&gt;T = (-&amp;gt; Symbol Boolean)&lt;/strong&gt; then we need  to check the shape &lt;strong&gt;symbol?&lt;/strong&gt; of the domain type &lt;strong&gt;Symbol&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;;; source code
+(: f (-&amp;gt; Symbol Boolean))
+(define (f sym)
+  (eq? sym 'hola))
+
+;; ===&amp;gt;
+
+;; imaginary (but realistic) rewritten code
+(define (f sym)
+  (assert sym symbol?)
+  (eq? sym 'hola))&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;A Typed Racket function can accept optional arguments, keyword arguments,  and optional keyword arguments. These are still fairly easy to handle in theory. Below, the function type &lt;strong&gt;T&lt;/strong&gt; accepts 1 to 3 inputs:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;;; source code
+(: g (-&amp;gt;* [#:a Boolean] [Symbol #:c Void] Symbol))
+(define (g #:a a [b 'b] #:c [c #f])
+  (if a b (if c 'left 'right)))
+
+;; ===&amp;gt;
+
+;; imaginary, unrealistic rewritten code
+(define (g #:a a [b 'b] #:c [c #f])
+  (assert a boolean?)
+  (assert b symbol?)
+  (assert c void?)
+  (if a b (if c 'left 'right)))&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Good &amp;mdash; we basically know what we want. If the Racket core language had optional and keyword functions, then we&amp;rsquo;d be  done.&lt;/p&gt;
+
+&lt;p&gt;But no, Racket expands these optional/keyword  functions into primitive &lt;a href="https://docs.racket-lang.org/raco/decompile.html#(def._((lib._compiler%2Fzo-structs..rkt)._lam))"&gt;&lt;strong&gt;lambda&lt;/strong&gt;&lt;/a&gt;  and &lt;a href="https://docs.racket-lang.org/raco/decompile.html#(def._((lib._compiler%2Fzo-structs..rkt)._case-lam))"&gt;&lt;strong&gt;case-lambda&lt;/strong&gt;&lt;/a&gt;  forms. Typed Racket type-checks this expanded code, thus Shallow Typed Racket  (the Transient version) must rewrite the expanded code.&lt;/p&gt;
+
+&lt;p&gt;Let&amp;rsquo;s keep digging.&lt;/p&gt;
+
+&lt;p&gt;From now on, &amp;ldquo;Shallow&amp;rdquo; or &amp;ldquo;Shallow TR&amp;rdquo; refers to my implementation  of Transient for Typed Racket (TR). We&amp;rsquo;ll talk about Shallow instead of &amp;ldquo;Transient&amp;rdquo; in case future work reveals a  better way to implement the Transient idea.&lt;/p&gt;
+
+&lt;h2 id="false-start-follow-the-type"&gt;False Start: Follow the Type&lt;/h2&gt;
+
+&lt;p&gt;Beware &amp;mdash; Shallow TR cannot rely on type annotations to decide which shape  checks to insert. The example function &lt;strong&gt;g&lt;/strong&gt; above demonstrates that annotations are not  good enough. With our imagined rewrite, calls that leave out the optional  &lt;strong&gt;#:c&lt;/strong&gt; keyword lead to a shape-check failure because the variable &lt;strong&gt;c&lt;/strong&gt; gets  the default value &lt;strong&gt;#f&lt;/strong&gt; instead of a void value. Concretely, the third assert from above fails:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;(define (g #:a a [b 'b] #:c [c #f])
+  ....
+  (assert c void?) ;; fails if c is the #f default value
+  ....)&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The problem arises from subtyping. According to the annotations, the function &lt;strong&gt;g&lt;/strong&gt; has an external type that is  less precise than the internal type that validates the function body:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;;; external type T
+(: g (-&amp;gt;* [#:a Boolean] [Symbol #:c Void] Symbol))
+
+;; internal type T2, subtype of external (T2 &amp;lt;: T), validates body
+(: g (-&amp;gt;* [#:a Boolean] [Symbol #:c (U #f Void)] Symbol))&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Thanks to this external / internal distinction, the following easy  rewrite idea, &lt;em&gt;Solution 0&lt;/em&gt;, fails. Despite the failure, this first solution is a useful starting point for  a success.&lt;/p&gt;
+
+&lt;h4 id="solution-0-step-1-mimic-the-typechecker"&gt;Solution 0, Step 1: Mimic the Typechecker&lt;/h4&gt;
+
+&lt;p&gt;Shallow TR uses the same type checker as classic &lt;em&gt;Deep&lt;/em&gt; TR. If type checking succeeds, then Shallow must insert shape checks. Otherwise, compilation stops with a type error.&lt;/p&gt;
+
+&lt;p&gt;Thanks to its wholesale reuse of the type checker, Shallow TR can use  syntax patterns from the type checker to navigate expanded Racket code. For optional and keyword functions in particular, Shallow can get started  by looking at how the type checker recognizes these forms in expanded code.&lt;/p&gt;
+
+&lt;p&gt;Here are two syntax patterns for keyword functions and optional functions  in the Deep TR type checker (&lt;a href="https://github.com/racket/typed-racket/blob/325f621716966b95a68af700624bafa21ac66e14/typed-racket-lib/typed-racket/typecheck/tc-expr-unit.rkt#L274-L295"&gt;typecheck/tc-expr-unit.rkt&lt;/a&gt;). The omitted code (&lt;strong&gt;&amp;hellip;.&lt;/strong&gt;) does actual type checking:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;(define (tc-expr/check/internal form expected-type)
+  ....
+  (syntax-parse form
+    #:literal-sets (kernel-literals tc-expr-literals)
+    ....
+    [(~and (let-values ([(f) fun]) . body) kw:kw-lambda^)
+    ....]
+    [(~and (let-values ([(f) fun]) . body) opt:opt-lambda^)
+    ....]&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Ok! Those two patterns say a lot about the expansion of optional and keyword  functions:&lt;/p&gt;
+
+&lt;ol&gt;
+ &lt;li&gt;Both forms expand to a &lt;strong&gt;let-values&lt;/strong&gt; that binds one function &lt;strong&gt;fun&lt;/strong&gt;.&lt;/li&gt;
+ &lt;li&gt;TR uses the syntax classes &lt;strong&gt;kw-lambda^&lt;/strong&gt; and &lt;strong&gt;opt-lambda^&lt;/strong&gt; to  tell these particular &lt;strong&gt;let-values&lt;/strong&gt; apart from others.&lt;/li&gt;&lt;/ol&gt;
+
+&lt;p&gt;Shallow TR can use exactly these patterns to   recognize optional/keyword functions.&lt;/p&gt;
+
+&lt;h4 id="solution-0-step-2-parse-the-domain-type"&gt;Solution 0, Step 2: Parse the Domain Type&lt;/h4&gt;
+
+&lt;p&gt;Once the Shallow TR rewriter has found an optional/keyword function,  the next step is to find the function&amp;rsquo;s type and figure out the right  shape check. For an optional function, the rewriter has an expression that  matches the following pattern:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;    [(~and (let-values ([(f) fun]) . body) opt:opt-lambda^)
+    ....]&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;First, we need a type. The type checker decorates (almost) every expression with a type as a syntax  property. (Unreachable code may not have a type.) The &lt;a href="https://github.com/racket/typed-racket/blob/325f621716966b95a68af700624bafa21ac66e14/typed-racket-lib/typed-racket/types/type-table.rkt#L80"&gt;&lt;strong&gt;type-of&lt;/strong&gt;&lt;/a&gt;  function gets the type decoration from an expression. A little experimentation shows that the function  part of our expression, &lt;strong&gt;fun&lt;/strong&gt;, has a type. Great.&lt;/p&gt;
+
+&lt;p&gt;Second, we need to parse the domain from the function type. This is easier said than done. Fortunately, our final solution does not need the parsing step so I will  list the challenges and move on:&lt;/p&gt;
+
+&lt;ul&gt;
+ &lt;li&gt;The type of &lt;strong&gt;fun&lt;/strong&gt; could be a straightforward &lt;a href="https://github.com/racket/typed-racket/blob/325f621716966b95a68af700624bafa21ac66e14/typed-racket-lib/typed-racket/rep/type-rep.rkt#L693"&gt;&lt;strong&gt;Fun type&lt;/strong&gt;&lt;/a&gt;,  but it could also be a: &lt;a href="https://github.com/racket/typed-racket/blob/325f621716966b95a68af700624bafa21ac66e14/typed-racket-lib/typed-racket/rep/type-rep.rkt#L701"&gt;&lt;strong&gt;DepFun type&lt;/strong&gt;&lt;/a&gt;,  or &lt;a href="https://github.com/racket/typed-racket/blob/325f621716966b95a68af700624bafa21ac66e14/typed-racket-lib/typed-racket/rep/type-rep.rkt#L521"&gt;&lt;strong&gt;Poly type&lt;/strong&gt;&lt;/a&gt;,  or &lt;a href="https://github.com/racket/typed-racket/blob/325f621716966b95a68af700624bafa21ac66e14/typed-racket-lib/typed-racket/rep/type-rep.rkt#L531"&gt;&lt;strong&gt;PolyDots type&lt;/strong&gt;&lt;/a&gt;,  or even a &lt;a href="https://github.com/racket/typed-racket/blob/325f621716966b95a68af700624bafa21ac66e14/typed-racket-lib/typed-racket/rep/type-rep.rkt#L900"&gt;&lt;strong&gt;Union type&lt;/strong&gt;&lt;/a&gt;.&lt;/li&gt;
+ &lt;li&gt;Each part of the domain type corresponds to one parameter of the &lt;strong&gt;fun&lt;/strong&gt; expression.  Matching the parameter names to types is not straightforward; for example,  do the mandatory parameters come first in &lt;strong&gt;fun&lt;/strong&gt;, or the mandatory keywords?&lt;/li&gt;&lt;/ul&gt;
+
+&lt;h4 id="solution-0-step-3-insert-a-shape-check"&gt;Solution 0, Step 3: Insert a Shape Check&lt;/h4&gt;
+
+&lt;p&gt;Once we have the target &lt;strong&gt;fun&lt;/strong&gt; expression and a map from parameter names  to types, the final step of our tentative solution is easy. First, convert the types to shape predicates. Second, parse &lt;strong&gt;fun&lt;/strong&gt; to separate the parameters from the body. Third, insert a block of shape checks to the top of the body. All together, rewriting &lt;strong&gt;fun&lt;/strong&gt; goes something like this:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;(syntax-parse fun
+  [(#%plain-lambda formals . body)
+   #:with (shape-check ...)
+          (make-shape-checks #'formals (type-of fun))
+   #'(#%plain-lambda formals (#%plain-app void shape-check ...) . body)])&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The rewritten function executes shape checks immediately, and then proceeds  with the &lt;strong&gt;body&lt;/strong&gt; after validating each actual parameter.&lt;/p&gt;
+
+&lt;h2 id="on-the-trail-optkey-expansion"&gt;On the Trail: optkey Expansion&lt;/h2&gt;
+
+&lt;p&gt;Our &lt;em&gt;Solution 0&lt;/em&gt; fails because the type of the &lt;strong&gt;fun&lt;/strong&gt; expression  that it gets from the type-checked code is an external type. In terms of the &lt;strong&gt;g&lt;/strong&gt; function from above, &lt;em&gt;Solution 0&lt;/em&gt; uses the type  &lt;strong&gt;Void&lt;/strong&gt; instead of the internal type &lt;strong&gt;(U Void #f)&lt;/strong&gt; to check the &lt;strong&gt;c&lt;/strong&gt; parameter. To get internal types, we need to look closer at &lt;strong&gt;fun&lt;/strong&gt; and the rest of  the optional/keyword expansion.&lt;/p&gt;
+
+&lt;p&gt;Let&amp;rsquo;s study three example functions and their expanded forms. The expansions reveal a common pattern that motivates a new Shallow TR strategy.&lt;/p&gt;
+
+&lt;p&gt;If you want to expand these examples yourself, hide them from the Racket  toplevel as follows. For each example function &lt;strong&gt;X&lt;/strong&gt; create a module &lt;strong&gt;test.rkt&lt;/strong&gt; like this:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;#lang racket/base
+
+(define _ignore
+  (let ()
+    X
+    (void)))&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Invoke the expander with &lt;code&gt;raco expand test.rkt &amp;gt; test.rkt.txt&lt;/code&gt; and explore  the generated &lt;strong&gt;.txt&lt;/strong&gt; file.&lt;/p&gt;
+
+&lt;h3 id="example-1-mandatory-keyword"&gt;Example 1: mandatory keyword&lt;/h3&gt;
+
+&lt;p&gt;The source is a function with one mandatory positional argument and one optional positional argument.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;(lambda (x [y 0])
+  (+ x y))&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Expansion generates a &lt;strong&gt;case-lambda&lt;/strong&gt; that accepts one or two arguments. The one-argument case supplies a default value for the missing parameter. Both cases call a generated function &lt;strong&gt;F&lt;/strong&gt; that expects two arguments,  resolves defaults in a different way,  and executes the function body.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;(let-values (((F)
+              (lambda (x2 y1)
+                (let-values (((x) x2))
+                  (let-values (((y) (if '#f '0 y1)))
+                    (let-values () (#%app + x y)))))))
+  (case-lambda
+   ((x) (#%app F x '0))
+   ((x y1) (#%app F x y1))))&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Note: the expression &lt;strong&gt;(if &amp;rsquo;#f &amp;rsquo;0 y1)&lt;/strong&gt; in the generated &lt;strong&gt;F&lt;/strong&gt; function  is equal to &lt;strong&gt;y1&lt;/strong&gt; alone. In general, the &lt;strong&gt;if&lt;/strong&gt; is for default expressions. (&lt;a href="https://pythonconquerstheuniverse.wordpress.com/2012/02/15/mutable-default-arguments/"&gt;Unlike Python&lt;/a&gt;,  Racket evaluates a mutable default once for each function call.) When the default is an immediate value, as this example illustrates,  the expander generates a &lt;strong&gt;#f&lt;/strong&gt; test. A general-purpose optimizer can remove this test before the code runs.&lt;/p&gt;
+
+&lt;h3 id="example-2"&gt;Example 2:&lt;/h3&gt;
+
+&lt;p&gt;The source is a function with one mandatory positional argument and one mandatory keyword argument:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;(lambda (x #:y y)
+  (+ x y))&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Expansion generates several functions:&lt;/p&gt;
+
+&lt;ul&gt;
+ &lt;li&gt;&lt;strong&gt;F0&lt;/strong&gt; expects a plain list of arguments and executes the source function&amp;rsquo;s body&lt;/li&gt;
+ &lt;li&gt;&lt;strong&gt;F1&lt;/strong&gt; expects a list of keywords, a list of arguments, and a final argument.  The purpose of &lt;strong&gt;F1&lt;/strong&gt; is to organize a call to &lt;strong&gt;F0&lt;/strong&gt;.&lt;/li&gt;
+ &lt;li&gt;&lt;strong&gt;lifted/2&lt;/strong&gt; is the constructor for a generated struct type.  Other functions help the struct call &lt;strong&gt;F1&lt;/strong&gt;.  Nevermind the details; I don&amp;rsquo;t fully understand them either.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;The important piece for Shallow TR is the &lt;strong&gt;F0&lt;/strong&gt; function  because the goal of rewriting is to protect the original  function body against untyped inputs.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;(let-values (((F0)
+              (lambda (y1 x3)
+                (let-values (((x) x3))
+                  (let-values (((y) y1))
+                    (let-values () (#%app + x y)))))))
+  (let-values (((F1)
+                (lambda (given-kws given-args x3)
+                  (let-values (((y1) (#%app car given-args)))
+                    (#%app F0 y1 x3)))))
+    (#%app
+     lifted/2
+     (lambda (given-kws given-argc)
+       (if (#%app = given-argc '3)
+         (let-values (((l2571) given-kws))
+           (if (#%app pair? l2571)
+             (if (#%app eq? (#%app car l2571) '#:y)
+               (#%app null? (#%app cdr l2571))
+               '#f)
+             '#f))
+         '#f))
+     (case-lambda
+      ((given-kws given-args x)
+       (#%app F1 given-kws given-args x)))
+     '(#:y)
+     '(#:y))))&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id="example-3"&gt;Example 3:&lt;/h3&gt;
+
+&lt;p&gt;The source is a function with one mandatory positional argument and one optional keyword argument:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;(lambda (x #:y [y 0])
+  (+ x y))&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Expansion again generates several functions:&lt;/p&gt;
+
+&lt;ul&gt;
+ &lt;li&gt;&lt;strong&gt;F0&lt;/strong&gt; expects a plain list of arguments, resolves the optional default,  and executes the source function&amp;rsquo;s body&lt;/li&gt;
+ &lt;li&gt;&lt;strong&gt;F1&lt;/strong&gt; calls &lt;strong&gt;F0&lt;/strong&gt;&lt;/li&gt;
+ &lt;li&gt;At the bottom, there are two &lt;strong&gt;case-lambda&lt;/strong&gt; functions that call  &lt;strong&gt;F1&lt;/strong&gt;&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;Again, the &lt;strong&gt;F0&lt;/strong&gt; function is the focal point for Shallow TR rewriting.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;(let-values (((F0)
+              (lambda (y1 x3)
+                (let-values (((x) x3))
+                  (let-values (((y) (if '#f '0 y1)))
+                    (let-values () (#%app + x y)))))))
+  (let-values (((F1)
+                (lambda (given-kws given-args x3)
+                  (let-values (((y2) (#%app pair? given-kws)))
+                    (let-values (((y1)
+                                  (if y2 (#%app car given-args) '0)))
+                      (#%app F0 y1 x3))))))
+    (#%app
+     make-optional-keyword-procedure
+     (lambda (given-kws given-argc)
+       (if (#%app = given-argc '3)
+         (let-values (((l1571) given-kws))
+           (let-values (((l1571)
+                         (if (#%app null? l1571)
+                           l1571
+                           (if (#%app eq? (#%app car l1571) '#:y)
+                             (#%app cdr l1571)
+                             l1571))))
+             (#%app null? l1571)))
+         '#f))
+     (case-lambda
+      ((given-kws given-args x)
+       (#%app F1 given-kws given-args x)))
+     null
+     '(#:y)
+     (case-lambda
+      ((x) (#%app F1 null null x))))))&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id="solution-the-shallow-tr-rewrite-strategy"&gt;Solution: The Shallow TR Rewrite Strategy&lt;/h2&gt;
+
+&lt;p&gt;All three examples show a common pattern among the expansions of optional  and keyword functions. Each function expands to a &lt;strong&gt;let-values&lt;/strong&gt; form:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;(let-values (((f) fun)) . body)&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Furthermore, the generated &lt;strong&gt;fun&lt;/strong&gt; is a lambda that first resolves optional  arguments and then executes the body of the original function. Here is the &lt;strong&gt;fun&lt;/strong&gt; from &lt;em&gt;Example 3&lt;/em&gt; again;  it has formal parameters for the keyword arg. and the mandatory arg.,  and one &lt;strong&gt;let-values&lt;/strong&gt; to resolve each parameter:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;  (lambda (y1 x3)
+    (let-values (((x) x3))
+      (let-values (((y) (if '#f '0 y1)))
+        (let-values () (#%app + x y)))))&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Another experiment with &lt;strong&gt;type-of&lt;/strong&gt; shows that the right-hand side of  each &lt;strong&gt;let-values&lt;/strong&gt; has an internal type annotation. Excellent! Both &lt;strong&gt;(type-of x3)&lt;/strong&gt;  and &lt;strong&gt;(type-of (if &amp;rsquo;#f &amp;rsquo;0 y1))&lt;/strong&gt; are the right types for shape checks. Shallow TR can:&lt;/p&gt;
+
+&lt;ul&gt;
+ &lt;li&gt;inspect the &lt;strong&gt;let-values&lt;/strong&gt; one-by-one;&lt;/li&gt;
+ &lt;li&gt;convert the type of each right-hand expression to a shape predicate; and&lt;/li&gt;
+ &lt;li&gt;rewrite each right-hand &lt;strong&gt;expr&lt;/strong&gt; into &lt;strong&gt;(assert expr shape?)&lt;/strong&gt;.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;This should work! In fact, we can do slightly better:&lt;/p&gt;
+
+&lt;ul&gt;
+ &lt;li&gt;when the right-hand expression is a conditional &lt;strong&gt;(if test default-expr supplied-arg)&lt;/strong&gt;&lt;/li&gt;
+ &lt;li&gt;then Shallow only needs to check the supplied arg: &lt;strong&gt;(if test default-expr (assert supplied-arg shape?))&lt;/strong&gt;&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;Note: Shallow needs to rewrite the default expression, but it can trust its  final shape because of (Transient) type soundness.&lt;/p&gt;
+
+&lt;h2 id="a-problem-with-methods-and-a-bugfix"&gt;A Problem with Methods and a Bugfix&lt;/h2&gt;
+
+&lt;p&gt;Currently, Shallow TR rewrites optional and keyword functions using  the &lt;strong&gt;let-values&lt;/strong&gt; plan described above. Each formal parameter has one &lt;strong&gt;let-values&lt;/strong&gt; binding,  and the type on each bound expression defines the shape check.&lt;/p&gt;
+
+&lt;p&gt;Last May, though, this rewriting caused new failures in methods  with optional arguments. The failure was due to a mismatch between Typed Racket  and the Racket class expander. Since then, we &lt;a href="https://github.com/racket/racket/pull/3182"&gt;fixed the class expander&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;First, here is a class with one method that runs correctly. The method &lt;strong&gt;f&lt;/strong&gt; accepts an optional positional argument &lt;strong&gt;x&lt;/strong&gt;; the default  value of &lt;strong&gt;x&lt;/strong&gt; is the current value of the field &lt;strong&gt;my-num&lt;/strong&gt; (fields are mutable):&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;(define c0%
+  (class object%
+    (super-new)
+    (field (my-num 2))
+    (define/public (f [x my-num])
+      (+ x x))))&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Second, here is a similar method that fails. This time, the default is an immediate value &lt;strong&gt;2&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;(define c1%
+  (class object%
+    (super-new)
+    (define/public (f [x 2])
+      (+ x x))))&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Running a call &lt;strong&gt;(send o1 f)&lt;/strong&gt; used to raise a shape-check failure about  a strange value:&lt;/p&gt;
+
+&lt;blockquote&gt;
+ &lt;p&gt;shape error: Expected a real number, got &lt;code&gt;#&amp;lt;unsafe-undefined&amp;gt;&lt;/code&gt;&lt;/p&gt;&lt;/blockquote&gt;
+
+&lt;p&gt;What is going on?&lt;/p&gt;
+
+&lt;p&gt;It turns out, the undefined value comes from the expander. Here is an optional function with a default expression:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;(lambda (x [y z])
+  (+ x y))&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Expansion generates a function &lt;strong&gt;F0&lt;/strong&gt; that checks for the undefined value,  and an outer &lt;strong&gt;case-lambda&lt;/strong&gt; that supplies undefined when the default  is needed:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;(let-values (((F0)
+              (lambda (x2 y1)
+                (let-values (((x) x2))
+                  (let-values (((y)
+                                (if (#%app eq? y1 unsafe-undefined)
+                                  z
+                                  y1)))
+                    (let-values () (#%app + x y)))))))
+  (case-lambda
+   ((x) (#%app F0 x unsafe-undefined))
+   ((x y1) (#%app F0 x y1))))&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;That&amp;rsquo;s the normal way that &lt;strong&gt;unsafe-undefined&lt;/strong&gt; shows up:  the &lt;a href="https://github.com/racket/racket/blob/c0ff11e27bd28e070c20b7a9b0f7365f8f2b665a/racket/collects/racket/private/kw.rkt"&gt;expander for optional/keyword functions&lt;/a&gt;  looks for default expressions  vs. default values and uses the undefined value for expressions.&lt;/p&gt;
+
+&lt;p&gt;Three other facts conspired to make the problem with optional methods:&lt;/p&gt;
+
+&lt;ol&gt;
+ &lt;li&gt;Typed Racket also looks for default expressions vs. default values  (search for &lt;strong&gt;immediate-default&lt;/strong&gt; &lt;a href="https://github.com/racket/typed-racket/blob/325f621716966b95a68af700624bafa21ac66e14/typed-racket-lib/typed-racket/base-env/annotate-classes.rkt"&gt;here&lt;/a&gt;).  When an optional parameter has a default expression, Typed Racket  widens its internal type to accept the &lt;strong&gt;unsafe-undefined&lt;/strong&gt; value  (search for &lt;strong&gt;-Unsafe-Undefined&lt;/strong&gt;  &lt;a href="https://github.com/racket/typed-racket/blob/325f621716966b95a68af700624bafa21ac66e14/typed-racket-lib/typed-racket/types/kw-types.rkt"&gt;here (kw)&lt;/a&gt;  and  &lt;a href="https://github.com/racket/typed-racket/blob/325f621716966b95a68af700624bafa21ac66e14/typed-racket-lib/typed-racket/typecheck/tc-lambda-unit.rkt"&gt;here (opt)&lt;/a&gt;).&lt;/li&gt;
+ &lt;li&gt;The class expander does some pre-processing on optional methods and  inadvertantly turned every default value into a default expression.&lt;/li&gt;
+ &lt;li&gt;Shallow TR pushes default expression checks &lt;strong&gt;(if test default-expr supplied-arg)&lt;/strong&gt;  to the &lt;strong&gt;supplied-arg&lt;/strong&gt; instead of wrapping the whole &lt;strong&gt;if&lt;/strong&gt; form.&lt;/li&gt;&lt;/ol&gt;
+
+&lt;p&gt;In the end, Typed Racket saw a default value and inferred an overly-precise  type. The type would be correct but for the class expander. As-is, the type was unsound&amp;mdash;but harmless because the false assumption  was guarded by an &lt;strong&gt;if&lt;/strong&gt; test for &lt;strong&gt;unsafe-undefined&lt;/strong&gt;. Running Shallow TR revealed the unsoundness with its eager shape check.&lt;/p&gt;
+
+&lt;p&gt;Again, the resolution was to fix the class expander (&lt;a href="https://github.com/racket/racket/pull/3182"&gt;racket/racket #3182&lt;/a&gt;). Both Typed Racket and Shallow TR stayed the same. The change removes an unnecessary run-time check from expanded optional methods.&lt;/p&gt;
+
+&lt;h2 id="lessons"&gt;Lessons&lt;/h2&gt;
+
+&lt;ol&gt;
+ &lt;li&gt;Optional and keyword functions are not core forms in Racket.  They expand to a combination of simple functions.&lt;/li&gt;
+ &lt;li&gt;Digging into the expansion is sometimes necessary.  There are at least three places that do so&amp;mdash;the class expander, TR, and Shallow TR&amp;mdash;and unfortunately they all need to cooperate.&lt;/li&gt;
+ &lt;li&gt;The development of Shallow TR helped find several latent bugs in TR, Racket, and other libraries.  Figure 57 of &lt;a href="https://ccs.neu.edu/home/types/publications/publications.html#g-dissertation-2020"&gt;my dissertation&lt;/a&gt;  lists them all.&lt;/li&gt;&lt;/ol&gt;</content></entry>
+ <entry>
   <title type="text">Transient Answers Old Questions</title>
   <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2020/10/15/transient-answers-old-questions/?utm_source=by-Ben-Greenman&amp;utm_medium=Atom" />
   <id>urn:http-prl-ccs-neu-edu:-blog-2020-10-15-transient-answers-old-questions</id>
@@ -4058,112 +4414,4 @@ Welcome to Racket v6.10.0.3.
  &lt;li&gt;&lt;a href="http://docs.racket-lang.org/pollen/index.html"&gt;Pollen&lt;/a&gt;&lt;/li&gt;
  &lt;li&gt;&lt;a href="https://github.com/vishesh/racketscript"&gt;RacketScript&lt;/a&gt;&lt;/li&gt;
  &lt;li&gt;Other websites built using &lt;a href="http://docs.racket-lang.org/scribble-pp/html.html"&gt;&lt;code&gt;scribble/html&lt;/code&gt;&lt;/a&gt;:  (1) &lt;a href="http://nanopass.org/"&gt;nanopass.github.io&lt;/a&gt; (&lt;a href="https://github.com/nanopass/nanopass.github.io"&gt;source code&lt;/a&gt;),  (2) &lt;a href="http://prl.ccs.neu.edu/gtp/"&gt;Gradual Typing Across the Spectrum&lt;/a&gt; (&lt;a href="https://github.com/nuprl/gtp"&gt;source code&lt;/a&gt;).&lt;/li&gt;
- &lt;li&gt;&lt;a href="http://prl.ccs.neu.edu/blog/2016/05/18/gradual-typing-across-the-spectrum/"&gt;Notes from a Gradual Typing Across the Spectrum PI meeting&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;</content></entry>
- <entry>
-  <title type="text">What is Soft Typing?</title>
-  <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2017/04/28/what-is-soft-typing/?utm_source=by-Ben-Greenman&amp;utm_medium=Atom" />
-  <id>urn:http-prl-ccs-neu-edu:-blog-2017-04-28-what-is-soft-typing</id>
-  <published>2017-04-28T12:25:17Z</published>
-  <updated>2017-04-28T12:25:17Z</updated>
-  <author>
-   <name>PRL</name></author>
-  <content type="html">&lt;!-- more--&gt;
-
-&lt;p&gt;A soft type system rewrites programs and meets a few &lt;em&gt;design criteria&lt;/em&gt;.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id="what-are-the-design-criteria"&gt;What are the Design Criteria?&lt;/h2&gt;
-
-&lt;p&gt;According to Mike Fagan&amp;rsquo;s 1991 &lt;a href="https://github.com/nuprl/hopl-s2017/tree/master/soft-typing/papers"&gt;dissertation&lt;/a&gt;,  a soft type system must:&lt;/p&gt;
-
-&lt;ul&gt;
- &lt;li&gt;accept all &lt;em&gt;syntactically correct&lt;/em&gt; programs as input;&lt;/li&gt;
- &lt;li&gt;produce equivalent, &lt;em&gt;memory-safe&lt;/em&gt; programs as output; and&lt;/li&gt;
- &lt;li&gt;be &lt;em&gt;unobtrusive&lt;/em&gt;&lt;/li&gt;&lt;/ul&gt;
-
-&lt;h3 id="important-details"&gt;Important details:&lt;/h3&gt;
-
-&lt;ul&gt;
- &lt;li&gt;In this context, &lt;em&gt;memory safe&lt;/em&gt; basically means &amp;ldquo;no segfaults&amp;rdquo;.  Programs output by a soft type system should be as safe as statically-typed  Java programs or dynamically-typed Python programs.&lt;/li&gt;
- &lt;li&gt;Fagan characterizes &lt;em&gt;unobtrusive&lt;/em&gt; with two general principles:&lt;/li&gt;
- &lt;li&gt;&lt;em&gt;minimal text principle&lt;/em&gt; : the type checker should work without any programmer-supplied annotations&lt;/li&gt;
- &lt;li&gt;&lt;em&gt;minimal failure principle&lt;/em&gt; : the type checker should assign &lt;em&gt;useful&lt;/em&gt; types to &lt;em&gt;idiomatic&lt;/em&gt; programs  (basically, don&amp;rsquo;t just say that every expression has &amp;ldquo;unknown&amp;rdquo; or &amp;ldquo;top&amp;rdquo; type)&lt;/li&gt;&lt;/ul&gt;
-
-&lt;h2 id="why-would-i-want-to-use-a-soft-type-system"&gt;Why would I want to use a soft type system?&lt;/h2&gt;
-
-&lt;p&gt;If you:&lt;/p&gt;
-
-&lt;ul&gt;
- &lt;li&gt;like dynamic typing&lt;/li&gt;
- &lt;li&gt;want some &lt;em&gt;benefits&lt;/em&gt; of static typing&lt;/li&gt;
- &lt;li&gt;refuse to (or &lt;em&gt;cannot&lt;/em&gt;!) change your code to satisfy a type checker&lt;/li&gt;&lt;/ul&gt;
-
-&lt;p&gt;then Soft Typing is a perfect fit. You just need to find/build a soft type checker.&lt;/p&gt;
-
-&lt;h3 id="clarification"&gt;Clarification&lt;/h3&gt;
-
-&lt;p&gt;The &lt;em&gt;benefits&lt;/em&gt; of static typing that a soft type system can give are:&lt;/p&gt;
-
-&lt;ul&gt;
- &lt;li&gt;early detection of typos and simple logical errors&lt;/li&gt;
- &lt;li&gt;documentation, through (inferred) type signatures&lt;/li&gt;
- &lt;li&gt;speed, when the types can justify removing a runtime safety check&lt;/li&gt;&lt;/ul&gt;
-
-&lt;p&gt;See Andrew Wright&amp;rsquo;s 1994 &lt;a href="https://github.com/nuprl/hopl-s2017/tree/master/soft-typing/papers"&gt;dissertation&lt;/a&gt; for proof.&lt;/p&gt;
-
-&lt;h2 id="can-i-use-andrew-wrights-soft-type-system"&gt;Can I use Andrew Wright&amp;rsquo;s soft type system?&lt;/h2&gt;
-
-&lt;p&gt;Not sure, but you may download the code for it:&lt;/p&gt;
-
-&lt;ul&gt;
- &lt;li&gt;&lt;a href="https://github.com/nuprl/softscheme"&gt;https://github.com/nuprl/softscheme&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;
-
-&lt;h2 id="please-explain-fagans--wrights-soft-types"&gt;Please explain Fagan&amp;rsquo;s / Wright&amp;rsquo;s soft types&lt;/h2&gt;
-
-&lt;p&gt;Types &lt;code&gt;t&lt;/code&gt; are made of constructors &lt;code&gt;k&lt;/code&gt;, flags &lt;code&gt;f&lt;/code&gt;, and type variables &lt;code&gt;a&lt;/code&gt;. The grammar for types is basically:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;  t ::= a | (k f t ...) U t
-  k ::= Int | Pair | -&amp;gt;
-  f ::= ++ | -- | b
-  a ::= a0 | a1 | a2 | a3 | ....
-  b ::= b0 | b1 | b2 | b3 | ....&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;where:&lt;/p&gt;
-
-&lt;ul&gt;
- &lt;li&gt;&lt;code&gt;U&lt;/code&gt; is just a symbol, represents &amp;ldquo;union&amp;rdquo;&lt;/li&gt;
- &lt;li&gt;&lt;code&gt;a&lt;/code&gt; is a type variable; there are infinitely many type variables&lt;/li&gt;
- &lt;li&gt;&lt;code&gt;b&lt;/code&gt; is a flag variable; the set of flag variables is also infinte&lt;/li&gt;&lt;/ul&gt;
-
-&lt;p&gt;There are also some rules for types to be well-formed.&lt;/p&gt;
-
-&lt;p&gt;Here are two well-formed types:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;(Int ++) U a0
-
-(-&amp;gt; ++ ((Int b0) U a1)
-       ((Int ++) U a2)) U a3&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Here are two types that match the grammar, but are &lt;strong&gt;NOT&lt;/strong&gt; well-formed:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;(Int ++ a0) U a1
-
-(-&amp;gt; --) U a2&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Finally, some intuition:&lt;/p&gt;
-
-&lt;ul&gt;
- &lt;li&gt;A constructor &lt;code&gt;k&lt;/code&gt; is like a behavior,&lt;/li&gt;
- &lt;li&gt;a type &lt;em&gt;describes&lt;/em&gt; the behaviors a value can have.&lt;/li&gt;
- &lt;li&gt;The description is like a bitvector of &amp;ldquo;yes&amp;rdquo;, &amp;ldquo;no&amp;rdquo;, or &amp;ldquo;maybe&amp;rdquo; for each possible behavior.&lt;/li&gt;
- &lt;li&gt;A flag variable is the way to say &amp;ldquo;maybe&amp;rdquo;.&lt;/li&gt;
- &lt;li&gt;Every type ends with a type variable because every typed expression might  flow to a context that expects a more general type.&lt;/li&gt;&lt;/ul&gt;
-
-&lt;p&gt;The type and flag variables let Fagan and Wright encode subtyping using  polymorphism. It&amp;rsquo;s a very cool idea, introduced in Didier Remy&amp;rsquo;s  &lt;a href="https://github.com/nuprl/hopl-s2017/tree/master/soft-typing/papers"&gt;POPL 1989 paper&lt;/a&gt;. But it adds a learning curve, and has some drawbacks for type inference.&lt;/p&gt;
-
-&lt;h2 id="stream-of-consciousness-notes-from-the-hopl-lecture"&gt;Stream-of-consciousness notes from the HOPL lecture&lt;/h2&gt;
-
-&lt;ul&gt;
- &lt;li&gt;&lt;a href="/blog/static/soft-typing.pdf"&gt;Local copy&lt;/a&gt;&lt;/li&gt;
- &lt;li&gt;&lt;a href="https://github.com/nuprl/hopl-s2017/tree/master/soft-typing"&gt;Source of Truth&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;</content></entry></feed>
+ &lt;li&gt;&lt;a href="http://prl.ccs.neu.edu/blog/2016/05/18/gradual-typing-across-the-spectrum/"&gt;Notes from a Gradual Typing Across the Spectrum PI meeting&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;</content></entry></feed>

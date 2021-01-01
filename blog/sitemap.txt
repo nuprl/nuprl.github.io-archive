@@ -9,6 +9,7 @@ http://prl.ccs.neu.edu/blog/2020/01/15/the-typed-racket-optimizer-vs-transient/
 http://prl.ccs.neu.edu/blog/2017/01/02/fall-2016-pl-junior-retrospective/
 http://prl.ccs.neu.edu/blog/2018/12/02/java-and-migratory-typing/
 http://prl.ccs.neu.edu/blog/2018/10/06/a-spectrum-of-type-soundness-and-performance/
+http://prl.ccs.neu.edu/blog/2020/11/12/transient-for-optional-and-keyword-functions/
 http://prl.ccs.neu.edu/blog/2016/12/17/measuring-the-submission-review-balance/
 http://prl.ccs.neu.edu/blog/2016/05/24/measuring-gc-latencies-in-haskell-ocaml-racket/
 http://prl.ccs.neu.edu/blog/2017/04/25/prl-at-snapl-17/

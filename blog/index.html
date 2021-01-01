@@ -6,7 +6,7 @@
     <title>PRL Blog</title>
     <meta name="description" content="PRL Blog">
     <meta name="author"      content="PRL">
-    <meta name="keywords"    content="by Olek Gierczak, closure conversion, HOPL, language, garbage collection, by Aaron Weiss, lang-extension, ocaml, event, by Li-Yao Xia, definitions, gradual typing, PLT Redex, by Milo Davis, announcement, coq, galois connection, about, language implementation, semantics, compilers, CRDTs, higher-order contracts, math, by Alexi Turcotte, ghc, lost time, turnstile, Emacs, by Kevin Clancy, pliss, extended abstract, final encoding, by Matt Kolosick, lectures, dsl, FFI, by Ben Chung, books, windows, PI meeting, by William J. Bowman, by Stephen Chang, System Administration, by Zeina Migeed, NEPLS, by Gabriel Scherer, beta, Takikawa constant, array language, by Ming-Ho Yee, java, by Dustin Jamner, bugs, conference, by Ben Greenman, dawn of the digital era, dear diary, 1st blog post, ICFP, lambda, r, instrumentation, dynamic typing, compiler correctness, tutorial, PL Junior, observational equivalence, by Artem Pelenitsyn, icfp, by Asumu Takikawa, Gradual Typing, scope, category theory, complete monitoring, by Daniel Patterson, history, adjunction, haskell, by Tony Garnock-Jones, types, by Julia Belyakova, by Jonathan Schuster, latency, by Rob Kleffner, statistics, eventual consistency, monotonicity, coYoneda, calculus, by Jan Vitek, racket, migratory typing, dissertation, offsite, Scribble, package, by Max New, tutorials, performance, proceedings, all, by Justin Slepak, reduction, by Leif Andersen, Yoneda, Racket, constructions, typed racket, benchmarking, by Sam Caldwell, castle">
+    <meta name="keywords"    content="by Olek Gierczak, closure conversion, HOPL, language, garbage collection, by Aaron Weiss, lang-extension, ocaml, event, by Li-Yao Xia, definitions, gradual typing, PLT Redex, by Milo Davis, announcement, coq, galois connection, about, language implementation, semantics, compilers, CRDTs, higher-order contracts, math, by Alexi Turcotte, ghc, lost time, turnstile, Emacs, by Kevin Clancy, pliss, extended abstract, final encoding, by Matt Kolosick, lectures, dsl, FFI, by Ben Chung, books, windows, PI meeting, by William J. Bowman, by Stephen Chang, System Administration, by Zeina Migeed, NEPLS, by Gabriel Scherer, beta, Takikawa constant, array language, by Ming-Ho Yee, java, by Dustin Jamner, bugs, conference, by Ben Greenman, dawn of the digital era, dear diary, 1st blog post, ICFP, lambda, r, instrumentation, dynamic typing, compiler correctness, tutorial, PL Junior, observational equivalence, by Artem Pelenitsyn, icfp, by Asumu Takikawa, Gradual Typing, scope, category theory, complete monitoring, by Daniel Patterson, history, adjunction, haskell, by Tony Garnock-Jones, types, by Julia Belyakova, by Jonathan Schuster, latency, by Rob Kleffner, statistics, eventual consistency, monotonicity, coYoneda, calculus, by Jan Vitek, racket, transient, migratory typing, dissertation, offsite, Scribble, package, by Max New, tutorials, performance, proceedings, all, by Justin Slepak, reduction, by Leif Andersen, Yoneda, Racket, constructions, typed racket, benchmarking, by Sam Caldwell, castle">
     <meta name="viewport"    content="width=device-width, initial-scale=1.0">
     <link rel="icon"      href="/img/favicon.ico">
     <link rel="canonical" href="http://prl.ccs.neu.edu/blog/index.html">
@@ -96,9 +96,21 @@
 </article>
 <article>
   <header>
+    <h2><a href='/blog/2020/11/12/transient-for-optional-and-keyword-functions/'>Transient for Optional and Keyword Functions</a></h2>
+    <p class='date-and-tags'>
+<time datetime="2020-11-12" pubdate="true">2020-11-12</time> :: <span class="tags"><a href="/blog/tags/typed-racket.html">typed racket</a>, <a href="/blog/tags/transient.html">transient</a>, <a href="/blog/tags/by-Ben-Greenman.html">by Ben Greenman</a></span></p>
+  </header>
+
+<p>A short adventure into the depths of optional and/or keyword  functions in Racket.</p>
+  <footer>
+    <a href='/blog/2020/11/12/transient-for-optional-and-keyword-functions/'>&hellip; more &hellip;</a>
+  </footer>
+</article>
+<article>
+  <header>
     <h2><a href='/blog/2020/10/15/transient-answers-old-questions/'>Transient Answers Old Questions</a></h2>
     <p class='date-and-tags'>
-<time datetime="2020-10-15" pubdate="true">2020-10-15</time> :: <span class="tags"><a href="/blog/tags/typed-racket.html">typed racket</a>, <a href="/blog/tags/by-Ben-Greenman.html">by Ben Greenman</a></span></p>
+<time datetime="2020-10-15" pubdate="true">2020-10-15</time> :: <span class="tags"><a href="/blog/tags/typed-racket.html">typed racket</a>, <a href="/blog/tags/transient.html">transient</a>, <a href="/blog/tags/by-Ben-Greenman.html">by Ben Greenman</a></span></p>
   </header>
 
 <p>Several old questions from the Typed Racket mailing list have new and simple answers under a &ldquo;transient&rdquo; Typed Racket.</p>
@@ -110,7 +122,7 @@
   <header>
     <h2><a href='/blog/2020/01/15/the-typed-racket-optimizer-vs-transient/'>The Typed Racket Optimizer vs. Transient</a></h2>
     <p class='date-and-tags'>
-<time datetime="2020-01-15" pubdate="true">2020-01-15</time> :: <span class="tags"><a href="/blog/tags/typed-racket.html">typed racket</a>, <a href="/blog/tags/offsite.html">offsite</a>, <a href="/blog/tags/by-Ben-Greenman.html">by Ben Greenman</a></span></p>
+<time datetime="2020-01-15" pubdate="true">2020-01-15</time> :: <span class="tags"><a href="/blog/tags/typed-racket.html">typed racket</a>, <a href="/blog/tags/transient.html">transient</a>, <a href="/blog/tags/offsite.html">offsite</a>, <a href="/blog/tags/by-Ben-Greenman.html">by Ben Greenman</a></span></p>
   </header>
 
 <p>What type-directed optimizations does Typed Racket perform  and do any require full types?</p>
@@ -192,18 +204,6 @@
   </header>
 
 
-</article>
-<article>
-  <header>
-    <h2><a href='/blog/2019/04/07/forgetful-and-heedful-contracts/'>Forgetful and Heedful contracts</a></h2>
-    <p class='date-and-tags'>
-<time datetime="2019-04-07" pubdate="true">2019-04-07</time> :: <span class="tags"><a href="/blog/tags/migratory-typing.html">migratory typing</a>, <a href="/blog/tags/higher-order-contracts.html">higher-order contracts</a>, <a href="/blog/tags/by-Ben-Greenman.html">by Ben Greenman</a></span></p>
-  </header>
-
-<p><em>Forgetful</em> and <em>heedful</em> are two methods for space-efficient contracts  developed by <a href="http://www.cs.pomona.edu/~michael/">Michael Greenberg</a> in <a href="https://arxiv.org/abs/1410.2813">2014</a>. These methods were born in the shadow of a third method, <em>eidetic</em>,  with stronger theoretic properties. Since then, however, the forgetful method has been re-invented at least twice. Both deserve a second look.</p>
-  <footer>
-    <a href='/blog/2019/04/07/forgetful-and-heedful-contracts/'>&hellip; more &hellip;</a>
-  </footer>
 </article>
 <footer>
  <ul class="pagination">
