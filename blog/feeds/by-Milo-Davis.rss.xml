@@ -155,7 +155,7 @@ y[ x := e ] = y
 --------------------
   e1 e2 -&amp;gt;β e1' e2
 
-    e2 -&amp;gt;β e2
+    e2 -&amp;gt;β e2'
 --------------------
   e1 e2 -&amp;gt;β e1 e2'&lt;/code&gt;&lt;/pre&gt;
 
