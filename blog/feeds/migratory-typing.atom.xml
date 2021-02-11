@@ -326,7 +326,7 @@
 &lt;blockquote&gt;
  &lt;p&gt;It&amp;rsquo;s an interesting situation. There are dozens of papers on the semantics of gradual types&amp;mdash;and &lt;a href="http://www.ccs.neu.edu/home/types/resources/talks/tgpk-dls-2018.pdf"&gt;many claim&lt;/a&gt; to have developers in mind&amp;mdash;but zero papers that ask developers what they think.&lt;/p&gt;&lt;/blockquote&gt;
 
-&lt;p&gt;To help inform the discussion, we recently designed a &lt;a href="&amp;lt;http://cs.brown.edu/research/plt/dl/dls2018&amp;gt;"&gt;survey&lt;/a&gt;  to see what programmers think of three mixed-typed semantics. The survey is based on 8 example programs; we selected these 8 programs because the set as a whole tells the three mixed-typed semantics apart. For each program, the survey presents a few possible outcomes of running the  program and asks participants for their opinion on each outcome.&lt;/p&gt;
+&lt;p&gt;To help inform the discussion, we recently designed a &lt;a href="http://cs.brown.edu/research/plt/dl/dls2018"&gt;survey&lt;/a&gt;  to see what programmers think of three mixed-typed semantics. The survey is based on 8 example programs; we selected these 8 programs because the set as a whole tells the three mixed-typed semantics apart. For each program, the survey presents a few possible outcomes of running the  program and asks participants for their opinion on each outcome.&lt;/p&gt;
 
 &lt;p&gt;The image below shows one program from the survey:&lt;/p&gt;
 
@@ -337,7 +337,7 @@
 &lt;p&gt; &lt;img src="/img/gtsurvey-example-behaviors.png" alt="Figure 2: behaviors for the example question" /&gt;&lt;/p&gt;
 
 &lt;blockquote&gt;
- &lt;p&gt;A fourth option is to reject the assignment of an &lt;code&gt;Array(String)&lt;/code&gt; to a variable of type &lt;code&gt;Array(Number)&lt;/code&gt;. A few participants left comments asking for this behavior. See the &lt;a href="&amp;lt;http://cs.brown.edu/research/plt/dl/dls2018&amp;gt;"&gt;anonymized responses&lt;/a&gt; for their comments, and see &lt;a href="&amp;lt;http://cs.brown.edu/~sk/Publications/Papers/Published/tgpk-beh-grad-types-user-study&amp;gt;"&gt;the paper&lt;/a&gt; for why we left that behavior out.&lt;/p&gt;&lt;/blockquote&gt;
+ &lt;p&gt;A fourth option is to reject the assignment of an &lt;code&gt;Array(String)&lt;/code&gt; to a variable of type &lt;code&gt;Array(Number)&lt;/code&gt;. A few participants left comments asking for this behavior. See the &lt;a href="http://cs.brown.edu/research/plt/dl/dls2018"&gt;anonymized responses&lt;/a&gt; for their comments, and see &lt;a href="http://cs.brown.edu/~sk/Publications/Papers/Published/tgpk-beh-grad-types-user-study"&gt;the paper&lt;/a&gt; for why we left that behavior out.&lt;/p&gt;&lt;/blockquote&gt;
 
 &lt;p&gt;For each behavior, we asked for respondents&amp;rsquo; preference along two independent dimensions:&lt;/p&gt;
 
@@ -360,7 +360,7 @@
 
 &lt;p&gt;For this question, the software engineers (left column, green bars)  mostly picked the &amp;ldquo;Dislike and Unexpected&amp;rdquo; attitude for every behavior. The students (mid column, blue bars) also show consensus on &amp;ldquo;Dislike and  Unexpected&amp;rdquo; for the &lt;strong&gt;Deep&lt;/strong&gt; and &lt;strong&gt;Erasure&lt;/strong&gt; behaviors; however, they are split  for the &lt;strong&gt;Shallow&lt;/strong&gt; behavior. The Mechanical Turk workers are divided on every behavior.&lt;/p&gt;
 
-&lt;p&gt;See &lt;a href="&amp;lt;http://cs.brown.edu/~sk/Publications/Papers/Published/tgpk-beh-grad-types-user-study&amp;gt;"&gt;the paper&lt;/a&gt; for the other questions and responses.&lt;/p&gt;
+&lt;p&gt;See &lt;a href="http://cs.brown.edu/~sk/Publications/Papers/Published/tgpk-beh-grad-types-user-study"&gt;the paper&lt;/a&gt; for the other questions and responses.&lt;/p&gt;
 
 &lt;p&gt;Overall, our main finding is that respondents preferred behaviors that enforced  full types and reported runtime mismatches as early as possible. The takeaway is thus:&lt;/p&gt;
 
@@ -383,7 +383,7 @@
 
 &lt;h4 id="q-did-the-respondents-have-a-prior-preference-for-static-or-dynamic-typing"&gt;Q. Did the respondents have a prior preference for static or dynamic typing?&lt;/h4&gt;
 
-&lt;p&gt;Near the end of the survey we asked: &amp;ldquo;Which do you prefer, typed or untyped programming?&amp;rdquo;. See table 2 of &lt;a href="&amp;lt;http://cs.brown.edu/~sk/Publications/Papers/Published/tgpk-beh-grad-types-user-study&amp;gt;"&gt;the paper&lt;/a&gt; for coded responses to this question,  or the &lt;a href="&amp;lt;http://cs.brown.edu/research/plt/dl/dls2018&amp;gt;"&gt;anonymized responses&lt;/a&gt; for the ground truth. Most preferred typed programming.&lt;/p&gt;</content></entry>
+&lt;p&gt;Near the end of the survey we asked: &amp;ldquo;Which do you prefer, typed or untyped programming?&amp;rdquo;. See table 2 of &lt;a href="http://cs.brown.edu/~sk/Publications/Papers/Published/tgpk-beh-grad-types-user-study"&gt;the paper&lt;/a&gt; for coded responses to this question,  or the &lt;a href="http://cs.brown.edu/research/plt/dl/dls2018"&gt;anonymized responses&lt;/a&gt; for the ground truth. Most preferred typed programming.&lt;/p&gt;</content></entry>
  <entry>
   <title type="text">Java and Migratory Typing</title>
   <link rel="alternate" href="http://prl.ccs.neu.edu/blog/2018/12/02/java-and-migratory-typing/?utm_source=migratory-typing&amp;utm_medium=Atom" />
